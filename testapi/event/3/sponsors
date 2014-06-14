@@ -3,12 +3,12 @@
     {
       "name": "Google",
       "url": "http://google.com",
-      "logo": "http://google.com/logo.png"
+      "logo": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Googlelogo.png/320px-Googlelogo.png"
     },
     {
-      "name": "RedHat",
-      "url": "http://redhat.org",
-      "logo": "http://redhat.org/logo.png"
+      "name": "Mozilla",
+      "url": "http://mozilla.org",
+      "logo": "https://lists.w3.org/Archives/Public/site-comments/2009Dec/att-0060/One_Mozilla-Logo-_white_.png"
     }
   ]
 }
