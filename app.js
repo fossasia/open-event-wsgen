@@ -6,7 +6,8 @@
 var openevent = angular.module('openevent',
     [
         'ngRoute',
-        'openevent.sessions'
+        'openevent.sessions',
+        'openevent.speakers'
     ]);
 
 openevent.config(['$routeProvider', function($routeProvider) {
