@@ -3,12 +3,14 @@
 <head lang="en">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="config.js"></script>
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body>
+<body ng-controller="appCtrl">
 
-    <h1>Open Event</h1>
+    <h1 id="title"> {{ appTitle }} </h1>
+
 
     <a href="#/sessions">Sessions </a>
     <a href="#/speakers">Speakers </a>

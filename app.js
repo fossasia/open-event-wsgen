@@ -3,6 +3,8 @@
  */
 'use strict';
 // Declare app level module which depends on views, and components
+
+
 var openevent = angular.module('openevent',
     [
         'ngRoute',
@@ -13,3 +15,6 @@ var openevent = angular.module('openevent',
 openevent.config(['$routeProvider', function($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/sessions'});
     }]);
+openevent.controller("appCtrl", function($scope) {
+    $scope.appTitle = config.title;
+})
