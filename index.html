@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="openevent">
 <head lang="en">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <script src="angular/angular2.sfx.dev.js"></script>
-    <script src="app.js"></script>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body>
-    <open-event>
 
-    </open-event>
+    <h1>Open Event</h1>
+
+    <a href="#/sessions">Sessions </a>
+    <a href="#/speakers">Speakers </a>
+    <a href="#/track">Tracks </a>
+
+    <ng-view></ng-view>
+
+
+    <script src="app/libs/angular.min.js"></script>
+    <script src="app/libs/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="app/components/sessions/sessions.js"></script>
 </body>
 </html>

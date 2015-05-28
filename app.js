@@ -1,17 +1,14 @@
 /**
  * Created by championswimmer on 28/5/15.
  */
+'use strict';
+// Declare app level module which depends on views, and components
+var openevent = angular.module('openevent',
+    [
+        'ngRoute',
+        'openevent.sessions'
+    ]);
 
-function AppComponent() {}
-AppComponent.annotations = [
-    new angular.ComponentAnnotation({
-        selector: 'open-event'
-    }),
-    new angular.ViewAnnotation({
-        template: '<h1>Open Event</h1>'
-    })
-];
-document.addEventListener('DOMContentLoaded', function() {
-    angular.bootstrap(AppComponent);
-});
-
+openevent.config(['$routeProvider', function($routeProvider) {
+        $routeProvider.otherwise({redirectTo: '/sessions'});
+    }]);
