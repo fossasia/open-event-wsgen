@@ -12,11 +12,11 @@ sessionsModule.config(['$routeProvider', function($routeProvider) {
 }]);
 
 sessionsModule.controller('SessionsController',
-    ['$scope', '$rootScope', 'ApiJsonFactory', function($scope, $rootScope, ApiJsonFactory) {
-    $scope.Sessions = {};
+    ['$rootScope', 'ApiJsonFactory', function($rootScope, ApiJsonFactory) {
+    this.Sessions = {};
     ApiJsonFactory.getJson('sessions')
         .then(function (response) {
-            $scope.Sessions = response.data.sessions;
+            this.Sessions = response.data.sessions;
         }, function (error) {
             console.error(error);
         });

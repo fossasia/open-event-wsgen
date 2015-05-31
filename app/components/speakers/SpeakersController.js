@@ -11,6 +11,6 @@ speakersModule.config(['$routeProvider', function($routeProvider) {
     })
 }]);
 
-speakersModule.controller('SpeakersController', ['$scope', function($scope) {
+speakersModule.controller('SpeakersController', [function() {
 
 }]);

@@ -20,6 +20,6 @@ openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
 
     $routeProvider.otherwise({redirectTo: '/sessions'});
     }]);
-openevent.controller("appCtrl", function($scope) {
-    $scope.appTitle = config.title;
+openevent.controller("AppController", function() {
+    this.appTitle = config.title;
 })

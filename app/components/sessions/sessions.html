@@ -1,9 +1,9 @@
-<div class="sessions">
+<div class="sessions" ng-controller="SessionsController as sessCtrl">
 <h2>Placeholder text for Sessions</h2>
 
     <ul>
         <li ng-repeat="session in Sessions">
-            {{ session.description }}
+            {{ sessCtrl.session.description }}
         </li>
     </ul>
 </div>
