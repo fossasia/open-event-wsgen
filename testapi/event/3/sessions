@@ -1,0 +1,62 @@
+{
+  "sessions": [
+    {
+      "id": 2,
+      "title": "Open-Event",
+      "subtitle": "Creating a generic event app template",
+      "abstract": "Some random abstract goes here",
+      "description": "Some random desc goes here",
+      "timestart": "2015-05-11T22:12:41.201Z",
+      "timeend": "2015-05-11T22:12:41.201Z",
+      "type": "talk",
+      "track": {
+        "id": 1,
+        "name": "Android"
+      },
+      "speakers": [
+        {
+          "id": 3,
+          "name": "John Smith"
+        },
+        {
+          "id": 5,
+          "name": "Jane Doe"
+        }
+      ],
+      "level": "advanced",
+      "microlocation": {
+        "id": 4,
+        "name": "Hall 4"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Open-Event-Server",
+      "subtitle": "Creating an event management Dashboard",
+      "abstract": "Some random abstract goes here",
+      "description": "Some random desc goes here",
+      "timestart": "2015-05-11T22:12:41.205Z",
+      "timeend": "2015-05-11T22:12:41.206Z",
+      "type": "discussion",
+      "track": {
+        "id": 1,
+        "name": "Python"
+      },
+      "speakers": [
+        {
+          "id": 3,
+          "name": "Harry Potter"
+        },
+        {
+          "id": 5,
+          "name": "Jack Daniels"
+        }
+      ],
+      "level": "intermediate",
+      "microlocation": {
+        "id": 2,
+        "name": "Stage 2"
+      }
+    }
+  ]
+}

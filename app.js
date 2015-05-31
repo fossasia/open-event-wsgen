@@ -8,7 +8,8 @@
 var openevent = angular.module('openevent',
     [
         'ngRoute',
-        'ui.bootstrap',
+        'ngMaterial',
+        'oe.sidenav',
         'oe.sessions',
         'oe.speakers'
     ]);
@@ -20,6 +21,9 @@ openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $h
 
     $routeProvider.otherwise({redirectTo: '/sessions'});
     }]);
-openevent.controller("AppController", function() {
+openevent.controller("AppController", ['$mdSidenav', '$mdMedia', function($mdSidenav, $mdMedia) {
     this.appTitle = config.title;
-})
+    this.toggleSidenav = function(menuId) {
+        $mdSidenav(menuId).toggle();
+    };
+}]);

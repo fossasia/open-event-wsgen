@@ -11,6 +11,16 @@ speakersModule.config(['$routeProvider', function($routeProvider) {
     })
 }]);
 
-speakersModule.controller('SpeakersController', [function() {
+speakersModule.controller('SpeakersController', 
+	['$rootScope', 'ApiJsonFactory', function($rootScope, ApiJsonFactory) {
+		var sc = this;
+		sc.Speakers = [];
+
+		ApiJsonFactory.getJson('speakers')
+		.then(function (response) {
+            sc.Speakers = response.data.speakers;
+        }, function (error) {
+            console.error(error);
+        });
 
 }]);

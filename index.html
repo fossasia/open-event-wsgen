@@ -1,30 +1,50 @@
 <!DOCTYPE html>
-<html ng-app="openevent">
+<html ng-app="openevent" ng-controller="AppController as appCtrl">
 <head lang="en">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="config.js"></script>
+    <link rel="stylesheet" href="assets/css/angular-material.css">
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="initial-scale=1" />
+    <title> {{ appCtrl.appTitle }} </title>
 </head>
-<body ng-controller="AppController as appCtrl">
+<body layout="column">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
+                <md-icon aria-label="Menu" md-svg-icon="assets/img/menu.svg"></md-icon>
+            </md-button>
+            <h1 id="title"> {{ appCtrl.appTitle }} </h1>
+        </div>
+    </md-toolbar>
 
-    <h1 id="title"> {{ appCtrl.appTitle }} </h1>
+    <div layout="row" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <div ng-include src="'app/components/sidenav/sidenav.html'"></div>
+        </md-sidenav>
+
+        <md-content flex layout-padding>
+            <div layout="column" layout-fill layout-align="top center">
+                <ng-view></ng-view>
+            </div>
+            <div flex></div>
+        </md-content>
+    </div>
 
 
-    <a href="#/sessions">Sessions </a>
-    <a href="#/speakers">Speakers </a>
-    <a href="#/track">Tracks </a>
-
-    <ng-view></ng-view>
 
 
     <script src="app/libs/angular.js"></script>
     <script src="app/libs/angular-route.js"></script>
-    <script src="app/libs/ui-bootstrap-tpls.js"></script>
+    <script src="app/libs/angular-aria.js"></script>
+    <script src="app/libs/angular-animate.js"></script>
+    <script src="app/libs/angular-animate.js"></script>
+    <script src="app/libs/angular-material.js"></script>
 
     <script src="app.js"></script>
     <script src="app/components/common/ApiJsonFactory.js"></script>
+    <script src="app/components/sidenav/SidenavController.js"></script>
     <script src="app/components/sessions/SessionsController.js"></script>
     <script src="app/components/speakers/SpeakersController.js"></script>
 </body>
