@@ -24,3 +24,7 @@ Currently it is just a simple webapp that can be viewed using any browser. In fu
  * AngularJS 1.3
  * Bootstrap (or similar) for styling
 The webapp will be written using only HTML, CSS and Javascript, so it is completely client-side renderable, on all kinds of browsers, including PCs and smartphones and tablets. 
+
+
+##License
+This project is currently licensed under the GNU General Public License v3. A copy of LICENSE.md should be present along with the source code. To obtain the software under a different license, please contact FOSSASIA.
