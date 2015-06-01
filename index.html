@@ -2,18 +2,26 @@
 <html ng-app="openevent">
 <head lang="en">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <script src="config.js"></script>
     <meta charset="UTF-8">
     <title></title>
 </head>
 <body ng-controller="AppController as appCtrl">
 
+    <div class="container">
+
+    <div class="header clearfix">
+
     <h1 id="title"> {{ appCtrl.appTitle }} </h1>
 
     <tabs data="appCtrl.tabs" type="tabs"></tabs>
 
+    </div>
+
     <div ui-view></ng-view>
+
+    </div>
 
 
     <script src="app/libs/angular.js"></script>
