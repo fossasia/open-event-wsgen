@@ -1,0 +1,19 @@
+{
+  "tracks": [
+    {
+      "id": 1,
+      "name": "Linux",
+      "description": "All things to talk about Linux"
+    },
+    {
+      "id": 2,
+      "name": "Android",
+      "description": "All things to talk about Android"
+    },
+    {
+      "id": 3,
+      "name": "Java",
+      "description": "All things to talk about Java"
+    }
+  ]
+}

@@ -1,13 +1,18 @@
 /**
  * Created by championswimmer on 29/5/15.
  */
+
+var baseUrl = config.apiBaseGetUrl; 
+if (config.use_testApi) {
+    baseUrl = "testapi/event/3/";
+}
 var commonFactories = angular.module('openevent');
 
-commonFactories.factory('ApiJsonFactory', function ($q, $http) {
+commonFactories.factory('ApiJsonFactory', ['$q', '$http', function ($q, $http) {
         return {
             getJson: function ($apiEndpoint) {
                 var deferred = $q.defer(),
-                    httpPromise = $http.get(config.apiBaseGetUrl + $apiEndpoint);
+                    httpPromise = $http.get(baseUrl + $apiEndpoint);
 
                 httpPromise.then(function (response) {
                     deferred.resolve(response);
@@ -18,4 +23,4 @@ commonFactories.factory('ApiJsonFactory', function ($q, $http) {
                 return deferred.promise;
             }
         };
-    });
+    }]);
