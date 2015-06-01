@@ -7,19 +7,37 @@
 
 var openevent = angular.module('openevent',
     [
-        'ngRoute',
+        'ui.router',
         'ui.bootstrap',
+        'ui.router.tabs',
         'oe.sessions',
         'oe.speakers'
     ]);
 
-openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProvider, $httpProvider) {
 
     //$httpProvider.defaults.useXDomain = true;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-    $routeProvider.otherwise({redirectTo: '/sessions'});
+    //$urlRouterProvider.otherwise('/sessions');
     }]);
-openevent.controller("AppController", function() {
-    this.appTitle = config.title;
-})
+
+openevent.controller("AppController", function($state) {
+    var ac = this;
+    ac.appTitle = config.title;
+    ac.tabs = [
+        {
+            heading: 'Sessions',
+            route: 'sessions'
+        },
+        {
+            heading: 'Speakers',
+            route: 'speakers'
+        },
+        /*{
+            heading: 'Tracks',
+            route: 'tracks'
+        }*/
+    ];
+    
+});

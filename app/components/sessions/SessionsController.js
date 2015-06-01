@@ -2,10 +2,11 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var sessionsModule = angular.module('oe.sessions', ['ngRoute']);
+var sessionsModule = angular.module('oe.sessions', ['ui.router']);
 
-sessionsModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/sessions', {
+sessionsModule.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('sessions', {
+        url: '/sessions',
         templateUrl: 'app/components/sessions/sessions.html',
         controller: 'SessionsController'
     })

@@ -11,16 +11,14 @@
 
     <h1 id="title"> {{ appCtrl.appTitle }} </h1>
 
+    <tabs data="appCtrl.tabs" type="tabs"></tabs>
 
-    <a href="#/sessions">Sessions </a>
-    <a href="#/speakers">Speakers </a>
-    <a href="#/track">Tracks </a>
-
-    <ng-view></ng-view>
+    <div ui-view></ng-view>
 
 
     <script src="app/libs/angular.js"></script>
-    <script src="app/libs/angular-route.js"></script>
+    <script src="app/libs/ui-router.js"></script>
+    <script src="app/libs/ui-router-tabs.js"></script>
     <script src="app/libs/ui-bootstrap-tpls.js"></script>
 
     <script src="app.js"></script>
