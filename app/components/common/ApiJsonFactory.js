@@ -2,13 +2,13 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var baseUrl = config.apiBaseGetUrl; 
-if (config.use_testApi) {
-    baseUrl = "testapi/event/3/";
-}
 var commonFactories = angular.module('openevent');
 
 commonFactories.factory('ApiJsonFactory', ['$q', '$http', function ($q, $http) {
+var baseUrl = config.apiBaseGetUrl + 'event/' + config.eventId + '/'; 
+if (config.use_testApi) {
+    baseUrl = "testapi/event/3/";
+}
         return {
             getJson: function ($apiEndpoint) {
                 var deferred = $q.defer(),

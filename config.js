@@ -1,6 +1,7 @@
 var config = {
     "title": "OpenEvent",
-    "apiBaseGetUrl": "http://glacial-earth-2730.herokuapp.com/get/api/v1/",
+    "apiBaseGetUrl": "http://open-event.herokuapp.com/get/api/v1/",
+    "eventId": "2",
     "use_testApi": true
 };
 

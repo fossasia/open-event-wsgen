@@ -1,3 +1,9 @@
-<div class="speakers" ng-controller="SpeakersController as spkrCtrl">
+<div class="speakers" ng-controller="SpeakersController as sc">
     <h2>Placeholder text for Speakers</h2>
+        <ul>
+        <li ng-repeat="speaker in sc.Speakers">
+            {{ speaker.name }}
+        </li>
+    </ul>
+
 </div>
