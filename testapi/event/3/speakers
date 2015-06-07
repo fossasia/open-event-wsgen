@@ -3,7 +3,7 @@
     {
       "id": 4,
       "name": "Arnav Gupta",
-      "photo": "http://championswimmer.in/photo.png",
+      "photo": "testapi/event/3/speaker_championswimmer.jpeg",
       "bio": "A jolly good fellow",
       "email": "championswimmer@gmail.com",
       "web": "http://championswimmer.in",
@@ -28,8 +28,8 @@
     {
       "id": 2,
       "name": "Manan Wason",
-      "photo": "http://manan.in/photo.png",
-      "bio": "A jolly good fellow",
+      "photo": "testapi/event/3/speaker_mananwason.jpeg",
+      "bio": "Another really nice fellow",
       "email": "mananwason@gmail.com",
       "web": "http://mananwason.in",
       "twitter": "mananwason",

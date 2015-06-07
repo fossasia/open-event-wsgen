@@ -1,8 +1,20 @@
-<div class="speakers" ng-controller="SpeakersController as sc">
-        <ul>
-        <li ng-repeat="speaker in sc.Speakers">
-            {{ speaker.name }}
-        </li>
-    </ul>
+<div ng-controller="SpeakersController as sc" class="md-default-theme">
+    <md-content>
+        <md-list>
 
+            <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers" >
+                <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
+                <div class="md-list-item-text">
+                    <h3>{{speaker.name}}</h3>
+                    <h4>{{speaker.position}}, {{speaker.organisation}}</h4>
+                    <p>
+                        {{ speaker.bio }}
+                        <br>
+
+                    </p>
+                </div>
+            </md-list-item>
+
+        </md-list>
+    </md-content>
 </div>
