@@ -1,7 +1,19 @@
-<div class="sessions" ng-controller="SessionsController as sc">
-    <ul>
-        <li ng-repeat="session in sc.Sessions">
-            {{ session.description }}
-        </li>
-    </ul>
+<div ng-controller="SessionsController as sc" class="md-default-theme">
+    <md-content>
+    <md-list>
+
+        <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions" >
+            <div class="md-list-item-text">
+            <h3>{{ session.title }}</h3>
+            <h4>{{ session.subtitle }}</h4>
+            <p>
+                {{ session.abstract }}
+                <br>
+
+            </p>
+            </div>
+        </md-list-item>
+
+    </md-list>
+</md-content>
 </div>
