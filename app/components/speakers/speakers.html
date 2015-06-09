@@ -5,13 +5,16 @@
             <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers" >
                 <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
                 <div class="md-list-item-text">
-                    <h3>{{speaker.name}}</h3>
-                    <h4>{{speaker.position}}, {{speaker.organisation}}</h4>
-                    <p>
-                        {{ speaker.bio }}
-                        <br>
+                    <div class="md-whiteframe-z1 md-padding">
+                        <h3>{{speaker.name}}</h3>
+                        <h4>{{speaker.position}}, {{speaker.organisation}}</h4>
+                        <p>
+                            {{ speaker.bio }}
+                            <br>
 
-                    </p>
+                        </p>
+
+                    </div>
                 </div>
             </md-list-item>
 

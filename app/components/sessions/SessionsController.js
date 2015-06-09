@@ -22,4 +22,11 @@ sessionsModule.controller('SessionsController',
         }, function (error) {
             console.error(error);
         });
+
+        sc.duration = function(session) {
+            var start = DateUtils.getHourMin(session.timestart);
+            var end = DateUtils.getHourMin(session.timeend);
+
+            return start + ' - ' + end;
+        }
 }]);
