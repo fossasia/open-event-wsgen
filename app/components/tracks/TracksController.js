@@ -13,15 +13,23 @@ tracksModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 tracksModule.controller('TracksController', 
-	['$rootScope', 'ApiJsonFactory', function($rootScope, ApiJsonFactory) {
+	['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-		sc.Tracks = [];
+        sc.$storage = $sessionStorage;
+        if (typeof(sc.$storage.tracks) == 'undefined' || sc.$storage.tracks == null)
+        {
+            sc.$storage.tracks = [];
+        }
+        sc.Tracks = sc.$storage.tracks;
 
-		ApiJsonFactory.getJson('tracks')
-		.then(function (response) {
-            sc.Tracks = response.data.tracks;
-        }, function (error) {
-            console.error(error);
-        });
+        if (sc.Tracks.length === 0) {
+            ApiJsonFactory.getJson('tracks')
+                .then(function (response) {
+                    sc.Tracks = response.data.tracks;
+                    sc.$storage.tracks = sc.Tracks;
+                }, function (error) {
+                    console.error(error);
+                });
+        }
 
 }]);

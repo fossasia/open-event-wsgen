@@ -13,15 +13,23 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 speakersModule.controller('SpeakersController', 
-	['$rootScope', 'ApiJsonFactory', function($rootScope, ApiJsonFactory) {
+	['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-		sc.Speakers = [];
+        sc.$storage = $sessionStorage;
+        if (typeof(sc.$storage.speakers) == 'undefined' || sc.$storage.speakers == null)
+        {
+            sc.$storage.speakers = [];
+        }
+        sc.Speakers = sc.$storage.speakers;
 
-		ApiJsonFactory.getJson('speakers')
-		.then(function (response) {
-            sc.Speakers = response.data.speakers;
-        }, function (error) {
-            console.error(error);
-        });
+        if (sc.Speakers.length === 0) {
+            ApiJsonFactory.getJson('speakers')
+                .then(function (response) {
+                    sc.Speakers = response.data.speakers;
+                    sc.$storage.speakers = sc.Speakers;
+                }, function (error) {
+                    console.error(error);
+                });
+        }
 
 }]);

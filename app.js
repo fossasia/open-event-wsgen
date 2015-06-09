@@ -8,6 +8,7 @@
 var openevent = angular.module('openevent',
     [
         'ui.router',
+        'ngStorage',
         'ngMaterial',
         'oe.sidenav',
         'oe.sessions',
