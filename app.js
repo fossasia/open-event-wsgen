@@ -7,7 +7,7 @@
 
 var openevent = angular.module('openevent',
     [
-        'ngRoute',
+        'ui.router',
         'ngMaterial',
         'oe.sidenav',
         'oe.sessions',
@@ -15,12 +15,11 @@ var openevent = angular.module('openevent',
         'oe.tracks'
     ]);
 
-openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProvider, $httpProvider) {
 
     //$httpProvider.defaults.useXDomain = true;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-    $routeProvider.otherwise({redirectTo: '/sessions'});
+    $urlRouterProvider.otherwise('/sessions');
     }]);
 openevent.controller("AppController", ['$mdSidenav', '$mdMedia', function($mdSidenav, $mdMedia) {
     this.appTitle = config.title;

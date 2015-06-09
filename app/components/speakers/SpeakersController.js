@@ -2,10 +2,11 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var speakersModule = angular.module('oe.speakers', ['ngRoute']);
+var speakersModule = angular.module('oe.speakers', ['ui.router']);
 
-speakersModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/speakers', {
+speakersModule.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('/speakers', {
+        url: '/speakers',
         templateUrl: 'app/components/speakers/speakers.html',
         controller: 'SpeakersController'
     })

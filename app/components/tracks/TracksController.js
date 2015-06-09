@@ -2,10 +2,11 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var tracksModule = angular.module('oe.tracks', ['ngRoute']);
+var tracksModule = angular.module('oe.tracks', ['ui.router']);
 
-tracksModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/tracks', {
+tracksModule.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('/tracks', {
+        url: '/tracks',
         templateUrl: 'app/components/tracks/tracks.html',
         controller: 'TracksController'
     })
