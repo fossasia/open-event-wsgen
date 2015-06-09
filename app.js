@@ -11,7 +11,8 @@ var openevent = angular.module('openevent',
         'ngMaterial',
         'oe.sidenav',
         'oe.sessions',
-        'oe.speakers'
+        'oe.speakers',
+        'oe.tracks'
     ]);
 
 openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
