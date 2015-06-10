@@ -7,19 +7,20 @@
 
 var openevent = angular.module('openevent',
     [
-        'ngRoute',
+        'ui.router',
+        'ngStorage',
         'ngMaterial',
         'oe.sidenav',
         'oe.sessions',
-        'oe.speakers'
+        'oe.speakers',
+        'oe.tracks'
     ]);
 
-openevent.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProvider, $httpProvider) {
 
     //$httpProvider.defaults.useXDomain = true;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-    $routeProvider.otherwise({redirectTo: '/sessions'});
+    $urlRouterProvider.otherwise('/sessions');
     }]);
 openevent.controller("AppController", ['$mdSidenav', '$mdMedia', function($mdSidenav, $mdMedia) {
     this.appTitle = config.title;

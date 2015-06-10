@@ -26,7 +26,7 @@
 
         <md-content flex layout-padding>
             <div layout="column" layout-fill layout-align="top center">
-                <ng-view></ng-view>
+                <div ui-view></div>
             </div>
             <div flex></div>
         </md-content>
@@ -36,16 +36,20 @@
 
 
     <script src="app/libs/angular.js"></script>
-    <script src="app/libs/angular-route.js"></script>
+    <script src="app/libs/angular-ui-router.js"></script>
     <script src="app/libs/angular-aria.js"></script>
     <script src="app/libs/angular-animate.js"></script>
     <script src="app/libs/angular-animate.js"></script>
     <script src="app/libs/angular-material.js"></script>
+    <script src="app/libs/angular-storage.js"></script>
+
+    <script src="assets/js/Utils.js"></script>
 
     <script src="app.js"></script>
     <script src="app/components/common/ApiJsonFactory.js"></script>
     <script src="app/components/sidenav/SidenavController.js"></script>
     <script src="app/components/sessions/SessionsController.js"></script>
     <script src="app/components/speakers/SpeakersController.js"></script>
+    <script src="app/components/tracks/TracksController.js"></script>
 </body>
 </html>

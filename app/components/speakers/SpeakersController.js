@@ -2,25 +2,34 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var speakersModule = angular.module('oe.speakers', ['ngRoute']);
+var speakersModule = angular.module('oe.speakers', ['ui.router']);
 
-speakersModule.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/speakers', {
+speakersModule.config(['$stateProvider', function($stateProvider) {
+    $stateProvider.state('/speakers', {
+        url: '/speakers',
         templateUrl: 'app/components/speakers/speakers.html',
         controller: 'SpeakersController'
     })
 }]);
 
 speakersModule.controller('SpeakersController', 
-	['$rootScope', 'ApiJsonFactory', function($rootScope, ApiJsonFactory) {
+	['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-		sc.Speakers = [];
+        sc.$storage = $sessionStorage;
+        if (typeof(sc.$storage.speakers) == 'undefined' || sc.$storage.speakers == null)
+        {
+            sc.$storage.speakers = [];
+        }
+        sc.Speakers = sc.$storage.speakers;
 
-		ApiJsonFactory.getJson('speakers')
-		.then(function (response) {
-            sc.Speakers = response.data.speakers;
-        }, function (error) {
-            console.error(error);
-        });
+        if (sc.Speakers.length === 0) {
+            ApiJsonFactory.getJson('speakers')
+                .then(function (response) {
+                    sc.Speakers = response.data.speakers;
+                    sc.$storage.speakers = sc.Speakers;
+                }, function (error) {
+                    console.error(error);
+                });
+        }
 
 }]);

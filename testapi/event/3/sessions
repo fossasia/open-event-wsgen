@@ -6,8 +6,8 @@
       "subtitle": "Creating a generic event app template",
       "abstract": "Some random abstract goes here",
       "description": "Some random desc goes here",
-      "timestart": "2015-05-11T22:12:41.201Z",
-      "timeend": "2015-05-11T22:12:41.201Z",
+      "timestart": "2015-05-11T22:00:41.201Z",
+      "timeend": "2015-05-11T23:30:41.201Z",
       "type": "talk",
       "track": {
         "id": 1,
@@ -35,8 +35,8 @@
       "subtitle": "Creating an event management Dashboard",
       "abstract": "Some random abstract goes here",
       "description": "Some random desc goes here",
-      "timestart": "2015-05-11T22:12:41.205Z",
-      "timeend": "2015-05-11T22:12:41.206Z",
+      "timestart": "2015-05-11T14:12:41.205Z",
+      "timeend": "2015-05-11T16:12:41.206Z",
       "type": "discussion",
       "track": {
         "id": 1,

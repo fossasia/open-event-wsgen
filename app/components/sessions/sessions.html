@@ -4,13 +4,16 @@
 
         <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions" >
             <div class="md-list-item-text">
-            <h3>{{ session.title }}</h3>
-            <h4>{{ session.subtitle }}</h4>
-            <p>
-                {{ session.abstract }}
-                <br>
+                <div class="md-whiteframe-z1 md-padding">
+                    <h3>{{ session.title }}</h3>
+                    <h4>{{ session.subtitle }}</h4>
+                    <p>
+                        <span class="md-caption">{{ sc.duration(session)}}</span>
+                        <br>
+                        {{ session.abstract }}
+                    </p>
 
-            </p>
+                </div>
             </div>
         </md-list-item>
 

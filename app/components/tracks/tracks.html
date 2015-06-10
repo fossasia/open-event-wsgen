@@ -1,0 +1,18 @@
+<div ng-controller="TracksController as tc" class="md-default-theme">
+    <md-content>
+        <md-list>
+
+            <md-list-item class="md-2-line" ng-repeat="track in tc.Tracks" >
+                <div class="md-list-item-text">
+                    <h3>{{track.name}}</h3>
+                    <p>
+                        {{ track.description }}
+                        <br>
+                    </p>
+                    <md-divider></md-divider>
+                </div>
+            </md-list-item>
+
+        </md-list>
+    </md-content>
+</div>
