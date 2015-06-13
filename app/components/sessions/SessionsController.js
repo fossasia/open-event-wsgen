@@ -2,8 +2,10 @@
  * Created by championswimmer on 29/5/15.
  */
 
+
 var sessionsModule = angular.module('oe.sessions', ['ui.router']);
 
+var singleSession = {};
 sessionsModule.config(['$stateProvider', function($stateProvider) {
     $stateProvider.state('/sessions', {
         url: '/sessions',
@@ -13,7 +15,7 @@ sessionsModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 sessionsModule.controller('SessionsController',
-    ['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
+    ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory', function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
         var sc = this;
         sc.$storage = $sessionStorage;
         if (typeof(sc.$storage.sessions) == 'undefined' || sc.$storage.sessions == null)
@@ -36,6 +38,27 @@ sessionsModule.controller('SessionsController',
             var end = DateUtils.getHourMin(session.timeend);
 
             return start + ' - ' + end;
-        }
+        };
+
+        sc.showSession = function(session, event) {
+            singleSession = session;
+            $mdDialog.show({
+                controller: 'SessionDialogController',
+                templateUrl: 'app/components/sessions/sessiondialog.html',
+                parent: angular.element(document.body),
+                targetEvent: event,
+
+            });
+        };
 
     }]);
+
+sessionsModule.controller('SessionDialogController', ['$mdDialog', function($mdDialog) {
+    var sdc = this;
+    sdc.session = singleSession;
+
+    sdc.close = function () {
+        $mdDialog.hide();
+    };
+}]);
+
