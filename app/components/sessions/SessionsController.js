@@ -16,7 +16,7 @@ sessionsModule.controller('SessionsController',
     ['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
         var sc = this;
         sc.$storage = $sessionStorage;
-        if (typeof(sc.$storage.sessions) == 'undefined' || sc.$storage.sessions == null)
+        if (sc.$storage.sessions == null || typeof(sc.$storage.sessions) == 'undefined')
         {
             sc.$storage.sessions = [];
         }

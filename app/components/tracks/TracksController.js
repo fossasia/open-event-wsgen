@@ -16,7 +16,7 @@ tracksModule.controller('TracksController',
 	['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
         sc.$storage = $sessionStorage;
-        if (typeof(sc.$storage.tracks) == 'undefined' || sc.$storage.tracks == null)
+        if ( sc.$storage.tracks == null || typeof(sc.$storage.tracks) == 'undefined')
         {
             sc.$storage.tracks = [];
         }
