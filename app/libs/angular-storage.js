@@ -1,3 +1,11 @@
+/**
+ * ngStorage
+ * An AngularJS module that makes Web Storage working in the Angular Way.
+ * @version v0.3.4
+ * @link https://github.com/gsklee/ngStorage
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+
 (function(angular, factory) {
     'use strict';
     if (typeof define === 'function' && define.amd) {
