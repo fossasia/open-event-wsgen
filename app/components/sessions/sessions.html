@@ -2,8 +2,9 @@
     <md-content>
     <md-list>
 
-        <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions" >
-            <div class="md-list-item-text">
+        <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions">
+            <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
+                <md-ink-ripple>
                 <div class="md-whiteframe-z1 md-padding">
                     <h3>{{ session.title }}</h3>
                     <h4>{{ session.subtitle }}</h4>
@@ -12,8 +13,8 @@
                         <br>
                         {{ session.abstract }}
                     </p>
-
                 </div>
+                </md-ink-ripple>
             </div>
         </md-list-item>
 
