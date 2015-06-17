@@ -13,7 +13,9 @@ var openevent = angular.module('openevent',
         'oe.sidenav',
         'oe.sessions',
         'oe.speakers',
-        'oe.tracks'
+        'oe.tracks',
+        'oe.sponsors',
+        'oe.map'
     ]);
 
 openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProvider, $httpProvider) {
