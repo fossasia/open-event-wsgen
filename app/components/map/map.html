@@ -1,18 +1,12 @@
 <div ng-controller="MapController as mc" class="md-default-theme">
     <md-content>
-        <!--<md-list>-->
+        <div class="md-whiteframe-z3 md-padding">
+            <leaflet
+                    center="locationCenter" markers="markers"
+                    center="london" height="480px" width="100%">
 
-        <!--<md-list-item class="md-2-line" ng-repeat="track in tc.Tracks" >-->
-        <!--<div class="md-list-item-text">-->
-        <!--<h3>{{track.name}}</h3>-->
-        <!--<p>-->
-        <!--{{ track.description }}-->
-        <!--<br>-->
-        <!--</p>-->
-        <!--<md-divider></md-divider>-->
-        <!--</div>-->
-        <!--</md-list-item>-->
+            </leaflet>
+        </div>
 
-        <!--</md-list>-->
     </md-content>
 </div>

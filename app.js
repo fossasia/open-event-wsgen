@@ -10,6 +10,7 @@ var openevent = angular.module('openevent',
         'ui.router',
         'ngStorage',
         'ngMaterial',
+        'leaflet-directive',
         'oe.sidenav',
         'oe.sessions',
         'oe.speakers',
@@ -24,7 +25,7 @@ openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProv
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $urlRouterProvider.otherwise('/sessions');
     }]);
-openevent.controller("AppController", 
+openevent.controller('AppController',
     ['$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',
         function($mdSidenav, $mdMedia, $sessionStorage, ApiJsonFactory) {
     var app = this;
@@ -34,7 +35,8 @@ openevent.controller("AppController",
     };
 
     app.$storage = $sessionStorage;
-    if ( app.$storage.event == null || typeof(app.$storage.event) == 'undefined')
+    if ( app.$storage.event === null ||
+        typeof(app.$storage.event) == 'undefined')
     {
         app.$storage.event = [];
     }
