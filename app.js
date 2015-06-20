@@ -10,6 +10,7 @@ var openevent = angular.module('openevent',
         'ui.router',
         'ngStorage',
         'ngMaterial',
+        'leaflet-directive',
         'oe.sidenav',
         'oe.sessions',
         'oe.speakers',
@@ -24,9 +25,31 @@ openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProv
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $urlRouterProvider.otherwise('/sessions');
     }]);
-openevent.controller("AppController", ['$mdSidenav', '$mdMedia', function($mdSidenav, $mdMedia) {
-    this.appTitle = config.title;
-    this.toggleSidenav = function(menuId) {
+openevent.controller('AppController',
+    ['$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',
+        function($mdSidenav, $mdMedia, $sessionStorage, ApiJsonFactory) {
+    var app = this;
+    app.appTitle = config.title;
+    app.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
+
+    app.$storage = $sessionStorage;
+    if ( app.$storage.event === null ||
+        typeof(app.$storage.event) == 'undefined')
+    {
+        app.$storage.event = [];
+    }
+    app.Event = app.$storage.event;
+
+    if (app.Event.length === 0) {
+        ApiJsonFactory.getJson('event')
+            .then(function (response) {
+                app.Event = response.data.event[0];
+                app.$storage.event = app.Event;
+            }, function (error) {
+                console.error(error);
+            });
+    }
+    
 }]);
