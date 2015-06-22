@@ -1,0 +1,21 @@
+.github-icon {
+    color: black !important;
+}
+
+.twitter-icon {
+    color: deepskyblue !important;
+}
+
+.linkedin-icon {
+    color: midnightblue !important;
+}
+
+.facebook-icon {
+    color: darkblue !important;
+}
+
+.sponsor-logo {
+    display: block;
+    width: 75% !important;
+    height: auto !important;
+}
