@@ -27,7 +27,7 @@ mapModule.controller('MapController',
         locationCenter: {
             lat: mc.Event.latitude,
             lng: mc.Event.longitude,
-            zoom: 10
+            zoom: 12
         },
         markers: {
             locationMarker: {
