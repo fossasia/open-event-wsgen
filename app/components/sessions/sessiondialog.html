@@ -1,5 +1,6 @@
 
-<md-dialog ng-controller="SessionDialogController as sdc" aria-label="{{sdc.session.title}}">
+<md-dialog
+        ng-controller="SessionDialogController as sdc" aria-label="{{sdc.session.title}}">
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -12,9 +13,17 @@
         </md-toolbar>
         <md-dialog-content>
             <div>
+                <md-subheader>{{sdc.session.subtitle}}</md-subheader>
+                <md-chips>
+                    <md-chip> <b> Duration: </b> {{ sdc.duration(sdc.session)}} </md-chip>
+                    <md-chip> <b>Type: </b> {{ sdc.session.type}}</md-chip>
+                    <md-chip> <b> Level: </b>{{ sdc.session.level }}</md-chip>
+                </md-chips>
+                <h4> Abstract </h4>
                 <p>
                     {{sdc.session.abstract}}
                 </p>
+                <h4> Description </h4>
                 <p>
                     {{sdc.session.description}}
                 </p>

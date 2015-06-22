@@ -5,9 +5,9 @@
       "title": "Open-Event",
       "subtitle": "Creating a generic event app template",
       "abstract": "Some random abstract goes here",
-      "description": "Some random desc goes here",
-      "timestart": "2015-05-11T22:00:41.201Z",
-      "timeend": "2015-05-11T23:30:41.201Z",
+      "description": "This is some description of some android session ",
+      "start_time": "2015-05-11T22:00:41.201Z",
+      "end_time": "2015-05-11T23:30:41.201Z",
       "type": "talk",
       "track": {
         "id": 1,
@@ -35,8 +35,8 @@
       "subtitle": "Creating an event management Dashboard",
       "abstract": "Some random abstract goes here",
       "description": "Some random desc goes here",
-      "timestart": "2015-05-11T14:12:41.205Z",
-      "timeend": "2015-05-11T16:12:41.206Z",
+      "start_time": "2015-05-11T14:12:41.205Z",
+      "end_time": "2015-05-11T16:12:41.206Z",
       "type": "discussion",
       "track": {
         "id": 1,
@@ -57,6 +57,22 @@
         "id": 2,
         "name": "Stage 2"
       }
-    }
+    },
+    {
+          "abstract": "NFC on Android is not just about payments. There are a plethora of actions achieveable by that small tap of your phone, and surprisingly, NFC hasn\u2019t been applied to as many fields as it should have been.",
+          "description": "My idea is present my expriences while exploring the NFC platform. The applications of NFC reader capabilities present on a phone, as well as the beaming and auto-pairing functionalities.\r\n\r\nNFC, being a low powered hardware, means speeds are in the range of 5kbps, but that is enough for small chunks of data. The best part is there is no need of pairing. Just the phones must be tapped onto each other, i.e. their backs touching each other as long as the communication takes place, and everything will be taken care automatically by the apps. ",
+          "end_time": "2015-06-17T15:00:00.000Z",
+          "id": 3,
+          "level": "advanced",
+          "microlocation": null,
+          "speakers": [
+            3
+          ],
+          "start_time": "2015-06-17T14:00:00.000Z",
+          "subtitle": "One small tap for mankind",
+          "title": "Exploring NFC",
+          "track": null,
+          "type": "Demo"
+        }
   ]
 }
