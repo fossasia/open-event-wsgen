@@ -51,5 +51,4 @@ openevent.controller('AppController',
                 console.error(error);
             });
     }
-    
 }]);

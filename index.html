@@ -15,9 +15,10 @@
             <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
                 <md-icon aria-label="Menu" md-svg-icon="assets/img/ic_toolbar_menu.svg"></md-icon>
             </md-button>
-            <h1 id="title"> {{ appCtrl.appTitle }} </h1>
+            <h1 id="title"> {{ appCtrl.Event.name }} </h1>
         </div>
     </md-toolbar>
+    <md-subheader class="md-primary"> {{appCtrl.Event.slogan}} </md-subheader>
 
     <div layout="row" flex>
         <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"

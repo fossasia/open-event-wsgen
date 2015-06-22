@@ -6,7 +6,9 @@
           "latitude": 52.499,
           "location_name": "Berlin Station",
           "longitude": 13.374,
-          "name": "Re:Publica",
+          "name": "Open Event",
+          "slogan": "A FOSS event app template",
+          "url": "http://fossasia.org",
           "start_time": "2015-05-01T14:00:00"
       }
   ]
