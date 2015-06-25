@@ -1,0 +1,30 @@
+
+<md-dialog
+        ng-controller="SpeakerDialogController as sdc" aria-label="{{sdc.speaker.name}}">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{sdc.speaker.name}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="sdc.close()">
+                    <md-icon md-svg-src="assets/img/ic_toolbar_close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div>
+                <md-subheader>{{sdc.speaker.subtitle}}</md-subheader>
+                <md-chips>
+                    <md-chip> <b> Organisation: </b> {{ sdc.speaker.organisation }} </md-chip>
+                    <!--<md-chip> <b>Type: </b> {{ sdc.speaker.type}}</md-chip>-->
+                    <!--<md-chip> <b> Level: </b>{{ sdc.speaker.level }}</md-chip>-->
+                </md-chips>
+                <h4> Biography </h4>
+                <p>
+                    {{sdc.speaker.bio}}
+                </p>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>
+

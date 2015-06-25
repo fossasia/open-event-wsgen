@@ -4,6 +4,8 @@
 
 var speakersModule = angular.module('oe.speakers', ['ui.router']);
 
+var singleSpeaker = {};
+
 speakersModule.config(['$stateProvider', function($stateProvider) {
     $stateProvider.state('/speakers', {
         url: '/speakers',
@@ -13,7 +15,8 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 speakersModule.controller('SpeakersController', 
-	['$sessionStorage', '$rootScope', 'ApiJsonFactory', function($sessionStorage, $rootScope, ApiJsonFactory) {
+	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
+        function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
         sc.$storage = $sessionStorage;
         if ( sc.$storage.speakers == null || typeof(sc.$storage.speakers) == 'undefined')
@@ -32,4 +35,25 @@ speakersModule.controller('SpeakersController',
                 });
         }
 
+        sc.showSpeaker = function(speaker, event) {
+            singleSpeaker = speaker;
+            $mdDialog.show({
+                controller: 'SpeakerDialogController',
+                templateUrl: 'app/components/speakers/speakerdialog.html',
+                parent: angular.element(document.body),
+                targetEvent: event,
+
+            });
+        };
+
+}]);
+
+speakersModule.controller('SpeakerDialogController',
+    ['$mdDialog', function($mdDialog) {
+    var sdc = this;
+    sdc.speaker = singleSpeaker;
+
+    sdc.close = function () {
+        $mdDialog.hide();
+    };
 }]);
