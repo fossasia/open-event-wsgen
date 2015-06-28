@@ -1,8 +1,19 @@
 <div ng-controller="SpeakersController as sc" class="md-default-theme">
     <md-content>
+        <div layout layout-sm="column">
+        <md-input-container flex>
+            <label>Search by Name</label>
+            <input ng-model="queryname" type="text" autofocus>
+        </md-input-container>
+        <md-input-container flex>
+            <label>Search by Organisation</label>
+            <input ng-model="queryorg" type="text" autofocus>
+        </md-input-container>
+        </div>
         <md-list>
 
-            <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers" >
+            <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers |
+                            filter: { name: queryname, organisation: queryorg}" >
                 <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
                 <div class="md-list-item-text" ng-click="sc.showSpeaker(speaker, $event)">
                     <md-ink-ripple>
