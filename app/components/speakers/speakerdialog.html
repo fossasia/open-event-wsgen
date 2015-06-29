@@ -15,13 +15,39 @@
             <div>
                 <md-subheader>{{sdc.speaker.subtitle}}</md-subheader>
                 <md-chips>
+                    <md-chip> <b> Country: </b> {{ sdc.speaker.country }} </md-chip>
                     <md-chip> <b> Organisation: </b> {{ sdc.speaker.organisation }} </md-chip>
-                    <!--<md-chip> <b>Type: </b> {{ sdc.speaker.type}}</md-chip>-->
-                    <!--<md-chip> <b> Level: </b>{{ sdc.speaker.level }}</md-chip>-->
+                    <md-chip> <b> Position: </b> {{ sdc.speaker.position }} </md-chip>
                 </md-chips>
                 <h4> Biography </h4>
                 <p>
                     {{sdc.speaker.bio}}
+                </p>
+                <h4> Social Links </h4>
+                <p>
+                <div layout="row" layout-align="start center" style="padding-top: 10px" flex>
+                            <span ng-if="(sdc.speaker.github.length>0)">
+                                <a href="http://github.com/{{sdc.speaker.github}}" target="_blank">
+                                    <md-icon md-svg-icon="assets/img/ic_github.svg" class="github-icon"></md-icon>
+                                </a>
+                            </span>
+                            <span ng-if="(sdc.speaker.facebook.length>0)">
+                                <a href="http://facebook.com/{{sdc.speaker.facebook}}" target="_blank">
+                                    <md-icon md-svg-icon="assets/img/ic_facebook.svg" class="facebook-icon"></md-icon>
+                                </a>
+                            </span>
+                            <span ng-if="(sdc.speaker.twitter.length>0)">
+                                <a href="http://twitter.com/{{sdc.speaker.twitter}}" target="_blank">
+                                    <md-icon md-svg-icon="assets/img/ic_twitter.svg" class="twitter-icon"></md-icon>
+                                </a>
+                            </span>
+                            <span ng-if="(sdc.speaker.linkedin.length>0)">
+                                <a href="{{sdc.speaker.linkedin}}" target="_blank">
+                                    <md-icon md-svg-icon="assets/img/ic_linkedin.svg" class="linkedin-icon"></md-icon>
+                                </a>
+                            </span>
+                    <span flex></span>
+                </div>
                 </p>
             </div>
         </md-dialog-content>
