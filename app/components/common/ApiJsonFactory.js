@@ -5,14 +5,18 @@
 var commonFactories = angular.module('openevent');
 
 commonFactories.factory('ApiJsonFactory', ['$q', '$http', function ($q, $http) {
-var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl)
-                + 'event/' + config.eventId + '/';
+var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
+    'event/' + config.eventId;
 
         return {
             getJson: function ($apiEndpoint) {
-                var deferred = $q.defer(),
-                    httpPromise = $http.get(baseUrl + $apiEndpoint);
-
+                if (($apiEndpoint === 'event') && (!config.use_testApi)) {
+                    var deferred = $q.defer(),
+                        httpPromise = $http.get(baseUrl);
+                } else {
+                    var deferred = $q.defer(),
+                        httpPromise = $http.get(baseUrl + '/' + $apiEndpoint);
+                }
                 httpPromise.then(function (response) {
                     deferred.resolve(response);
                 }, function (error) {
