@@ -1,0 +1,22 @@
+{
+  "sponsors": [
+    {
+      "id": 1, 
+      "logo": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Googlelogo.png/320px-Googlelogo.png", 
+      "name": "Google", 
+      "url": "http://google.com"
+    }, 
+    {
+      "id": 2, 
+      "logo": "http://www.highvail.com/wp-content/uploads/2014/12/RedHat-IsoLogo.jpg", 
+      "name": "Red Hat", 
+      "url": "http://redhat.org"
+    }, 
+    {
+      "id": 3, 
+      "logo": "http://www.highvail.com/wp-content/uploads/2014/12/RedHat-IsoLogo.jpg", 
+      "name": "FOSSASIA", 
+      "url": "http://fossasia.org"
+    }
+  ]
+}

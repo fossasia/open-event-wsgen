@@ -1,0 +1,22 @@
+{
+  "tracks": [
+    {
+      "description": "All talks related to the OpenEvent project", 
+      "id": 1, 
+      "name": "OpenEvent", 
+      "track_image_url": ""
+    }, 
+    {
+      "description": "All talks about Linux", 
+      "id": 2, 
+      "name": "Linux ", 
+      "track_image_url": ""
+    }, 
+    {
+      "description": "All talks regarding the Android OS", 
+      "id": 3, 
+      "name": "Android", 
+      "track_image_url": ""
+    }
+  ]
+}

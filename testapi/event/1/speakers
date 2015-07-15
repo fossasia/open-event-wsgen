@@ -1,0 +1,56 @@
+{
+  "speakers": [
+    {
+      "biography": "This is the biography of a developer. We are writing a lot of text here just to see how it renders, and writing Lorem Ipsum is just too mainstream. Call park out she wife face mean. Invitation excellence imprudence understood it continuing to. Ye show done an into.", 
+      "country": "India", 
+      "email": "championswimmer@gmail.com", 
+      "facebook": "http://facebook.com/championswimmer", 
+      "github": "http://github.com/championswimmer", 
+      "id": 1, 
+      "linkedin": "http://linkedin.com/in/arnavgupta", 
+      "name": "Arnav Gupta", 
+      "organisation": "FOSSASIA", 
+      "photo": "https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/393736_314822951949839_851215039_n.jpg?oh=9b0e281b3d0db593143c2999ef849841&oe=560F33F0", 
+      "position": "Student Developer", 
+      "sessions": [
+        1
+      ], 
+      "twitter": "http://twitter.com/championswimmer", 
+      "web": "http://championswimmer.in"
+    }, 
+    {
+      "biography": "Another random text about Rafal's life. Meant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. ", 
+      "country": "Poland", 
+      "email": "rafal@fossasia.org", 
+      "facebook": "https://www.facebook.com/rafal.kowalski199", 
+      "github": "http://github.com/rafalkowalski", 
+      "id": 2, 
+      "linkedin": "", 
+      "name": "Rafal Kowalski", 
+      "organisation": "FOSSASIA", 
+      "photo": "https://scontent-sin1-1.xx.fbcdn.net/hphotos-xft1/t31.0-8/s960x960/10010007_800152286679122_1680644785_o.jpg", 
+      "position": "Python Developer", 
+      "sessions": [
+        2
+      ], 
+      "twitter": "http://twitter.com/rafalkowalski", 
+      "web": "http://rafal.com"
+    }, 
+    {
+      "biography": "Random biography text for Manan. Speedily say has suitable disposal add boy. On forth doubt miles of child. Exercise joy man children rejoiced. Yet uncommonly his ten who diminution astonished. Demesne new manners savings staying had.", 
+      "country": "India", 
+      "email": "manan@fossasia.org", 
+      "facebook": "http://facebook.com/mananwason", 
+      "github": "http://github.com/mananwason", 
+      "id": 3, 
+      "linkedin": "http://linkedin.com/in/mananwason", 
+      "name": "Manan Wason", 
+      "organisation": "IIIT-D", 
+      "photo": "https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAYQjBxqFQoTCJTqqaTu28YCFYsHjgod0kkLwg&url=https%3A%2F%2Fmedia.licdn.com%2Fmpr%2Fmpr%2Fshrinknp_400_400%2Fp%2F8%2F005%2F05f%2F03a%2F3f2a7fd.jpg&ei=zqalVZTLNouPuATSk62QDA&bvm=bv.97653015,d.c2E&psig=AFQjCNEnBhNmYWWwbyFxXrmQcv4aS-z1dQ&ust=1437005902947955", 
+      "position": "Student", 
+      "sessions": [], 
+      "twitter": "http://twitter.com/mananwason", 
+      "web": "http://mananwason.com"
+    }
+  ]
+}

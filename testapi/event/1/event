@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "color": null, 
+      "email": "opev@fossasia.org", 
+      "end_time": "2015-09-02T13:00:00", 
+      "id": 1, 
+      "latitude": 28.77, 
+      "location_name": "Delhi Technological University", 
+      "logo": null, 
+      "longitude": 78.12, 
+      "name": "OpenEvent", 
+      "slogan": "An open event framework", 
+      "start_time": "2015-09-01T00:00:00", 
+      "url": "http://fossasia.github.io/open-event-webapp"
+    }
+  ]
+}

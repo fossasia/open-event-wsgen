@@ -1,0 +1,36 @@
+{
+  "sessions": [
+    {
+      "abstract": "We go through the process of building a ready-to-use webapp for hosting conferences on.", 
+      "description": "Alteration literature to or an sympathize mr imprudence. Of is ferrars subject as enjoyed or tedious cottage. Procuring as in resembled by in agreeable. Next long no gave mr eyes. Admiration advantages no he celebrated so pianoforte unreserved. Not its herself forming charmed amiable. Him why feebly expect future now. \r\n\r\nLetter wooded direct two men indeed income sister. Impression up admiration he by partiality is. Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects. Written parties winding oh as in without on started. Residence gentleman yet preserved few convinced. Coming regret simple longer little am sister on. Do danger in to adieus ladies houses oh eldest. Gone pure late gay ham. They sigh were not find are rent. \r\n", 
+      "end_time": "2015-09-01T09:00:00", 
+      "id": 1, 
+      "level": "Advanced", 
+      "microlocation": null, 
+      "speakers": [
+        1
+      ], 
+      "start_time": "2015-09-01T08:00:00", 
+      "subtitle": "Making a website framework for an event", 
+      "title": "Open Event Web App", 
+      "track": 1, 
+      "type": "Presentation"
+    }, 
+    {
+      "abstract": "Learning how to create a server backend for an event App", 
+      "description": "We will be learning how a server can be build using Flask that hosts all data of an Event. And create APIs that will be used by the webapp and the mobile app. ", 
+      "end_time": "2015-07-17T16:00:00", 
+      "id": 2, 
+      "level": "intermediate", 
+      "microlocation": null, 
+      "speakers": [
+        2
+      ], 
+      "start_time": "2015-07-17T15:00:00", 
+      "subtitle": "The server of the OpenEvent app", 
+      "title": "Open Event Server", 
+      "track": null, 
+      "type": "workshop"
+    }
+  ]
+}
