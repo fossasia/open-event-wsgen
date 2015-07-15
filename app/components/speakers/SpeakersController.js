@@ -18,18 +18,17 @@ speakersModule.controller('SpeakersController',
 	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-        sc.$storage = $sessionStorage;
-        if ( sc.$storage.speakers == null || typeof(sc.$storage.speakers) == 'undefined')
+        if ( $sessionStorage.speakers == null || typeof($sessionStorage.speakers) == 'undefined')
         {
-            sc.$storage.speakers = [];
+            $sessionStorage.speakers = [];
         }
-        sc.Speakers = sc.$storage.speakers;
+        sc.Speakers = $sessionStorage.speakers;
 
         if (sc.Speakers.length === 0) {
             ApiJsonFactory.getJson('speakers')
                 .then(function (response) {
                     sc.Speakers = response.data.speakers;
-                    sc.$storage.speakers = sc.Speakers;
+                    $sessionStorage.speakers = sc.Speakers;
                 }, function (error) {
                     console.error(error);
                 });

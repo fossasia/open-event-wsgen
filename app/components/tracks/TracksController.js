@@ -16,19 +16,18 @@ tracksModule.controller('TracksController',
 	['$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($sessionStorage, $rootScope, ApiJsonFactory) {
 		var tc = this;
-        tc.$storage = $sessionStorage;
-        if ( tc.$storage.tracks === null ||
-            typeof(tc.$storage.tracks) == 'undefined')
+        if ( $sessionStorage.tracks === null ||
+            typeof($sessionStorage.tracks) == 'undefined')
         {
-            tc.$storage.tracks = [];
+            $sessionStorage.tracks = [];
         }
-        tc.Tracks = tc.$storage.tracks;
+        tc.Tracks = $sessionStorage.tracks;
 
         if (tc.Tracks.length === 0) {
             ApiJsonFactory.getJson('tracks')
                 .then(function (response) {
                     tc.Tracks = response.data.tracks;
-                    tc.$storage.tracks = tc.Tracks;
+                    $sessionStorage.tracks = tc.Tracks;
                 }, function (error) {
                     console.error(error);
                 });

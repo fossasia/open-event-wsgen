@@ -17,8 +17,7 @@ mapModule.controller('MapController',
         function($rootScope, $sessionStorage) {
 
     var mc = this;
-    mc.$storage = $sessionStorage;
-    mc.Event = mc.$storage.event;
+    mc.Event = $sessionStorage.event;
 
     angular.extend($rootScope, {
         defaults: {

@@ -17,19 +17,19 @@ sponsorsModule.controller('SponsorsController',
     function($sessionStorage, $rootScope, ApiJsonFactory) {
 
         var sc = this;
-        sc.$storage = $sessionStorage;
-        if ( sc.$storage.sponsors === null ||
-            typeof(sc.$storage.sponsors) == 'undefined')
+        $sessionStorage = $sessionStorage;
+        if ( $sessionStorage.sponsors === null ||
+            typeof($sessionStorage.sponsors) == 'undefined')
         {
-            sc.$storage.sponsors = [];
+            $sessionStorage.sponsors = [];
         }
-        sc.Sponsors = sc.$storage.sponsors;
+        sc.Sponsors = $sessionStorage.sponsors;
 
         if (sc.Sponsors.length === 0) {
             ApiJsonFactory.getJson('sponsors')
                 .then(function (response) {
                     sc.Sponsors = response.data.sponsors;
-                    sc.$storage.sponsors = sc.Sponsors;
+                    $sessionStorage.sponsors = sc.Sponsors;
                 }, function (error) {
                     console.error(error);
                 });
