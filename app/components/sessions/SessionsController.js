@@ -17,18 +17,17 @@ sessionsModule.config(['$stateProvider', function($stateProvider) {
 sessionsModule.controller('SessionsController',
     ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory', function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
         var sc = this;
-        sc.$storage = $sessionStorage;
-        if (sc.$storage.sessions == null || typeof(sc.$storage.sessions) == 'undefined')
+        if ($sessionStorage.sessions == null || typeof($sessionStorage.sessions) == 'undefined')
         {
-            sc.$storage.sessions = [];
+            $sessionStorage.sessions = [];
         }
-        sc.Sessions = sc.$storage.sessions;
+        sc.Sessions = $sessionStorage.sessions;
 
         if (sc.Sessions.length === 0) {
             ApiJsonFactory.getJson('sessions')
                 .then(function (response) {
                     sc.Sessions = response.data.sessions;
-                    sc.$storage.sessions = sc.Sessions;
+                    $sessionStorage.sessions = sc.Sessions;
                 }, function (error) {
                     console.error(error);
                 });
