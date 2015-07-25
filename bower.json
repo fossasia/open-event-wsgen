@@ -1,0 +1,37 @@
+{
+  "name": "open-event-webapp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/fossasia/open-event-webapp",
+  "authors": [
+    "Arnav Gupta <championswimmer@gmail.com>"
+  ],
+  "description": "Open Event Webapp",
+  "main": "index.html",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "openevent",
+    "open",
+    "event"
+  ],
+  "license": "GPLv3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.3",
+    "angular-aria": "~1.4.3",
+    "angular-material": "~0.10.0",
+    "ngstorage": "~0.3.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-leaflet-directive": "~0.8.5"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
+  }
+}
