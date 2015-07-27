@@ -1,8 +1,17 @@
 {
-  "name": "open-event",
+  "name": "open-event-webapp",
   "version": "0.0.1",
+  "repository": {
+    "url": "git://github.com/fossasia/open-event-webapp.git"
+  },
   "devDependencies": {
     "gulp": "~3.9.0",
-    "gulp-connect": "~2.2.0"
+    "gulp-connect": "~2.2.0",
+    "bower": "~1.4.1",
+    "gulp-inject": "~1.5.0",
+    "gulp-clean": "~0.3.1",
+    "gulp-flatten": "~0.1.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-minify-css": "~1.2.0"
   }
 }

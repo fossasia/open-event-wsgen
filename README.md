@@ -22,12 +22,39 @@ The data will be fetched dynamically from the API endpoint provided by the ![org
 ##Deployment
 Currently it is just a simple webapp that can be viewed using any browser. In future, we plan to deploy as a webapp for Ubuntu Phone, Firefox OS etc, who support first class webapps. Also for platforms like iOS, Windows, we might port this usin Ionic/Titanium etc. 
 
-####Deploy local development instance (using Gulp) 
-Install Gulp and Gulp-connect packages   
-`npm install -g --save-dev gulp gulp-connect`
+For deploying locally or making a dist.zip, you'll need `bower` and `gulp`
+Assuming you have npm (Node Package Manager)
+```javascript
+npm install
+```
+This will get all the dependencies that we already have set up in our package.json.
+
+####Deploy local development instance (using Gulp)   
+
+First make sure you have all the dependencies
+```javascript
+bower update
+```
 
 Serve on localhost:8080 with Gulp
-`gulp webserver` or just `gulp`
+`gulp webserver`   
+or just   
+`gulp`
+
+####Create a distribution-ready folder
+After testing out locally using `gulp webserver` and ensuring it works,
+you can get a ready-to-deploy `dist` folder
+
+```javascript
+gulp dist
+```
+
+If you want a minified build (css and js files will be minified)
+```javascript
+gulp dist-min
+```
+
+You can `rsync` or `ftp` the **dist** folder generated to your static web server. 
  
 ------------------------------------------------------------------------- 
 ##Technology

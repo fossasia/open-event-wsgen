@@ -3,9 +3,12 @@
 <head lang="en">
 
     <script src="config.js"></script>
-    <link rel="stylesheet" href="assets/css/angular-material.css">
+
+    <!-- inject:css -->
     <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="main.css">
+    <!-- endinject -->
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1" />
     <title> {{ appCtrl.appTitle }} </title>
@@ -35,25 +38,25 @@
         </md-content>
     </div>
 
+    <!-- inject:js -->
     <script src="assets/js/Utils.js"></script>
     <script src="assets/js/leaflet.js"></script>
-
-    <script src="app/libs/angular.js"></script>
-    <script src="app/libs/angular-ui-router.js"></script>
-    <script src="app/libs/angular-aria.js"></script>
-    <script src="app/libs/angular-animate.js"></script>
-    <script src="app/libs/angular-animate.js"></script>
-    <script src="app/libs/angular-material.js"></script>
-    <script src="app/libs/angular-storage.js"></script>
-    <script src="app/libs/angular-leaflet-directive.js"></script>
-
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
     <script src="app.js"></script>
+    <script src="config.js"></script>
     <script src="app/components/common/ApiJsonFactory.js"></script>
-    <script src="app/components/sidenav/SidenavController.js"></script>
-    <script src="app/components/sessions/SessionsController.js"></script>
-    <script src="app/components/speakers/SpeakersController.js"></script>
-    <script src="app/components/tracks/TracksController.js"></script>
-    <script src="app/components/sponsors/SponsorsController.js"></script>
     <script src="app/components/map/MapController.js"></script>
+    <script src="app/components/sessions/SessionsController.js"></script>
+    <script src="app/components/sidenav/SidenavController.js"></script>
+    <script src="app/components/speakers/SpeakersController.js"></script>
+    <script src="app/components/sponsors/SponsorsController.js"></script>
+    <script src="app/components/tracks/TracksController.js"></script>
+    <!-- endinject -->
 </body>
 </html>

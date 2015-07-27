@@ -1,2 +1,5 @@
 .idea/
 node_modules/
+bower_components/
+dist/
+/open-event-webapp.zip
