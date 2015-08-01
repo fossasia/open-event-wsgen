@@ -5,7 +5,7 @@
 var sponsorsModule = angular.module('oe.sponsors', ['ui.router']);
 
 sponsorsModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('/sponsors', {
+    $stateProvider.state('sponsors', {
         url: '/sponsors',
         templateUrl: 'app/components/sponsors/sponsors.html',
         controller: 'SponsorsController'

@@ -23,7 +23,7 @@ openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProv
 
     //$httpProvider.defaults.useXDomain = true;
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    $urlRouterProvider.otherwise('/sessions');
+    $urlRouterProvider.otherwise('sessions');
     }]);
 openevent.controller('AppController',
     ['$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',

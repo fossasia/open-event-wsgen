@@ -5,9 +5,10 @@
 
 var sessionsModule = angular.module('oe.sessions', ['ui.router']);
 
+/* ----------------------------- Sessions List ---------------------------- */
 var singleSession = {};
 sessionsModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('/sessions', {
+    $stateProvider.state('sessions', {
         url: '/sessions',
         templateUrl: 'app/components/sessions/sessions.html',
         controller: 'SessionsController'
@@ -15,9 +16,11 @@ sessionsModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 sessionsModule.controller('SessionsController',
-    ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory', function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
+    ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
+        function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
         var sc = this;
-        if ($sessionStorage.sessions == null || typeof($sessionStorage.sessions) == 'undefined')
+        if ($sessionStorage.sessions === null ||
+            typeof($sessionStorage.sessions) == 'undefined')
         {
             $sessionStorage.sessions = [];
         }
@@ -52,7 +55,10 @@ sessionsModule.controller('SessionsController',
 
     }]);
 
-sessionsModule.controller('SessionDialogController', ['$mdDialog', function($mdDialog) {
+/* -------------------------- Session Dialog ----------------------- */
+
+sessionsModule.controller('SessionDialogController', ['$mdDialog',
+    function($mdDialog) {
     var sdc = this;
     sdc.session = singleSession;
 

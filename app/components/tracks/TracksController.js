@@ -5,7 +5,7 @@
 var tracksModule = angular.module('oe.tracks', ['ui.router']);
 
 tracksModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('/tracks', {
+    $stateProvider.state('tracks', {
         url: '/tracks',
         templateUrl: 'app/components/tracks/tracks.html',
         controller: 'TracksController'

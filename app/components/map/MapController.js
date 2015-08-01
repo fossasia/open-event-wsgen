@@ -5,7 +5,7 @@
 var mapModule = angular.module('oe.map', ['ui.router', 'leaflet-directive']);
 
 mapModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('/map', {
+    $stateProvider.state('map', {
         url: '/map',
         templateUrl: 'app/components/map/map.html',
         controller: 'MapController'
