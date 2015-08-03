@@ -7,7 +7,7 @@ var speakersModule = angular.module('oe.speakers', ['ui.router']);
 var singleSpeaker = {};
 
 speakersModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('/speakers', {
+    $stateProvider.state('speakers', {
         url: '/speakers',
         templateUrl: 'app/components/speakers/speakers.html',
         controller: 'SpeakersController'
