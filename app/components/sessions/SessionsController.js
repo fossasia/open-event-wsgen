@@ -41,34 +41,4 @@ sessionsModule.controller('SessionsController',
 
             return start + ' - ' + end;
         };
-
-        sc.showSession = function(session, event) {
-            singleSession = session;
-            $mdDialog.show({
-                controller: 'SessionDialogController',
-                templateUrl: 'app/components/sessions/sessiondialog.html',
-                parent: angular.element(document.body),
-                targetEvent: event,
-
-            });
-        };
-
     }]);
-
-/* -------------------------- Session Dialog ----------------------- */
-
-sessionsModule.controller('SessionDialogController', ['$mdDialog',
-    function($mdDialog) {
-    var sdc = this;
-    sdc.session = singleSession;
-
-    sdc.close = function () {
-        $mdDialog.hide();
-    };
-    sdc.duration = function(session) {
-        var start = DateUtils.getHourMin(session.start_time);
-        var end = DateUtils.getHourMin(session.end_time);
-
-        return start + ' - ' + end;
-    };
-}]);

@@ -7,17 +7,33 @@
     <md-list>
 
         <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions | filter: { title: query}">
-            <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
+            <div class="md-list-item-text" ng-model="collapsed" ng-click="collapsed=!collapsed">
                 <md-ink-ripple>
                 <div class="md-whiteframe-z1 md-padding">
-                    <h3>{{ session.title }}</h3>
+                    <h3><b>{{ session.title }}</b></h3>
                     <h4>{{ session.subtitle }}</h4>
+                    <md-chips ng-show="collapsed">
+                        <md-chip> <b> Track: </b> {{ session.track}} </md-chip>
+                        <md-chip> <b>Type: </b> {{ session.type}}</md-chip>
+                        <md-chip> <b> Level: </b>{{ session.level }}</md-chip>
+                    </md-chips>
                     <p>
                         <span class="md-caption">{{ sc.duration(session)}}</span>
                         <br>
                         {{ session.abstract }}
                     </p>
+                    <div ng-show="collapsed">
+                        <br>
+                        <h3> Description </h3>
+                        <p>
+                            {{session.description}}
+                        </p>
+                        <p>
+
+                        </p>
+                    </div>
                 </div>
+
                 </md-ink-ripple>
             </div>
         </md-list-item>
