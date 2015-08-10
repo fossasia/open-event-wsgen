@@ -16,6 +16,7 @@ var openevent = angular.module('openevent',
         'oe.speakers',
         'oe.tracks',
         'oe.sponsors',
+        'oe.twitterwall',
         'oe.map'
     ]);
 
