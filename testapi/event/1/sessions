@@ -1,0 +1,111 @@
+{
+  "sessions": [
+    {
+      "abstract": "Menschen, Tiere, Sensationen: Wir teilen gerne Aufreger. Doch was, wenn Story und Absender falsch sind und wir uns zum Handlanger von Trollen, Werbern oder Propagandisten machen? ",
+      "description": "Viele Emp\u00f6rungswellen und virale Hypes entstehen zuf\u00e4llig, doch die Mechanismen nach denen sie ablaufen, machen sie berechenbar. Nicht nur PR-Strategen nutzen das f\u00fcr graues Marketing und verdeckte Propaganda, sondern auch Spa\u00dfv\u00f6gel und \u201eFalse Flag\u201c-Trolle. Eine Woche nachdem wir alle das Video von einer Helden-Katze, die einen Jungen gegen einen Hund verteidigte, geteilt haben, stellt sich die Frage, ob es sich um einen Werbe-Stunt der Fracking-Lobby handelte. Kurz nachdem all jene, die Feministinnen schon immer bl\u00f6d fanden, sich bei Facebook und Twitter \u00fcber\u00a0menstruierende Aktivistinnen emp\u00f6rten, stellt sich heraus, dass das Social-Media-Ph\u00e4nomen unter dem Titel #Freebleeding ein getarnter 4chan-Hoax war. Wie funktionieren diese \u201eFalse Flag Campaigns\u201c und wie geht man ihnen nicht auf den Leim?\n\n\u00a0\n",
+      "end_time": "2015-05-05T17:30:00",
+      "id": 3,
+      "level": "Beginner",
+      "microlocation": null,
+      "speakers": [
+        460,
+        461
+      ],
+      "start_time": "2015-05-05T16:30:00",
+      "subtitle": null,
+      "title": "Hoax-Kampagnen: Opium f\u00fcrs Emp\u00f6rungsvolk",
+      "track": null,
+      "type": null
+    },
+    {
+      "abstract": "Die Indizien h\u00e4ufen sich, dass die globale Massen\u00fcberwachung durch ihre Geheimdiensten die au\u00dfenpolitischen Ziele westlicher Demokratien unterl\u00e4uft. Und dies nicht nur, wenn das Verborgene \u00f6ffentlich wird und sich Regierungen erkl\u00e4ren m\u00fcssen, sondern auch, wenn Staaten aufh\u00f6ren, entschlossen f\u00fcr Freiheit und Menschenrechte im Netz einzutreten. Anhand aktueller Bespiele wird das Ph\u00e4nomen erl\u00e4utert und L\u00f6sungsvorschl\u00e4ge pr\u00e4sentiert.",
+      "description": "Als im Herbst 2013 bekannt wird, dass die NSA das private Handy von Kanzlerin Merkel und viele andere Anschl\u00fcsse deutscher Politiker auf einer streng geheimen \u00dcberwachungsliste f\u00fchrt, muss sich der amerikanische Pr\u00e4sident h\u00f6chst selbst \u00f6ffentlich rechtfertigen. Die deutsch-amerikanischen Beziehungen nehmen schweren Schaden, von dem sie sich bis heute nicht erholt haben. So bringen seine Geheimdienste Barack Obama in eine missliche Lage. Er kann entweder zugeben, davon gewusst zu haben, also mit den au\u00dfenpolitischen Beziehungen zum wichtigsten europ\u00e4ischen Alliierten fahrl\u00e4ssig gespielt zu haben (was er nicht zugibt) oder einr\u00e4umen, dass er seine Dienste nicht unter Kontrolle hatte (was er indirekt zugibt, denn er beendet die Praxis defacto).\n\nDaraus kann man zwei Lehren ziehen: erstens, Geheimdienste d\u00fcrfen alles, es muss allerdings geheim bleiben, denn bei Bekanntwerden, droht immenser Schaden f\u00fcr das Regierungshandeln. Zweitens, es braucht eine politische und demokratisch legitimierte, also parlamentarische, Kontrolle, die darauf abzielt, dass das Agieren der Geheimdienste nicht au\u00dfenpolitische und andere Ziele des Staates und der Regierung unterl\u00e4uft.\n\nIch habe meine begr\u00fcndeten Zweifel, dass die erste Lehre jemals in einer Demokratie funktionieren kann. Es wird immer irgendwann und irgendwie an das Licht der \u00d6ffentlichkeit gelangen, wenn Geheimdienste ihre Befugnisse \u00fcberschreiten oder contra-faktisch agieren. Edward Snowden steht nur an der Spitze einer langen Liste von Menschen, deren Verpflichtung ihrem Gewissen gegen\u00fcber der Geheimhaltung Grenzen aufzeigen.\n\nW\u00e4hrend sich in den vergangenen zwei Jahrzehnten das Aufgabenprofil der Geheimdienste stark in den Bereich signal intelligence (technische Aufkl\u00e4rung) verschoben hat, ist die Politik der westlichen Staaten unschl\u00fcssig geblieben, welche der beiden Optionen sie verfolgen soll. So haben sich die Geheimdienste Handlungsfreir\u00e4ume erarbeitet, die nicht nur im rechtlichen Graubereich liegen sondern auch klassischen au\u00dfenpolitischen Akteuren, der Diplomatie, Grenzen auferlegen. Nicht nur in den USA sondern auch in Deutschland sind die Au\u00dfenministerien in bestimmten Politikbereichen geschw\u00e4cht, ja sogar dazu gezwungen, eigen Position aufzugeben.\n\nDer Vortrag f\u00fchrt daf\u00fcr Beispiele an und erl\u00e4utert, wie sich westliche Staaten aus diesem Dilemma befreien k\u00f6nnen.\n",
+      "end_time": "2015-05-05T16:15:00",
+      "id": 4,
+      "level": "Intermediate",
+      "microlocation": null,
+      "speakers": [
+        456
+      ],
+      "start_time": "2015-05-05T15:45:00",
+      "subtitle": null,
+      "title": "Strategische Aufkl\u00e4rung? \u2013 Wie Geheimdienste Au\u00dfenpolitik sabotieren",
+      "track": null,
+      "type": null
+    },
+    {
+      "id": 2,
+      "title": "Open-Event",
+      "subtitle": "Creating a generic event app template",
+      "abstract": "Some random abstract goes here",
+      "description": "This is some description of some android session ",
+      "start_time": "2015-05-11T22:00:41.201Z",
+      "end_time": "2015-05-11T23:30:41.201Z",
+      "type": "talk",
+      "track": {
+        "id": 1,
+        "name": "Android"
+      },
+      "speakers": [
+        {
+          "id": 3,
+          "name": "John Smith"
+        },
+        {
+          "id": 5,
+          "name": "Jane Doe"
+        }
+      ],
+      "level": "advanced",
+      "microlocation": {
+        "id": 4,
+        "name": "Hall 4"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Open-Event-Server",
+      "subtitle": "Creating an event management Dashboard",
+      "abstract": "Some random abstract goes here",
+      "description": "Some random desc goes here",
+      "start_time": "2015-05-11T14:12:41.205Z",
+      "end_time": "2015-05-11T16:12:41.206Z",
+      "type": "discussion",
+      "track": {
+        "id": 1,
+        "name": "Python"
+      },
+      "speakers": [
+        {
+          "id": 3,
+          "name": "Harry Potter"
+        },
+        {
+          "id": 5,
+          "name": "Jack Daniels"
+        }
+      ],
+      "level": "intermediate",
+      "microlocation": {
+        "id": 2,
+        "name": "Stage 2"
+      }
+    },
+    {
+          "abstract": "NFC on Android is not just about payments. There are a plethora of actions achieveable by that small tap of your phone, and surprisingly, NFC hasn\u2019t been applied to as many fields as it should have been.",
+          "description": "My idea is present my expriences while exploring the NFC platform. The applications of NFC reader capabilities present on a phone, as well as the beaming and auto-pairing functionalities.\r\n\r\nNFC, being a low powered hardware, means speeds are in the range of 5kbps, but that is enough for small chunks of data. The best part is there is no need of pairing. Just the phones must be tapped onto each other, i.e. their backs touching each other as long as the communication takes place, and everything will be taken care automatically by the apps. ",
+          "end_time": "2015-06-17T15:00:00.000Z",
+          "id": 3,
+          "level": "advanced",
+          "microlocation": null,
+          "speakers": [
+            3
+          ],
+          "start_time": "2015-06-17T14:00:00.000Z",
+          "subtitle": "One small tap for mankind",
+          "title": "Exploring NFC",
+          "track": null,
+          "type": "Demo"
+        }
+  ]
+}

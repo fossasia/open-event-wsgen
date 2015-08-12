@@ -1,0 +1,68 @@
+{
+  "speakers": [
+    {
+      "biography": "Matthias Spielkamp is managing editor of iRights.info, covering legal, economic and policy aspects of digitisation (winner of the Grimme Online Award). As a founding partner at the iRights.Lab think tank, he advises public institutions, NGOs and private companies on online journalism, communication strategies and information security. Matthias held teaching assignments at various universities, is a frequent speaker at national and international conferences and testified several times before German parliamentary committees. He co-authored three books on journalism and copyright, serves on the board of the German chapter of Reporters without Borders (pro bono) and is a member of the American Council on Germany as a former McCloy Fellow. Recently, he curated the Groundbreaking Journalism event series.", 
+      "country": "", 
+      "email": "", 
+      "facebook": null, 
+      "github": null, 
+      "id": 1, 
+      "linkedin": null, 
+      "name": "Matthias Spielkamp", 
+      "organisation": "Reporters without Borders", 
+      "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/120330-03538.jpg", 
+      "position": null, 
+      "sessions": [], 
+      "twitter": null, 
+      "web": "http://re-publica.de/member/1004#profile-speaker"
+    }, 
+    {
+      "biography": "Thom Nagy ist seit 2004 als Journalist t\u00e4tig. Ab 2006 schrieb er bei \u00ab20 Minuten\u00bb \u00fcber Popkultur bis er 2011 zur \u00abNeuen Z\u00fcrcher Zeitung\u00bb wechselte, wo er sich im NZZ Lab mit den Implikationen vernetzter Kommunikations-Strukturen auf das Mediensystem auseinander setzt. Neben seiner praktischen T\u00e4tigkeit doziert er am MAZ in Luzern zum Thema Web-Journalismus.", 
+      "country": "", 
+      "email": "", 
+      "facebook": null, 
+      "github": null, 
+      "id": 2, 
+      "linkedin": null, 
+      "name": "Thom Nagy", 
+      "organisation": "NZZ Lab", 
+      "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/thomnagy_pensive.jpg", 
+      "position": null, 
+      "sessions": [], 
+      "twitter": null, 
+      "web": "http://re-publica.de/member/1005#profile-speaker"
+    }, 
+    {
+      "biography": "Hendrik Menzl, Jahrgang 1981, Dipl. Medienwirt, bookt und managt Bands bei Audiolith, singt und produziert bei der Top200-Kapelle Supershirt.\nDurch seine jahrelange Arbeit mit K\u00fcnstlern hat er tiefen Einblick in deren Lebens- und Arbeitswelt und ist durch nichts mehr schockiert.", 
+      "country": "", 
+      "email": "", 
+      "facebook": null, 
+      "github": null, 
+      "id": 3, 
+      "linkedin": null, 
+      "name": "Hendrik Menzl", 
+      "organisation": "Audiolith", 
+      "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/h_menzl_re_publica.jpg", 
+      "position": null, 
+      "sessions": [], 
+      "twitter": null, 
+      "web": "http://re-publica.de/member/1006#profile-speaker"
+    },
+    {
+          "biography": "One of the developers on the FOSSASIA OpenEvent project",
+          "country": "India",
+          "email": "championswimmer@gmail.com",
+          "facebook": "championswimmer",
+          "github": "championswimmer",
+          "id": 3,
+          "linkedin": null,
+          "name": "Arnav Gupta",
+          "organisation": "FOSSASIA",
+          "photo": "http://championswimmer.in/images/my_photo.png",
+          "position": null,
+          "sessions": [],
+          "twitter": "championswimmer",
+          "web": "http://championswimmer.in"
+        }
+  ]
+}
