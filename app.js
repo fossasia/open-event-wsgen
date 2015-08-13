@@ -46,7 +46,7 @@ openevent.controller('AppController',
     if (app.Event.length === 0) {
         ApiJsonFactory.getJson('event')
             .then(function (response) {
-                app.Event = response.data.event[0];
+                app.Event = response.data.events[0];
                 app.$storage.event = app.Event;
             }, function (error) {
                 console.error(error);

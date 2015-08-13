@@ -1,6 +1,8 @@
 {
-  "event":[
+  "events":[
       {
+          "color": "#000",
+          "email": "",
           "end_time": "2015-05-08T16:00:00",
           "id": 3,
           "latitude": 52.499,
