@@ -36,8 +36,8 @@ sessionsModule.controller('SessionsController',
                 });
         }
         sc.duration = function(session) {
-            var start = DateUtils.getHourMin(session.start_time);
-            var end = DateUtils.getHourMin(session.end_time);
+            var start = DateUtils.getHourMin(session.begin);
+            var end = DateUtils.getHourMin(session.end);
 
             return start + ' - ' + end;
         };
@@ -66,8 +66,8 @@ sessionsModule.controller('SessionDialogController', ['$mdDialog',
         $mdDialog.hide();
     };
     sdc.duration = function(session) {
-        var start = DateUtils.getHourMin(session.start_time);
-        var end = DateUtils.getHourMin(session.end_time);
+        var start = DateUtils.getHourMin(session.begin);
+        var end = DateUtils.getHourMin(session.end);
 
         return start + ' - ' + end;
     };
