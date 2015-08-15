@@ -1,27 +1,40 @@
 <div ng-controller="SessionsController as sc" class="md-default-theme">
-    <md-content>
+    <div layout="column" class="parent">
         <md-input-container flex>
             <label>Search by Title</label>
             <input ng-model="query" type="text" autofocus>
         </md-input-container>
-    <md-list>
+        <md-content style="height: 720px">
+            <section ng-repeat="day in sc.Days" ng-if="day.sessions.length > 0">
+                <md-subheader class="md-primary"> {{ day.label }}</md-subheader>
+                <md-list>
+                    <md-list-item class="md-3-line" ng-repeat="session in day.sessions | filter: { title: query}">
+                        <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
+                            <div layout="row" layout-lg="row" layout-md="row" layout-sm="column">
+                                <div class="md-padding" style="min-width: 150px; align-self: center">
+                                    <div>
+                                        <b>{{ sc.duration(session).start}}</b>
+                                        -
+                                        {{ sc.duration(session).end}}
+                                    </div>
+                                </div>
+                                <div class="md-whiteframe-z1 md-padding">
+                                    <md-ink-ripple>
+                                        <b>{{ session.title }}</b>
+                                        <h4>{{ session.subtitle }}</h4>
+                                        <p>
+                                            <br>
+                                            {{ session.abstract }}
+                                        </p>
+                                    </md-ink-ripple>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </section>
 
-        <md-list-item class="md-3-line" ng-repeat="session in sc.Sessions | filter: { title: query}">
-            <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
-                <md-ink-ripple>
-                <div class="md-whiteframe-z1 md-padding">
-                    <h3>{{ session.title }}</h3>
-                    <h4>{{ session.subtitle }}</h4>
-                    <p>
-                        <span class="md-caption">{{ sc.duration(session)}}</span>
-                        <br>
-                        {{ session.abstract }}
-                    </p>
-                </div>
-                </md-ink-ripple>
-            </div>
-        </md-list-item>
+        </md-content>
+    </div>
 
-    </md-list>
-</md-content>
 </div>

@@ -4,7 +4,6 @@
 'use strict';
 // Declare app level module which depends on views, and components
 
-
 var openevent = angular.module('openevent',
     [
         'ui.router',
@@ -26,10 +25,12 @@ openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProv
     //delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $urlRouterProvider.otherwise('sessions');
     }]);
+
 openevent.controller('AppController',
-    ['$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',
+    [ '$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',
         function($mdSidenav, $mdMedia, $sessionStorage, ApiJsonFactory) {
     var app = this;
+    openevent.totalDays = 0;
     app.appTitle = config.title;
     app.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
@@ -40,6 +41,7 @@ openevent.controller('AppController',
         typeof(app.$storage.event) == 'undefined')
     {
         app.$storage.event = [];
+        app.$storage.days = [];
     }
     app.Event = app.$storage.event;
 
@@ -48,8 +50,15 @@ openevent.controller('AppController',
             .then(function (response) {
                 app.Event = response.data.events[0];
                 app.$storage.event = app.Event;
+                openevent.totalDays = DateUtils.DateDiff.inDays(app.Event.begin, app.Event.end);
+                app.Days = [openevent.totalDays];
+                for (var i = 0; i < openevent.totalDays; i+=1) {
+                    app.Days[i] = {num: i, label: 'Day '+ (i+1)};
+                }
+                app.$storage.days = app.Days;
             }, function (error) {
                 console.error(error);
             });
     }
+
 }]);
