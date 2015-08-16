@@ -18,57 +18,74 @@ sessionsModule.config(['$stateProvider', function($stateProvider) {
 sessionsModule.controller('SessionsController',
     ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-        var sc = this;
-        if ($sessionStorage.sessions === null ||
-            typeof($sessionStorage.sessions) == 'undefined')
-        {
-            $sessionStorage.sessions = [];
-        }
-        sc.Sessions = $sessionStorage.sessions;
+            var sc = this;
+            if ($sessionStorage.sessions === null ||
+                typeof($sessionStorage.sessions) == 'undefined')
+            {
+                $sessionStorage.sessions = [];
+            }
 
-        if (sc.Sessions.length === 0) {
-            ApiJsonFactory.getJson('sessions')
-                .then(function (response) {
-                    sc.Sessions = response.data.sessions;
-                    $sessionStorage.sessions = sc.Sessions;
-                }, function (error) {
-                    console.error(error);
+            sc.Sessions = new Array(openevent.totalDays);
+
+            if ($sessionStorage.sessions.length === 0) {
+                ApiJsonFactory.getJson('sessions')
+                    .then(function (response) {
+                        $sessionStorage.sessions = response.data.sessions;
+                        for (var i = 0; i < openevent.totalDays; i+=1) {
+                            sc.Sessions[i] = [];
+                        }
+                        $sessionStorage.sessionset = sc.Sessions;
+
+                        for (var j = 0; j < response.data.sessions.length; j+= 1) {
+                            var dayDiff = DateUtils.DateDiff.inDays(
+                                $sessionStorage.event.begin,
+                                response.data.sessions[j].begin);
+                            sc.Sessions[dayDiff].push(response.data.sessions[j]);
+                            $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
+                        }
+                        $sessionStorage.sessionset = sc.Sessions;
+
+                    }, function (error) {
+                        console.error(error);
+                    });
+            }
+            sc.Days = $sessionStorage.days;
+            sc.Sessionset = $sessionStorage.sessionset;
+
+            sc.duration = function(session) {
+                var start = DateUtils.getHourMin(session.begin);
+                var end = DateUtils.getHourMin(session.end);
+
+                return {start: start, end: end};
+            };
+
+            sc.showSession = function(session, event) {
+                singleSession = session;
+                $mdDialog.show({
+                    controller: 'SessionDialogController',
+                    templateUrl: 'app/components/sessions/sessiondialog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: event,
+
                 });
-        }
-        sc.duration = function(session) {
-            var start = DateUtils.getHourMin(session.begin);
-            var end = DateUtils.getHourMin(session.end);
+            };
 
-            return start + ' - ' + end;
-        };
-
-        sc.showSession = function(session, event) {
-            singleSession = session;
-            $mdDialog.show({
-                controller: 'SessionDialogController',
-                templateUrl: 'app/components/sessions/sessiondialog.html',
-                parent: angular.element(document.body),
-                targetEvent: event,
-
-            });
-        };
-
-    }]);
+        }]);
 
 /* -------------------------- Session Dialog ----------------------- */
 
 sessionsModule.controller('SessionDialogController', ['$mdDialog',
     function($mdDialog) {
-    var sdc = this;
-    sdc.session = singleSession;
+        var sdc = this;
+        sdc.session = singleSession;
 
-    sdc.close = function () {
-        $mdDialog.hide();
-    };
-    sdc.duration = function(session) {
-        var start = DateUtils.getHourMin(session.begin);
-        var end = DateUtils.getHourMin(session.end);
+        sdc.close = function () {
+            $mdDialog.hide();
+        };
+        sdc.duration = function(session) {
+            var start = DateUtils.getHourMin(session.begin);
+            var end = DateUtils.getHourMin(session.end);
 
-        return start + ' - ' + end;
-    };
-}]);
+            return start + ' - ' + end;
+        };
+    }]);

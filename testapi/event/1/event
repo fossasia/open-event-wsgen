@@ -1,17 +1,18 @@
 {
-  "events":[
-      {
-          "color": "#000",
-          "email": "",
-          "end_time": "2015-05-08T16:00:00",
-          "id": 3,
-          "latitude": 52.499,
-          "location_name": "Berlin Station",
-          "longitude": 13.374,
-          "name": "Open Event",
-          "slogan": "A FOSS event app template",
-          "url": "http://fossasia.org",
-          "start_time": "2015-05-01T14:00:00"
-      }
+  "events": [
+    {
+      "begin": "2015-05-04T00:00:00",
+      "color": "#000", 
+      "email": "", 
+      "end": "2015-05-09T00:00:00",
+      "id": 1, 
+      "latitude": 52.49814, 
+      "location_name": "Station Berlin", 
+      "logo": "Zrzut_ekranu_2015-08-01_o_23.19.01.png", 
+      "longitude": 13.374538, 
+      "name": "Finding Europe", 
+      "slogan": "", 
+      "url": "http://15.re-publica.de/"
+    }
   ]
 }
