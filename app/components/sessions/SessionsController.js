@@ -40,6 +40,13 @@ sessionsModule.controller('SessionsController',
                             var dayDiff = DateUtils.DateDiff.inDays(
                                 $sessionStorage.event.begin,
                                 response.data.sessions[j].begin);
+                            //Filter out any mistakenly entered sessions outside date range
+                            if (dayDiff>=openevent.totalDays || dayDiff < 0) {
+                                console.log('Session date = ' + dayDiff
+                                    +' outside event date range = '
+                                    + openevent.totalDays);
+                                continue;
+                            }
                             sc.Sessions[dayDiff].push(response.data.sessions[j]);
                             $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
                         }

@@ -10,14 +10,14 @@ var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
 
         return {
             getJson: function ($apiEndpoint) {
-                console.log(baseUrl);
                 if (($apiEndpoint === 'event') && (!config.use_testApi)) {
-                    var deferred = $q.defer(),
-                        httpPromise = $http.get(baseUrl);
+                    var endpoint = baseUrl;
                 } else {
-                    var deferred = $q.defer(),
-                        httpPromise = $http.get(baseUrl + '/' + $apiEndpoint);
+                    var endpoint = baseUrl + '/' + $apiEndpoint;
                 }
+                console.log(endpoint);
+                var deferred = $q.defer(),
+                    httpPromise = $http.get(endpoint);
                 httpPromise.then(function (response) {
                     deferred.resolve(response);
                 }, function (error) {
