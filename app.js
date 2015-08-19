@@ -50,7 +50,7 @@ openevent.controller('AppController',
             .then(function (response) {
                 app.Event = response.data.events[0];
                 app.$storage.event = app.Event;
-                openevent.totalDays = DateUtils.DateDiff.inDays(app.Event.begin, app.Event.end);
+                openevent.totalDays = DateUtils.DateDiff.inDays(app.Event.begin, app.Event.end) + 1;
                 app.Days = [openevent.totalDays];
                 for (var i = 0; i < openevent.totalDays; i+=1) {
                     app.Days[i] = {num: i, label: 'Day '+ (i+1)};
