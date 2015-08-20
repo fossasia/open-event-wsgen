@@ -25,6 +25,7 @@ sessionsModule.controller('SessionsController',
                 $sessionStorage.sessions = [];
             }
 
+            sc.showLoaders = true;
             sc.Sessions = new Array(openevent.totalDays);
 
             if ($sessionStorage.sessions.length === 0) {
@@ -41,7 +42,7 @@ sessionsModule.controller('SessionsController',
                                 $sessionStorage.event.begin,
                                 response.data.sessions[j].begin);
                             //Filter out any mistakenly entered sessions outside date range
-                            if (dayDiff>=openevent.totalDays || dayDiff < 0) {
+                            if (dayDiff>openevent.totalDays || dayDiff < 0) {
                                 console.log('Session date = ' + dayDiff
                                     +' outside event date range = '
                                     + openevent.totalDays);
@@ -50,14 +51,13 @@ sessionsModule.controller('SessionsController',
                             sc.Sessions[dayDiff].push(response.data.sessions[j]);
                             $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
                         }
-                        $sessionStorage.sessionset = sc.Sessions;
+                        sc.showLoaders = false;
 
                     }, function (error) {
                         console.error(error);
                     });
             }
             sc.Days = $sessionStorage.days;
-            sc.Sessionset = $sessionStorage.sessionset;
 
             sc.duration = function(session) {
                 var start = DateUtils.getHourMin(session.begin);

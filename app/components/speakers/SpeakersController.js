@@ -23,12 +23,14 @@ speakersModule.controller('SpeakersController',
             $sessionStorage.speakers = [];
         }
         sc.Speakers = $sessionStorage.speakers;
+        sc.showLoaders = true;
 
         if (sc.Speakers.length === 0) {
             ApiJsonFactory.getJson('speakers')
                 .then(function (response) {
                     sc.Speakers = response.data.speakers;
                     $sessionStorage.speakers = sc.Speakers;
+                    sc.showLoaders = false;
                 }, function (error) {
                     console.error(error);
                 });
