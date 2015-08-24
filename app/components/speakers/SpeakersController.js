@@ -23,12 +23,18 @@ speakersModule.controller('SpeakersController',
             $sessionStorage.speakers = [];
         }
         sc.Speakers = $sessionStorage.speakers;
-        sc.showLoaders = true;
+        sc.showLoaders = false;
 
         if (sc.Speakers.length === 0) {
+            sc.showLoaders = true;
             ApiJsonFactory.getJson('speakers')
                 .then(function (response) {
                     sc.Speakers = response.data.speakers;
+                    sc.Speakers.sort(SortUtils.sortBy(
+                    	'name',
+                    	false,
+                    	function(a){return a.toUpperCase();}
+                    	));
                     $sessionStorage.speakers = sc.Speakers;
                     sc.showLoaders = false;
                 }, function (error) {
@@ -51,10 +57,28 @@ speakersModule.controller('SpeakersController',
 
 speakersModule.controller('SpeakerDialogController',
     ['$mdDialog', function($mdDialog) {
-    var sdc = this;
-    sdc.speaker = singleSpeaker;
+        var sdc = this;
+        sdc.speaker = singleSpeaker;
 
-    sdc.close = function () {
-        $mdDialog.hide();
-    };
-}]);
+        sdc.speakerChips = [];
+        if((sdc.speaker.country!==null)
+            && (sdc.speaker.country.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Country', value: sdc.speaker.country});
+        }
+        if((sdc.speaker.organisation!==null)
+            && (sdc.speaker.organisation.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Organisation', value: sdc.speaker.organisation});
+        }
+        if((sdc.speaker.position!==null)
+            && (sdc.speaker.positionorganisation.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Position', value: sdc.speaker.position});
+        }
+
+
+        sdc.close = function () {
+            $mdDialog.hide();
+        };
+    }]);

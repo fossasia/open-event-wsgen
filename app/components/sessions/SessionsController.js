@@ -25,10 +25,12 @@ sessionsModule.controller('SessionsController',
                 $sessionStorage.sessions = [];
             }
 
-            sc.showLoaders = true;
+            sc.showLoaders = false;
             sc.Sessions = new Array(openevent.totalDays);
+            sc.Days = $sessionStorage.days;
 
             if ($sessionStorage.sessions.length === 0) {
+                sc.showLoaders = true;
                 ApiJsonFactory.getJson('sessions')
                     .then(function (response) {
                         $sessionStorage.sessions = response.data.sessions;
@@ -50,14 +52,19 @@ sessionsModule.controller('SessionsController',
                             }
                             sc.Sessions[dayDiff].push(response.data.sessions[j]);
                             $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
+                            $sessionStorage.days[dayDiff].sessions.sort(SortUtils.sortBy(
+                            	'begin',
+                            	false,
+                            	function(a){return a;}
+                            	));
                         }
                         sc.showLoaders = false;
+                        sc.Days = $sessionStorage.days;
 
                     }, function (error) {
                         console.error(error);
                     });
             }
-            sc.Days = $sessionStorage.days;
 
             sc.duration = function(session) {
                 var start = DateUtils.getHourMin(session.begin);
