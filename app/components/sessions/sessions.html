@@ -21,7 +21,12 @@
                                 <div class="md-whiteframe-z1 md-padding">
                                     <md-ink-ripple>
                                         <b>{{ session.title }}</b>
-                                        <h4>{{ session.subtitle }}</h4>
+                                        <h3>{{ session.subtitle }}</h3>
+                                        <h4>
+                                            <span> <b>Type: </b> {{ session.format.label_en}} </span> &nbsp;
+                                            <span> <b> Level: </b>{{ session.level.label_en }} </span> &nbsp;
+                                            <span> <b> Language: </b>{{ session.lang.label_en }} </span> &nbsp;
+                                        </h4>
                                         <p>
                                             <br>
                                             {{ session.abstract }}

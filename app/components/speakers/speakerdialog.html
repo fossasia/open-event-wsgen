@@ -14,10 +14,10 @@
         <md-dialog-content>
             <div>
                 <md-subheader>{{sdc.speaker.subtitle}}</md-subheader>
-                <md-chips>
-                    <md-chip> <b> Country: </b> {{ sdc.speaker.country }} </md-chip>
-                    <md-chip> <b> Organisation: </b> {{ sdc.speaker.organisation }} </md-chip>
-                    <md-chip> <b> Position: </b> {{ sdc.speaker.position }} </md-chip>
+                <md-chips ng-model="sdc.speakerChips" readonly="true">
+                    <md-chip-template ng-if="$chip.value.length>0">
+                        <strong>{{$chip.field}}</strong> : <em>{{$chip.value}}</em>
+                    </md-chip-template>
                 </md-chips>
                 <h4> Biography </h4>
                 <p>
