@@ -57,10 +57,28 @@ speakersModule.controller('SpeakersController',
 
 speakersModule.controller('SpeakerDialogController',
     ['$mdDialog', function($mdDialog) {
-    var sdc = this;
-    sdc.speaker = singleSpeaker;
+        var sdc = this;
+        sdc.speaker = singleSpeaker;
 
-    sdc.close = function () {
-        $mdDialog.hide();
-    };
-}]);
+        sdc.speakerChips = [];
+        if((sdc.speaker.country!==null)
+            && (sdc.speaker.country.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Country', value: sdc.speaker.country});
+        }
+        if((sdc.speaker.organisation!==null)
+            && (sdc.speaker.organisation.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Organisation', value: sdc.speaker.organisation});
+        }
+        if((sdc.speaker.position!==null)
+            && (sdc.speaker.positionorganisation.length > 0)) {
+            sdc.speakerChips.push(
+                {field: 'Position', value: sdc.speaker.position});
+        }
+
+
+        sdc.close = function () {
+            $mdDialog.hide();
+        };
+    }]);

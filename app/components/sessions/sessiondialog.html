@@ -16,8 +16,9 @@
                 <md-subheader>{{sdc.session.subtitle}}</md-subheader>
                 <md-chips>
                     <md-chip> <b> Duration: </b> {{ sdc.duration(sdc.session)}} </md-chip>
-                    <md-chip> <b>Type: </b> {{ sdc.session.type}}</md-chip>
-                    <md-chip> <b> Level: </b>{{ sdc.session.level }}</md-chip>
+                    <md-chip> <b>Type: </b> {{ sdc.session.format.label_en}}</md-chip>
+                    <md-chip> <b> Level: </b>{{ sdc.session.level.label_en }}</md-chip>
+                    <md-chip> <b> Language: </b>{{ sdc.session.lang.label_en }}</md-chip>
                 </md-chips>
                 <h4> Abstract </h4>
                 <p>
