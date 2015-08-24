@@ -27,6 +27,7 @@ sessionsModule.controller('SessionsController',
 
             sc.showLoaders = false;
             sc.Sessions = new Array(openevent.totalDays);
+            sc.Days = $sessionStorage.days;
 
             if ($sessionStorage.sessions.length === 0) {
                 sc.showLoaders = true;
