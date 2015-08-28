@@ -28,8 +28,9 @@
                 <p>
                     {{sdc.session.description}}
                 </p>
-                <p>
-
+                <h4> Speakers </h4>
+                <p ng-repeat="speaker in sdc.session.speakers">
+                        {{speaker.name}}
                 </p>
             </div>
         </md-dialog-content>
