@@ -19,12 +19,17 @@ var openevent = angular.module('openevent',
         'oe.map'
     ]);
 
-openevent.config(['$urlRouterProvider', '$httpProvider', function($urlRouterProvider, $httpProvider) {
+openevent.config(['$urlRouterProvider', '$httpProvider', '$mdThemingProvider',
+        function($urlRouterProvider, $httpProvider, $mdThemingProvider) {
 
-    //$httpProvider.defaults.useXDomain = true;
-    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    $urlRouterProvider.otherwise('sessions');
-    }]);
+            //$httpProvider.defaults.useXDomain = true;
+            //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+            $urlRouterProvider.otherwise('sessions');
+
+            $mdThemingProvider.theme('default')
+                .primaryPalette(config.themeColorPrimary)
+                .accentPalette(config.themeColorAccent);
+        }]);
 
 openevent.controller('AppController',
     [ '$mdSidenav', '$mdMedia', '$sessionStorage', 'ApiJsonFactory',
@@ -61,4 +66,4 @@ openevent.controller('AppController',
             });
     }
 
-}]);
+        }]);
