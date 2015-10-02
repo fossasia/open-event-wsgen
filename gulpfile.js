@@ -33,6 +33,7 @@ var srcPaths = {
     libs: [
         './bower_components/angular/angular.js',
         './bower_components/leaflet/leaflet.*',
+        './bower_components/**/angular-simple-logger.js',
         './bower_components/**/angular-animate.js',
         './bower_components/**/angular-aria.js',
         './bower_components/**/angular-leaflet-directive.js',
