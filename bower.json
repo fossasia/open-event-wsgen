@@ -29,7 +29,7 @@
     "angular-material": "~0.10.0",
     "ngstorage": "~0.3.7",
     "angular-ui-router": "~0.2.15",
-    "angular-leaflet-directive": "~0.8.5"
+    "angular-leaflet-directive": "~0.8.8"
   },
   "resolutions": {
     "angular": "1.4.4"
