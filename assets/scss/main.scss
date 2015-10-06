@@ -1,0 +1,85 @@
+//Import the config file
+@import "../../config";
+
+//Import the settings files
+@import "settings/colors";
+@import "settings/fonts";
+
+//Adding styling to components such as toolbar, dialogue box, etc.
+@mixin component($conf: ()) {
+
+	// Dumping CSS
+	.#{map-get($conf, name)} {
+		width: map-get($conf, size);
+		$theme: map-get($conf, theme);
+		background: map-get($bg-clr, $theme) !important;
+		color: map-get($txt-clr, $theme);
+		font-family: map-get($conf, font-family);
+	}
+}
+
+//Adding styling to text elements
+@mixin text($conf: ()) {
+
+	// Dumping CSS
+	.#{map-get($conf, name)} {
+		width: map-get($conf, size);
+		$border: map-get($conf, border);
+		$theme: map-get($conf, theme);
+		color: map-get($txt-clr, $theme) !important;
+		border-color: map-get($txt-clr, $border) !important;
+		font-family: map-get($conf, font-family);
+	}
+}
+
+$component-toolbar: (
+	theme: map-get($config, theme),
+	name: 'md-toolbar-tools',
+	font-family: map-get($conf, font-family),
+);
+
+$component-whiteframe: (
+	theme: map-get($config, theme),
+	name: 'md-whiteframe-z1',
+	font-family: map-get($conf, font-family),
+);
+
+$component-tileFooter: (
+	theme: map-get($config, theme),
+	name: 'md-grid-tile-footer',
+	font-family: map-get($conf, font-family),
+);
+
+$component-card: (
+	theme: map-get($config, theme),
+	name: 'md-card-content',
+	font-family: map-get($conf, font-family),
+);
+
+$component-subheader: (
+	theme: map-get($config, theme),
+	name: 'md-subheader-content',
+	font-family: map-get($conf, font-family),
+);
+
+$component-input: (
+	theme: map-get($config, theme),
+	name: 'md-input-focused:not(.md-input-invalid) > input',
+	border: map-get($config, theme),
+	font-family: map-get($conf, font-family),
+);
+
+$component-label: (
+	theme: map-get($config, theme),
+	name: 'md-input-focused:not(.md-input-invalid) > label',
+	font-family: map-get($conf, font-family),
+);
+
+
+@include component($component-toolbar);
+//@include component($component-whiteframe); - Include if want cards to match the main background theme
+@include component($component-tileFooter);
+@include component($component-card);
+@include text($component-subheader);
+@include text($component-input);
+@include text($component-label);

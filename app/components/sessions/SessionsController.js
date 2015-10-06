@@ -74,7 +74,9 @@ sessionsModule.controller('SessionsController',
             };
 
             sc.showSession = function(session, event) {
-                singleSession = session;
+                $mdDialog.session = {
+                    singleSession: session
+                };
                 $mdDialog.show({
                     controller: 'SessionDialogController',
                     templateUrl: 'app/components/sessions/sessiondialog.html',
@@ -91,7 +93,7 @@ sessionsModule.controller('SessionsController',
 sessionsModule.controller('SessionDialogController', ['$mdDialog',
     function($mdDialog) {
         var sdc = this;
-        sdc.session = singleSession;
+        sdc.session = $mdDialog.session.singleSession;
 
         sdc.close = function () {
             $mdDialog.hide();

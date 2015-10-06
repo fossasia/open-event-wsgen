@@ -13,7 +13,7 @@
         </md-toolbar>
         <md-dialog-content>
             <div>
-                <md-subheader>{{sdc.session.subtitle}}</md-subheader>
+                <md-subheader ng-if="sdc.session.subtitle.length>0">{{sdc.session.subtitle}}</md-subheader>
                 <md-chips>
                     <md-chip> <b> Duration: </b> {{ sdc.duration(sdc.session)}} </md-chip>
                     <md-chip> <b>Type: </b> {{ sdc.session.format.label_en}}</md-chip>

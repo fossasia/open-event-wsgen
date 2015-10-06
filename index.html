@@ -2,6 +2,9 @@
 <html ng-app="openevent" ng-controller="AppController as appCtrl">
 <head lang="en">
 
+    <!-- web app manifest: https://w3c.github.io/manifest/ -->
+    <link rel="manifest" href="manifest.webmanifest">
+    
     <script src="config.js"></script>
 
     <!-- inject:css -->
@@ -13,7 +16,7 @@
     <meta name="viewport" content="initial-scale=1" />
     <title> {{ appCtrl.appTitle }} </title>
 </head>
-<body layout="column">
+<body layout="column" class="mainBody">
     <md-toolbar layout="row">
         <div class="md-toolbar-tools">
             <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
@@ -40,9 +43,9 @@
 
 
     <!-- inject:js -->
-    <script src="assets/js/Utils.js"></script>
     <script src="assets/js/leaflet.js"></script>
     <script src="assets/js/twitter-widget.js"></script>
+    <script src="assets/js/Utils.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>

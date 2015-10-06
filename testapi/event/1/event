@@ -8,6 +8,7 @@
       "id": 1, 
       "latitude": 52.49814, 
       "location_name": "Station Berlin", 
+	  "address":"STATION 10963 Berlin GmbH Luckenwalder Str. 4–6 10963 Berlin",
       "logo": "Zrzut_ekranu_2015-08-01_o_23.19.01.png", 
       "longitude": 13.374538, 
       "name": "re:Publica 2015",
