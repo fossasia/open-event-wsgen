@@ -40,10 +40,19 @@ speakersModule.controller('SpeakersController',
                 }, function (error) {
                     console.error(error);
                 });
+            ApiJsonFactory.getJson('sessions')
+                .then(function (response) {
+                    sc.Sessions = response.data.sessions;
+                    $sessionStorage.sessions = sc.Sessions;
+                }, function (error) {
+                    console.error(error);
+                });
         }
 
         sc.showSpeaker = function(speaker, event) {
-            singleSpeaker = speaker;
+            $mdDialog.speak = {
+                singleSpeaker:speaker
+            };
             $mdDialog.show({
                 controller: 'SpeakerDialogController',
                 templateUrl: 'app/components/speakers/speakerdialog.html',
@@ -56,9 +65,10 @@ speakersModule.controller('SpeakersController',
 }]);
 
 speakersModule.controller('SpeakerDialogController',
-    ['$mdDialog', function($mdDialog) {
+    ['$mdDialog', '$sessionStorage', function($mdDialog, $sessionStorage) {
         var sdc = this;
-        sdc.speaker = singleSpeaker;
+        sdc.speaker = $mdDialog.speak.singleSpeaker;
+        sdc.allSessions = $sessionStorage.sessions;
 
         sdc.speakerChips = [];
         if((sdc.speaker.country!==null)
@@ -77,6 +87,40 @@ speakersModule.controller('SpeakerDialogController',
                 {field: 'Position', value: sdc.speaker.position});
         }
 
+        sdc.count = function(speaker, sessions){
+            var count = sessions.filter(function(session){
+                return session.speakers.filter(function(sp){
+                          return sp.id == speaker.id;
+                 })
+                 .length > 0;                        
+            }).length;
+            return count;
+        };
+        
+        sdc.sessionsDetail = function(speaker, sessions) {
+
+            var spSessions = sessions.filter(function(session){
+                 return session.speakers.filter(function(sp){
+                          return sp.id == speaker.id;
+                 })
+                 .length > 0;                
+            });
+
+            return spSessions;                
+        };
+
+        sdc.showSession = function(session, event) {
+            $mdDialog.session = {
+                singleSession: session
+            };
+            $mdDialog.show({
+                controller: 'SessionDialogController',
+                templateUrl: 'app/components/sessions/sessiondialog.html',
+                parent: angular.element(document.body),
+                targetEvent: event,
+
+            });
+        };
 
         sdc.close = function () {
             $mdDialog.hide();
