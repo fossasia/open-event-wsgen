@@ -88,31 +88,23 @@ speakersModule.controller('SpeakerDialogController',
         }
 
         sdc.count = function(speaker, sessions){
-            var count = 0;
-            for(var i = 0; i < sessions.length; i++) {
-                if(sessions[i].speakers.length > 0) {
-                    for(var j = 0; j < sessions[i].speakers.length; j++) {
-                        if(speaker.id == sessions[i].speakers[j].id)
-                            count++;
-                    }
-                }                    
-            }
-
+            var count = sessions.filter(function(session){
+                return session.speakers.filter(function(sp){
+                          return sp.id == speaker.id;
+                 })
+                 .length > 0;                        
+            }).length;
             return count;
         };
         
         sdc.sessionsDetail = function(speaker, sessions) {
-            var k = 0;
-            var count = sdc.count(speaker,sessions);
-            var spSessions = new Array(count);
-            for(var i = 0; i < sessions.length;i++) {
-                if(sessions[i].speakers.length > 0) {
-                    for(var j = 0; j < sessions[i].speakers.length; j++) {
-                        if(speaker.id == sessions[i].speakers[j].id)
-                            spSessions[k++] = sessions[i];
-                    }
-                }
-            }
+
+            var spSessions = sessions.filter(function(session){
+                 return session.speakers.filter(function(sp){
+                          return sp.id == speaker.id;
+                 })
+                 .length > 0;                
+            });
 
             return spSessions;                
         };
