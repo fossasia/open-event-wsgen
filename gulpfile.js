@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),
     uglify = require('gulp-uglify'),
     minify = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
     flatten = require('gulp-flatten');
 
 var bases = {
@@ -133,6 +134,11 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
+gulp.task('styles', function() {
+    gulp.src('./assets/scss/main.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./assets/css/'))
+});
 
 gulp.task('dist', function() {
     distCopy();
@@ -145,4 +151,4 @@ gulp.task('dist-min', function() {
     setTimeout(function(){ distMinify(); }, 2000);
 });
 
-gulp.task('default', ['webserver']);
+gulp.task('default', ['webserver', 'styles']);

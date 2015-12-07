@@ -1,0 +1,50 @@
+//Import the config file
+@import "../../config";
+
+//Import the settings files
+@import "settings/colors";
+@import "settings/fonts";
+
+//Adding styling to components such as toolbar, dialogue box, etc.
+@mixin component($conf: ()) {
+	
+	// Dumping CSS
+	.#{map-get($conf, name)} {
+		width: map-get($conf, size);
+		$theme: map-get($conf, theme);
+		background: map-get($bg-clr, $theme);
+		color: map-get($txt-clr, $theme);
+	}
+}
+
+//Adding styling to text elements
+@mixin text($conf: ()) {
+	
+	// Dumping CSS
+	.#{map-get($conf, name)} {
+		width: map-get($conf, size);
+		$border: map-get($conf, border);
+		$theme: map-get($conf, theme);
+		color: map-get($bg-clr, $theme);
+		border-color: map-get($bg-clr, $border);
+	}
+}
+
+$component-toolbar: (
+	theme: map-get($config, theme),
+	name: 'md-toolbar-tools',
+);
+
+$component-subheader: (
+	theme: map-get($config, theme),
+	name: 'md-subheader-content',
+);
+
+$component-input: (
+	theme: map-get($config, theme),
+	name: 'md-input-focused:not(.md-input-invalid) label',
+);
+
+@include component($component-toolbar);
+@include text($component-subheader);
+@include text($component-input);
