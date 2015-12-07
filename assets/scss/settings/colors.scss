@@ -1,0 +1,32 @@
+// COLORS
+// ---------------------------
+$dark: #000 !default;
+$light: #FFF !default;
+
+//background colors
+$bg-clr: (
+	default: #FFEB00,
+	pink: #EB00FF,
+	orange: #FF6C00,
+	green: #94FF00,
+	purple: #6C00FF,
+	blue: #0094FF,
+	lightblue: #00FFEB,
+	red: #FF0014,
+	dark: #141200,
+	light: #FFFAC4
+);
+
+//text colors
+$txt-clr: (
+	default: $dark,
+	pink: $dark,
+	orange: $dark,
+	green: $dark,
+	purple: $light,
+	blue: $light,
+	lightblue: $dark,
+	red: $light,
+	dark: $light,
+	light: $dark
+);
