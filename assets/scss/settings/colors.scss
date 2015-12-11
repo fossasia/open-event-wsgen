@@ -12,7 +12,12 @@ $bg-clr: (
 	purple: #6C00FF,
 	blue: #0094FF,
 	lightblue: #00FFEB,
+	magenta: #FF00FF,
 	red: #FF0014,
+	brown: #6E6341,
+	tan: #D2B48C,
+	thistle: #FFE1FF,
+	banana: #E3CF57,
 	dark: #141200,
 	light: #FFFAC4
 );
@@ -26,7 +31,14 @@ $txt-clr: (
 	purple: $light,
 	blue: $light,
 	lightblue: $dark,
+	magenta: $dark,
 	red: $light,
+	brown: $dark,
+	tan: $dark,
+	thistle: $dark,
+	banana: $dark,
 	dark: $light,
 	light: $dark
 );
+
+//Need to add third property to choose text other than on background (ie. white on white looks terrible but white on navyblue, the bg color, looks good
