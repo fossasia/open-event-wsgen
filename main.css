@@ -27,3 +27,11 @@
     width: 75% !important;
     height: auto !important;
 }
+
+.md-subheader .md-subheader-inner {
+    padding: 0px 0px 0px 0px;
+}
+
+.sub_content {
+    margin-top: -22px !important;
+}
