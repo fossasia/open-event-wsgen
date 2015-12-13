@@ -7,19 +7,20 @@
 
 //Adding styling to components such as toolbar, dialogue box, etc.
 @mixin component($conf: ()) {
-	
+
 	// Dumping CSS
 	.#{map-get($conf, name)} {
 		width: map-get($conf, size);
 		$theme: map-get($conf, theme);
 		background: map-get($bg-clr, $theme);
 		color: map-get($txt-clr, $theme);
+		font-family: map-get($conf, font-family);
 	}
 }
 
 //Adding styling to text elements
 @mixin text($conf: ()) {
-	
+
 	// Dumping CSS
 	.#{map-get($conf, name)} {
 		width: map-get($conf, size);
@@ -27,6 +28,7 @@
 		$theme: map-get($conf, theme);
 		color: map-get($bg-clr, $theme);
 		border-color: map-get($bg-clr, $border);
+		font-family: map-get($conf, font-family);
 	}
 }
 
