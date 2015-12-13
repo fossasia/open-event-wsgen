@@ -12,7 +12,7 @@
 	.#{map-get($conf, name)} {
 		width: map-get($conf, size);
 		$theme: map-get($conf, theme);
-		background: map-get($bg-clr, $theme);
+		background: map-get($bg-clr, $theme) !important;
 		color: map-get($txt-clr, $theme);
 	}
 }
@@ -25,14 +25,29 @@
 		width: map-get($conf, size);
 		$border: map-get($conf, border);
 		$theme: map-get($conf, theme);
-		color: map-get($bg-clr, $theme);
-		border-color: map-get($bg-clr, $border);
+		color: map-get($txt-clr, $theme) !important;
+		border-color: map-get($txt-clr, $border) !important;
 	}
 }
 
 $component-toolbar: (
 	theme: map-get($config, theme),
 	name: 'md-toolbar-tools',
+);
+
+$component-whiteframe: (
+	theme: map-get($config, theme),
+	name: 'md-whiteframe-z1'
+);
+
+$component-tileFooter: (
+	theme: map-get($config, theme),
+	name: 'md-grid-tile-footer'
+);
+
+$component-card: (
+	theme: map-get($config, theme),
+	name: 'md-card-content'
 );
 
 $component-subheader: (
@@ -42,9 +57,20 @@ $component-subheader: (
 
 $component-input: (
 	theme: map-get($config, theme),
-	name: 'md-input-focused:not(.md-input-invalid) label',
+	name: 'md-input-focused:not(.md-input-invalid) > input',
+	border: map-get($config, theme),
 );
 
+$component-label: (
+	theme: map-get($config, theme),
+	name: 'md-input-focused:not(.md-input-invalid) > label',
+);
+
+
 @include component($component-toolbar);
+//@include component($component-whiteframe); - Include if want cards to match the main background theme
+@include component($component-tileFooter);
+@include component($component-card);
 @include text($component-subheader);
 @include text($component-input);
+@include text($component-label);
