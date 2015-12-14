@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" 
+	id="Ski Trail Rating Symbols - Black Diamond"
+	viewBox="0 0 599 599" width="600" height="600">
+	<rect id="blue_square" fill="#069" x="66" y="66" width="472" height="472" />
+	<path id="black_diamond" fill="#000" d="M 300,66 L 536,300 L 300,536 L 66,300 L 300,66 z" />
+</svg>
