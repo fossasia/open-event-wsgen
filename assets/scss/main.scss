@@ -35,37 +35,44 @@
 $component-toolbar: (
 	theme: map-get($config, theme),
 	name: 'md-toolbar-tools',
+	font-family: map-get($conf, font-family),
 );
 
 $component-whiteframe: (
 	theme: map-get($config, theme),
-	name: 'md-whiteframe-z1'
+	name: 'md-whiteframe-z1',
+	font-family: map-get($conf, font-family),
 );
 
 $component-tileFooter: (
 	theme: map-get($config, theme),
-	name: 'md-grid-tile-footer'
+	name: 'md-grid-tile-footer',
+	font-family: map-get($conf, font-family),
 );
 
 $component-card: (
 	theme: map-get($config, theme),
-	name: 'md-card-content'
+	name: 'md-card-content',
+	font-family: map-get($conf, font-family),
 );
 
 $component-subheader: (
 	theme: map-get($config, theme),
 	name: 'md-subheader-content',
+	font-family: map-get($conf, font-family),
 );
 
 $component-input: (
 	theme: map-get($config, theme),
 	name: 'md-input-focused:not(.md-input-invalid) > input',
 	border: map-get($config, theme),
+	font-family: map-get($conf, font-family),
 );
 
 $component-label: (
 	theme: map-get($config, theme),
 	name: 'md-input-focused:not(.md-input-invalid) > label',
+	font-family: map-get($conf, font-family),
 );
 
 
