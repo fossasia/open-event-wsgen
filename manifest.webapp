@@ -1,0 +1,16 @@
+{
+  "name": "Open-event-webapp",
+  "description": "This is a client-side webapp, that will be used by attendees of the event.",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/icon/lowres.ico"
+  },
+  "developer": {
+    "name": "fossasia",
+    "url": "http://fossasia.org/"
+  },
+  "default_locale": "en",
+  "chrome": {
+    "navigation": true
+  }
+}

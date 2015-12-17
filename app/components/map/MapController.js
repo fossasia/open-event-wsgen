@@ -40,3 +40,11 @@ mapModule.controller('MapController',
     });
 
 }]);
+
+mapModule.controller('AddressController', 
+	['$scope', '$sessionStorage',
+		function($scope, $sessionStorage) { 
+	var mc = this;
+	mc.Event = $sessionStorage.event;
+  $scope.address = mc.Event.address; 
+}]);
