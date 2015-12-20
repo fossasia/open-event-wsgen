@@ -29,7 +29,9 @@ var srcPaths = {
         './index.html',
         './app.js',
         './main.css',
-        './config.js'
+        './config.js',
+        './manifest.*'
+
     ],
     libs: [
         './bower_components/angular/angular.js',
