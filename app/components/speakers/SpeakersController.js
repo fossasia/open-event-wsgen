@@ -30,6 +30,7 @@ speakersModule.controller('SpeakersController',
             ApiJsonFactory.getJson('speakers')
                 .then(function (response) {
                     sc.Speakers = response.data.speakers;
+                    console.log(sc.Speakers);
                     sc.Speakers.sort(SortUtils.sortBy(
                     	'name',
                     	false,
@@ -43,6 +44,7 @@ speakersModule.controller('SpeakersController',
             ApiJsonFactory.getJson('sessions')
                 .then(function (response) {
                     sc.Sessions = response.data.sessions;
+                    console.log("hello");
                     $sessionStorage.sessions = sc.Sessions;
                 }, function (error) {
                     console.error(error);
