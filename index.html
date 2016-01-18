@@ -4,7 +4,7 @@
 
     <!-- web app manifest: https://w3c.github.io/manifest/ -->
     <link rel="manifest" href="manifest.webmanifest">
-    
+
     <script src="config.js"></script>
 
     <!-- inject:css -->
@@ -22,7 +22,9 @@
             <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
                 <md-icon aria-label="Menu" md-svg-icon="assets/img/ic_toolbar_menu.svg"></md-icon>
             </md-button>
-            <h1 id="title"> {{ appCtrl.Event.name }} </h1>
+            <img src="assets/img/logo.svg" >
+            <h1 id="title">{{ appCtrl.Event.name }} </h1>
+            <link rel="shortcut icon" href="assests/img/placeholder.png" type="image/png"/>
         </div>
     </md-toolbar>
     <md-subheader class="md-accent"> {{appCtrl.Event.slogan}} </md-subheader>
