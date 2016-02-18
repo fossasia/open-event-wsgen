@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="main.css">
     <!-- endinject -->
     <meta charset="UTF-8">
+<meta name="google-signin-client_id" content="Your client Id.apps.googleusercontent.com">
     <meta name="viewport" content="initial-scale=1" />
     <title> {{ appCtrl.appTitle }} </title>
 </head>
@@ -24,8 +25,33 @@
             </md-button>
             <img src="assets/img/logo.svg" width="45" height="45">
             <h1 id="title"> {{ appCtrl.Event.name }} </h1>
+<div id="my-signin2" style="margin-left:70%"></div>
+  <script>
+    function onSuccess(googleUser) {
+      window.location.href="index1.html";
+      window.check=1;
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'https://www.googleapis.com/auth/plus.login',
+        'width': 200,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         </div>
+
     </md-toolbar>
+    
     <md-subheader class="md-accent"> {{appCtrl.Event.slogan}} </md-subheader>
 
     <div layout="row" flex>
@@ -44,9 +70,9 @@
 
 
     <!-- inject:js -->
+    <script src="assets/js/Utils.js"></script>
     <script src="assets/js/leaflet.js"></script>
     <script src="assets/js/twitter-widget.js"></script>
-    <script src="assets/js/Utils.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
