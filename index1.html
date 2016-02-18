@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="openevent" ng-controller="AppController as appCtrl">
+<head lang="en">
+<style>
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+</style>
+
+    <!-- web app manifest: https://w3c.github.io/manifest/ -->
+    <link rel="manifest" href="manifest.webmanifest">
+    
+    <script src="config.js"></script>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- endinject -->
+    <meta charset="UTF-8">
+<meta name="google-signin-client_id" content="You have to add your client Id here.apps.googleusercontent.com">
+    <meta name="viewport" content="initial-scale=1" />
+    <title> {{ appCtrl.appTitle }} </title>
+</head>
+<body layout="column" class="mainBody">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
+                <md-icon aria-label="Menu" md-svg-icon="assets/img/ic_toolbar_menu.svg"></md-icon>
+            </md-button>
+            <img src="assets/img/logo.svg" width="45" height="45">
+            <h1 id="title"> {{ appCtrl.Event.name }} </h1>
+<div id="my-signin2" style="margin-left:60%"></div>
+<input type=button value="Log out" style="margin-left:1%" onclick="signOut()">
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      window.location.href="index.html";
+      window.check=0;
+    });
+  }
+</script>
+
+  <script>
+    function onSuccess(googleUser) {
+      window.check=1;
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'https://www.googleapis.com/auth/plus.login',
+        'width': 220,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        </div>
+
+    </md-toolbar>
+    
+    <md-subheader class="md-accent"> {{appCtrl.Event.slogan}} </md-subheader>
+
+    <div layout="row" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <div ng-include src="'app/components/sidenav/sidenav.html'"></div>
+        </md-sidenav>
+
+        <md-content flex layout-padding>
+            <div layout="column" layout-fill layout-align="top center">
+                <div ui-view></div>
+            </div>
+            <div flex></div>
+        </md-content>
+    </div>
+
+
+    <!-- inject:js -->
+    <script src="assets/js/Utils.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/twitter-widget.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="app/components/common/ApiJsonFactory.js"></script>
+    <script src="app/components/map/MapController.js"></script>
+    <script src="app/components/sessions/SessionsController.js"></script>
+    <script src="app/components/sidenav/SidenavController.js"></script>
+    <script src="app/components/speakers/SpeakersController.js"></script>
+    <script src="app/components/sponsors/SponsorsController.js"></script>
+    <script src="app/components/tracks/TracksController.js"></script>
+    <script src="app/components/twitterwall/TwitterwallController.js"></script>
+    <!-- endinject -->
+</body>
+</html>
