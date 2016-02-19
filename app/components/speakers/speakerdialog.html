@@ -4,7 +4,8 @@
     <form>
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>{{sdc.speaker.name}}</h2>
+                <img ng-src="{{sdc.speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" style="width:50px;height:50px;border-radius:25px" />
+                <h2 style="margin-left:1%;">{{sdc.speaker.name}}</h2>
                 <span flex></span>
                 <md-button class="md-icon-button" ng-click="sdc.close()">
                     <md-icon md-svg-src="assets/img/ic_toolbar_close.svg" aria-label="Close dialog"></md-icon>
