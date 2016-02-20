@@ -3,7 +3,7 @@
     {
       "name": "Google",
       "url": "http://google.com",
-      "logo": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Googlelogo.png/320px-Googlelogo.png"
+      "logo": "http://res.cloudinary.com/demo/image/fetch/fl_png8/https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
     },
     {
       "name": "Moz",
