@@ -12,13 +12,27 @@ twitModule.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
+
+
+/*created By aayusharora on 17/2/16*/
 twitModule.controller('TwitterwallController',
-    ['$rootScope', '$sessionStorage', '$scope',
-        function($scope, $rootScope, $sessionStorage) {
-
-            var tc = this;
-            $scope.hashtag = 'fossasia';
-
-        }
+    ['$state','$http','$scope',function($state,$http,$scope){
+      $scope.fetched=false;
+        $http({
+  method: 'GET',
+  url: 'http://loklak.org/api/search.json?q=fossasia',
+  cache:true
+}).then(function successCallback(response) {
+     $scope.array=[];
+     console.log(response);
+     $scope.array=response.data.statuses;
+     $scope.fetched=true;
+     
+  }, function errorCallback(response) {
+  
+  });
+    }
+      
+            
     ]
 );
