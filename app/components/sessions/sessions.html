@@ -13,7 +13,7 @@
 
         <md-content style="height: 720px">
             <section ng-repeat="day in sc.Days" ng-if="day.sessions.length > 0">
-                <md-subheader style="margin-right:35px;" class="md-primary"> {{ day.label }}</md-subheader>
+                <md-subheader  class="md-primary"> {{ day.label }}</md-subheader>
                 <md-list>
                     <md-list-item class="md-3-line" ng-repeat="session in day.sessions | filter: { title: query, speakers: {name: queryspkr} }">
                         <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
