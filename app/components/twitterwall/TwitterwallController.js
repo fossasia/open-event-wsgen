@@ -1,7 +1,3 @@
-/**
- * Created by championswimmer on 9/8/15.
- */
-
 var twitModule = angular.module('oe.twitterwall', ['ui.router']);
 
 twitModule.config(['$stateProvider', function($stateProvider) {
@@ -12,13 +8,20 @@ twitModule.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
+/*created By aayusharora on 17/2/16*/
 twitModule.controller('TwitterwallController',
-    ['$rootScope', '$sessionStorage', '$scope',
-        function($scope, $rootScope, $sessionStorage) {
-
-            var tc = this;
-            $scope.hashtag = 'fossasia';
-
+    ['$state','$http','$timeout','$scope','TwitterJsonFactory',function($state,$http,$timeout,$scope,TwitterJsonFactory){
+       $scope.array=[];
+      $scope.fetched=false;
+      if($scope.array.length==0){
+        TwitterJsonFactory.getJson()
+        .then(function(response){
+          $scope.array=response.data.statuses;
+          if($scope.array){
+              $scope.fetched=true;
+            }
+          })
         }
+      }
     ]
 );
