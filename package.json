@@ -5,6 +5,7 @@
     "url": "git://github.com/fossasia/open-event-webapp.git"
   },
   "devDependencies": {
+    "angular-mocks": "^1.4.8",
     "bower": "~1.4.1",
     "gulp": "~3.9.0",
     "gulp-clean": "~0.3.1",
@@ -13,6 +14,11 @@
     "gulp-inject": "~1.5.0",
     "gulp-minify-css": "~1.2.0",
     "gulp-sass": "^2.1.0",
-    "gulp-uglify": "~1.2.0"
+    "gulp-uglify": "~1.2.0",
+    "karma-coverage": "^0.5.3",
+    "karma": "~0.12.0",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.2.6",
+    "karma-jasmine": "^0.3.6"
   }
 }

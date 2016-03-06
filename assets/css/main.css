@@ -1,0 +1,23 @@
+.md-toolbar-tools {
+  background: #FFEB00 !important;
+  color: #000; }
+
+.md-grid-tile-footer {
+  background: #FFEB00 !important;
+  color: #000; }
+
+.md-card-content {
+  background: #FFEB00 !important;
+  color: #000; }
+
+.md-subheader-content {
+  color: #000 !important;
+  border-color: !important; }
+
+.md-input-focused:not(.md-input-invalid) > input {
+  color: #000 !important;
+  border-color: #000 !important; }
+
+.md-input-focused:not(.md-input-invalid) > label {
+  color: #000 !important;
+  border-color: !important; }
