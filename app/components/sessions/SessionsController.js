@@ -4,6 +4,7 @@
 
 
 var sessionsModule = angular.module('oe.sessions', ['ui.router']);
+var check=0;
 
 /* ----------------------------- Sessions List ---------------------------- */
 var singleSession = {};
@@ -77,6 +78,7 @@ sessionsModule.controller('SessionsController',
                 $mdDialog.session = {
                     singleSession: session
                 };
+                if(check===0){
                 $mdDialog.show({
                     controller: 'SessionDialogController',
                     templateUrl: 'app/components/sessions/sessiondialog.html',
@@ -84,6 +86,17 @@ sessionsModule.controller('SessionsController',
                     targetEvent: event,
 
                 });
+               }
+               else{
+                $mdDialog.show({
+                    controller: 'SessionLoginDialogController',
+                    templateUrl: 'app/components/sessions/sessionlogindialog.html',
+                    parent: angular.element(document.body),
+                    targetEvent: event,
+
+                });
+
+                 }
             };
 
         }]);
@@ -91,6 +104,23 @@ sessionsModule.controller('SessionsController',
 /* -------------------------- Session Dialog ----------------------- */
 
 sessionsModule.controller('SessionDialogController', ['$mdDialog',
+    function($mdDialog) {
+        var sdc = this;
+        sdc.session = $mdDialog.session.singleSession;
+
+        sdc.close = function () {
+            $mdDialog.hide();
+        };
+        sdc.duration = function(session) {
+            var start = DateUtils.getHourMin(session.begin);
+            var end = DateUtils.getHourMin(session.end);
+
+            return start + ' - ' + end;
+        };
+    }]);
+
+
+sessionsModule.controller('SessionLoginDialogController', ['$mdDialog',
     function($mdDialog) {
         var sdc = this;
         sdc.session = $mdDialog.session.singleSession;

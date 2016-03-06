@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html ng-app="openevent" ng-controller="AppController as appCtrl">
 <head lang="en">
+<style>
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+</style>
 
     <!-- web app manifest: https://w3c.github.io/manifest/ -->
     <link rel="manifest" href="manifest.webmanifest">
@@ -10,10 +46,11 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="assets/css/leaflet.css">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="main.css">
     <!-- endinject -->
     <meta charset="UTF-8">
-<meta name="google-signin-client_id" content="Your client Id.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="You have to add your client Id here.apps.googleusercontent.com">
     <meta name="viewport" content="initial-scale=1" />
     <title> {{ appCtrl.appTitle }} </title>
 </head>
@@ -25,10 +62,20 @@
             </md-button>
             <img src="assets/img/logo.svg" width="45" height="45">
             <h1 id="title"> {{ appCtrl.Event.name }} </h1>
-<div id="my-signin2" style="margin-left:70%"></div>
+<div id="my-signin2" style="margin-left:60%"></div>
+<input type=button value="Log out" style="margin-left:1%" onclick="signOut()">
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      window.location.href="index.html";
+      window.check=0;
+    });
+  }
+</script>
+
   <script>
     function onSuccess(googleUser) {
-      window.location.href="index1.html";
       window.check=1;
     }
     function onFailure(error) {
@@ -37,7 +84,7 @@
     function renderButton() {
       gapi.signin2.render('my-signin2', {
         'scope': 'https://www.googleapis.com/auth/plus.login',
-        'width': 200,
+        'width': 220,
         'height': 50,
         'longtitle': true,
         'theme': 'dark',

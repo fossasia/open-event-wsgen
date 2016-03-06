@@ -1,0 +1,56 @@
+<div ng-controller="SessionsController as sc" class="md-default-theme">
+    <div layout="column" class="parent">
+        <div layout layout-sm="column">
+            <md-input-container flex>
+                <label>Search by Title</label>
+                <input ng-model="query" type="text" autofocus>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Search by Speakers</label>
+                <input ng-model="queryspkr" type="text" autofocus>
+            </md-input-container>
+        </div>
+
+        <md-content style="height: 720px">
+            <section ng-repeat="day in sc.Days" ng-if="day.sessions.length > 0">
+                <md-subheader class="md-primary"> {{ day.label }}</md-subheader>
+                <md-list>
+                    <md-list-item class="md-3-line" ng-repeat="session in day.sessions | filter: { title: query, speakers: {name: queryspkr} }">
+                        <div class="md-list-item-text" ng-click="sc.showSession(session, $event)">
+                            <div layout="row" layout-lg="row" layout-md="row" layout-sm="column">
+                                <div class="md-padding" style="min-width: 150px; align-self: center">
+                                    <div>
+                                        <b>{{ sc.duration(session).start}}</b>
+                                        -
+                                        {{ sc.duration(session).end}}
+                                    </div>
+                                </div>
+                                <div class="md-whiteframe-z1 md-padding">
+                                    <md-ink-ripple>
+                                        <b>{{ session.title }}</b>
+                                        <h3>{{ session.subtitle }}</h3>
+                                        <h3>{{ session.track }}</h3>
+                                        <h4>
+                                            <span> <b>Type: </b> {{ session.format.label_en}} </span> &nbsp;
+                                            <span> <b> Level: </b>{{ session.level.label_en }} </span> &nbsp;
+                                            <span> <b> Language: </b>{{ session.lang.label_en }} </span> &nbsp;
+                                        </h4>
+                                        <p>
+                                            <br>
+                                            {{ session.abstract }}
+                                        </p>
+                                        <h4 ng-if="session.speakers.length>0">
+                                            <b>Speakers: </b> <i ng-repeat="spkr in session.speakers">{{spkr.name}}, &nbsp; </i>
+                                        </h4>
+                                    </md-ink-ripple>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </section>
+            <div layout="column" flex style="align-content: center"> <p align="center"> <md-progress-circular ng-if="sc.showLoaders" md-mode="indeterminate"></md-progress-circular></p></div>
+        </md-content>
+    </div>
+
+</div>
