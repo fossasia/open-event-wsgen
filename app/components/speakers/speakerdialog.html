@@ -17,7 +17,7 @@
                 <md-subheader ng-if="sdc.speaker.subtitle.length>0">{{sdc.speaker.subtitle}}</md-subheader>
                 <md-chips ng-model="sdc.speakerChips" readonly="true">
                     <md-chip-template ng-if="$chip.value.length>0">
-                        <strong>{{$chip.field}}</strong> : <em>{{$chip.value}}</em>
+                        <a href="http://{{sdc.speaker.orglink}}"><strong>{{$chip.field}}</strong> : <em>{{$chip.value}}</em></a>
                     </md-chip-template>
                 </md-chips>
                 <h4> Biography </h4>
