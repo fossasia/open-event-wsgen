@@ -5,33 +5,33 @@
     {
       "biography": "Matthias Spielkamp is managing editor of iRights.info, covering legal, economic and policy aspects of digitisation (winner of the Grimme Online Award). As a founding partner at the iRights.Lab think tank, he advises public institutions, NGOs and private companies on online journalism, communication strategies and information security. Matthias held teaching assignments at various universities, is a frequent speaker at national and international conferences and testified several times before German parliamentary committees. He co-authored three books on journalism and copyright, serves on the board of the German chapter of Reporters without Borders (pro bono) and is a member of the American Council on Germany as a former McCloy Fellow. Recently, he curated the Groundbreaking Journalism event series.", 
       "country": "", 
-      "email": "", 
-      "facebook": null, 
+      "email": "ms@spielkamp.org", 
+      "facebook": "matthias.spielkamp", 
       "github": null, 
       "id": 1, 
-      "linkedin": null, 
+      "linkedin": "matthiasspielkamp", 
       "name": "Matthias Spielkamp", 
       "organisation": "Reporters without Borders", 
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/120330-03538.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "spielkamp", 
       "web": "http://re-publica.de/member/1004#profile-speaker"
     }, 
     {
       "biography": "Thom Nagy ist seit 2004 als Journalist t\u00e4tig. Ab 2006 schrieb er bei \u00ab20 Minuten\u00bb \u00fcber Popkultur bis er 2011 zur \u00abNeuen Z\u00fcrcher Zeitung\u00bb wechselte, wo er sich im NZZ Lab mit den Implikationen vernetzter Kommunikations-Strukturen auf das Mediensystem auseinander setzt. Neben seiner praktischen T\u00e4tigkeit doziert er am MAZ in Luzern zum Thema Web-Journalismus.", 
       "country": "", 
       "email": "", 
-      "facebook": null, 
+      "facebook": "ThomNagyMusic", 
       "github": null, 
       "id": 2, 
-      "linkedin": null, 
+      "linkedin": "thom-nagy", 
       "name": "Thom Nagy", 
       "organisation": "NZZ Lab", 
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/thomnagy_pensive.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "ThomNagy", 
       "web": "http://re-publica.de/member/1005#profile-speaker"
     }, 
     {
@@ -95,7 +95,7 @@
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/sebastian_quer.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "herrhorn", 
       "web": "http://re-publica.de/member/1011#profile-speaker"
     }, 
     {
@@ -113,14 +113,14 @@
       "sessions": [
         55
       ], 
-      "twitter": null, 
+      "twitter": "data_meining", 
       "web": "https://re-publica.de/member/1016#profile-speaker"
     }, 
     {
       "biography": "Erz\u00e4hlt als\u00a0Lifestyle-Bloggerin auf \"stepanini\"\u00a0von guten B\u00fcchern, sch\u00f6nen Orten, Nachdemklichem. Im sonstigen Leben ist\u00a0sie Leiterin Marketing und Innovation bei einem Software-Unternehmen.", 
       "country": "", 
       "email": "", 
-      "facebook": null, 
+      "facebook": "Stepanini-263616273746109", 
       "github": null, 
       "id": 8, 
       "linkedin": null, 
@@ -129,7 +129,7 @@
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/_mg_0793.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "stepanini_tweet", 
       "web": "http://re-publica.de/member/1022#profile-speaker"
     }, 
     {
@@ -139,13 +139,13 @@
       "facebook": null, 
       "github": null, 
       "id": 9, 
-      "linkedin": null, 
+      "linkedin": "jannorthoff", 
       "name": "Jan Northoff", 
       "organisation": "3D Druck Shop Berlin", 
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/jannorhoff_profile_2_square.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "YOUin3Dcom", 
       "web": "http://re-publica.de/member/1023#profile-speaker"
     }, 
     {
@@ -161,7 +161,7 @@
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/profil_photo_-_c_amanda_thomsen.jpg", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "karmel80", 
       "web": "http://re-publica.de/member/1025#profile-speaker"
     }, 
     {
@@ -203,13 +203,13 @@
       "facebook": null, 
       "github": null, 
       "id": 13, 
-      "linkedin": null, 
+      "linkedin": "rinraeuber", 
       "name": "Rin R\u00e4uber", 
       "organisation": "Coder, Cyborg, Teetrinker", 
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/rin-glumanda.png", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "rinpaku", 
       "web": "http://re-publica.de/member/1032#profile-speaker"
     }, 
     {
@@ -227,7 +227,7 @@
       "sessions": [
         192
       ], 
-      "twitter": null, 
+      "twitter": "ChrFeld", 
       "web": "https://re-publica.de/member/1034#profile-speaker"
     }, 
     {
@@ -246,7 +246,7 @@
         35, 
         255
       ], 
-      "twitter": null, 
+      "twitter": "avilarenata", 
       "web": "https://re-publica.de/member/1038#profile-speaker"
     }, 
     {
@@ -278,7 +278,7 @@
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/screenshot_29_11_2013_21_54.png", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "jukesie", 
       "web": "http://re-publica.de/member/1042#profile-speaker"
     }, 
     {
@@ -320,13 +320,13 @@
       "facebook": null, 
       "github": null, 
       "id": 20, 
-      "linkedin": null, 
+      "linkedin": "sarahpcorbett", 
       "name": "Sarah Corbett", 
       "organisation": "Craftivist Collective", 
       "photo": "http://re-publica.de/sites/re-publica.de/files/styles/speaker_profile/public/media/pictures/profile_photo_sarah_corbett_c.png", 
       "position": null, 
       "sessions": [], 
-      "twitter": null, 
+      "twitter": "Craftivists", 
       "web": "http://re-publica.de/member/1057#profile-speaker"
     }
   ], 
