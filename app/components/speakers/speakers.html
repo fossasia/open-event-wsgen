@@ -12,7 +12,7 @@
         </div>
         <md-list>
 
-            <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers |
+            <md-list-item style="cursor:pointer;" class="md-3-line" ng-repeat="speaker in sc.Speakers |
                             filter: { name: queryname, organisation: queryorg}" >
                 <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
                 <div class="md-list-item-text" ng-click="sc.showSpeaker(speaker, $event)">
