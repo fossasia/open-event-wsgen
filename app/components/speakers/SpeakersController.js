@@ -71,17 +71,17 @@ speakersModule.controller('SpeakerDialogController',
         sdc.allSessions = $sessionStorage.sessions;
 
         sdc.speakerChips = [];
-        if((sdc.speaker.country!==null)
+        if(!(sdc.speaker.country === undefined || sdc.speaker.country !== null)
             && (sdc.speaker.country.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Country', value: sdc.speaker.country});
         }
-        if((sdc.speaker.organisation!==null)
+        if(!(sdc.speaker.organisation === undefined || sdc.speaker.organisation === null)
             && (sdc.speaker.organisation.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Organisation', value: sdc.speaker.organisation});
         }
-        if((sdc.speaker.position!==null)
+        if(!(sdc.speaker.position === undefined || sdc.speaker.position === null)
             && (sdc.speaker.position.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Position', value: sdc.speaker.position});
