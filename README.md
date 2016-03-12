@@ -5,7 +5,7 @@ Open Event Webapp
 
 The Open Event Webapp
 
-[Live version](http://fossasia.github.io/open-event-webapp/)
+[Test version](http://fossasia.github.io/open-event-webapp/)
 
 The webapp is a generic app that has two parts:
 a) A standard configuration file, that sets the details of the app (e.g. color scheme, logo of event, link to JSON app data)
@@ -18,9 +18,7 @@ This is a client-side webapp, that will be used by attendees of the event. For A
  2. Sessions
  3. Tracks
  4. Map
-from the event, with latest available data. 
-It will be responsive, so that it can be viewed from all screen sizes easily. 
-The data will be fetched dynamically from the API endpoint provided by the ![orga-server](https://github.com/fossasia/open-event-orga-server). 
+from the event, with latest available data. It will be responsive, so that it can be viewed from all screen sizes easily. The data will be fetched dynamically from the API endpoint provided by the [orga-server](https://github.com/fossasia/open-event-orga-server) .
 
 ----------------------------------------------------------------------------
 ##Deployment
