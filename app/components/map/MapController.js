@@ -38,18 +38,17 @@ mapModule.controller('MapController',
             }
         }
     });
-	
+
 
 }]);
 
-mapModule.controller('AddressController', 
+mapModule.controller('AddressController',
 	['$scope', '$sessionStorage',
-		function($scope, $sessionStorage) { 
+		function($scope, $sessionStorage) {
 	var mc = this;
 	mc.Event = $sessionStorage.event;
   $scope.street = mc.Event.address.street;
-  $scope.locality = mc.Event.address.locality; 
-  $scope.city = mc.Event.address.city; 
-  $scope.country = mc.Event.address.country; 
-  $scope.postalCode = mc.Event.address.postalCode; 
+  $scope.city = mc.Event.address.city;
+  $scope.country = mc.Event.address.country;
+  $scope.postalCode = mc.Event.address.postalCode;
 }]);
