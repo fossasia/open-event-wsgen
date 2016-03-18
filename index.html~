@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="openevent" ng-controller="AppController as appCtrl">
+<head lang="en">
+
+    <!-- web app manifest: https://w3c.github.io/manifest/ -->
+    <link rel="manifest" href="manifest.webmanifest">
+    
+    <script src="config.js"></script>
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- endinject -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1" />
+    <title> {{ appCtrl.appTitle }} </title>
+</head>
+<body layout="column" class="mainBody">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
+                <md-icon aria-label="Menu" md-svg-icon="assets/img/ic_toolbar_menu.svg"></md-icon>
+            </md-button>
+            <img src="assets/img/logo.svg" width="45" height="45">
+            <h1 id="title"> {{ appCtrl.Event.name }} </h1>
+        </div>
+    </md-toolbar>
+    <md-subheader class="md-accent"> {{appCtrl.Event.slogan}} </md-subheader>
+
+    <div layout="row" flex>
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <div ng-include src="'app/components/sidenav/sidenav.html'"></div>
+        </md-sidenav>
+
+        <md-content flex layout-padding>
+            <div layout="column" layout-fill layout-align="top center">
+                <div ui-view></div>
+            </div>
+            <div flex></div>
+        </md-content>
+    </div>
+
+
+    <!-- inject:js -->
+    <script src="assets/js/Utils.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/twitter-widget.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="app/components/common/ApiJsonFactory.js"></script>
+    <script src="app/components/speakers/SpeakersController.js"></script>
+    <script src="app/components/map/MapController.js"></script>
+    <script src="app/components/sessions/SessionsController.js"></script>
+    <script src="app/components/sidenav/SidenavController.js"></script>
+    <script src="app/components/sponsors/SponsorsController.js"></script>
+    <script src="app/components/twitterwall/TwitterwallController.js"></script>
+    <script src="app/components/tracks/TracksController.js"></script>
+    <!-- endinject -->
+</body>
+</html>
