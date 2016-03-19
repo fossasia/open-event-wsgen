@@ -1,5 +1,5 @@
 <div ng-controller="SpeakersController as sc" class="md-default-theme">
-    <md-content>
+    <div layout="column" class="parent">
         <div layout layout-sm="column">
         <md-input-container flex>
             <label>Search by Name</label>
@@ -10,6 +10,7 @@
             <input ng-model="queryorg" type="text" autofocus>
         </md-input-container>
         </div>
+    <md-content style="height: 720px" >
         <md-list>
 
             <md-list-item class="md-3-line" ng-repeat="speaker in sc.Speakers |
@@ -57,4 +58,5 @@
         </md-list>
         <div layout="column" flex style="align-content: center"> <p align="center"> <md-progress-circular ng-if="sc.showLoaders" md-mode="indeterminate"></md-progress-circular></p></div>
     </md-content>
+ </div>
 </div>
