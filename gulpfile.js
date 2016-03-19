@@ -66,8 +66,6 @@ var distPaths = {
 };
 
 function distCopy () {
-    gulp.src(bases.dist.root)
-        .pipe(clean());
     gulp.src(srcPaths.index)
         .pipe(gulp.dest(bases.dist.root));
     gulp.src(srcPaths.libs)

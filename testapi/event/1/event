@@ -1,24 +1,25 @@
 {
   "events": [
     {
-      "begin": "2016-03-18T00:00:00",
-      "color": "#000", 
-      "email": "", 
-      "end": "2016-03-20T00:00:00",
-      "id": 1, 
-      "latitude": 1.3329, 
-      "location_name": "Science Centre Singapore", 
+      "begin": "2015-05-04T00:00:00",
+      "color": "#000",
+      "email": "",
+      "end": "2015-05-09T00:00:00",
+      "id": 1,
+      "latitude": 52.49814,
+      "location_name": "Station Berlin",
 	  "address": {
-		"street" : "15 Science Centre Road",
-		"city" : " Singapore",
-		"country" : "Singapore",
-		"postalCode": 609081
+		"street" : "Luckenwalder Str. 4-6",
+		"locality": "Kreuzberg",
+		"city" : "Berlin",
+		"country" : "Germany",
+		"postalCode": 10963
 		},
-      "logo": "Zrzut_ekranu_2015-08-01_o_23.19.01.png", 
-      "longitude": 103.7358, 
-      "name": "FOSSASIA",
-      "slogan": "Open-Event",
-      "url": "http://16.re-publica.de/"
+      "logo": "Zrzut_ekranu_2015-08-01_o_23.19.01.png",
+      "longitude": 13.374538,
+      "name": "re:Publica 2015",
+      "slogan": "Finding Europe",
+      "url": "http://15.re-publica.de/"
     }
   ]
 }
