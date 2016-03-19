@@ -14,7 +14,7 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
     })
 }]);
 
-speakersModule.controller('SpeakersController', 
+speakersModule.controller('SpeakersController',
 	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
@@ -71,18 +71,18 @@ speakersModule.controller('SpeakerDialogController',
         sdc.allSessions = $sessionStorage.sessions;
 
         sdc.speakerChips = [];
-        if((sdc.speaker.country!==null)
+        if(!(sdc.speaker.country === undefined || sdc.speaker.country !== null)
             && (sdc.speaker.country.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Country', value: sdc.speaker.country});
         }
-        if((sdc.speaker.organisation!==null)
+        if(!(sdc.speaker.organisation === undefined || sdc.speaker.organisation === null)
             && (sdc.speaker.organisation.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Organisation', value: sdc.speaker.organisation});
         }
-        if((sdc.speaker.position!==null)
-            && (sdc.speaker.positionorganisation.length > 0)) {
+        if(!(sdc.speaker.position === undefined || sdc.speaker.position === null)
+            && (sdc.speaker.position.length > 0)) {
             sdc.speakerChips.push(
                 {field: 'Position', value: sdc.speaker.position});
         }
@@ -92,21 +92,21 @@ speakersModule.controller('SpeakerDialogController',
                 return session.speakers.filter(function(sp){
                           return sp.id == speaker.id;
                  })
-                 .length > 0;                        
+                 .length > 0;
             }).length;
             return count;
         };
-        
+
         sdc.sessionsDetail = function(speaker, sessions) {
 
             var spSessions = sessions.filter(function(session){
                  return session.speakers.filter(function(sp){
                           return sp.id == speaker.id;
                  })
-                 .length > 0;                
+                 .length > 0;
             });
 
-            return spSessions;                
+            return spSessions;
         };
 
         sdc.showSession = function(session, event) {

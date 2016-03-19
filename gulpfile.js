@@ -124,10 +124,14 @@ function distMinify () {
 }
 
 gulp.task('webserver', function() {
-    injectImports('dev');
-    setTimeout(function(){}, 2000);
+    // injectImports('dev');
+    distCopy();
+    setTimeout(function(){ injectImports('dist'); }, 2000);
+
+    setTimeout(function(){}, 5000);
     connect.server({
-        livereload: true
+        livereload: true,
+        root: './dist/'
     });
 });
 
