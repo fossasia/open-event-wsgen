@@ -2,6 +2,7 @@ angular
     .module('oe.twitterwall')
     .directive('tweet',tweet);
 /*directive to display tweets after a timespan of 10000 ms.*/
+tweet.$inject=['$timeout','$rootScope'];
 function tweet($timeout,$rootScope) {
     var directive = {
         link: link,
