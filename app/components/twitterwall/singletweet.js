@@ -1,3 +1,4 @@
+/*created by aayusharora on 2/3/2016 */
 angular
     .module('oe.twitterwall')
     .directive('tweet',tweet);
@@ -43,6 +44,9 @@ function tweet($timeout,$rootScope) {
         scope.changeTweet=changeTweet;
         scope.even=false;
         getObject();
+        scope.$on('array',function(args,message){
+            scope.array=message;
+        });
         function getObject(){
             scope.$watch('array',function(oldvalue,newvalue){
             if(scope.array){

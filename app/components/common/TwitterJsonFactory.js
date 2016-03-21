@@ -9,13 +9,15 @@ var twitterUrl = config.apiTwitterGetUrl;
         return {
             getJson: function () {
                 var deferred = $q.defer(),
-                    httpPromise = $http.get(twitterUrl);
+                httpPromise = $http({
+                    method: 'JSONP',
+                    url: twitterUrl});
                 httpPromise.then(function (response) {
                     deferred.resolve(response);
                 }, function (error) {
                     console.error(error);
                 });
-                  return deferred.promise;
-            }
+                return deferred.promise;
+        }
         };
     }]);
