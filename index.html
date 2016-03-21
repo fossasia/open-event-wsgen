@@ -6,6 +6,8 @@
     <link rel="manifest" href="manifest.webmanifest">
 
     <script src="config.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 
     <!-- inject:css -->
     <!-- endinject -->
@@ -15,6 +17,14 @@
     <title> {{ appCtrl.appTitle }} </title>
 </head>
 <body layout="column" class="mainBody">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1107650585912056";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <md-toolbar layout="row">
         <div class="md-toolbar-tools">
             <md-button ng-click="appCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
@@ -30,6 +40,13 @@
         <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2"
                     md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
             <div ng-include src="'app/components/sidenav/sidenav.html'"></div>
+            
+<div class="g-plus" data-action="share" data-href="http://fossasia.github.io/open-event-webapp/#/sessions" style="width:100px;height:50px;"></div>
+
+<div class="fb-share-button" data-href="http://fossasia.github.io/open-event-webapp/#/sessions" data-layout="button_count" style="width:100px;height:50px;"></div>
+
+<div><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fossasia.github.io/open-event-webapp/#/tracks" style="width:100px;height:50px;">Tweet</a></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </md-sidenav>
 
         <md-content flex layout-padding>
