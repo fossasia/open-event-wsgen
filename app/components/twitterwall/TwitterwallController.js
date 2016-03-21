@@ -8,20 +8,24 @@ twitModule.config(['$stateProvider', function($stateProvider) {
     });
 }]);
 
-/*created By aayusharora on 17/2/16*/
+/*created By aayusharora on 21/3/16*/
 twitModule.controller('TwitterwallController',
-    ['$state','$http','$timeout','$scope','TwitterJsonFactory',function($state,$http,$timeout,$scope,TwitterJsonFactory){
-       $scope.array=[];
-      $scope.fetched=false;
-      if($scope.array.length==0){
-        TwitterJsonFactory.getJson()
+    ['$http','$scope','TwitterJsonFactory',function($http,$scope,TwitterJsonFactory){
+      $scope.array="";
+       TwitterJsonFactory.getJson()
         .then(function(response){
           $scope.array=response.data.statuses;
           if($scope.array){
               $scope.fetched=true;
             }
-          })
-        }
+          });          
+  $scope.$watch('array',function(){
+    $scope.array=$scope.array;
+      if($scope.array){
+        $scope.$broadcast('array',$scope.array);
+      }
+         });
+      
       }
     ]
 );

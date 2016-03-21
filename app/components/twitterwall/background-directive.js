@@ -1,4 +1,4 @@
-
+/*created by aayusharora on 2/3/2016 */
 angular
     .module('oe.twitterwall')
     .directive('photos',photos);
@@ -32,7 +32,9 @@ function photos() {
         scope.backgroundid="";
         getBackground();
         changeBackground();
-
+         scope.$on('array',function(args,message){
+            scope.array=message;
+        });
         function getBackground(){
             scope.$watch('array',function(oldvalue,newvalue){
             for(var photo in scope.array){
