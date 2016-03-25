@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="openevent" ng-controller="AppController as appCtrl" ng-strict-di>
+<html ng-app="openevent" ng-controller="AppController as appCtrl" ng-strict-di ng-cloak>
 <head lang="en">
-
+<style type="text/css">
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+</style>
     <!-- web app manifest: https://w3c.github.io/manifest/ -->
     <link rel="manifest" href="manifest.webmanifest">
 
@@ -12,7 +16,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1" />
-    <title> {{ appCtrl.appTitle }} </title>
+    <title ng-cloak> {{ appCtrl.appTitle }} </title>
 </head>
 <body layout="column" class="mainBody">
     <md-toolbar layout="row">
