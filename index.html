@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html ng-app="openevent" ng-controller="AppController as appCtrl" ng-strict-di>
+<html ng-app="openevent" ng-controller="AppController as appCtrl" ng-strict-di ng-cloak>
 <head lang="en">
-
     <!-- web app manifest: https://w3c.github.io/manifest/ -->
     <link rel="manifest" href="manifest.webmanifest">
 
@@ -12,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1" />
-    <title> {{ appCtrl.appTitle }} </title>
+    <title > {{ appCtrl.appTitle }} </title>
 </head>
 <body layout="column" class="mainBody">
     <md-toolbar layout="row">
@@ -39,7 +38,7 @@
             <div flex></div>
         </md-content>
     </div>
-
+    
 
     <!-- inject:js -->
     <!-- endinject -->
