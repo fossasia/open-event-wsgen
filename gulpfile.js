@@ -8,11 +8,11 @@ var gulp = require('gulp'),
     flatten = require('gulp-flatten');
 
 var bases = {
-    dev: {
-        root: './',
-        app: './app',
-        libs: './app/libs',
-        assets: './assets',
+    src: {
+        root: './src/',
+        app: './src/app',
+        libs: './src/app/libs',
+        assets: './src/assets',
         testapi: './testapi'
     },
     dist: {
@@ -26,11 +26,12 @@ var bases = {
 
 var srcPaths = {
     index: [
-        './index.html',
-        './app.js',
-        './main.css',
-        './config.js',
-        './manifest.*'
+        bases.src.root + 'index.html',
+        bases.src.root + 'app.js',
+        bases.src.root + 'main.css',
+        bases.src.root + 'config.js',
+        bases.src.root + 'favicon.ico',
+        bases.src.root + 'manifest.*'
 
     ],
     libs: [
@@ -45,8 +46,8 @@ var srcPaths = {
         './bower_components/**/angular-ui-router.js',
         './bower_components/**/ngStorage.js',
     ],
-    assets: ['./assets/**/*'],
-    components: ['./app/**/*'],
+    assets: ['./src/assets/**/*'],
+    components: ['./src/app/**/*'],
     testapi: ['./testapi/**/*']
 };
 
