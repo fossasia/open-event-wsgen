@@ -9,7 +9,7 @@ var singleSpeaker = {};
 speakersModule.config(['$stateProvider', function($stateProvider) {
     $stateProvider.state('speakers', {
         url: '/speakers',
-        templateUrl: 'app/components/speakers/speakers.html',
+        templateUrl: 'appComponents/speakers/speakers.html',
         controller: 'SpeakersController'
     })
 }]);
@@ -55,7 +55,7 @@ speakersModule.controller('SpeakersController',
             };
             $mdDialog.show({
                 controller: 'SpeakerDialogController',
-                templateUrl: 'app/components/speakers/speakerdialog.html',
+                templateUrl: 'appComponents/speakers/speakerdialog.html',
                 parent: angular.element(document.body),
                 targetEvent: event,
 
@@ -115,7 +115,7 @@ speakersModule.controller('SpeakerDialogController',
             };
             $mdDialog.show({
                 controller: 'SessionDialogController',
-                templateUrl: 'app/components/sessions/sessiondialog.html',
+                templateUrl: 'appComponents/sessions/sessiondialog.html',
                 parent: angular.element(document.body),
                 targetEvent: event,
 
