@@ -1,60 +1,63 @@
 <div ng-controller="SpeakersController as sc" class="md-default-theme">
-    <md-content>
+    <div layout="column" class="parent">
         <div layout layout-sm="column">
-        <md-input-container flex>
-            <label>Search by Name</label>
-            <input ng-model="queryname" type="text" autofocus>
-        </md-input-container>
-        <md-input-container flex>
-            <label>Search by Organisation</label>
-            <input ng-model="queryorg" type="text" autofocus>
-        </md-input-container>
+          <md-input-container flex>
+              <label>Search by Name</label>
+              <input ng-model="queryname" type="text" autofocus>
+          </md-input-container>
+          <md-input-container flex>
+              <label>Search by Organisation</label>
+              <input ng-model="queryorg" type="text" autofocus>
+          </md-input-container>
         </div>
-        <md-list>
 
-            <md-list-item style="cursor:pointer;" class="md-3-line" ng-repeat="speaker in sc.Speakers |
-                            filter: { name: queryname, organisation: queryorg} track by speaker.id" >
-                <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
-                <div class="md-list-item-text" ng-click="sc.showSpeaker(speaker, $event)">
-                    <md-ink-ripple>
-                    <div class="md-whiteframe-z1 md-padding">
-                        <h3>{{speaker.name}}</h3>
-                        <h4>{{speaker.position}}<span ng-if="speaker.position.length>0">,</span> {{speaker.organisation}}</h4>
-                        <p>
-                            {{ speaker.biography }}
-                            <br>
+        <md-content style="height: 720px">
+          <md-list>
 
-                        </p>
-                        <div layout="row" layout-align="start center" style="padding-top: 10px" flex>
-                            <span ng-if="(speaker.github.length>0)">
-                                <a href="http://github.com/{{speaker.github}}" target="_blank">
-                                    <md-icon md-svg-icon="assets/img/ic_github.svg" class="github-icon"></md-icon>
-                                </a>
-                            </span>
-                            <span ng-if="(speaker.facebook.length>0)">
-                                <a href="http://facebook.com/{{speaker.facebook}}" target="_blank">
-                                    <md-icon md-svg-icon="assets/img/ic_facebook.svg" class="facebook-icon"></md-icon>
-                                </a>
-                            </span>
-                            <span ng-if="(speaker.twitter.length>0)">
-                                <a href="http://twitter.com/{{speaker.twitter}}" target="_blank">
-                                    <md-icon md-svg-icon="assets/img/ic_twitter.svg" class="twitter-icon"></md-icon>
-                                </a>
-                            </span>
-                            <span ng-if="(speaker.linkedin.length>0)">
-                                <a href="{{speaker.linkedin}}" target="_blank">
-                                    <md-icon md-svg-icon="assets/img/ic_linkedin.svg" class="linkedin-icon"></md-icon>
-                                </a>
-                            </span>
-                            <span flex></span>
-                        </div>
+              <md-list-item style="cursor:pointer;" class="md-3-line" ng-repeat="speaker in sc.Speakers |
+                              filter: { name: queryname, organisation: queryorg} track by speaker.id" >
+                  <img ng-src="{{speaker.photo}}" class="md-avatar" alt="{{speaker.name}}" />
+                  <div class="md-list-item-text" ng-click="sc.showSpeaker(speaker, $event)">
+                      <md-ink-ripple>
+                      <div class="md-whiteframe-z1 md-padding">
+                          <h3>{{speaker.name}}</h3>
+                          <h4>{{speaker.position}}<span ng-if="speaker.position.length>0">,</span> {{speaker.organisation}}</h4>
+                          <p>
+                              {{ speaker.biography }}
+                              <br>
 
-                    </div>
-                    </md-ink-ripple>
-                </div>
-            </md-list-item>
+                          </p>
+                          <div layout="row" layout-align="start center" style="padding-top: 10px" flex>
+                              <span ng-if="(speaker.github.length>0)">
+                                  <a href="http://github.com/{{speaker.github}}" target="_blank">
+                                      <md-icon md-svg-icon="assets/img/ic_github.svg" class="github-icon"></md-icon>
+                                  </a>
+                              </span>
+                              <span ng-if="(speaker.facebook.length>0)">
+                                  <a href="http://facebook.com/{{speaker.facebook}}" target="_blank">
+                                      <md-icon md-svg-icon="assets/img/ic_facebook.svg" class="facebook-icon"></md-icon>
+                                  </a>
+                              </span>
+                              <span ng-if="(speaker.twitter.length>0)">
+                                  <a href="http://twitter.com/{{speaker.twitter}}" target="_blank">
+                                      <md-icon md-svg-icon="assets/img/ic_twitter.svg" class="twitter-icon"></md-icon>
+                                  </a>
+                              </span>
+                              <span ng-if="(speaker.linkedin.length>0)">
+                                  <a href="{{speaker.linkedin}}" target="_blank">
+                                      <md-icon md-svg-icon="assets/img/ic_linkedin.svg" class="linkedin-icon"></md-icon>
+                                  </a>
+                              </span>
+                              <span flex></span>
+                          </div>
 
-        </md-list>
-        <div layout="column" flex style="align-content: center"> <p align="center"> <md-progress-circular ng-if="sc.showLoaders" md-mode="indeterminate"></md-progress-circular></p></div>
-    </md-content>
+                      </div>
+                      </md-ink-ripple>
+                  </div>
+              </md-list-item>
+
+          </md-list>
+          <div layout="column" flex style="align-content: center"> <p align="center"> <md-progress-circular ng-if="sc.showLoaders" md-mode="indeterminate"></md-progress-circular></p></div>
+      </md-content>
+    </div>
 </div>
