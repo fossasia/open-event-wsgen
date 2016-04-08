@@ -1,7 +1,7 @@
 # open-event-webapp
 
 [![Join the chat at https://gitter.im/fossasia/open-event-webapp](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-Open Event Webapp
+[![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=master)](https://travis-ci.org/fossasia/open-event-webapp)
 
 The Open Event Webapp
 
@@ -13,7 +13,7 @@ b) The webapp itself
 
 ----------------------------------------------------------------------------
 ##Features
-This is a client-side webapp, that will be used by attendees of the event. For Android users we have a native android [app](https://github.com/fossasia/open-event-android). This webapp provides similar functionality for platforms other than Android, that is, to be able to view details about - 
+This is a client-side webapp, that will be used by attendees of the event. For Android users we have a native android [app](https://github.com/fossasia/open-event-android). This webapp provides similar functionality for platforms other than Android, that is, to be able to view details about -
  1. Speakers
  2. Sessions
  3. Tracks
@@ -22,7 +22,7 @@ from the event, with latest available data. It will be responsive, so that it ca
 
 ----------------------------------------------------------------------------
 ##Deployment
-Currently it is just a simple webapp that can be viewed using any browser. In future, we plan to deploy as a webapp for Ubuntu Phone, Firefox OS etc, who support first class webapps. Also for platforms like iOS, Windows, we might port this usin Ionic/Titanium etc. 
+Currently it is just a simple webapp that can be viewed using any browser. In future, we plan to deploy as a webapp for Ubuntu Phone, Firefox OS etc, who support first class webapps. Also for platforms like iOS, Windows, we might port this usin Ionic/Titanium etc.
 
 For deploying locally or making a `dist.zip`, you'll need `bower` and `gulp`
 Assuming you have npm (Node Package Manager)
@@ -56,13 +56,13 @@ If you want a minified build (css and js files will be minified)
 gulp dist-min
 ```
 
-You can `rsync` or `ftp` the **dist** folder generated to your static web server. 
- 
-------------------------------------------------------------------------- 
+You can `rsync` or `ftp` the **dist** folder generated to your static web server.
+
+-------------------------------------------------------------------------
 ##Technology
  * AngularJS 1.3
  * Bootstrap (or similar) for styling
-The webapp will be written using only HTML, CSS and Javascript, so it is completely client-side renderable, on all kinds of browsers, including PCs and smartphones and tablets. 
+The webapp will be written using only HTML, CSS and Javascript, so it is completely client-side renderable, on all kinds of browsers, including PCs and smartphones and tablets.
 
 ----------------------------------------------------------------------------
 ##License
