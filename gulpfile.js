@@ -10,14 +10,14 @@ var gulp = require('gulp'),
 var bases = {
     src: {
         root: './src/',
-        app: './src/app',
+        app: './src/appComponents',
         libs: './src/app/libs',
         assets: './src/assets',
         testapi: './testapi'
     },
     dist: {
         root: 'dist/',
-        app: 'dist/app/',
+        app: 'dist/appComponents/',
         libs: 'dist/libs/',
         assets: 'dist/assets',
         testapi: 'dist/testapi'
@@ -47,7 +47,7 @@ var srcPaths = {
         './bower_components/**/ngStorage.js',
     ],
     assets: ['./src/assets/**/*'],
-    components: ['./src/app/**/*'],
+    components: ['./src/appComponents/**/*'],
     testapi: ['./testapi/**/*']
 };
 
@@ -62,7 +62,7 @@ var distPaths = {
         bases.dist.root + 'libs/angular.*js',
         bases.dist.root + 'libs/**/*.js',
         bases.dist.root + 'app.js',
-        bases.dist.root + 'app/components/**/*.js'
+        bases.dist.root + 'appComponents/**/*.js'
     ]
 };
 

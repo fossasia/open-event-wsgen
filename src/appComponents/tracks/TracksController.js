@@ -7,7 +7,7 @@ var tracksModule = angular.module('oe.tracks', ['ui.router']);
 tracksModule.config(['$stateProvider', function($stateProvider) {
     $stateProvider.state('tracks', {
         url: '/tracks',
-        templateUrl: 'app/components/tracks/tracks.html',
+        templateUrl: 'appComponents/tracks/tracks.html',
         controller: 'TracksController'
     })
 }]);
@@ -50,7 +50,7 @@ tracksModule.controller('TracksController',
             };
             $mdDialog.show({
                 controller: 'TrackDialogController',
-                templateUrl: 'app/components/tracks/trackdialog.html',
+                templateUrl: 'appComponents/tracks/trackdialog.html',
                 parent: angular.element(document.body),
                 targetEvent: event,
 
