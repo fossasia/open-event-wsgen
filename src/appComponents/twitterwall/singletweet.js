@@ -15,7 +15,7 @@ function tweet($timeout,$rootScope) {
                 '<div class="container-tweet">'+
                 '<div class="animate" ng-repeat="photo in array">'+
                 '<div ng-if="photo.id_str===selectedid"  class="tweet">'+
-                    '<img ng-class="{\'animation\':photo.id_str===selectedid}" class="image" on-error-src="https://pbs.twimg.com/profile_images/1141238022/fossasia-cubelogo.jpg" ng-src=\'{{photo.user.profile_image_url_https}}\'>'+
+                    '<img ng-class="{\'animation\':photo.id_str===selectedid}"  class="image" on-error-src="https://pbs.twimg.com/profile_images/1141238022/fossasia-cubelogo.jpg" ng-src=\'{{photo.user.profile_image_url_https}}\'>'+
                 '</div>'+
                 '<div ng-if="photo.id_str===selectedid" class="heading-tweet">'+
                     '{{photo.screen_name}}'+
@@ -42,6 +42,7 @@ function tweet($timeout,$rootScope) {
         scope.createdAt="";
         scope.tweetNumber=0;
         scope.changeTweet=changeTweet;
+        scope.callchangetweet=callchangetweet;
         scope.even=false;
         getObject();
         scope.$on('array',function(args,message){
@@ -57,14 +58,18 @@ function tweet($timeout,$rootScope) {
         }
         function changeTweet(){
             if(scope.tweetNumber!=90){
+
                 scope.selectedid=scope.array[scope.tweetNumber++].id_str;
                 $rootScope.$broadcast("selectedid",scope.selectedid);
-                $timeout(scope.changeTweet,10000);
+                callchangetweet();
             }
-             else{
-                scope.tweetNumber=0;
-                changeTweet();
-             }
+            else {
+                scope.tweetNumber=0;    
+                callchangetweet();
             }
+            }
+        function callchangetweet(){
+              $timeout(changeTweet,8000);
+        }   
         }
     }

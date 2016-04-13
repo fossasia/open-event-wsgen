@@ -109,8 +109,8 @@
    
 }
 .backgroundanimation{
-	animation:backgroundanimation 5s;
-	-webkit-animation:backgroundanimation 5s;
+	animation:backgroundanimation 8s;
+	-webkit-animation:backgroundanimation 8s;
 }
 @-webkit-keyframes backgroundanimation{
 	from{
