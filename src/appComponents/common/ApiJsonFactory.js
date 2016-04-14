@@ -14,7 +14,7 @@ var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
                 } else {
                     var endpoint = baseUrl + '/' + $apiEndpoint;
                 }
-                console.log(endpoint);
+                
                 var deferred = $q.defer(),
                     httpPromise = $http.get(endpoint);
                 httpPromise.then(function (response) {

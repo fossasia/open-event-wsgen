@@ -2,7 +2,7 @@
 angular
     .module('oe.twitterwall')
     .directive('tweet',tweet);
-/*directive to display tweets after a timespan of 10000 ms.*/
+/*directive to display tweets after a timespan of 8000 ms.*/
 tweet.$inject=['$timeout','$rootScope'];
 function tweet($timeout,$rootScope) {
     var directive = {
@@ -35,7 +35,7 @@ function tweet($timeout,$rootScope) {
     };
     return directive;
      
-    function link(scope, element, attrs,vm) {
+    function link(scope, element, attrs) {
         scope.array='';
         scope.getObject=getObject;
         scope.selectedid="";
@@ -44,20 +44,12 @@ function tweet($timeout,$rootScope) {
         scope.changeTweet=changeTweet;
         scope.callchangetweet=callchangetweet;
         scope.even=false;
-        getObject();
-        scope.$on('array',function(args,message){
-            scope.array=message;
-        });
-        function getObject(){
-            scope.$watch('array',function(oldvalue,newvalue){
-            if(scope.array){
-            scope.selectedid=scope.array[1].id_str;
-            changeTweet();
-            }
-            })
+         
+        function callchangetweet(){
+                $timeout(changeTweet,8000);
         }
         function changeTweet(){
-            if(scope.tweetNumber!=90){
+            if(scope.tweetNumber!==90){
 
                 scope.selectedid=scope.array[scope.tweetNumber++].id_str;
                 $rootScope.$broadcast("selectedid",scope.selectedid);
@@ -68,8 +60,19 @@ function tweet($timeout,$rootScope) {
                 callchangetweet();
             }
             }
-        function callchangetweet(){
-              $timeout(changeTweet,8000);
-        }   
+       
+        function getObject(){
+                scope.$watch('array',function(oldvalue,newvalue){
+                if(scope.array){
+                    scope.selectedid=scope.array[1].id_str;
+                    changeTweet();
+                }
+            })
+        }
+        getObject();
+        scope.$on('array',function(args,message){
+            scope.array=message;
+        });
+           
         }
     }
