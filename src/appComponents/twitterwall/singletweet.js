@@ -62,12 +62,12 @@ function tweet($timeout,$rootScope) {
             }
        
         function getObject(){
-                scope.$watch('array',function(oldvalue,newvalue){
+                scope.$watch('array',function(){
                 if(scope.array){
                     scope.selectedid=scope.array[1].id_str;
                     changeTweet();
                 }
-            })
+            });
         }
         getObject();
         scope.$on('array',function(args,message){
