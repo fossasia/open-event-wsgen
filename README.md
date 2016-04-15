@@ -1,7 +1,10 @@
 # open-event-webapp
 
-[![Join the chat at https://gitter.im/fossasia/open-event-webapp](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=master)](https://travis-ci.org/fossasia/open-event-webapp)
+[![Dependency Status](https://gemnasium.com/badges/github.com/fossasia/open-event-webapp.svg)](https://gemnasium.com/github.com/fossasia/open-event-webapp)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/0c340153c9ef495ba3f8d26f0c8b317e)](https://www.codacy.com/app/triplez/open-event-webapp)
+[![Issue Count](https://codeclimate.com/github/fossasia/open-event-webapp/badges/issue_count.svg)](https://codeclimate.com/github/fossasia/open-event-webapp)
+[![Join the chat at https://gitter.im/fossasia/open-event-webapp](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The Open Event Webapp
 
