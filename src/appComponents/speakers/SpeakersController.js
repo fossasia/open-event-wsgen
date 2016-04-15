@@ -90,7 +90,7 @@ speakersModule.controller('SpeakerDialogController',
         sdc.count = function(speaker, sessions){
             var count = sessions.filter(function(session){
                 return session.speakers.filter(function(sp){
-                          return sp.id == speaker.id;
+                          return sp.id === speaker.id;
                  })
                  .length > 0;
             }).length;
