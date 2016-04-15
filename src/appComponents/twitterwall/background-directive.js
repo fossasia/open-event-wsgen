@@ -31,9 +31,8 @@ function photos() {
         scope.photos=[];
         scope.getBackground=getBackground;
         scope.backgroundid="";
-        getBackground();
-        changeBackground();
-         scope.$on('array',function(args,message){
+        
+        scope.$on('array',function(args,message){
             scope.array=message;
         });
         function getBackground(){
@@ -49,11 +48,13 @@ function photos() {
             }
         })
           }
+        getBackground();
        function changeBackground(){
         scope.$on('selectedid', function (evt,id) {
         scope.backgroundid=id;
     });
          }
+        changeBackground();   
      
         }
     }
