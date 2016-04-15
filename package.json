@@ -19,6 +19,11 @@
     "lodash": "^4.11.1"
   },
   "dependencies": {
-    "npm-shrinkwrap": "^200.5.1"
+    "npm-shrinkwrap": "^200.5.1",
+    "lodash": "~4.11.1",
+    "bower": "~1.7.9",
+    "lodash._basecreate": "~3.0.3",
+    "browser-sync": "~2.12.3",
+    "gulp-install": "~0.6.0"
   }
 }
