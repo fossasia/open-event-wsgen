@@ -46,7 +46,8 @@
 	box-sizing: border-box;
 	width:504px;
 	height:240px;
-	background-color:rgba(0, 0, 0, 0.59);;
+	background-color:rgba(0, 0, 0); /* For IE8 and IE9 */
+	background-color:rgba(0, 0, 0, 0.59);
 	color:#fff;
 	border-radius:5%;
 	position: absolute;
@@ -67,6 +68,7 @@
 .animation{
 	animation:tweet 2s;
 	-webkit-animation:tweet 2s;
+	-moz-animation:2s;
 }
 @-webkit-keyframes tweet{
 	0%{

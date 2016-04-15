@@ -9,7 +9,7 @@ tracksModule.config(['$stateProvider', function($stateProvider) {
         url: '/tracks',
         templateUrl: 'appComponents/tracks/tracks.html',
         controller: 'TracksController'
-    })
+    });
 }]);
 
 tracksModule.controller('TracksController', 

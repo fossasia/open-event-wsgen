@@ -1,17 +1,19 @@
-/*created by aayusharora on 2/3/2016 */
+/*  created by aayusharora on 2/3/2016   */
 angular
-    .module('oe.twitterwall')
-    .directive('tweet',tweet);
-/*directive to display tweets after a timespan of 8000 ms.*/
-tweet.$inject=['$timeout','$rootScope'];
+    .module("oe.twitterwall")
+    .directive("tweet", tweet);
+
+/*  directive to display tweets after a timespan of 8000 ms.*/
+
+tweet.$inject=["$timeout" , "$rootScope"];
 function tweet($timeout,$rootScope) {
-    var directive = {
+    const directive = {
         link: link,
-        restrict:'EA',
+        restrict:"EA",
         scope:{
-            array:'='
+            array:"="
         },
-         template: 
+        template: 
                 '<div class="container-tweet">'+
                 '<div class="animate" ng-repeat="photo in array">'+
                 '<div ng-if="photo.id_str===selectedid"  class="tweet">'+
@@ -28,15 +30,15 @@ function tweet($timeout,$rootScope) {
                 '</div>'+
                 '</div>'+
                 '</div>',
-        controller:'TwitterwallController',
-        controllerAs: 'vm',
+        controller:"TwitterwallController",
+        controllerAs: "vm",
         bindToController: true,
         
     };
     return directive;
      
-    function link(scope, element, attrs) {
-        scope.array='';
+    function link(scope) {
+        scope.array="";
         scope.getObject=getObject;
         scope.selectedid="";
         scope.createdAt="";
@@ -50,8 +52,8 @@ function tweet($timeout,$rootScope) {
         }
         function changeTweet(){
             if(scope.tweetNumber!==90){
-
-                scope.selectedid=scope.array[scope.tweetNumber++].id_str;
+                scope.tweetNumber=scope.tweetNumber + 1;
+                scope.selectedid=scope.array[scope.tweetNumber].id_str;
                 $rootScope.$broadcast("selectedid",scope.selectedid);
                 callchangetweet();
             }
@@ -62,7 +64,7 @@ function tweet($timeout,$rootScope) {
             }
        
         function getObject(){
-                scope.$watch('array',function(){
+                scope.$watch("array",function(){
                 if(scope.array){
                     scope.selectedid=scope.array[1].id_str;
                     changeTweet();
@@ -70,7 +72,7 @@ function tweet($timeout,$rootScope) {
             });
         }
         getObject();
-        scope.$on('array',function(args,message){
+        scope.$on("array",function(args,message){
             scope.array=message;
         });
            
