@@ -24,6 +24,7 @@
 	
 }
 .image{
+	box-sizing: border-box;
 	width: 50%;
     padding: 4%;
     float:left;
@@ -42,6 +43,7 @@
 	
 }
 .container-tweet{
+	box-sizing: border-box;
 	width:504px;
 	height:240px;
 	background-color:rgba(0, 0, 0, 0.59);;
@@ -63,10 +65,10 @@
 }
 
 .animation{
-	animation:aayush 2s;
-	-webkit-animation:aayush 2s;
+	animation:tweet 2s;
+	-webkit-animation:tweet 2s;
 }
-@-webkit-keyframes aayush{
+@-webkit-keyframes tweet{
 	0%{
 		transform:rotateY(0deg);
 			}
@@ -114,18 +116,18 @@
 }
 @-webkit-keyframes backgroundanimation{
 	from{
-		opacity:.1%;
+		opacity:.1;
 	}
    to{
-   	opacity: 1%;
+   	opacity: 1;
    }
 }
 @keyframes backgroundanimation{
 	from{
-	opacity:.1%;
+	opacity:.1;
 	}
    to{
-   	opacity: 1%;
+   	opacity: 1;
    }
    
 }
