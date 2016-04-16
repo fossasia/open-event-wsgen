@@ -3,7 +3,7 @@
  */
 
 // Declare app level module which depends on views, and components
-
+"use strict";
 const openevent = angular.module("openevent",
   [
     "ui.router",
@@ -71,7 +71,7 @@ openevent.controller("AppController",
               app.$storage.event = app.Event;
               openevent.totalDays = DateUtils.DateDiff.inDays(app.Event.begin, app.Event.end) + 1;
               app.Days = [openevent.totalDays];
-              for (const i = 0; i < openevent.totalDays; i+=1) {
+              for (var i = 0; i < openevent.totalDays; i+=1) {
 
                     app.Days[i] = {num: i, label: "Day "+ (i+1)};
                 }
