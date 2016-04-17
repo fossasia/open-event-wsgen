@@ -21,6 +21,7 @@ const openevent = angular.module("openevent",
 
 openevent.config(["$urlRouterProvider", "$httpProvider", "$mdThemingProvider", 
         function setTheme($urlRouterProvider, $httpProvider, $mdThemingProvider) {
+          
             //$httpProvider.defaults.useXDomain = true;   
             //delete $httpProvider.defaults.headers.common["X-Requested-With"];
           $urlRouterProvider.otherwise("sessions");

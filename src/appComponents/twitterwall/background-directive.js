@@ -16,7 +16,8 @@ function photos() {
                 '<div class="main-container">'+
                 '<ul ng-class="{\'backgroundanimation\':true}" class="background" ng-repeat="photo in photos|limitTo :90">'+
                    '<li class="item-wrapper">'+
-                    '<img  width="72px" height="72px" on-error-src="https://pbs.twimg.com/profile_images/1141238022/fossasia-cubelogo.jpg" ng-src=\'{{photo.photo}}\'>'+
+                    '<img  width="72px" height="72px" on-error-src="https://pbs.twimg.com/profile_images/1141238022/fossasia-cubelogo.jpg"'+
+                     'ng-src=\'{{photo.photo}}\'>'+
                     '</li>'+
                 '</ul>'+
                 '</div>',

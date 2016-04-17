@@ -144,7 +144,7 @@ gulp.task('clean', function() {
 gulp.task('styles', function() {
     gulp.src('./assets/scss/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./assets/css/'))
+        .pipe(gulp.dest('./assets/css/'));
 });
 
 gulp.task('dist', function() {
