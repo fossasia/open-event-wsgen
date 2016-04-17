@@ -29,13 +29,14 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
         tsc.Tracks = $sessionStorage.tracks;
         tsc.Sessions = $sessionStorage.sessions;
         
-
         if (tsc.Tracks.length === 0) {
 
           ApiJsonFactory.getJson("tracks")
             .then(function (response) {
-                tsc.Tracks = response.data.tracks;
-                $sessionStorage.tracks = tsc.Tracks;
+
+            tsc.Tracks = response.data.tracks;
+            $sessionStorage.tracks = tsc.Tracks;
+                
             }, function error (error) {
                     //console.error(error);
             });
@@ -43,8 +44,8 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
           ApiJsonFactory.getJson("sessions")
             .then(function (response) {
 
-                tsc.Sessions = response.data.sessions;
-                $sessionStorage.sessions = tsc.Sessions;
+            tsc.Sessions = response.data.sessions;
+            $sessionStorage.sessions = tsc.Sessions;
 
             }, function (error) {
                     //console.error(error);
@@ -53,17 +54,17 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
         }
 
         tsc.showSession = function(track, event) {
-            //singleTrack = track;
-            $mdDialog.track = {
-                singleTrack: track
-            };
-            $mdDialog.show({
+            // singleTrack = track;
+          $mdDialog.track = {
+                "singleTrack": track
+          };
+          $mdDialog.show({
                 controller: "TrackDialogController",
                 templateUrl: "appComponents/tracks/trackdialog.html",
                 parent: angular.element(document.body),
                 targetEvent: event,
 
-            });
+          });
         };
 
 
@@ -84,9 +85,11 @@ tracksModule.controller("TrackDialogController",
                 var count = 0;
 
                 for(var i = 0; i < sessions.length; i+=1) {
+
                     if(track.id === sessions[i].track) {
                         count+=1;                    
-                    }                    
+                    }  
+
                 }
                 return count;
 
