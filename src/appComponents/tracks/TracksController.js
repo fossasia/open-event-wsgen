@@ -24,8 +24,7 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
          {
 
             $sessionStorage.tracks = [];
-
-          }
+        }
         tsc.Tracks = $sessionStorage.tracks;
         tsc.Sessions = $sessionStorage.sessions;
         
@@ -59,10 +58,10 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
                 "singleTrack": track
           };
           $mdDialog.show({
-                controller: "TrackDialogController",
-                templateUrl: "appComponents/tracks/trackdialog.html",
-                parent: angular.element(document.body),
-                targetEvent: event,
+                "controller": "TrackDialogController",
+                "templateUrl": "appComponents/tracks/trackdialog.html",
+                "parent": angular.element(document.body),
+                "targetEvent": event,
 
           });
         };
