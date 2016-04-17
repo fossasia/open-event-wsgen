@@ -19,7 +19,7 @@ sponsorsModule.controller('SponsorsController',
         var sc = this;
         $sessionStorage = $sessionStorage;
         if ( $sessionStorage.sponsors === null ||
-            typeof($sessionStorage.sponsors) == 'undefined')
+            typeof($sessionStorage.sponsors) === 'undefined')
         {
             $sessionStorage.sponsors = [];
         }

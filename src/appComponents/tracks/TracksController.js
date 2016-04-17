@@ -17,7 +17,7 @@ tracksModule.controller('TracksController',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var tc = this;
         if ( $sessionStorage.tracks === null ||
-            typeof($sessionStorage.tracks) == 'undefined')
+            typeof($sessionStorage.tracks) === 'undefined')
         {
             $sessionStorage.tracks = [];
         }
@@ -85,7 +85,7 @@ tracksModule.controller('TrackDialogController',
                 var count = tdc.count(track,sessions);
                 var tsessions = new Array(count);
                 for(var i = 0; i < sessions.length;i++) {
-                    if(track.id == sessions[i].track) {
+                    if(track.id === sessions[i].track) {
                         tsessions[k+=1] = sessions[i];
                     }
                 }

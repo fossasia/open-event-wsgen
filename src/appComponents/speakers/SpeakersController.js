@@ -101,7 +101,7 @@ speakersModule.controller('SpeakerDialogController',
 
             var spSessions = sessions.filter(function(session){
                  return session.speakers.filter(function(sp){
-                          return sp.id == speaker.id;
+                          return sp.id === speaker.id;
                  })
                  .length > 0;
             });
