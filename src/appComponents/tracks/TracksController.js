@@ -2,22 +2,24 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var tracksModule = angular.module('oe.tracks', ['ui.router']);
+var tracksModule = angular.module("oe.tracks", ["ui.router"]);
 
-tracksModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('tracks', {
-        url: '/tracks',
-        templateUrl: 'appComponents/tracks/tracks.html',
-        controller: 'TracksController'
-    });
+tracksModule.config(["$stateProvider", function($stateProvider) {
+
+  $stateProvider.state("tracks", {
+    "url": "/tracks",
+    "templateUrl": "appComponents/tracks/tracks.html",
+    "controller": "TracksController"
+  });
+
 }]);
 
-tracksModule.controller('TracksController', 
-	['$mdDialog','$sessionStorage', '$rootScope', 'ApiJsonFactory',
+tracksModule.controller("TracksController", 
+    ["$mdDialog","$sessionStorage", "$rootScope", "ApiJsonFactory",
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-		var tc = this;
-        if ( $sessionStorage.tracks === null ||
-            typeof($sessionStorage.tracks) === 'undefined')
+          var tc = this;
+          if ($sessionStorage.tracks === null || 
+            typeof ($sessionStorage.tracks) === "undefined")
         {
             $sessionStorage.tracks = [];
         }
@@ -26,7 +28,7 @@ tracksModule.controller('TracksController',
         
 
         if (tc.Tracks.length === 0) {
-            ApiJsonFactory.getJson('tracks')
+            ApiJsonFactory.getJson("tracks")
                 .then(function (response) {
                     tc.Tracks = response.data.tracks;
                     $sessionStorage.tracks = tc.Tracks;
@@ -34,7 +36,7 @@ tracksModule.controller('TracksController',
                     console.error(error);
                 });
 
-            ApiJsonFactory.getJson('sessions')
+            ApiJsonFactory.getJson("sessions")
                 .then(function (response) {
                     tc.Sessions = response.data.sessions;
                     $sessionStorage.sessions = tc.Sessions;
@@ -49,8 +51,8 @@ tracksModule.controller('TracksController',
                 singleTrack: track
             };
             $mdDialog.show({
-                controller: 'TrackDialogController',
-                templateUrl: 'appComponents/tracks/trackdialog.html',
+                controller: "TrackDialogController",
+                templateUrl: "appComponents/tracks/trackdialog.html",
                 parent: angular.element(document.body),
                 targetEvent: event,
 
@@ -62,8 +64,8 @@ tracksModule.controller('TracksController',
 
 /*---------------------Dialog-----------------------*/
 
-tracksModule.controller('TrackDialogController', 
-    ['$mdDialog', '$sessionStorage',
+tracksModule.controller("TrackDialogController", 
+    ["$mdDialog", "$sessionStorage",
         function($mdDialog, $sessionStorage) {
             var tdc = this;
             tdc.track = $mdDialog.track.singleTrack;
@@ -73,7 +75,7 @@ tracksModule.controller('TrackDialogController',
                 var count = 0;
                 for(var i = 0; i < sessions.length; i+=1) {
                     if(track.id === sessions[i].track) {
-                        count++;                    
+                        count+=1;                    
                     }                    
                 }
 
@@ -84,7 +86,7 @@ tracksModule.controller('TrackDialogController',
                 var k = 0;
                 var count = tdc.count(track,sessions);
                 var tsessions = new Array(count);
-                for(var i = 0; i < sessions.length;i++) {
+                for(var i = 0; i < sessions.length;i+=1) {
 
                     if(track.id === sessions[i].track) {
 

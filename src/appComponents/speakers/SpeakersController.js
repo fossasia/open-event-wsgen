@@ -18,7 +18,7 @@ speakersModule.controller('SpeakersController',
 	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-        if ( $sessionStorage.speakers === null || typeof($sessionStorage.speakers) === 'undefined')
+        if ( $sessionStorage.speakers === null || typeof ($sessionStorage.speakers) === 'undefined')
         {
             $sessionStorage.speakers = [];
         }

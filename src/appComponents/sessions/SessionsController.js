@@ -20,7 +20,7 @@ sessionsModule.controller('SessionsController',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
             var sc = this;
             if ($sessionStorage.sessions === null ||
-                typeof($sessionStorage.sessions) === 'undefined')
+                typeof ($sessionStorage.sessions) === 'undefined')
             {
                 $sessionStorage.sessions = [];
             }
