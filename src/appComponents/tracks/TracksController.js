@@ -2,7 +2,7 @@
  * Created by championswimmer on 29/5/15.
  */
 
-var tracksModule = angular.module("oe.tracks", ["ui.router"]);
+const tracksModule = angular.module("oe.tracks", ["ui.router"]);
 
 tracksModule.config(["$stateProvider", function($stateProvider) {
 
@@ -14,38 +14,38 @@ tracksModule.config(["$stateProvider", function($stateProvider) {
 
 }]);
 
-tracksModule.controller("TracksController", 
-    ["$mdDialog","$sessionStorage", "$rootScope", "ApiJsonFactory",
-        function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-          var tc = this;
+tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$rootScope", "ApiJsonFactory",
+        function ($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
+          var tsc = this;
+
           if ($sessionStorage.tracks === null || 
-            typeof ($sessionStorage.tracks) === "undefined")
+            typeof $sessionStorage.tracks === "undefined")
         {
             $sessionStorage.tracks = [];
         }
-        tc.Tracks = $sessionStorage.tracks;
-        tc.Sessions = $sessionStorage.sessions;
+        tsc.Tracks = $sessionStorage.tracks;
+        tsc.Sessions = $sessionStorage.sessions;
         
 
-        if (tc.Tracks.length === 0) {
+        if (tsc.Tracks.length === 0) {
             ApiJsonFactory.getJson("tracks")
                 .then(function (response) {
-                    tc.Tracks = response.data.tracks;
-                    $sessionStorage.tracks = tc.Tracks;
+                    tsc.Tracks = response.data.tracks;
+                    $sessionStorage.tracks = tsc.Tracks;
                 }, function (error) {
-                    console.error(error);
+                    //console.error(error);
                 });
 
             ApiJsonFactory.getJson("sessions")
                 .then(function (response) {
-                    tc.Sessions = response.data.sessions;
-                    $sessionStorage.sessions = tc.Sessions;
+                    tsc.Sessions = response.data.sessions;
+                    $sessionStorage.sessions = tsc.Sessions;
                 }, function (error) {
-                    console.error(error);
+                    //console.error(error);
                 });
         }
 
-        tc.showSession = function(track, event) {
+        tsc.showSession = function(track, event) {
             //singleTrack = track;
             $mdDialog.track = {
                 singleTrack: track
