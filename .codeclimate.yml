@@ -23,3 +23,5 @@ ratings:
   - "**.scss"
 exclude_paths:
 - "src/assets/js/leaflet.js"
+- "src/assets/css/leaflet.css"
+- "src/assets/js/twitter-widget.js"

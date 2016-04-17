@@ -85,7 +85,9 @@ tracksModule.controller('TrackDialogController',
                 var count = tdc.count(track,sessions);
                 var tsessions = new Array(count);
                 for(var i = 0; i < sessions.length;i++) {
+
                     if(track.id === sessions[i].track) {
+
                         tsessions[k+=1] = sessions[i];
                     }
                 }
