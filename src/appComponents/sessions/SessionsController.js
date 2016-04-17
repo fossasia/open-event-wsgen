@@ -12,7 +12,7 @@ sessionsModule.config(['$stateProvider', function($stateProvider) {
         url: '/sessions',
         templateUrl: 'appComponents/sessions/sessions.html',
         controller: 'SessionsController'
-    })
+    });
 }]);
 
 sessionsModule.controller('SessionsController',

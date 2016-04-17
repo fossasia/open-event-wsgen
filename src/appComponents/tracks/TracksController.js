@@ -9,7 +9,7 @@ tracksModule.config(['$stateProvider', function($stateProvider) {
         url: '/tracks',
         templateUrl: 'appComponents/tracks/tracks.html',
         controller: 'TracksController'
-    })
+    });
 }]);
 
 tracksModule.controller('TracksController', 
@@ -71,8 +71,8 @@ tracksModule.controller('TrackDialogController',
 
             tdc.count = function(track, sessions){
                 var count = 0;
-                for(var i = 0; i < sessions.length; i++) {
-                    if(track.id == sessions[i].track) {
+                for(var i = 0; i < sessions.length; i+=1) {
+                    if(track.id === sessions[i].track) {
                         count++;                    
                     }                    
                 }
@@ -86,7 +86,7 @@ tracksModule.controller('TrackDialogController',
                 var tsessions = new Array(count);
                 for(var i = 0; i < sessions.length;i++) {
                     if(track.id == sessions[i].track) {
-                        tsessions[k++] = sessions[i];
+                        tsessions[k+=1] = sessions[i];
                     }
                 }
 
