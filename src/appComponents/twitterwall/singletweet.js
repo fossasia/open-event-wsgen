@@ -32,7 +32,7 @@ function tweet($timeout,$rootScope) {
             '</div>',
     controller:"TwitterwallController",
     controllerAs: "vm",
-    bindToController: true,
+    bindToController: true
         
     };
     return directive;

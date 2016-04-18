@@ -81,7 +81,7 @@ sessionsModule.controller('SessionsController',
                     controller: 'SessionDialogController',
                     templateUrl: 'appComponents/sessions/sessiondialog.html',
                     parent: angular.element(document.body),
-                    targetEvent: event,
+                    targetEvent: event
 
                 });
             };

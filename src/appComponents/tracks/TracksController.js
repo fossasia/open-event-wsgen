@@ -61,7 +61,7 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
                 "controller": "TrackDialogController",
                 "templateUrl": "appComponents/tracks/trackdialog.html",
                 "parent": angular.element(document.body),
-                "targetEvent": event,
+                "targetEvent": event
 
           });
         };

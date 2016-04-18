@@ -11,7 +11,7 @@ var twitterUrl = config.apiTwitterGetUrl;
                 var deferred = $q.defer(),
                 httpPromise = $http({
                     method: 'JSONP',
-                    url: twitterUrl,
+                    url: twitterUrl
                     });
                 httpPromise.then(function (response) {
                     deferred.resolve(response);
