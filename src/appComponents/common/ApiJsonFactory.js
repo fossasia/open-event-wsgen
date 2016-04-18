@@ -3,6 +3,7 @@
  */
 (function() {
     "use strict"
+
 const commonFactories = angular.module('openevent');
 
 commonFactories.factory('ApiJsonFactory', ['$q', '$http', function ($q, $http) {
@@ -28,4 +29,5 @@ let baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
             }
         };
     }]);
+
 })();
