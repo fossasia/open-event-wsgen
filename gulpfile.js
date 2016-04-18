@@ -44,7 +44,7 @@ var srcPaths = {
         './bower_components/**/angular-material.js',
         './bower_components/**/angular-material.css',
         './bower_components/**/angular-ui-router.js',
-        './bower_components/**/ngStorage.js',
+        './bower_components/**/ngStorage.js'
     ],
     assets: ['./src/assets/**/*'],
     components: ['./src/appComponents/**/*'],
