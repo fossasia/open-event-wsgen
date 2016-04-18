@@ -9,7 +9,7 @@ var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
     'event/' + config.eventId;
         return {
             getJson: function ($apiEndpoint) {
-                let endpoint;
+                var endpoint;
                 if (($apiEndpoint === 'event') && (!config.use_testApi)) {
                     endpoint = baseUrl;
                 } else {
