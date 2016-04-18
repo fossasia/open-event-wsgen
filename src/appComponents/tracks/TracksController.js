@@ -59,6 +59,7 @@ tracksModule.controller("TracksController", ["$mdDialog", "$sessionStorage", "$r
             "singleTrack": track
           };
           $mdDialog.show({
+
             "controller": "TrackDialogController",
             "templateUrl": "appComponents/tracks/trackdialog.html",
             "parent": angular.element(document.body),

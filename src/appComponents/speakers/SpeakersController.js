@@ -57,7 +57,7 @@ speakersModule.controller('SpeakersController',
                 controller: 'SpeakerDialogController',
                 templateUrl: 'appComponents/speakers/speakerdialog.html',
                 parent: angular.element(document.body),
-                targetEvent: event,
+                targetEvent: event
 
             });
         };
@@ -117,7 +117,7 @@ speakersModule.controller('SpeakerDialogController',
                 controller: 'SessionDialogController',
                 templateUrl: 'appComponents/sessions/sessiondialog.html',
                 parent: angular.element(document.body),
-                targetEvent: event,
+                targetEvent: event
 
             });
         };

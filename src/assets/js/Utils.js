@@ -19,7 +19,7 @@ DateUtils.DateDiff = {
                 var d2 = new Date(ts2);
                 var t2 = d2.getTime();
                 var t1 = d1.getTime();
-                return parseInt((t2-t1)/(24*3600*1000));
+                return parseInt((t2-t1)/(24*3600*1000), 10);
         },
         inWeeks: function(ts1, ts2) {
                 var d1 = new Date(ts1);
@@ -27,7 +27,7 @@ DateUtils.DateDiff = {
                 var t2 = d2.getTime();
                 var t1 = d1.getTime();
 
-                return parseInt((t2-t1)/(24*3600*1000*7));
+                return parseInt((t2-t1)/(24*3600*1000*7), 10);
         }
 };
 

@@ -80,6 +80,7 @@ sessionsModule.controller('SessionsController',
                     singleSession: session
                 };
                 $mdDialog.show({
+
                     "controller": 'SessionDialogController',
                     "templateUrl": 'appComponents/sessions/sessiondialog.html',
                     "parent": angular.element(document.body),

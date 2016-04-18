@@ -9,10 +9,11 @@ var baseUrl = (config.use_testApi?'testapi/':config.apiBaseGetUrl) +
     'event/' + config.eventId;
         return {
             getJson: function ($apiEndpoint) {
+                let endpoint;
                 if (($apiEndpoint === 'event') && (!config.use_testApi)) {
-                    var endpoint = baseUrl;
+                    endpoint = baseUrl;
                 } else {
-                    var endpoint = baseUrl + '/' + $apiEndpoint;
+                    endpoint = baseUrl + '/' + $apiEndpoint;
                 }
                 
                 var deferred = $q.defer(),
