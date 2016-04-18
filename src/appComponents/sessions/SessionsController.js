@@ -8,11 +8,13 @@ var sessionsModule = angular.module('oe.sessions', ['ui.router']);
 /* ----------------------------- Sessions List ---------------------------- */
 var singleSession = {};
 sessionsModule.config(['$stateProvider', function($stateProvider) {
+    
     $stateProvider.state('sessions', {
-        url: '/sessions',
-        templateUrl: 'appComponents/sessions/sessions.html',
-        controller: 'SessionsController'
+      "url": '/sessions',
+      "templateUrl": 'appComponents/sessions/sessions.html',
+      "controller": 'SessionsController'
     });
+
 }]);
 
 sessionsModule.controller('SessionsController',
@@ -78,10 +80,10 @@ sessionsModule.controller('SessionsController',
                     singleSession: session
                 };
                 $mdDialog.show({
-                    controller: 'SessionDialogController',
-                    templateUrl: 'appComponents/sessions/sessiondialog.html',
-                    parent: angular.element(document.body),
-                    targetEvent: event,
+                    "controller": 'SessionDialogController',
+                    "templateUrl": 'appComponents/sessions/sessiondialog.html',
+                    "parent": angular.element(document.body),
+                    "targetEvent": event,
 
                 });
             };
