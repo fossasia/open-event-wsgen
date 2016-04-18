@@ -11,7 +11,7 @@ angular
     return directive;
         function link(scope, element, attrs) {
           element.bind('error', function() {
-            if (attrs.src != attrs.onErrorSrc) {
+            if (attrs.src !== attrs.onErrorSrc) {
               attrs.$set('src', attrs.onErrorSrc);
             }
           });

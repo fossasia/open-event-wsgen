@@ -18,7 +18,7 @@ speakersModule.controller('SpeakersController',
 	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-        if ( $sessionStorage.speakers === null || typeof($sessionStorage.speakers) === 'undefined')
+        if ( $sessionStorage.speakers === null || typeof ($sessionStorage.speakers) === 'undefined')
         {
             $sessionStorage.speakers = [];
         }
@@ -101,7 +101,7 @@ speakersModule.controller('SpeakerDialogController',
 
             var spSessions = sessions.filter(function(session){
                  return session.speakers.filter(function(sp){
-                          return sp.id == speaker.id;
+                          return sp.id === speaker.id;
                  })
                  .length > 0;
             });
