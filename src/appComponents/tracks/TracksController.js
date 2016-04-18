@@ -1,12 +1,13 @@
 /**
  * Created by championswimmer on 29/5/15.
  */
+
 (function() {
     "use strict";
 
 const tracksModule = angular.module("oe.tracks", ["ui.router"]);
 
-tracksModule.config(["$stateProvider", function ($stateProvider) {
+tracksModule.config(["$stateProvider", function($stateProvider) {
 
   $stateProvider.state("tracks", {
     "url": "/tracks",
