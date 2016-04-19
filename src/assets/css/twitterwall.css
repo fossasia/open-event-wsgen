@@ -1,76 +1,76 @@
 .background {
-	list-style: none;
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-	border: 1px solid black;
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
 
 }
 .main-container {
-	min-width: 1114px;
-	height: auto;
-	background-color: #333;
-	margin-right: 3%;
-	padding: 1%;
-	min-height: 432px;
+  min-width: 1114px;
+  height: auto;
+  background-color: #333;
+  margin-right: 3%;
+  padding: 1%;
+  min-height: 432px;
 
 }
 .item-wrapper {
-	opacity: .7;
+  opacity: .7;
 
 }
 .tweet {
-	float: left;
-	width: 50%;
+  float: left;
+  width: 50%;
 
 }
 .image {
-	box-sizing: border-box;
-	width: 50%;
-    padding: 4%;
-    float: left;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 4%;
+  float: left;
 
 }
 .text {
-    float: left;
-	width: 50%;
-	font-size: 100%;
-    overflow: hidden;
-    -ms-word-wrap: break-word;
-    word-wrap: break-word;
-    padding-top: .5em;
-    padding-bottom: 10px;
-    margin-bottom: 8px;
-    font-family: 'Roboto', sans-serif;
+  float: left;
+  width: 50%;
+  font-size: 100%;
+  overflow: hidden;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+  padding-top: .5em;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  font-family: 'Roboto', sans-serif;
 	
 }
 .container-tweet {
-	box-sizing: border-box;
-	width: 504px;
-	height: 240px;
-	background-color:rgb(0,0,0);
-	background-color: rgba(0, 0, 0, 0.59);
-	color: #fff;
-	border-radius: 5%;
-	position: absolute;
-    top: 130px;
-    word-wrap: break-word;
-    left: 280px;
-    padding-top: 3%;
-    line-height: 20px;
-    overflow: hidden;
+  box-sizing: border-box;
+  width: 504px;
+  height: 240px;
+  background-color:rgb(0,0,0);
+  background-color: rgba(0, 0, 0, 0.59);
+  color: #fff;
+  border-radius: 5%;
+  position: absolute;
+  top: 130px;
+  word-wrap: break-word;
+  left: 280px;
+  padding-top: 3%;
+  line-height: 20px;
+  overflow: hidden;
 
 }
 .loader {
-	position: absolute;
-    top: 130px;
-    left: 480px;
+  position: absolute;
+  top: 130px;
+  left: 480px;
 
 }
 .animation {
-	animation: tweet 2s;
-	-webkit-animation: tweet 2s;
-	-moz-animation: 2s;
+  animation: tweet 2s;
+  -webkit-animation: tweet 2s;
+  -moz-animation: 2s;
 }
 @-webkit-keyframes tweet {
 	0% {
@@ -110,9 +110,9 @@
    
 }
 .backgroundanimation {
-	animation: backgroundanimation 8s;
-	-webkit-animation: backgroundanimation 8s;
-	-moz-animation: backgroundanimation 8s ;
+  animation: backgroundanimation 8s;
+  -webkit-animation: backgroundanimation 8s;
+  -moz-animation: backgroundanimation 8s ;
 
 }
 @-webkit-keyframes backgroundanimation {
@@ -134,16 +134,16 @@
 
   }
 .heading-tweet {
-	font-size: 130%;
-    font-weight: bold;
-    color: #fff;
-    padding: 2%;
+  font-size: 130%;
+  font-weight: bold;
+  color: #fff;
+  padding: 2%;
 
 }
 .mention {
-	font-size: 120%;
-    font-weight: bold;
-    color: #fff;
-    padding: 2%;
+  font-size: 120%;
+  font-weight: bold;
+  color: #fff;
+  padding: 2%;
 
 }
