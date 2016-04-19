@@ -8,29 +8,37 @@ const commonFactories = angular.module("openevent");
 
 commonFactories.factory("ApiJsonFactory", ["$q", "$http", function ($q, $http) {
 
+const config ;
 const baseUrl = `(config.use_testApi ? "testapi/" : config.apiBaseGetUrl) event/ ${config.eventId}`;
 
         return {
             getJson: function ($apiEndpoint) {
-                let endpoint ="";
-                if (($apiEndpoint === "event") && (!config.use_testApi)) {
+                let endpoint = "";
+
+              if ($apiEndpoint === "event" && !config.use_testApi) {
                  
-                 endpoint = baseUrl;
+                  endpoint = baseUrl;
                 
-                } else {
+              } 
+              else {
                  
-                 endpoint = baseUrl + "/" + $apiEndpoint;
+                  endpoint = baseUrl + "/" + $apiEndpoint;
                 
-                }
-                let deferred = $q.defer(),
-                    httpPromise = $http.get(endpoint);
-                httpPromise.then(function (response) {
-                    deferred.resolve(response);
-                }, function (error) {
+              }
+              const deferred = $q.defer(),
+
+              const httpPromise = $http.get(endpoint);
+              httpPromise.then(function (response) {
+
+                  deferred.resolve(response);
+
+              }, function (error) {
                     // console.error(error);
-                });
+              });
                 return deferred.promise;
+
             }
+            
         };
 
     }]);
