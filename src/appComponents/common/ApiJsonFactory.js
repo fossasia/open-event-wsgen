@@ -7,7 +7,8 @@
 const commonFactories = angular.module("openevent");
 
 commonFactories.factory("ApiJsonFactory", ["$q", "$http", function ($q, $http) {
-const baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) +"event/" + config.eventId;
+
+const baseUrl = `(config.use_testApi ? "testapi/" : config.apiBaseGetUrl) event/ ${config.eventId}`;
 
         return {
             getJson: function ($apiEndpoint) {
@@ -31,6 +32,7 @@ const baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) +"event
                 return deferred.promise;
             }
         };
+
     }]);
 
 })();
