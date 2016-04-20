@@ -11,7 +11,7 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
         url: '/speakers',
         templateUrl: 'appComponents/speakers/speakers.html',
         controller: 'SpeakersController'
-    })
+    });
 }]);
 
 speakersModule.controller('SpeakersController',

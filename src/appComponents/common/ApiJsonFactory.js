@@ -8,8 +8,7 @@ const commonFactories = angular.module("openevent");
 
 commonFactories.factory("ApiJsonFactory", ["$q", "$http", function ($q, $http) {
 
-const config = "" ;
-const baseUrl = `(config.use_testApi ? "testapi/" : config.apiBaseGetUrl) event/ ${config.eventId}`;
+var baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) + "event/" + config.eventId;
 
         return {
             getJson: function ($apiEndpoint) {
