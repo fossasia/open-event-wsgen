@@ -1,7 +1,9 @@
 /**
  * Created by championswimmer on 29/5/15.
  */
-/* exported error */
+
+(function() {
+    "use strict";
 
 const tracksModule = angular.module("oe.tracks", ["ui.router"]);
 
@@ -15,20 +17,19 @@ tracksModule.config(["$stateProvider", function($stateProvider) {
 
 }]);
 
-tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$rootScope", "ApiJsonFactory",
+tracksModule.controller("TracksController", ["$mdDialog", "$sessionStorage", "$rootScope", "ApiJsonFactory",
         function ($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-          var tsc = this;
+          let tsc = this;
 
-          if ($sessionStorage.tracks === null || 
-            typeof $sessionStorage.tracks === "undefined")
+         if ($sessionStorage.tracks === null || typeof $sessionStorage.tracks === "undefined")
          {
 
             $sessionStorage.tracks = [];
-        }
-        tsc.Tracks = $sessionStorage.tracks;
-        tsc.Sessions = $sessionStorage.sessions;
-        
-        if (tsc.Tracks.length === 0) {
+
+         }
+          tsc.Tracks = $sessionStorage.tracks;
+          tsc.Sessions = $sessionStorage.sessions;
+          if (tsc.Tracks.length === 0) {
 
           ApiJsonFactory.getJson("tracks")
             .then(function (response) {
@@ -36,8 +37,8 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
             tsc.Tracks = response.data.tracks;
             $sessionStorage.tracks = tsc.Tracks;
                 
-            }, function error (error) {
-                    //console.error(error);
+            }, function (error) {
+                    // console.error(error);
             });
 
           ApiJsonFactory.getJson("sessions")
@@ -52,16 +53,17 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
 
         }
 
-        tsc.showSession = function(track, event) {
+        tsc.showSession = function (track, event) {
             // singleTrack = track;
           $mdDialog.track = {
-                "singleTrack": track
+            "singleTrack": track
           };
           $mdDialog.show({
-                "controller": "TrackDialogController",
-                "templateUrl": "appComponents/tracks/trackdialog.html",
-                "parent": angular.element(document.body),
-                "targetEvent": event
+
+            "controller": "TrackDialogController",
+            "templateUrl": "appComponents/tracks/trackdialog.html",
+            "parent": angular.element(document.body),
+            "targetEvent": event
 
           });
         };
@@ -73,7 +75,7 @@ tracksModule.controller("TracksController", ["$mdDialog","$sessionStorage", "$ro
 
 tracksModule.controller("TrackDialogController", 
     ["$mdDialog", "$sessionStorage",
-        function($mdDialog, $sessionStorage) {
+        function ($mdDialog, $sessionStorage) {
 
             var tdc = this;
             tdc.track = $mdDialog.track.singleTrack;
@@ -117,3 +119,5 @@ tracksModule.controller("TrackDialogController",
             };
             
     }]);
+
+})();

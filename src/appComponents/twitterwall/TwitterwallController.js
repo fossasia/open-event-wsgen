@@ -1,16 +1,16 @@
-var twitModule = angular.module('oe.twitterwall', ['ui.router']);
+var twitModule = angular.module("oe.twitterwall", ["ui.router"]);
 
-twitModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('twitterwall', {
-        url: '/twitterwall',
-        templateUrl: 'appComponents/twitterwall/twitterwall.html',
-        controller: 'TwitterwallController'
+twitModule.config(["$stateProvider", function($stateProvider) {
+    $stateProvider.state("twitterwall", {
+        url: "/twitterwall",
+        templateUrl: "appComponents/twitterwall/twitterwall.html",
+        controller: "TwitterwallController"
     });
 }]);
 
 /*created By aayusharora on 21/3/16*/
-twitModule.controller('TwitterwallController',
-    ['$http','$scope','TwitterJsonFactory',function($http,$scope,TwitterJsonFactory){
+twitModule.controller("TwitterwallController",
+    ["$http","$scope","TwitterJsonFactory",function($http,$scope,TwitterJsonFactory){
       $scope.array="";
        TwitterJsonFactory.getJson()
         .then(function(response){
@@ -19,10 +19,10 @@ twitModule.controller('TwitterwallController',
               $scope.fetched=true;
             }
           });          
-  $scope.$watch('array',function(){
+  $scope.$watch("array",function(){
     $scope.array=$scope.array;
       if($scope.array){
-        $scope.$broadcast('array',$scope.array);
+        $scope.$broadcast("array",$scope.array);
       }
          });
       

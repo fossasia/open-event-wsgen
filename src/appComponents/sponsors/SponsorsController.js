@@ -5,11 +5,13 @@
 var sponsorsModule = angular.module('oe.sponsors', ['ui.router']);
 
 sponsorsModule.config(['$stateProvider', function($stateProvider) {
+
     $stateProvider.state('sponsors', {
-        url: '/sponsors',
-        templateUrl: 'appComponents/sponsors/sponsors.html',
-        controller: 'SponsorsController'
+      url: '/sponsors',
+      templateUrl: 'appComponents/sponsors/sponsors.html',
+      controller: 'SponsorsController'
     });
+
 }]);
 
 sponsorsModule.controller('SponsorsController',
@@ -26,13 +28,15 @@ sponsorsModule.controller('SponsorsController',
         sc.Sponsors = $sessionStorage.sponsors;
 
         if (sc.Sponsors.length === 0) {
+
             ApiJsonFactory.getJson('sponsors')
                 .then(function (response) {
                     sc.Sponsors = response.data.sponsors;
                     $sessionStorage.sponsors = sc.Sponsors;
                 }, function (error) {
-                    console.error(error);
+                    // console.error(error);
                 });
+
         }
 
 }]);

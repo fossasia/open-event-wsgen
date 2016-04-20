@@ -3,24 +3,25 @@
  */
 
 
-var sessionsModule = angular.module('oe.sessions', ['ui.router']);
+var sessionsModule = angular.module("oe.sessions", ["ui.router"]);
 
 /* ----------------------------- Sessions List ---------------------------- */
 var singleSession = {};
-sessionsModule.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('sessions', {
-        url: '/sessions',
-        templateUrl: 'appComponents/sessions/sessions.html',
-        controller: 'SessionsController'
+sessionsModule.config(["$stateProvider", function($stateProvider) {
+    $stateProvider.state("sessions", {
+      "url": "/sessions",
+      "templateUrl": "appComponents/sessions/sessions.html",
+      "controller": "SessionsController"
     });
+
 }]);
 
-sessionsModule.controller('SessionsController',
-    ['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
+sessionsModule.controller("SessionsController",
+    ["$mdDialog", "$sessionStorage", "$rootScope", "ApiJsonFactory",
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
             var sc = this;
             if ($sessionStorage.sessions === null ||
-                typeof ($sessionStorage.sessions) === 'undefined')
+                typeof ($sessionStorage.sessions) === "undefined")
             {
                 $sessionStorage.sessions = [];
             }
@@ -31,7 +32,7 @@ sessionsModule.controller('SessionsController',
 
             if ($sessionStorage.sessions.length === 0) {
                 sc.showLoaders = true;
-                ApiJsonFactory.getJson('sessions')
+                ApiJsonFactory.getJson("sessions")
                     .then(function (response) {
                         $sessionStorage.sessions = response.data.sessions;
                         for (var i = 0; i < openevent.totalDays; i+=1) {
@@ -45,15 +46,15 @@ sessionsModule.controller('SessionsController',
                                 response.data.sessions[j].begin);
                             //Filter out any mistakenly entered sessions outside date range
                             if (dayDiff>openevent.totalDays || dayDiff < 0) {
-                                console.log('Session date = ' + dayDiff
-                                    +' outside event date range = '
+                                console.log("Session date = " + dayDiff
+                                    +" outside event date range = "
                                     + openevent.totalDays);
                                 continue;
                             }
                             sc.Sessions[dayDiff].push(response.data.sessions[j]);
                             $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
                             $sessionStorage.days[dayDiff].sessions.sort(SortUtils.sortBy(
-                            	'begin',
+                            	"begin",
                             	false,
                             	function(a){return a;}
                             	));
@@ -78,10 +79,11 @@ sessionsModule.controller('SessionsController',
                     singleSession: session
                 };
                 $mdDialog.show({
-                    controller: 'SessionDialogController',
-                    templateUrl: 'appComponents/sessions/sessiondialog.html',
-                    parent: angular.element(document.body),
-                    targetEvent: event
+
+                    "controller": "SessionDialogController",
+                    "templateUrl": "appComponents/sessions/sessiondialog.html",
+                    "parent": angular.element(document.body),
+                    "targetEvent": event,
 
                 });
             };
@@ -90,7 +92,7 @@ sessionsModule.controller('SessionsController',
 
 /* -------------------------- Session Dialog ----------------------- */
 
-sessionsModule.controller('SessionDialogController', ['$mdDialog',
+sessionsModule.controller("SessionDialogController", ["$mdDialog",
     function($mdDialog) {
         var sdc = this;
         sdc.session = $mdDialog.session.singleSession;
@@ -102,6 +104,6 @@ sessionsModule.controller('SessionDialogController', ['$mdDialog',
             var start = DateUtils.getHourMin(session.begin);
             var end = DateUtils.getHourMin(session.end);
 
-            return start + ' - ' + end;
+            return start + " - " + end;
         };
     }]);
