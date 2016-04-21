@@ -14,13 +14,13 @@ const baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) + "even
             getJson: function ($apiEndpoint) {
                 let endpoint = "";
 
-              if ( $apiEndpoint === "event" && !config.use_testApi) {
+              if ($apiEndpoint === "event" && !config.use_testApi) {
                   endpoint = baseUrl;
 
               } 
               else {
                   endpoint = baseUrl + "/" + $apiEndpoint;
-                
+              
               }
               const deferred = $q.defer(),
               httpPromise = $http.get(endpoint);

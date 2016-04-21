@@ -20,20 +20,20 @@ sessionsModule.controller("SessionsController",
     ["$mdDialog", "$sessionStorage", "$rootScope", "ApiJsonFactory",
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 
-          var sec = this;
+          let sec = this;
 
-            if ( $sessionStorage.sessions === null || typeof ( $sessionStorage.sessions) === "undefined")
-            {
-                $sessionStorage.sessions = [];
+          if ($sessionStorage.sessions === null || typeof $sessionStorage.sessions === "undefined") {
+               $sessionStorage.sessions = [];
+
             }
-            sec.showLoaders = false;
-            sec.Sessions = new Array(openevent.totalDays);
-            sec.Days = $sessionStorage.days;
+          sec.showLoaders = false;
+          sec.Sessions = new Array(openevent.totalDays);
+          sec.Days = $sessionStorage.days;
 
-            if ( $sessionStorage.sessions.length === 0) {
-                sec.showLoaders = true;
+          if ($sessionStorage.sessions.length === 0) {
+              sec.showLoaders = true;
 
-                ApiJsonFactory.getJson("sessions")
+              ApiJsonFactory.getJson("sessions")
                     .then(function (response) {
                         $sessionStorage.sessions = response.data.sessions;
                         for (var i = 0; i < openevent.totalDays; i+=1) {

@@ -11,7 +11,7 @@ function tweet($timeout,$rootScope) {
     "link": link,
     "restrict": "EA",
     "scope": {
-          array: "="
+          "array": "="
     },
     "template": "<div class= \"container-tweet\">" +
             "<div class= \"animate\" ng-repeat= \"photo in array\">" +
@@ -32,12 +32,12 @@ function tweet($timeout,$rootScope) {
     "controller": "TwitterwallController",
     "controllerAs": "vm",
     "bindToController": true    
-    };
+  };
 
-    return directive;
-    /* 
-    The directive link function
-    */ 
+  return directive;
+
+/*  The directive link function*/
+
   function link(scope) {
 
     scope.array = "";
@@ -54,31 +54,32 @@ function tweet($timeout,$rootScope) {
 
     }
     function changeTweet() {
-        if(scope.tweetNumber!==90) {
-            scope.tweetNumber=scope.tweetNumber + 1;
-            scope.selectedid=scope.array[scope.tweetNumber].id_str;
+
+      if (scope.tweetNumber !=== 90) {
+            scope.tweetNumber = scope.tweetNumber + 1;
+            scope.selectedid  =scope.array[scope.tweetNumber].id_str;
             $rootScope.$broadcast("selectedid",scope.selectedid);
             callchangetweet();
 
-        }
-        else {
+      }
+      else {
             scope.tweetNumber=0;    
             callchangetweet();
 
-        }
-        }
+      }
+    }
    
     function getObject() {
 
-            scope.$watch("array",function(){
+      scope.$watch("array",function(){
 
-            if(scope.array) {
-              scope.selectedid=scope.array[1].id_str;
-              changeTweet();
+      if (scope.array) {
+        scope.selectedid=scope.array[1].id_str;
+        changeTweet();
 
-            }
+        }
 
-        });
+      });
 
     }
     getObject();
