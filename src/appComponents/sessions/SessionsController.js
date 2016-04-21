@@ -19,26 +19,25 @@ sessionsModule.config(["$stateProvider", function($stateProvider) {
 sessionsModule.controller("SessionsController",
     ["$mdDialog", "$sessionStorage", "$rootScope", "ApiJsonFactory",
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-            var sc = this;
-            if ($sessionStorage.sessions === null ||
-                typeof ($sessionStorage.sessions) === "undefined")
+          var sec = this;
+
+            if ( $sessionStorage.sessions === null || typeof ( $sessionStorage.sessions) === "undefined")
             {
                 $sessionStorage.sessions = [];
             }
+            sec.showLoaders = false;
+            sec.Sessions = new Array(openevent.totalDays);
+            sec.Days = $sessionStorage.days;
 
-            sc.showLoaders = false;
-            sc.Sessions = new Array(openevent.totalDays);
-            sc.Days = $sessionStorage.days;
-
-            if ($sessionStorage.sessions.length === 0) {
-                sc.showLoaders = true;
+            if ( $sessionStorage.sessions.length === 0) {
+                sec.showLoaders = true;
                 ApiJsonFactory.getJson("sessions")
                     .then(function (response) {
                         $sessionStorage.sessions = response.data.sessions;
                         for (var i = 0; i < openevent.totalDays; i+=1) {
-                            sc.Sessions[i] = [];
+                            sec.Sessions[i] = [];
                         }
-                        $sessionStorage.sessionset = sc.Sessions;
+                        $sessionStorage.sessionset = sec.Sessions;
 
                         for (var j = 0; j < response.data.sessions.length; j+= 1) {
                             var dayDiff = DateUtils.DateDiff.inDays(
@@ -51,30 +50,30 @@ sessionsModule.controller("SessionsController",
                                     + openevent.totalDays);
                                 continue;
                             }
-                            sc.Sessions[dayDiff].push(response.data.sessions[j]);
-                            $sessionStorage.days[dayDiff].sessions = sc.Sessions[dayDiff];
+                            sec.Sessions[dayDiff].push(response.data.sessions[j]);
+                            $sessionStorage.days[dayDiff].sessions = sec.Sessions[dayDiff];
                             $sessionStorage.days[dayDiff].sessions.sort(SortUtils.sortBy(
                             	"begin",
                             	false,
                             	function(a){return a;}
                             	));
                         }
-                        sc.showLoaders = false;
-                        sc.Days = $sessionStorage.days;
+                        sec.showLoaders = false;
+                        sec.Days = $sessionStorage.days;
 
                     }, function (error) {
                         console.error(error);
                     });
             }
 
-            sc.duration = function(session) {
+            sec.duration = function(session) {
                 var start = DateUtils.getHourMin(session.begin);
                 var end = DateUtils.getHourMin(session.end);
 
                 return {start: start, end: end};
             };
 
-            sc.showSession = function(session, event) {
+            sec.showSession = function(session, event) {
                 $mdDialog.session = {
                     singleSession: session
                 };

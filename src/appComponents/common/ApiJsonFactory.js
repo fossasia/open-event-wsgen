@@ -15,31 +15,28 @@ var baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) + "event/
                 let endpoint = "";
 
               if ($apiEndpoint === "event" && !config.use_testApi) {
-                 
                   endpoint = baseUrl;
                 
               } 
               else {
-                 
                   endpoint = baseUrl + "/" + $apiEndpoint;
                 
               }
               const deferred = $q.defer(),
-
               httpPromise = $http.get(endpoint);
-              httpPromise.then(function (response) {
 
+              httpPromise.then(function (response) {
                   deferred.resolve(response);
 
               }, function (error) {
                     // console.error(error);
               });
-                return deferred.promise;
+              return deferred.promise;
 
             }
 
         };
 
-    }]);
+}]);
 
 })();
