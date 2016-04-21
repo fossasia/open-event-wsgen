@@ -31,7 +31,9 @@ var baseUrl = (config.use_testApi ? "testapi/" : config.apiBaseGetUrl) + "event/
               }, function (error) {
                     // console.error(error);
               });
-              return deferred.promise;
+
+                return deferred.promise;
+
 
             }
 
