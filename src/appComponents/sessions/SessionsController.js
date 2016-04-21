@@ -19,15 +19,10 @@ sessionsModule.config(["$stateProvider", function($stateProvider) {
 sessionsModule.controller("SessionsController",
     ["$mdDialog", "$sessionStorage", "$rootScope", "ApiJsonFactory",
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
-<<<<<<< HEAD
+
           var sec = this;
 
             if ( $sessionStorage.sessions === null || typeof ( $sessionStorage.sessions) === "undefined")
-=======
-            var sc = this;
-            if ($sessionStorage.sessions === null ||
-                typeof ($sessionStorage.sessions) === "undefined")
->>>>>>> bcbd99087570d5c86a2e2e39515e4433909e7216
             {
                 $sessionStorage.sessions = [];
             }
@@ -35,17 +30,9 @@ sessionsModule.controller("SessionsController",
             sec.Sessions = new Array(openevent.totalDays);
             sec.Days = $sessionStorage.days;
 
-<<<<<<< HEAD
             if ( $sessionStorage.sessions.length === 0) {
                 sec.showLoaders = true;
-=======
-            sc.showLoaders = false;
-            sc.Sessions = new Array(openevent.totalDays);
-            sc.Days = $sessionStorage.days;
 
-            if ($sessionStorage.sessions.length === 0) {
-                sc.showLoaders = true;
->>>>>>> bcbd99087570d5c86a2e2e39515e4433909e7216
                 ApiJsonFactory.getJson("sessions")
                     .then(function (response) {
                         $sessionStorage.sessions = response.data.sessions;
