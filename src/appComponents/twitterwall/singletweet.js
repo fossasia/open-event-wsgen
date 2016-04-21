@@ -40,43 +40,52 @@ function tweet($timeout,$rootScope) {
     */ 
   function link(scope) {
 
-        scope.array= "";
-        scope.getObject= getObject;
-        scope.selectedid= "";
-        scope.createdAt= "";
-        scope.tweetNumber= 0;
-        scope.changeTweet= changeTweet;
-        scope.callchangetweet= callchangetweet;
-        scope.even= false;
+    scope.array = "";
+    scope.getObject = getObject;
+    scope.selectedid = "";
+    scope.createdAt = "";
+    scope.tweetNumber = 0;
+    scope.changeTweet = changeTweet;
+    scope.callchangetweet = callchangetweet;
+    scope.even = false;
          
-        function callchangetweet(){
-                $timeout(changeTweet,8000);
-        }
-        function changeTweet(){
-            if(scope.tweetNumber!==90){
-                scope.tweetNumber=scope.tweetNumber + 1;
-                scope.selectedid=scope.array[scope.tweetNumber].id_str;
-                $rootScope.$broadcast("selectedid",scope.selectedid);
-                callchangetweet();
-            }
-            else {
-                scope.tweetNumber=0;    
-                callchangetweet();
-            }
-            }
-       
-        function getObject(){
-                scope.$watch("array",function(){
-                if(scope.array){
-                    scope.selectedid=scope.array[1].id_str;
-                    changeTweet();
-                }
-            });
-        }
-        getObject();
-        scope.$on("array",function(args,message){
-            scope.array=message;
-        });
-           
-        }
+    function callchangetweet() {
+          $timeout(changeTweet,8000);
+
     }
+    function changeTweet() {
+        if(scope.tweetNumber!==90) {
+            scope.tweetNumber=scope.tweetNumber + 1;
+            scope.selectedid=scope.array[scope.tweetNumber].id_str;
+            $rootScope.$broadcast("selectedid",scope.selectedid);
+            callchangetweet();
+
+        }
+        else {
+            scope.tweetNumber=0;    
+            callchangetweet();
+
+        }
+        }
+   
+    function getObject() {
+
+            scope.$watch("array",function(){
+
+            if(scope.array) {
+              scope.selectedid=scope.array[1].id_str;
+              changeTweet();
+
+            }
+
+        });
+
+    }
+    getObject();
+    scope.$on("array",function(args,message){
+      scope.array=message;
+
+    });
+       
+    }
+}
