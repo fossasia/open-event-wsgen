@@ -11,14 +11,14 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
         url: '/speakers',
         templateUrl: 'appComponents/speakers/speakers.html',
         controller: 'SpeakersController'
-    })
+    });
 }]);
 
 speakersModule.controller('SpeakersController',
 	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
         function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-        if ( $sessionStorage.speakers == null || typeof($sessionStorage.speakers) == 'undefined')
+        if ( $sessionStorage.speakers === null || typeof ($sessionStorage.speakers) === 'undefined')
         {
             $sessionStorage.speakers = [];
         }
@@ -57,7 +57,7 @@ speakersModule.controller('SpeakersController',
                 controller: 'SpeakerDialogController',
                 templateUrl: 'appComponents/speakers/speakerdialog.html',
                 parent: angular.element(document.body),
-                targetEvent: event,
+                targetEvent: event
 
             });
         };
@@ -101,7 +101,7 @@ speakersModule.controller('SpeakerDialogController',
 
             var spSessions = sessions.filter(function(session){
                  return session.speakers.filter(function(sp){
-                          return sp.id == speaker.id;
+                          return sp.id === speaker.id;
                  })
                  .length > 0;
             });
@@ -117,7 +117,7 @@ speakersModule.controller('SpeakerDialogController',
                 controller: 'SessionDialogController',
                 templateUrl: 'appComponents/sessions/sessiondialog.html',
                 parent: angular.element(document.body),
-                targetEvent: event,
+                targetEvent: event
 
             });
         };

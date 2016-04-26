@@ -44,7 +44,7 @@ var srcPaths = {
         './bower_components/**/angular-material.js',
         './bower_components/**/angular-material.css',
         './bower_components/**/angular-ui-router.js',
-        './bower_components/**/ngStorage.js',
+        './bower_components/**/ngStorage.js'
     ],
     assets: ['./src/assets/**/*'],
     components: ['./src/appComponents/**/*'],
@@ -144,7 +144,7 @@ gulp.task('clean', function() {
 gulp.task('styles', function() {
     gulp.src('./assets/scss/main.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./assets/css/'))
+        .pipe(gulp.dest('./assets/css/'));
 });
 
 gulp.task('dist', function() {
