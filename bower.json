@@ -24,15 +24,15 @@
     "tests"
   ],
   "dependencies": {
-    "angular-animate": "^1.5.3",
-    "angular-aria": "^1.5.3",
+    "angular-animate": "^1.5.5",
+    "angular-aria": "^1.5.5",
     "angular-material": "^1.0.7",
     "ngstorage": "^0.3.10",
     "angular-ui-router": "^0.2.18",
     "angular-leaflet-directive": "^0.10.0",
-    "angular": "^1.5.3"
+    "angular": "^1.5.5"
   },
   "resolutions": {
-    "angular": "1.5.3"
+    "angular": "1.5.5"
   }
 }

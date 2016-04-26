@@ -14,7 +14,7 @@
     "gulp-flatten": "^0.2.0",
     "gulp-inject": "^4.0.0",
     "gulp-minify-css": "^1.2.4",
-    "gulp-sass": "^2.2.0",
+    "gulp-sass": "^2.3.1",
     "gulp-uglify": "^1.5.3",
     "lodash": "^4.11.1"
   },
@@ -23,7 +23,7 @@
     "lodash": "~4.11.1",
     "bower": "~1.7.9",
     "lodash._basecreate": "~3.0.3",
-    "browser-sync": "~2.12.3",
+    "browser-sync": "~2.12.5",
     "gulp-install": "~0.6.0"
   }
 }
