@@ -55,7 +55,7 @@ function tweet($timeout,$rootScope) {
     }
     function changeTweet() {
 
-      if (scope.tweetNumber !=== 90) {
+      if (scope.tweetNumber !== 90) {
             scope.tweetNumber = scope.tweetNumber + 1;
             scope.selectedid  =scope.array[scope.tweetNumber].id_str;
             $rootScope.$broadcast("selectedid",scope.selectedid);
