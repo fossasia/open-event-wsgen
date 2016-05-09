@@ -1,13 +1,13 @@
 describe("app", function () {
 
   var $rootScope;
-      $controller;
+  var $controller;
 
   beforeEach(module("openevent"));
   beforeEach(inject(function ($injector) {
 
-    $rootScope = $injector.get('$rootScope');
-    $controller = $injector.get('$controller');
+    $rootScope = $injector.get("$rootScope");
+    $controller = $injector.get("$controller");
     $scope = $rootScope.$new();
 
   }));
@@ -16,11 +16,11 @@ describe("app", function () {
 
   }));
 
-  it("It will describe the title variable", function () {
+    it("It will describe the title variable", function () {
 
     expect(AppController.appTitle).toBe(config.title);
     expect(openevent.totalDays).toBe(0);
 
-  });
+    });
 
 });
