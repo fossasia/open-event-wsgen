@@ -1,7 +1,7 @@
 describe("app", function () {
 
   var $rootScope;
-  var $controller;
+      $controller;
 
   beforeEach(module("openevent"));
   beforeEach(inject(function ($injector) {
