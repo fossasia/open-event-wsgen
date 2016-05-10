@@ -30,7 +30,7 @@ module.exports = function (config) {
       "./src/app.js",
       "./src/config.js",
       "./src/appComponents/**/*",
-      "./src/test/unit/spec1.js",
+      "./src/test/unit/spec1.js"
 
     ],
 
@@ -84,4 +84,4 @@ module.exports = function (config) {
 
   });
 
-}
+};
