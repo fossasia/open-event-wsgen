@@ -5,6 +5,7 @@
     "url": "git://github.com/fossasia/open-event-webapp.git"
   },
   "devDependencies": {
+    "angular-mocks": "~1.5.5",
     "bower": "~1.7.9",
     "graceful-fs": "^4.1.3",
     "gulp": "^3.9.1",
@@ -19,6 +20,7 @@
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
+    "karma-cli": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "lodash": "^4.11.1",
     "node-sass": "^3.7.0"
