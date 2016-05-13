@@ -34,5 +34,8 @@
   },
   "resolutions": {
     "angular": "1.5.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5"
   }
 }
