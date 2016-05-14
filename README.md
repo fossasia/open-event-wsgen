@@ -40,6 +40,10 @@ First make sure you have all the dependencies
 ```javascript
 bower update
 ```
+Run the tests with karma
+```javascript
+karma start
+```
 
 Serve on <http://localhost:8080> with Gulp
 `gulp webserver`   
@@ -63,7 +67,7 @@ You can `rsync` or `ftp` the **dist** folder generated to your static web server
 
 -------------------------------------------------------------------------
 ##Technology
- * AngularJS 1.3
+ * AngularJS 1.5.5
  * Bootstrap (or similar) for styling
 The webapp will be written using only HTML, CSS and Javascript, so it is completely client-side renderable, on all kinds of browsers, including PCs and smartphones and tablets.
 
