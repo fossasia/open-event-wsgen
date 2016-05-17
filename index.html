@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html ng-app="openevent" ng-controller="AppController as appCtrl" ng-strict-di ng-cloak>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <title > {{ appCtrl.appTitle }} </title>
+
+    <!-- Bootstrap -->
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="./vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- jVectorMap -->
+    <link href="./css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href='./bower_components/angular-material/angular-material.min.css'>
+
+    <!-- Custom Theme Style -->
+    <link href="./css/custom.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="./src/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./src/assets/css/twitterwall.css">
+    <link rel="stylesheet" type="text/css" href="./src/assets/css/leaflet.css">
+    <script type="text/javascript" src="./src/assets/js/leaflet.js"></script>
+    <script type="text/javascript" src="./src/assets/js/twitter-widget.js"></script>
+    <script type="text/javascript" src="./src/assets/js/Utils.js"></script>
+    <script src='./bower_components/angular/angular.js'></script>
+    <script src='./bower_components/leaflet/dist/leaflet.js'></script>
+    <script src='./bower_components/angular-aria/angular-aria.js'></script>
+    <script src='./bower_components/angular-animate/angular-animate.js'></script>
+    <script src='./bower_components/angular-material/angular-material.js'></script>
+    <script src='./bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js'></script>
+    <script src='./bower_components/angular-ui-router/release/angular-ui-router.js'></script>
+    <script src='./bower_components/ngstorage/ngStorage.js'></script>
+    <script src="./src/config.js"></script>
+    <script src="./src/app.js"></script>
+    <script src="./src/appComponents/common/ApiJsonFactory.js"></script>
+    <script src="./src/appComponents/common/TwitterJsonFactory.js"></script>
+    <script type="text/javascript" src="./src/appComponents/sidenav/SidenavController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/sessions/SessionsController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/speakers/SpeakersController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/map/MapController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/sponsors/SponsorsController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/tracks/TracksController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/twitterwall/TwitterwallController.js"></script>
+    <script type="text/javascript" src="./src/appComponents/twitterwall/singletweet.js"></script>
+    <script type="text/javascript" src="./src/appComponents/twitterwall/background-directive.js"></script>
+    <script type="text/javascript" src="./src/appComponents/twitterwall/width.js"></script>
+     
+</head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><img ng-src="./src/assets/img/logo.svg"></i> <span> re:Publica 2015 </span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Event Info <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a ui-sref="sessions">Sessions</a>
+                      </li>
+                      <li><a ui-sref="speakers">Speakers</a>
+                      </li>
+                      <li><a ui-sref="tracks">Tracks</a>
+                      </li>
+                      <li><a ui-sref="twitterwall">TwitterWall</a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+           
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+
+          <div class="nav_menu">
+            <nav class="" role="navigation">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+             
+            </nav>
+          </div>
+
+        </div>
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+      <div class="right_col" role="main">
+
+        <md-content flex layout-padding>
+            <div layout="column" layout-fill layout-align="top center">
+                <div ui-view></div>
+            </div>
+            <div flex></div>
+        </md-content>
+      </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="./vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="./vendors/bernii/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="./vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="./vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="./vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="./vendors/Flot/jquery.flot.js"></script>
+    <script src="./vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="./vendors/Flot/jquery.flot.time.js"></script>
+    <script src="./vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="./vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="./js/flot/jquery.flot.orderBars.js"></script>
+    <script src="./js/flot/date.js"></script>
+    <script src="./js/flot/jquery.flot.spline.js"></script>
+    <script src="./js/flot/curvedLines.js"></script>
+    <!-- jVectorMap -->
+    <script src="./js/maps/jquery-jvectormap-2.0.3.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="./js/moment/moment.min.js"></script>
+    <script src="./js/datepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./js/custom.js"></script>
+
+    <!-- Flot -->
+    <!-- /Flot -->
+
+    <!-- jVectorMap -->
+    <script src="./js/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="./js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="./js/maps/gdp-data.js"></script>
+    <!-- /jVectorMap -->
+
+    <!-- /Skycons -->
+
+    <!-- Doughnut Chart -->
+
+    <!-- /Doughnut Chart -->
+    
+    <!-- /bootstrap-daterangepicker -->
+
+    <!-- gauge.js -->
+    <!-- /gauge.js -->
+  </body>
+</html>

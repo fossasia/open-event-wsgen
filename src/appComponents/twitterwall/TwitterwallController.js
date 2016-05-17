@@ -3,7 +3,7 @@ var twitModule = angular.module("oe.twitterwall", ["ui.router"]);
 twitModule.config(["$stateProvider", function($stateProvider) {
     $stateProvider.state("twitterwall", {
         url: "/twitterwall",
-        templateUrl: "appComponents/twitterwall/twitterwall.html",
+        templateUrl: "./src/appComponents/twitterwall/twitterwall.html",
         controller: "TwitterwallController"
     });
 }]);
