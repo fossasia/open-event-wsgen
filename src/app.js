@@ -10,7 +10,6 @@ const openevent = angular.module("openevent",
     "ngStorage",
     "ngMaterial",
     "leaflet-directive",
-    "oe.sidenav",
     "oe.sessions",
     "oe.speakers",
     "oe.tracks",
@@ -39,18 +38,12 @@ openevent.controller("AppController",
           
           openevent.totalDays = 0;
           app.appTitle = config.title;
-          app.toggleSidenav=toggleSidenav;
           
 
 
         /**
           * use for toggling the sidebar
         */
-          function toggleSidenav(menuId) {
-
-            $mdSidenav(menuId).toggle();
-
-           }
 
           app.$storage = $sessionStorage;
           if (app.$storage.event === null || typeof (app.$storage.event) === "undefined")

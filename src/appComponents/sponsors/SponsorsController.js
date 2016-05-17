@@ -8,7 +8,7 @@ sponsorsModule.config(['$stateProvider', function($stateProvider) {
 
     $stateProvider.state('sponsors', {
       url: '/sponsors',
-      templateUrl: 'appComponents/sponsors/sponsors.html',
+      templateUrl: './src/appComponents/sponsors/sponsors.html',
       controller: 'SponsorsController'
     });
 

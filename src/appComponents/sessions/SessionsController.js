@@ -10,7 +10,7 @@ var singleSession = {};
 sessionsModule.config(["$stateProvider", function($stateProvider) {
     $stateProvider.state("sessions", {
       "url": "/sessions",
-      "templateUrl": "appComponents/sessions/sessions.html",
+      "templateUrl": "./src/appComponents/sessions/sessions.html",
       "controller": "SessionsController"
     });
 
@@ -82,7 +82,7 @@ sessionsModule.controller("SessionsController",
                 $mdDialog.show({
 
                     "controller": "SessionDialogController",
-                    "templateUrl": "appComponents/sessions/sessiondialog.html",
+                    "templateUrl": "./src/appComponents/sessions/sessiondialog.html",
                     "parent": angular.element(document.body),
                     "targetEvent": event,
 
