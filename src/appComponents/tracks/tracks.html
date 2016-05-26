@@ -1,0 +1,25 @@
+<div ng-controller="TracksController as tc" class="md-default-theme">
+    <md-content>
+        <md-list>
+
+            <md-list-item class="md-2-line" ng-repeat="track in tc.Tracks" >
+                <div class="md-list-item-text" ng-click="tc.showSession(track, $event)">
+                    <h3>{{track.name}}</h3>
+                    <p>
+                        {{ track.description }}
+                        <br>
+
+                    </p>
+                    
+                   <!-- <md-list-item ng-repeat="session in tc.Sessions">
+                        <span ng-if="session.track==track.id">
+                            {{ session.title}}
+                        </span>
+                    </md-list-item>-->
+                    <md-divider></md-divider>
+                </div>
+            </md-list-item>
+
+        </md-list>
+    </md-content>
+</div>

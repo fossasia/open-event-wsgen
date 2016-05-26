@@ -1,0 +1,17 @@
+{
+  "name": "Open-event-webapp",
+  "description": "This is a client-side webapp, that will be used by attendees of the event.",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "icons": {
+    "128": "/icon/lowres.png"
+  },
+  "app": {
+    "urls": [
+      "http://fossasia.github.io/open-event-webapp/"
+    ],
+    "launch": {
+      "web_url": "http://fossasia.github.io/open-event-webapp/"
+    }
+  }
+}

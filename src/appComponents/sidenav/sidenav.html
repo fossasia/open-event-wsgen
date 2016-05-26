@@ -1,0 +1,37 @@
+<md-content layout-padding layout-fill ng-controller="SidenavController as sideCtrl">
+    <md-button ng-click="sideCtrl.toggleSidenav('left')" hide-gt-md class="md-icon-button">
+        <md-icon aria-label="Menu" md-svg-icon="assets/img/ic_toolbar_back.svg"></md-icon>
+    </md-button>
+    <md-list>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="sessions">
+                <div align="left"> Sessions </div>
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="speakers">
+                 <div align="left"> Speakers </div>
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="tracks">
+                <div align="left"> Tracks </div>
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="sponsors">
+                <div align="left"> Sponsors </div>
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="twitterwall">
+                <div align="left"> Twitterwall </div>
+            </md-button>
+        </md-list-item>
+        <md-list-item>
+            <md-button layout-fill ng-click="sideCtrl.toggleSidenav('left')" ui-sref="map">
+                <div align="left"> Map </div>
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-content>

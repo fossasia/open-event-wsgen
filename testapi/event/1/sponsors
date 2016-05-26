@@ -1,0 +1,14 @@
+{
+  "sponsors": [
+    {
+      "name": "Google",
+      "url": "http://google.com",
+      "logo": "http://res.cloudinary.com/demo/image/fetch/fl_png8/https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+    },
+    {
+      "name": "Moz",
+      "url": "http://mozilla.org",
+      "logo": "https://lists.w3.org/Archives/Public/site-comments/2009Dec/att-0060/One_Mozilla-Logo-_white_.png"
+    }
+  ]
+}

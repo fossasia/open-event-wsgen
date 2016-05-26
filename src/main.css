@@ -1,0 +1,32 @@
+.github-icon {
+    height: 40px;
+    width: 40px;
+    color: black !important;
+}
+
+.twitter-icon {
+    height: 40px;
+    width: 40px;
+    color: deepskyblue !important;
+}
+
+.linkedin-icon {
+    height: 40px;
+    width: 40px;
+    color: midnightblue !important;
+}
+
+.facebook-icon {
+    height: 40px;
+    width: 40px;
+    color: darkblue !important;
+}
+
+.logo {
+    display: block;
+    width: 75% !important;
+    height: auto !important;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
