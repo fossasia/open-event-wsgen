@@ -1,0 +1,17 @@
+{
+  "name": "open-event-webapp",
+  "description": "Open Event Webapp",
+  "main": "index.js",
+  "authors": [
+    "FOSSASIA"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/fossasia/open-event-webapp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

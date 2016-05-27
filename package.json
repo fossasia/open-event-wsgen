@@ -1,0 +1,19 @@
+{
+  "name": "open-event-webapp",
+  "version": "2.0.0",
+  "description": "Open Event Webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fossasia/open-event-webapp.git"
+  },
+  "author": "FOSSASIA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fossasia/open-event-webapp/issues"
+  },
+  "homepage": "https://github.com/fossasia/open-event-webapp#readme"
+}
