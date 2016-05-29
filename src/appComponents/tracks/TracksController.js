@@ -11,7 +11,7 @@ tracksModule.config(["$stateProvider", function($stateProvider) {
 
   $stateProvider.state("tracks", {
     "url": "/tracks",
-    "templateUrl": "appComponents/tracks/tracks.html",
+    "templateUrl": "./src/appComponents/tracks/tracks.html",
     "controller": "TracksController"
   });
 
@@ -61,7 +61,7 @@ tracksModule.controller("TracksController", ["$mdDialog", "$sessionStorage", "$r
           $mdDialog.show({
 
             "controller": "TrackDialogController",
-            "templateUrl": "appComponents/tracks/trackdialog.html",
+            "templateUrl": "./src/appComponents/tracks/trackdialog.html",
             "parent": angular.element(document.body),
             "targetEvent": event
 
