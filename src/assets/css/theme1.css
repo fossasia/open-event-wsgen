@@ -1,0 +1,9 @@
+.input-append .btn.dropdown-toggle {
+    float: none;
+}
+.input-box{
+  display:inline-flex;
+}
+.main_container{
+	background-color:#172d44;
+}
