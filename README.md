@@ -3,11 +3,11 @@
 ## Project Details
 ### Directory Structure
 
- - **app**
+ - **src/client**
 
    Source code of the app.
-   
- - **generator**
+
+ - **src/generator**
 
    This contains scripts to generate JSON dumps of data from non orga-server sources like Google Sheets or scraped from other event websites.
 
