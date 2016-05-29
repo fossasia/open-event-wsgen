@@ -4,6 +4,7 @@ import { HTTP_PROVIDERS} from '@angular/http';
 
 import { HomeComponent } from './+home/index';
 import { SessionsComponent } from './+sessions/index';
+import { SpeakersComponent } from './+speakers/index';
 import { NameListService, NavbarComponent, ToolbarComponent } from './shared/index';
 
 /**
@@ -20,11 +21,11 @@ import { NameListService, NavbarComponent, ToolbarComponent } from './shared/ind
 @Routes([
   {
     path: '/',
-    component: HomeComponent
+    component: SessionsComponent
   },
   {
-    path: '/sessions',
-    component: SessionsComponent
+    path: '/speakers',
+    component: SpeakersComponent
   }
 ])
 export class AppComponent {}
