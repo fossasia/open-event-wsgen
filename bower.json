@@ -30,7 +30,10 @@
     "ngstorage": "^0.3.10",
     "angular-ui-router": "^0.2.18",
     "angular-leaflet-directive": "^0.10.0",
-    "angular": "^1.5.5"
+    "angular": "^1.5.5",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6",
+    "Chart.js": "^2.1.4"
   },
   "resolutions": {
     "angular": "1.5.5"
