@@ -25,7 +25,29 @@
 	overflow: hidden;
 	display:block;
 }
+.card-block{
+	margin:7%;
+	height:530px;
+
+}
 .card-text{
 	color: #2482d3;
+    overflow: hidden;
 }
 
+.left_col.scroll-view{
+	position: fixed;
+    background-color: #172d44;
+    height : 700px;
+}
+.org{
+	font-size : 16px;
+}
+.readoption {
+	padding:6px;
+	font-size:13px;
+	margin:4px;
+}
+.right_col{
+ min-height: 104px !important;
+}
