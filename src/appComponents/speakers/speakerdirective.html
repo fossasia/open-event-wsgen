@@ -1,6 +1,14 @@
 <div class="container" ng-controller="SpeakersController">
-    
        <div class="row" ng-repeat="rows in chunkedData">
-            <div class="col-md-4" ng-repeat="item in rows">{{item.name}}</div>
+            <div class="col-md-4" ng-repeat="item in rows">
+                <div class="card">
+                    <img class="card-img-top" ng-src="{{item.photo}}" alt="Card image cap">
+                 <div class="card-block">
+                    <center><h4 class="card-text">{{item.name}}</h4></center>
+                  
+                    
+  </div>
+</div>
+            </div>
         </div>
 </div>
