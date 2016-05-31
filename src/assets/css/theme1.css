@@ -4,9 +4,6 @@
 .input-box{
   display:inline-flex;
 }
-.main_container{
-	background-color:#172d44;
-}
 .imagestyle{
 	width: 80px;
 	height:80px;
@@ -15,14 +12,15 @@
 }
 .card{
 	margin-top:30%;
-    width: 202px;
-    height: 258px;
-    border: 1px solid black;
-    border-radius: 2%;
+    width: 250px;
+    height: 448px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
 }
 .card-img-top{
-	width:200px;
-	height:200px;
+	width:248px;
+	height:248px;
 	margin:0 auto;
 	overflow: hidden;
 	display:block;
@@ -30,3 +28,4 @@
 .card-text{
 	color: #2482d3;
 }
+

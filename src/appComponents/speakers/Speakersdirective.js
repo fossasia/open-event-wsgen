@@ -11,7 +11,8 @@ function speakerdirective($timeout,$rootScope) {
     "link": link,
     "restrict": "EA",
     "scope": {
-      speakerstemplate: '='
+      speakerstemplate: '=',
+      newArr: '='
     },
     "templateUrl":'./src/appComponents/speakers/speakerdirective.html'
   };
