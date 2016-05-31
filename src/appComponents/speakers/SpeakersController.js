@@ -15,53 +15,31 @@ speakersModule.config(['$stateProvider', function($stateProvider) {
 }]);
 
 speakersModule.controller('SpeakersController',
-	['$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
-        function($mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
+	['$scope','$mdDialog', '$sessionStorage', '$rootScope', 'ApiJsonFactory',
+        function($scope,$mdDialog, $sessionStorage, $rootScope, ApiJsonFactory) {
 		var sc = this;
-        if ( $sessionStorage.speakers === null || typeof ($sessionStorage.speakers) === 'undefined')
-        {
-            $sessionStorage.speakers = [];
-        }
-        sc.Speakers = $sessionStorage.speakers;
-        sc.showLoaders = false;
-
-        if (sc.Speakers.length === 0) {
-            sc.showLoaders = true;
-            ApiJsonFactory.getJson('speakers')
+            $scope.speakerstemplate=[];
+            var request=ApiJsonFactory.getJson('speakers')
                 .then(function (response) {
-                    sc.Speakers = response.data.speakers;
-                    sc.Speakers.sort(SortUtils.sortBy(
-                    	'name',
-                    	false,
-                    	function(a){return a.toUpperCase();}
-                    	));
-                    $sessionStorage.speakers = sc.Speakers;
-                    sc.showLoaders = false;
+                    $scope.speakerstemplate = response.data.speakers;
+
                 }, function (error) {
                     console.error(error);
                 });
-            ApiJsonFactory.getJson('sessions')
-                .then(function (response) {
-                    sc.Sessions = response.data.sessions;
-                    $sessionStorage.sessions = sc.Sessions;
-                }, function (error) {
-                    console.error(error);
-                });
-        }
-
-        sc.showSpeaker = function(speaker, event) {
-            $mdDialog.speak = {
-                singleSpeaker:speaker
-            };
-            $mdDialog.show({
-                controller: 'SpeakerDialogController',
-                templateUrl: 'appComponents/speakers/speakerdialog.html',
-                parent: angular.element(document.body),
-                targetEvent: event
-
-            });
-        };
-
+         request.then(function(data){
+         	 function chunk(arr, size) {
+  				$scope.newArr = [];
+  				for (var i=0; i<arr.length; i+=size) {
+    				$scope.newArr.push(arr.slice(i, i+size));
+  				}
+  				return $scope.newArr;
+				}
+             $scope.chunkedData = chunk($scope.speakerstemplate, 3);
+             console.log($scope.newArr);
+         })
+         
+            
+			
 }]);
 
 speakersModule.controller('SpeakerDialogController',
