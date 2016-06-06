@@ -4,7 +4,7 @@
   "description": "Open Event Webapp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server.generator": "node src/generator/app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/fossasia/open-event-webapp/issues"
   },
-  "homepage": "https://github.com/fossasia/open-event-webapp#readme"
+  "homepage": "https://github.com/fossasia/open-event-webapp#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "fs": "0.0.2",
+    "handlebars": "^4.0.5",
+    "moment": "^2.13.0"
+  }
 }

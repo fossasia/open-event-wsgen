@@ -1,0 +1,13 @@
+{
+  "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "env": {
+    "node": true
+  },
+  "rules": {
+    "indent": ["error", 2, {"SwitchCase": 1}]
+  }
+
+}
