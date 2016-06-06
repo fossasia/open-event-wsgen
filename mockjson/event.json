@@ -1,0 +1,73 @@
+{
+  "services": [
+    {
+      "py/object": "models.Service",
+      "url": "http://2016.opentechsummit.net",
+      "id": 2,
+      "service": "Event Main Page"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://twitter.com/opntec",
+      "id": 3,
+      "service": "Twitter"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://github.com/opentechsummit",
+      "id": 4,
+      "service": "Github"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://www.facebook.com/OpenTechSummit",
+      "id": 5,
+      "service": "Facebook"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://www.flickr.com/search/?q=openxlab",
+      "id": 6,
+      "service": "Flickr"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://plus.google.com/u/0/111141930325574830495",
+      "id": 7,
+      "service": "Google Plus"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "https://www.youtube.com/channel/UCJoKp-gG2t7lH5_hiKp95yA",
+      "id": 8,
+      "service": "YouTube"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "",
+      "id": 9,
+      "service": "Vimeo"
+    },
+    {
+      "py/object": "models.Service",
+      "url": "",
+      "id": 10,
+      "service": "Linkedin"
+    }
+  ],
+  "logoico": {
+    "py/object": "models.LogoIco",
+    "main_page_url": "http://2016.opentechsummit.net",
+    "ico_url": "img/OpenTechSummit.ico",
+    "logo_url": "img/Logo_OpenTecSummit_TXT_grey.png"
+  },
+  "copyright": {
+    "py/object": "models.Copyright",
+    "holder_url": "http://opentechsummit.net",
+    "license": "Creative Commons By",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/",
+    "year": "2016",
+    "logo": "https://licensebuttons.net/l/by/4.0/80x15.png",
+    "holder": "OpenTechSummit"
+  }
+}
