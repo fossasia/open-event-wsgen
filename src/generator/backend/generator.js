@@ -2,15 +2,15 @@
 
 var exports = module.exports = {};
 
-const fs = require('fs')
-const moment = require('moment')
-const handlebars = require('handlebars')
+const fs = require('fs');
+const moment = require('moment');
+const handlebars = require('handlebars');
 
-const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'))
-const sessionsData = require('../../../mockjson/sessions.json')
-const speakersData = require('../../../mockjson/speakers.json')
-const servicesData = require('../../../mockjson/event.json')
-const sponsorsData = require('../../../mockjson/sponsors.json')
+const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
+const sessionsData = require('../../../mockjson/sessions.json');
+const speakersData = require('../../../mockjson/speakers.json');
+const servicesData = require('../../../mockjson/event.json');
+const sponsorsData = require('../../../mockjson/sponsors.json');
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -45,7 +45,7 @@ function speakerNameWithOrg(speaker) {
 function foldByDate(tracks) {
   let dateMap = new Map()
 
-  tracks.forEach(track => {
+  tracks.forEach((track) => {
     if (!dateMap.has(track.date)) {
       dateMap.set(track.date, {
         caption: track.date,
@@ -56,16 +56,21 @@ function foldByDate(tracks) {
   })
 
   let dates = Array.from(dateMap.values())
-  dates.forEach(date => date.tracks.sort(byProperty('sortKey')))
+  dates.forEach((date) => date.tracks.sort(byProperty('sortKey')))
 
   return dates;
 }
 
 function byProperty(key) {
   return (a, b) => {
-    if (a[key] > b[key]) { return 1 }
-    if (a[key] < b[key]) { return -1 }
-    else { return 0 }
+    if (a[key] > b[key]) {
+      return 1;
+    }
+    if (a[key] < b[key]) {
+      return -1;
+    } else {
+      return 0;
+    }
   }
 }
 
@@ -73,17 +78,21 @@ function zeroFill(num) {
   if (num === undefined) {
     return ""
   }
-  if (num >= 10) { return num.toString() }
-  else { return '0' + num.toString() }
+  if (num >= 10) {
+    return num.toString();
+  } else {
+    return '0' + num.toString();
+  }
 }
 
 function foldByTrack(sessions, speakers) {
   let trackData = new Map()
-  let speakersMap = new Map(speakers.map(s => [s.id, s]));
+  let speakersMap = new Map(speakers.map((s) => [s.id, s]));
 
-  sessions.forEach(session => {
-    if (!session.start_time)
+  sessions.forEach((session) => {
+    if (!session.start_time) {
       return
+    }
 
     // generate slug/key for session
     let date = moment(session.start_time).format('YYYY-MM-DD')
@@ -110,7 +119,7 @@ function foldByTrack(sessions, speakers) {
       type: session.type,
       location: session.location,
       speakers: session.speakers.map(speakerNameWithOrg).join(', '),
-      speakers_list: session.speakers.map(speaker => speakersMap.get(speaker.id)),
+      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       description: session.description,
       session_id: session.session_id,
       sign_up: session.sign_up,
@@ -134,7 +143,7 @@ function getCopyrightData(services) {
 function foldByLevel(sponsors) {
   let levelData = {}
 
-  sponsors.forEach(sponsor => {
+  sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = []
     }
@@ -156,6 +165,7 @@ function foldByLevel(sponsors) {
         sponsorItem.imgsize = "large"
         break;
       case '2':
+      default:
         sponsorItem.divclass = "mediumoffset col-md-2"
         sponsorItem.imgsize = "medium"
         break;
@@ -172,7 +182,7 @@ function foldByLevel(sponsors) {
 
 function createSocialLinks(services) {
   let sociallinks = Array.from(services.services)
-  sociallinks.forEach(link => {
+  sociallinks.forEach((link) => {
     link.show = true
     switch(link.service.toLowerCase()) {
       case 'event main page':
