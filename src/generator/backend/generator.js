@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var exports = module.exports = {};
 
@@ -32,7 +32,7 @@ handlebars.registerHelper('linkify', function(options) {
 
 function slugify(str) {
   if (str === undefined) {
-    return "";
+    return '';
   }
   return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
 }
@@ -40,7 +40,7 @@ function slugify(str) {
 function speakerNameWithOrg(speaker) {
   return speaker.organisation ?
     `${speaker.name} (${speaker.organisation})` :
-    speaker.name
+    speaker.name;
 }
 
 function foldByDate(tracks) {
@@ -51,13 +51,13 @@ function foldByDate(tracks) {
       dateMap.set(track.date, {
         caption: track.date,
         tracks: []
-      })
+      });
     }
     dateMap.get(track.date).tracks.push(track);
-  })
+  });
 
   let dates = Array.from(dateMap.values())
-  dates.forEach((date) => date.tracks.sort(byProperty('sortKey')))
+  dates.forEach((date) => date.tracks.sort(byProperty('sortKey')));
 
   return dates;
 }
@@ -77,7 +77,7 @@ function byProperty(key) {
 
 function zeroFill(num) {
   if (num === undefined) {
-    return ""
+    return '';
   }
   if (num >= 10) {
     return num.toString();
@@ -87,12 +87,12 @@ function zeroFill(num) {
 }
 
 function foldByTrack(sessions, speakers) {
-  let trackData = new Map()
+  let trackData = new Map();
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
 
   sessions.forEach((session) => {
     if (!session.start_time) {
-      return
+      return;
     }
 
     // generate slug/key for session
@@ -108,7 +108,7 @@ function foldByTrack(sessions, speakers) {
         slug: slug,
         sortKey: date + '-' + zeroFill(session.track.order),
         sessions: []
-      }
+      };
       trackData.set(slug, track);
     } else {
       track = trackData.get(slug);
@@ -127,26 +127,28 @@ function foldByTrack(sessions, speakers) {
       video: session.video,
       slides: session.slides,
       audio: session.audio
-    })
+    });
   });
 
-  let tracks = Array.from(trackData.values())
-  tracks.sort(byProperty('sortKey'))
+  let tracks = Array.from(trackData.values());
+
+  tracks.sort(byProperty('sortKey'));
 
   return tracks;
 }
 
 function getCopyrightData(services) {
-  let copyright = services.copyright
+  let copyright = services.copyright;
+
   return copyright;
 }
 
 function foldByLevel(sponsors) {
-  let levelData = {}
+  let levelData = {};
 
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
-      levelData[sponsor.level] = []
+      levelData[sponsor.level] = [];
     }
 
     let sponsorItem = {
@@ -158,21 +160,21 @@ function foldByLevel(sponsors) {
       level: sponsor.level,
       description: sponsor.description,
       type: sponsor.type
-    }
+    };
 
     switch (sponsorItem.level) {
       case '1':
-        sponsorItem.divclass = "largeoffset col-md-4"
-        sponsorItem.imgsize = "large"
+        sponsorItem.divclass = 'largeoffset col-md-4';
+        sponsorItem.imgsize = 'large';
         break;
       case '2':
       default:
-        sponsorItem.divclass = "mediumoffset col-md-2"
-        sponsorItem.imgsize = "medium"
+        sponsorItem.divclass = 'mediumoffset col-md-2';
+        sponsorItem.imgsize = 'medium';
         break;
       case '3':
-        sponsorItem.divclass = "largeoffset col-md-2"
-        sponsorItem.imgsize = "small"
+        sponsorItem.divclass = 'largeoffset col-md-2';
+        sponsorItem.imgsize = 'small';
         break;
     }
     levelData[sponsor.level].push(sponsorItem)
@@ -184,7 +186,7 @@ function foldByLevel(sponsors) {
 function createSocialLinks(services) {
   let sociallinks = Array.from(services.services)
   sociallinks.forEach((link) => {
-    link.show = true
+    link.show = true;
     switch(link.service.toLowerCase()) {
       case 'event main page':
         link.icon = 'home';
@@ -232,18 +234,19 @@ function extractEventUrls(services) {
 }
 
 function transformData(sessions, speakers, services, sponsors) {
-  let tracks = foldByTrack(sessions.sessions, speakers.speakers);
-  let days = foldByDate(tracks);
-  let sociallinks = createSocialLinks(services);
-  let eventurls = extractEventUrls(services);
-  let copyright = getCopyrightData(services);
-  let sponsorpics = foldByLevel(sponsors.sponsors);
-  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics}
+  const tracks = foldByTrack(sessions.sessions, speakers.speakers);
+  const days = foldByDate(tracks);
+  const sociallinks = createSocialLinks(services);
+  const eventurls = extractEventUrls(services);
+  const copyright = getCopyrightData(services);
+  const sponsorpics = foldByLevel(sponsors.sponsors);
+
+  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
 }
 
-const data = transformData(sessionsData, speakersData, servicesData, sponsorsData)
+const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
 
-exports.getSchedulePage = function () {
+exports.getSchedulePage = function() {
 
   var zip = new AdmZip();
   var dataBuffer = new Buffer(tpl(data), 'utf-8');
