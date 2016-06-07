@@ -5,6 +5,7 @@ var exports = module.exports = {};
 const fs = require('fs');
 const moment = require('moment');
 const handlebars = require('handlebars');
+var AdmZip = require('adm-zip');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const sessionsData = require('../../../mockjson/sessions.json');
@@ -243,5 +244,10 @@ function transformData(sessions, speakers, services, sponsors) {
 const data = transformData(sessionsData, speakersData, servicesData, sponsorsData)
 
 exports.getSchedulePage = function () {
-  return tpl(data);
+
+  var zip = new AdmZip();
+  var dataBuffer = new Buffer(tpl(data), 'utf-8');
+  zip.addFile('index.html', dataBuffer, '', 644);
+
+  return zip;
 }
