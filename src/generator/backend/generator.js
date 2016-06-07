@@ -252,6 +252,7 @@ exports.getSchedulePage = function() {
   var dataBuffer = new Buffer(tpl(data), 'utf-8');
 
   zip.addFile('index.html', dataBuffer, '', 644);
+  zip.addLocalFolder(__dirname + '/assets', '/');
 
   return zip;
 };
