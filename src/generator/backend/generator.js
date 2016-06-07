@@ -24,16 +24,16 @@ if(!String.linkify) {
   };
 }
 
-handlebars.registerHelper('linkify', function (options) {
+handlebars.registerHelper('linkify', function(options) {
   var content = options.fn(this);
   return new handlebars.SafeString(content.linkify());
 });
 
 function slugify(str) {
   if (str === undefined) {
-    return ""
+    return "";
   }
-  return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase()
+  return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
 }
 
 function speakerNameWithOrg(speaker) {
@@ -43,7 +43,7 @@ function speakerNameWithOrg(speaker) {
 }
 
 function foldByDate(tracks) {
-  let dateMap = new Map()
+  let dateMap = new Map();
 
   tracks.forEach((track) => {
     if (!dateMap.has(track.date)) {
@@ -52,7 +52,7 @@ function foldByDate(tracks) {
         tracks: []
       })
     }
-    dateMap.get(track.date).tracks.push(track)
+    dateMap.get(track.date).tracks.push(track);
   })
 
   let dates = Array.from(dateMap.values())
@@ -95,9 +95,9 @@ function foldByTrack(sessions, speakers) {
     }
 
     // generate slug/key for session
-    let date = moment(session.start_time).format('YYYY-MM-DD')
-    let slug = date + '-' + slugify(session.track.name)
-    let track = null
+    let date = moment(session.start_time).format('YYYY-MM-DD');
+    let slug = date + '-' + slugify(session.track.name);
+    let track = null;
 
     // set up track if it does not exist
     if (!trackData.has(slug)) {
@@ -108,9 +108,9 @@ function foldByTrack(sessions, speakers) {
         sortKey: date + '-' + zeroFill(session.track.order),
         sessions: []
       }
-      trackData.set(slug, track)
+      trackData.set(slug, track);
     } else {
-      track = trackData.get(slug)
+      track = trackData.get(slug);
     }
 
     track.sessions.push({
@@ -132,12 +132,12 @@ function foldByTrack(sessions, speakers) {
   let tracks = Array.from(trackData.values())
   tracks.sort(byProperty('sortKey'))
 
-  return tracks
+  return tracks;
 }
 
 function getCopyrightData(services) {
   let copyright = services.copyright
-  return copyright
+  return copyright;
 }
 
 function foldByLevel(sponsors) {
@@ -176,7 +176,7 @@ function foldByLevel(sponsors) {
     }
     levelData[sponsor.level].push(sponsorItem)
   });
-  return levelData
+  return levelData;
 
 }
 
@@ -186,56 +186,57 @@ function createSocialLinks(services) {
     link.show = true
     switch(link.service.toLowerCase()) {
       case 'event main page':
-        link.icon = 'home'
+        link.icon = 'home';
         break;
       case 'twitter':
-        link.icon = 'twitter'
+        link.icon = 'twitter';
         break;
       case 'github':
-        link.icon = 'github'
+        link.icon = 'github';
         break;
       case 'facebook':
-        link.icon = 'facebook'
+        link.icon = 'facebook';
         break;
       case 'youtube':
-        link.icon = 'youtube-play'
+        link.icon = 'youtube-play';
         break;
       case 'linkedin':
-        link.icon = 'linkedin'
+        link.icon = 'linkedin';
         break;
       case 'vimeo':
-        link.icon = 'vimeo'
+        link.icon = 'vimeo';
         break;
       case 'flickr':
-        link.icon = 'flickr'
+        link.icon = 'flickr';
         break;
       case 'google plus':
-        link.icon = 'google-plus'
+        link.icon = 'google-plus';
         break;
       default:
-        link.show = false
+        link.show = false;
         break;
     }
 
-    if (link.url == "") {
-      link.show = false
+    if (link.url === '') {
+      link.show = false;
     }
   })
-  return sociallinks
+  return sociallinks;
 }
 
 function extractEventUrls(services) {
-  let urls = services.logoico
-  return urls
+  let urls = services.logoico;
+
+  return urls;
 }
 
 function transformData(sessions, speakers, services, sponsors) {
-  let tracks = foldByTrack(sessions.sessions, speakers.speakers)
-  let days = foldByDate(tracks)
-  let sociallinks = createSocialLinks(services)
-  let eventurls = extractEventUrls(services)
-  let copyright = getCopyrightData(services)
-  let sponsorpics = foldByLevel(sponsors.sponsors)
+  let tracks = foldByTrack(sessions.sessions, speakers.speakers);
+  let days = foldByDate(tracks);
+  let sociallinks = createSocialLinks(services);
+  let eventurls = extractEventUrls(services);
+  let copyright = getCopyrightData(services);
+  let sponsorpics = foldByLevel(sponsors.sponsors);
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics}
 }
 
