@@ -4,7 +4,8 @@
   "description": "Open Event Webapp",
   "main": "index.js",
   "scripts": {
-    "server.generator": "node src/generator/app.js"
+    "server.generator": "node src/generator/app.js",
+    "start": "npm run server.generator"
   },
   "repository": {
     "type": "git",
