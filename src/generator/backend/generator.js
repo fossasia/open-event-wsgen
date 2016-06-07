@@ -56,7 +56,8 @@ function foldByDate(tracks) {
     dateMap.get(track.date).tracks.push(track);
   });
 
-  let dates = Array.from(dateMap.values())
+  let dates = Array.from(dateMap.values());
+
   dates.forEach((date) => date.tracks.sort(byProperty('sortKey')));
 
   return dates;
@@ -72,7 +73,7 @@ function byProperty(key) {
     } else {
       return 0;
     }
-  }
+  };
 }
 
 function zeroFill(num) {
@@ -177,14 +178,14 @@ function foldByLevel(sponsors) {
         sponsorItem.imgsize = 'small';
         break;
     }
-    levelData[sponsor.level].push(sponsorItem)
+    levelData[sponsor.level].push(sponsorItem);
   });
   return levelData;
-
 }
 
 function createSocialLinks(services) {
-  let sociallinks = Array.from(services.services)
+  const sociallinks = Array.from(services.services);
+
   sociallinks.forEach((link) => {
     link.show = true;
     switch(link.service.toLowerCase()) {
@@ -223,12 +224,12 @@ function createSocialLinks(services) {
     if (link.url === '') {
       link.show = false;
     }
-  })
+  });
   return sociallinks;
 }
 
 function extractEventUrls(services) {
-  let urls = services.logoico;
+  const urls = services.logoico;
 
   return urls;
 }
@@ -247,10 +248,10 @@ function transformData(sessions, speakers, services, sponsors) {
 const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
 
 exports.getSchedulePage = function() {
-
   var zip = new AdmZip();
   var dataBuffer = new Buffer(tpl(data), 'utf-8');
+
   zip.addFile('index.html', dataBuffer, '', 644);
 
   return zip;
-}
+};
