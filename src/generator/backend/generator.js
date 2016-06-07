@@ -5,7 +5,7 @@ var exports = module.exports = {};
 const fs = require('fs');
 const moment = require('moment');
 const handlebars = require('handlebars');
-var AdmZip = require('adm-zip');
+const AdmZip = require('adm-zip');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const sessionsData = require('../../../mockjson/sessions.json');
@@ -27,11 +27,12 @@ if(!String.linkify) {
 
 handlebars.registerHelper('linkify', function(options) {
   var content = options.fn(this);
+
   return new handlebars.SafeString(content.linkify());
 });
 
 function slugify(str) {
-  if (str === undefined) {
+  if (typeof str === 'undefined') {
     return '';
   }
   return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
@@ -56,7 +57,7 @@ function foldByDate(tracks) {
     dateMap.get(track.date).tracks.push(track);
   });
 
-  let dates = Array.from(dateMap.values());
+  const dates = Array.from(dateMap.values());
 
   dates.forEach((date) => date.tracks.sort(byProperty('sortKey')));
 
@@ -70,21 +71,20 @@ function byProperty(key) {
     }
     if (a[key] < b[key]) {
       return -1;
-    } else {
-      return 0;
     }
+
+    return 0;
   };
 }
 
 function zeroFill(num) {
-  if (num === undefined) {
+  if (typeof num === 'undefined') {
     return '';
   }
   if (num >= 10) {
     return num.toString();
-  } else {
-    return '0' + num.toString();
   }
+  return '0' + num.toString();
 }
 
 function foldByTrack(sessions, speakers) {
