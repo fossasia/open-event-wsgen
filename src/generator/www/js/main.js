@@ -7,18 +7,24 @@ $(document).ready(function() {
   $('#btn').click(function() { 
 
   var form = document.querySelector('form');
-  var formData = new FormData(form);
- 
-  formData.append( 'sessionfile', $( '#sessionfile' )[0].files[0] );
-  formData.append( 'speakerfile', $( '#speakerfile' )[0].files[0] );
-  formData.append( 'trackfile', $( '#trackfile' )[0].files[0] );
-  formData.append( 'locationfile', $( '#locationfile' )[0].files[0] );
+  var fd = new FormData(form);
 
+  var files ={
+    'sessionfile':  $( '#sessionfile' )[0].files[0],
+    'speakerfile':$( '#speakerfile' )[0].files[0],
+    'trackfile':$( '#trackfile' )[0].files[0] ,
+    'locationfile':$( '#locationfile' )[0].files[0]
+  }
+  
+  for (var key in files) {
+    //console.log(key, files[key]);
+    fd.append(key, files[key]);
+  }
   var obj={
     name:$name.val(),
     email:$email.val(),
     url :$url.val(),
-    files:formData
+    files:fd
     
   }
 
@@ -30,7 +36,7 @@ $(document).ready(function() {
     contentType: false,
     
     success :function(data){
-    	//console.log("sucess");
+      console.log(obj);
     }
        
     });
