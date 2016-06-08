@@ -8,11 +8,10 @@
 <script src="./js/main.js"></script>
 </head>
 <body>
-
 <div class="container"></br></br>
-<form class="generator_form" role="form" action="/generate">
+<form class="generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
-    <label for="name">Email</label>
+    <label for="email">Email</label>
     <input type="email" class="form-control" id="email">
   </div></br></br>
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
@@ -25,30 +24,30 @@
   </div></br></br>
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
      <div class="row">
-      <div class="col-md-6">
-        <label for="speakerfile">Json for Speakers</label>
-        <input type="file"  id="speakerfile">
-      </div>
-      <div class="col-md-6">
-        <label for="sessionfile">Json for Sessions</label>
-        <input type="file"  id="sessionfile">
-      </div>
-    </div></br>
-     <div class="row">
-      <div class="col-md-6">
-        <label for="trackfile">Json for Tracks</label>
-        <input type="file"  id="trackfile">
-      </div>
-      <div class="col-md-6">
-        <label for="locationfile">Json for locations</label>
-        <input type="file"  id="locationfile">
-      </div>
-    </div></br></br>
+  		<div class="col-md-6">
+  			<label for="speakerfile">Json for Speakers</label>
+    		<input type="file" name="speakerfile" id="speakerfile">
+  		</div>
+  		<div class="col-md-6">
+  			<label for="sessionfile">Json for Sessions</label>
+    		<input type="file" name="sessionfile" id="sessionfile">
+  		</div>
+  	</div></br>
+  	 <div class="row">
+  		<div class="col-md-6">
+  			<label for="trackfile">Json for Tracks</label>
+    		<input type="file" name="trackfile" id="trackfile">
+  		</div>
+  		<div class="col-md-6">
+  			<label for="locationfile">Json for locations</label>
+    		<input type="file" name="locationfile" id="locationfile">
+  		</div>
+  	</div></br></br>
   
   </div>
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4">
   <center>
-  <button class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
+  <button type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
   </center>
   </div>
 </form>
