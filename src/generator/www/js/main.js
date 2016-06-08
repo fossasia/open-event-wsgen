@@ -5,12 +5,10 @@ $(document).ready(function(){
  var $url  =$('#url');
 
   $('#btn').click(function() { 
-  	
+
   var form = document.querySelector('form');
   var formData = new FormData(form);
-  var file_data = $('input[type="file"]')[0].files;
-  console.log(file_data);
-
+ 
   formData.append( 'sessionfile', $( '#sessionfile' )[0].files[0] );
   formData.append( 'speakerfile', $( '#speakerfile' )[0].files[0] );
   formData.append( 'trackfile', $( '#trackfile' )[0].files[0] );
@@ -32,7 +30,7 @@ $(document).ready(function(){
     
     success :function(data){
        
-  })
+  });
 
 });
 });
