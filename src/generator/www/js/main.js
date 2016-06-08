@@ -5,8 +5,7 @@ $(document).ready(function(){
  var $url  =$('#url');
 
   $('#btn').click(function() { 
-
- 
+  	
   var form = document.querySelector('form');
   var formData = new FormData(form);
   var file_data = $('input[type="file"]')[0].files;
