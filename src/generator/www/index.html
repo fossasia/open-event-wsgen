@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="./css/generator.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="./js/main.js"></script>
 </head>
 <body>
+
+<div class="container"></br></br>
 <form class="generator_form" role="form" action="/generate">
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
-    <label for="name">App's Name</label></br>
+    <label for="name">Email</label>
+    <input type="email" class="form-control" id="email">
+  </div></br></br>
+  <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
+    <label for="name">App's Name</label>
     <input type="name" class="form-control" id="name">
-  </div>
+  </div></br></br>
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
     <label for="url">Link to json containing end points</label>
     <input type="url" class="form-control" id="url">
-  </div>
-   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
-    <label for="package">App's package name</label>
-    <input type="package" class="form-control" id="package">
+  </div></br></br>
+  <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group">
+     <div class="row">
+      <div class="col-md-6">
+        <label for="speakerfile">Json for Speakers</label>
+        <input type="file"  id="speakerfile">
+      </div>
+      <div class="col-md-6">
+        <label for="sessionfile">Json for Sessions</label>
+        <input type="file"  id="sessionfile">
+      </div>
+    </div></br>
+     <div class="row">
+      <div class="col-md-6">
+        <label for="trackfile">Json for Tracks</label>
+        <input type="file"  id="trackfile">
+      </div>
+      <div class="col-md-6">
+        <label for="locationfile">Json for locations</label>
+        <input type="file"  id="locationfile">
+      </div>
+    </div></br></br>
+  
   </div>
   <div class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4">
   <center>
-  <button type="submit" class="download btn btn-default">GENERATE APP AND DOWNLOAD</button>
+  <button class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
   </center>
   </div>
 </form>
+</div>
 </body>
 </html>
