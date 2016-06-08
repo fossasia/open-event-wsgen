@@ -1,8 +1,8 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
- var $email =$('#email');
- var $name  =$('#name'); 
- var $url  =$('#url');
+  var $email =$('#email');
+  var $name  =$('#name'); 
+  var $url  =$('#url');
 
   $('#btn').click(function() { 
 
@@ -18,9 +18,10 @@ $(document).ready(function(){
     name:$name.val(),
     email:$email.val(),
     url :$url.val(),
-    data:obj
+    files:formData
     
   }
+
   $.ajax({
     type: 'POST',
     url:  ' ',
@@ -29,10 +30,12 @@ $(document).ready(function(){
     contentType: false,
     
     success :function(data){
+    	//console.log("sucess");
+    }
        
-  });
+    });
 
-});
+  });
 });
 
 
