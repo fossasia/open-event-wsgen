@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 @import '../../_base/config';
 // 1.Overwrite stuff
-$corp-color: $gray-light;
+$corp-color: $gray;
 $corp-color-darken: darken($corp-color, 10%);
 $corp-color-second: $blue;
 $corp-color-second-dark: darken($corp-color-second, 10%);
