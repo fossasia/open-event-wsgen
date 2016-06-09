@@ -6,7 +6,7 @@ node_js:
   # - "4.2"
 
 script:
-  - npm start run
+  - npm run start
 
 addons:
     code_climate:
