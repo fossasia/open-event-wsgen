@@ -132,11 +132,11 @@ a {
           top: 50px;
         }
     }
-    & > .dropdown-toggle:hover + .dropdown-menu {
+     > .dropdown-toggle:hover + .dropdown-menu {
         opacity: 1;
         top: 50px;
     }
-    & > .dropdown-toggle:hover {
+     > .dropdown-toggle:hover {
         background-color: #e7e7e7;
     }
   }
@@ -150,7 +150,7 @@ a {
 
 .video-link {
   margin-left: 3px;
-  & > .fa {
+   > .fa {
     font-size: 22px;
     color: #757575;
     &:hover {
@@ -160,7 +160,7 @@ a {
 }
 
 .session-link {
-  & > .fa {
+   > .fa {
     font-size: 18px;
     color: #757575;
       &:hover {
