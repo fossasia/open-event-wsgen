@@ -5,9 +5,9 @@
 @import '_base/_config.scss';
 
 /* Offsets for fixed navbar */
+/* Offsets for fixed navbar */
 body {
   margin-top: 50px;
-  background-color:$corp-color !important;
 }
 
 .anchor {
@@ -20,7 +20,8 @@ body {
 /* Adjust styling to main page theme */
 body {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  color: $corp-color;
+  font-size: 12px;
+  color: #777777;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -31,20 +32,19 @@ body {
 
 a {
   color: #777;
-}
-
-a:hover {
-  color: #e12b00;
-  text-decoration: none;
-}
+    &:hover {
+      color: #e12b00;
+      text-decoration: none;
+    }
 
 /* Social media icons for speakers */
-a.speaker-social {
-  margin-right: 0.3em;
-}
+  .speaker-social {
+      margin-right: 0.3em;
+       &:hover {
+        text-decoration: none;
+        }
+  }
 
-a.speaker-social:hover {
-  text-decoration: none;
 }
 
 /* Navbar adjustments */
@@ -59,63 +59,61 @@ a.speaker-social:hover {
 }
 
 /* General styling of session list */
-.session-list li {
-  cursor: pointer;
-}
+.session{
 
-.session-list .label {
-  background: #ff8700;
-  border-color: #ebccd1;
-  color: #FFFFFF;
-  font-weight: 500;
-}
-
-.session-list .session-title {
-  margin-top: 0.1em;
-}
-
-.session-list .session-title .session-link {
-  font-size: 12px;
+  &-list {
+    li{
+      cursor: pointer;
+    }
+    .label {
+      background: #ff8700;
+      border-color: #ebccd1;
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 80%;
+      margin-left: -8px;
+    }
+    .session-title {
+      margin-top: 0.1em;
+        .session-link {
+          font-size: 12px;
+        }
+    }
+  }
+  &-location{
+    text-align: left;
+  }
 }
 
 /* Adjustments for smaller screens */
-body {
-  font-size: 12px;
-}
-
-.session-list .label {
-  font-size: 80%;
-  margin-left: -8px;
-}
-
-.session-location {
-  text-align: left;
-}
-
 @media (min-width: 450px) {
   body {
     font-size: 14px
   }
-
-  .session-list .label {
-    font-size: 90%;
-    padding: .2em .6em .3em;
+  .session {
+    &-list{
+      .label{
+        font-size: 90%;
+        padding: .2em .6em .3em;
+      }
+    }
+    &-title {
+      float:left;
+      width: 75%;
+    }
+    &-location {
+      float: right;
+      width: 25%;
+      text-align: right;
+    }
   }
 
-  .session-title {
-    float:left;
-    width: 75%;
-  }
-
-  .session-location {
-    float: right;
-    width: 25%;
-    text-align: right;
-  }
 }
+
 @media (min-width: 768px) {
 
-    #day-menu .dropdown-menu {
+    #day-menu {
+      .dropdown-menu {
         display: block;
         opacity: 0;
         top: -500px;
@@ -124,23 +122,22 @@ body {
         -o-transition: opacity 500ms ease;
         -ms-transition: opacity 500ms ease;
         transition: opacity 500ms ease;
-    }
 
-    #day-menu > .dropdown-toggle:hover + .dropdown-menu {
-        display: block;
+        &:hover{
+          display: block;
+          opacity: 1;
+          top: 50px;
+        }
+    }
+    & > .dropdown-toggle:hover + .dropdown-menu {
         opacity: 1;
         top: 50px;
     }
-
-    #day-menu > .dropdown-toggle:hover {
+    & > .dropdown-toggle:hover {
         background-color: #e7e7e7;
     }
-
-    #day-menu .dropdown-menu:hover {
-        display: block;
-        opacity: 1;
-        top: 50px;
     }
+    
 }
 .btn-sign-up {
   background: #ff8700;
@@ -149,46 +146,44 @@ body {
   margin-top: -5px;
 }
 
-.video-link > .fa {
-	font-size: 22px;
-	color: #757575;
+.video-link {
+  margin-left: 3px;
+  & > .fa {
+    font-size: 22px;
+    color: #757575;
+    &:hover {
+      color: #e52d27;
+    }
+  }
 }
 
-.video-link > .fa:hover {
-	color: #e52d27;
-}
-
-.video-link  {
-	margin-left: 3px;
-}
-
-.session-link > .fa {
-	font-size: 18px;
-	color: #757575;
-}
-
-.session-link > .fa:hover {
-	color: #2196F3;
-}
-
-.session-link + .inputbox {
-  font-size: 12px;
+.session-link {
+  & > .fa {
+    font-size: 18px;
+    color: #757575;
+      &:hover {
+        color: #2196F3;
+      }
+  }
+  & + .inputbox {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 450px) {
-	.session-link > .fa {
-		font-size: 24px;
-	}
-	.video-link > .fa {
-		font-size: 28px;
-	}
-	.btn-sign-up {
-		font-size: 15px;
-		margin-top: -8px;
-	}
-	.session-title {
-		line-height: 1.5;
-	}
+  .session-link > .fa {
+    font-size: 24px;
+  }
+  .video-link > .fa {
+    font-size: 28px;
+  }
+  .btn-sign-up {
+    font-size: 15px;
+    margin-top: -8px;
+  }
+  .session-title {
+    line-height: 1.5;
+  }
 }
 @media (max-width: 500px) {
   .nav>li>a {
@@ -254,4 +249,3 @@ body {
 .largeoffset {
   margin-left: 41.66666667%;
 }
-
