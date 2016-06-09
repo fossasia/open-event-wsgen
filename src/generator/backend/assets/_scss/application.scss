@@ -64,6 +64,7 @@ a {
 .session{
 
   &-list {
+
     li{
       cursor: pointer;
     }
@@ -85,6 +86,7 @@ a {
   &-location{
     text-align: left;
   }
+  
 }
 
 /* Adjustments for smaller screens */
@@ -149,6 +151,7 @@ a {
 }
 
 .video-link {
+
   margin-left: 3px;
    > .fa {
     font-size: 22px;
@@ -157,22 +160,27 @@ a {
       color: #e52d27;
     }
   }
+
 }
 
 .session-link {
+
    > .fa {
     font-size: 18px;
     color: #757575;
       &:hover {
         color: #2196F3;
       }
+
   }
   & + .inputbox {
     font-size: 12px;
   }
+
 }
 
 @media (max-width: 450px) {
+
   .session-link > .fa {
     font-size: 24px;
   }
@@ -186,11 +194,15 @@ a {
   .session-title {
     line-height: 1.5;
   }
+
 }
+
 @media (max-width: 500px) {
+
   .nav>li>a {
     padding:8px !important;
   }
+
 }
 .inputbox {
   width:35%;;
