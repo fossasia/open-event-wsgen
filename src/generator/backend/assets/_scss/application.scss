@@ -86,7 +86,7 @@ a {
   &-location{
     text-align: left;
   }
-  
+
 }
 
 /* Adjustments for smaller screens */
@@ -173,6 +173,7 @@ a {
       }
 
   }
+
   & + .inputbox {
     font-size: 12px;
   }
@@ -184,13 +185,16 @@ a {
   .session-link > .fa {
     font-size: 24px;
   }
+
   .video-link > .fa {
     font-size: 28px;
   }
+
   .btn-sign-up {
     font-size: 15px;
     margin-top: -8px;
   }
+
   .session-title {
     line-height: 1.5;
   }
@@ -209,10 +213,12 @@ a {
   padding: 4px;
   margin-left: 5px;
 }
+
 ::selection {
   background-color: #ff8700;
   color: #FFFFFF;
 }
+
 .footer {
   bottom: 0;
   margin: 0;
@@ -230,6 +236,7 @@ a {
   width: auto;
   height: auto;
 }
+
 .medium {
   padding:3% ;
   margin:1%;
@@ -239,6 +246,7 @@ a {
   height: auto;
   display: block;
 }
+
 .small {
   padding:3% ;
   margin:1%;
@@ -248,6 +256,7 @@ a {
   height: auto;
   display: block;
 }
+
 .sponsors {
   position: relative;
   display: block;
@@ -257,9 +266,11 @@ a {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+
 .mediumoffset:first-child{
   margin-left: 8.33%;
 }
+
 .largeoffset {
   margin-left: 41.66666667%;
 }
