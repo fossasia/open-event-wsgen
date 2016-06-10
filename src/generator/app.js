@@ -12,7 +12,7 @@ app.use('/', express.static(__dirname + '/www'));
 
 app.all('/generate', function(req, res) {
   res.setHeader('Content-Type', 'application/zip');
-  res.send(generator.getSchedulePage().toBuffer());
+  generator.pipeZipToRes(res);
 });
 
 app.listen(app.get('port'), function() {

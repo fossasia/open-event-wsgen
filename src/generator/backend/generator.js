@@ -2,10 +2,13 @@
 
 var exports = module.exports = {};
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const moment = require('moment');
 const handlebars = require('handlebars');
-const AdmZip = require('adm-zip');
+const async = require('async');
+const archiver = require('archiver');
+
+const distHelper = require(__dirname + '/dist.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const sessionsData = require('../../../mockjson/sessions.json');
@@ -247,12 +250,57 @@ function transformData(sessions, speakers, services, sponsors) {
 
 const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
 
-exports.getSchedulePage = function() {
-  var zip = new AdmZip();
-  var dataBuffer = new Buffer(tpl(data), 'utf-8');
+exports.pipeZipToRes = function(res) {
 
-  zip.addFile('index.html', dataBuffer, '', 644);
-  zip.addLocalFolder(__dirname + '/assets', '/');
+  async.series([
+    (done) => {
+      distHelper.cleanDist((cleanerr) => {
+        console.log('================================CLEANING\n\n\n\n')
+        if (cleanerr !== null) {
+          console.log(cleanerr);
+        }
+        done(null, 'clean');
+      });
+    },
+    (done) => {
+      distHelper.makeDistDir((mkdirerr) => {
+        console.log('================================MAKING\n\n\n\n')
+        if (mkdirerr !== null) {
+          console.log(mkdirerr);
+        }
+        done(null, 'make');
+      });
+    },
+    (done) => {
+      distHelper.copyAssets((copyerr) => {
+        console.log('================================COPYING\n\n\n\n')
+        if (copyerr !== null) {
+          console.log(copyerr);
+        }
+        done(null, 'copy');
+      });
+    },
+    (done) => {
+      console.log('================================WRITING\n\n\n\n')
+      fs.writeFile(distHelper.distPath + '/index.html', tpl(data), (writeErr) => {
+        if (writeErr !== null) {
+          console.log(writeErr);
+        }
+        done(null, 'write');
+      });
+    },
+    (done) => {
+      console.log('================================ZIPPING\n\n\n\n')
+      let zipfile = archiver('zip');
 
-  return zip;
+      zipfile.on('error', (err) => {
+        throw err;
+      });
+
+      zipfile.pipe(res);
+
+      zipfile.directory(distHelper.distPath, '/').finalize();
+      done(null, 'zip')
+    }
+  ]);
 };

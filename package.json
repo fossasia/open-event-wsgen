@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/fossasia/open-event-webapp#readme",
   "dependencies": {
-    "adm-zip": "^0.4.7",
+    "archiver": "^1.0.0",
+    "async": "^2.0.0-rc.6",
     "express": "^4.13.4",
     "fs": "0.0.2",
+    "fs-extra": "^0.30.0",
     "handlebars": "^4.0.5",
     "moment": "^2.13.0"
   }
