@@ -27,14 +27,14 @@ body {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  color: #333333;
+  color: $light-black;
   font-weight: 300;
 }
 
 a {
-  color: #777;
+  color: $gray-dark;
     &:hover {
-      color: #e12b00;
+      color: $orange;
       text-decoration: none;
     }
 
@@ -56,7 +56,7 @@ a {
 
 .navbar-toggle {
   padding: 6px 10px;
-  color: #777;
+  color: $gray-dark;
 }
 
 /* General styling of session list */
@@ -70,7 +70,7 @@ a {
     }
     .label {
       background: #ff8700;
-      border-color: #ebccd1;
+      border-color: $light-purple;
       color: #FFFFFF;
       font-weight: 500;
       font-size: 80%;
@@ -139,12 +139,12 @@ a {
         top: 50px;
     }
      > .dropdown-toggle:hover {
-        background-color: #e7e7e7;
+        background-color: $gray-extra-light;
     }
   }
 }
 .btn-sign-up {
-  background: #ff8700;
+  background: $pure-orange;
   color: #FFFFFF;
   margin-left: 5px;
   margin-top: -5px;
@@ -155,9 +155,9 @@ a {
   margin-left: 3px;
    > .fa {
     font-size: 22px;
-    color: #757575;
+    color: $gray-extra-dark;
     &:hover {
-      color: #e52d27;
+      color: $red-dark;
     }
   }
 
@@ -167,10 +167,10 @@ a {
 
   > .fa {
     font-size: 18px;
-    color: #757575;
+    color: $gray-extra-dark;
 
       &:hover {
-        color: #2196F3;
+        color: $vivid-blue;
       }
 
   }
@@ -216,14 +216,14 @@ a {
 }
 
 ::selection {
-  background-color: #ff8700;
+  background-color: $pure-orange;
   color: #FFFFFF;
 }
 
 .footer {
   bottom: 0;
   margin: 0;
-  color: #777;
+  color: $gray-dark;
   padding: 15px;
   text-align: center;
   }

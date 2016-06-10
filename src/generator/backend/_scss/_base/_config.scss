@@ -6,9 +6,19 @@ $white: #fff;
 $red: #e2061c;
 $gray-light: #c9c8c8;
 $gray: #838282;
-$gray-dark: #333333;
+$gray-dark: #777;
+$gray-extra-dark: #757575;
+$gray-extra-light:#e7e7e7;
 $blue: #253652;
- 
+$orange: #e12b00;
+$vivid-blue: #2196F3;
+$pure-orange: #ff8700;
+$light-purple: #ebccd1;
+$red-dark: #e52d27;
+$light-black: #333333;
+
+
+
 // Corp-Colors
 $corp-color: $white !default;
 $corp-color-dark: darken($corp-color, 15%) !default;
