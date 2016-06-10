@@ -228,34 +228,40 @@ a {
   text-align: center;
   }
 
-.large {
+@mixin sponsors {
   padding:3% ;
   margin:1%;
   display: block;
   max-width:100%;
-  max-height:200px;
   width: auto;
   height: auto;
 }
-
-.medium {
-  padding:3% ;
-  margin:1%;
-  max-width:100% ;
-  max-height:140px;
-  width:auto;
-  height: auto;
-  display: block;
+.large {
+  max-height:200px;
+  @include sponsors;
 }
-
+.medium {
+  max-height:140px;
+  @include sponsors;
+}
 .small {
-  padding:3% ;
-  margin:1%;
-  max-width:100%;
   max-height:120px;
-  width:auto;
-  height: auto;
+  @include sponsors;
+}
+.sponsors {
+  position: relative;
   display: block;
+  padding: 10px 15px;
+  margin: 25px 0px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.mediumoffset:first-child{
+  margin-left: 8.33%;
+}
+.largeoffset {
+  margin-left: 41.66666667%;
 }
 
 .sponsors {
