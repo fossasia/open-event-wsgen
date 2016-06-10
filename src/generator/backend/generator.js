@@ -2,16 +2,17 @@
 
 var exports = module.exports = {};
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const moment = require('moment');
 const handlebars = require('handlebars');
-const AdmZip = require('adm-zip');
+const async = require('async');
+const archiver = require('archiver');
+
+const distHelper = require(__dirname + '/dist.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
-const sessionsData = require('../../../mockjson/sessions.json');
-const speakersData = require('../../../mockjson/speakers.json');
-const servicesData = require('../../../mockjson/event.json');
-const sponsorsData = require('../../../mockjson/sponsors.json');
+
+const distJsonsPath = distHelper.distPath + '/json';
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -139,7 +140,7 @@ function foldByTrack(sessions, speakers) {
 }
 
 function getCopyrightData(services) {
-  let copyright = services.copyright;
+  const copyright = services.copyright;
 
   return copyright;
 }
@@ -152,7 +153,7 @@ function foldByLevel(sponsors) {
       levelData[sponsor.level] = [];
     }
 
-    let sponsorItem = {
+    const sponsorItem = {
       divclass: '',
       imgsize: '',
       name: sponsor.name,
@@ -245,14 +246,81 @@ function transformData(sessions, speakers, services, sponsors) {
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
 }
 
-const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
+function getJsonData() {
+  const sessionsData = require(distJsonsPath + '/sessions.json');
+  const speakersData = require(distJsonsPath + '/speakers.json');
+  const servicesData = require(distJsonsPath + '/event.json');
+  const sponsorsData = require(distJsonsPath + '/sponsors.json');
 
-exports.getSchedulePage = function() {
-  var zip = new AdmZip();
-  var dataBuffer = new Buffer(tpl(data), 'utf-8');
+  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
 
-  zip.addFile('index.html', dataBuffer, '', 644);
-  zip.addLocalFolder(__dirname + '/assets', '/');
+  return data;
+}
 
-  return zip;
+exports.pipeZipToRes = function(req, res) {
+  async.series([
+    (done) => {
+      distHelper.cleanDist((cleanerr) => {
+        console.log('================================CLEANING\n\n\n\n');
+        if (cleanerr !== null) {
+          console.log(cleanerr);
+        }
+        done(null, 'clean');
+      });
+    },
+    (done) => {
+      distHelper.makeDistDir((mkdirerr) => {
+        console.log('================================MAKING\n\n\n\n');
+        if (mkdirerr !== null) {
+          console.log(mkdirerr);
+        }
+        done(null, 'make');
+      });
+    },
+    (done) => {
+      distHelper.copyAssets((copyerr) => {
+        console.log('================================COPYING\n\n\n\n');
+        if (copyerr !== null) {
+          console.log(copyerr);
+        }
+        done(null, 'copy');
+      });
+    },
+    (done) => {
+      console.log('================================COPYING UPLOADS\n\n\n\n');
+      distHelper.copyUploads(req.files);
+      done(null, 'copyuploads');
+    },
+    (done) => {
+      distHelper.cleanUploads((cleanErr) => {
+        console.log('================================CLEANING UPLOADS\n\n\n\n');
+        if (cleanErr !== null) {
+          console.log(cleanErr);
+        }
+        done(null, 'cleanuploads');
+      });
+    },
+    (done) => {
+      console.log('================================WRITING\n\n\n\n');
+      fs.writeFile(distHelper.distPath + '/index.html', tpl(getJsonData()), (writeErr) => {
+        if (writeErr !== null) {
+          console.log(writeErr);
+        }
+        done(null, 'write');
+      });
+    },
+    (done) => {
+      console.log('================================ZIPPING\n\n\n\n');
+      const zipfile = archiver('zip');
+
+      zipfile.on('error', (err) => {
+        throw err;
+      });
+
+      zipfile.pipe(res);
+
+      zipfile.directory(distHelper.distPath, '/').finalize();
+      done(null, 'zip');
+    }
+  ]);
 };
