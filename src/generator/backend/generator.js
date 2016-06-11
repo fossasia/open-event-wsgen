@@ -7,7 +7,7 @@ const moment = require('moment');
 const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
-const fold=require('./fold.js');
+const fold = require(__dirname +'/fold.js');
 
 const distHelper = require(__dirname + '/dist.js');
 
