@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server.generator": "node src/generator/app.js",
-    "start": "npm run server.generator"
+    "start": "npm run server.generator",
+    "test": "npm run server.generator&"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "fs": "0.0.2",
     "fs-extra": "^0.30.0",
     "handlebars": "^4.0.5",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "multer": "^1.1.0"
   }
 }

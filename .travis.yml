@@ -1,13 +1,9 @@
 language: node_js
 node_js:
-  - "5"
-  # - "5.1"
-  # - "4"
-  # - "4.2"
-
-script:
-  - npm run start
-
+  - '5.0.0'
 addons:
-    code_climate:
-        repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
+  code_climate:
+    repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
+deploy:
+  api_key:
+    secure: gw1aWHcCkaIwgjiDHNmqjepcPUUtmQm7v6i7XGfs2Pb7OFKg2rhl4QBtGpJc+E5fisppHS7XmUIH8ABnSvRWtb//7xvc1EwgdgKtoJsNunsGlQewF21/ei6h/vqCpStXVLEw6COM9uS5LddWp8w8RusdwpgF9QCUQvkEEWtH7EuYueyNDsXL9dTgYx9Woi/BRSO1K78vsVw7PM8djJI+4nDvAJHpZzLsxRk+UhylcdesPAD14RJlwQdahucgqnsvLMAtf3ql1u0CdXw1WB/4D8f4WWKX/Mk5DoaXypKL5HE6xI42s7HRB+PagR8KpAfCc9kc5abgy/OztRRoY3gDEi7QApAeBdfBm4KsqIZNkq0HfkTlklyPzr5lHIMDemHqR6kzBq0KiSnNvGkz7dbOKLc7N8b3+lBQT0WW9TGScj0W5aOVdobhn+fhQWugaA47egJ+Ec2FpQtzjBCPhkRqkpcdcPRlmY+aejvDKgAo+d5o/ePsrgf/0o3HpgxK0pOJH4BCfqv/RYjnkGr57IlBF8RIZRsoIIRZK212nnlRUyty512Bs+AaCtyxIBKFdmk7SiUgvJtZvjKlOIBbMRI1LWoswKe0X+E2doxv6U1SKx0QhXyC2UzlLds0jjevE81mnGeK5cKKvV9GoHWBVC9D9b1alZmEXvWsmmgiqH/FMBk=

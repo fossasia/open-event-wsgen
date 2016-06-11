@@ -11,10 +11,8 @@ const archiver = require('archiver');
 const distHelper = require(__dirname + '/dist.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
-const sessionsData = require('../../../mockjson/sessions.json');
-const speakersData = require('../../../mockjson/speakers.json');
-const servicesData = require('../../../mockjson/event.json');
-const sponsorsData = require('../../../mockjson/sponsors.json');
+
+const distJsonsPath = distHelper.distPath + '/json';
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -142,7 +140,7 @@ function foldByTrack(sessions, speakers) {
 }
 
 function getCopyrightData(services) {
-  let copyright = services.copyright;
+  const copyright = services.copyright;
 
   return copyright;
 }
@@ -155,7 +153,7 @@ function foldByLevel(sponsors) {
       levelData[sponsor.level] = [];
     }
 
-    let sponsorItem = {
+    const sponsorItem = {
       divclass: '',
       imgsize: '',
       name: sponsor.name,
@@ -248,14 +246,22 @@ function transformData(sessions, speakers, services, sponsors) {
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
 }
 
-const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
+function getJsonData() {
+  const sessionsData = require(distJsonsPath + '/sessions.json');
+  const speakersData = require(distJsonsPath + '/speakers.json');
+  const servicesData = require(distJsonsPath + '/event.json');
+  const sponsorsData = require(distJsonsPath + '/sponsors.json');
 
-exports.pipeZipToRes = function(res) {
+  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
 
+  return data;
+}
+
+exports.pipeZipToRes = function(req, res) {
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
-        console.log('================================CLEANING\n\n\n\n')
+        console.log('================================CLEANING\n\n\n\n');
         if (cleanerr !== null) {
           console.log(cleanerr);
         }
@@ -264,7 +270,7 @@ exports.pipeZipToRes = function(res) {
     },
     (done) => {
       distHelper.makeDistDir((mkdirerr) => {
-        console.log('================================MAKING\n\n\n\n')
+        console.log('================================MAKING\n\n\n\n');
         if (mkdirerr !== null) {
           console.log(mkdirerr);
         }
@@ -273,7 +279,7 @@ exports.pipeZipToRes = function(res) {
     },
     (done) => {
       distHelper.copyAssets((copyerr) => {
-        console.log('================================COPYING\n\n\n\n')
+        console.log('================================COPYING\n\n\n\n');
         if (copyerr !== null) {
           console.log(copyerr);
         }
@@ -281,8 +287,22 @@ exports.pipeZipToRes = function(res) {
       });
     },
     (done) => {
-      console.log('================================WRITING\n\n\n\n')
-      fs.writeFile(distHelper.distPath + '/index.html', tpl(data), (writeErr) => {
+      console.log('================================COPYING UPLOADS\n\n\n\n');
+      distHelper.copyUploads(req.files);
+      done(null, 'copyuploads');
+    },
+    (done) => {
+      distHelper.cleanUploads((cleanErr) => {
+        console.log('================================CLEANING UPLOADS\n\n\n\n');
+        if (cleanErr !== null) {
+          console.log(cleanErr);
+        }
+        done(null, 'cleanuploads');
+      });
+    },
+    (done) => {
+      console.log('================================WRITING\n\n\n\n');
+      fs.writeFile(distHelper.distPath + '/index.html', tpl(getJsonData()), (writeErr) => {
         if (writeErr !== null) {
           console.log(writeErr);
         }
@@ -290,8 +310,8 @@ exports.pipeZipToRes = function(res) {
       });
     },
     (done) => {
-      console.log('================================ZIPPING\n\n\n\n')
-      let zipfile = archiver('zip');
+      console.log('================================ZIPPING\n\n\n\n');
+      const zipfile = archiver('zip');
 
       zipfile.on('error', (err) => {
         throw err;
@@ -300,7 +320,7 @@ exports.pipeZipToRes = function(res) {
       zipfile.pipe(res);
 
       zipfile.directory(distHelper.distPath, '/').finalize();
-      done(null, 'zip')
+      done(null, 'zip');
     }
   ]);
 };
