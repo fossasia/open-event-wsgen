@@ -1,0 +1,284 @@
+
+@charset 'UTF-8';
+
+// 1.Base
+@import '_base/_config.scss';
+
+/* Offsets for fixed navbar */
+body {
+  margin-top: 50px;
+  background-color:$corp-color !important;
+
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
+
+/* Adjust styling to main page theme */
+body {
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  color: $corp-color;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: $light-black;
+  font-weight: 300;
+}
+
+a {
+  color: $gray-dark;
+    &:hover {
+      color: $orange;
+      text-decoration: none;
+    }
+
+/* Social media icons for speakers */
+  .speaker-social {
+      margin-right: 0.3em;
+       &:hover {
+        text-decoration: none;
+        }
+  }
+
+}
+
+/* Navbar adjustments */
+.logo {
+  max-width: 110px;
+  max-height: 45px;
+}
+
+.navbar-toggle {
+  padding: 6px 10px;
+  color: $gray-dark;
+}
+
+/* General styling of session list */
+
+.session{
+
+  &-list {
+
+    li{
+      cursor: pointer;
+    }
+    .label {
+      background: #ff8700;
+      border-color: $light-purple;
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 80%;
+      margin-left: -8px;
+    }
+    .session-title {
+      margin-top: 0.1em;
+        .session-link {
+          font-size: 12px;
+        }
+    }
+  }
+  &-location{
+    text-align: left;
+  }
+
+}
+
+/* Adjustments for smaller screens */
+
+@media (min-width: 450px) {
+  body {
+    font-size: 14px
+  }
+  .session {
+    &-list{
+      .label{
+        font-size: 90%;
+        padding: .2em .6em .3em;
+      }
+    }
+    &-title {
+      float:left;
+      width: 75%;
+    }
+    &-location {
+      float: right;
+      width: 25%;
+      text-align: right;
+    }
+  }
+
+}
+
+@media (min-width: 768px) {
+
+    #day-menu {
+      .dropdown-menu {
+        display: block;
+        opacity: 0;
+        top: -500px;
+        -moz-transition: opacity 500ms ease;
+        -webkit-transition: opacity 500ms ease;
+        -o-transition: opacity 500ms ease;
+        -ms-transition: opacity 500ms ease;
+        transition: opacity 500ms ease;
+
+        &:hover{
+          display: block;
+          opacity: 1;
+          top: 50px;
+        }
+    }
+     > .dropdown-toggle:hover + .dropdown-menu {
+        opacity: 1;
+        top: 50px;
+    }
+     > .dropdown-toggle:hover {
+        background-color: $gray-extra-light;
+    }
+  }
+}
+.btn-sign-up {
+  background: $pure-orange;
+  color: #FFFFFF;
+  margin-left: 5px;
+  margin-top: -5px;
+}
+
+.video-link {
+
+  margin-left: 3px;
+   > .fa {
+    font-size: 22px;
+    color: $gray-extra-dark;
+    &:hover {
+      color: $red-dark;
+    }
+  }
+
+}
+
+.session-link {
+
+  > .fa {
+    font-size: 18px;
+    color: $gray-extra-dark;
+
+      &:hover {
+        color: $vivid-blue;
+      }
+
+  }
+
+  & + .inputbox {
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .session-link > .fa {
+    font-size: 24px;
+  }
+
+  .video-link > .fa {
+    font-size: 28px;
+  }
+
+  .btn-sign-up {
+    font-size: 15px;
+    margin-top: -8px;
+  }
+
+  .session-title {
+    line-height: 1.5;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .nav>li>a {
+    padding:8px !important;
+  }
+
+}
+.inputbox {
+  width:35%;;
+  padding: 4px;
+  margin-left: 5px;
+}
+
+::selection {
+  background-color: $pure-orange;
+  color: #FFFFFF;
+}
+
+.footer {
+  bottom: 0;
+  margin: 0;
+  color: $gray-dark;
+  padding: 15px;
+  text-align: center;
+  }
+
+@mixin sponsors {
+  padding:3% ;
+  margin:1%;
+  display: block;
+  max-width:100%;
+  width: auto;
+  height: auto;
+}
+.large {
+  max-height:200px;
+  @include sponsors;
+}
+.medium {
+  max-height:140px;
+  @include sponsors;
+}
+.small {
+  max-height:120px;
+  @include sponsors;
+}
+.sponsors {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin: 25px 0px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.mediumoffset:first-child{
+  margin-left: 8.33%;
+}
+.largeoffset {
+  margin-left: 41.66666667%;
+}
+
+.sponsors {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin: 25px 0px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.mediumoffset:first-child{
+  margin-left: 8.33%;
+}
+
+.largeoffset {
+  margin-left: 41.66666667%;
+}
+
