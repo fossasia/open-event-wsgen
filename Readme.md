@@ -11,7 +11,6 @@ The webapp is a generator that generates the webapp and download it in a Zip(fil
 
 ----------------------------------------------------------------------------
 ##Deployment
-Currently it is just a simple webapp that can be viewed using any browser. In future, we plan to deploy as a webapp for Ubuntu Phone, Firefox OS etc, who support first class webapps. Also for platforms like iOS, Windows, we might port this usin Ionic/Titanium etc.
 
 For deploying locally 
 Assuming you have npm (Node Package Manager)
