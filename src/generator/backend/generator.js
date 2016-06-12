@@ -15,7 +15,7 @@ const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toSt
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-console.log(trackstpl(getJsonData()))
+
 if(!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
