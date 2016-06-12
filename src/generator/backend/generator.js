@@ -12,6 +12,7 @@ const fold = require(__dirname +'/fold.js');
 const distHelper = require(__dirname + '/dist.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
+const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
 
@@ -137,7 +138,18 @@ exports.pipeZipToRes = function(req, res) {
     },
     (done) => {
       console.log('================================WRITING\n\n\n\n');
-      fs.writeFile(distHelper.distPath + '/index.html', tpl(getJsonData()), (writeErr) => {
+     
+      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()), (writeErr) => {
+        if (writeErr !== null) {
+          console.log(writeErr);
+        }
+        done(null, 'write');
+      });
+    },
+    (done) => {
+      console.log('================================WRITING\n\n\n\n');
+     
+      fs.writeFile(distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
         if (writeErr !== null) {
           console.log(writeErr);
         }
