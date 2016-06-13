@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+<!DOCTYPE html>
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
 <!--
   Note to contributors: Do not submit any changes to this page, as it is generated automatically
   from https://github.com/fossasia/open-event-scraper.
@@ -19,9 +23,15 @@
   <!-- Bootstrap core CSS -->
   <!-- Latest compiled and minified CSS -->
   <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+<<<<<<< HEAD
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+=======
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
 
   <link rel="stylesheet" href="./css/schedule.css">
 
@@ -31,6 +41,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
+<<<<<<< HEAD
 
   <!-- Styles will be written in scss     
   <style>
@@ -70,6 +81,10 @@
     </style>
     <body>
 -->
+=======
+    <body>
+
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -87,6 +102,7 @@
               {{/if}}
             {{/sociallinks}}
           </ul>
+<<<<<<< HEAD
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-left:1em;margin-top:1em;">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -147,12 +163,19 @@
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+=======
+        </div>
+      </div>
+    </nav>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous">
   </script>
    <script type="text/javascript">
+<<<<<<< HEAD
        $(document).ready(function(){
 
         $('.session-link').click(function() {
@@ -161,6 +184,9 @@
 
   });
       $(function() {
+=======
+    $(function() {
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
       $('a[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
           var target = $(this.hash);
@@ -175,5 +201,9 @@
       });
     });
     </script>
+<<<<<<< HEAD
+=======
+   <!-- /#track-list -->
+>>>>>>> 619c01f27a5455d56a53e87626251a49d142dab7
 </body>
 </html>
