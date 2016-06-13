@@ -95,6 +95,8 @@ function getJsonData() {
 }
 
 exports.pipeZipToRes = function(req, res) {
+  let theme = req.body.theme;
+  
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
@@ -141,7 +143,7 @@ exports.pipeZipToRes = function(req, res) {
       console.log('===============================COMPILING SASS\n\n\n\n');
 
       sass.render({
-        file: __dirname + '/_scss/_themes/_light-theme/_light.scss',
+        file: __dirname + '/_scss/_themes/_'+theme+ '-theme/_'+theme+'.scss',
         outFile: distHelper.distPath + '/css/schedule.css'
     }, function(err, result) {
         if (!err) {
