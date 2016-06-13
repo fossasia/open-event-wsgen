@@ -3,6 +3,7 @@ $(document).ready(function() {
   let $email =$("#email");
   let $name  =$("#name"); 
   let $url  =$("#url");
+  let $theme =$("#theme");
 
   $("#btn").click(function() { 
 
@@ -25,6 +26,7 @@ $(document).ready(function() {
     name:$name.val(),
     email:$email.val(),
     url :$url.val(),
+    theme:$theme.val(),
     files:fd
     
   };
