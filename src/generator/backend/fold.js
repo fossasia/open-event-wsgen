@@ -212,7 +212,6 @@ function foldByLevel(sponsors) {
     }
     levelData[sponsor.level].push(sponsorItem);
   });
- 
   return levelData;
 }
 
