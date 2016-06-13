@@ -32,45 +32,6 @@
       <![endif]-->
     </head>
 
-  <!-- Styles will be written in scss     
-  <style>
-      
-.event {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    border-left: 1px solid transparent;
-    border-radius: 4px;
-    border-right: 1px solid rgba(0,0,0,0.15);
-    border-top: 1px solid transparent;
-    cursor: pointer;
-    display: block;
-    margin: 0 12px 12px 0;
-    position: relative;
-    background: #B7CDFF;
-    width:auto;
-    margin-left: 4%;
-    max-height: 32px;
-    } 
-    #track-list {
-      margin-top:8%;
-      margin-bottom: 8%;
-    }
-
-    .height{
-      min-height: 70px;
-      border-right: 1px solid rgba(0,0,0,.10);
-    }
-    #text{
-      color:#999;
-    }
-   .footer {
-    background-color: #f8f8f8;
-    padding:15px;
-    border-color: #f6f6f6;
-   }
-    </style>
-    <body>
--->
-
     <body>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
