@@ -7,9 +7,10 @@ const moment = require('moment');
 const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
-const fold = require(__dirname +'/fold.js');
+const sass = require('node-sass');
 
 const distHelper = require(__dirname + '/dist.js');
+const fold = require(__dirname +'/fold.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
@@ -94,6 +95,8 @@ function getJsonData() {
 }
 
 exports.pipeZipToRes = function(req, res) {
+  let theme = req.body.theme;
+  
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
@@ -135,6 +138,27 @@ exports.pipeZipToRes = function(req, res) {
         }
         done(null, 'cleanuploads');
       });
+    },
+    (done) => {
+      console.log('===============================COMPILING SASS\n\n\n\n');
+
+      sass.render({
+        file: __dirname + '/_scss/_themes/_'+theme+ '-theme/_'+theme+'.scss',
+        outFile: distHelper.distPath + '/css/schedule.css'
+    }, function(err, result) {
+        if (!err) {
+          fs.writeFile(distHelper.distPath + '/css/schedule.css', result.css, (writeErr) => {
+            if (writeErr !== null) {
+              console.log(writeErr);
+            }
+            done(null, 'sass');
+          });
+        } else {
+          console.log(err);
+        }
+
+      });
+
     },
     (done) => {
       console.log('================================WRITING\n\n\n\n');
