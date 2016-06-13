@@ -31,7 +31,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-        <style>
+
+  <!-- Styles will be written in scss     
+  <style>
       
 .event {
     border-bottom: 1px solid rgba(0,0,0,0.15);
@@ -43,20 +45,31 @@
     display: block;
     margin: 0 12px 12px 0;
     position: relative;
-    
+    background: #B7CDFF;
+    width:auto;
+    margin-left: 4%;
+    max-height: 32px;
     } 
-    .time {
-        margin:1%;
-    }
-    ul>li{
-      list-style: none;
-    }
     #track-list {
       margin-top:8%;
+      margin-bottom: 8%;
     }
+
+    .height{
+      min-height: 70px;
+      border-right: 1px solid rgba(0,0,0,.10);
+    }
+    #text{
+      color:#999;
+    }
+   .footer {
+    background-color: #f8f8f8;
+    padding:15px;
+    border-color: #f6f6f6;
+   }
     </style>
     <body>
-
+-->
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -103,48 +116,25 @@
       </div>
     </nav>
 
-    <div id="track-list" class="container">
-
+    <div id=track-list class="container">
       {{#tracks}}
       <div class="row">
-        <div class="col-md-12">
-
-          <a class="anchor" id="{{slug}}"></a>
-
-          <ul class="list-group">
-            {{#with sessions.[0]}}
-            <li  data-session-id="{{session_id}}">
-              <div class="row"
-              data-toggle="collapse"
-              data-target="#desc-{{session_id}} .collapse"
-              aria-expanded="false"
-              aria-controls="desc-{{session_id}}">
-            
-              <div class="time col-xs-2 col-md-1">
-                <span>
-                  {{start}}
-                </span>
-              </div>
-                {{/with}}
-              <div class="event col-xs-10 col-md-8">
-                <span><h4>{{title}}</h4></span>
-              </div>
-           
-                </div>
-
-             
-            </li><!-- /.list-group-item -->
-       
-          </ul>
-        </div><!-- /.col-md-12 -->
-      </div><!-- /.row -->
+        {{#with sessions.[0]}}
+        <div class="height col-md-1">
+         <h6 id="text">{{start}}</h6>
+        </div>
+         {{/with}}
+        <div class="event col-md-10">
+            <h6>{{title}}</h6>
+        </div>
+      </div>
       {{/tracks}}
-      
     </div>
    <!-- /#session-list -->
 
-    <div class="navbar navbar-default footer">
+    <div class="footer">
      {{#if copyright}}
+     <center>
        <p>
          <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
          &copy; {{copyright.year}}
@@ -152,6 +142,7 @@
          The website and it's contents are licensed under
           <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
        </p>
+       </center>
       {{/if}}
     </div>
 
