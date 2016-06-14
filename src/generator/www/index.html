@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container"></br></br>
-	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data" action="/generate">
+	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
     	<label for="name">Email</label>
     	<input type="email" class="form-control" id="email" name="email">
 		</br>
@@ -35,7 +35,7 @@
         		<input type="file" name="sessionfile"  id="sessionfile">
       		</div>
       	</div></br>
-      	<div class="row">	
+      	<div class="row">
             <div class="col-md-6">
         		<label for="sponsorfile">Json for Sponsors</label>
         		<input type="file" name="sponsorfile"  id="sponsorfile">
@@ -56,7 +56,8 @@
       		</div>
     	</div></br>
   		<center>
-  		<button type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
+      <button formaction="/live" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND PREVIEW</button>
+  		<button formaction="/generate" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
   		</center>
 
 	</form>
