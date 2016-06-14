@@ -72,7 +72,7 @@ function zeroFill(num) {
 }
 
 function transformData(sessions, speakers, services, sponsors) {
-  
+
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
@@ -94,9 +94,9 @@ function getJsonData() {
   return data;
 }
 
-exports.pipeZipToRes = function(req, res) {
+exports.createDistDir = function(req,res) {
   let theme = req.body.theme;
-  
+
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
@@ -162,26 +162,32 @@ exports.pipeZipToRes = function(req, res) {
     },
     (done) => {
       console.log('================================WRITING\n\n\n\n');
-     
-      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()),distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
-        if (writeErr !== null) {
-          console.log(writeErr);
-        }
-        done(null, 'write');
-      });
-    },
-    (done) => {
-      console.log('================================ZIPPING\n\n\n\n');
-      const zipfile = archiver('zip');
 
-      zipfile.on('error', (err) => {
-        throw err;
-      });
-
-      zipfile.pipe(res);
-
-      zipfile.directory(distHelper.distPath, '/').finalize();
-      done(null, 'zip');
+      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(getJsonData()));
+      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(getJsonData()));
+      res.sendStatus(200)
+      console.log(res);
+      done(null, 'write');
     }
   ]);
+};
+
+exports.pipeZipToRes = function(req, res) {
+    async.series([
+      (done) => {
+        console.log('================================ZIPPING\n\n\n\n');
+        const zipfile = archiver('zip');
+
+        zipfile.on('error', (err) => {
+          throw err;
+        });
+        res.setHeader('Content-Type', 'application/zip');
+        res.setHeader('Content-Transfer-Encoding', 'binary');
+
+        zipfile.pipe(res);
+
+        zipfile.directory(distHelper.distPath, '/').finalize();
+        done(null, 'zip');
+      }
+    ]);
 };
