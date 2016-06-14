@@ -116,7 +116,7 @@
        </center>
       {{/if}}
     </div>
-  </div>-->
+  </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
