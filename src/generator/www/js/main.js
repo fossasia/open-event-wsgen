@@ -25,11 +25,13 @@ $(document).ready( function() {
       'processData': false,
       'contentType': false,
       'mimeType': 'multipart/form-data',
+      success: function(resp, status, jsonp) {
+        console.log(status);
+        console.log(resp);
+      },
       'data': form
     };
 
-    $.ajax(settings).done(function (response) {
-      
-    });
+    $.ajax(settings);
   });
 });

@@ -25,9 +25,7 @@ app.use('/', express.static(__dirname + '/www'));
 app.post('/generate', uploadedFiles, function(req, res, next) {
   console.log(req.files);
   console.log(req.body);
-  res.setHeader('Content-Type', 'application/zip');
-  res.setHeader('Content-Transfer-Encoding', 'binary');
-  generator.pipeZipToRes(req, res);
+  generator.createDistDir(req, res);
 });
 
 app.listen(app.get('port'), function() {
