@@ -163,17 +163,7 @@ exports.pipeZipToRes = function(req, res) {
     (done) => {
       console.log('================================WRITING\n\n\n\n');
      
-      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()), (writeErr) => {
-        if (writeErr !== null) {
-          console.log(writeErr);
-        }
-        done(null, 'write');
-      });
-    },
-    (done) => {
-      console.log('================================WRITING\n\n\n\n');
-     
-      fs.writeFile(distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
+      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()),distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
         if (writeErr !== null) {
           console.log(writeErr);
         }
