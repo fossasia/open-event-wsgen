@@ -4,7 +4,7 @@ var express = require('express');
 var multer = require('multer');
 var app = express();
 
-var upload = multer({ dest: 'uploads/' });
+var upload = multer({dest: 'uploads/'});
 
 var generator = require('./backend/generator.js');
 
@@ -23,13 +23,13 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
-app.post('/live', uploadedFiles, function(req,res,next) {
+app.post('/live', uploadedFiles, function(req, res) {
   generator.createDistDir(req, function() {
     generator.showLivePreview(res);
   });
 });
 
-app.post('/generate', uploadedFiles, function(req, res, next) {
+app.post('/generate', uploadedFiles, function(req, res) {
   // console.log(req.files);
   // console.log(req.body);
   generator.createDistDir(req, function() {
