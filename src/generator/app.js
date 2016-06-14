@@ -23,9 +23,10 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/www'));
 
 app.post('/generate', uploadedFiles, function(req, res, next) {
-  // console.log(req.files);
-  // console.log(req.body);
+  console.log(req.files);
+  console.log(req.body);
   res.setHeader('Content-Type', 'application/zip');
+  res.setHeader('Content-Transfer-Encoding', 'binary');
   generator.pipeZipToRes(req, res);
 });
 

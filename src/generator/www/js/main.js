@@ -1,54 +1,35 @@
-$(document).ready(function() {
+$(document).ready( function() {
 
-  let $email =$("#email");
-  let $name  =$("#name"); 
-  let $url  =$("#url");
-  let $theme =$("#theme");
+  $('#btn').click( function() {
+    var form = new FormData($('form').get(0));
 
-  $("#btn").click(function() { 
+    // form.append('email', $('#email').val());
+    // form.append('name', $('#name').val());
+    // form.append('url', $('#url').val());
+    // form.append('theme', $('#theme').val());
+    // form.append('speakerfile', {'0': {}});
+    // form.append('sessionfile', {'0': {}});
+    // form.append('eventfile', {'0': {}});
+    // form.append('sponsorfile', {'0': {}});
+    // form.append('trackfile', {'0': {}});
+    // form.append('locationfile', {'0': {}});
 
-  var form = document.querySelector("form");
-  var fd = new FormData(form);
+    var settings = {
+      'async': true,
+      'crossDomain': true,
+      'url': '/generate',
+      'method': 'POST',
+      'headers': {
+        'cache-control': 'no-cache'
+      },
+      'processData': false,
+      'contentType': false,
+      'mimeType': 'multipart/form-data',
+      'data': form
+    };
 
-  var files ={
-    "sessionfile":  $( "#sessionfile" )[0].files[0],
-    "speakerfile":$( "#speakerfile" )[0].files[0],
-    "trackfile":$( "#trackfile" )[0].files[0] ,
-    "locationfile":$( "#locationfile" )[0].files[0]
-  }
-  
-  for (var key in files) {
-    //console.log(key, files[key]);
-    fd.append(key, files[key]);
-  }
-
-  var obj={
-    name:$name.val(),
-    email:$email.val(),
-    url :$url.val(),
-    theme:$theme.val(),
-    files:fd
-    
-  };
-
-  $.ajax({
-    type: "POST",
-    url:  " ",
-    data: obj,
-    processData: false,
-    contentType: false,
-    
-    success :function(data){
-      console.log(obj);
-    }
-       
+    $.ajax(settings).done(function (response) {
+      
     });
-
   });
 });
-
-
-
-
-  
-
