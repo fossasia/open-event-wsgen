@@ -23,7 +23,7 @@
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
-  <link rel="stylesheet" href="./css/schedule.css">
+  <link rel="stylesheet" href="./assets/css/schedule.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -78,24 +78,25 @@
         </div>
       </div>
     </nav>
-
-    <div id=track-list class="container">
-      {{#tracks}}
-      <div class="row">
-        {{#with sessions.[0]}}
-        <div class="height col-md-1">
-         <h6 id="text">{{start}}</h6>
+    <div class="col-md-offset-2 col-md-10 main">
+      <div id=track-list class="container">
+        {{#tracks}}
+        <div class="row">
+          {{#with sessions.[0]}}
+          <div class="height col-xs-2 col-md-1">
+           <h6 id="text">{{start}}</h6>
+          </div>
+           {{/with}}
+          <div class="col-xs-10 event col-md-10">
+              <h6>{{title}}</h6>
+          </div>
         </div>
-         {{/with}}
-        <div class="event col-md-10">
-            <h6>{{title}}</h6>
-        </div>
+        {{/tracks}}
       </div>
-      {{/tracks}}
     </div>
    <!-- /#session-list -->
-
-    <div class="footer">
+  <div class="row">
+    <div class="col-md-12 footer">
      {{#if copyright}}
      <center>
        <p>
@@ -108,6 +109,7 @@
        </center>
       {{/if}}
     </div>
+  </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
