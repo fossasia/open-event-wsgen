@@ -87,8 +87,11 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-          <div class="col-xs-10 event col-md-10">
+          <div class="col-xs-10 event col-md-8 ">
               <h6>{{title}}</h6>
+          </div>
+          <div class="col-xs-10 col-md-3">
+             
           </div>
         </div>
         {{/tracks}}
