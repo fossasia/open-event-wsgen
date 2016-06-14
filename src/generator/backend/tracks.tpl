@@ -33,7 +33,7 @@
     </head>
 
     <body>
-    <!-- Fixed navbar -->
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header navbar-left pull-left">
@@ -78,7 +78,8 @@
         </div>
       </div>
     </nav>
-    <div class="col-md-offset-2 col-md-10 main">
+    <div class="row">
+    <div class="col-md-offset-2 col-md-8 main">
       <div id=track-list class="container">
         {{#tracks}}
         <div class="row">
@@ -90,12 +91,15 @@
           <div class="col-xs-10 event col-md-8 ">
               <h6>{{title}}</h6>
           </div>
-          <div class="col-xs-10 col-md-3">
-             
+          <div class="details col-md-3">
+             <div id="details"></div>
           </div>
         </div>
         {{/tracks}}
       </div>
+    </div>
+    <div class="col-md-2">
+    </div>
     </div>
    <!-- /#session-list -->
   <div class="row">
@@ -112,7 +116,7 @@
        </center>
       {{/if}}
     </div>
-  </div>
+  </div>-->
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
