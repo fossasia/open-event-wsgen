@@ -72,7 +72,7 @@ function zeroFill(num) {
 }
 
 function transformData(sessions, speakers, services, sponsors) {
-  
+
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
@@ -96,7 +96,7 @@ function getJsonData() {
 
 exports.pipeZipToRes = function(req, res) {
   let theme = req.body.theme;
-  
+
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
@@ -162,13 +162,11 @@ exports.pipeZipToRes = function(req, res) {
     },
     (done) => {
       console.log('================================WRITING\n\n\n\n');
-     
-      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()),distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
-        if (writeErr !== null) {
-          console.log(writeErr);
-        }
-        done(null, 'write');
-      });
+
+      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(getJsonData()));
+      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(getJsonData()));
+      done(null, 'write');
+
     },
     (done) => {
       console.log('================================ZIPPING\n\n\n\n');
