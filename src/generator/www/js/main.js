@@ -14,24 +14,19 @@ $(document).ready( function() {
     // form.append('trackfile', {'0': {}});
     // form.append('locationfile', {'0': {}});
 
-    var settings = {
-      'async': true,
-      'crossDomain': true,
-      'url': '/generate',
-      'method': 'POST',
-      'headers': {
-        'cache-control': 'no-cache'
+    $.ajax({
+      url : '/generate',
+      type: 'POST',
+      method: 'POST',
+      data: form,
+      mimeType: 'multipart/form-data',
+      success: function(data, textStatus, jqXHR) {
+        console.log(data.status);
       },
-      'processData': false,
-      'contentType': false,
-      'mimeType': 'multipart/form-data',
-      success: function(resp, status, jsonp) {
-        console.log(status);
-        console.log(resp);
-      },
-      'data': form
-    };
+      error: function (jqXHR, textStatus, errorThrown) {
 
-    $.ajax(settings);
+      }
+    });
+
   });
 });
