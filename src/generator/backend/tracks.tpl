@@ -94,8 +94,28 @@
           <div class="arrow">
             <span></span>
           </div>
-           <div class="pop-box">
-                 {{title}}
+           <div class="pop-box" style="color:black";>
+              <div class="pop">
+                <div class="pop-head">
+                </div>
+                <div class="pop-description">
+                </div>
+                  <h6 id="headline"><strong>Speakers</strong></h6>
+                 {{#sessions}}
+                 <div class="pop-over row">
+                   
+                    <div class="col-md-2">
+                   
+                    <img src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                    </div>
+                    <div class="col-md-10">
+                
+                      {{speakers}}
+                 
+                    </div>
+                </div>
+                  {{/sessions}}
+              </div>
             </div>
         </div>
         {{/tracks}}
