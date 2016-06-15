@@ -254,7 +254,7 @@ a {
   padding: 10px 15px;
   margin: 25px 0px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid $gray-perfect;
   border-radius: 4px;
 }
 .mediumoffset:first-child{
@@ -269,8 +269,8 @@ a {
   display: block;
   padding: 10px 15px;
   margin: 25px 0px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $gray-perfect;
   border-radius: 4px;
 }
 
@@ -327,7 +327,6 @@ a {
     width: 14px;
     height: 14px;
     -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
-    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
     -moz-transform: rotate(45deg) skew(-10deg, -10deg);
     -ms-transform: rotate(45deg) skew(-10deg, -10deg);
     -o-transform: rotate(45deg) skew(-10deg, -10deg);
@@ -335,8 +334,8 @@ a {
     zoom: 1;
     margin: 1px 0 0 4px;
     background: #575757;
-    border-left: 1px solid #000;
-    border-top: 1px solid #000;
+    border-left: 1px solid $black;
+    border-top: 1px solid $black;
     -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
     -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
     box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
@@ -346,10 +345,10 @@ a {
 
   width:414px;
   height:274px;
-  border:1px solid black;
+  border:1px solid $black;
   z-index:1000;
   position:absolute;
-  background-color:#fff;
+  background-color: $white;
   left:136px;
   border-radius:4px;
   transition: all 0.5s ease;
