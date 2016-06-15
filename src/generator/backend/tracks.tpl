@@ -32,50 +32,6 @@
       <![endif]-->
     </head>
 
-<style>
-  .arrow {
-    position: absolute;
-    width: 25px;
-    height: 10px;
-    overflow: hidden;
-    left:139px;
-    z-index: 1000;
-}
-
-.arrow span {
-    display: block;
-    width: 14px;
-    height: 14px;
-    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
-    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
-    -moz-transform: rotate(45deg) skew(-10deg, -10deg);
-    -ms-transform: rotate(45deg) skew(-10deg, -10deg);
-    -o-transform: rotate(45deg) skew(-10deg, -10deg);
-    transform: rotate(45deg) skew(-10deg, -10deg);
-    zoom: 1;
-    margin: 1px 0 0 4px;
-    background: #575757;
-    border-left: 1px solid #000;
-    border-top: 1px solid #000;
-    -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
-    -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
-    box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
-}
-.pop-box{
-  width:414px;
-  height:274px;
-  border:1px solid black;
-  z-index:1000;
-  position:absolute;
-  background-color:#fff;
-  left:136px;
-  border-radius:4px;
-  transition: all 0.5s ease;
-
-}
-
-
-    </style>
     <body>
 
     <nav class="navbar navbar-default navbar-fixed-top">
