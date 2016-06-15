@@ -254,7 +254,7 @@ a {
   padding: 10px 15px;
   margin: 25px 0px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid $gray-perfect;
   border-radius: 4px;
 }
 .mediumoffset:first-child{
@@ -269,8 +269,8 @@ a {
   display: block;
   padding: 10px 15px;
   margin: 25px 0px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $gray-perfect;
   border-radius: 4px;
 }
 
@@ -311,6 +311,82 @@ a {
 #text{ 
   color: $gray-trackshade; 
 } 
+
+/* Pop over Track */
+
+.arrow {
+  position: absolute;
+  width: 25px;
+  height: 10px;
+  overflow: hidden;
+  left:139px;
+  z-index: 1000;
+
+  span {
+    display: block;
+    width: 14px;
+    height: 14px;
+    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+    -moz-transform: rotate(45deg) skew(-10deg, -10deg);
+    -ms-transform: rotate(45deg) skew(-10deg, -10deg);
+    -o-transform: rotate(45deg) skew(-10deg, -10deg);
+    transform: rotate(45deg) skew(-10deg, -10deg);
+    zoom: 1;
+    margin: 1px 0 0 4px;
+    background: #575757;
+    border-left: 1px solid $black;
+    border-top: 1px solid $black;
+    -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+    -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+    box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+  }
+}
+
+.pop-box{
+
+  width:414px;
+  height:274px;
+  border:1px solid $black;
+  z-index:1000;
+  position:absolute;
+  left:136px;
+  border-radius:4px;
+  transition: all 0.5s ease;
+  background-color:#575757;
+    .pop {
+    background-color:#fff;
+    margin:1%;
+    min-height: 264px;
+    max-height: 264px;
+    overflow-y :auto;
+    overflow-x:hidden;
+      .pop-over {
+        padding:2%;
+      }
+    }
+  .pop-head{
+    background: #efefef;
+    border-top: 1px solid #ddd;
+    height:34px;
+    }
+  .pop-description {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    height:64px;
+    margin-top:6px;
+    padding:1%;
+    margin-bottom:6px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+    
+  }
+  #headline {
+    padding:8px;
+  }
+
+
+
 
 
 
