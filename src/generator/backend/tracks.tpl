@@ -31,7 +31,50 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
+    <style>
+  .arrow {
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    overflow: hidden;
+    left:139px;
+    z-index: 1000;
+}
 
+.arrow span {
+    display: block;
+    width: 14px;
+    height: 14px;
+    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+    -webkit-transform: rotate(45deg) skew(-10deg, -10deg);
+    -moz-transform: rotate(45deg) skew(-10deg, -10deg);
+    -ms-transform: rotate(45deg) skew(-10deg, -10deg);
+    -o-transform: rotate(45deg) skew(-10deg, -10deg);
+    transform: rotate(45deg) skew(-10deg, -10deg);
+    zoom: 1;
+    margin: 1px 0 0 4px;
+    background: #575757;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+    -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+    box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
+}
+.pop-box{
+  width:414px;
+  height:274px;
+  border:1px solid black;
+  z-index:1000;
+  position:absolute;
+  background-color:#fff;
+  left:136px;
+  border-radius:4px;
+  transition: all 0.5s ease;
+
+}
+
+
+    </style>
     <body>
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -88,12 +131,15 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-          <div class="col-xs-10 event col-md-8 ">
-              <h6>{{title}}</h6>
+          <div class="track-title col-xs-10 event col-md-8 ">
+              <h5 class="click"><u>{{title}}</u></h5>
           </div>
-          <div class="details col-md-3">
-             <div id="details"></div>
+          <div class="arrow">
+            <span></span>
           </div>
+           <div class="pop-box">
+                 {{title}}
+            </div>
         </div>
         {{/tracks}}
       </div>
@@ -125,6 +171,48 @@
     crossorigin="anonymous">
   </script>
    <script type="text/javascript">
+   $(document).ready(function(){
+        $('.pop-box').hide();
+        $('.arrow').hide();
+       $('.click').click(function (event) {
+        //Offset mouse Position
+            $('.pop-box').hide();
+            $('.arrow').hide();
+            var p=$(this).parent();
+            console.log(p);
+            $(p).next().show();
+            $(p).next().next().show();
+            var posY = event.pageY;
+            chi=$(p).next().next();
+            
+            var toptrack = posY-20 +'px' ;
+            var pointtop = posY-28 +'px';
+            console.log(pointtop);
+            event.preventDefault();
+            event.stopPropagation();
+
+          $(chi).css({'top':toptrack
+                      });
+        
+          $('.arrow').css({
+              'top': pointtop
+          });
+
+           
+    });
+       $(document).mouseup(function (e)
+          {
+            var container = $(".pop-box");
+            var pointtop = $(".arrow");
+
+            if (!container.is(e.target) // if the target of the click isn't the container...
+              && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+              container.hide();
+              pointtop.hide();
+            }
+          });
+        })
     $(function() {
       $('a[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
