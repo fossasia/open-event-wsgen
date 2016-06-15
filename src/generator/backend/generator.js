@@ -72,7 +72,6 @@ function zeroFill(num) {
 }
 
 function transformData(sessions, speakers, services, sponsors) {
-  
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
@@ -94,9 +93,9 @@ function getJsonData() {
   return data;
 }
 
-exports.pipeZipToRes = function(req, res) {
-  let theme = req.body.theme;
-  
+exports.createDistDir = function(req, callback) {
+  const theme = req.body.theme;
+
   async.series([
     (done) => {
       distHelper.cleanDist((cleanerr) => {
@@ -143,9 +142,9 @@ exports.pipeZipToRes = function(req, res) {
       console.log('===============================COMPILING SASS\n\n\n\n');
 
       sass.render({
-        file: __dirname + '/_scss/_themes/_'+theme+ '-theme/_'+theme+'.scss',
+        file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
         outFile: distHelper.distPath + '/css/schedule.css'
-    }, function(err, result) {
+      }, function(err, result) {
         if (!err) {
           fs.writeFile(distHelper.distPath + '/css/schedule.css', result.css, (writeErr) => {
             if (writeErr !== null) {
@@ -156,32 +155,35 @@ exports.pipeZipToRes = function(req, res) {
         } else {
           console.log(err);
         }
-
       });
-
     },
     (done) => {
       console.log('================================WRITING\n\n\n\n');
-     
-      fs.writeFile(distHelper.distPath + '/index.html',tpl(getJsonData()),distHelper.distPath + '/tracks.html',trackstpl(getJsonData()), (writeErr) => {
-        if (writeErr !== null) {
-          console.log(writeErr);
-        }
-        done(null, 'write');
-      });
-    },
-    (done) => {
-      console.log('================================ZIPPING\n\n\n\n');
-      const zipfile = archiver('zip');
 
-      zipfile.on('error', (err) => {
-        throw err;
-      });
-
-      zipfile.pipe(res);
-
-      zipfile.directory(distHelper.distPath, '/').finalize();
-      done(null, 'zip');
+      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(getJsonData()));
+      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(getJsonData()));
+      callback();
+      done(null, 'write');
     }
   ]);
+};
+
+exports.showLivePreview = function(res) {
+  console.log('===============================LIVERENDER\n\n\n\n');
+
+  res.redirect('/live/preview');
+};
+
+exports.pipeZipToRes = function(res) {
+  console.log('================================ZIPPING\n\n\n\n');
+  const zipfile = archiver('zip');
+
+  zipfile.on('error', (err) => {
+    throw err;
+  });
+  res.setHeader('Content-Type', 'application/zip');
+
+  zipfile.pipe(res);
+
+  zipfile.directory(distHelper.distPath, '/').finalize();
 };
