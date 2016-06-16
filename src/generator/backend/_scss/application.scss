@@ -319,8 +319,9 @@ a {
   width: 25px;
   height: 10px;
   overflow: hidden;
-  left:139px;
+  left:6px;
   z-index: 1000;
+  margin-top: -1%;
 
   span {
     display: block;
@@ -333,9 +334,9 @@ a {
     transform: rotate(45deg) skew(-10deg, -10deg);
     zoom: 1;
     margin: 1px 0 0 4px;
-    background: #575757;
-    border-left: 1px solid $black;
-    border-top: 1px solid $black;
+    background: #efefef;
+    border-left: 1px solid #efefef;
+    border-top: 1px solid #efefef;
     -webkit-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
     -moz-box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
     box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.37);
@@ -344,42 +345,24 @@ a {
 
 .pop-box{
 
-  width:414px;
-  height:274px;
-  border:1px solid $black;
+  width:300px;
+  height:164px;
   z-index:1000;
   position:absolute;
-  left:136px;
+  left:117px;
   border-radius:4px;
   transition: all 0.5s ease;
-  background-color:#575757;
     .pop {
-    background-color:#fff;
-    margin:1%;
-    min-height: 264px;
-    max-height: 264px;
-    overflow-y :auto;
-    overflow-x:hidden;
+    background-color: #efefef;
+    margin: 1%;
+    padding:1%;
+    max-height: 164px;
+    overflow-y: auto;
+    overflow-x: hidden;
       .pop-over {
         padding:2%;
       }
     }
-  .pop-head{
-    background: #efefef;
-    border-top: 1px solid #ddd;
-    height:34px;
-    }
-  .pop-description {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    height:64px;
-    margin-top:6px;
-    padding:1%;
-    margin-bottom:6px;
-    margin-left: 8px;
-    margin-right: 8px;
-}
-    
   }
   #headline {
     padding:8px;

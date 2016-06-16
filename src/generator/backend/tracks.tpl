@@ -88,27 +88,24 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-          <div class="track-title col-xs-10 event col-md-8 ">
-              <h5 class="click"><u>{{title}}</u></h5>
+          <div class="click track-title col-xs-10 event col-md-8 ">
+              <h5><u>{{title}}</u></h5>
           </div>
-          <div class="arrow">
+          <div class="pop-box">
+            <div class="arrow">
             <span></span>
-          </div>
-           <div class="pop-box" style="color:black";>
+            </div>
+            <div class="pop-container" style="color:black";>
               <div class="pop">
-                <div class="pop-head">
-                </div>
-                <div class="pop-description">
-                </div>
                   <h6 id="headline"><strong>Speakers</strong></h6>
                  {{#sessions}}
                  <div class="pop-over row">
                    
                     <div class="col-md-2">
                    
-                    <img src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                    <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-offset-1 col-md-9">
                 
                       {{speakers}}
                  
@@ -117,6 +114,7 @@
                   {{/sessions}}
               </div>
             </div>
+          </div>
         </div>
         {{/tracks}}
       </div>
@@ -149,47 +147,44 @@
   </script>
    <script type="text/javascript">
    $(document).ready(function(){
-        $('.pop-box').hide();
-        $('.arrow').hide();
-       $('.click').click(function (event) {
-        //Offset mouse Position
-            $('.pop-box').hide();
-            $('.arrow').hide();
-            var p=$(this).parent();
-            console.log(p);
-            $(p).next().show();
-            $(p).next().next().show();
-            var posY = event.pageY;
-            chi=$(p).next().next();
-            
-            var toptrack = posY-20 +'px' ;
-            var pointtop = posY-28 +'px';
-            console.log(pointtop);
-            event.preventDefault();
-            event.stopPropagation();
 
-          $(chi).css({'top':toptrack
-                      });
+    $('.pop-box').hide();
+    $('.click').hover(function (event) {
+
+    event.preventDefault();
+    event.stopPropagation();
+    var track = $(event.target);
+    var link  = track.children(0);
+    var offset =$(link).offset();
+         
+    var position= offset.top-link.height();
+    if( $(window).width()<600){
+      var position= offset.top-link.height()-40;  
+    }
+    if(offset.top){
+          
+      $('.pop-box').hide();
+      var p=$(this);
+      $(p).next().show();
+      var posY = event.pageY;
+      nextOfpop=$(p).next();
         
-          $('.arrow').css({
-              'top': pointtop
-          });
+      var toptrack = position ;
+      $(nextOfpop).css({'top':toptrack
+        });
+      }
+    $(document).mouseup(function (e)
+      {
+        var container = $(".pop-box");
 
-           
-    });
-       $(document).mouseup(function (e)
+        if (!container.is(e.target) 
+            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0)) 
           {
-            var container = $(".pop-box");
-            var pointtop = $(".arrow");
-
-            if (!container.is(e.target) 
-              && container.has(e.target).length === 0 && (e.target)!=$('html').get(0)) 
-            {
-              container.hide();
-              pointtop.hide();
-            }
-          });
-        })
+            container.hide();
+          }
+      });
+    })
+  })
     $(function() {
       $('a[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
