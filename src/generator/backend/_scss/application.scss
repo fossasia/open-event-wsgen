@@ -349,7 +349,7 @@ a {
   height:164px;
   z-index:1000;
   position:absolute;
-  left:117px;
+  left:187px;
   border-radius:4px;
   border: 1px solid #c1c1c1;
   transition: all 0.5s ease;
@@ -372,6 +372,12 @@ a {
   }
   #headline {
     padding:8px;
+  }
+  .main {
+    margin-top :2%;
+    margin-bottom :1%;
+    border-radius: 4px; 
+    background-color: white;
   }
 
 

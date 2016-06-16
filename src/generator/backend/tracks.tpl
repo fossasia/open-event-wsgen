@@ -23,7 +23,7 @@
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
-  <link rel="stylesheet" href="./assets/css/schedule.css">
+  <link rel="stylesheet" href="./css/schedule.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -84,11 +84,11 @@
         {{#tracks}}
         <div class="row">
           {{#with sessions.[0]}}
-          <div class="height col-xs-2 col-md-1">
+          <div class="height col-md-offset-1 col-xs-2 col-md-1">
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-          <div class="click track-title col-xs-10 event col-md-8 ">
+          <div class="click track-title col-xs-10 event col-md-7">
               <h5><u>{{title}}</u></h5>
           </div>
           <div class="pop-box">
@@ -101,11 +101,11 @@
                  {{#sessions}}
                  <div class="pop-over row">
                    
-                    <div class="col-md-2">
+                    <div class="col-xs-3 col-md-2">
                    
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
-                    <div class="col-md-offset-1 col-md-9">
+                    <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
                 
                       {{speakers}}
                  
@@ -157,9 +157,9 @@
     var link  = track.children(0);
     var offset =$(link).offset();
          
-    var position= offset.top-link.height();
+    var position= offset.top-link.height()-30;
     if( $(window).width()<600){
-      var position= offset.top-link.height()-40;  
+      var position= offset.top-link.height()-48;  
     }
     if(offset.top){
           
