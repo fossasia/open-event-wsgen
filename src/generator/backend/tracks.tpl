@@ -88,6 +88,7 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
+
           <div class="click track-title col-xs-10 event col-md-7">
               <h5><u>{{title}}</u></h5>
           </div>
@@ -106,7 +107,7 @@
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
                     <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
-                
+
                       {{speakers}}
                  
                     </div>
@@ -156,7 +157,7 @@
     var track = $(event.target);
     var link  = track.children(0);
     var offset =$(link).offset();
-         
+
     var position= offset.top-link.height()-30;
     if( $(window).width()<600){
       var position= offset.top-link.height()-48;  
