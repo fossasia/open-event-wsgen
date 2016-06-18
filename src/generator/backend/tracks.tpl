@@ -84,11 +84,12 @@
         {{#tracks}}
         <div class="row">
           {{#with sessions.[0]}}
-          <div class="height col-xs-2 col-md-1">
+          <div class="height col-md-offset-1 col-xs-2 col-md-1">
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-          <div class="click track-title col-xs-10 event col-md-8 ">
+
+          <div class="click track-title col-xs-10 event col-md-7">
               <h5><u>{{title}}</u></h5>
           </div>
           <div class="pop-box">
@@ -101,12 +102,12 @@
                  {{#sessions}}
                  <div class="pop-over row">
                    
-                    <div class="col-md-2">
+                    <div class="col-xs-3 col-md-2">
                    
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
-                    <div class="col-md-offset-1 col-md-9">
-                
+                    <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
+
                       {{speakers}}
                  
                     </div>
@@ -156,10 +157,10 @@
     var track = $(event.target);
     var link  = track.children(0);
     var offset =$(link).offset();
-         
-    var position= offset.top-link.height();
+
+    var position= offset.top-link.height()-30;
     if( $(window).width()<600){
-      var position= offset.top-link.height()-40;  
+      var position= offset.top-link.height()-48;  
     }
     if(offset.top){
           
