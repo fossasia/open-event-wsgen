@@ -88,8 +88,7 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-
-          <div class="click track-title col-xs-10 event col-md-7">
+          <div style="background-color:{{{color}}}" class="item track-title col-xs-10 event col-md-7">
               <h5><u>{{title}}</u></h5>
           </div>
           <div class="pop-box">
@@ -150,7 +149,7 @@
    $(document).ready(function(){
 
     $('.pop-box').hide();
-    $('.click').hover(function (event) {
+    $('.item').hover(function (event) {
 
     event.preventDefault();
     event.stopPropagation();

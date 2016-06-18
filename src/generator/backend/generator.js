@@ -18,6 +18,7 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').
 const distJsonsPath = distHelper.distPath + '/json';
 console.log(trackstpl(getJsonData()));
 
+
 if(!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
@@ -72,14 +73,14 @@ function zeroFill(num) {
   return '0' + num.toString();
 }
 
-function transformData(sessions, speakers, services, sponsors) {
-  const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers);
+function transformData(sessions, speakers, services, sponsors,tracksData) {
+  const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
   const eventurls = fold.extractEventUrls(services);
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
-
+  
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
 }
 
@@ -88,8 +89,9 @@ function getJsonData() {
   const speakersData = require(distJsonsPath + '/speakers.json');
   const servicesData = require(distJsonsPath + '/event.json');
   const sponsorsData = require(distJsonsPath + '/sponsors.json');
+  const tracksData =   require(distJsonsPath + '/tracks.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData);
+  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData,tracksData);
 
   return data;
 }

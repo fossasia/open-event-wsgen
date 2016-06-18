@@ -1,7 +1,7 @@
 { "tracks":[
   {
     "py/object": "models.Track",
-    "key_color": "#3DC8C3",
+    "key_color": "#f3827f",
     "name": "Maker Space",
     "header_line": 2,
     "track_image_url": "http://lorempixel.com/400/200",
@@ -23,7 +23,7 @@
   },
   {
     "py/object": "models.Track",
-    "key_color": "#3DC8C3",
+    "key_color": "#9edf7d",
     "name": "LightningTalks",
     "header_line": 2,
     "track_image_url": "http://lorempixel.com/400/200",
@@ -34,7 +34,7 @@
   },
   {
     "py/object": "models.Track",
-    "key_color": "#3DC8C3",
+    "key_color": "#f3827f",
     "name": "OTS 1",
     "header_line": 2,
     "track_image_url": "http://lorempixel.com/400/200",
@@ -67,7 +67,7 @@
   },
   {
     "py/object": "models.Track",
-    "key_color": "#3DC8C3",
+    "key_color": "#ffbc57",
     "name": "Linux-Zertifizierung",
     "header_line": 2,
     "track_image_url": "http://lorempixel.com/400/200",

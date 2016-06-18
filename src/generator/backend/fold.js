@@ -47,10 +47,18 @@ function zeroFill(num) {
   }
   return '0' + num.toString();
 }
-function foldByTrack(sessions, speakers) {
+function returnTrackColor(trackInfo, id) {
+
+  return trackInfo[id];
+}
+function foldByTrack(sessions, speakers, trackInfo) {
 
   let trackData = new Map();
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
+  let trackDetails= new Object();
+  trackInfo.forEach((track) => {
+    trackDetails[track.id]=track.key_color;
+  })
 
   sessions.forEach((session) => {
     if (!session.start_time) {
@@ -66,6 +74,7 @@ function foldByTrack(sessions, speakers) {
     if (!trackData.has(slug)) {
       track = {
         title: session.track.name,
+        color: returnTrackColor(trackDetails,session.track.id),
         date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sortKey: date + '-' + zeroFill(session.track.order),
@@ -88,14 +97,17 @@ function foldByTrack(sessions, speakers) {
       sign_up: session.sign_up,
       video: session.video,
       slides: session.slides,
-      audio: session.audio
+      audio: session.audio,
     });
+  
   });
+ 
+    
 
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
-
+  
   return tracks;
 }
 
