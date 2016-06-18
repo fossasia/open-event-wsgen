@@ -16,7 +16,7 @@ const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toSt
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-console.log(trackstpl(getJsonData()));
+// console.log(trackstpl(getJsonData()));
 
 
 if(!String.linkify) {
@@ -80,7 +80,7 @@ function transformData(sessions, speakers, services, sponsors,tracksData) {
   const eventurls = fold.extractEventUrls(services);
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
-  
+
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
 }
 
@@ -97,6 +97,8 @@ function getJsonData() {
 }
 
 exports.createDistDir = function(req, callback) {
+  console.log(req.files);
+  console.log(req.body);
   const theme = req.body.theme;
 
   async.series([
@@ -128,18 +130,25 @@ exports.createDistDir = function(req, callback) {
       });
     },
     (done) => {
-      console.log('================================COPYING UPLOADS\n\n\n\n');
-      distHelper.copyUploads(req.files);
-      done(null, 'copyuploads');
-    },
-    (done) => {
-      distHelper.cleanUploads((cleanErr) => {
-        console.log('================================CLEANING UPLOADS\n\n\n\n');
-        if (cleanErr !== null) {
-          console.log(cleanErr);
-        }
-        done(null, 'cleanuploads');
-      });
+      console.log('================================COPYING JSONS\n\n\n\n');
+      switch (req.body.datasource) {
+        case 'jsonupload':
+          distHelper.copyUploads(req.files);
+          distHelper.cleanUploads((cleanErr) => {
+            console.log('================================CLEANING UPLOADS\n\n\n\n');
+            if (cleanErr !== null) {
+              console.log(cleanErr);
+            }
+            done(null, 'cleanuploads');
+          });
+          break;
+        case 'mockjson':
+        default:
+          distHelper.copyMockJsons();
+          done(null, 'cleanuploads');
+          break;
+
+      }
     },
     (done) => {
       console.log('===============================COMPILING SASS\n\n\n\n');
