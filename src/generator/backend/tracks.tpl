@@ -88,7 +88,6 @@
            <h6 id="text">{{start}}</h6>
           </div>
            {{/with}}
-
           <div style="background-color:{{{color}}}" class="item track-title col-xs-10 event col-md-7">
               <h5><u>{{title}}</u></h5>
           </div>
