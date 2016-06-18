@@ -47,11 +47,11 @@ function zeroFill(num) {
   }
   return '0' + num.toString();
 }
-function returnTrackColor(trackInfo,id){
+function returnTrackColor(trackInfo, id) {
 
   return trackInfo[id];
 }
-function foldByTrack(sessions, speakers ,trackInfo) {
+function foldByTrack(sessions, speakers, trackInfo) {
 
   let trackData = new Map();
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
