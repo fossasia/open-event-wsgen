@@ -156,10 +156,23 @@
     var track = $(event.target);
     var link  = track.children(0);
     var offset =$(link).offset();
-
+    console.log(link.height());
+    
     var position= offset.top-link.height()-30;
-    if( $(window).width()<600){
-      var position= offset.top-link.height()-48;  
+    if( $(window).width()>=320 && $(window).width()< 481){
+        console.log("Pos 1 "+ position );
+        console.log(offset.top);
+      var position= offset.top-link.height()-38;  
+    }
+    else if( $(window).width()>= 481 && $(window).width()<641){
+      var position= offset.top-link.height()-46;
+      console.log("Pos 2 "); 
+      console.log(offset.top); 
+    }
+    else if( $(window).width()>=641 && $(window).width()< 961){
+      var position= offset.top-link.height()-59;
+      console.log("Pos 3 " ); 
+      console.log(offset.top); 
     }
     if(offset.top){
           
