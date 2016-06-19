@@ -30,8 +30,6 @@ app.post('/live', uploadedFiles, function(req, res) {
 });
 
 app.post('/generate', uploadedFiles, function(req, res) {
-  // console.log(req.files);
-  // console.log(req.body);
   generator.createDistDir(req, function() {
     generator.pipeZipToRes(res);
   });
