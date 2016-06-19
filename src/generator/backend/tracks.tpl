@@ -149,14 +149,12 @@
    $(document).ready(function(){
 
     $('.pop-box').hide();
-    $('.item').click(function (event) {
+    $('.item').hover(function (event) {
         popBox();
     })
-    $('.item >h5').click(function (event) {
-        popBox();
-    })
+   
    function popBox(){
-
+    $('.pop-box').hide();
     event.preventDefault();
     event.stopPropagation();
     var track = $(event.target);
@@ -190,6 +188,7 @@
          var left= left-210;
     }
     if(offset.top){      
+
       var toptrack = position ;
       $(nextOfpop).css({'top':toptrack,
                         'left':left
