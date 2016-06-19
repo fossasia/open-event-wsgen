@@ -6,26 +6,37 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="./js/main.js"></script>
+<script src="./js/form.js"></script>
 </head>
 <body>
 <div class="container"></br></br>
 	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
     	<label for="name">Email</label>
     	<input type="email" class="form-control" id="email" name="email">
-		</br>
-    	<label for="name">App's Name</label>
-    	<input type="name" class="form-control" id="name" name="name">
- 		</br>
-    	<label for="url">Link to json containing end points</label>
-    	<input type="url" class="form-control" id="url" name="url">
- 		</br>
+    </br>
   		<label for="theme">Choose your theme</label>
   		  <select class="form-control" id="theme" name="theme">
     		  <option value="light">Light</option>
     		  <option value="dark">Dark</option>
   		  </select>
-  		</br>
-		<div class="row">
+		</br>
+    	<label for="name">App's Name</label>
+    	<input type="name" class="form-control" id="name" name="name">
+ 		</br>
+      <label for="datasource"> Choose your data source </label>
+      <ul style="list-style-type:none">
+        <li><input type="radio" name="datasource" value="mockjson"> Default mock API </input>
+        <li><input type="radio" name="datasource" value="jsonupload"> Upload your own JSON files </input>
+        <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input>
+      </ul>
+    </br>
+    <section id="eventapi-input" style="display:none;">
+    	<label for="url">Link to json containing end points</label>
+    	<input type="url" class="form-control" id="url" name="url">
+    </section>
+    </br>
+    <section id="jsonupload-input" style="display:none;">
+ 		<div class="row">
       		<div class="col-md-6">
         		<label for="speakerfile">Json for Speakers</label>
        		 	<input type="file" name="speakerfile" id="speakerfile">
@@ -55,10 +66,11 @@
         		<input type="file"  name="locationfile" id="locationfile">
       		</div>
     	</div></br>
-  		<center>
+      </section>
+      <center>
       <button formaction="/live" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND PREVIEW</button>
-  		<button formaction="/generate" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
-  		</center>
+      <button formaction="/generate" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
+      </center>
 
 	</form>
 </div>
