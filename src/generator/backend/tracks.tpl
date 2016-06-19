@@ -159,6 +159,8 @@
     console.log(link.height());
     
     var position= offset.top-link.height()-30;
+    var left= offset.left;
+
     if( $(window).width()>=320 && $(window).width()< 481){
       var position= offset.top-link.height()-38;  
     }
@@ -166,10 +168,16 @@
       var position= offset.top-link.height()-46;
     }
     else if( $(window).width()>=641 && $(window).width()< 961){
-      var position= offset.top-link.height()-59;
+
+      var position= offset.top-link.height()-50;
+    }
+    else if( $(window).width()>=961 && $(window).width()< 1025){
+      var left= left-180;
+    }
+    else {
+         var left= left-210;
     }
     if(offset.top){
-          
       $('.pop-box').hide();
       var p=$(this);
       $(p).next().show();
@@ -177,7 +185,8 @@
       nextOfpop=$(p).next();
         
       var toptrack = position ;
-      $(nextOfpop).css({'top':toptrack
+      $(nextOfpop).css({'top':toptrack,
+                        'left':left
         });
       }
     $(document).mouseup(function (e)
