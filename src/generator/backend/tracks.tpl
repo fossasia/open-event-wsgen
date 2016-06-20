@@ -149,10 +149,18 @@
    $(document).ready(function(){
 
     $('.pop-box').hide();
-    $('.item').hover(function (event) {
+
+    if($(window).width()<768){
+      $('.item').click(function (event) {
         popBox();
-    })
-   
+      });
+    }
+    else {
+       $('.item').hover(function (event) {
+        popBox();
+    });
+  }   
+
    function popBox(){
     $('.pop-box').hide();
     event.preventDefault();
