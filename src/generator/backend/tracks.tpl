@@ -100,15 +100,15 @@
                   <h6 id="headline"><strong>Speakers</strong></h6>
                  {{#sessions}}
                  <div class="pop-over row">
-                   
+
                     <div class="col-xs-3 col-md-2">
-                   
+
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
                     <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
 
                       {{speakers}}
-                 
+
                     </div>
                 </div>
                   {{/sessions}}
@@ -140,8 +140,8 @@
   </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous">
   </script>
@@ -159,7 +159,7 @@
        $('.item').hover(function (event) {
         popBox();
     });
-  }   
+  }
 
    function popBox(){
     $('.pop-box').hide();
@@ -174,13 +174,13 @@
    else{
     var offset =$(link).offset();
    }
-    
+
     nextOfpop=$(track).next();
     var position= offset.top-link.height()-30;
     var left= offset.left;
 
     if( $(window).width()>=320 && $(window).width()< 481){
-      var position= offset.top-link.height()-38;  
+      var position= offset.top-link.height()-38;
     }
     else if( $(window).width()>= 481 && $(window).width()<641){
       var position= offset.top-link.height()-46;
@@ -195,7 +195,7 @@
     else {
          var left= left-210;
     }
-    if(offset.top){      
+    if(offset.top){
 
       var toptrack = position ;
       $(nextOfpop).css({'top':toptrack,
@@ -207,8 +207,8 @@
       {
         var container = $(".pop-box");
 
-        if (!container.is(e.target) 
-            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0)) 
+        if (!container.is(e.target)
+            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0))
           {
             container.hide();
           }
