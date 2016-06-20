@@ -69,10 +69,10 @@ $(document).ready(function(){
       var container = $(".pop-box");
 
         if (!container.is(e.target) 
-            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0)) 
+            && container.has(e.target).length === 0 && (e.target)!==$('html').get(0)) 
           {
             container.hide();
           }
     });
-  }
+  };
 })
