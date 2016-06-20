@@ -149,6 +149,7 @@
    $(document).ready(function(){
 
     $('.pop-box').hide();
+
     if($(window).width()<768){
       $('.item').click(function (event) {
         popBox();
@@ -159,6 +160,7 @@
         popBox();
     });
   }   
+
    function popBox(){
     $('.pop-box').hide();
     event.preventDefault();
