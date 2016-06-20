@@ -152,16 +152,17 @@
 
     if($(window).width()<768){
       $('.item').click(function (event) {
-        popBox();
+        popBox(event);
       });
     }
     else {
        $('.item').hover(function (event) {
-        popBox();
+        popBox(event);
     });
   }
 
-   function popBox(){
+   function popBox(e){
+     event = e || window.event;
     $('.pop-box').hide();
     event.preventDefault();
     event.stopPropagation();
