@@ -100,15 +100,15 @@
                   <h6 id="headline"><strong>Speakers</strong></h6>
                  {{#sessions}}
                  <div class="pop-over row">
-                   
+
                     <div class="col-xs-3 col-md-2">
-                   
+
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
                     <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
 
                       {{speakers}}
-                 
+
                     </div>
                 </div>
                   {{/sessions}}
@@ -152,16 +152,17 @@
 
     if($(window).width()<768){
       $('.item').click(function (event) {
-        popBox();
+        popBox(event);
       });
     }
     else {
        $('.item').hover(function (event) {
-        popBox();
+        popBox(event);
     });
-  }   
+  }
 
-   function popBox(){
+   function popBox(e){
+     event = e || window.event;
     $('.pop-box').hide();
     event.preventDefault();
     event.stopPropagation();
@@ -174,13 +175,13 @@
    else{
     var offset =$(link).offset();
    }
-    
+
     nextOfpop=$(track).next();
     var position= offset.top-link.height()-30;
     var left= offset.left;
 
     if( $(window).width()>=320 && $(window).width()< 481){
-      var position= offset.top-link.height()-38;  
+      var position= offset.top-link.height()-38;
     }
     else if( $(window).width()>= 481 && $(window).width()<641){
       var position= offset.top-link.height()-46;
@@ -195,7 +196,7 @@
     else {
          var left= left-210;
     }
-    if(offset.top){      
+    if(offset.top){
 
       var toptrack = position ;
       $(nextOfpop).css({'top':toptrack,
@@ -207,8 +208,8 @@
       {
         var container = $(".pop-box");
 
-        if (!container.is(e.target) 
-            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0)) 
+        if (!container.is(e.target)
+            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0))
           {
             container.hide();
           }
