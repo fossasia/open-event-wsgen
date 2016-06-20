@@ -89,7 +89,7 @@
           </div>
            {{/with}}
           <div style="background-color:{{{color}}}" class="item track-title col-xs-10 event col-md-7">
-              <h5><u>{{title}}</u></h5>
+              <h5>{{title}}</h5>
           </div>
           <div class="pop-box">
             <div class="arrow">
@@ -150,14 +150,24 @@
 
     $('.pop-box').hide();
     $('.item').hover(function (event) {
-
+        popBox();
+    })
+   
+   function popBox(){
+    $('.pop-box').hide();
     event.preventDefault();
     event.stopPropagation();
     var track = $(event.target);
     var link  = track.children(0);
+    if($(link).offset()===undefined){
+      var offset =$(track).offset();
+      var track= track.parent();
+   }
+   else{
     var offset =$(link).offset();
-    console.log(link.height());
+   }
     
+    nextOfpop=$(track).next();
     var position= offset.top-link.height()-30;
     var left= offset.left;
 
@@ -177,17 +187,13 @@
     else {
          var left= left-210;
     }
-    if(offset.top){
-      $('.pop-box').hide();
-      var p=$(this);
-      $(p).next().show();
-      var posY = event.pageY;
-      nextOfpop=$(p).next();
-        
+    if(offset.top){      
+
       var toptrack = position ;
       $(nextOfpop).css({'top':toptrack,
                         'left':left
         });
+      $(track).next().show();
       }
     $(document).mouseup(function (e)
       {
@@ -199,7 +205,7 @@
             container.hide();
           }
       });
-    })
+   }
   })
     $(function() {
       $('a[href*="#"]:not([href="#"])').click(function() {
