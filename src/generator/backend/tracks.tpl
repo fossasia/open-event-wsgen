@@ -100,15 +100,15 @@
                   <h6 id="headline"><strong>Speakers</strong></h6>
                  {{#sessions}}
                  <div class="pop-over row">
-                   
+
                     <div class="col-xs-3 col-md-2">
-                   
+
                     <img src="{{photo}}" style="width:5rem; height:5rem;"/>
                     </div>
                     <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
 
                       {{speakers}}
-                 
+
                     </div>
                 </div>
                   {{/sessions}}
@@ -141,9 +141,8 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous">
   </script>
    <script type="text/javascript">
