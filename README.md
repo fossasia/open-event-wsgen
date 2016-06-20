@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=master)](https://travis-ci.org/fossasia/open-event-webapp)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=open-event-generator)](http://open-event-generator.herokuapp.com)
 ![Dependencies](https://david-dm.org/fossasia/open-event-webapp.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-webapp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-webapp&amp;utm_campaign=Badge_Grade)
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
