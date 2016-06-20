@@ -140,82 +140,12 @@
   </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/popover.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
     crossorigin="anonymous">
   </script>
    <script type="text/javascript">
-   $(document).ready(function(){
-
-    $('.pop-box').hide();
-
-    if($(window).width()<768){
-      $('.item').click(function (event) {
-        popBox(event);
-      });
-    }
-    else {
-       $('.item').hover(function (event) {
-        popBox(event);
-    });
-  }
-
-   function popBox(e){
-     event = e || window.event;
-    $('.pop-box').hide();
-    event.preventDefault();
-    event.stopPropagation();
-    var track = $(event.target);
-    var link  = track.children(0);
-    if($(link).offset()===undefined){
-      var offset =$(track).offset();
-      var track= track.parent();
-   }
-   else{
-    var offset =$(link).offset();
-   }
-
-    nextOfpop=$(track).next();
-    var position= offset.top-link.height()-30;
-    var left= offset.left;
-
-    if( $(window).width()>=320 && $(window).width()< 481){
-      var position= offset.top-link.height()-38;
-    }
-    else if( $(window).width()>= 481 && $(window).width()<641){
-      var position= offset.top-link.height()-46;
-    }
-    else if( $(window).width()>=641 && $(window).width()< 961){
-
-      var position= offset.top-link.height()-50;
-    }
-    else if( $(window).width()>=961 && $(window).width()< 1025){
-      var left= left-180;
-    }
-    else {
-         var left= left-210;
-    }
-    if(offset.top){
-
-      var toptrack = position ;
-      $(nextOfpop).css({'top':toptrack,
-                        'left':left
-        });
-      $(track).next().show();
-      }
-    $(document).mouseup(function (e)
-      {
-        var container = $(".pop-box");
-
-        if (!container.is(e.target)
-            && container.has(e.target).length === 0 && (e.target)!=$('html').get(0))
-          {
-            container.hide();
-          }
-      });
-   }
-  })
     $(function() {
       $('a[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
