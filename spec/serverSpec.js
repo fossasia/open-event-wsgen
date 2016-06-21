@@ -1,6 +1,6 @@
 var request = require("request");
-
-var base_url = "http://localhost:5000/"
+var port = process.env.PORT || 5000;
+var base_url = "http://localhost:"+ port +"/"
 
 describe("Hello World Server", function() {
   describe("GET /", function() {
