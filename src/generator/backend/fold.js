@@ -100,15 +100,15 @@ function foldByTrack(sessions, speakers, trackInfo) {
       slides: session.slides,
       audio: session.audio,
     });
-  
+
   });
- 
-    
+
+
 
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
-  
+
   return tracks;
 }
 
