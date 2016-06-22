@@ -5,15 +5,17 @@ $(document).ready(function(){
   $('.pop-box').hide();
   if($(window).width()<768){
     $('.item').click(function (event) {
-      popBox();
+      popBox(event);
     });
   }
   else {
      $('.item').hover(function (event) {
-      popBox();
+      popBox(event);
     });
-  }   
-  function popBox(){
+  }
+  function popBox(e){
+
+    event = e || window.event;
 
     $('.pop-box').hide();
     event.preventDefault();
@@ -31,14 +33,14 @@ $(document).ready(function(){
 
     var offset =$(link).offset();
    }
-    
+
   nextOfpop=$(track).next();
   var position= offset.top-link.height()-30;
   var left= offset.left;
 
   if( $(window).width()>=320 && $(window).width()< 481){
 
-    var position= offset.top-link.height()-38;  
+    var position= offset.top-link.height()-38;
   }
   else if( $(window).width()>= 481 && $(window).width()<641){
 
@@ -56,7 +58,7 @@ $(document).ready(function(){
 
     var left= left-210;
   }
-  if(offset.top){      
+  if(offset.top){
 
     var toptrack = position ;
     $(nextOfpop).css({'top':toptrack,
@@ -68,8 +70,8 @@ $(document).ready(function(){
     {
       var container = $(".pop-box");
 
-        if (!container.is(e.target) 
-            && container.has(e.target).length === 0 && (e.target)!==$('html').get(0)) 
+        if (!container.is(e.target)
+            && container.has(e.target).length === 0 && (e.target)!==$('html').get(0))
           {
             container.hide();
           }
