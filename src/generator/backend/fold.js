@@ -10,10 +10,14 @@ const async = require('async');
 const archiver = require('archiver');
 
 
-function speakerNameWithOrg(speaker) {
-  return speaker.organisation ?
-    `${speaker.name} (${speaker.organisation})` :
-    speaker.name;
+function speakerNameWithOrgAndPhoto(speaker) {
+  let speakerObject = {
+    speakerNameWithOrg: speaker.organisation ?
+      `${speaker.name} (${speaker.organisation})` :
+      speaker.name,
+    photo: speaker.photo
+  }
+  return speakerObject;
 }
 
 
@@ -90,7 +94,7 @@ function foldByTrack(sessions, speakers, trackInfo) {
       title: session.title,
       type: session.type,
       location: session.location,
-      speakers: session.speakers.map(speakerNameWithOrg).join(', '),
+      speakers: session.speakers.map(speakerNameWithOrgAndPhoto),
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       description: session.description,
       session_id: session.session_id,
@@ -99,15 +103,15 @@ function foldByTrack(sessions, speakers, trackInfo) {
       slides: session.slides,
       audio: session.audio,
     });
-  
+
   });
- 
-    
+
+
 
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
-  
+
   return tracks;
 }
 

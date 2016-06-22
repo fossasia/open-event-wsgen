@@ -99,6 +99,7 @@
               <div class="pop">
                   <h6 id="headline"><strong>Speakers</strong></h6>
                  {{#sessions}}
+                 {{#each speakers_list}}
                  <div class="pop-over row">
 
                     <div class="col-xs-3 col-md-2">
@@ -107,10 +108,11 @@
                     </div>
                     <div class="col-md-offset-1 col-xs-offset-1 col-xs-9 col-md-9">
 
-                      {{speakers}}
+                      {{name}} ({{organisation}})
 
                     </div>
                 </div>
+                {{/each}}
                   {{/sessions}}
               </div>
             </div>
