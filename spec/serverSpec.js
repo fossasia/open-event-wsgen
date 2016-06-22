@@ -1,7 +1,9 @@
-var request = require("request");
+'use strict'
+
+const request = require("request");
 const fold = require(__dirname +'/../src/generator/backend/fold.js');
-var port = process.env.PORT || 5000;
-var base_url = "http://localhost:"+ port +"/"
+const port = process.env.PORT || 5000;
+const base_url = "http://localhost:"+ port +"/"
 
 describe("Open Event Server", function() {
   describe("GET /", function() {
@@ -16,13 +18,13 @@ describe("Open Event Server", function() {
 describe("Testing Fold.js",function() {
   	describe("Testing SpeakerWithOrg function",function(){
   		it("it will test speakername", function(){
-  			var speaker= {
+  			let speaker= {
   				name: "speakername",
   			}
   		expect(fold.speakerNameWithOrg(speaker)).toEqual("speakername");
   		});
    		it("it will test speakername and organisation", function(){
-  			var speakerWithOrg= {
+  			let speakerWithOrg= {
   				name:"speakername",
   				organisation:"Organisation",
   			}
