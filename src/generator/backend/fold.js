@@ -11,6 +11,7 @@ const archiver = require('archiver');
 
 
 function speakerNameWithOrg(speaker) {
+  console.log(speaker);
   return speaker.organisation ?
     `${speaker.name} (${speaker.organisation})` :
     speaker.name;
@@ -226,10 +227,10 @@ function foldByLevel(sponsors) {
   });
   return levelData;
 }
-
 module.exports.foldByTrack= foldByTrack;
 module.exports.foldByDate= foldByDate;
 module.exports.createSocialLinks= createSocialLinks;
 module.exports.extractEventUrls= extractEventUrls;
 module.exports.getCopyrightData= getCopyrightData;
 module.exports.foldByLevel= foldByLevel;
+module.exports.speakerNameWithOrg=speakerNameWithOrg;
