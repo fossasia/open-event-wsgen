@@ -61,6 +61,7 @@ function getJsonData() {
 
 exports.createDistDir = function(req, callback) {
   console.log(req.files);
+  console.log(req.body);
   const theme = req.body.theme;
 
   async.series([
