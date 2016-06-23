@@ -36,42 +36,6 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function slugify(str) {
-  if (typeof str === 'undefined') {
-    return '';
-  }
-  return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
-}
-
-function speakerNameWithOrg(speaker) {
-  return speaker.organisation ?
-    `${speaker.name} (${speaker.organisation})` :
-    speaker.name;
-}
-
-function byProperty(key) {
-  return (a, b) => {
-    if (a[key] > b[key]) {
-      return 1;
-    }
-    if (a[key] < b[key]) {
-      return -1;
-    }
-
-    return 0;
-  };
-}
-
-function zeroFill(num) {
-  if (typeof num === 'undefined') {
-    return '';
-  }
-  if (num >= 10) {
-    return num.toString();
-  }
-  return '0' + num.toString();
-}
-
 function transformData(sessions, speakers, services, sponsors,tracksData) {
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
   const days = fold.foldByDate(tracks);
