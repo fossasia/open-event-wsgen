@@ -90,18 +90,22 @@
           <tbody>
             {{#roomsinfo}}
             <tr>
-              <td>{{Hall}}</td>
+            {{#if sessionDetail}}
+              <th>{{Hall}}</th>
+            {{/if}}
             </tr>
+            {{#each sessionDetail}}
             <tr>
-              {{#each sessionDetail}}
+              
               <td>
-                {{name}} 
+                {{date}} 
               </td>
               <td>
-              {{date}}
+                {{name}}
               </td>
-              {{/each}}
+             
             </tr>
+             {{/each}}
           {{/roomsinfo}}
           </tbody>
         </table>
