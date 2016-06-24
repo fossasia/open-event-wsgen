@@ -226,11 +226,31 @@ function foldByLevel(sponsors) {
   });
   return levelData;
 }
-function sessionsByRooms (id,roomsData) {
-  return roomsData[id];
+function sessionsByRooms (id,sessions) {
+  var sessionInRooms=[]
+    sessions.forEach((session)=>{
+      if(session.microlocation!==undefined){
+         if(id===session.microlocation.id){
+           sessionInRooms.push({
+              name:session.title,
+              date: moment(session.start_time).format('LLLL')
+           })
+        }
+      }
+       
+    })
+    
+    return sessionInRooms;
 }
 function foldByRooms(roomsData,sessions){
-  
+var roomInfo=[];
+roomsData.forEach((room)=>{
+  roomInfo.push({
+      Hall: room.name,
+      sessionDetail:sessionsByRooms(room.id,sessions) 
+  })
+})
+/*  
   var sessiondata=[];
   sessions.forEach((session) =>{
   if(session.microlocation!=undefined) { 
@@ -242,8 +262,8 @@ function foldByRooms(roomsData,sessions){
    })
 
     }   
-})
- return sessiondata;
+})*/
+  return roomInfo;
  } 
 module.exports.foldByTrack= foldByTrack;
 module.exports.foldByDate= foldByDate;
