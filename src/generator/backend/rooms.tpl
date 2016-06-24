@@ -84,7 +84,6 @@
             <tr>
               <th>Date/Time</th>
               <th>Session Name</th>
-              <th>Room Name</th>
             </tr>
           </thead>
           <tbody>
@@ -95,15 +94,13 @@
             {{/if}}
             </tr>
             {{#each sessionDetail}}
-            <tr>
-              
+            <tr>  
               <td>
                 {{date}} 
               </td>
               <td>
                 {{name}}
               </td>
-             
             </tr>
              {{/each}}
           {{/roomsinfo}}

@@ -250,19 +250,6 @@ roomsData.forEach((room)=>{
       sessionDetail:sessionsByRooms(room.id,sessions) 
   })
 })
-/*  
-  var sessiondata=[];
-  sessions.forEach((session) =>{
-  if(session.microlocation!=undefined) { 
-
-    sessiondata.push({
-      name:session.title,
-      date: moment(session.start_time).format('LLLL'),
-      room:sessionsByRooms(session.microlocation.id,roomsData)
-   })
-
-    }   
-})*/
   return roomInfo;
  } 
 module.exports.foldByTrack= foldByTrack;
