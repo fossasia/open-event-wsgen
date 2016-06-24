@@ -32,7 +32,6 @@
     </head>
 
     <body>
-
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header navbar-left pull-left">
@@ -77,5 +76,32 @@
         </div>
       </div>
     </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Date/Time</th>
+              <th>Session Name</th>
+              <th>Room Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#roomsinfo}}
+            <tr>
+              <td>{{date}}</td>
+              <td>{{name}}</td>
+              <td>
+                {{#room}}
+                {{name}}
+                {{/room}}
+              </td>
+            </tr>
+          {{/roomsinfo}}
+          </tbody>
+        </table>
+      </div>
+    </div>  
   </body>
 </html> 

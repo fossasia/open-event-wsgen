@@ -11,7 +11,6 @@ const archiver = require('archiver');
 
 
 function speakerNameWithOrg(speaker) {
-  console.log(speaker);
   return speaker.organisation ?
     `${speaker.name} (${speaker.organisation})` :
     speaker.name;
@@ -227,10 +226,30 @@ function foldByLevel(sponsors) {
   });
   return levelData;
 }
+function sessionsByRooms (id,roomsData) {
+  return roomsData[id];
+}
+function foldByRooms(roomsData,sessions){
+  
+  var sessiondata=[];
+  sessions.forEach((session) =>{
+  if(session.microlocation!=undefined) { 
+
+    sessiondata.push({
+      name:session.title,
+      date: moment(session.start_time).format('LLLL'),
+      room:sessionsByRooms(session.microlocation.id,roomsData)
+   })
+
+    }   
+})
+ return sessiondata;
+ } 
 module.exports.foldByTrack= foldByTrack;
 module.exports.foldByDate= foldByDate;
 module.exports.createSocialLinks= createSocialLinks;
 module.exports.extractEventUrls= extractEventUrls;
 module.exports.getCopyrightData= getCopyrightData;
 module.exports.foldByLevel= foldByLevel;
-module.exports.speakerNameWithOrg=speakerNameWithOrg;
+module.exports.speakerNameWithOrg= speakerNameWithOrg;
+module.exports.foldByRooms= foldByRooms;
