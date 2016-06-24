@@ -227,7 +227,7 @@ function foldByLevel(sponsors) {
   return levelData;
 }
 function sessionsByRooms (id,sessions) {
-  var sessionInRooms=[]
+  var sessionInRooms=[];
     sessions.forEach((session)=>{
       if(session.microlocation!==undefined){
          if(id===session.microlocation.id){
