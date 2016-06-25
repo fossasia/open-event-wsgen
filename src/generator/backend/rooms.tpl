@@ -23,7 +23,7 @@
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
-
+  <link rel="stylesheet" href="./css/schedule.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -78,38 +78,27 @@
     </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Date/Time</th>
-              <th>Session Name</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div class="col-md-offset-2 col-md-10 main" style="margin-top:8%">
             {{#roomsinfo}}
-            <tr>
+            <div class="row">
             {{#if sessionDetail}}
-              <th>{{hall}}</th>
+              <div class="col-md-12" style="margin-top:1%;margin-bottom:1%"><h4 id="text">{{hall}}</h3></div>
             {{/if}}
-            <tr>
-              <th>{{date}}</th>
-            </tr>
-            </tr>
+            </div>
+            <div class="row">
+              <div class="col-md-12"><h5 id="text">{{date}}</h4></div>
+            </div>
             {{#each sessionDetail}}
-            <tr>  
-              <td>
-                {{time}} 
-              </td>
-              <td>
+            <div class="row">  
+              <div class="height col-md-2">
+                <h6 id="text">{{time}}</h6> 
+              </div>
+            <div class=" event track-title col-md-8">
                 {{name}}
-              </td>
-            </tr>
+              </div>
+            </div>
              {{/each}}
           {{/roomsinfo}}
-          </tbody>
-        </table>
-      </div>
     </div>  
   </body>
 </html> 
