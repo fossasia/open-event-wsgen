@@ -37,8 +37,8 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function transformData(sessions, speakers, services, sponsors, tracksData, roomsData) {
-  const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
+function transformData(sessions, speakers, services, sponsors, tracksData, roomsData, reqOpts) {
+  const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks, reqOpts);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
   const eventurls = fold.extractEventUrls(services);
@@ -49,7 +49,7 @@ function transformData(sessions, speakers, services, sponsors, tracksData, rooms
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
 
-function getJsonData() {
+function getJsonData(reqOpts) {
   const sessionsData = require(distJsonsPath + '/sessions.json');
   const speakersData = require(distJsonsPath + '/speakers.json');
   const servicesData = require(distJsonsPath + '/event.json');
@@ -57,7 +57,8 @@ function getJsonData() {
   const tracksData   = require(distJsonsPath + '/tracks.json');
   const roomsData    = require(distJsonsPath + '/microlocations.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData, roomsData);
+  const data = transformData(sessionsData, speakersData, servicesData,
+      sponsorsData, tracksData, roomsData, reqOpts);
 
   return data;
 }
@@ -134,7 +135,7 @@ exports.createDistDir = function(req, callback) {
     (done) => {
       console.log('================================WRITING\n\n\n\n');
 
-      const jsonData = getJsonData();
+      const jsonData = getJsonData(req.body);
 
       fs.writeFileSync(distHelper.distPath + '/index.html', tpl(jsonData));
       fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(jsonData));

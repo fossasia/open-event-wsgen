@@ -42,10 +42,9 @@ module.exports = {
     fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
     fs.copySync(mockPath + '/microlocations.json', distPath + '/json/microlocations.json');
   },
-  downloadAudio(audioUrl) {
-    console.log('Downloading audio');
+  downloadAudio: function(audioUrl) {
     const audioFileName = audioUrl.split("/").pop();
-    console.log(audioFileName);
+    console.log('Downloading audio : ' + audioFileName);
     var audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
     audioFileStream.on('error', function(err) {
       console.log(err);
@@ -56,5 +55,20 @@ module.exports = {
       console.log(err);
     }
     return ('audio/' + audioFileName);
+  },
+  downloadSpeakerPhoto: function(photoUrl) {
+    const photoFileName = photoUrl.split("/").pop();
+    console.log('Downloading photo : ' + photoFileName);
+    var photoFileStream = fs.createWriteStream(distPath + '/img/speakers/' + photoFileName);
+    photoFileStream.on('error', function(err) {
+      console.log(err);
+    });
+    try {
+      request(photoUrl).pipe(photoFileStream);
+    } catch (err) {
+      console.log(err);
+    }
+    return ('img/speakers/' + photoFileName);
+
   }
 };
