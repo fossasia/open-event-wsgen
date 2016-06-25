@@ -17,7 +17,8 @@ module.exports = {
     });
   },
   makeDistDir: function(err) {
-    fs.mkdirp(distPath, err);
+    fs.mkdirpSync(distPath);
+    fs.mkdirpSync(distPath + '/audio');
   },
   copyAssets: function(err) {
     fs.copy((__dirname + '/assets'), distPath, {clobber:true}, err);
@@ -39,5 +40,11 @@ module.exports = {
     fs.copySync(mockPath + '/event.json', distPath + '/json/locations.json');
     fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
     fs.copySync(mockPath + '/event.json', distPath + '/json/event.json');
+  },
+  downloadAudio(audioUrl) {
+    const audioFileName = audioUrl.split("/").pop();
+    console.log(audioFileName);
+    request(audioUrl).pipe(fs.createWriteStream(distPath + '/audio/' + audioFileName))
+    return ('audio/' + audioFileName);
   }
 };

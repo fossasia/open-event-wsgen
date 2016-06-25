@@ -10,8 +10,10 @@ const async = require('async');
 const archiver = require('archiver');
 
 
+const distHelper = require('./dist');
+
+
 function speakerNameWithOrg(speaker) {
-  console.log(speaker);
   return speaker.organisation ?
     `${speaker.name} (${speaker.organisation})` :
     speaker.name;
@@ -85,6 +87,14 @@ function foldByTrack(sessions, speakers, trackInfo) {
     } else {
       track = trackData.get(slug);
     }
+
+    if (session.audio !== null) {
+      const speakerAudioFile = distHelper.downloadAudio(session.audio);
+
+      session.audio = speakerAudioFile;
+    }
+
+
 
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),

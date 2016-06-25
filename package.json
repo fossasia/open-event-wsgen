@@ -7,7 +7,7 @@
     "server.generator": "node src/generator/app.js",
     "start": "npm run server.generator",
     "test": "npm run server.generator&",
-    "tester":"./node_modules/.bin/jasmine-node spec"
+    "tester": "./node_modules/.bin/jasmine-node spec"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
     "jasmine-node": "^1.14.5",
     "moment": "^2.13.0",
     "multer": "^1.1.0",
-    "node-sass": "^3.7.0"
+    "node-sass": "^3.7.0",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "connect-domain": "^0.5.0"
