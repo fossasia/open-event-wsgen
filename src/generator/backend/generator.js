@@ -77,13 +77,9 @@ exports.createDistDir = function(req, callback) {
       });
     },
     (done) => {
-      distHelper.makeDistDir((mkdirerr) => {
-        console.log('================================MAKING\n\n\n\n');
-        if (mkdirerr !== null) {
-          console.log(mkdirerr);
-        }
-        done(null, 'make');
-      });
+      console.log('================================MAKING\n\n\n\n');
+      distHelper.makeDistDir();
+      done(null, 'make');
     },
     (done) => {
       distHelper.copyAssets((copyerr) => {
