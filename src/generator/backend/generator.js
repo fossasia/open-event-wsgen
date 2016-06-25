@@ -17,7 +17,6 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-console.log(roomstpl(getJsonData()));
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -45,20 +44,24 @@ function transformData(sessions, speakers, services, sponsors,tracksData, roomsD
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
-  
+
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics,roomsinfo};
 }
 
 function getJsonData() {
-  const sessionsData = require(distJsonsPath + '/sessions.json');
-  const speakersData = require(distJsonsPath + '/speakers.json');
-  const servicesData = require(distJsonsPath + '/event.json');
-  const sponsorsData = require(distJsonsPath + '/sponsors.json');
-  const tracksData   = require(distJsonsPath + '/tracks.json');
-  const roomsData    = require(distJsonsPath + '/microlocations.json');
+  const sessionsData = JSON.parse(fs.readFileSync(distJsonsPath + '/sessions.json', 'utf8'));
+  const speakersData = JSON.parse(fs.readFileSync(distJsonsPath + '/speakers.json', 'utf8'));
+  const servicesData = JSON.parse(fs.readFileSync(distJsonsPath + '/event.json', 'utf8'));
+  const sponsorsData = JSON.parse(fs.readFileSync(distJsonsPath + '/sponsors.json', 'utf8'));
+  const tracksData = JSON.parse(fs.readFileSync(distJsonsPath + '/tracks.json', 'utf8'));
+  const roomsData = JSON.parse(fs.readFileSync(distJsonsPath + '/microlocations.json', 'utf8'));
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
- 
+  const data = transformData(sessionsData,
+    speakersData,
+    servicesData,
+    sponsorsData,
+    tracksData,
+    roomsData);
   return data;
 }
 
