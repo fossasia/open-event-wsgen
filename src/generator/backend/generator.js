@@ -17,7 +17,7 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-
+console.log(roomstpl(getJsonData()));
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -37,15 +37,16 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function transformData(sessions, speakers, services, sponsors,tracksData) {
+function transformData(sessions, speakers, services, sponsors,tracksData, roomsData) {
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
   const eventurls = fold.extractEventUrls(services);
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
-
-  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics};
+  const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
+  
+  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics,roomsinfo};
 }
 
 function getJsonData() {
@@ -53,10 +54,11 @@ function getJsonData() {
   const speakersData = require(distJsonsPath + '/speakers.json');
   const servicesData = require(distJsonsPath + '/event.json');
   const sponsorsData = require(distJsonsPath + '/sponsors.json');
-  const tracksData =   require(distJsonsPath + '/tracks.json');
+  const tracksData   = require(distJsonsPath + '/tracks.json');
+  const roomsData    = require(distJsonsPath + '/microlocations.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData,tracksData);
-
+  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
+ 
   return data;
 }
 
