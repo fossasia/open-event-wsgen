@@ -46,7 +46,11 @@ module.exports = {
     console.log('Downloading audio');
     const audioFileName = audioUrl.split("/").pop();
     console.log(audioFileName);
-    request(audioUrl).pipe(fs.createWriteStream(distPath + '/audio/' + audioFileName))
+    var audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
+    audioFileStream.on('error', function(err) {
+      console.log(err);
+    });
+    request(audioUrl).pipe(audioFileStream);
     return ('audio/' + audioFileName);
   }
 };
