@@ -20,6 +20,7 @@ module.exports = {
   makeDistDir: function(err) {
     fs.mkdirpSync(distPath);
     fs.mkdirpSync(distPath + '/audio');
+    fs.mkdirpSync(distPath + '/img/speakers');
   },
   copyAssets: function(err) {
     fs.copy((__dirname + '/assets'), distPath, {clobber:true}, err);
