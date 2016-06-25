@@ -4,7 +4,7 @@
   <title>Webapp Generator</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -40,9 +40,9 @@
     </br>
     <section id="jsonupload-input" style="display:none;">
  		<div class="row">
-      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">    
+      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
             <label for="speakerfile">Json for Speakers</label>
-       		 	<input type="file" name="speakerfile" id="speakerfile">   
+       		 	<input type="file" name="speakerfile" id="speakerfile">
      		 </div>
       		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
         		<label for="sessionfile">Json for Sessions</label>
@@ -65,8 +65,16 @@
         		<input type="file"  name="locationfile" id="locationfile">
       		</div>
     	</div></br>
-      </section>
+    </section>
+    <br>
+    <label title="Wether to download assets into website folder or link to external sources"
+    for="theme">How to link audio/images</label>
+      <select class="form-control" id="assetmode" name="assetmode">
+        <option title="Download images and audio files into website folder" value="download">Downloaded locally with website</option>
+        <option value="link">Linked to external locations</option>
+      </select>
       <center>
+        <br><br>
       <button formaction="/live" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND PREVIEW</button>
       <button formaction="/generate" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
       </center>
