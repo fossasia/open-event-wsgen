@@ -88,12 +88,8 @@ function foldByTrack(sessions, speakers, trackInfo) {
       track = trackData.get(slug);
     }
 
-    let sessionAudio = null;
-
-    if (session.audio !== null) {
-      const sessionAudioFile = distHelper.downloadAudio(session.audio);
-
-      sessionAudio = sessionAudioFile;
+    if ((session.audio !== null) && (session.audio.substring(0,4) == 'http')) {
+      session.audio = distHelper.downloadAudio(session.audio);
     }
 
 
@@ -110,7 +106,7 @@ function foldByTrack(sessions, speakers, trackInfo) {
       sign_up: session.sign_up,
       video: session.video,
       slides: session.slides,
-      audio: sessionAudio
+      audio: session.audio
     });
 
   });
@@ -250,9 +246,9 @@ function sessionsByRooms (id,sessions) {
            })
         }
       }
-       
-    })
-    
+
+    });
+
     return sessionInRooms;
 }
 function foldByRooms(roomsData,sessions){
@@ -261,11 +257,11 @@ roomsData.forEach((room)=>{
   roomInfo.push({
       hall: room.name,
       date: moment(sessions.start_time).format('YYYY-MM-DD'),
-      sessionDetail:sessionsByRooms(room.id,sessions) 
+      sessionDetail:sessionsByRooms(room.id,sessions)
   })
-})
+});
   return roomInfo;
- } 
+ }
 module.exports.foldByTrack= foldByTrack;
 module.exports.foldByDate= foldByDate;
 module.exports.createSocialLinks= createSocialLinks;
