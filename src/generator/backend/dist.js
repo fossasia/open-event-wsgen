@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
+const request = require('request');
 
 const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
