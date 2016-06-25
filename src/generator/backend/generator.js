@@ -8,6 +8,7 @@ const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
 const sass = require('node-sass');
+const jsonfile = require('jsonfile');
 
 const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
@@ -37,27 +38,28 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function transformData(sessions, speakers, services, sponsors, tracksData, roomsData) {
-  const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
-  const days = fold.foldByDate(tracks);
-  const sociallinks = fold.createSocialLinks(services);
-  const eventurls = fold.extractEventUrls(services);
-  const copyright = fold.getCopyrightData(services);
-  const sponsorpics = fold.foldByLevel(sponsors.sponsors);
-  const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
+function transformData(sessions, speakers, services, sponsors, tracksData, roomsData, reqOpts) {
+  let tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks, reqOpts);
+  let days = fold.foldByDate(tracks);
+  let sociallinks = fold.createSocialLinks(services);
+  let eventurls = fold.extractEventUrls(services);
+  let copyright = fold.getCopyrightData(services);
+  let sponsorpics = fold.foldByLevel(sponsors.sponsors);
+  let roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
 
-function getJsonData() {
-  const sessionsData = require(distJsonsPath + '/sessions.json');
-  const speakersData = require(distJsonsPath + '/speakers.json');
-  const servicesData = require(distJsonsPath + '/event.json');
-  const sponsorsData = require(distJsonsPath + '/sponsors.json');
-  const tracksData   = require(distJsonsPath + '/tracks.json');
-  const roomsData    = require(distJsonsPath + '/microlocations.json');
+function getJsonData(reqOpts) {
+  let sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions.json');
+  let speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers.json');
+  let servicesData = jsonfile.readFileSync(distJsonsPath + '/event.json');
+  let sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors.json');
+  let tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks.json');
+  let roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData, roomsData);
+  let data = transformData(sessionsData, speakersData, servicesData,
+      sponsorsData, tracksData, roomsData, reqOpts);
 
   return data;
 }
@@ -134,7 +136,7 @@ exports.createDistDir = function(req, callback) {
     (done) => {
       console.log('================================WRITING\n\n\n\n');
 
-      const jsonData = getJsonData();
+      const jsonData = getJsonData(req.body);
 
       fs.writeFileSync(distHelper.distPath + '/index.html', tpl(jsonData));
       fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(jsonData));
