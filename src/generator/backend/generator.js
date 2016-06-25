@@ -18,6 +18,7 @@ const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').to
 
 const distJsonsPath = distHelper.distPath + '/json';
 
+
 if(!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
@@ -57,7 +58,7 @@ function getJsonData() {
   const roomsData    = require(distJsonsPath + '/microlocations.json');
 
   const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
-
+ 
   return data;
 }
 
