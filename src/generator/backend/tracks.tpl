@@ -86,13 +86,13 @@
         <div class="row">
           {{#with sessions.[0]}}
           <div class="height col-md-offset-1 col-xs-2 col-md-1">
-           <h6 id="text">{{start}}</h6>
+           <h6 class="text">{{start}}</h6>
           </div>
            {{/with}}
           <div style="background-color:{{{color}}}" class="item track-title col-xs-10 event col-md-7">
               <h5>{{title}}</h5>
           </div>
-          <div class="pop-box">
+          <div style="display:none;" class="pop-box">
             <div class="arrow">
             <span></span>
             </div>
