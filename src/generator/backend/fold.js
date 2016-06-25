@@ -233,7 +233,7 @@ function sessionsByRooms (id,sessions) {
          if(id===session.microlocation.id){
            sessionInRooms.push({
               name:session.title,
-              date: moment(session.start_time).format('LLLL')
+              time: moment(session.start_time).utcOffset(2).format('HH:mm')
            })
         }
       }
@@ -246,7 +246,8 @@ function foldByRooms(roomsData,sessions){
 var roomInfo=[];
 roomsData.forEach((room)=>{
   roomInfo.push({
-      Hall: room.name,
+      hall: room.name,
+      date: moment(sessions.start_time).format('YYYY-MM-DD'),
       sessionDetail:sessionsByRooms(room.id,sessions) 
   })
 })

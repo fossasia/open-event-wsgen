@@ -90,13 +90,16 @@
             {{#roomsinfo}}
             <tr>
             {{#if sessionDetail}}
-              <th>{{Hall}}</th>
+              <th>{{hall}}</th>
             {{/if}}
+            <tr>
+              <th>{{date}}</th>
+            </tr>
             </tr>
             {{#each sessionDetail}}
             <tr>  
               <td>
-                {{date}} 
+                {{time}} 
               </td>
               <td>
                 {{name}}
