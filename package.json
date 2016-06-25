@@ -7,7 +7,7 @@
     "server.generator": "node src/generator/app.js",
     "start": "npm run server.generator",
     "test": "npm run server.generator&",
-    "tester":"./node_modules/.bin/jasmine-node spec"
+    "tester":"./node_modules/.bin/jasmine-node test/spec"
   },
   "repository": {
     "type": "git",
