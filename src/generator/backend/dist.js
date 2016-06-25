@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
+const request = require('request');
 
 const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
@@ -17,7 +18,8 @@ module.exports = {
     });
   },
   makeDistDir: function(err) {
-    fs.mkdirp(distPath, err);
+    fs.mkdirpSync(distPath);
+    fs.mkdirpSync(distPath + '/audio');
   },
   copyAssets: function(err) {
     fs.copy((__dirname + '/assets'), distPath, {clobber:true}, err);
@@ -39,5 +41,20 @@ module.exports = {
     fs.copySync(mockPath + '/event.json', distPath + '/json/locations.json');
     fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
     fs.copySync(mockPath + '/event.json', distPath + '/json/event.json');
+  },
+  downloadAudio(audioUrl) {
+    console.log('Downloading audio');
+    const audioFileName = audioUrl.split("/").pop();
+    console.log(audioFileName);
+    var audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
+    audioFileStream.on('error', function(err) {
+      console.log(err);
+    });
+    try {
+      request(audioUrl).pipe(audioFileStream);
+    } catch (err) {
+      console.log(err);
+    }
+    return ('audio/' + audioFileName);
   }
 };
