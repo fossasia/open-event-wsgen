@@ -12,14 +12,6 @@ const archiver = require('archiver');
 
 const distHelper = require('./dist');
 
-
-function speakerNameWithOrg(speaker) {
-  return speaker.organisation ?
-    `${speaker.name} (${speaker.organisation})` :
-    speaker.name;
-}
-
-
 function byProperty(key) {
   return (a, b) => {
     if (a[key] > b[key]) {
@@ -99,7 +91,6 @@ function foldByTrack(sessions, speakers, trackInfo) {
       title: session.title,
       type: session.type,
       location: session.location,
-      speakers: session.speakers.map(speakerNameWithOrg).join(', '),
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       description: session.description,
       session_id: session.session_id,
@@ -268,5 +259,4 @@ module.exports.createSocialLinks= createSocialLinks;
 module.exports.extractEventUrls= extractEventUrls;
 module.exports.getCopyrightData= getCopyrightData;
 module.exports.foldByLevel= foldByLevel;
-module.exports.speakerNameWithOrg= speakerNameWithOrg;
 module.exports.foldByRooms= foldByRooms;
