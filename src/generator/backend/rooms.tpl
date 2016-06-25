@@ -86,8 +86,9 @@
             </div>
             <div class="row">
               <div class="col-md-12"><h5 id="text">{{date}}</h4></div>
+              {{/if}}
             </div>
-            {{/if}}
+            
             {{#each sessionDetail}}
             <div class="row">  
               <div class="height col-md-2">
