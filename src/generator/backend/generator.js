@@ -10,7 +10,7 @@ const archiver = require('archiver');
 const sass = require('node-sass');
 
 const distHelper = require(__dirname + '/dist.js');
-const fold = require(__dirname +'/fold.js');
+const fold = require(__dirname + '/fold.js');
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
@@ -18,12 +18,12 @@ const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').to
 
 const distJsonsPath = distHelper.distPath + '/json';
 
-
 if(!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
     var pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
     var emailAddressPattern = /[\w.]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+/gim;
+
     return this
             .replace(urlPattern, '<a href="$&">$&</a>')
             .replace(pseudoUrlPattern, '$1<a href="http://$2">$2</a>')
@@ -37,7 +37,7 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function transformData(sessions, speakers, services, sponsors,tracksData, roomsData) {
+function transformData(sessions, speakers, services, sponsors, tracksData, roomsData) {
   const tracks = fold.foldByTrack(sessions.sessions, speakers.speakers, tracksData.tracks);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(services);
@@ -46,7 +46,7 @@ function transformData(sessions, speakers, services, sponsors,tracksData, roomsD
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
 
-  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics,roomsinfo};
+  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
 
 function getJsonData() {
@@ -57,7 +57,7 @@ function getJsonData() {
   const tracksData   = require(distJsonsPath + '/tracks.json');
   const roomsData    = require(distJsonsPath + '/microlocations.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
+  const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData, roomsData);
 
   return data;
 }
