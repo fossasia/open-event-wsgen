@@ -31,7 +31,7 @@
       <![endif]-->
     </head>
 
-    <body>
+  <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header navbar-left pull-left">
@@ -79,27 +79,32 @@
   <div class="container">
     <div class="row">
       <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%">
-            {{#roomsinfo}}
-            <div class="row">
-            {{#if sessionDetail}}
-              <div class="col-md-12" style="margin-top:1%;margin-bottom:1%"><h4 id="text">{{hall}}</h3></div>
-            </div>
-            <div class="row">
-              <div class="col-md-12"><h5 id="text">{{date}}</h4></div>
-              {{/if}}
-            </div>
-            
-            {{#each sessionDetail}}
-            <div class="row">  
-              <div class="height col-md-2">
-                <h6 id="text">{{time}}</h6> 
-              </div>
-            <div class=" event track-title col-md-8">
-                {{name}}
-              </div>
-            </div>
-             {{/each}}
+        {{#roomsinfo}}
+        <div class="row">
+          {{#if sessionDetail}}
+          <div class="col-md-12" style="margin-top:1%;margin-bottom:1%">
+          <h4 class="text">{{hall}}</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          <h5 class="text">{{date}}</h5>
+          </div>
+            {{/if}}
+        </div>  
+          {{#each sessionDetail}}
+        <div class="row">  
+          <div class="height col-xs-2 col-sm-2 col-md-2">
+            <h6 class="text">{{time}}</h6> 
+          </div>
+          <div class=" event track-title col-xs-8 col-sm-8 col-md-8">
+            {{name}}
+          </div>
+        </div>
+          {{/each}}
           {{/roomsinfo}}
-    </div>  
+      </div>  
+    </div>
+  </div>
   </body>
 </html> 
