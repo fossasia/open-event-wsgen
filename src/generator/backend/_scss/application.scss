@@ -300,6 +300,18 @@ a {
   max-width: 500px; 
   color:white;
   } 
+@media (max-width: 660px) {
+  .event {
+    max-width: 400px; 
+  }
+}
+@media (max-width: 660px) {
+  .event {
+     max-width: 270px;
+  }
+  
+
+}
 #track-list { 
   margin-top:8%; 
   margin-bottom: 8%; 
