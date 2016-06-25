@@ -50,7 +50,11 @@ module.exports = {
     audioFileStream.on('error', function(err) {
       console.log(err);
     });
-    request(audioUrl).pipe(audioFileStream);
+    try {
+      request(audioUrl).pipe(audioFileStream);
+    } catch (err) {
+      console.log(err);
+    }
     return ('audio/' + audioFileName);
   }
 };
