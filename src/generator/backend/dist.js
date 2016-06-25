@@ -38,9 +38,9 @@ module.exports = {
     fs.copySync(mockPath + '/speakers.json', distPath + '/json/speakers.json');
     fs.copySync(mockPath + '/sessions.json', distPath + '/json/sessions.json');
     fs.copySync(mockPath + '/tracks.json', distPath + '/json/tracks.json');
-    fs.copySync(mockPath + '/event.json', distPath + '/json/locations.json');
-    fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
     fs.copySync(mockPath + '/event.json', distPath + '/json/event.json');
+    fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
+    fs.copySync(mockPath + '/microlocations.json', distPath + '/json/microlocations.json');
   },
   downloadAudio(audioUrl) {
     console.log('Downloading audio');
