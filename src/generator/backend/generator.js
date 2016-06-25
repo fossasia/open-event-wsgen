@@ -17,7 +17,6 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-console.log(roomstpl(getJsonData()));
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -45,7 +44,7 @@ function transformData(sessions, speakers, services, sponsors,tracksData, roomsD
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
-  
+
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics,roomsinfo};
 }
 
@@ -58,7 +57,7 @@ function getJsonData() {
   const roomsData    = require(distJsonsPath + '/microlocations.json');
 
   const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
- 
+
   return data;
 }
 
