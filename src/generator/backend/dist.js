@@ -42,6 +42,7 @@ module.exports = {
     fs.copySync(mockPath + '/event.json', distPath + '/json/event.json');
   },
   downloadAudio(audioUrl) {
+    console.log('Downloading audio');
     const audioFileName = audioUrl.split("/").pop();
     console.log(audioFileName);
     request(audioUrl).pipe(fs.createWriteStream(distPath + '/audio/' + audioFileName))
