@@ -58,7 +58,7 @@ function getJsonData() {
   const roomsData    = require(distJsonsPath + '/microlocations.json');
 
   const data = transformData(sessionsData, speakersData, servicesData, sponsorsData, tracksData,roomsData);
- 
+
   return data;
 }
 
@@ -134,9 +134,11 @@ exports.createDistDir = function(req, callback) {
     (done) => {
       console.log('================================WRITING\n\n\n\n');
 
-      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(getJsonData()));
-      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(getJsonData()));
-       fs.writeFileSync(distHelper.distPath + '/rooms.html', roomstpl(getJsonData()));
+      const jsonData = getJsonData();
+
+      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/rooms.html', roomstpl(jsonData));
       callback();
       done(null, 'write');
     }
