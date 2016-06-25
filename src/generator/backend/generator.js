@@ -17,7 +17,7 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
-console.log(roomstpl(getJsonData()));
+
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -45,7 +45,7 @@ function transformData(sessions, speakers, services, sponsors,tracksData, roomsD
   const copyright = fold.getCopyrightData(services);
   const sponsorpics = fold.foldByLevel(sponsors.sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions.sessions);
-  
+
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics,roomsinfo};
 }
 
@@ -78,13 +78,9 @@ exports.createDistDir = function(req, callback) {
       });
     },
     (done) => {
-      distHelper.makeDistDir((mkdirerr) => {
-        console.log('================================MAKING\n\n\n\n');
-        if (mkdirerr !== null) {
-          console.log(mkdirerr);
-        }
-        done(null, 'make');
-      });
+      console.log('================================MAKING\n\n\n\n');
+      distHelper.makeDistDir();
+      done(null, 'make');
     },
     (done) => {
       distHelper.copyAssets((copyerr) => {

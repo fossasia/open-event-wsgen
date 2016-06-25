@@ -73,7 +73,8 @@
               </ul>
             </li>
             {{/days}}
-            <li><a href="#Sponsors">Sponsors</a></li>
+            <li><a href="tracks.html">Tracks</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
           </ul>
         </div>
       </div>

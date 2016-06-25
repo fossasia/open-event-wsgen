@@ -78,16 +78,16 @@
     </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-10 main" style="margin-top:8%">
+      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%">
             {{#roomsinfo}}
             <div class="row">
             {{#if sessionDetail}}
               <div class="col-md-12" style="margin-top:1%;margin-bottom:1%"><h4 id="text">{{hall}}</h3></div>
-            {{/if}}
             </div>
             <div class="row">
               <div class="col-md-12"><h5 id="text">{{date}}</h4></div>
             </div>
+            {{/if}}
             {{#each sessionDetail}}
             <div class="row">  
               <div class="height col-md-2">
