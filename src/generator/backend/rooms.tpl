@@ -71,14 +71,16 @@
               </ul>
             </li>
             {{/days}}
-            <li><a href="#Sponsors">Sponsors</a></li>
+            <li><a href="tracks.html">Tracks</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
           </ul>
         </div>
       </div>
     </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%">
+      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%;">
         {{#roomsinfo}}
         <div class="row">
           {{#if sessionDetail}}

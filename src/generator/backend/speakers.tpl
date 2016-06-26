@@ -30,34 +30,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-<style>
-  
-.card{
-  margin-top:30%;
-    width: 250px;
-    height: 448px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
-}
-.card-img-top{
-  width:248px;
-  height:248px;
-  margin:0 auto;
-  overflow: hidden;
-  display:block;
-}
-.card-block{
-  margin:7%;
-  height:530px;
-
-}
-.card-text{
-  color: #2482d3;
-    overflow: hidden;
-}
-
-</style>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -98,40 +70,35 @@
               </ul>
             </li>
             {{/days}}
-            <li><a href="#Sponsors">Sponsors</a></li>
+            <li><a href="tracks.html">Tracks</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
           </ul>
         </div>
       </div>
     </nav>
-      <div class="container">
-       <div class="row">
-       {{#tracks}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10 main" style="margin-top:8%">
+        {{#tracks}}
         {{#sessions}}
-            {{#speakers_list}}
-            <div class="col-md-4">
-                <div class="center card">
-                     {{#if photo}}
-                    <img class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
-                    {{/if}}
-                 <div class="card-block">
-                    <center><h3 class="card-text">{{../title}}</h3></center>
-                    <center><h4 class="card-text org">{{organisation}}</h4></center>
-                    <div class="row">
-                    <div class="text-center col-md-12">
-                        
-                    </div>
-                    </div>
-                    </br>
-                    <div class="text-center row">Read More ...</div>
-                   
-                 </div>  
-                </div>
+        {{#speakers_list}}
+         {{#if photo}}
+        <div class="col-md-4">
+          <div class="center card">
+            {{#if photo}}
+            <img class="card-img-top" src="{{photo}}"/>
+            {{/if}}
+            <div class="card-block">
+              <center><h3 class="card-text">{{name}}</h3></center>
+              <center><h4 class="card-text org">{{organisation}}</h4></center>
             </div>
-            {{/speakers_list}}
+          </div> 
         </div>
+         {{/if}}
+        {{/speakers_list}}
         {{/sessions}}
         {{/tracks}}
-</div>
-
-  </body>
-</html> 
+      </div>
+    </div>    
+  </div>
