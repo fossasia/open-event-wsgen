@@ -10,9 +10,6 @@ const async = require('async');
 const archiver = require('archiver');
 
 
-const distHelper = require('./dist');
-
-
 function speakerNameWithOrg(speaker) {
   return speaker.organisation ?
     `${speaker.name} (${speaker.organisation})` :
@@ -88,16 +85,6 @@ function foldByTrack(sessions, speakers, trackInfo) {
       track = trackData.get(slug);
     }
 
-    let sessionAudio = null;
-/*
-    if (session.audio !== null) {
-      const sessionAudioFile = distHelper.downloadAudio(session.audio);
-
-      sessionAudio = sessionAudioFile;
-    }
-*/
-
-
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
@@ -110,9 +97,9 @@ function foldByTrack(sessions, speakers, trackInfo) {
       sign_up: session.sign_up,
       video: session.video,
       slides: session.slides,
-      audio: sessionAudio
+      audio: session.audio,
     });
-   
+
   });
 
 
