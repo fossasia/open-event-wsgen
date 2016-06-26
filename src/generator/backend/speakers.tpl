@@ -83,7 +83,7 @@
         {{#tracks}}
         {{#sessions}}
         {{#speakers_list}}
-         {{#if photo}}
+        
         <div class="col-md-4">
           <div class="center card">
             {{#if photo}}
@@ -95,7 +95,7 @@
             </div>
           </div> 
         </div>
-         {{/if}}
+         
         {{/speakers_list}}
         {{/sessions}}
         {{/tracks}}
