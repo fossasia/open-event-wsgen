@@ -87,17 +87,12 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       track = trackData.get(slug);
     }
 
-<<<<<<< HEAD
-=======
     if (reqOpts.assetmode == 'download') {
       if ((session.audio !== null) && (session.audio.substring(0, 4) == 'http')) {
         session.audio = distHelper.downloadAudio(session.audio);
       }
     }
 
-
-
->>>>>>> 603537bc9ac121e06799b36c72d386ec42cc5388
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
@@ -109,11 +104,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       sign_up: session.sign_up,
       video: session.video,
       slides: session.slides,
-<<<<<<< HEAD
-      audio: session.audio,
-=======
       audio: session.audio
->>>>>>> 603537bc9ac121e06799b36c72d386ec42cc5388
+
     });
 
   });
