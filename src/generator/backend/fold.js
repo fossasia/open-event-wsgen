@@ -89,13 +89,13 @@ function foldByTrack(sessions, speakers, trackInfo) {
     }
 
     let sessionAudio = null;
-
+/*
     if (session.audio !== null) {
       const sessionAudioFile = distHelper.downloadAudio(session.audio);
 
       sessionAudio = sessionAudioFile;
     }
-
+*/
 
 
     track.sessions.push({
@@ -112,7 +112,7 @@ function foldByTrack(sessions, speakers, trackInfo) {
       slides: session.slides,
       audio: sessionAudio
     });
-
+   
   });
 
 

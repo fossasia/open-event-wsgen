@@ -15,6 +15,7 @@ const fold = require(__dirname + '/fold.js');
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
+const scheduletpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
 
@@ -139,6 +140,8 @@ exports.createDistDir = function(req, callback) {
       fs.writeFileSync(distHelper.distPath + '/index.html', tpl(jsonData));
       fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(jsonData));
       fs.writeFileSync(distHelper.distPath + '/rooms.html', roomstpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/speakers.html', speakerstpl(jsonData));
+
       callback();
       done(null, 'write');
     }
