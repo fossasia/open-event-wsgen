@@ -9,7 +9,6 @@ const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
 
-
 const distHelper = require('./dist');
 
 function byProperty(key) {
@@ -94,8 +93,6 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       }
     }
 
-
-
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
@@ -108,6 +105,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       video: session.video,
       slides: session.slides,
       audio: session.audio
+
     });
 
   });

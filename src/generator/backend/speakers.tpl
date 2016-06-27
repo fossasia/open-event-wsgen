@@ -30,7 +30,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -80,33 +79,26 @@
     </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-2 col-md-8 main" style="margin-top:8%;">
-        {{#roomsinfo}}
-        <div class="row">
-          {{#if sessionDetail}}
-          <div class="col-md-12" style="margin-top:1%;margin-bottom:1%">
-          <h4 class="text">{{hall}}</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-          <h5 class="text">{{date}}</h5>
-          </div>
+      <div class="col-md-offset-1 col-md-10 main" style="margin-top:8%">
+        {{#tracks}}
+        {{#sessions}}
+        {{#speakers_list}}
+        
+        <div class="col-md-4">
+          <div class="center card">
+            {{#if photo}}
+            <img class="card-img-top" src="{{photo}}"/>
             {{/if}}
-        </div>  
-          {{#each sessionDetail}}
-        <div class="row">  
-          <div class="height col-xs-2 col-sm-2 col-md-2">
-            <h6 class="text">{{time}}</h6> 
-          </div>
-          <div class=" event track-title col-xs-8 col-sm-8 col-md-8">
-            {{name}}
-          </div>
+            <div class="card-block">
+              <center><h3 class="card-text">{{name}}</h3></center>
+              <center><h4 class="card-text org">{{organisation}}</h4></center>
+            </div>
+          </div> 
         </div>
-          {{/each}}
-          {{/roomsinfo}}
-      </div>  
-    </div>
+         
+        {{/speakers_list}}
+        {{/sessions}}
+        {{/tracks}}
+      </div>
+    </div>    
   </div>
-  </body>
-</html> 

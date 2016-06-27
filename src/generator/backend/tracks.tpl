@@ -75,6 +75,7 @@
             {{/days}}
             <li><a href="tracks.html">Tracks</a></li>
             <li><a href="rooms.html">Rooms</a></li>
+            <li><a href="speakers.html">Speakers</a></li>
           </ul>
         </div>
       </div>
