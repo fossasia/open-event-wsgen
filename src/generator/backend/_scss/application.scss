@@ -297,8 +297,21 @@ a {
   background: $light-skyblue; 
   width:auto; 
   margin-left: 4%; 
-  max-height: 32px; 
+  max-width: 500px; 
+  color:white;
   } 
+@media (max-width: 660px) {
+  .event {
+    max-width: 400px; 
+  }
+}
+@media (max-width: 660px) {
+  .event {
+     max-width: 270px;
+  }
+  
+
+}
 #track-list { 
   margin-top:8%; 
   margin-bottom: 8%; 
@@ -309,7 +322,7 @@ a {
   min-height: 70px; 
   border-right: 1px solid rgba(0,0,0,.10); 
 } 
-#text{ 
+.text{ 
   color: $gray-trackshade; 
 } 
 
@@ -381,6 +394,34 @@ a {
     background-color: white;
   }
 
+//Speakers Styling
+
+.card {
+  margin-top:30%;
+  width: 250px;
+  height: 448px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
+}
+
+.card-img-top {
+  width:248px;
+  height:235px;
+  margin:0 auto;
+  overflow: hidden;
+  display:block;
+}
+
+.card-block {
+  margin:7%;
+  height:530px;
+}
+
+.card-text {
+  color: $blue-shade;
+  overflow: hidden;
+}
 
 
 

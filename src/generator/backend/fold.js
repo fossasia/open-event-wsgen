@@ -9,14 +9,7 @@ const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
 
-
-function speakerNameWithOrg(speaker) {
-  console.log(speaker);
-  return speaker.organisation ?
-    `${speaker.name} (${speaker.organisation})` :
-    speaker.name;
-}
-
+const distHelper = require('./dist');
 
 function byProperty(key) {
   return (a, b) => {
@@ -52,14 +45,22 @@ function returnTrackColor(trackInfo, id) {
 
   return trackInfo[id];
 }
-function foldByTrack(sessions, speakers, trackInfo) {
+function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
+
+  if (reqOpts.assetmode == 'download') {
+    speakers.forEach((speaker) => {
+      if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) == 'http')) {
+        speaker.photo = distHelper.downloadSpeakerPhoto(speaker.photo);
+      }
+    });
+  }
 
   let trackData = new Map();
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
   let trackDetails= new Object();
   trackInfo.forEach((track) => {
     trackDetails[track.id]=track.key_color;
-  })
+  });
 
   sessions.forEach((session) => {
     if (!session.start_time) {
@@ -86,19 +87,25 @@ function foldByTrack(sessions, speakers, trackInfo) {
       track = trackData.get(slug);
     }
 
+    if (reqOpts.assetmode == 'download') {
+      if ((session.audio !== null) && (session.audio.substring(0, 4) == 'http')) {
+        session.audio = distHelper.downloadAudio(session.audio);
+      }
+    }
+
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
       type: session.type,
       location: session.location,
-      speakers: session.speakers.map(speakerNameWithOrg).join(', '),
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       description: session.description,
       session_id: session.session_id,
       sign_up: session.sign_up,
       video: session.video,
       slides: session.slides,
-      audio: session.audio,
+      audio: session.audio
+
     });
 
   });
@@ -184,6 +191,7 @@ function extractEventUrls(services) {
 
   return urls;
 }
+
 function getCopyrightData(services) {
   const copyright = services.copyright;
 
@@ -227,10 +235,40 @@ function foldByLevel(sponsors) {
   });
   return levelData;
 }
-module.exports.foldByTrack= foldByTrack;
-module.exports.foldByDate= foldByDate;
-module.exports.createSocialLinks= createSocialLinks;
-module.exports.extractEventUrls= extractEventUrls;
-module.exports.getCopyrightData= getCopyrightData;
-module.exports.foldByLevel= foldByLevel;
-module.exports.speakerNameWithOrg=speakerNameWithOrg;
+
+function sessionsByRooms (id, sessions) {
+  var sessionInRooms=[];
+    sessions.forEach((session)=>{
+      if(session.microlocation!==undefined) {
+         if(id === session.microlocation.id) {
+           sessionInRooms.push({
+             name:session.title,
+             time: moment(session.start_time).utcOffset(2).format('HH:mm')
+           })
+        }
+      }
+
+    });
+
+    return sessionInRooms;
+}
+
+function foldByRooms(roomsData,sessions){
+  var roomInfo=[];
+  roomsData.forEach((room)=>{
+    roomInfo.push({
+      hall: room.name,
+      date: moment(sessions.start_time).format('YYYY-MM-DD'),
+      sessionDetail:sessionsByRooms(room.id,sessions)
+    })
+  });
+  return roomInfo;
+}
+
+module.exports.foldByTrack = foldByTrack;
+module.exports.foldByDate = foldByDate;
+module.exports.createSocialLinks = createSocialLinks;
+module.exports.extractEventUrls = extractEventUrls;
+module.exports.getCopyrightData = getCopyrightData;
+module.exports.foldByLevel = foldByLevel;
+module.exports.foldByRooms = foldByRooms;
