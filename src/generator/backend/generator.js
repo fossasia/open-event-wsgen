@@ -13,10 +13,13 @@ const jsonfile = require('jsonfile');
 const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
 
-const tpl = handlebars.compile(fs.readFileSync(__dirname + '/schedule.tpl').toString('utf-8'));
-const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/tracks.tpl').toString('utf-8'));
-const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/rooms.tpl').toString('utf-8'));
-const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/speakers.tpl').toString('utf-8'));
+const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
+handlebars.registerPartial('navbar', navbar);
+
+const tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
+const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
+const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
+const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 
 const distJsonsPath = distHelper.distPath + '/json';
 
