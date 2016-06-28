@@ -406,8 +406,6 @@ a {
 .card {
   margin-top:30%;
   width: 250px;
-  max-height: 448px;
-  height: auto;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
@@ -424,7 +422,9 @@ a {
 }
 
 .card-block {
-  min-height:230px;
+  height:330px;
+  overflow-y:overlay;
+  padding: 2%;
 }
 
 .card-text {
