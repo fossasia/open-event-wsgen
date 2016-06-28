@@ -83,21 +83,7 @@
     </div>
     </div>
    <!-- /#session-list -->
-  <div class="row">
-    <div class="col-md-12 footer">
-     {{#if copyright}}
-     <center>
-       <p>
-         <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
-         &copy; {{copyright.year}}
-         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}</a>
-         The website and it's contents are licensed under
-          <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
-       </p>
-       </center>
-      {{/if}}
-    </div>
-  </div>
+    {{> footer}}
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="./js/popover.js"></script>

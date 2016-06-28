@@ -171,7 +171,7 @@
             <a href="{{{link}}}">
               <img class="{{{imgsize}}}" alt="{{{name}}}" src="{{{image}}}">
             </a>
-        </div>
+          </div>
         {{/each}}
       </div> <!-- sponsor-row -->
       {{/each}}
@@ -179,17 +179,9 @@
     </div>
     </section><!-- /#session-list -->
     {{/if}}
-    <div class="navbar navbar-default footer">
-     {{#if copyright}}
-       <p>
-         <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
-         &copy; {{copyright.year}}
-         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}</a>
-         The website and it's contents are licensed under
-          <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
-       </p>
-      {{/if}}
-    </div>
+   </div>
+    {{> footer}}
+    
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
