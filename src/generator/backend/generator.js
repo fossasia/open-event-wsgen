@@ -14,7 +14,10 @@ const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
+const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
+
 handlebars.registerPartial('navbar', navbar);
+handlebars.registerPartial('footer', footer);
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));

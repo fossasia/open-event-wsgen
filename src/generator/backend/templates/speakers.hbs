@@ -40,20 +40,19 @@
         {{#tracks}}
         {{#sessions}}
         {{#speakers_list}}
-
         <div class="card-container col-md-4">
           <div class="center card">
             <img class="card-img-top" src="{{photo}}"/>
             <div class="card-block">
               <center><h3 class="card-text">{{name}}</h3></center>
-              <center><h4 class="card-text org">{{organisation}}</h4></center>
+              <center><h4 class="card-text">{{organisation}}</h4></center>
             </div>
           </div>
         </div>
-
         {{/speakers_list}}
         {{/sessions}}
         {{/tracks}}
       </div>
     </div>
   </div>
+    {{> footer}}
