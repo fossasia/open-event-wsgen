@@ -300,6 +300,18 @@ a {
   max-width: 500px; 
   color:white;
   } 
+@media (max-width: 660px) {
+  .event {
+    max-width: 400px; 
+  }
+}
+@media (max-width: 660px) {
+  .event {
+     max-width: 270px;
+  }
+  
+
+}
 #track-list { 
   margin-top:8%; 
   margin-bottom: 8%; 
@@ -310,7 +322,7 @@ a {
   min-height: 70px; 
   border-right: 1px solid rgba(0,0,0,.10); 
 } 
-#text{ 
+.text{ 
   color: $gray-trackshade; 
 } 
 
@@ -382,28 +394,47 @@ a {
     background-color: white;
   }
 
-.card-block {
-  height:330px;
-  overflow-y:overlay;
-  overflow-x:hidden;
-  padding: 2%;
-}
 
-.card-text {
-  color: $blue-shade;
-  padding:1%;
-  line-height:normal;
-}
+//Speakers Styling
+.card-container {
+  padding:4%;
+  .card {
+    margin-top:30%;
+    width: 250px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
+    display: block;
+    margin: 0 auto;
 
-.description {
-  margin: 4%;
-  text-align: center;
-}
-.icons {
-  text-align: center;
-  color: $gray-extra-dark;
-  font-size: 18px;
-  padding: 4%;
+    .card-img-top {
+      overflow: hidden;
+      width:248px;
+      height:235px;
+    }
+    .card-block {
+      height:330px;
+      overflow-y:overlay;
+      overflow-x:hidden;
+      padding: 2%;
 
-}
+      .card-text {
+        color: $blue-shade;
+        padding:1%;
+        line-height:normal;
+      }
+      .description {
+        margin: 4%;
+        text-align: center;
+      }
+    }
 
+      .icons {
+        text-align: center;
+        color: $gray-extra-dark;
+        font-size: 18px;
+        padding: 4%;
+
+      }
+  }
+}
