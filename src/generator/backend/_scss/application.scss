@@ -382,8 +382,28 @@ a {
     background-color: white;
   }
 
+.card-block {
+  height:330px;
+  overflow-y:overlay;
+  overflow-x:hidden;
+  padding: 2%;
+}
 
+.card-text {
+  color: $blue-shade;
+  padding:1%;
+  line-height:normal;
+}
 
+.description {
+  margin: 4%;
+  text-align: center;
+}
+.icons {
+  text-align: center;
+  color: $gray-extra-dark;
+  font-size: 18px;
+  padding: 4%;
 
-
+}
 
