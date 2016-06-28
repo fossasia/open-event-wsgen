@@ -395,14 +395,24 @@ a {
   }
 
 //Speakers Styling
+.card-container {
+  padding:4%;
+}
+@media (max-width: 660px) {
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
 
 .card {
   margin-top:30%;
   width: 250px;
-  height: 448px;
+  max-height: 448px;
+  height: auto;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 4px;
   box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
+  display: block;
+  margin: 0 auto;
 }
 
 .card-img-top {
@@ -414,7 +424,6 @@ a {
 }
 
 .card-block {
-  margin:7%;
   height:530px;
 }
 
@@ -422,8 +431,3 @@ a {
   color: $blue-shade;
   overflow: hidden;
 }
-
-
-
-
-
