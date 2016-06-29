@@ -45,8 +45,15 @@
             <img class="card-img-top" src="{{photo}}"/>
             <div class="card-block">
               <center><h3 class="card-text">{{name}}</h3></center>
-              <center><h4 class="card-text">{{organisation}}</h4></center>
-              <p>{{biography}}</p>
+              <center><h5 class="card-text">{{../title}}</h5></center>
+              <div class="description">
+               <p>{{biography}}</p>
+              </div>
+            </div>
+            <div class="icons row">
+              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{github}}}"<i class="fa fa-github"></i></a></div>
+              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></div>
+              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></a></i></div>
             </div>
           </div>
         </div>
