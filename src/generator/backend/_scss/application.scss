@@ -394,40 +394,47 @@ a {
     background-color: white;
   }
 
+
 //Speakers Styling
 .card-container {
   padding:4%;
-}
-@media (max-width: 660px) {
-  margin-bottom: 60px;
-  margin-top: 60px;
-}
+  .card {
+    margin-top:30%;
+    width: 250px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
+    display: block;
+    margin: 0 auto;
 
-.card {
-  margin-top:30%;
-  width: 250px;
-  max-height: 448px;
-  height: auto;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 4px;
-  box-shadow: 0 0.125em 0.275em 0 rgba(0,0,0,0.125);
-  display: block;
-  margin: 0 auto;
-}
+    .card-img-top {
+      overflow: hidden;
+      width:248px;
+      height:235px;
+    }
+    .card-block {
+      height:330px;
+      overflow-y:overlay;
+      overflow-x:hidden;
+      padding: 2%;
 
-.card-img-top {
-  width:248px;
-  height:235px;
-  margin:0 auto;
-  overflow: hidden;
-  display:block;
-}
+      .card-text {
+        color: $blue-shade;
+        padding:1%;
+        line-height:normal;
+      }
+      .description {
+        margin: 4%;
+        text-align: center;
+      }
+    }
 
-.card-block {
-  min-height:230px;
-}
+      .icons {
+        text-align: center;
+        color: $gray-extra-dark;
+        font-size: 18px;
+        padding: 4%;
 
-.card-text {
-  color: $blue-shade;
-  overflow: hidden;
+      }
+  }
 }
