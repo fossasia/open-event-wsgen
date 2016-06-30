@@ -49,7 +49,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
   let trackDetails= new Object();
   trackInfo.forEach((track) => {
-    trackDetails[track.id]=track.key_color;
+    trackDetails[track.id]=track.color;
   });
 
   sessions.forEach((session) => {

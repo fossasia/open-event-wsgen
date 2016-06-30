@@ -46,7 +46,7 @@ handlebars.registerHelper('linkify', function(options) {
 });
 
 function transformData(sessions, speakers, services, sponsors, tracksData, roomsData, reqOpts) {
-  let tracks = fold.foldByTrack(sessions, speakers, tracksData.tracks, reqOpts);
+  let tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
   let days = fold.foldByDate(tracks);
   let sociallinks = fold.createSocialLinks(services);
   let eventurls = fold.extractEventUrls(services);
