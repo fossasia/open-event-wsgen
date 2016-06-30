@@ -51,8 +51,9 @@ function transformData(sessions, speakers, services, sponsors, tracksData, rooms
   let sociallinks = fold.createSocialLinks(services);
   let eventurls = fold.extractEventUrls(services);
   let copyright = fold.getCopyrightData(services);
-  let sponsorpics = fold.foldByLevel(sponsors.sponsors);
+  let sponsorpics = fold.foldByLevel(sponsors);
   let roomsinfo  =  fold.foldByRooms(roomsData, sessions);
+
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
