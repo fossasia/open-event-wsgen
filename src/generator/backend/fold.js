@@ -198,11 +198,11 @@ function foldByLevel(sponsors) {
       divclass: '',
       imgsize: '',
       name: sponsor.name,
-      image: sponsor.image,
-      link: sponsor.link,
+      logo: sponsor.logo,
+      url:  sponsor.url,
       level: sponsor.level,
       description: sponsor.description,
-      type: sponsor.type
+      type: sponsor.sponsor_type
     };
 
     switch (sponsorItem.level) {
