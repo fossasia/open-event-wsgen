@@ -8,7 +8,6 @@ const moment = require('moment');
 const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
-
 const distHelper = require('./dist');
 
 function byProperty(key) {
@@ -82,7 +81,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         session.audio = distHelper.downloadAudio(session.audio);
       }
     }
-
+    
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
