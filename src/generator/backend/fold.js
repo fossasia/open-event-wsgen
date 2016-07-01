@@ -8,7 +8,6 @@ const moment = require('moment');
 const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
-
 const distHelper = require('./dist');
 
 function byProperty(key) {
@@ -32,15 +31,6 @@ function slugify(str) {
   return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
 }
 
-function zeroFill(num) {
-  if (typeof num === 'undefined') {
-    return '';
-  }
-  if (num >= 10) {
-    return num.toString();
-  }
-  return '0' + num.toString();
-}
 function returnTrackColor(trackInfo, id) {
 
   return trackInfo[id];
@@ -79,7 +69,6 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         color: returnTrackColor(trackDetails,session.track.id),
         date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
-        sortKey: date + '-' + zeroFill(session.track.order),
         sessions: []
       };
       trackData.set(slug, track);
@@ -92,16 +81,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         session.audio = distHelper.downloadAudio(session.audio);
       }
     }
-
+    
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
-      type: session.type,
-      location: session.location,
+      type: session.session_type.name,
+      location: session.microlocation.name,
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
-      description: session.description,
-      session_id: session.session_id,
-      sign_up: session.sign_up,
+      description: session.long_abstract,
+      session_id: session.id,
+      sign_up: session.signup_url,
       video: session.video,
       slides: session.slides,
       audio: session.audio
