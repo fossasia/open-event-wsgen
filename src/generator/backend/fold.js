@@ -49,7 +49,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   let speakersMap = new Map(speakers.map((s) => [s.id, s]));
   let trackDetails= new Object();
   trackInfo.forEach((track) => {
-    trackDetails[track.id]=track.key_color;
+    trackDetails[track.id]=track.color;
   });
 
   sessions.forEach((session) => {
@@ -96,11 +96,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
-
+     
   });
 
 
-
+  
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
@@ -175,8 +175,15 @@ function createSocialLinks(services) {
 }
 
 
-function extractEventUrls(services) {
+function extractEventUrls(services, reqOpts) {
   const urls = services.logoico;
+  if (reqOpts.assetmode == 'download') {
+    
+    if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
+        services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
+      }
+      
+  }
 
   return urls;
 }
@@ -198,11 +205,11 @@ function foldByLevel(sponsors) {
       divclass: '',
       imgsize: '',
       name: sponsor.name,
-      image: sponsor.image,
-      link: sponsor.link,
+      logo: sponsor.logo,
+      url:  sponsor.url,
       level: sponsor.level,
       description: sponsor.description,
-      type: sponsor.type
+      type: sponsor.sponsor_type
     };
 
     switch (sponsorItem.level) {
