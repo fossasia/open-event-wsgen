@@ -174,7 +174,6 @@ function extractEventUrls(services, reqOpts) {
     if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
         services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
       }
-
   }
 
   return urls;
