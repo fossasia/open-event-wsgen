@@ -3,7 +3,6 @@
 var exports = module.exports = {};
 
 const fs = require('fs-extra');
-const moment = require('moment');
 const handlebars = require('handlebars');
 const async = require('async');
 const archiver = require('archiver');
@@ -46,26 +45,26 @@ handlebars.registerHelper('linkify', function(options) {
 });
 
 function transformData(sessions, speakers, services, sponsors, tracksData, roomsData, reqOpts) {
-  let tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
-  let days = fold.foldByDate(tracks);
-  let sociallinks = fold.createSocialLinks(services);
-  let eventurls = fold.extractEventUrls(services, reqOpts);
-  let copyright = fold.getCopyrightData(services);
-  let sponsorpics = fold.foldByLevel(sponsors);
-  let roomsinfo  =  fold.foldByRooms(roomsData, sessions);
+  const tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
+  const days = fold.foldByDate(tracks);
+  const sociallinks = fold.createSocialLinks(services);
+  const eventurls = fold.extractEventUrls(services, reqOpts);
+  const copyright = fold.getCopyrightData(services);
+  const sponsorpics = fold.foldByLevel(sponsors);
+  const roomsinfo  =  fold.foldByRooms(roomsData, sessions);
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
 
 function getJsonData(reqOpts) {
-  let sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions.json');
-  let speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers.json');
-  let servicesData = jsonfile.readFileSync(distJsonsPath + '/event.json');
-  let sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors.json');
-  let tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks.json');
-  let roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations.json');
+  const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions.json');
+  const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers.json');
+  const servicesData = jsonfile.readFileSync(distJsonsPath + '/event.json');
+  const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors.json');
+  const tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks.json');
+  const roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations.json');
 
-  let data = transformData(sessionsData, speakersData, servicesData,
+  const data = transformData(sessionsData, speakersData, servicesData,
       sponsorsData, tracksData, roomsData, reqOpts);
 
   return data;

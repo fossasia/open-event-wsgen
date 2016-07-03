@@ -1,13 +1,6 @@
 'use strict';
 
-
-var exports = module.exports = {};
-
-const fs = require('fs-extra');
 const moment = require('moment');
-const handlebars = require('handlebars');
-const async = require('async');
-const archiver = require('archiver');
 const distHelper = require('./dist');
 
 function byProperty(key) {
@@ -23,7 +16,6 @@ function byProperty(key) {
   };
 }
 
-
 function slugify(str) {
   if (typeof str === 'undefined') {
     return '';
@@ -32,24 +24,24 @@ function slugify(str) {
 }
 
 function returnTrackColor(trackInfo, id) {
-
   return trackInfo[id];
 }
-function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
-  if (reqOpts.assetmode == 'download') {
+function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
+  if (reqOpts.assetmode === 'download') {
     speakers.forEach((speaker) => {
-      if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) == 'http')) {
+      if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
         speaker.photo = distHelper.downloadSpeakerPhoto(speaker.photo);
       }
     });
   }
 
-  let trackData = new Map();
-  let speakersMap = new Map(speakers.map((s) => [s.id, s]));
-  let trackDetails= new Object();
+  const trackData = new Map();
+  const speakersMap = new Map(speakers.map((s) => [s.id, s]));
+  const trackDetails= new Object();
+
   trackInfo.forEach((track) => {
-    trackDetails[track.id]=track.color;
+    trackDetails[track.id] = track.color;
   });
 
   sessions.forEach((session) => {
@@ -58,15 +50,15 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     }
 
     // generate slug/key for session
-    let date = moment(session.start_time).format('YYYY-MM-DD');
-    let slug = date + '-' + slugify(session.track.name);
+    const date = moment(session.start_time).format('YYYY-MM-DD');
+    const slug = date + '-' + slugify(session.track.name);
     let track = null;
 
     // set up track if it does not exist
     if (!trackData.has(slug)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails,session.track.id),
+        color: returnTrackColor(trackDetails, session.track.id),
         date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sessions: []
@@ -76,12 +68,12 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       track = trackData.get(slug);
     }
 
-    if (reqOpts.assetmode == 'download') {
-      if ((session.audio !== null) && (session.audio.substring(0, 4) == 'http')) {
+    if (reqOpts.assetmode === 'download') {
+      if ((session.audio !== null) && (session.audio.substring(0, 4) === 'http')) {
         session.audio = distHelper.downloadAudio(session.audio);
       }
     }
-    
+
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
@@ -96,11 +88,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
-     
+
   });
 
 
-  
+
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
@@ -177,12 +169,12 @@ function createSocialLinks(services) {
 
 function extractEventUrls(services, reqOpts) {
   const urls = services.logoico;
-  if (reqOpts.assetmode == 'download') {
-    
+  if (reqOpts.assetmode === 'download') {
+
     if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
         services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
       }
-      
+
   }
 
   return urls;
@@ -232,31 +224,32 @@ function foldByLevel(sponsors) {
   return levelData;
 }
 
-function sessionsByRooms (id, sessions) {
-  var sessionInRooms=[];
-    sessions.forEach((session)=>{
-      if(session.microlocation!==undefined) {
-         if(id === session.microlocation.id) {
-           sessionInRooms.push({
-             name:session.title,
-             time: moment(session.start_time).utcOffset(2).format('HH:mm')
-           })
-        }
+function sessionsByRooms(id, sessions) {
+  var sessionInRooms = [];
+
+  sessions.forEach((session) => {
+    if(typeof session.microlocation !== 'undefined') {
+      if(id === session.microlocation.id) {
+        sessionInRooms.push({
+          name: session.title,
+          time: moment(session.start_time).utcOffset(2).format('HH:mm')
+        });
       }
+    }
+  });
 
-    });
-
-    return sessionInRooms;
+  return sessionInRooms;
 }
 
-function foldByRooms(roomsData,sessions){
-  var roomInfo=[];
-  roomsData.forEach((room)=>{
+function foldByRooms(roomsData, sessions) {
+  var roomInfo = [];
+
+  roomsData.forEach((room) => {
     roomInfo.push({
       hall: room.name,
       date: moment(sessions.start_time).format('YYYY-MM-DD'),
-      sessionDetail:sessionsByRooms(room.id,sessions)
-    })
+      sessionDetail: sessionsByRooms(room.id, sessions)
+    });
   });
   return roomInfo;
 }
