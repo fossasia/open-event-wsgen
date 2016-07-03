@@ -44,9 +44,12 @@ module.exports = {
     fs.copySync(mockPath + '/microlocations.json', distPath + '/json/microlocations.json');
   },
   downloadAudio: function(audioUrl) {
-    const audioFileName = audioUrl.split("/").pop();
+    const audioFileName = audioUrl.split('/').pop();
+
     console.log('Downloading audio : ' + audioFileName);
-    var audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
+
+    const audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
+
     audioFileStream.on('error', function(err) {
       console.log(err);
     });
@@ -58,9 +61,11 @@ module.exports = {
     return ('audio/' + audioFileName);
   },
   downloadSpeakerPhoto: function(photoUrl) {
-    const photoFileName = photoUrl.split("/").pop();
+    const photoFileName = photoUrl.split('/').pop();
+
     console.log('Downloading photo : ' + photoFileName);
-    var photoFileStream = fs.createWriteStream(distPath + '/img/speakers/' + photoFileName);
+    const photoFileStream = fs.createWriteStream(distPath + '/img/speakers/' + photoFileName);
+
     photoFileStream.on('error', function(err) {
       console.log(err);
     });
@@ -70,6 +75,5 @@ module.exports = {
       console.log(err);
     }
     return ('img/speakers/' + photoFileName);
-
   }
 };

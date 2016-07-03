@@ -1,9 +1,9 @@
 /* Created by aayusharora on June 20, 2017 */
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   $('.pop-box').hide();
-  if($(window).width()<768){
+  if($(window).width() < 768) {
     $('.item').click(function (event) {
       popBox(event);
     });
@@ -26,39 +26,39 @@ $(document).ready(function(){
 
     if($(link).offset()===undefined){
 
-      var offset =$(track).offset();
-      var track= track.parent();
+      var offset = $(track).offset();
+      var track = track.parent();
     }
    else{
 
     var offset =$(link).offset();
    }
 
-  nextOfpop=$(track).next();
-  var position= offset.top-link.height()-30;
-  var left= offset.left;
+  nextOfpop = $(track).next();
+  var position = offset.top-link.height()-30;
+  var left = offset.left;
 
-  if( $(window).width()>=320 && $(window).width()< 481){
+    if( $(window).width() >= 320 && $(window).width() < 481){
 
-    var position= offset.top-link.height()-38;
-  }
-  else if( $(window).width()>= 481 && $(window).width()<641){
+      var position = offset.top - link.height() - 38;
+    }
+    else if( $(window).width()>= 481 && $(window).width() <641){
 
-    var position= offset.top-link.height()-46;
-  }
-  else if( $(window).width()>=641 && $(window).width()< 961){
+      var position = offset.top - link.height() - 46;
+    }
+    else if( $(window).width()>=641 && $(window).width() < 961){
 
-    var position= offset.top-link.height()-50;
-  }
-  else if( $(window).width()>=961 && $(window).width()< 1025){
+      var position= offset.top - link.height() - 50;
+    }
+    else if( $(window).width() >= 961 && $(window).width() < 1025){
 
-    var left= left-180;
-  }
-  else {
+      var left = left - 180;
+    }
+    else {
 
-    var left= left-210;
-  }
-  if(offset.top){
+      var left= left-210;
+    }
+  if(offset.top) {
 
     var toptrack = position ;
     $(nextOfpop).css({'top':toptrack,
@@ -71,7 +71,7 @@ $(document).ready(function(){
       var container = $(".pop-box");
 
         if (!container.is(e.target)
-            && container.has(e.target).length === 0 && (e.target)!==$('html').get(0))
+            && container.has(e.target).length === 0 && (e.target) !== $('html').get(0))
           {
             container.hide();
           }

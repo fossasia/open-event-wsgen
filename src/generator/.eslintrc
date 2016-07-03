@@ -34,7 +34,7 @@
     "no-empty": 2,
     "no-ex-assign": 2,
     "no-extra-boolean-cast": 2,
-    "no-extra-parens": [1, "all"],
+    "no-extra-parens": [2, "all", {"conditionalAssign": false, "nestedBinaryExpressions": false, "returnAssign": false}],
     "no-extra-semi": 1,
     "no-func-assign": 2,
     "no-inner-declarations": [2, "both"],

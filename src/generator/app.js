@@ -1,22 +1,23 @@
 'use strict';
 
 var express = require('express');
-var connectDomain = require("connect-domain");
+var connectDomain = require('connect-domain');
 var multer = require('multer');
 
 var app = express();
 var errorHandler;
-    app.use(connectDomain());
-errorHandler = function (err, req, res, next) {  
-     res.sendFile(__dirname + "/www/404.html");
-    console.log(err);
-};
 
 var upload = multer({dest: 'uploads/'});
 
 var generator = require('./backend/generator.js');
 
-var uploadedFiles = upload.fields([
+app.use(connectDomain());
+errorHandler = function(err, req, res, next) {
+  res.sendFile(__dirname + '/www/404.html');
+  console.log(err);
+};
+
+const uploadedFiles = upload.fields([
   {name: 'speakerfile', maxCount: 1},
   {name: 'sessionfile', maxCount: 1},
   {name: 'trackfile', maxCount: 1},
@@ -31,9 +32,6 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
-
-    
-
 app.post('/live', uploadedFiles, function(req, res) {
   generator.createDistDir(req, function() {
     generator.showLivePreview(res);
@@ -46,8 +44,8 @@ app.post('/generate', uploadedFiles, function(req, res) {
   });
 }).use(errorHandler);
 
-app.use("*",function(req,res){
-  res.sendFile(__dirname + "/www/404.html");
+app.use('*', function(req, res) {
+  res.sendFile(__dirname + '/www/404.html');
 });
 
 app.listen(app.get('port'), function() {
