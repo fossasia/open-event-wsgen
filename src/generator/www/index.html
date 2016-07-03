@@ -13,19 +13,19 @@
 </head>
 <body>
 <div class="container"></br></br>
-	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
-    	<label for="name">Email</label>
-    	<input type="email" class="form-control" id="email" name="email">
+  <form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
+      <label for="name">Email</label>
+      <input type="email" class="form-control" id="email" name="email">
     </br>
-  		<label for="theme">Choose your theme</label>
-  		  <select class="form-control" id="theme" name="theme">
-    		  <option value="light">Light</option>
-    		  <option value="dark">Dark</option>
-  		  </select>
-		</br>
-    	<label for="name">App's Name</label>
-    	<input type="name" class="form-control" id="name" name="name">
- 		</br>
+      <label for="theme">Choose your theme</label>
+        <select class="form-control" id="theme" name="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+    </br>
+      <label for="name">App's Name</label>
+      <input type="name" class="form-control" id="name" name="name">
+    </br>
       <label for="datasource"> Choose your data source </label>
       <ul style="list-style-type:none">
         <li><input type="radio" name="datasource" value="mockjson"> Default mock API </input>
@@ -34,37 +34,17 @@
       </ul>
     </br>
     <section id="eventapi-input" style="display:none;">
-    	<label for="url">Link to json containing end points</label>
-    	<input type="url" class="form-control" id="url" name="url">
+      <label for="url">Link to json containing end points</label>
+      <input type="url" class="form-control" id="url" name="url">
     </section>
     </br>
     <section id="jsonupload-input" style="display:none;">
- 		<div class="row">
-      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-            <label for="speakerfile">Json for Speakers</label>
-       		 	<input type="file" name="speakerfile" id="speakerfile">
-     		 </div>
-      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-        		<label for="sessionfile">Json for Sessions</label>
-        		<input type="file" name="sessionfile"  id="sessionfile">
-      		</div>
-            <div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-        		<label for="sponsorfile">Json for Sponsors</label>
-        		<input type="file" name="sponsorfile"  id="sponsorfile">
-      	    </div>
-      	    <div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-          		<label for="eventfile">Json for Event Services</label>
-          		<input type="file"  name="eventfile" id="eventfile">
-        	</div>
-      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-        		<label for="trackfile">Json for Tracks</label>
-        		<input type="file" name="trackfile" id="trackfile">
-      		</div>
-      		<div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
-        		<label for="locationfile">Json for locations</label>
-        		<input type="file"  name="locationfile" id="locationfile">
-      		</div>
-    	</div></br>
+    <div class="row">
+      <div class="col-sm-6 col-xs-offset-2 col-md-offset-0 col-sm-offset-0 col-xs-10 col-md-6" style="margin-bottom:3%;">
+            <label for="speakerfile">Upload Zip</label>
+            <input type="file" name="zipfile" id="zipfile">
+      </div>
+      </div></br>
     </section>
     <br>
     <label title="Wether to download assets into website folder or link to external sources"
@@ -79,7 +59,7 @@
       <button formaction="/generate" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND DOWNLOAD</button>
       </center>
 
-	</form>
+  </form>
 </div>
 </body>
 </html>
