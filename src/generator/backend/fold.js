@@ -96,11 +96,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
-
+     
   });
 
 
-
+  
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('sortKey'));
@@ -175,8 +175,15 @@ function createSocialLinks(services) {
 }
 
 
-function extractEventUrls(services) {
+function extractEventUrls(services, reqOpts) {
   const urls = services.logoico;
+  if (reqOpts.assetmode == 'download') {
+    
+    if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
+        services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
+      }
+      
+  }
 
   return urls;
 }

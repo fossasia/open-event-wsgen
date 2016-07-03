@@ -59,7 +59,7 @@
     "py/object": "models.LogoIco",
     "main_page_url": "http://2016.opentechsummit.net",
     "ico_url": "img/OpenTechSummit.ico",
-    "logo_url": "img/Logo_OpenTecSummit_TXT_grey.png"
+    "logo_url": "https://raw.githubusercontent.com/OpenTechSummit/2016.opentechsummit.net/gh-pages/img/Logo_OpenTecSummit_TXT_grey.png"
   },
   "copyright": {
     "py/object": "models.Copyright",

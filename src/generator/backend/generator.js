@@ -49,11 +49,10 @@ function transformData(sessions, speakers, services, sponsors, tracksData, rooms
   let tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
   let days = fold.foldByDate(tracks);
   let sociallinks = fold.createSocialLinks(services);
-  let eventurls = fold.extractEventUrls(services);
+  let eventurls = fold.extractEventUrls(services, reqOpts);
   let copyright = fold.getCopyrightData(services);
   let sponsorpics = fold.foldByLevel(sponsors);
   let roomsinfo  =  fold.foldByRooms(roomsData, sessions);
-
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
 }
