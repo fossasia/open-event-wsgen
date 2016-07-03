@@ -416,10 +416,13 @@ a {
     }
     .card-block {
       height:330px;
-      overflow-y:overlay;
+      overflow-y:hidden;
       overflow-x:hidden;
       padding: 2%;
-
+      
+      &:hover {
+      overflow-y: overlay;
+      }
       .card-text {
         color: $blue-shade;
         padding:1%;
@@ -428,8 +431,10 @@ a {
       .description {
         margin: 4%;
         text-align: center;
+        padding:4px;
       }
     }
+
       .icons {
         text-align: center;
         color: $gray-extra-dark;
