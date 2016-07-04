@@ -2,10 +2,25 @@
 
 const fs = require('fs-extra');
 const request = require('request');
+const async = require('async');
 
 const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
 const mockPath = __dirname + '/../../../mockjson';
+
+function downloadFile (url, filePath) {
+
+  const fileStream = fs.createWriteStream(filePath);
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+  try {
+    request(url).pipe(fileStream);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 module.exports = {
   distPath: distPath,
@@ -30,9 +45,37 @@ module.exports = {
     fs.copySync(files.speakerfile[0].path, distPath + '/json/speakers.json');
     fs.copySync(files.sessionfile[0].path, distPath + '/json/sessions.json');
     fs.copySync(files.trackfile[0].path, distPath + '/json/tracks.json');
-    fs.copySync(files.locationfile[0].path, distPath + '/json/locations.json');
+    fs.copySync(files.locationfile[0].path, distPath + '/json/microlocations.json');
     fs.copySync(files.sponsorfile[0].path, distPath + '/json/sponsors.json');
     fs.copySync(files.eventfile[0].path, distPath + '/json/event.json');
+  },
+  fetchApiJsons: function(apiEndpoint) {
+    const endpoint = apiEndpoint.replace(/\/$/, '');
+
+    const jsons = [
+      'speakers',
+      'sponsors',
+      'sessions',
+      'tracks.json',
+      'microlocations.json',
+      'event.json'
+    ];
+
+    fs.mkdirpSync(distPath + '/json');
+    async.each(jsons, function(json) {
+      console.log('Downloading ' + endpoint + '/' + json);
+
+      downloadFile(endpoint + '/' + json, distPath + '/json/' + json);
+    }, (err) => {
+        // if any of the file processing produced an error, err would equal that error
+      if(err) {
+        // One of the iterations produced an error.
+        // All processing will now stop.
+        console.log('A file failed to process');
+      } else {
+        console.log('All files have been processed successfully');
+      }
+    });
   },
   copyMockJsons: function() {
     fs.mkdirpSync(distPath + '/json');
@@ -45,35 +88,19 @@ module.exports = {
   },
   downloadAudio: function(audioUrl) {
     const audioFileName = audioUrl.split('/').pop();
+    const audioFilePath = 'audio/' + audioFileName;
 
     console.log('Downloading audio : ' + audioFileName);
 
-    const audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
-
-    audioFileStream.on('error', function(err) {
-      console.log(err);
-    });
-    try {
-      request(audioUrl).pipe(audioFileStream);
-    } catch (err) {
-      console.log(err);
-    }
-    return ('audio/' + audioFileName);
+    downloadFile(audioUrl, distPath + '/' + audioFilePath);
+    return audioFilePath;
   },
   downloadSpeakerPhoto: function(photoUrl) {
     const photoFileName = photoUrl.split('/').pop();
+    const photoFilePath = 'img/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
-    const photoFileStream = fs.createWriteStream(distPath + '/img/speakers/' + photoFileName);
-
-    photoFileStream.on('error', function(err) {
-      console.log(err);
-    });
-    try {
-      request(photoUrl).pipe(photoFileStream);
-    } catch (err) {
-      console.log(err);
-    }
-    return ('img/speakers/' + photoFileName);
+    downloadFile(photoUrl, distPath + '/' + photoFilePath);
+    return photoFilePath;
   }
 };
