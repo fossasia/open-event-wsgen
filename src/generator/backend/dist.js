@@ -8,8 +8,7 @@ const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
 const mockPath = __dirname + '/../../../mockjson';
 
-function downloadFile (url, filePath) {
-
+const downloadFile = function(url, filePath) {
   const fileStream = fs.createWriteStream(filePath);
 
   fileStream.on('error', function(err) {
@@ -20,7 +19,30 @@ function downloadFile (url, filePath) {
   } catch (err) {
     console.log(err);
   }
-}
+};
+
+const downloadJson = function(endpoint, jsonFile, cb) {
+  const fileStream = fs.createWriteStream(distPath + '/json/' + jsonFile);
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+
+  try {
+    console.log('Downloading ' + jsonFile);
+    request
+        .get(endpoint + '/' + jsonFile)
+        .on('response', function(response) {
+          console.log('Got response');
+          console.log(response.statusCode); // 200
+          console.log(response.headers['content-type']); // 'image/png'
+          cb();
+        })
+        .pipe(fileStream)
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports = {
   distPath: distPath,
@@ -49,33 +71,30 @@ module.exports = {
     fs.copySync(files.sponsorfile[0].path, distPath + '/json/sponsors.json');
     fs.copySync(files.eventfile[0].path, distPath + '/json/event.json');
   },
-  fetchApiJsons: function(apiEndpoint) {
+  fetchApiJsons: function(apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
 
     const jsons = [
-      'speakers',
-      'sponsors',
-      'sessions',
+      'speakers.json',
+      'sponsors.json',
+      'sessions.json',
       'tracks.json',
       'microlocations.json',
       'event.json'
     ];
 
     fs.mkdirpSync(distPath + '/json');
-    async.each(jsons, function(json) {
-      console.log('Downloading ' + endpoint + '/' + json);
-
-      downloadFile(endpoint + '/' + json, distPath + '/json/' + json);
+    async.eachSeries(jsons, (json, callback) => {
+      downloadJson(endpoint, json, callback);
     }, (err) => {
-        // if any of the file processing produced an error, err would equal that error
-      if(err) {
-        // One of the iterations produced an error.
-        // All processing will now stop.
-        console.log('A file failed to process');
+      if (err) {
+        console.log(err);
       } else {
-        console.log('All files have been processed successfully');
+        console.log('Jsons downloaded');
+        done()
       }
-    });
+    })
+
   },
   copyMockJsons: function() {
     fs.mkdirpSync(distPath + '/json');

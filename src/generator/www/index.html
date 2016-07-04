@@ -26,16 +26,18 @@
     	<label for="name">App's Name</label>
     	<input type="name" class="form-control" id="name" name="name">
  		</br>
-      <label for="datasource"> Choose your data source </label>
+      <label > Choose your data source </label>
       <ul style="list-style-type:none">
-        <li><input type="radio" name="datasource" value="mockjson"> Default mock API </input>
-        <li><input type="radio" name="datasource" value="jsonupload"> Upload your own JSON files </input>
-        <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input>
+        <li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>
+        <li><input type="radio" name="datasource" value="jsonupload"> Upload your own JSON files </input></li>
+        <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input></li>
       </ul>
     </br>
     <section id="eventapi-input" style="display:none;">
     	<label for="apiendpoint">Link to Open Event API endpoint</label>
-    	<input type="url" class="form-control" id="apiendpoint" name="apiendpoint">
+    	<input type="url" class="form-control"
+      value="https://raw.githubusercontent.com/fossasia/open-event-webapp/master/mockjson/"
+      id="apiendpoint" name="apiendpoint">
     </section>
     </br>
     <section id="jsonupload-input" style="display:none;">
