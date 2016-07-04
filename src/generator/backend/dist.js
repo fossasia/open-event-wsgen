@@ -38,7 +38,7 @@ const downloadJson = function(endpoint, jsonFile, cb) {
           console.log(response.headers['content-type']); // 'image/png'
           cb();
         })
-        .pipe(fileStream)
+        .pipe(fileStream);
   } catch (err) {
     console.log(err);
   }
@@ -60,7 +60,7 @@ module.exports = {
     fs.mkdirpSync(distPath + '/img/speakers');
   },
   copyAssets: function(err) {
-    fs.copy((__dirname + '/assets'), distPath, {clobber:true}, err);
+    fs.copy((__dirname + '/assets'), distPath, {clobber: true}, err);
   },
   copyUploads: function(files) {
     fs.mkdirpSync(distPath + '/json');
@@ -91,10 +91,9 @@ module.exports = {
         console.log(err);
       } else {
         console.log('Jsons downloaded');
-        done()
+        done();
       }
-    })
-
+    });
   },
   copyMockJsons: function() {
     fs.mkdirpSync(distPath + '/json');

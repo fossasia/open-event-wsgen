@@ -38,7 +38,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
-  const trackDetails= new Object();
+  const trackDetails = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
@@ -88,10 +88,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
-
   });
-
-
 
   let tracks = Array.from(trackData.values());
 
@@ -99,7 +96,6 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
   return tracks;
 }
-
 
 function foldByDate(tracks) {
   let dateMap = new Map();
@@ -166,14 +162,12 @@ function createSocialLinks(services) {
   return sociallinks;
 }
 
-
 function extractEventUrls(services, reqOpts) {
   const urls = services.logoico;
   if (reqOpts.assetmode === 'download') {
-
     if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
-        services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
-      }
+      services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
+    }
   }
 
   return urls;
