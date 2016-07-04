@@ -2,10 +2,47 @@
 
 const fs = require('fs-extra');
 const request = require('request');
+const async = require('async');
 
 const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
 const mockPath = __dirname + '/../../../mockjson';
+
+const downloadFile = function(url, filePath) {
+  const fileStream = fs.createWriteStream(filePath);
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+  try {
+    request(url).pipe(fileStream);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const downloadJson = function(endpoint, jsonFile, cb) {
+  const fileStream = fs.createWriteStream(distPath + '/json/' + jsonFile);
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+
+  try {
+    console.log('Downloading ' + jsonFile);
+    request
+        .get(endpoint + '/' + jsonFile)
+        .on('response', function(response) {
+          console.log('Got response');
+          console.log(response.statusCode); // 200
+          console.log(response.headers['content-type']); // 'image/png'
+          cb();
+        })
+        .pipe(fileStream);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports = {
   distPath: distPath,
@@ -23,16 +60,40 @@ module.exports = {
     fs.mkdirpSync(distPath + '/img/speakers');
   },
   copyAssets: function(err) {
-    fs.copy((__dirname + '/assets'), distPath, {clobber:true}, err);
+    fs.copy((__dirname + '/assets'), distPath, {clobber: true}, err);
   },
   copyUploads: function(files) {
     fs.mkdirpSync(distPath + '/json');
     fs.copySync(files.speakerfile[0].path, distPath + '/json/speakers.json');
     fs.copySync(files.sessionfile[0].path, distPath + '/json/sessions.json');
     fs.copySync(files.trackfile[0].path, distPath + '/json/tracks.json');
-    fs.copySync(files.locationfile[0].path, distPath + '/json/locations.json');
+    fs.copySync(files.locationfile[0].path, distPath + '/json/microlocations.json');
     fs.copySync(files.sponsorfile[0].path, distPath + '/json/sponsors.json');
     fs.copySync(files.eventfile[0].path, distPath + '/json/event.json');
+  },
+  fetchApiJsons: function(apiEndpoint, done) {
+    const endpoint = apiEndpoint.replace(/\/$/, '');
+
+    const jsons = [
+      'speakers.json',
+      'sponsors.json',
+      'sessions.json',
+      'tracks.json',
+      'microlocations.json',
+      'event.json'
+    ];
+
+    fs.mkdirpSync(distPath + '/json');
+    async.eachSeries(jsons, (json, callback) => {
+      downloadJson(endpoint, json, callback);
+    }, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Jsons downloaded');
+        done();
+      }
+    });
   },
   copyMockJsons: function() {
     fs.mkdirpSync(distPath + '/json');
@@ -45,35 +106,19 @@ module.exports = {
   },
   downloadAudio: function(audioUrl) {
     const audioFileName = audioUrl.split('/').pop();
+    const audioFilePath = 'audio/' + audioFileName;
 
     console.log('Downloading audio : ' + audioFileName);
 
-    const audioFileStream = fs.createWriteStream(distPath + '/audio/' + audioFileName);
-
-    audioFileStream.on('error', function(err) {
-      console.log(err);
-    });
-    try {
-      request(audioUrl).pipe(audioFileStream);
-    } catch (err) {
-      console.log(err);
-    }
-    return ('audio/' + audioFileName);
+    downloadFile(audioUrl, distPath + '/' + audioFilePath);
+    return audioFilePath;
   },
   downloadSpeakerPhoto: function(photoUrl) {
     const photoFileName = photoUrl.split('/').pop();
+    const photoFilePath = 'img/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
-    const photoFileStream = fs.createWriteStream(distPath + '/img/speakers/' + photoFileName);
-
-    photoFileStream.on('error', function(err) {
-      console.log(err);
-    });
-    try {
-      request(photoUrl).pipe(photoFileStream);
-    } catch (err) {
-      console.log(err);
-    }
-    return ('img/speakers/' + photoFileName);
+    downloadFile(photoUrl, distPath + '/' + photoFilePath);
+    return photoFilePath;
   }
 };

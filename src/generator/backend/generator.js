@@ -112,6 +112,12 @@ exports.createDistDir = function(req, callback) {
             done(null, 'cleanuploads');
           });
           break;
+        case 'eventapi':
+          console.log('================================FETCHING JSONS\n\n\n\n');
+          distHelper.fetchApiJsons(req.body.apiendpoint, () => {
+            done(null, 'cleanuploads');
+          });
+          break;
         case 'mockjson':
         default:
           distHelper.copyMockJsons();
