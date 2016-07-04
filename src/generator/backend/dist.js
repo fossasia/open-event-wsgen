@@ -64,9 +64,8 @@ module.exports = {
   },
   copyUploads: function(files) {
     fs.mkdirpSync(distPath + '/json');
-    console.log(files.singlefileUpload[0].path)
-  var zip = new admZip(files.singlefileUpload[0].path);
-  zip.extractAllTo("./dist/json", true);
+    var zip = new admZip(files.singlefileUpload[0].path);
+    zip.extractAllTo("./dist/json", true);
   },
   fetchApiJsons: function(apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
