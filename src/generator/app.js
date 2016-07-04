@@ -3,6 +3,7 @@
 var express = require('express');
 var connectDomain = require('connect-domain');
 var multer = require('multer');
+var admZip = require('adm-zip');
 
 var app = express();
 var errorHandler;
@@ -18,6 +19,7 @@ errorHandler = function(err, req, res, next) {
 };
 
 const uploadedFiles = upload.fields([
+  {name: 'singlefileUpload', maxCount: 1},
   {name: 'speakerfile', maxCount: 1},
   {name: 'sessionfile', maxCount: 1},
   {name: 'trackfile', maxCount: 1},
@@ -32,7 +34,8 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
-app.post('/live', uploadedFiles, function(req, res) {
+app.post('/live',uploadedFiles, function(req, res) {
+  
   generator.createDistDir(req, function() {
     generator.showLivePreview(res);
   });

@@ -3,7 +3,7 @@
 const fs = require('fs-extra');
 const request = require('request');
 const async = require('async');
-
+var admZip = require('adm-zip');
 const distPath = __dirname + '/../../../dist';
 const uploadsPath = __dirname + '/../../../uploads';
 const mockPath = __dirname + '/../../../mockjson';
@@ -64,12 +64,9 @@ module.exports = {
   },
   copyUploads: function(files) {
     fs.mkdirpSync(distPath + '/json');
-    fs.copySync(files.speakerfile[0].path, distPath + '/json/speakers.json');
-    fs.copySync(files.sessionfile[0].path, distPath + '/json/sessions.json');
-    fs.copySync(files.trackfile[0].path, distPath + '/json/tracks.json');
-    fs.copySync(files.locationfile[0].path, distPath + '/json/microlocations.json');
-    fs.copySync(files.sponsorfile[0].path, distPath + '/json/sponsors.json');
-    fs.copySync(files.eventfile[0].path, distPath + '/json/event.json');
+    console.log(files.singlefileUpload[0].path)
+  var zip = new admZip(files.singlefileUpload[0].path);
+  zip.extractAllTo("./dist/json", true);
   },
   fetchApiJsons: function(apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
