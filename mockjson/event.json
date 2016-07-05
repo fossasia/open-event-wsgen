@@ -1,58 +1,34 @@
 {
-  "services": [
+  "social_links": [
     {
-      "py/object": "models.Service",
-      "url": "http://2016.opentechsummit.net",
+      "id": 1,
+      "link": "https://twitter.com/opntec",
+      "name": "Twitter"
+    },
+    {
       "id": 2,
-      "service": "Event Main Page"
+      "link": "https://github.com/opentechsummit",
+      "name": "Github"
     },
     {
-      "py/object": "models.Service",
-      "url": "https://twitter.com/opntec",
       "id": 3,
-      "service": "Twitter"
+      "link": "https://www.facebook.com/OpenTechSummit",
+      "name": "Facebook"
     },
     {
-      "py/object": "models.Service",
-      "url": "https://github.com/opentechsummit",
       "id": 4,
-      "service": "Github"
+      "link": "https://www.flickr.com/search/?q=openxlab",
+      "name": "Flickr"
     },
     {
-      "py/object": "models.Service",
-      "url": "https://www.facebook.com/OpenTechSummit",
       "id": 5,
-      "service": "Facebook"
+      "link": "https://plus.google.com/u/0/111141930325574830495",
+      "name": "Google Plus"
     },
     {
-      "py/object": "models.Service",
-      "url": "https://www.flickr.com/search/?q=openxlab",
       "id": 6,
-      "service": "Flickr"
-    },
-    {
-      "py/object": "models.Service",
-      "url": "https://plus.google.com/u/0/111141930325574830495",
-      "id": 7,
-      "service": "Google Plus"
-    },
-    {
-      "py/object": "models.Service",
-      "url": "https://www.youtube.com/channel/UCJoKp-gG2t7lH5_hiKp95yA",
-      "id": 8,
-      "service": "YouTube"
-    },
-    {
-      "py/object": "models.Service",
-      "url": "",
-      "id": 9,
-      "service": "Vimeo"
-    },
-    {
-      "py/object": "models.Service",
-      "url": "",
-      "id": 10,
-      "service": "Linkedin"
+      "link": "https://www.youtube.com/channel/UCJoKp-gG2t7lH5_hiKp95yA",
+      "name": "YouTube"
     }
   ],
   "logoico": {

@@ -44,12 +44,12 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-function transformData(sessions, speakers, services, sponsors, tracksData, roomsData, reqOpts) {
+function transformData(sessions, speakers, event, sponsors, tracksData, roomsData, reqOpts) {
   const tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
   const days = fold.foldByDate(tracks);
-  const sociallinks = fold.createSocialLinks(services);
-  const eventurls = fold.extractEventUrls(services, reqOpts);
-  const copyright = fold.getCopyrightData(services);
+  const sociallinks = fold.createSocialLinks(event);
+  const eventurls = fold.extractEventUrls(event, reqOpts);
+  const copyright = fold.getCopyrightData(event);
   const sponsorpics = fold.foldByLevel(sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions);
 
@@ -59,12 +59,12 @@ function transformData(sessions, speakers, services, sponsors, tracksData, rooms
 function getJsonData(reqOpts) {
   const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions.json');
   const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers.json');
-  const servicesData = jsonfile.readFileSync(distJsonsPath + '/event.json');
+  const eventData = jsonfile.readFileSync(distJsonsPath + '/event.json');
   const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors.json');
   const tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks.json');
   const roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations.json');
 
-  const data = transformData(sessionsData, speakersData, servicesData,
+  const data = transformData(sessionsData, speakersData, eventData,
       sponsorsData, tracksData, roomsData, reqOpts);
 
   return data;
