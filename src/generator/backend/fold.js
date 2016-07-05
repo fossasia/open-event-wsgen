@@ -117,12 +117,12 @@ function foldByDate(tracks) {
   return dates;
 }
 
-function createSocialLinks(services) {
-  const sociallinks = Array.from(services.services);
+function createSocialLinks(event) {
+  const sociallinks = Array.from(event.social_links);
 
   sociallinks.forEach((link) => {
     link.show = true;
-    switch(link.service.toLowerCase()) {
+    switch(link.name.toLowerCase()) {
       case 'event main page':
         link.icon = 'home';
         break;
@@ -155,7 +155,7 @@ function createSocialLinks(services) {
         break;
     }
 
-    if (link.url === '') {
+    if (link.link === '') {
       link.show = false;
     }
   });
