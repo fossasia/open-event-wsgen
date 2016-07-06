@@ -168,9 +168,9 @@ function extractEventUrls(event, reqOpts) {
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo
-  }
+  };
   if (reqOpts.assetmode === 'download') {
-    if ((event.logo !== null) && (event.logo.substring(0, 4) == 'http')) {
+    if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
       event.logo = distHelper.downloadSpeakerPhoto(event.logo);
     }
   }
