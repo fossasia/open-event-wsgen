@@ -258,3 +258,4 @@ module.exports.extractEventUrls = extractEventUrls;
 module.exports.getCopyrightData = getCopyrightData;
 module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
+module.exports.slugify = slugify;
