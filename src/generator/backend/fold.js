@@ -118,6 +118,7 @@ function foldByDate(tracks) {
 }
 
 function createSocialLinks(event) {
+
   const sociallinks = Array.from(event.social_links);
 
   sociallinks.forEach((link) => {
@@ -162,20 +163,23 @@ function createSocialLinks(event) {
   return sociallinks;
 }
 
-function extractEventUrls(services, reqOpts) {
-  const urls = services.logoico;
+function extractEventUrls(event, reqOpts) {
+  
+  const urls= {
+    main_page_url:event.event_url,
+    logo_url : event.logo
+  };
   if (reqOpts.assetmode === 'download') {
-    if ((services.logoico.logo_url !== null) && (services.logoico.logo_url.substring(0, 4) == 'http')) {
-      services.logoico.logo_url = distHelper.downloadSpeakerPhoto(services.logoico.logo_url);
+    if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
+      event.logo = distHelper.downloadSpeakerPhoto(event.logo);
     }
   }
 
   return urls;
 }
 
-function getCopyrightData(services) {
-  const copyright = services.copyright;
-
+function getCopyrightData(event) {
+  const copyright = event.copyright;
   return copyright;
 }
 
