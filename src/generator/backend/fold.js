@@ -251,6 +251,11 @@ function foldByRooms(roomsData, sessions) {
   return roomInfo;
 }
 
+function getAppName(event) {
+    const name = event.name;
+    return name;
+}
+
 module.exports.foldByTrack = foldByTrack;
 module.exports.foldByDate = foldByDate;
 module.exports.createSocialLinks = createSocialLinks;
@@ -259,3 +264,4 @@ module.exports.getCopyrightData = getCopyrightData;
 module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
+module.exports.getAppName = getAppName;
