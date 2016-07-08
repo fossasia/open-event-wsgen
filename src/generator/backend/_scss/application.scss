@@ -320,7 +320,7 @@ a {
 
 .height{ 
   min-height: 70px; 
-  border-right: 1px solid rgba(0,0,0,.10); 
+  border-right: 1px solid $timeroom-color; 
 } 
 .text{ 
   color: $gray-trackshade; 
@@ -391,7 +391,7 @@ a {
     margin-top :2%;
     margin-bottom :1%;
     border-radius: 4px; 
-    background-color: white;
+    background-color: $main-background;
   }
 
 

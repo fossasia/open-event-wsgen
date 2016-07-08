@@ -26,7 +26,10 @@ $corp-color: $white !default;
 $corp-color-dark: darken($corp-color, 15%) !default;
 $corp-color-second: $red !default;
 $corp-color-second-dark: darken($corp-color-second, 15%) !default;
- 
+$dark-black: rgba(22, 22, 22, 0.99);
+$black-main:#232323;
+$timeroom-color:rgba(0,0,0,.10);
+$session-color: #a58ea2;
 // Font
 $base-font-size: 1.8 !default;
 $base-font-family: Helvetica, Arial, Sans-Serif !default;
