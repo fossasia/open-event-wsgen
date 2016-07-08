@@ -52,8 +52,9 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const copyright = fold.getCopyrightData(event);
   const sponsorpics = fold.foldByLevel(sponsors);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions);
+  const apptitle = fold.getAppName(event);
 
-  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo};
+  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle};
 }
 
 function getJsonData(reqOpts) {
