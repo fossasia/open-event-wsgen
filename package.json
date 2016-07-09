@@ -6,8 +6,8 @@
   "scripts": {
     "server.generator": "node src/generator/app.js",
     "start": "npm run server.generator",
-    "test": "npm run server.generator&",
-    "tester": "./node_modules/.bin/jasmine-node test/spec"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,12 @@
     "adm-zip": "^0.4.7",
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
+    "chai": "^3.5.0",
     "connect-domain": "^0.5.0",
     "express": "^4.13.4",
     "fs": "0.0.2",
     "fs-extra": "^0.30.0",
     "handlebars": "^4.0.5",
-    "jasmine-node": "^1.14.5",
     "jsonfile": "^2.3.1",
     "moment": "^2.13.0",
     "multer": "^1.1.0",
