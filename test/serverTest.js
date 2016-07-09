@@ -1,6 +1,9 @@
 /**
  * Created by championswimmer on 10/7/16.
  */
+
+/*eslint no-undef: 0*/
+
 var assert = require('chai').assert;
 const jsonfile = require('jsonfile');
 
@@ -11,8 +14,6 @@ var dist = require('../src/generator/backend/dist.js');
 var data = {
   event: jsonfile.readFileSync(__dirname + '/../mockjson/event')
 };
-
-console.log(data.event);
 
 
 describe('fold', function() {
