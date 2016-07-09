@@ -2,15 +2,28 @@
  * Created by championswimmer on 10/7/16.
  */
 var assert = require('chai').assert;
+const jsonfile = require('jsonfile');
 
 var fold = require('../src/generator/backend/fold.js');
+
+var data = {
+  event: jsonfile.readFileSync(__dirname + '/../mockjson/event')
+};
+
+console.log(data.event);
 
 
 describe('fold', function() {
   describe('.slugify()', function() {
     it('should turn sentences to slugs', function() {
       assert.equal(fold.slugify('Hello world'), 'hello-world');
+      assert.equal(fold.slugify(), '');
     });
   });
+  describe('.getAppName()', function () {
+    it('should return event title from event object', function () {
+      assert.equal(fold.getAppName(data.event), 'Open Tech Summit')
+    })
+  })
 });
 
