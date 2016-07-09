@@ -58,12 +58,12 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
 }
 
 function getJsonData(reqOpts) {
-  const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions.json');
-  const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers.json');
-  const eventData = jsonfile.readFileSync(distJsonsPath + '/event.json');
-  const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors.json');
-  const tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks.json');
-  const roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations.json');
+  const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions');
+  const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers');
+  const eventData = jsonfile.readFileSync(distJsonsPath + '/event');
+  const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
+  const tracksData   = jsonfile.readFileSync(distJsonsPath + '/tracks');
+  const roomsData    = jsonfile.readFileSync(distJsonsPath + '/microlocations');
 
   const data = transformData(sessionsData, speakersData, eventData,
       sponsorsData, tracksData, roomsData, reqOpts);
