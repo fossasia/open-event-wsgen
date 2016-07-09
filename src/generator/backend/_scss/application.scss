@@ -6,10 +6,10 @@
 
 /* Offsets for fixed navbar */
 body {
-  font: 12px 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  color: $corp-color;
-  margin-top: 50px;
   background-color:$corp-color !important;
+  color: $corp-color;
+  font: 12px 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  margin-top: 50px;
 }
 
 .anchor {
@@ -235,16 +235,16 @@ a {
   height: auto;
 }
 .large {
-  max-height:200px;
   @include sponsorimages;
+  max-height:200px; 
 }
 .medium {
+  @include sponsorimages;
   max-height:140px;
-  @include sponsorimages;
 }
-.small {
-  max-height:120px;
+.small {  
   @include sponsorimages;
+  max-height:120px;
 }
 
 .sponsors {
