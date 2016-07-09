@@ -5,6 +5,8 @@ var assert = require('chai').assert;
 const jsonfile = require('jsonfile');
 
 var fold = require('../src/generator/backend/fold.js');
+var generator = require('../src/generator/backend/generator.js');
+var dist = require('../src/generator/backend/dist.js');
 
 var data = {
   event: jsonfile.readFileSync(__dirname + '/../mockjson/event')
