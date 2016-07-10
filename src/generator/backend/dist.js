@@ -71,12 +71,12 @@ module.exports = {
     const endpoint = apiEndpoint.replace(/\/$/, '');
 
     const jsons = [
-      'speakers.json',
-      'sponsors.json',
-      'sessions.json',
-      'tracks.json',
-      'microlocations.json',
-      'event.json'
+      'speakers',
+      'sponsors',
+      'sessions',
+      'tracks',
+      'microlocations',
+      'event'
     ];
 
     fs.mkdirpSync(distPath + '/json');
@@ -93,12 +93,12 @@ module.exports = {
   },
   copyMockJsons: function() {
     fs.mkdirpSync(distPath + '/json');
-    fs.copySync(mockPath + '/speakers.json', distPath + '/json/speakers.json');
-    fs.copySync(mockPath + '/sessions.json', distPath + '/json/sessions.json');
-    fs.copySync(mockPath + '/tracks.json', distPath + '/json/tracks.json');
-    fs.copySync(mockPath + '/event.json', distPath + '/json/event.json');
-    fs.copySync(mockPath + '/sponsors.json', distPath + '/json/sponsors.json');
-    fs.copySync(mockPath + '/microlocations.json', distPath + '/json/microlocations.json');
+    fs.copySync(mockPath + '/speakers', distPath + '/json/speakers');
+    fs.copySync(mockPath + '/sessions', distPath + '/json/sessions');
+    fs.copySync(mockPath + '/tracks', distPath + '/json/tracks');
+    fs.copySync(mockPath + '/event', distPath + '/json/event');
+    fs.copySync(mockPath + '/sponsors', distPath + '/json/sponsors');
+    fs.copySync(mockPath + '/microlocations', distPath + '/json/microlocations');
   },
   downloadAudio: function(audioUrl) {
     const audioFileName = audioUrl.split('/').pop();
