@@ -36,7 +36,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-1 col-md-10 main" style="margin-top:8%">
+      <div class="col-md-offset-1 col-md-10 main">
+        <div id="track-list">
         {{#tracks}}
         {{#sessions}}
         {{#speakers_list}}
@@ -51,7 +52,7 @@
               </div>
             </div>
             <div class="icons row">
-              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{github}}}"<i class="fa fa-github"></i></a></div>
+              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
               <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></div>
               <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></a></i></div>
             </div>
@@ -61,6 +62,7 @@
         {{/sessions}}
         {{/tracks}}
       </div>
+    </div>
     </div>
   </div>
     {{> footer}}
