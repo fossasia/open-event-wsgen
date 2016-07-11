@@ -428,3 +428,29 @@ a {
       }
   }
 }
+.filter-heading span{
+  position :relative;
+  color: $filter-heading;
+}
+.filter-heading span:after{
+  left:100%;
+  margin-left:0.5em;
+}
+.filter-heading span:after{
+  right:100%;
+  margin-right:0.5em;
+}
+.filter-heading span:after, .filter-heading span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  display: block;
+  width:349px;
+  margin-top: -2px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.track-heading span:after,.track-heading span:before {
+  width:299px;
+}
