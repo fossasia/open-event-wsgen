@@ -25,11 +25,11 @@ $black-main:#232323 !default;
 $timeroom-color:rgba(0,0,0,.10) !default;
 $session-color: $gray-trackshade !default;
 $header-color: #f8f8f8 !default;
-$main-background: #fff !default;
+$main-background: #fff;
 $filter-heading:$gray-extra-dark !default;
 
 // Corp-Colors
-$corp-color: $white !default;
+$corp-color: $white ;
 $corp-color-dark: darken($corp-color, 15%) !default;
 $corp-color-second: $red !default;
 $corp-color-second-dark: darken($corp-color-second, 15%) !default;
