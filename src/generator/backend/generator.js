@@ -131,7 +131,7 @@ exports.createDistDir = function(req, callback) {
       console.log('===============================COMPILING SASS\n\n\n\n');
 
       sass.render({
-        file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
+        file: __dirname + '/_scss/application.scss',
         outFile: distHelper.distPath + '/css/schedule.css'
       }, function(err, result) {
         if (!err) {
