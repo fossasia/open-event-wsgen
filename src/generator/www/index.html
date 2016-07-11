@@ -17,18 +17,20 @@
     	<label for="name">Email</label>
     	<input type="email" class="form-control" id="email" name="email">
     </br>
-  		<label for="theme">Choose your theme</label>
-  		  <select class="form-control" id="theme" name="theme">
-    		  <option value="light">Light</option>
-    		  <option value="dark">Dark</option>
-  		  </select>
-		</br>
-    	<label for="name">App's Name</label>
+  		<!--<label for="theme">Choose your theme</label>-->
+  		  <!--<select class="form-control" id="theme" name="theme">-->
+    		  <!--<option value="light">Light</option>-->
+    		  <!--<option value="dark">Dark</option>-->
+  		  <!--</select>-->
+		<!--</br>-->
+        <input type="hidden" name="theme" value="light">
+
+        <label for="name">App's Name</label>
     	<input type="name" class="form-control" id="name" name="name">
  		</br>
       <label > Choose your data source </label>
       <ul style="list-style-type:none">
-        <li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>
+        <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
         <li><input type="radio" name="datasource" value="jsonupload"> Upload your own JSON files </input></li>
         <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input></li>
       </ul>
@@ -36,7 +38,6 @@
     <section id="eventapi-input" style="display:none;">
     	<label for="apiendpoint">Link to Open Event API endpoint</label>
     	<input type="url" class="form-control"
-      value="https://raw.githubusercontent.com/fossasia/open-event-webapp/master/mockjson/"
       id="apiendpoint" name="apiendpoint">
     </section>
     </br>
@@ -45,12 +46,13 @@
  	</br>
     </section>
     <br>
-    <label title="Wether to download assets into website folder or link to external sources"
-    for="theme">How to link audio/images</label>
-      <select class="form-control" id="assetmode" name="assetmode" style="-webkit-appearance: menulist;">
-        <option title="Download images and audio files into website folder" value="download">Downloaded locally with website</option>
-        <option value="link">Linked to external locations</option>
-      </select>
+    <!--<label title="Wether to download assets into website folder or link to external sources"-->
+    <!--for="theme">How to link audio/images</label>-->
+      <!--<select class="form-control" id="assetmode" name="assetmode" style="-webkit-appearance: menulist;">-->
+        <!--<option title="Download images and audio files into website folder" value="download">Downloaded locally with website</option>-->
+        <!--<option value="link">Linked to external locations</option>-->
+      <!--</select>-->
+        <input type="hidden" name="assetmode" value="download">
       <center>
         <br><br>
       <button formaction="/live" type="submit" class="download btn btn-default" id="btn" >GENERATE APP AND PREVIEW</button>
