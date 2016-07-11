@@ -183,11 +183,11 @@
     {{> footer}}
   
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
     integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-    crossorigin="anonymous">
+    crossorigin="anonymous">    
   </script>
    <script type="text/javascript">
        $(document).ready(function(){
@@ -195,8 +195,7 @@
         $('.session-link').click(function() {
           $(this).next('.inputbox').toggle().select();
         });
-
-  });
+ 
       $(function() {
       $('a[href*="#"]:not([href="#"])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -209,8 +208,10 @@
             return false;
           }
         }
-      });
+      })
     });
+
     </script>
+ 
 </body>
 </html>
