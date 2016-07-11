@@ -171,7 +171,7 @@ function extractEventUrls(event, reqOpts) {
   };
   if (reqOpts.assetmode === 'download') {
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-      event.logo = distHelper.downloadSpeakerPhoto(event.logo);
+      urls.logo_url = distHelper.downloadSpeakerPhoto(event.logo);
     }
   }
 

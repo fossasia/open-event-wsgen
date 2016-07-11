@@ -43,5 +43,15 @@ describe('fold', function() {
       assert.equal(socialLinks[5].icon, 'youtube-play');
     })
   })
+  describe('extractEventUrls()' , function () {
+    it('should return event and logo urls', function () {
+      const linkModeUrls = fold.extractEventUrls(data.event, {assetmode:'link'});
+      const downloadModeUrls = fold.extractEventUrls(data.event, {assetmode:'download'});
+
+      assert.equal(linkModeUrls.main_page_url, data.event.event_url);
+      assert.equal(linkModeUrls.logo_url, data.event.logo);
+      assert.equal(downloadModeUrls.logo_url, 'img/speakers/Logo_OpenTecSummit_TXT_grey.png');
+    })
+  })
 });
 
