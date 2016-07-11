@@ -42,7 +42,7 @@ describe('fold', function() {
       assert.equal(socialLinks[4].icon, 'google-plus');
       assert.equal(socialLinks[5].icon, 'youtube-play');
     })
-  })
+  });
   describe('extractEventUrls()' , function () {
     it('should return event and logo urls', function () {
       const linkModeUrls = fold.extractEventUrls(data.event, {assetmode:'link'});
@@ -52,6 +52,12 @@ describe('fold', function() {
       assert.equal(linkModeUrls.logo_url, data.event.logo);
       assert.equal(downloadModeUrls.logo_url, 'img/speakers/Logo_OpenTecSummit_TXT_grey.png');
     })
-  })
+  });
+  describe('getCopyrightData()', function () {
+    it('should get copyright data from event', function () {
+      const copyright = fold.getCopyrightData(data.event);
+      assert.equal(copyright.holder_url, 'http://opentechsummit.net');
+    })
+  });
 });
 
