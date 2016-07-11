@@ -446,8 +446,11 @@ a {
   top: 50%;
   height: 3px;
   display: block;
-  width:247px;
+  width:349px;
   margin-top: -2px;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
+}
+.track-heading span:after,.track-heading span:before {
+  width:299px;
 }
