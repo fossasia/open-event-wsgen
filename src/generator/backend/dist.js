@@ -21,8 +21,8 @@ const downloadFile = function(url, filePath) {
   }
 };
 
-const downloadJson = function(endpoint, jsonFile, cb) {
-  const fileStream = fs.createWriteStream(distPath + '/json/' + jsonFile);
+const downloadJson = function(appPath, endpoint, jsonFile, cb) {
+  const fileStream = fs.createWriteStream(appPath + '/json/' + jsonFile);
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -90,7 +90,7 @@ module.exports = {
 
     fs.mkdirpSync(appPath + '/json');
     async.eachSeries(jsons, (json, callback) => {
-      downloadJson(endpoint, json, callback);
+      downloadJson(appPath, endpoint, json, callback);
     }, (err) => {
       if (err) {
         console.log(err);
