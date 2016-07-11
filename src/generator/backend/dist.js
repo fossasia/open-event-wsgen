@@ -29,14 +29,18 @@ const downloadJson = function(endpoint, jsonFile, cb) {
   });
 
   try {
-    console.log('Downloading ' + jsonFile);
+    console.log('Downloading ' + endpoint + '/' + jsonFile);
     request
         .get(endpoint + '/' + jsonFile)
         .on('response', function(response) {
-          console.log('Got response');
-          console.log(response.statusCode); // 200
-          console.log(response.headers['content-type']); // 'image/png'
-          cb();
+          if (response.statusCode != 200) {
+            cb(new Error('Response = ' + response.statusCode + 'received'));
+          } else {
+            console.log('Got response');
+            console.log(response.statusCode); // 200
+            console.log(response.headers['content-type']); // 'image/png'
+            cb();
+          }
         })
         .pipe(fileStream);
   } catch (err) {
