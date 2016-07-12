@@ -1,7 +1,8 @@
 /* Created by aayusharora on June 20, 2017 */
 
 $(document).ready(function() {
-  $('.pop-box').hide();
+  var popbox = $('.pop-box');
+  popbox.hide();
   if($(window).width() < 768) {
     $('.item').click(function(event) {
       popBox(event);
@@ -15,7 +16,7 @@ $(document).ready(function() {
   function popBox(e) {
     event = e || window.event;
 
-    $('.pop-box').hide();
+    popbox.hide();
     event.preventDefault();
     event.stopPropagation();
 
@@ -26,11 +27,11 @@ $(document).ready(function() {
       var offset = $(track).offset();
       var track = track.parent();
     }
-    else{
+    else {
       var offset = $(link).offset();
     }
 
-    nextOfpop = $(track).next();
+    var nextOfpop = $(track).next();
     var position = offset.top - link.height() - 30;
     var left = offset.left;
 
@@ -56,9 +57,8 @@ $(document).ready(function() {
     });
       $(track).next().show();
     }
-    $(document).mouseup(function(e)
-    {
-      var container = $('.pop-box');
+    $(document).mouseup(function(e) {
+      var container = popbox;
 
       if (!container.is(e.target)
             && container.has(e.target).length === 0 && (e.target) !== $('html').get(0))
