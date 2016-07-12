@@ -499,8 +499,13 @@ a {
     width: 156px; 
   }
 }
-@media (max-width: 521px) {
+@media (max-width: 521px) and (min-width: 421px){
   .filter-heading span:after, .filter-heading span:before  {
-    width: 136px; 
+    width: 134px; 
+  }
+}
+@media (max-width: 421px) {
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 116px; 
   }
 }
