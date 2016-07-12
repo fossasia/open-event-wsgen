@@ -37,13 +37,13 @@ app.use('/live/preview', express.static(__dirname + '/../../dist'));
 app.post('/live',uploadedFiles, function(req, res) {
   
   generator.createDistDir(req, function() {
-    generator.showLivePreview(res);
+    generator.showLivePreview(req, res);
   });
 }).use(errorHandler);
 
 app.post('/generate', uploadedFiles, function(req, res) {
   generator.createDistDir(req, function() {
-    generator.pipeZipToRes(res);
+    generator.pipeZipToRes(req, res);
   });
 }).use(errorHandler);
 

@@ -21,8 +21,8 @@ const downloadFile = function(url, filePath) {
   }
 };
 
-const downloadJson = function(endpoint, jsonFile, cb) {
-  const fileStream = fs.createWriteStream(distPath + '/json/' + jsonFile);
+const downloadJson = function(appPath, endpoint, jsonFile, cb) {
+  const fileStream = fs.createWriteStream(appPath + '/json/' + jsonFile);
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -53,26 +53,31 @@ module.exports = {
   cleanUploads: function(err) {
     fs.emptyDir(uploadsPath, err);
   },
-  cleanDist: function(err) {
-    fs.emptyDir(distPath, (emptyErr) => {
-      fs.remove(distPath, err);
+  cleanDist: function(appFolder, err) {
+    fs.emptyDir(distPath + '/' + appFolder, (emptyErr) => {
+      fs.remove(distPath + '/' + appFolder, err);
     });
   },
-  makeDistDir: function(err) {
+  makeDistDir: function(appFolder, err) {
+    const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(distPath);
-    fs.mkdirpSync(distPath + '/audio');
-    fs.mkdirpSync(distPath + '/img/speakers');
+    fs.mkdirpSync(appPath);
+    fs.mkdirpSync(appPath + '/audio');
+    fs.mkdirpSync(appPath + '/img/speakers');
   },
-  copyAssets: function(err) {
-    fs.copy((__dirname + '/assets'), distPath, {clobber: true}, err);
+  copyAssets: function(appFolder, err) {
+    const appPath = distPath + '/' + appFolder;
+    fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
-  copyUploads: function(files) {
-    fs.mkdirpSync(distPath + '/json');
+  copyUploads: function(appFolder, files) {
+    const appPath = distPath + '/' + appFolder;
+    fs.mkdirpSync(appPath + '/json');
     var zip = new admZip(files.singlefileUpload[0].path);
     zip.extractAllTo("./dist/json", true);
   },
-  fetchApiJsons: function(apiEndpoint, done) {
+  fetchApiJsons: function(appFolder, apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
+    const appPath = distPath + '/' + appFolder;
 
     const jsons = [
       'speakers',
@@ -83,9 +88,9 @@ module.exports = {
       'event'
     ];
 
-    fs.mkdirpSync(distPath + '/json');
+    fs.mkdirpSync(appPath + '/json');
     async.eachSeries(jsons, (json, callback) => {
-      downloadJson(endpoint, json, callback);
+      downloadJson(appPath, endpoint, json, callback);
     }, (err) => {
       if (err) {
         console.log(err);
@@ -95,30 +100,33 @@ module.exports = {
       }
     });
   },
-  copyMockJsons: function() {
-    fs.mkdirpSync(distPath + '/json');
-    fs.copySync(mockPath + '/speakers', distPath + '/json/speakers');
-    fs.copySync(mockPath + '/sessions', distPath + '/json/sessions');
-    fs.copySync(mockPath + '/tracks', distPath + '/json/tracks');
-    fs.copySync(mockPath + '/event', distPath + '/json/event');
-    fs.copySync(mockPath + '/sponsors', distPath + '/json/sponsors');
-    fs.copySync(mockPath + '/microlocations', distPath + '/json/microlocations');
+  copyMockJsons: function(appFolder) {
+    const appPath = distPath + '/' + appFolder;
+    fs.mkdirpSync(appPath + '/json');
+    fs.copySync(mockPath + '/speakers', appPath + '/json/speakers');
+    fs.copySync(mockPath + '/sessions', appPath + '/json/sessions');
+    fs.copySync(mockPath + '/tracks', appPath + '/json/tracks');
+    fs.copySync(mockPath + '/event', appPath + '/json/event');
+    fs.copySync(mockPath + '/sponsors', appPath + '/json/sponsors');
+    fs.copySync(mockPath + '/microlocations', appPath + '/json/microlocations');
   },
-  downloadAudio: function(audioUrl) {
+  downloadAudio: function(appFolder, audioUrl) {
+    const appPath = distPath + '/' +appFolder;
     const audioFileName = audioUrl.split('/').pop();
     const audioFilePath = 'audio/' + audioFileName;
 
     console.log('Downloading audio : ' + audioFileName);
 
-    downloadFile(audioUrl, distPath + '/' + audioFilePath);
+    downloadFile(audioUrl, appPath + '/' + audioFilePath);
     return audioFilePath;
   },
-  downloadSpeakerPhoto: function(photoUrl) {
+  downloadSpeakerPhoto: function(appFolder, photoUrl) {
+    const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'img/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
-    downloadFile(photoUrl, distPath + '/' + photoFilePath);
+    downloadFile(photoUrl, appPath + '/' + photoFilePath);
     return photoFilePath;
   }
 };

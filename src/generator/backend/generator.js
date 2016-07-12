@@ -23,8 +23,6 @@ const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tra
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 
-const distJsonsPath = distHelper.distPath + '/json';
-
 if(!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
@@ -58,6 +56,9 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
 }
 
 function getJsonData(reqOpts) {
+  const appFolder = reqOpts.email + '/' + fold.slugify(reqOpts.name);
+  const distJsonsPath = distHelper.distPath + '/' + appFolder + '/json';
+
   const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions');
   const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers');
   const eventData = jsonfile.readFileSync(distJsonsPath + '/event');
@@ -75,10 +76,11 @@ exports.createDistDir = function(req, callback) {
   console.log(req.files);
   console.log(req.body);
   const theme = req.body.theme;
+  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
 
   async.series([
     (done) => {
-      distHelper.cleanDist((cleanerr) => {
+      distHelper.cleanDist(appFolder, (cleanerr) => {
         console.log('================================CLEANING\n\n\n\n');
         if (cleanerr !== null) {
           console.log(cleanerr);
@@ -88,11 +90,11 @@ exports.createDistDir = function(req, callback) {
     },
     (done) => {
       console.log('================================MAKING\n\n\n\n');
-      distHelper.makeDistDir();
+      distHelper.makeDistDir(appFolder);
       done(null, 'make');
     },
     (done) => {
-      distHelper.copyAssets((copyerr) => {
+      distHelper.copyAssets(appFolder, (copyerr) => {
         console.log('================================COPYING\n\n\n\n');
         if (copyerr !== null) {
           console.log(copyerr);
@@ -104,7 +106,7 @@ exports.createDistDir = function(req, callback) {
       console.log('================================COPYING JSONS\n\n\n\n');
       switch (req.body.datasource) {
         case 'jsonupload':
-          distHelper.copyUploads(req.files);
+          distHelper.copyUploads(appFolder, req.files);
           distHelper.cleanUploads((cleanErr) => {
             console.log('================================CLEANING UPLOADS\n\n\n\n');
             if (cleanErr !== null) {
@@ -115,13 +117,13 @@ exports.createDistDir = function(req, callback) {
           break;
         case 'eventapi':
           console.log('================================FETCHING JSONS\n\n\n\n');
-          distHelper.fetchApiJsons(req.body.apiendpoint, () => {
+          distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, () => {
             done(null, 'cleanuploads');
           });
           break;
         case 'mockjson':
         default:
-          distHelper.copyMockJsons();
+          distHelper.copyMockJsons(appFolder);
           done(null, 'cleanuploads');
           break;
 
@@ -132,10 +134,10 @@ exports.createDistDir = function(req, callback) {
 
       sass.render({
         file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
-        outFile: distHelper.distPath + '/css/schedule.css'
+        outFile: distHelper.distPath + '/' + appFolder + '/css/schedule.css'
       }, function(err, result) {
         if (!err) {
-          fs.writeFile(distHelper.distPath + '/css/schedule.css', result.css, (writeErr) => {
+          fs.writeFile(distHelper.distPath + '/' + appFolder +  '/css/schedule.css', result.css, (writeErr) => {
             if (writeErr !== null) {
               console.log(writeErr);
             }
@@ -151,10 +153,10 @@ exports.createDistDir = function(req, callback) {
 
       const jsonData = getJsonData(req.body);
 
-      fs.writeFileSync(distHelper.distPath + '/index.html', tpl(jsonData));
-      fs.writeFileSync(distHelper.distPath + '/tracks.html', trackstpl(jsonData));
-      fs.writeFileSync(distHelper.distPath + '/rooms.html', roomstpl(jsonData));
-      fs.writeFileSync(distHelper.distPath + '/speakers.html', speakerstpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', tpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/tracks.html', trackstpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/rooms.html', roomstpl(jsonData));
+      fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/speakers.html', speakerstpl(jsonData));
 
       callback();
       done(null, 'write');
@@ -162,13 +164,16 @@ exports.createDistDir = function(req, callback) {
   ]);
 };
 
-exports.showLivePreview = function(res) {
+exports.showLivePreview = function(req, res) {
+  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   console.log('===============================LIVERENDER\n\n\n\n');
+  console.log('Redirecting to ---- ' + '/live/preview/' + appFolder);
 
-  res.redirect('/live/preview');
+  res.redirect('/live/preview/' + appFolder);
 };
 
-exports.pipeZipToRes = function(res) {
+exports.pipeZipToRes = function(req, res) {
+  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   console.log('================================ZIPPING\n\n\n\n');
   const zipfile = archiver('zip');
 
@@ -179,5 +184,5 @@ exports.pipeZipToRes = function(res) {
 
   zipfile.pipe(res);
 
-  zipfile.directory(distHelper.distPath, '/').finalize();
+  zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
