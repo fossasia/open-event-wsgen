@@ -284,7 +284,6 @@ a {
   width:auto; 
   margin-left: 4%; 
   max-width: 500px; 
-  color:$session-color;
   } 
 @media (max-width: 660px) {
   .event {
@@ -305,10 +304,10 @@ a {
 
 .height{ 
   min-height: 70px; 
-  border-right: 1px solid $timeroom-color; 
+  border-right: 1px solid $black; 
 } 
 .text{ 
-  color: $session-color; 
+  color: $black; 
 } 
 
 /* Pop over Track */
@@ -433,7 +432,7 @@ a {
 }
 .filter-heading span{
   position :relative;
-  color: $filter-heading;
+  color: $black;
 }
 .filter-heading span:after{
   left:100%;
@@ -451,8 +450,8 @@ a {
   display: block;
   width:349px;
   margin-top: -2px;
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
+  border-top: 1px solid $gray-dark;
+  border-bottom: 1px solid $gray-dark;
 }
 .track-heading span:after,.track-heading span:before {
   width:299px;
@@ -460,4 +459,53 @@ a {
 .active {
   color: $gray-extra-dark !important;
   font-weight:bold;
+}
+.sesroom {
+  color: $white;
+  padding:1%;
+}
+@media (max-width: 1202px) and (min-width: 760px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 270px; 
+  }
+}
+@media (max-width: 760px) and (min-width: 664px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 223px; 
+  }
+}
+@media (max-width: 664px) and (min-width: 620px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 213px; 
+  }
+}
+@media (max-width: 620px) and (min-width: 581px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 188px; 
+  }
+}
+@media (max-width: 581px) and (min-width: 550px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 176px; 
+  }
+}
+@media (max-width: 550px) and (min-width: 521px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 156px; 
+  }
+}
+@media (max-width: 550px) and (min-width: 521px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 156px; 
+  }
+}
+@media (max-width: 521px) and (min-width: 421px){
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 134px; 
+  }
+}
+@media (max-width: 421px) {
+  .filter-heading span:after, .filter-heading span:before  {
+    width: 116px; 
+  }
 }
