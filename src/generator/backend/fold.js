@@ -221,31 +221,36 @@ function foldByLevel(sponsors) {
   return levelData;
 }
 
-function sessionsByRooms(id, sessions) {
+function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
+  const trackDetails = new Object();
+   trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
 
   sessions.forEach((session) => {
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
           name: session.title,
-          time: moment(session.start_time).utcOffset(2).format('HH:mm')
+          time: moment(session.start_time).utcOffset(2).format('HH:mm'),
+          color: returnTrackColor(trackDetails, session.track.id)
         });
       }
     }
   });
-
+  console.log(sessionInRooms);
   return sessionInRooms;
 }
 
-function foldByRooms(roomsData, sessions) {
+function foldByRooms(roomsData, sessions, trackInfo) {
   var roomInfo = [];
-
+  
   roomsData.forEach((room) => {
     roomInfo.push({
       hall: room.name,
       date: moment(sessions.start_time).format('YYYY-MM-DD'),
-      sessionDetail: sessionsByRooms(room.id, sessions)
+      sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
   return roomInfo;
