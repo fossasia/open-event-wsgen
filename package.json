@@ -24,6 +24,7 @@
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
     "chai": "^3.5.0",
+    "compression": "^1.6.2",
     "connect-domain": "^0.5.0",
     "express": "^4.13.4",
     "fs": "0.0.2",
