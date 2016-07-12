@@ -29,9 +29,10 @@ function returnTrackColor(trackInfo, id) {
 
 function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   if (reqOpts.assetmode === 'download') {
+    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
       if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
-        speaker.photo = distHelper.downloadSpeakerPhoto(speaker.photo);
+        speaker.photo = distHelper.downloadSpeakerPhoto(appFolder, speaker.photo);
       }
     });
   }
@@ -69,8 +70,9 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     }
 
     if (reqOpts.assetmode === 'download') {
+      const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
       if ((session.audio !== null) && (session.audio.substring(0, 4) === 'http')) {
-        session.audio = distHelper.downloadAudio(session.audio);
+        session.audio = distHelper.downloadAudio(appFolder, session.audio);
       }
     }
 
@@ -170,8 +172,9 @@ function extractEventUrls(event, reqOpts) {
     logo_url : event.logo
   };
   if (reqOpts.assetmode === 'download') {
+    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-      urls.logo_url = distHelper.downloadSpeakerPhoto(event.logo);
+      urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
     }
   }
 
