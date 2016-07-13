@@ -22,11 +22,11 @@ To install it locally please refer to the [Installation readme](/docs/INSTALLATI
 
 ### How do I install it with Docker
 
-To install loklak with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_Docker.md).
+To install loklak with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
 
 ### How do I deploy it with Heroku
 
-To install loklak using Heroku Toolbelt, please refer to the loklak [Heroku installation readme](/docs/INSTALLATION_Heroku.md).
+To install loklak using Heroku Toolbelt, please refer to the loklak [Heroku installation readme](/docs/INSTALLATION_HEROKU.md).
 
 ## Usage
 
