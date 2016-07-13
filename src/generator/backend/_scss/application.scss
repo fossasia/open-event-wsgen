@@ -63,7 +63,12 @@ a {
 /* General styling of session list */
 
 .session{
-
+  &-description {
+    color: $gray-dark;
+  }
+  &-type {
+    color: $gray-dark;
+  }
   &-list {
 
     li{
@@ -86,6 +91,7 @@ a {
   }
   &-location{
     text-align: left;
+    color: $gray-dark;
   }
 
 }

@@ -112,35 +112,36 @@
                   </p>
                   <div class="session-speakers-list collapse">
                     {{#speakers_list}}
-                    {{#if biography}}
+                    {{#if long_biography}}
                     <p class="session-speakers-less">
-                      <span class="session-speaker-name">About {{name}}:</span>
+                      <span class="session-description">About {{name}}:</span>
                     </p>
                     <div class="session-speakers-more">
                       <p>
-                        <span class="session-speaker-bio">{{#linkify}}{{biography}}{{/linkify}}</span>
+                        <span class="session-description">{{#linkify}}{{long_biography}}{{/linkify}}</span>
                       </p>
                       <p class="session-speaker-social">
-                        {{#if web}}
+                      {{#if web}}
                         <a class="social speaker-social" href="{{{web}}}"}>
                           <i class="fa fa-home"></i> Web
                         </a>
-                        {{/if}}
-                        {{#if github}}
+                      {{/if}}
+                      {{#if github}}
                         <a class="social speaker-social" href="{{{github}}}"}>
                           <i class="fa fa-github"></i> Github
                         </a>
-                        {{/if}}
-                        {{#if twitter}}
+                      {{/if}}
+                      {{#if twitter}}
                         <a class="social speaker-social" href="{{{twitter}}}"}>
                           <i class="fa fa-twitter"></i> Twitter
                         </a>
-                        {{/if}}
-                        {{#if linkedin}}
+                       {{/if}}
+                       {{#if linkedin}} 
                         <a class="social speaker-social" href="{{{linkedin}}}"}>
                           <i class="fa fa-linkedin"></i> LinkedIn
                         </a>
                         {{/if}}
+                        
                       </p>
                     </div>
                     {{/if}}
