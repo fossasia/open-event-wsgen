@@ -18,7 +18,7 @@ To install it locally please refer to the  [Installation readme](/docs/INSTALLAT
 
 ### How do I install it on a server
 
-To install it locally please refer to the [Installation readme](/docs/INSTALLATION.md).
+To install it on a server please refer to the [Installation readme](/docs/INSTALLATION.md).
 
 ### How do I install it with Docker
 
