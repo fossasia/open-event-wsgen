@@ -4,8 +4,10 @@ var express = require('express');
 var connectDomain = require('connect-domain');
 var multer = require('multer');
 var admZip = require('adm-zip');
+var compression = require('compression');
 
 var app = express();
+app.use(compression());
 var errorHandler;
 
 var upload = multer({dest: 'uploads/'});
@@ -35,7 +37,7 @@ app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
 app.post('/live',uploadedFiles, function(req, res) {
-  
+
   generator.createDistDir(req, function() {
     generator.showLivePreview(req, res);
   });
