@@ -12,24 +12,4 @@
       {{/if}}
   </div>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-   <script>
-
- $(function() {  
-  $('.nav.navbar-nav > li a').removeClass('active');
-  var linkUrl=window.location.href.split("/");
-  if((linkUrl).indexOf("tracks.html")!=-1){
-    $("#trackslink").addClass('active');
-  }
-  else if((linkUrl).indexOf("rooms.html")!=-1){
-    $("#roomslink").addClass('active');
-  }
-  else if((linkUrl).indexOf("speakers.html")!=-1){
-    $("#speakerslink").addClass('active');
-  }
-  else {
-    $("#schedulelink").addClass('active');
-  }
-});
-</script> 
+ 
