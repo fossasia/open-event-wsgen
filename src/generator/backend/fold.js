@@ -242,7 +242,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
       }
     }
   });
-  console.log(sessionInRooms);
+  // console.log(sessionInRooms);
   return sessionInRooms;
 }
 
