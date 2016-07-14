@@ -16,20 +16,18 @@ var dist = require('../src/generator/backend/dist.js');
 var data = {
   event: jsonfile.readFileSync(__dirname + '/../mockjson/event'),
   sponsors: jsonfile.readFileSync(__dirname + '/../mockjson/sponsors'),
-  sessions: jsonfile.readFileSync(__dirname + '/../mockjson/sessions')
+  sessions: jsonfile.readFileSync(__dirname + '/../mockjson/sessions'),
+  microlocations: jsonfile.readFileSync(__dirname + '/../mockjson/microlocations'),
+  tracks: jsonfile.readFileSync(__dirname + '/../mockjson/tracks')
+  
 };
 
 
 describe('fold', function() {
-  describe('.slugify()', function() {
-    it('should turn sentences to slugs', function() {
-      assert.equal(fold.slugify('Hello world'), 'hello-world');
-      assert.equal(fold.slugify(), '');
-    });
-  });
-  describe('.getAppName()', function () {
-    it('should return event title from event object', function () {
-      assert.equal(fold.getAppName(data.event), 'Open Tech Summit')
+  describe('.foldByDate', function () {
+    it('should sort tracks by date', function () {
+      const dateData = fold.foldByDate(data.tracks);
+      assert.equal(dateData[0].tracks[0].name, 'Maker Space');
     })
   });
   describe('.createSocialLinks()', function () {
@@ -46,7 +44,7 @@ describe('fold', function() {
   describe('extractEventUrls()' , function () {
     it('should return event and logo urls', function () {
       const linkModeUrls = fold.extractEventUrls(data.event, {assetmode:'link'});
-      const downloadModeUrls = fold.extractEventUrls(data.event, {assetmode:'download'});
+      const downloadModeUrls = fold.extractEventUrls(data.event, {assetmode:'download', email:"a@b.com", name:"testapp"});
 
       assert.equal(linkModeUrls.main_page_url, data.event.event_url);
       assert.equal(linkModeUrls.logo_url, data.event.logo);
@@ -57,6 +55,29 @@ describe('fold', function() {
     it('should get copyright data from event', function () {
       const copyright = fold.getCopyrightData(data.event);
       assert.equal(copyright.holder_url, 'http://opentechsummit.net');
+    })
+  });
+  describe('.foldByLevel()', function () {
+    it('should sort sponsors by level', function () {
+      const levelData = fold.foldByLevel(data.sponsors);
+      assert.equal(levelData['1'][0].name, 'FFII');
+    })
+  });
+  describe('.foldByRooms()', function () {
+    it('should return sessions grouped by rooms', function () {
+      const roomData = fold.foldByRooms(data.microlocations, data.sessions, data.tracks);
+      assert.equal(roomData[0].hall, 'Erdgeschoss, Saal / Ground Floor');
+    })
+  });
+  describe('.slugify()', function() {
+    it('should turn sentences to slugs', function() {
+      assert.equal(fold.slugify('Hello world'), 'hello-world');
+      assert.equal(fold.slugify(), '');
+    });
+  });
+  describe('.getAppName()', function () {
+    it('should return event title from event object', function () {
+      assert.equal(fold.getAppName(data.event), 'Open Tech Summit')
     })
   });
 });
