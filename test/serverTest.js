@@ -51,6 +51,12 @@ describe('fold', function() {
       assert.equal(copyright.holder_url, 'http://opentechsummit.net');
     })
   });
+  describe('.foldByLevel()', function () {
+    it('should sort sponsors by level', function () {
+      const levelData = fold.foldByLevel(data.sponsors);
+      assert.equal(levelData['1'][0].name, 'FFII');
+    })
+  });
   describe('.foldByRooms()', function () {
     it('should return sessions grouped by rooms', function () {
       const roomData = fold.foldByRooms(data.microlocations, data.sessions, data.tracks);
