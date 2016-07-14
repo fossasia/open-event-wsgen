@@ -24,6 +24,12 @@ var data = {
 
 
 describe('fold', function() {
+  describe('.foldByDate', function () {
+    it('should sort tracks by date', function () {
+      const dateData = fold.foldByDate(data.tracks);
+      assert.equal(dateData[0].tracks[0].name, 'Maker Space');
+    })
+  });
   describe('.createSocialLinks()', function () {
     it('should return array of social links of event', function () {
       var socialLinks = fold.createSocialLinks(data.event);
