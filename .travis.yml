@@ -25,4 +25,6 @@ deploy:
   app: opev-webgen-dev
   on:
     repo: fossasia/open-event-webapp
-    branch: master
+    branch:
+      - master
+      - development
