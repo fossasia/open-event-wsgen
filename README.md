@@ -1,6 +1,6 @@
 # OpenEvent Webapp
 [![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=master)](https://travis-ci.org/fossasia/open-event-webapp)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=open-event-generator)](http://open-event-generator.herokuapp.com)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=opev-webgen)](http://opev-webgen.herokuapp.com)
 ![Dependencies](https://david-dm.org/fossasia/open-event-webapp.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-webapp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-webapp&amp;utm_campaign=Badge_Grade)
 [![Code Climate](https://codeclimate.com/github/fossasia/open-event-webapp/badges/gpa.svg)](https://codeclimate.com/github/fossasia/open-event-webapp)
@@ -8,30 +8,30 @@
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-## Deployment
 
-### Deploying Locally
-First install the dependencies.
+## Installation/Deployment
 
-```shell
-npm install
-```
+### How do I install it locally
 
-Run the app
+To install it locally please refer to the  [Installation readme](/docs/INSTALLATION.md).
 
-```shell
-npm run start
-```
-or
-```shell
-npm run server.generator
-```
+### How do I install it on a server
 
-The app will be running on http://localhost:5000
+To install it on a server please refer to the [Installation readme](/docs/INSTALLATION.md).
 
-### Usage
+### How do I install it with Docker
 
-<i> NOTE: You can try the following out on http://open-event-generator.herokuapp.com </i>   
+To install loklak with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
+
+### How do I deploy it with Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/master)   
+
+## Usage
+
+NOTE: You can try out the app at  https://open-event-generator.herokuapp.com
+
+The development version is available here: https://opev-webgen-dev.herokuapp.com
+
 
 #### Via the Generator web form
 
