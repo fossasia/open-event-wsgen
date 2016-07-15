@@ -27,6 +27,9 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+  fileStream.on('finish', function () {
+    cb()
+  });
 
   try {
     console.log('Downloading ' + endpoint + '/' + jsonFile);
@@ -39,7 +42,6 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
             console.log('Got response');
             console.log(response.statusCode); // 200
             console.log(response.headers['content-type']); // 'image/png'
-            cb();
           }
         })
         .pipe(fileStream);

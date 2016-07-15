@@ -24,6 +24,9 @@ function slugify(str) {
 }
 
 function returnTrackColor(trackInfo, id) {
+  if ((trackInfo == null) || (id == null)) {
+    return '#000000'
+  }
   return trackInfo[id];
 }
 
@@ -52,14 +55,15 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
     // generate slug/key for session
     const date = moment(session.start_time).format('YYYY-MM-DD');
-    const slug = date + '-' + slugify(session.track.name);
+    const trackName = (session.track == null) ? 'deftrack' : session.track.name;
+    const slug = date + '-' + slugify(trackName);
     let track = null;
 
     // set up track if it does not exist
-    if (!trackData.has(slug)) {
+    if (!trackData.has(slug) && (session.track != null)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails, session.track.id),
+        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sessions: []
@@ -76,6 +80,9 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       }
     }
 
+    if (track == undefined) {
+      return;
+    }
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       title: session.title,
@@ -166,7 +173,7 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, reqOpts) {
-  
+
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo
@@ -237,7 +244,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
         sessionInRooms.push({
           name: session.title,
           time: moment(session.start_time).utcOffset(2).format('HH:mm'),
-          color: returnTrackColor(trackDetails, session.track.id)
+          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
         });
       }
     }
@@ -248,7 +255,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
 
 function foldByRooms(roomsData, sessions, trackInfo) {
   var roomInfo = [];
-  
+
   roomsData.forEach((room) => {
     roomInfo.push({
       hall: room.name,
