@@ -253,13 +253,10 @@ function sessionsByRooms(id, sessions, trackInfo) {
         });
         DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
-    
-      
-    //}
   }
   
 });
-  
+
   return sessionInRooms;
 }
 
