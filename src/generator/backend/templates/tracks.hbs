@@ -66,7 +66,10 @@
                  {{#sessions}}
                  
                  <div class="pop-over row">
-                   <div class="sesroom event col-md-12">{{title}}</div>
+                   <div style="background-color:{{{../color}}}" class="sesroom event col-md-12">
+                   <span>{{start}} - {{end}}</span>
+                   <b>{{title}}</b>
+                  </div>
                 </div>
                 
                   {{/sessions}}
