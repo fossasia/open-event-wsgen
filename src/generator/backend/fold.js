@@ -222,7 +222,7 @@ function foldByLevel(sponsors) {
         sponsorItem.imgsize = 'medium';
         break;
       case '3':
-        sponsorItem.divclass = 'largeoffset col-md-2';
+        sponsorItem.divclass = 'smalloffset col-md-2';
         sponsorItem.imgsize = 'small';
         break;
     }

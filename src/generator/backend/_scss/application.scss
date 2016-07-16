@@ -270,12 +270,18 @@ a {
   margin-left: 8.33%;
 }
 
-.largeoffset {
+.smalloffset {
   margin-left: 41.66666667%;
+}
+.largeoffset {
+  margin-left: 36%;
 }
 
 @media (max-width: 892px) { 
-.largeoffset {
+.largeoffset  {
+  margin-left: 10%;
+}
+.smalloffset {
   margin-left: 10%;
 }
 
