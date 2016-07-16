@@ -226,36 +226,50 @@ function foldByLevel(sponsors) {
 
 function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
+  const DateData = new Map();
   const trackDetails = new Object();
    trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
   });
 
   sessions.forEach((session) => {
+
+   const date = moment(session.start_time).format('YYYY-MM-DD');
+   const slug = date + '-' + session.microlocation.name;
+    //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
+   if (!DateData.has(slug)) {
+     var dated = moment(session.start_time).format('YYYY-MM-DD');  
+    }
+   else {
+     dated = "";
+   }  
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
+          date: dated ,
           name: session.title,
-          time: moment(session.start_time).utcOffset(2).format('HH:mm'),
+          time: moment(session.start_time).format('HH:mm'),
           color: returnTrackColor(trackDetails, session.track.id)
         });
+        DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
-    }
-  });
-  console.log(sessionInRooms);
+  }
+  
+});
+
   return sessionInRooms;
 }
 
 function foldByRooms(roomsData, sessions, trackInfo) {
   var roomInfo = [];
-  
+
   roomsData.forEach((room) => {
     roomInfo.push({
       hall: room.name,
-      date: moment(sessions.start_time).format('YYYY-MM-DD'),
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
+  roomInfo.sort(byProperty('sortKey'));
   return roomInfo;
 }
 

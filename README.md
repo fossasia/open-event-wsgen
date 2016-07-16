@@ -36,7 +36,7 @@ The development version is available here: https://opev-webgen-dev.herokuapp.com
 
 ## Usage
 
-NOTE: You can try out the app at  https://open-event-generator.herokuapp.com
+NOTE: You can try out the app at  https://opev-webgen.herokuapp.com
 
 The development version is available here: https://opev-webgen-dev.herokuapp.com
 

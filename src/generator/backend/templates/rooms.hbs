@@ -61,6 +61,11 @@
               {{/if}}
           </div>
             {{#each sessionDetail}}
+            {{#if date}}
+             <div class="col-md-12">
+            <h5 class="text">{{date}}</h5>
+            </div>
+            {{/if}}
           <div class="row">
             <div class="height col-xs-2 col-sm-2 col-md-2">
               <h6 class="text">{{time}}</h6>
