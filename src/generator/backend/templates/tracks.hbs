@@ -64,12 +64,23 @@
             </div>
             <div class="pop-container" style="color:black";>
               <div class="pop">
-                  <h6 id="headline"><strong>Speakers</strong></h6>
+                <div class="pop-header">
+                  <span>
+                  <a class="session-link" href="#{{session_id}}">
+                    Share <i class="fa fa-link"></i>
+                  </a>
+                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  </span>
+                </div>
+                <div class="pop-over row">
+                  {{#linkify}}{{description}}{{/linkify}}
+                </div>
+                <hr style="clear:both;width:75%;">
+                <h5>Speakers</h5>
                  {{#each speakers_list}}
-                 
                  <div class="pop-over row">
-                   <div class="col-md-2"><img src="{{{photo}}}"></div>
-                   <div class="col-md-10">{{name}}</div>
+                   <div class="col-md-5"><img style="width:75px;height:75px border-radius:50%;" src="{{{photo}}}"></div>
+                   <div class="col-md-7">{{name}} {{organisation}}</div>
                 </div>
                 
                   {{/each}}
@@ -94,6 +105,11 @@
     <script type="text/javascript" src="./js/popover.js"></script>
 
    <script>
+    $(document).ready(function(){
+      $('.session-link').click(function() {
+        $(this).next('.inputbox').toggle().select();
+        });
+      });
     $(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
