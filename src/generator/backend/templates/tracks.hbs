@@ -48,14 +48,19 @@
       <div id=track-list class="container">
         {{#tracks}}
         <div class="row">
-          {{#with sessions.[0]}}
-          <div class="height col-md-offset-1 col-xs-2 col-md-1">
-           <h6 class="text">{{start}}</h6>
+          <div style="background-color:{{{color}}}" class="trackwidth  event col-md-offset-1 col-xs-1 col-md-1">
+           <h6 class="text">{{title}}</h6>
           </div>
-           {{/with}}
-          <div style="background-color:{{{color}}}" class="item track-title col-xs-10 event col-md-7">
-              <h5>{{title}}</h5>
+          
+          <div class="tracks col-xs-7 col-md-7">
+          {{#sessions}}
+
+            <h5 style="background-color:{{{../color}}}"  class="sizeevent event">
+            <p>{{start}} - {{end}}</p>
+            {{title}}</h5>
+          {{/sessions}}
           </div>
+           
           <div style="display:none;" class="pop-box">
             <div class="arrow">
             <span></span>
@@ -76,7 +81,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div><br>
         {{/tracks}}
       </div>
     </div>
