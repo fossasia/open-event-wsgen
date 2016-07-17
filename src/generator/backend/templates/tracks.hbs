@@ -58,29 +58,28 @@
             <h5 style="background-color:{{{../color}}}"  class="sizeevent event">
             <p>{{start}} - {{end}}</p>
             {{title}}</h5>
-          {{/sessions}}
-          </div>
-           
-          <div style="display:none;" class="pop-box">
+             <div style="display:none;" class="pop-box">
             <div class="arrow">
-            <span></span>
+              <span></span>
             </div>
             <div class="pop-container" style="color:black";>
               <div class="pop">
                   <h6 id="headline"><strong>Speakers</strong></h6>
-                 {{#sessions}}
+                 {{#each speakers_list}}
                  
                  <div class="pop-over row">
-                   <div style="background-color:{{{../color}}}" class="sesroom event col-md-12">
-                   <span>{{start}} - {{end}}</span>
-                   <b>{{title}}</b>
-                  </div>
+                   <div class="col-md-2"><img src="{{{photo}}}"></div>
+                   <div class="col-md-10">{{name}}</div>
                 </div>
                 
-                  {{/sessions}}
+                  {{/each}}
               </div>
             </div>
           </div>
+          {{/sessions}}
+          </div>
+           
+
         </div><br>
         {{/tracks}}
       </div>
