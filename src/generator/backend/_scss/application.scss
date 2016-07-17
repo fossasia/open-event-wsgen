@@ -290,7 +290,15 @@ a {
   width:auto; 
   margin-left: 4%; 
   max-width: 500px; 
+  word-wrap: break-word;
   } 
+.sizeevent {
+  padding: 2%;
+  width: auto;
+}
+.trackwidth {
+  width: 112px;
+}
 @media (max-width: 660px) {
   .event {
     max-width: 400px; 
@@ -315,7 +323,10 @@ a {
 .text{ 
   color: $black; 
 } 
-
+.tracks {
+  min-height: 70px; 
+  border-left: 1px solid $black; 
+}
 /* Pop over Track */
 
 .arrow {
