@@ -270,10 +270,26 @@ a {
   margin-left: 8.33%;
 }
 
-.largeoffset {
+.smalloffset {
   margin-left: 41.66666667%;
 }
+.largeoffset {
+  margin-left: 36%;
+}
 
+@media (max-width: 892px) { 
+.largeoffset  {
+  margin-left: 10%;
+}
+.smalloffset {
+  margin-left: 10%;
+}
+
+}
+ .centre {
+   display: block;
+   margin: 0 auto;
+ } 
 /* Track SCSS */
 
 .event { 
@@ -291,7 +307,7 @@ a {
   margin-left: 4%; 
   max-width: 500px; 
   } 
-@media (max-width: 660px) {
+@media (max-width: 885px) {
   .event {
     max-width: 400px; 
   }
