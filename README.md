@@ -34,12 +34,6 @@ NOTE: You can try out the app at  https://opev-webgen.herokuapp.com
 
 The development version is available here: https://opev-webgen-dev.herokuapp.com
 
-## Usage
-
-NOTE: You can try out the app at  https://open-event-generator.herokuapp.com
-
-The development version is available here: https://opev-webgen-dev.herokuapp.com
-
 ### Via the Generator web form
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
