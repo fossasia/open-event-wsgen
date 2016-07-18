@@ -72,8 +72,7 @@ function getJsonData(reqOpts) {
   return data;
 }
 
-exports.createDistDir = function(req, callback) {
-  console.log(req.files);
+exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   const theme = req.body.theme;
   const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
@@ -106,14 +105,8 @@ exports.createDistDir = function(req, callback) {
       console.log('================================COPYING JSONS\n\n\n\n');
       switch (req.body.datasource) {
         case 'jsonupload':
-          distHelper.copyUploads(appFolder, req.files);
-          distHelper.cleanUploads((cleanErr) => {
-            console.log('================================CLEANING UPLOADS\n\n\n\n');
-            if (cleanErr !== null) {
-              console.log(cleanErr);
-            }
-            done(null, 'cleanuploads');
-          });
+          distHelper.copyUploads(appFolder, req.body.singlefileUpload);
+          done(null, 'cleanuploads');
           break;
         case 'eventapi':
           console.log('================================FETCHING JSONS\n\n\n\n');
@@ -164,12 +157,12 @@ exports.createDistDir = function(req, callback) {
   ]);
 };
 
-exports.showLivePreview = function(req, res) {
+exports.showLivePreview = function(req, socket) {
   const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   console.log('===============================LIVERENDER\n\n\n\n');
   console.log('Redirecting to ---- ' + '/live/preview/' + appFolder);
-
-  res.redirect('/live/preview/' + appFolder);
+  
+  socket.emit('live.ready', {path: '/live/preview/' + appFolder});
 };
 
 exports.pipeZipToRes = function(req, res) {

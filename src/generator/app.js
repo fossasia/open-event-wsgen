@@ -1,16 +1,34 @@
 'use strict';
 
-var express = require('express');
-var connectDomain = require('connect-domain');
-var multer = require('multer');
-var admZip = require('adm-zip');
-var compression = require('compression');
+const express = require('express');
+const connectDomain = require('connect-domain');
+const multer = require('multer');
+const admZip = require('adm-zip');
+const compression = require('compression');
 
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
 app.use(compression());
 var errorHandler;
-
 var upload = multer({dest: 'uploads/'});
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function () {
+    console.log('user disconnected')
+  });
+
+  socket.on('live', function(formData) {
+    var req = {body: formData};
+    socket.emit('live.copy', {});
+    generator.createDistDir(req, socket, function() {
+      generator.showLivePreview(req, socket);
+    });
+  })
+});
+
 
 var generator = require('./backend/generator.js');
 
@@ -53,7 +71,7 @@ app.use('*', function(req, res) {
   res.sendFile(__dirname + '/www/404.html');
 });
 
-app.listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 

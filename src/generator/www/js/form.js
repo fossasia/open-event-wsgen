@@ -1,4 +1,9 @@
+"use strict";
+
 $(document).ready(function () {
+  var socket = io();
+  
+
   $('input:radio[name="datasource"]').change(
       function() {
           if ($(this).is(':checked')) {
@@ -19,4 +24,33 @@ $(document).ready(function () {
             }
           }
       });
+  $('#btnLive').click(function () {
+    var formData = getData();
+    socket.emit('live', formData);
+  });
+
+  socket.on('live.copy', function (data) {
+    window.alert("Live copy started !!!")
+  })
+  
 });
+
+function getData () {
+  var data = {};
+  var formData = $('#form').serializeArray();
+  formData.forEach( function(field) {
+    if (field.name == 'name') {data.name = field.value }
+    if (field.name == 'email') {data.email = field.value }
+    if (field.name == 'theme') {data.theme = field.value }
+    if (field.name == 'datasource') {data.datasource = field.value }
+    if (field.name == 'apiendpoint') {data.apiendpoint = field.value }
+    if (field.name == 'assetmode') {data.assetmode = field.value }
+  });
+  data.singlefileUpload = $('#singlefileUpload')[0].files[0];
+  data.zipLength = $('#singlefileUpload')[0].files[0].size;
+  console.log(data);
+
+  return data;
+}
+
+
