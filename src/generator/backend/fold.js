@@ -257,7 +257,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
           date: dated ,
           name: session.title,
           time: moment(session.start_time).format('HH:mm'),
-          color: returnTrackColor(trackDetails, session.track.id)
+          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
         });
         DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
