@@ -22,9 +22,11 @@ io.on('connection', function(socket){
 
   socket.on('live', function(formData) {
     var req = {body: formData};
-    socket.emit('live.copy', {});
-    generator.createDistDir(req, socket, function() {
-      generator.showLivePreview(req, socket);
+    generator.createDistDir(req, socket, function(appFolder) {
+      socket.emit('live.ready', {
+        appDir: appFolder
+      });
+      //generator.showLivePreview(req, socket);
     });
   })
 });

@@ -29,8 +29,14 @@ $(document).ready(function () {
     socket.emit('live', formData);
   });
 
-  socket.on('live.copy', function (data) {
-    window.alert("Live copy started !!!")
+  socket.on('live.ready', function (data) {
+    console.log('live render ready');
+    window.location.href = data.appDir;
+  })
+  socket.on('live.process', function (data) {
+    $('#status').animate({'opacity': 0}, 500, function () {
+      $(this).text(data.status);
+    }).animate({'opacity': 1}, 500);
   })
   
 });
