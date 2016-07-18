@@ -47,16 +47,18 @@
       </h2>
       <div id=track-list class="container">
         {{#tracks}}
+        
         <div class="row">
-          <div style="background-color:{{{color}}}" class="trackwidth  event col-md-offset-1 col-xs-1 col-md-1">
-           <h6 class="text">{{title}}</h6>
+          <div class="col-xs-2 col-md-3">
+           <h4 class="text"><strong>{{title}}</strong></h4>
+           <h4 class="text">{{date}}</h4>
           </div>
           
-          <div class="tracks col-xs-7 col-md-9">
+          <div class="tracks col-xs-10 col-md-9">
           {{#sessions}}
 
             <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
-            <span>{{start}} - {{end}} &nbsp;&bull;&nbsp;</span>
+            <span>{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
             {{title}}</h4>
              <div style="display:none;" class="pop-box">
             <div class="arrow">
@@ -76,17 +78,26 @@
                   {{#linkify}}{{description}}{{/linkify}}
                 </div>
                 <hr style="clear:both;width:75%;">
-                <h5 style="padding-left:20px" class=""><strong>Speakers</strong></h5>
+                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
                 <div class="pop-speakers"> 
                  {{#each speakers_list}}
                 
                  <div class="pop-over row">
-                   <div class="col-md-3"><img style="width:75px;height:75px border-radius:50%;" src="{{{photo}}}"></div>
-                   <div class="col-md-9"><h4>{{name}}</h4></div>
+                   <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;" src="{{{photo}}}"></div>
+                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4></div>
                   </div>
                 
                   {{/each}}
                 </div>  
+                <hr style="clear:both;width:75%;">
+                <div class="pop-footer">
+                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{location}}</p>
+                  <ul class="title-inline">
+                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                  <li>{{../title}}</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

@@ -383,7 +383,6 @@ a {
 
 .pop-box{
   width:420px;
-  max-height:499px;
   min-height:255px;
   height: auto;
   z-index:1000;
@@ -403,8 +402,22 @@ a {
         margin:10px;
       }
       .pop-footer {
-        height:38px;
-        background-color :#fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #fff;
+        padding:2%;
+        line-height: .80em;
+        .titlecolor{
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+        .title-inline { 
+          padding:0;
+          li{
+           display:inline-block;
+          }
+        } 
       }
       .pop-header {
         border-top-left-radius: 5px;
@@ -412,7 +425,7 @@ a {
         background: #efefef;
         height: 35px;
         padding: 5px 5px 0;
-        border-bottom: 1px solid #ddd
+        border-bottom: 1px solid #ddd;
       }
       .pop-speakers {
         max-height: 230px;
