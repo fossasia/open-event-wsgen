@@ -52,8 +52,13 @@ function getData () {
     if (field.name == 'apiendpoint') {data.apiendpoint = field.value }
     if (field.name == 'assetmode') {data.assetmode = field.value }
   });
-  data.singlefileUpload = $('#singlefileUpload')[0].files[0];
-  data.zipLength = $('#singlefileUpload')[0].files[0].size;
+  try {
+    data.singlefileUpload = $('#singlefileUpload')[0].files[0];
+    data.zipLength = $('#singlefileUpload')[0].files[0].size;
+  } catch (err) {
+    data.singlefileUpload = "";
+    data.zipLength = 0;
+  }
   console.log(data);
 
   return data;
