@@ -305,14 +305,19 @@ a {
   background: $light-skyblue; 
   width:auto; 
   margin-left: 4%; 
-  max-width: 500px;
   text-shadow: 1px 1px 0 rgba(255,255,255,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,0.25); 
   word-wrap: break-word;
+  max-width: 600px;
   } 
 .sizeevent {
   padding: 2%;
   width: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.sizeevent span {
+  font-weight :700;
 }
 .trackwidth {
   width: 112px;
@@ -392,7 +397,7 @@ a {
     background-color: #fff;
       .pop-over {
         padding:2%;
-        max-height: 260px;
+        max-height: 160px;
         overflow-y: auto;
         overflow-x: hidden;
         margin:10px;
@@ -408,6 +413,10 @@ a {
         height: 35px;
         padding: 5px 5px 0;
         border-bottom: 1px solid #ddd
+      }
+      .pop-speakers {
+        max-height: 230px;
+        overflow-y: overlay;
       }
     }
   

@@ -52,12 +52,12 @@
            <h6 class="text">{{title}}</h6>
           </div>
           
-          <div class="tracks col-xs-7 col-md-7">
+          <div class="tracks col-xs-7 col-md-9">
           {{#sessions}}
 
-            <h5 style="background-color:{{{../color}}}"  class="sizeevent event">
-            <p>{{start}} - {{end}}</p>
-            {{title}}</h5>
+            <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+            <span>{{start}} - {{end}} &nbsp;&bull;&nbsp;</span>
+            {{title}}</h4>
              <div style="display:none;" class="pop-box">
             <div class="arrow">
               <span></span>
@@ -76,14 +76,17 @@
                   {{#linkify}}{{description}}{{/linkify}}
                 </div>
                 <hr style="clear:both;width:75%;">
-                <h5>Speakers</h5>
+                <h5 style="padding-left:20px" class=""><strong>Speakers</strong></h5>
+                <div class="pop-speakers"> 
                  {{#each speakers_list}}
+                
                  <div class="pop-over row">
-                   <div class="col-md-5"><img style="width:75px;height:75px border-radius:50%;" src="{{{photo}}}"></div>
-                   <div class="col-md-7">{{name}} {{organisation}}</div>
-                </div>
+                   <div class="col-md-3"><img style="width:75px;height:75px border-radius:50%;" src="{{{photo}}}"></div>
+                   <div class="col-md-9"><h4>{{name}}</h4></div>
+                  </div>
                 
                   {{/each}}
+                </div>  
               </div>
             </div>
           </div>
