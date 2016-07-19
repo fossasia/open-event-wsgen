@@ -7,43 +7,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/form.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-<div class="container"></br></br>
-	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" name="form" method="post" role="form"  enctype="multipart/form-data">
+<div class="container"><br><br>
+	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" method="post" id="form" name="form" role="form"  enctype="multipart/form-data">
     	<label for="name">Email</label>
     	<input type="email" class="form-control" id="email" name="email">
-    </br>
+    <br>
   		<!--<label for="theme">Choose your theme</label>-->
   		  <!--<select class="form-control" id="theme" name="theme">-->
     		  <!--<option value="light">Light</option>-->
     		  <!--<option value="dark">Dark</option>-->
   		  <!--</select>-->
-		<!--</br>-->
-        <input type="hidden" name="theme" value="light">
+		<!--<br>-->
+        <input type="hidden" id="theme" name="theme" value="light">
 
         <label for="name">App's Name</label>
-    	<input type="name" class="form-control" id="name" name="name">
- 		</br>
-      <label > Choose your data source </label>
+    	<input type="text" class="form-control" id="name" name="name">
+ 		<br>
+      <label> Choose your data source </label>
       <ul style="list-style-type:none">
         <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
         <li><input type="radio" name="datasource" value="jsonupload"> Upload your own JSON files </input></li>
         <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input></li>
       </ul>
-    </br>
+    <br>
     <section id="eventapi-input" style="display:none;">
     	<label for="apiendpoint">Link to Open Event API endpoint</label>
     	<input type="url" class="form-control"
       id="apiendpoint" name="apiendpoint">
     </section>
-    </br>
+    <br>
     <section id="jsonupload-input" style="display:none;">
       <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control"/>
- 	</br>
+ 	<br>
     </section>
     <br>
     <!--<label title="Wether to download assets into website folder or link to external sources"-->
@@ -54,9 +56,13 @@
       <!--</select>-->
         <input type="hidden" name="assetmode" value="download">
       <center>
-        <br><br>
-      <button formaction="/live" type="submit" class="download btn btn-default" id="btnLive" >GENERATE APP AND PREVIEW</button>
-      <button formaction="/generate" type="submit" class="download btn btn-default" id="btnDownload" >GENERATE APP AND DOWNLOAD</button>
+          <br>
+          <div id="status"></div>
+          <br>
+      <button type="button" class="download btn btn-default" id="btnGenerate">GENERATE WEBAPP</button>
+      <button type="button" class="download btn btn-default" id="btnLive" >PREVIEW</button>
+      <button type="button" class="download btn btn-default" id="btnDownload" >DOWNLOAD</button>
+          <br>
       </center>
 
 	</form>

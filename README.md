@@ -36,7 +36,8 @@ The development version is available here: https://opev-webgen-dev.herokuapp.com
 ### Via the Generator web form
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
-![Generator Screenshot](docs/generator_screenshot.png)
+
+![Generator Screencast](docs/screencast.gif)
 
  - Add your **email id**, **name of app** (name of event),
 
