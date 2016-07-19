@@ -71,11 +71,11 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
-  copyUploads: function(appFolder, files) {
+  copyUploads: function(appFolder, uploadedFile) {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
-    var zip = new admZip(files.singlefileUpload[0].path);
-    zip.extractAllTo("./dist/json", true);
+    var zip = new admZip(uploadedFile);
+    zip.extractAllTo(appPath + '/json', true);
   },
   fetchApiJsons: function(appFolder, apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');

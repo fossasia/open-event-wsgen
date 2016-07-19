@@ -10,6 +10,7 @@ The Open Event Web App is a web application that can generate event websites by 
 [![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
 ## Installation/Deployment
 
 ### How do I install it locally
@@ -36,7 +37,8 @@ The development version is available here: https://opev-webgen-dev.herokuapp.com
 ### Via the Generator web form
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
-![Generator Screenshot](docs/generator_screenshot.png)
+
+![Generator Screencast](docs/screencast.gif)
 
  - Add your **email id**, **name of app** (name of event),
 
