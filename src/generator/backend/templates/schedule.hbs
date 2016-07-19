@@ -169,7 +169,7 @@
         {{#each this}}
           <div class="{{{divclass}}}">
             <a href="{{{url}}}">
-              <img class="{{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
+              <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
             </a>
           </div>
         {{/each}}
@@ -187,8 +187,7 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
 
    <script>
-
- $(function() {  
+$(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
   if((linkUrl).indexOf("tracks.html")!=-1){
@@ -200,8 +199,11 @@
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
+  else if((linkUrl).indexOf("index.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
   else {
-    $("#schedulelink").addClass('active');
+    $("#homelink").addClass('active');
   }
 });
 </script> 

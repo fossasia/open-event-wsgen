@@ -36,19 +36,22 @@ $(document).ready(function() {
     var left = offset.left;
 
     if($(window).width() >= 320 && $(window).width() < 481) {
-      var position = offset.top - link.height() - 38;
+      var position = offset.top - link.height() - 15;
     }
-    else if($(window).width() >= 481 && $(window).width() < 641) {
+    else if($(window).width() >= 481 && $(window).width() < 597) {
+      var position = offset.top - link.height() - 20;
+    }
+    else if($(window).width() >= 597 && $(window).width() < 641) {
       var position = offset.top - link.height() - 46;
     }
     else if($(window).width() >= 641 && $(window).width() < 961) {
-      var position = offset.top - link.height() - 50;
+      var position = offset.top - link.height() - 22;
     }
     else if($(window).width() >= 961 && $(window).width() < 1025) {
       var left = left - 180;
     }
     else {
-      var left = left - 210;
+      var left = left - 248;
     }
     if(offset.top) {
       var toptrack = position;

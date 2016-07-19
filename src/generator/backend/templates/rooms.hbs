@@ -61,6 +61,11 @@
               {{/if}}
           </div>
             {{#each sessionDetail}}
+            {{#if date}}
+             <div class="col-md-12">
+            <h5 class="text">{{date}}</h5>
+            </div>
+            {{/if}}
           <div class="row">
             <div class="height col-xs-2 col-sm-2 col-md-2">
               <h6 class="text">{{time}}</h6>
@@ -80,8 +85,7 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
 
    <script>
-
- $(function() {  
+   $(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
   if((linkUrl).indexOf("tracks.html")!=-1){
@@ -93,8 +97,11 @@
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
+  else if((linkUrl).indexOf("index.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
   else {
-    $("#schedulelink").addClass('active');
+    $("#homelink").addClass('active');
   }
 });
 </script>

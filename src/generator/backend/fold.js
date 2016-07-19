@@ -24,6 +24,9 @@ function slugify(str) {
 }
 
 function returnTrackColor(trackInfo, id) {
+  if ((trackInfo == null) || (id == null)) {
+    return '#000000'
+  }
   return trackInfo[id];
 }
 
@@ -52,14 +55,15 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
     // generate slug/key for session
     const date = moment(session.start_time).format('YYYY-MM-DD');
-    const slug = date + '-' + slugify(session.track.name);
+    const trackName = (session.track == null) ? 'deftrack' : session.track.name;
+    const slug = date + '-' + slugify(trackName);
     let track = null;
 
     // set up track if it does not exist
-    if (!trackData.has(slug)) {
+    if (!trackData.has(slug) && (session.track != null)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails, session.track.id),
+        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sessions: []
@@ -76,8 +80,12 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       }
     }
 
+    if (track == undefined) {
+      return;
+    }
     track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(2).format('HH:mm'),
       title: session.title,
       type: session.session_type.name,
       location: session.microlocation.name,
@@ -166,7 +174,7 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, reqOpts) {
-  
+
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo
@@ -215,7 +223,7 @@ function foldByLevel(sponsors) {
         sponsorItem.imgsize = 'medium';
         break;
       case '3':
-        sponsorItem.divclass = 'largeoffset col-md-2';
+        sponsorItem.divclass = 'smalloffset col-md-2';
         sponsorItem.imgsize = 'small';
         break;
     }
@@ -226,36 +234,50 @@ function foldByLevel(sponsors) {
 
 function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
+  const DateData = new Map();
   const trackDetails = new Object();
    trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
   });
 
   sessions.forEach((session) => {
+
+   const date = moment(session.start_time).format('YYYY-MM-DD');
+   const slug = date + '-' + session.microlocation.name;
+    //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
+   if (!DateData.has(slug)) {
+     var dated = moment(session.start_time).format('YYYY-MM-DD');  
+    }
+   else {
+     dated = "";
+   }  
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
+          date: dated ,
           name: session.title,
-          time: moment(session.start_time).utcOffset(2).format('HH:mm'),
-          color: returnTrackColor(trackDetails, session.track.id)
+          time: moment(session.start_time).format('HH:mm'),
+          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
         });
+        DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
-    }
-  });
-  console.log(sessionInRooms);
+  }
+  
+});
+
   return sessionInRooms;
 }
 
 function foldByRooms(roomsData, sessions, trackInfo) {
   var roomInfo = [];
-  
+
   roomsData.forEach((room) => {
     roomInfo.push({
       hall: room.name,
-      date: moment(sessions.start_time).format('YYYY-MM-DD'),
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
+  roomInfo.sort(byProperty('sortKey'));
   return roomInfo;
 }
 

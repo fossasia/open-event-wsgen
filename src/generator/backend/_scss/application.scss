@@ -270,10 +270,26 @@ a {
   margin-left: 8.33%;
 }
 
-.largeoffset {
+.smalloffset {
   margin-left: 41.66666667%;
 }
+.largeoffset {
+  margin-left: 36%;
+}
 
+@media (max-width: 892px) { 
+.largeoffset  {
+  margin-left: 10%;
+}
+.smalloffset {
+  margin-left: 10%;
+}
+
+}
+ .centre {
+   display: block;
+   margin: 0 auto;
+ } 
 /* Track SCSS */
 
 .event { 
@@ -290,7 +306,15 @@ a {
   width:auto; 
   margin-left: 4%; 
   max-width: 500px; 
+  word-wrap: break-word;
   } 
+.sizeevent {
+  padding: 2%;
+  width: auto;
+}
+.trackwidth {
+  width: 112px;
+}
 @media (max-width: 660px) {
   .event {
     max-width: 400px; 
@@ -315,7 +339,10 @@ a {
 .text{ 
   color: $black; 
 } 
-
+.tracks {
+  min-height: 70px; 
+  border-left: 1px solid $black; 
+}
 /* Pop over Track */
 
 .arrow {
