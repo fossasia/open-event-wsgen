@@ -305,12 +305,19 @@ a {
   background: $light-skyblue; 
   width:auto; 
   margin-left: 4%; 
-  max-width: 500px; 
+  text-shadow: 1px 1px 0 rgba(255,255,255,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25); 
   word-wrap: break-word;
+  max-width: 600px;
   } 
 .sizeevent {
   padding: 2%;
   width: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.sizeevent span {
+  font-weight :700;
 }
 .trackwidth {
   width: 112px;
@@ -341,7 +348,7 @@ a {
 } 
 .tracks {
   min-height: 70px; 
-  border-left: 1px solid $black; 
+  border-left: 1px solid rgba(0,0,0,.10);
 }
 /* Pop over Track */
 
@@ -352,7 +359,7 @@ a {
   overflow: hidden;
   left:6px;
   z-index: 1000;
-  margin-top: -3%;
+  margin-top: -2%;
 
   span {
     display: block;
@@ -375,28 +382,54 @@ a {
 }
 
 .pop-box{
-
-  width:300px;
-  height:164px;
+  width:420px;
+  min-height:255px;
+  height: auto;
   z-index:1000;
   position:absolute;
-  left:187px;
+  left:30px;
   border-radius:4px;
   border: 1px solid #c1c1c1;
   transition: all 0.5s ease;
   background-color:white;
     .pop {
-    background-color: #efefef;
-    padding:1%;
-    max-height: 126px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    background-color: #fff;
       .pop-over {
         padding:2%;
+        max-height: 160px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin:10px;
       }
       .pop-footer {
-        height:38px;
-        background-color :#fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #fff;
+        padding:2%;
+        line-height: .80em;
+        .titlecolor{
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+        }
+        .title-inline { 
+          padding:0;
+          li{
+           display:inline-block;
+          }
+        } 
+      }
+      .pop-header {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background: #efefef;
+        height: 35px;
+        padding: 5px 5px 0;
+        border-bottom: 1px solid #ddd;
+      }
+      .pop-speakers {
+        max-height: 230px;
+        overflow-y: overlay;
       }
     }
   

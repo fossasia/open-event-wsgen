@@ -47,40 +47,64 @@
       </h2>
       <div id=track-list class="container">
         {{#tracks}}
+        
         <div class="row">
-          <div style="background-color:{{{color}}}" class="trackwidth  event col-md-offset-1 col-xs-1 col-md-1">
-           <h6 class="text">{{title}}</h6>
+          <div class="col-xs-2 col-md-3">
+           <h4 class="text"><strong>{{title}}</strong></h4>
+           <h4 class="text">{{date}}</h4>
           </div>
           
-          <div class="tracks col-xs-7 col-md-7">
+          <div class="tracks col-xs-10 col-md-9">
           {{#sessions}}
 
-            <h5 style="background-color:{{{../color}}}"  class="sizeevent event">
-            <p>{{start}} - {{end}}</p>
-            {{title}}</h5>
-          {{/sessions}}
-          </div>
-           
-          <div style="display:none;" class="pop-box">
+            <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+            <span>{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
+            {{title}}</h4>
+             <div style="display:none;" class="pop-box">
             <div class="arrow">
-            <span></span>
+              <span></span>
             </div>
             <div class="pop-container" style="color:black";>
               <div class="pop">
-                  <h6 id="headline"><strong>Speakers</strong></h6>
-                 {{#sessions}}
-                 
-                 <div class="pop-over row">
-                   <div style="background-color:{{{../color}}}" class="sesroom event col-md-12">
-                   <span>{{start}} - {{end}}</span>
-                   <b>{{title}}</b>
-                  </div>
+                <div class="pop-header">
+                  <span>
+                  <a class="session-link" href="#{{session_id}}">
+                    Share <i class="fa fa-link"></i>
+                  </a>
+                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  </span>
                 </div>
+                <div class="pop-over row">
+                  {{#linkify}}{{description}}{{/linkify}}
+                </div>
+                <hr style="clear:both;width:75%;">
+                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
+                <div class="pop-speakers"> 
+                 {{#each speakers_list}}
                 
-                  {{/sessions}}
+                 <div class="pop-over row">
+                   <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;" src="{{{photo}}}"></div>
+                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4></div>
+                  </div>
+                
+                  {{/each}}
+                </div>  
+                <hr style="clear:both;width:75%;">
+                <div class="pop-footer">
+                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{location}}</p>
+                  <ul class="title-inline">
+                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                  <li>{{../title}}</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
+          {{/sessions}}
+          </div>
+           
+
         </div><br>
         {{/tracks}}
       </div>
@@ -95,6 +119,11 @@
     <script type="text/javascript" src="./js/popover.js"></script>
 
    <script>
+    $(document).ready(function(){
+      $('.session-link').click(function() {
+        $(this).next('.inputbox').toggle().select();
+        });
+      });
     $(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
