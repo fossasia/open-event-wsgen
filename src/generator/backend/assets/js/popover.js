@@ -21,17 +21,11 @@ $(document).ready(function() {
     event.stopPropagation();
     
    var track = $(event.target);
-  var tracknext= $(track).next();
+   var tracknext= $(track).next();
     tracknext.show();
-  var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
-  var shift= tracktocheck - ($('.main').offset().top + $('.main').outerHeight());
-  console.log($('.main').offset().top + $('.main').outerHeight())
-//console.log("tracknext.offset().top ", tracknext.offset().top );
-//console.log("track.outerHeight()", track.outerHeight());
-//console.log("tracknext.outerHeight()", tracknext.outerHeight());
-//console.log("tracktocheck", tracktocheck);
-//console.log("$('.footer').offset().top ", $('.footer').offset().top );
-  if(shift>0){
+   var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
+   var shift= tracktocheck - ($('.main').offset().top + $('.main').outerHeight());
+   if(shift>0){
    
     $('.footer').css({
       'position':'absolute',
@@ -46,7 +40,6 @@ $(document).ready(function() {
     })
   }
  
-  //console.log($('.footer').offset().top  );
  $(document).mouseup(function(e) {
       var container = popbox;
       
