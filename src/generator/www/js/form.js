@@ -24,22 +24,41 @@ $(document).ready(function () {
             }
           }
       });
-  $('#btnLive').click(function () {
+  $('#btnGenerate').click(function () {
     var formData = getData();
     socket.emit('live', formData);
   });
 
   socket.on('live.ready', function (data) {
-    console.log('live render ready');
-    window.location.href = data.appDir;
-  })
+    updateStatus('live render ready');
+    displayButtons(data.appDir);
+  });
   socket.on('live.process', function (data) {
-    $('#status').animate({'opacity': 0}, 500, function () {
-      $(this).text(data.status);
-    }).animate({'opacity': 1}, 500);
+    updateStatus(data.status)
   })
   
 });
+
+function displayButtons (appPath) {
+  var btnDownload = $('#btnDownload');
+  var btnLive = $('#btnLive');
+  btnDownload.css('display', 'block');
+  btnLive.css('display', 'block');
+
+  btnLive.click(function () {
+    window.location.href = '/live/preview/' + appPath
+  });
+
+  btnDownload.click(function () {
+    window.location.href = '/download/' + appPath
+  })
+}
+
+function updateStatus (statusMsg) {
+  $('#status').animate({'opacity': 0}, 500, function () {
+    $(this).text(statusMsg);
+  }).animate({'opacity': 1}, 500);
+}
 
 function getData () {
   var data = {};

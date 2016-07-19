@@ -69,6 +69,10 @@ app.post('/generate', uploadedFiles, function(req, res) {
   });
 }).use(errorHandler);
 
+app.get('/download/:email/:appname', function (req, res) {
+  generator.pipeZipToRes(req.params.email, req.params.appname, res)
+}).use(errorHandler);
+
 app.use('*', function(req, res) {
   res.sendFile(__dirname + '/www/404.html');
 });

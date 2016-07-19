@@ -155,22 +155,15 @@ exports.createDistDir = function(req, socket, callback) {
       fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/rooms.html', roomstpl(jsonData));
       fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/speakers.html', speakerstpl(jsonData));
 
-      callback('/live/preview/' + appFolder);
+      callback(appFolder);
       done(null, 'write');
     }
   ]);
 };
 
-exports.showLivePreview = function(req, socket) {
-  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
-  console.log('===============================LIVERENDER\n\n\n\n');
-  console.log('Redirecting to ---- ' + '/live/preview/' + appFolder);
-  
-  socket.emit('live.ready', {path: '/live/preview/' + appFolder});
-};
 
-exports.pipeZipToRes = function(req, res) {
-  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
+exports.pipeZipToRes = function(email, appName, res) {
+  const appFolder = email + '/' + appName;
   console.log('================================ZIPPING\n\n\n\n');
   const zipfile = archiver('zip');
 
