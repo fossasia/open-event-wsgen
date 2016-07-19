@@ -2,8 +2,6 @@
 
 const express = require('express');
 const connectDomain = require('connect-domain');
-const multer = require('multer');
-const admZip = require('adm-zip');
 const compression = require('compression');
 
 var app = express();
@@ -12,7 +10,6 @@ var io = require('socket.io')(server);
 
 app.use(compression());
 var errorHandler;
-var upload = multer({dest: 'uploads/'});
 
 io.on('connection', function(socket){
   console.log('a user connected');
@@ -40,34 +37,12 @@ errorHandler = function(err, req, res, next) {
   console.log(err);
 };
 
-const uploadedFiles = upload.fields([
-  {name: 'singlefileUpload', maxCount: 1},
-  {name: 'speakerfile', maxCount: 1},
-  {name: 'sessionfile', maxCount: 1},
-  {name: 'trackfile', maxCount: 1},
-  {name: 'sponsorfile', maxCount: 1},
-  {name: 'eventfile', maxCount: 1},
-  {name: 'locationfile', maxCount: 1}
-]);
 
 app.set('port', (process.env.PORT || 5000));
 
 // Use the www folder as static frontend
 app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../../dist'));
-
-app.post('/live',uploadedFiles, function(req, res) {
-
-  generator.createDistDir(req, function() {
-    generator.showLivePreview(req, res);
-  });
-}).use(errorHandler);
-
-app.post('/generate', uploadedFiles, function(req, res) {
-  generator.createDistDir(req, function() {
-    generator.pipeZipToRes(req, res);
-  });
-}).use(errorHandler);
 
 app.get('/download/:email/:appname', function (req, res) {
   generator.pipeZipToRes(req.params.email, req.params.appname, res)
