@@ -586,3 +586,15 @@ a {
     width: 116px; 
   }
 }
+@media (max-width: 544px) {
+  .pop-box {
+    width : 350px;
+    .arrow {
+      margin-top :-2.5%;
+    }
+  }
+
+}
+.header-pop {
+  padding: 1%;
+}
