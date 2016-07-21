@@ -28,20 +28,20 @@ $(document).ready(function() {
     
     var sizecontainer = sizeevent;
     var timeOftrack = tracktime;
+    var track;
     if(!sizecontainer.is(event.target)) {
       if(!timeOftrack.is(event.target)){
-        var track = $(event.target).children('h4');
+         track = $(event.target).children('h4');
       }
       else {
-        var track = $(event.target).parent();
+         track = $(event.target).parent();
       }
       
     }
     else {
-      var track = $(event.target);
+       track = $(event.target);
     }
-    
-   console.log(event.target);
+
    var tracknext= $(track).next();
     tracknext.show();
    var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
@@ -63,6 +63,9 @@ $(document).ready(function() {
 
  
   }
+   $('.footer').css({
+      'position':'static'
+    })
   if (widthWindow < 768) {
    $(document).mouseup(function(e) {
       var container = popbox;
