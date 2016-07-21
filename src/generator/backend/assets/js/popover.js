@@ -20,12 +20,14 @@ $(document).ready(function() {
     },function(){
       popbox.hide();
       hidePopbox();
+      hideUnderline();
     });
   }  
   function popBox(e) {
     event = e || window.event;
 
     popbox.hide();
+    hideUnderline();
     event.preventDefault();
     event.stopPropagation();
     
@@ -47,6 +49,9 @@ $(document).ready(function() {
 
    var tracknext= $(track).next();
     tracknext.show();
+    track.css({
+      'text-decoration':'underline'
+    })
    var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
    var shift= tracktocheck - outerContheight;
    if(shift > 0){
@@ -66,6 +71,12 @@ $(document).ready(function() {
   function hidePopbox() {
     $('.footer').css({
       'position':'static'
+    })
+    //hideUnderline();
+  }
+  function hideUnderline() {
+    sizeevent.css({
+      'text-decoration':'none'
     })
   }
   if (widthWindow < 768) {
