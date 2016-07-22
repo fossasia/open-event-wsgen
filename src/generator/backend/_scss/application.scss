@@ -308,7 +308,7 @@ a {
   text-shadow: 1px 1px 0 rgba(255,255,255,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,0.25); 
   word-wrap: break-word;
-  max-width: 600px;
+  max-width: 450px;
   } 
 .sizeevent {
   padding: 2%;
@@ -407,18 +407,9 @@ a {
         background: #fff;
         padding:2%;
         line-height: .80em;
-        .titlecolor{
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-        }
-        .title-inline { 
-          padding:0;
-          li{
-           display:inline-block;
-          }
-        } 
+       
       }
+   
       .pop-header {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -530,6 +521,23 @@ a {
   color: $white;
   padding:1%;
 }
+// titles with color codes
+.titlecolor{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .title-inline { 
+    padding:0;
+    li{
+      display:inline-block;
+    }
+  }
+  .track-names {
+    margin-top: 16%;
+    padding: 2%;
+    color: black;
+  } 
 @media (max-width: 1202px) and (min-width: 760px){
   .filter-heading span:after, .filter-heading span:before  {
     width: 270px; 
