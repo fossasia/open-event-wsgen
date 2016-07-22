@@ -1,12 +1,12 @@
 /* Created by aayusharora on June 20, 2017 */
 
 $(document).ready(function() {
-  var widthWindow = $(window).width();
-  var popbox = $('.pop-box');
-  var headerpop = $('.header-pop');
-  var outerContheight= $('.main').offset().top + $('.main').outerHeight()
-  var sizeevent = $('.sizeevent');
-  var tracktime = $('.sizeevent span'); 
+  let widthWindow = $(window).width();
+      popbox = $('.pop-box');
+      headerpop = $('.header-pop');
+      outerContheight= $('.main').offset().top + $('.main').outerHeight()
+      sizeevent = $('.sizeevent');
+      tracktime = $('.sizeevent span'); 
 
   popbox.hide();
   if( widthWindow < 768) {
@@ -31,9 +31,9 @@ $(document).ready(function() {
     event.preventDefault();
     event.stopPropagation();
     
-    var sizecontainer = sizeevent;
-    var timeOftrack = tracktime;
-    var track;
+    let sizecontainer = sizeevent;
+    let timeOftrack = tracktime;
+    let track;
     if(!sizecontainer.is(event.target)) {
       if(!timeOftrack.is(event.target)){
          track = $(event.target).children('h4');
@@ -47,13 +47,13 @@ $(document).ready(function() {
        track = $(event.target);
     }
 
-   var tracknext= $(track).next();
+    let tracknext= $(track).next();
     tracknext.show();
     track.css({
       'text-decoration':'underline'
     })
-   var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
-   var shift= tracktocheck - outerContheight;
+   let tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
+   let shift= tracktocheck - outerContheight;
    if(shift > 0){
    
     $('.footer').css({
@@ -81,7 +81,7 @@ $(document).ready(function() {
   }
   if (widthWindow < 768) {
    $(document).mouseup(function(e) {
-      var container = popbox;
+      let container = popbox;
       if (!container.is(e.target)
             && container.has(e.target).length === 0)
           {
