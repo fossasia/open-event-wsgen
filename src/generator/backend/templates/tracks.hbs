@@ -56,9 +56,9 @@
           
           <div class="tracks col-xs-10 col-md-9">
           {{#sessions}}
-
+            <div class="header-pop">
             <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
-            <span>{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
+            <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
             {{title}}</h4>
              <div style="display:none;" class="pop-box">
             <div class="arrow">
@@ -84,7 +84,23 @@
                 
                  <div class="pop-over row">
                    <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;" src="{{{photo}}}"></div>
-                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4></div>
+                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
+                   <p>{{organisation}}</p>
+                   <div class="icons row">
+                   {{#if website}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+                  {{/if}}
+                   {{#if github}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+                  {{/if}}
+                  {{#if twitter}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  {{/if}}
+                 </div>
+                   </div>
                   </div>
                 
                   {{/each}}
@@ -100,6 +116,7 @@
                 </div>
               </div>
             </div>
+          </div>
           </div>
           {{/sessions}}
           </div>

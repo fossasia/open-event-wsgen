@@ -233,6 +233,7 @@ a {
   color: $gray-dark;
   padding: 15px;
   text-align: center;
+  height: 100px; 
   }
 
 @mixin sponsorimages {
@@ -345,6 +346,7 @@ a {
 } 
 .text{ 
   color: $black; 
+  word-wrap: break-word;
 } 
 .tracks {
   min-height: 70px; 
@@ -530,6 +532,15 @@ a {
   color: $white;
   padding:1%;
 }
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
 @media (max-width: 1202px) and (min-width: 760px){
   .filter-heading span:after, .filter-heading span:before  {
     width: 270px; 
@@ -574,4 +585,16 @@ a {
   .filter-heading span:after, .filter-heading span:before  {
     width: 116px; 
   }
+}
+@media (max-width: 544px) {
+  .pop-box {
+    width : 350px;
+    .arrow {
+      margin-top :-2.5%;
+    }
+  }
+
+}
+.header-pop {
+  padding: 1%;
 }
