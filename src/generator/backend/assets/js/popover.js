@@ -1,75 +1,93 @@
 /* Created by aayusharora on June 20, 2017 */
 
 $(document).ready(function() {
+  var widthWindow = $(window).width();
   var popbox = $('.pop-box');
+  var headerpop = $('.header-pop');
+  var outerContheight= $('.main').offset().top + $('.main').outerHeight()
+  var sizeevent = $('.sizeevent');
+  var tracktime = $('.sizeevent span'); 
+
   popbox.hide();
-  if($(window).width() < 768) {
-    $('.sizeevent').click(function(event) {
+  if( widthWindow < 768) {
+   sizeevent.click(function(event) {
       popBox(event);
     });
   }
   else {
-    $('.sizeevent').hover(function(event) {
+    headerpop.hover(function(event) {
       popBox(event);
+    },function(){
+      popbox.hide();
+      hidePopbox();
+      hideUnderline();
     });
-  }
+  }  
   function popBox(e) {
     event = e || window.event;
 
     popbox.hide();
+    hideUnderline();
     event.preventDefault();
     event.stopPropagation();
     
-   var track = $(event.target);
-     /*var link  = track.children(0);
-
-    if($(link).offset() === undefined) {
-      var offset = $(track).offset();
-      var track = track.parent();
+    var sizecontainer = sizeevent;
+    var timeOftrack = tracktime;
+    var track;
+    if(!sizecontainer.is(event.target)) {
+      if(!timeOftrack.is(event.target)){
+         track = $(event.target).children('h4');
+      }
+      else {
+         track = $(event.target).parent();
+      }
+      
     }
     else {
-      var offset = $(link).offset();
+       track = $(event.target);
     }
 
-    var nextOfpop = $(track).next();
-    //var position = offset.top - link.height() - 30;
-    //var left = offset.left;
+   var tracknext= $(track).next();
+    tracknext.show();
+    track.css({
+      'text-decoration':'underline'
+    })
+   var tracktocheck= track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
+   var shift= tracktocheck - outerContheight;
+   if(shift > 0){
+   
+    $('.footer').css({
+      'position':'absolute',
+      'top': outerContheight + shift,
+      'width':'100%',
+      'z-index': '999'
+    })
+  }
+  else {
+    hidePopbox();
+  }
 
-    if($(window).width() >= 320 && $(window).width() < 481) {
-      //var position = offset.top - link.height() - 15;
-    }
-    else if($(window).width() >= 481 && $(window).width() < 597) {
-      //var position = offset.top - link.height() - 20;
-    }
-    else if($(window).width() >= 597 && $(window).width() < 641) {
-      //var position = offset.top - link.height() - 46;
-    }
-    else if($(window).width() >= 641 && $(window).width() < 961) {
-      //var position = offset.top - link.height() - 22;
-    }
-    else if($(window).width() >= 961 && $(window).width() < 1025) {
-      //var left = left - 180;
-    }
-    else {
-      //var left = left - 248;
-    }
-   if(offset.top) {
-      //var toptrack = position;
-      //$(nextOfpop).css({'top': toptrack,
-                      //'left': left
-    //});
-    
-    }
-*/
-  $(track).next().show();
-    $(document).mouseup(function(e) {
+  }
+  function hidePopbox() {
+    $('.footer').css({
+      'position':'static'
+    })
+    //hideUnderline();
+  }
+  function hideUnderline() {
+    sizeevent.css({
+      'text-decoration':'none'
+    })
+  }
+  if (widthWindow < 768) {
+   $(document).mouseup(function(e) {
       var container = popbox;
-
       if (!container.is(e.target)
-            && container.has(e.target).length === 0 && (e.target) !== $('html').get(0))
+            && container.has(e.target).length === 0)
           {
         container.hide();
+    
       }
     });
-  }
+  } 
 });
