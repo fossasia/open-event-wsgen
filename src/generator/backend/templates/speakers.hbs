@@ -60,9 +60,18 @@
               </div>
             </div>
             <div class="icons row">
-              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
-              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></div>
-              <div class="col-xs-4 col-sm-4 col-md-4"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></a></i></div>
+            {{#if website}}
+              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+             {{/if}}
+            {{#if github}}
+              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+             {{/if}}
+             {{#if twitter}} 
+              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+              {{/if}}
+              {{#if linkedin}}
+              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+              {{/if}}
             </div>
           </div>
         </div>
