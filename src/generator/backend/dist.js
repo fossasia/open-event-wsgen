@@ -65,7 +65,7 @@ module.exports = {
     fs.mkdirpSync(distPath);
     fs.mkdirpSync(appPath);
     fs.mkdirpSync(appPath + '/audio');
-    fs.mkdirpSync(appPath + '/img/speakers');
+    fs.mkdirpSync(appPath + '/images/speakers');
   },
   copyAssets: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
@@ -75,6 +75,14 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
     var zip = new admZip(uploadedFile);
+     var zipEntries = zip.getEntries(); 
+
+     zipEntries.forEach(function(zipEntry) {
+        if (zipEntry.entryName == "images/speakers/") {
+            zip.extractEntryTo("images/speakers/", appPath ); 
+        } 
+      
+    });
     zip.extractAllTo(appPath + '/json', true);
   },
   fetchApiJsons: function(appFolder, apiEndpoint, done) {
@@ -125,10 +133,10 @@ module.exports = {
   downloadSpeakerPhoto: function(appFolder, photoUrl) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
-    const photoFilePath = 'img/speakers/' + photoFileName;
+    const photoFilePath = 'images/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
-    downloadFile(photoUrl, appPath + '/' + photoFilePath);
+    downloadFile(photoUrl, appPath + photoFilePath);
     return photoFilePath;
   }
 };

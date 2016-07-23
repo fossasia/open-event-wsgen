@@ -1,0 +1,138 @@
+[
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Level 3, Dalton Hall",
+    "latitude": null,
+    "floor": null,
+    "id": 2
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Lewis Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 3
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Digital Design Studio",
+    "latitude": null,
+    "floor": null,
+    "id": 4
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Digital Design Studio",
+    "latitude": null,
+    "floor": null,
+    "id": 5
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Observatory Room",
+    "latitude": null,
+    "floor": null,
+    "id": 6
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Eco Garden Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 7
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Planck Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 8
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Faraday Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 9
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Pauling Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 10
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 3, Fermi Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 11
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 2, Herschel Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 12
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 2, Einstein Room",
+    "latitude": null,
+    "floor": null,
+    "id": 13
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 2, Einstein Hall",
+    "latitude": null,
+    "floor": null,
+    "id": 14
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Tinkering Studio",
+    "latitude": null,
+    "floor": null,
+    "id": 15
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Observatory Room",
+    "latitude": null,
+    "floor": null,
+    "id": 16
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Eco Garden Lab",
+    "latitude": null,
+    "floor": null,
+    "id": 17
+  },
+  {
+    "room": null,
+    "longitude": null,
+    "name": "Level 1, Ground Floor, Scientist For a day, Hall A",
+    "latitude": null,
+    "floor": null,
+    "id": 18
+  }
+]
