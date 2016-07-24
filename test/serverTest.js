@@ -9,10 +9,10 @@
 var assert = require('chai').assert;
 const jsonfile = require('jsonfile');
 
-var fold = require('../src/generator/backend/fold.js');
-var generator = require('../src/generator/backend/generator.js');
-var dist = require('../src/generator/backend/dist.js');
-var app = require('../src/generator/app');
+var fold = require('../src/backend/fold.js');
+var generator = require('../src/backend/generator.js');
+var dist = require('../src/backend/dist.js');
+var app = require('../src/app');
 
 var data = {
   event: jsonfile.readFileSync(__dirname + '/../mockjson/event'),
@@ -21,7 +21,7 @@ var data = {
   speakers: jsonfile.readFileSync(__dirname + '/../mockjson/speakers'),
   microlocations: jsonfile.readFileSync(__dirname + '/../mockjson/microlocations'),
   tracks: jsonfile.readFileSync(__dirname + '/../mockjson/tracks')
-  
+
 };
 
 
@@ -109,4 +109,3 @@ describe('app', function () {
     })
   })
 });
-
