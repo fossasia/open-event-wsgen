@@ -136,7 +136,7 @@ module.exports = {
     const photoFilePath = 'images/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
-    downloadFile(photoUrl, appPath + photoFilePath);
+    downloadFile(photoUrl, appPath + '/' + photoFilePath);
     return photoFilePath;
   }
 };
