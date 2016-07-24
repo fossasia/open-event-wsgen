@@ -78,12 +78,41 @@ module.exports = {
      var zipEntries = zip.getEntries(); 
 
      zipEntries.forEach(function(zipEntry) {
-        if (zipEntry.entryName == "images/speakers/") {
-            zip.extractEntryTo("images/speakers/", appPath ); 
-        } 
+     
+      switch(zipEntry.entryName){
+        case 'images/speakers/':
+        zip.extractEntryTo("images/speakers/", appPath ); 
+        break;
+        case 'images/sponsors/':
+        zip.extractEntryTo("images/sponsors/", appPath ); 
+        break;
+        case 'audio/':
+        zip.extractEntryTo("audio/", appPath);
+        break;
+        case 'sessions':
+        zip.extractEntryTo("sessions", appPath +'json/');
+        break;
+        case 'speakers':
+        zip.extractEntryTo("speakers", appPath +'json/');
+        break;
+        case 'microlocations' :
+        zip.extractEntryTo("microlocations", appPath+'json/');
+        break;
+        case 'event' :
+        zip.extractEntryTo("event", appPath +'json/');
+        break;
+        case 'sponsors' :
+        zip.extractEntryTo("sponsors", appPath +'json/');
+        break;
+        case 'tracks':
+        zip.extractEntryTo("tracks", appPath +'json/');
+        break;
+        default:
+      }
+  
       
     });
-    zip.extractAllTo(appPath + '/json', true);
+    
   },
   fetchApiJsons: function(appFolder, apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
