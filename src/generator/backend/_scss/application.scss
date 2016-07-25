@@ -536,12 +536,22 @@ a {
       display:inline-block;
     }
   }
+
   .track-names {
     margin-top: 16%;
     padding: 2%;
     color: black;
   } 
 
+ @media (max-width: 990px) {
+    .title-inline {
+      width: 33%;
+      float: left;
+    }
+    .track-names {
+      margin-top :0;
+    }
+  }
 @media (max-width: 1202px) and (min-width: 760px){
   .filter-heading span:after, .filter-heading span:before  {
     width: 270px; 
