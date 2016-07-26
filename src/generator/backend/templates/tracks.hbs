@@ -35,9 +35,9 @@
     <body>
 
       {{> navbar}}
-
+   <div class="container" id="session-list">
     <div class="row">
-    <div class="col-md-offset-2 col-md-8 main">
+    <div class="col-md-12 main">
       <h2 class="filter-heading track-heading text-center">
         <span>
           <span>
@@ -49,7 +49,7 @@
         {{#tracks}}
         
         <div class="row">
-          <div class="col-xs-2 col-md-3">
+          <div class="col-xs-12 col-sm-3 col-md-3">
            <h4 class="text"><strong>{{title}}</strong></h4>
            <h4 class="text">{{date}}</h4>
           </div>
@@ -126,9 +126,8 @@
         {{/tracks}}
       </div>
     </div>
-    <div class="col-md-2">
     </div>
-    </div>
+   </div>
    <!-- /#session-list -->
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
@@ -153,11 +152,8 @@
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
-  else if((linkUrl).indexOf("index.html")!=-1){
-    $("#sessionslink").addClass('active');
-  }
   else {
-    $("#homelink").addClass('active');
+    $("#sessionslink").addClass('active');
   }
 });
 </script> 
