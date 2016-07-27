@@ -396,9 +396,6 @@ a {
     background-color: #fff;
       .pop-over {
         padding:2%;
-        max-height: 160px;
-        overflow-y: auto;
-        overflow-x: hidden;
         margin:10px;
       }
       .pop-footer {
@@ -418,10 +415,7 @@ a {
         padding: 5px 5px 0;
         border-bottom: 1px solid #ddd;
       }
-      .pop-speakers {
-        max-height: 230px;
-        overflow-y: overlay;
-      }
+
     }
   
   }
