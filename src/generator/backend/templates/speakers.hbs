@@ -60,18 +60,32 @@
               </div>
             </div>
             <div class="icons row">
-            {{#if website}}
-              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
-             {{/if}}
-            {{#if github}}
-              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
-             {{/if}}
-             {{#if twitter}} 
-              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
-              {{/if}}
+            
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                {{#if website}}<a href="{{{website}}}"><i class="fa fa-home"></i></a>
+                 {{/if}}
+                </div>
+                
+            
+              <div class="col-xs-3 col-sm-3 col-md-3">
+              {{#if github}}<a href="{{{github}}}"><i class="fa fa-github"></i></a>
+               {{/if}}
+              </div>
+            
+             
+              <div class="col-xs-3 col-sm-3 col-md-3">
+              {{#if twitter}} 
+              <a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a>
+               {{/if}}
+              </div>
+             
+              
+              <div class="col-xs-3 col-sm-3 col-md-3">
               {{#if linkedin}}
-              <div class="col-xs-3 col-sm-3 col-md-3"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+              <a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a>
               {{/if}}
+              </div>
+              
             </div>
           </div>
         </div>
