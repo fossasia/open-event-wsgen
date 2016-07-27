@@ -51,7 +51,7 @@
         {{#speakers_list}}
         <div class="card-container col-md-4">
           <div class="center card">
-            <img class="card-img-top" src="{{photo}}"/>
+            <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}"/>
             <div class="card-block">
               <center><h3 class="card-text">{{name}}</h3></center>
               <center><h5 class="card-text">{{../title}}</h5></center>
