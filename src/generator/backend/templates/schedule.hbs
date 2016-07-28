@@ -38,7 +38,7 @@
     <div id="session-list" class="container">
      
       {{#tracks}}
-      <div class="row">
+      <div  style="margin-top:4%" class="main row">
         <div class="col-md-12">
 
           <a class="anchor" id="{{slug}}"></a>
@@ -97,7 +97,7 @@
                 <p class="session-speakers">
                   {{#speakers_list}}
                   {{#if photo}}
-                  <img src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                  <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
                   {{/if}}
                   {{/speakers_list}}
                   {{speakers}}
@@ -199,11 +199,8 @@ $(function() {
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
-  else if((linkUrl).indexOf("index.html")!=-1){
-    $("#sessionslink").addClass('active');
-  }
   else {
-    $("#homelink").addClass('active');
+    $("#sessionslink").addClass('active');
   }
 });
 </script> 
