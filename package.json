@@ -34,7 +34,8 @@
     "moment": "^2.13.0",
     "node-sass": "^3.7.0",
     "request": "^2.72.0",
-    "socket.io": "^1.4.8"
+    "socket.io": "^1.4.8",
+    "urlencode": "^1.1.0"
   },
   "devDependencies": {
     "connect-domain": "^0.5.0"
