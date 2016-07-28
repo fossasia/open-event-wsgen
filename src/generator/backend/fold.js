@@ -6,8 +6,6 @@ const distHelper = require('./dist');
 function byProperty(key) {
 
   return (a, b) => {
-    console.log(a[key]);
-    console.log(b[key]);
     if (a[key] > b[key]) {
       return 1;
     }
