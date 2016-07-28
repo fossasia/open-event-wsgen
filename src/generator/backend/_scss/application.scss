@@ -305,14 +305,13 @@ a {
   position: relative; 
   background: $light-skyblue; 
   width:auto; 
-  margin-left: 4%; 
   text-shadow: 1px 1px 0 rgba(255,255,255,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,0.25); 
   word-wrap: break-word;
-  max-width: 450px;
+
   } 
 .sizeevent {
-  padding: 2%;
+  padding: 20px;
   width: auto;
   font-weight: 400;
   font-style: normal;
@@ -389,7 +388,6 @@ a {
   height: auto;
   z-index:1000;
   position:absolute;
-  left:30px;
   border-radius:4px;
   border: 1px solid #c1c1c1;
   transition: all 0.5s ease;
@@ -398,9 +396,6 @@ a {
     background-color: #fff;
       .pop-over {
         padding:2%;
-        max-height: 160px;
-        overflow-y: auto;
-        overflow-x: hidden;
         margin:10px;
       }
       .pop-footer {
@@ -420,10 +415,7 @@ a {
         padding: 5px 5px 0;
         border-bottom: 1px solid #ddd;
       }
-      .pop-speakers {
-        max-height: 230px;
-        overflow-y: overlay;
-      }
+
     }
   
   }
@@ -485,7 +477,7 @@ a {
         color: $gray-extra-dark;
         font-size: 18px;
         padding: 4%;
-
+        height : 43px;
       }
   }
 }
@@ -522,6 +514,8 @@ a {
 .sesroom {
   color: $white;
   padding:1%;
+  max-width: 500px;
+  margin-left: 4%;
 }
 
 // titles with color codes
@@ -545,7 +539,7 @@ a {
 
  @media (max-width: 990px) {
     .title-inline {
-      width: 33%;
+      width: 50%;
       float: left;
     }
     .track-names {
@@ -608,4 +602,5 @@ a {
 }
 .header-pop {
   padding: 1%;
+  display: inline-block;
 }
