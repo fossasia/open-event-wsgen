@@ -5,6 +5,7 @@ const urlencode = require('urlencode');
 const distHelper = require('./dist');
 
 function byProperty(key) {
+
   return (a, b) => {
     if (a[key] > b[key]) {
       return 1;
@@ -107,7 +108,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   });
   
   let tracks = Array.from(trackData.values());
-  tracks.sort(byProperty('sortKey'));
+  
+  tracks.sort(byProperty('date'));
 
   return tracks;
 }
@@ -187,7 +189,7 @@ function extractEventUrls(event, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-      urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
+     urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
     }
   }
 
@@ -267,10 +269,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
         DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
   }
-  
-});
 
-  return sessionInRooms;
+});
+ 
+ sessionInRooms.sort(byProperty('date'));
+ return sessionInRooms;
 }
 
 function foldByRooms(roomsData, sessions, trackInfo) {
@@ -282,7 +285,7 @@ function foldByRooms(roomsData, sessions, trackInfo) {
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
-  roomInfo.sort(byProperty('sortKey'));
+ 
   return roomInfo;
 }
 
