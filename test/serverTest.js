@@ -78,7 +78,11 @@ describe('fold', function() {
   });
   describe('.foldByLevel()', function () {
     it('should sort sponsors by level', function () {
-      const levelData = fold.foldByLevel(data.sponsors);
+      const reqOpts = {
+        email: 'a@a.com',
+        name: 'testapp'
+      };
+      const levelData = fold.foldByLevel(data.sponsors,reqOpts);
       assert.equal(levelData['1'][0].name, 'FFII');
     })
   });

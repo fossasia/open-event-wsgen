@@ -48,7 +48,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const sociallinks = fold.createSocialLinks(event);
   const eventurls = fold.extractEventUrls(event, reqOpts);
   const copyright = fold.getCopyrightData(event);
-  const sponsorpics = fold.foldByLevel(sponsors);
+  const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
   const apptitle = fold.getAppName(event);
 
