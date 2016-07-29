@@ -66,6 +66,7 @@ module.exports = {
     fs.mkdirpSync(appPath);
     fs.mkdirpSync(appPath + '/audio');
     fs.mkdirpSync(appPath + '/images/speakers');
+    fs.mkdirpSync(appPath + '/images/sponsors');
   },
   copyAssets: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
@@ -163,6 +164,15 @@ module.exports = {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'images/speakers/' + photoFileName;
+
+    console.log('Downloading photo : ' + photoFileName);
+    downloadFile(photoUrl, appPath + '/' + photoFilePath);
+    return photoFilePath;
+  },
+   downloadSponsorPhoto: function(appFolder, photoUrl) {
+    const appPath = distPath + '/' +appFolder;
+    const photoFileName = photoUrl.split('/').pop();
+    const photoFilePath = 'images/sponsors/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
     downloadFile(photoUrl, appPath + '/' + photoFilePath);

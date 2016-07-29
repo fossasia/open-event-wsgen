@@ -1,8 +1,8 @@
 'use strict';
 
 const moment = require('moment');
-const urlencode = require('urlencode');
 const distHelper = require('./dist');
+const urlencode  = require('urlencode');
 
 function byProperty(key) {
   return (a, b) => {
@@ -43,9 +43,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         if(reg[0] =='/'){
             speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
         }
-        else {
-          speaker.photo = urlencode(speaker.photo);
-        }
+        
       }
       //console.log(speaker.photo);
     });
@@ -115,7 +113,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('date'));
-  
+
   return tracks;
 }
 
@@ -215,16 +213,14 @@ function foldByLevel(sponsors ,reqOpts) {
       levelData[sponsor.level] = [];
     }
     if ((sponsor.logo !== null) && (sponsor.logo.substring(0, 4) === 'http')) {
-        sponsor.logo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, sponsor.logo));
+        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
       }
-      else {
-        var reg = sponsor.logo.split('');
-        if(reg[0] =='/'){
+    else {
+      let reg = sponsor.logo.split('');
+      if(reg[0] =='/'){
           sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
         }
-        else {
-          sponsor.logo = urlencode(sponsor.logo);
-        }
+        
       }
     const sponsorItem = {
       divclass: '',
