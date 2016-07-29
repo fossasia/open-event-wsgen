@@ -39,7 +39,13 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
       }
       else {
-        speaker.photo = urlencode(speaker.photo)
+        var reg = speaker.photo.split('');
+        if(reg[0] =='/'){
+            speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+        }
+        else {
+          speaker.photo = urlencode(speaker.photo);
+        }
       }
       //console.log(speaker.photo);
     });
@@ -107,8 +113,9 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   });
   
   let tracks = Array.from(trackData.values());
-  tracks.sort(byProperty('sortKey'));
 
+  tracks.sort(byProperty('date'));
+  
   return tracks;
 }
 
@@ -199,13 +206,26 @@ function getCopyrightData(event) {
   return copyright;
 }
 
-function foldByLevel(sponsors) {
+function foldByLevel(sponsors ,reqOpts) {
   let levelData = {};
+
+  const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-
+    if ((sponsor.logo !== null) && (sponsor.logo.substring(0, 4) === 'http')) {
+        sponsor.logo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, sponsor.logo));
+      }
+      else {
+        var reg = sponsor.logo.split('');
+        if(reg[0] =='/'){
+          sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+        }
+        else {
+          sponsor.logo = urlencode(sponsor.logo);
+        }
+      }
     const sponsorItem = {
       divclass: '',
       imgsize: '',
