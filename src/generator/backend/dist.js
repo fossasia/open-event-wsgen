@@ -57,6 +57,8 @@ module.exports = {
   },
   cleanDist: function(appFolder, err) {
     fs.emptyDir(distPath + '/' + appFolder, (emptyErr) => {
+      if(emptyErr)
+         return err(emptyErr);
       fs.remove(distPath + '/' + appFolder, err);
     });
   },
