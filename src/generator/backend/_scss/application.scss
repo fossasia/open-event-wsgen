@@ -481,6 +481,8 @@ a {
       }
   }
 }
+
+/*
 .filter-heading span{
   position :relative;
   color: $black;
@@ -507,6 +509,7 @@ a {
 .track-heading span:after,.track-heading span:before {
   width:299px;
 }
+*/
 .active {
   color: $gray-extra-dark !important;
   font-weight:bold;
@@ -546,6 +549,8 @@ a {
       margin-top :0;
     }
   }
+
+/*
 @media (max-width: 1202px) and (min-width: 760px){
   .filter-heading span:after, .filter-heading span:before  {
     width: 270px; 
@@ -591,6 +596,8 @@ a {
     width: 116px; 
   }
 }
+
+*/
 @media (max-width: 544px) {
   .pop-box {
     width : 350px;
@@ -603,4 +610,5 @@ a {
 .header-pop {
   padding: 1%;
   display: inline-block;
+  cursor:pointer;
 }
