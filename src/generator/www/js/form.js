@@ -35,7 +35,12 @@ $(document).ready(function () {
   });
   socket.on('live.process', function (data) {
     updateStatus(data.status)
-  })
+  });
+  socket.on('live.error' , function (err) {
+     $('#status').css('color' , 'red');
+      updateStatus(err.status);
+
+  });
   
 });
 
