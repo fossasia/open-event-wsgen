@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   popbox.hide();
   if( widthWindow < 768) {
-    sizeevent.click(function (event) {
+    $(document).on('click','.sizeevent',function (event) {
       popBox(event);
     });
   }
@@ -84,7 +84,7 @@ $(document).ready(function () {
       let container = popbox;
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.hide();
-    
+         hidePopbox();
       }
     });
   } 
