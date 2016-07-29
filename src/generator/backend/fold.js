@@ -1,6 +1,7 @@
 'use strict';
 
 const moment = require('moment');
+const urlencode = require('urlencode');
 const distHelper = require('./dist');
 
 function byProperty(key) {
@@ -36,8 +37,12 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
       if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
-        speaker.photo = distHelper.downloadSpeakerPhoto(appFolder, speaker.photo);
+        speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
       }
+      else {
+        speaker.photo = urlencode(speaker.photo)
+      }
+      //console.log(speaker.photo);
     });
   }
 
@@ -99,10 +104,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
+
   });
-
+  
   let tracks = Array.from(trackData.values());
-
+  
   tracks.sort(byProperty('date'));
 
   return tracks;

@@ -65,7 +65,7 @@ module.exports = {
     fs.mkdirpSync(distPath);
     fs.mkdirpSync(appPath);
     fs.mkdirpSync(appPath + '/audio');
-    fs.mkdirpSync(appPath + '/img/speakers');
+    fs.mkdirpSync(appPath + '/images/speakers');
   },
   copyAssets: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
@@ -75,7 +75,44 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
     var zip = new admZip(uploadedFile);
-    zip.extractAllTo(appPath + '/json', true);
+     var zipEntries = zip.getEntries(); 
+
+     zipEntries.forEach(function(zipEntry) {
+     
+      switch(zipEntry.entryName){
+        case 'images/speakers/':
+        zip.extractEntryTo("images/speakers/", appPath ); 
+        break;
+        case 'images/sponsors/':
+        zip.extractEntryTo("images/sponsors/", appPath ); 
+        break;
+        case 'audio/':
+        zip.extractEntryTo("audio/", appPath);
+        break;
+        case 'sessions':
+        zip.extractEntryTo("sessions", appPath +'json/');
+        break;
+        case 'speakers':
+        zip.extractEntryTo("speakers", appPath +'json/');
+        break;
+        case 'microlocations' :
+        zip.extractEntryTo("microlocations", appPath+'json/');
+        break;
+        case 'event' :
+        zip.extractEntryTo("event", appPath +'json/');
+        break;
+        case 'sponsors' :
+        zip.extractEntryTo("sponsors", appPath +'json/');
+        break;
+        case 'tracks':
+        zip.extractEntryTo("tracks", appPath +'json/');
+        break;
+        default:
+      }
+  
+      
+    });
+    
   },
   fetchApiJsons: function(appFolder, apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
@@ -125,7 +162,7 @@ module.exports = {
   downloadSpeakerPhoto: function(appFolder, photoUrl) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
-    const photoFilePath = 'img/speakers/' + photoFileName;
+    const photoFilePath = 'images/speakers/' + photoFileName;
 
     console.log('Downloading photo : ' + photoFileName);
     downloadFile(photoUrl, appPath + '/' + photoFilePath);
