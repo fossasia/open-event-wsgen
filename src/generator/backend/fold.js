@@ -200,6 +200,10 @@ function extractEventUrls(event, reqOpts) {
   return urls;
 }
 
+/*function eventData(event) {
+ const eventData = Array.from(event);
+
+}*/
 function getCopyrightData(event) {
   const copyright = event.copyright;
   return copyright;
@@ -318,3 +322,4 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
+//module.exports.eventData = eventData;
