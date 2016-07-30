@@ -60,12 +60,15 @@
          font-size: 50px;
       }
     }
+    .speaker-info {
+      margin-bottom: 10px;
+    }
     </style>
     <body>
 
     {{> navbar}}
-  
-      <div class="carousel slide" style="margin-bottom: 0;">
+    <div class="row">
+    <div class="carousel slide" style="margin-bottom: 0;">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
           <div class="container"> 
@@ -73,15 +76,32 @@
           <h4>{{eventurls.date}} AT {{eventurls.time}}</h4>
           <h1>{{eventurls.name}}</h1> 
           <h4><i class="fa fa-map-marker"></i>
-           KALKSCHEUNE, JOHANNISSTR., BERLIN</h4> 
+           {{eventurls.location}}</h4> 
            <p></p> 
           </div> 
           </div>
         </div>
       </div> 
     </div>
-  
-
+    </div>
+    <div class ="row" style="padding:4%">
+      <div class="col-md-10">
+        {{#tracks}}
+        {{#sessions}}
+        {{#speakers_list}}
+          <div class="col-md-2 col-sm-6 speaker-info">
+            <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" style="width: 133px; height: 133px; display:block; margin:auto; " src="{{photo}}"/>
+            
+          </div>
+        {{/speakers_list}}
+        {{/sessions}}
+        {{/tracks}}
+        </div>
+        <div class= "col-md-2">
+        </div>
+     </div> 
+   
+    </div>
     {{> footer}}
   
 
