@@ -52,7 +52,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
   const apptitle = fold.getAppName(event);
-  const eventData = fold.eventData(event);
+  //const eventData = fold.eventData(event);
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle};
 }

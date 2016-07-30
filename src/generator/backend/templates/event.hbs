@@ -30,18 +30,29 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
+    <style>
+      .carousel {
+        height : 500px;
+      }
+      .carousel .item {
+        height :500px;
+      }
+      .carousel-caption h4 h1 {
+        color: #ffffff;
+      }
+    </style>
     <body>
 
     {{> navbar}}
-    <div class="container">
+  
       <div class="carousel slide" style="margin-bottom: 0;">
        <div id="info" class="carousel-inner">
-        <div class="item active"> 
+        <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
           <div class="container"> 
           <div class="carousel-caption"> 
           <h4>THU, MAY 05 AT 08:00 AM</h4>
           <h1>Open Tech Summit</h1> 
-          <h4><i class="glyphicon glyphicon-map-marker"></i>
+          <h4><i class="fa fa-map-marker"></i>
            KALKSCHEUNE, JOHANNISSTR., BERLIN</h4> 
            <p></p> 
           </div> 
@@ -49,7 +60,7 @@
         </div>
       </div> 
     </div>
-  </div>
+  
 
     {{> footer}}
   
