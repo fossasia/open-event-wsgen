@@ -37,9 +37,29 @@
       .carousel .item {
         height :500px;
       }
-      .carousel-caption h4 h1 {
+      .carousel-caption {
+        z-index: 10;
+        text-align: left;
+        position: absolute;
+        right: 15%;
+        bottom: 20px;
+        left: 15%;  
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      }
+      .carousel-caption h4  {
+         color: #ffffff;
+      }
+      .carousel-caption h1 {
         color: #ffffff;
       }
+     @media (min-width: 768px) {
+      .carousel-caption h1 {
+         font-size: 50px;
+      }
+    }
     </style>
     <body>
 
@@ -50,8 +70,8 @@
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
           <div class="container"> 
           <div class="carousel-caption"> 
-          <h4>THU, MAY 05 AT 08:00 AM</h4>
-          <h1>Open Tech Summit</h1> 
+          <h4>{{eventurls.date}} AT {{eventurls.time}}</h4>
+          <h1>{{eventurls.name}}</h1> 
           <h4><i class="fa fa-map-marker"></i>
            KALKSCHEUNE, JOHANNISSTR., BERLIN</h4> 
            <p></p> 

@@ -189,7 +189,10 @@ function extractEventUrls(event, reqOpts) {
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo,
-    background_url :event.background_url
+    background_url :event.background_url,
+    date : moment(event.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(event.start_time).format('ddd, Do MMM'),
+    time : moment(event.start_time).format('HH:mm'),
+    name : event.name
   };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
