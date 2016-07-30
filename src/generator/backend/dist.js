@@ -93,22 +93,22 @@ module.exports = {
         zip.extractEntryTo("audio/", appPath);
         break;
         case 'sessions':
-        zip.extractEntryTo("sessions", appPath +'json/');
+        zip.extractEntryTo("sessions", appPath +'/json/');
         break;
         case 'speakers':
-        zip.extractEntryTo("speakers", appPath +'json/');
+        zip.extractEntryTo("speakers", appPath +'/json/');
         break;
         case 'microlocations' :
-        zip.extractEntryTo("microlocations", appPath+'json/');
+        zip.extractEntryTo("microlocations", appPath+'/json/');
         break;
         case 'event' :
-        zip.extractEntryTo("event", appPath +'json/');
+        zip.extractEntryTo("event", appPath +'/json/');
         break;
         case 'sponsors' :
-        zip.extractEntryTo("sponsors", appPath +'json/');
+        zip.extractEntryTo("sponsors", appPath +'/json/');
         break;
         case 'tracks':
-        zip.extractEntryTo("tracks", appPath +'json/');
+        zip.extractEntryTo("tracks", appPath +'/json/');
         break;
         default:
       }
