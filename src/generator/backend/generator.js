@@ -159,11 +159,11 @@ exports.createDistDir = function(req, socket, callback) {
 
       try {
 
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', tpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions.html', tpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', trackstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', roomstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', speakerstpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/event.html', eventtpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', eventtpl(jsonData));
       } catch (err)
       {
           console.log(err);

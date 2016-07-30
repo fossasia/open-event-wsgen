@@ -101,7 +101,7 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
 
    <script>
-   $(function() {  
+  $(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
   if((linkUrl).indexOf("tracks.html")!=-1){
@@ -113,10 +113,13 @@
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
-  else {
+  else if((linkUrl).indexOf("sessions.html")!=-1){
     $("#sessionslink").addClass('active');
   }
-});
+  else {
+    $("#homelink").addClass('active');
+  }
+ });
 </script>
   </body>
 </html>

@@ -101,8 +101,11 @@ $(function() {
   else if((linkUrl).indexOf("speakers.html")!=-1){
     $("#speakerslink").addClass('active');
   }
-  else {
+  else if((linkUrl).indexOf("sessions.html")!=-1){
     $("#sessionslink").addClass('active');
+  }
+  else {
+    $("#homelink").addClass('active');
   }
 });
 </script> 
