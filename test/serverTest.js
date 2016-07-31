@@ -67,7 +67,7 @@ describe('fold', function() {
 
       assert.equal(linkModeUrls.main_page_url, data.event.event_url);
       assert.equal(linkModeUrls.logo_url, data.event.logo);
-      assert.equal(downloadModeUrls.logo_url, 'img/speakers/Logo_OpenTecSummit_TXT_grey.png');
+      assert.equal(downloadModeUrls.logo_url, 'images/speakers/Logo_OpenTecSummit_TXT_grey.png');
     })
   });
   describe('getCopyrightData()', function () {
@@ -78,7 +78,11 @@ describe('fold', function() {
   });
   describe('.foldByLevel()', function () {
     it('should sort sponsors by level', function () {
-      const levelData = fold.foldByLevel(data.sponsors);
+      const reqOpts = {
+        email: 'a@a.com',
+        name: 'testapp'
+      };
+      const levelData = fold.foldByLevel(data.sponsors,reqOpts);
       assert.equal(levelData['1'][0].name, 'FFII');
     })
   });

@@ -2,8 +2,10 @@
 
 const moment = require('moment');
 const distHelper = require('./dist');
+const urlencode  = require('urlencode');
 
 function byProperty(key) {
+
   return (a, b) => {
     if (a[key] > b[key]) {
       return 1;
@@ -35,8 +37,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
       if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
-        speaker.photo = distHelper.downloadSpeakerPhoto(appFolder, speaker.photo);
+        speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
       }
+      else {
+        var reg = speaker.photo.split('');
+        if(reg[0] =='/'){
+            speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+        }
+        
+      }
+      //console.log(speaker.photo);
     });
   }
 
@@ -98,11 +108,12 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
-  });
 
+  });
+  
   let tracks = Array.from(trackData.values());
 
-  tracks.sort(byProperty('sortKey'));
+  tracks.sort(byProperty('date'));
 
   return tracks;
 }
@@ -182,7 +193,7 @@ function extractEventUrls(event, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-      urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
+     urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
     }
   }
 
@@ -194,13 +205,24 @@ function getCopyrightData(event) {
   return copyright;
 }
 
-function foldByLevel(sponsors) {
+function foldByLevel(sponsors ,reqOpts) {
   let levelData = {};
+
+  const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-
+    if ((sponsor.logo !== null) && (sponsor.logo.substring(0, 4) === 'http')) {
+        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
+      }
+    else {
+      let reg = sponsor.logo.split('');
+      if(reg[0] =='/'){
+          sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+        }
+        
+      }
     const sponsorItem = {
       divclass: '',
       imgsize: '',
@@ -262,10 +284,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
         DateData.set(slug,moment(session.start_time).format('YYYY-MM-DD'));
       }
   }
-  
-});
 
-  return sessionInRooms;
+});
+ 
+ sessionInRooms.sort(byProperty('date'));
+ return sessionInRooms;
 }
 
 function foldByRooms(roomsData, sessions, trackInfo) {
@@ -277,7 +300,7 @@ function foldByRooms(roomsData, sessions, trackInfo) {
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
-  roomInfo.sort(byProperty('sortKey'));
+ 
   return roomInfo;
 }
 

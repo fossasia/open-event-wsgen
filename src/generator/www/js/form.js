@@ -35,7 +35,12 @@ $(document).ready(function () {
   });
   socket.on('live.process', function (data) {
     updateStatus(data.status)
-  })
+  });
+  socket.on('live.error' , function (err) {
+     $('#status').css('color' , 'red');
+      updateStatus(err.status);
+
+  });
   
 });
 
@@ -46,11 +51,11 @@ function displayButtons (appPath) {
   btnLive.css('display', 'block');
 
   btnLive.click(function () {
-    window.location.href = '/live/preview/' + appPath
+    window.open('/live/preview/' + appPath, '_blank')
   });
 
   btnDownload.click(function () {
-    window.location.href = '/download/' + appPath
+    window.open('/download/' + appPath, '_blank')
   })
 }
 
