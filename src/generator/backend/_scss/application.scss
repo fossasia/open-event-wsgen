@@ -464,11 +464,13 @@ a {
         color: $blue-shade;
         padding:1%;
         line-height:normal;
+        word-wrap: break-word;
       }
       .description {
         margin: 4%;
         text-align: center;
         padding:4px;
+        color: $black;
       }
     }
 
