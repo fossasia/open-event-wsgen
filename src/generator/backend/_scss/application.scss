@@ -646,17 +646,16 @@ a {
   .carousel-caption h1 {
     font-size: 50px;
   }
-  
+
 }
 .speaker-info {
-  margin-bottom: 10px;
   height: 280px;
+  margin-bottom: 10px;
   overflow: overlay;
-  padding: 0px;
-
-  .name {
+  padding: 0;
+  .name { 
+    padding: 0 4px;
     word-wrap:break-word; 
-    padding:0 4px;
   }
 }
 #map {

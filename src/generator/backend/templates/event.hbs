@@ -75,11 +75,15 @@
         </div>
         
      </div> 
+     {{#if eventurls.latitude }}
+     {{#if eventurls.longitude}}
      <div class="row" style="padding:4%">
-     <h3>Getting Me Here</h3><br>
+     <h3>Get Me Here</h3><br>
      <div class="col-md-8" id="map">
      </div>
      </div>
+     {{/if}}
+     {{/if}}
  </div>    
     <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
  
