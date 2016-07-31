@@ -3,23 +3,31 @@
 const express = require('express');
 const connectDomain = require('connect-domain');
 const compression = require('compression');
+const generator = require('./backend/generator.js');
 
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 
 app.use(compression());
-var errorHandler;
+app.use(connectDomain());
+// Use the www folder as static frontend
+app.use('/', express.static(__dirname + '/www'));
+app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
-io.on('connection', function(socket){
+
+io.on('connection', (socket) => {
   console.log('a user connected');
+
   socket.on('disconnect', function () {
     console.log('user disconnected')
   });
 
-  socket.on('live', function(formData) {
+  socket.on('live', (formData) => {
+
     var req = {body: formData};
-    generator.createDistDir(req, socket, function(appFolder) {
+    generator.createDistDir(req, socket, (appFolder) => {
+
       socket.emit('live.ready', {
         appDir: appFolder
       });
@@ -29,26 +37,20 @@ io.on('connection', function(socket){
 });
 
 
-var generator = require('./backend/generator.js');
-
-app.use(connectDomain());
-errorHandler = function(err, req, res, next) {
+function errorHandler(err, req, res, next) {
   res.sendFile(__dirname + '/www/404.html');
   console.log(err);
-};
+}
 
 
-app.set('port', (process.env.PORT || 5000));
+app.set( 'port', (process.env.PORT || 5000) );
 
-// Use the www folder as static frontend
-app.use('/', express.static(__dirname + '/www'));
-app.use('/live/preview', express.static(__dirname + '/../../dist'));
 
-app.get('/download/:email/:appname', function (req, res) {
+app.get('/download/:email/:appname',  (req, res) => {
   generator.pipeZipToRes(req.params.email, req.params.appname, res)
 }).use(errorHandler);
 
-app.use('*', function(req, res) {
+app.use('*', (req, res) => {
   res.sendFile(__dirname + '/www/404.html');
 });
 
@@ -57,7 +59,7 @@ server.listen(app.get('port'), function() {
 });
 
 module.exports = {
-  getApp: function () {
+  getApp() {
     return app;
   }
 };

@@ -7,14 +7,10 @@ const urlencode  = require('urlencode');
 function byProperty(key) {
 
   return (a, b) => {
-    if (a[key] > b[key]) {
-      return 1;
+    if (a[key] === b[key]) {
+      return 0;
     }
-    if (a[key] < b[key]) {
-      return -1;
-    }
-
-    return 0;
+    return (a[key] < b[key]) ? -1 : 1;
   };
 }
 
@@ -27,7 +23,7 @@ function slugify(str) {
 
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
-    return '#000000'
+    return '#000000';
   }
   return trackInfo[id];
 }
@@ -309,12 +305,15 @@ function getAppName(event) {
     return name;
 }
 
-module.exports.foldByTrack = foldByTrack;
-module.exports.foldByDate = foldByDate;
-module.exports.createSocialLinks = createSocialLinks;
-module.exports.extractEventUrls = extractEventUrls;
-module.exports.getCopyrightData = getCopyrightData;
-module.exports.foldByLevel = foldByLevel;
-module.exports.foldByRooms = foldByRooms;
-module.exports.slugify = slugify;
-module.exports.getAppName = getAppName;
+module.exports = {
+  foldByTrack,
+  foldByDate,
+  createSocialLinks ,
+  extractEventUrls,
+  getCopyrightData,
+  foldByLevel,
+  foldByRooms,
+  slugify,
+  getAppName
+
+};
