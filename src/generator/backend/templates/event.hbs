@@ -36,7 +36,7 @@
     <body>
 
     {{> navbar}}
-    <div class="row">
+
     <div class="carousel slide" style="margin-bottom: 0;">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
@@ -52,8 +52,8 @@
         </div>
       </div> 
     </div>
-    </div>
-  <div class="container">  
+
+  <div class="container" style="background-color: white;">  
     <div class ="row" style="padding:4%">
       <div class="col-md-10">
       <h3>Speakers</h3><br>
@@ -62,8 +62,12 @@
         {{#speakers_list}}
           <div class="col-md-2 col-sm-6 speaker-info">
             <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" style="width: 133px; height: 133px; display:block; margin:auto; " src="{{photo}}"/>
-            <h4 style="font-weight: 500;">Jörg Wittenberger</h4>
-            <h5 style="margin-top: 0;">Askemos</h5>
+            <div class="name text-center">
+            <h4 style="font-weight: 500;">{{name}}</h4>
+            </div>
+            <div class="name text-center">
+            <h5>{{organisation}}</h5>
+            </div>
           </div>
         {{/speakers_list}}
         {{/sessions}}
@@ -71,7 +75,8 @@
         </div>
         
      </div> 
-     <div class="row">
+     <div class="row" style="padding:4%">
+     <h3>Getting Me Here</h3><br>
      <div class="col-md-8" id="map">
      </div>
      </div>

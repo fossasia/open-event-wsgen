@@ -650,6 +650,14 @@ a {
 }
 .speaker-info {
   margin-bottom: 10px;
+  height: 280px;
+  overflow: overlay;
+  padding: 0px;
+
+  .name {
+    word-wrap:break-word; 
+    padding:0 4px;
+  }
 }
 #map {
   width: 100%;
