@@ -27,6 +27,7 @@ $(document).ready(function () {
   $('#btnGenerate').click(function () {
      
      var check = $("#form").valid();
+     $(".error").focus();
      if (check) {
        var formData = getData();
        socket.emit('live', formData);

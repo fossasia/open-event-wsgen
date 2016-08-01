@@ -13,6 +13,11 @@
   <script src="./js/validation.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 </head>
+<style>
+  .error {
+    font-weight :normal;
+  }
+</style>
 <body>
 
 <div class="container"><br><br>
@@ -41,11 +46,11 @@
     <section id="eventapi-input" style="display:none;">
     	<label for="apiendpoint">Link to Open Event API endpoint</label>
     	<input type="url" class="form-control"
-      id="apiendpoint" name="apiendpoint">
+      id="apiendpoint" name="apiendpoint" required="true"/>
     </section>
     <br>
     <section id="jsonupload-input" style="display:none;">
-      <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control"/>
+      <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control" required="true" accept="application/zip"/>
  	<br>
     </section>
     <br>
