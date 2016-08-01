@@ -277,6 +277,9 @@ a {
 .largeoffset {
   margin-left: 36%;
 }
+.sublargeoffset :first-child {
+   margin-left: 16.6%;
+}
 
 @media (max-width: 892px) { 
 .largeoffset  {

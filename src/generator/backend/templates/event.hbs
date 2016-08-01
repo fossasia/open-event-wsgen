@@ -101,8 +101,30 @@
         <div class= "col-md-2">
         </div>
      </div> 
-   
-    </div>
+     <div class="row">
+      {{#each sponsorpics}}
+        <div class="row sponsor-row">
+        {{#each this}}
+          <div class="{{{divclass}}}">
+            <a href="{{{url}}}">
+            <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
+            </a>
+          </div>
+        {{/each}}
+         </div> <!-- sponsor-row -->
+      {{/each}}
+     </div>
+     {{#if eventurls.latitude }}
+     {{#if eventurls.longitude}}
+     <div class="row" style="padding:4%">
+     <h3>Get Me Here</h3><br>
+     <div class="col-md-8" id="map">
+     </div>
+     </div>
+     {{/if}}
+     {{/if}}   
+    <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+
     {{> footer}}
   
 
