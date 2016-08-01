@@ -188,12 +188,20 @@ function extractEventUrls(event, reqOpts) {
 
   const urls= {
     main_page_url:event.event_url,
-    logo_url : event.logo
+    logo_url : event.logo,
+    background_url :event.background_url,
+    date : moment(event.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(event.start_time).format('ddd, Do MMM'),
+    time : moment(event.start_time).format('HH:mm'),
+    name : event.name,
+    location : event.location_name
   };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
      urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
+    }
+    if ((event.background_url !== null) && (event.background_url.substring(0, 4) === 'http')) {
+     urls.background_url = distHelper.downloadSpeakerPhoto(appFolder, event.background_url);
     }
   }
 
@@ -318,3 +326,4 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
+

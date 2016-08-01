@@ -22,6 +22,7 @@ const tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.
 const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
+const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
 
 if(!String.linkify) {
   String.prototype.linkify = function() {
@@ -51,6 +52,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
   const apptitle = fold.getAppName(event);
+  
 
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle};
 }
@@ -154,12 +156,14 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('================================WRITING\n\n\n\n');
       socket.emit('live.process', {status: "Compiling the HTML pages from templates"});
       const jsonData = getJsonData(req.body);
+
       try {
 
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', tpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions.html', tpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', trackstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', roomstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', speakerstpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', eventtpl(jsonData));
       } catch (err)
       {
           console.log(err);
