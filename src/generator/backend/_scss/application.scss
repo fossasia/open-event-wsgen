@@ -277,7 +277,20 @@ a {
 .largeoffset {
   margin-left: 36%;
 }
-
+.sublargeoffset :first-child {
+   margin-left: 16.6%;
+}
+.subsmalloffset {
+   margin-left: 41.66666667%;
+}
+@media (max-width: 792px) { 
+.sublargeoffset :first-child {
+   margin-left: 0%;
+}
+.mediumoffset:first-child{
+  margin-left: 0%;
+}
+}
 @media (max-width: 892px) { 
 .largeoffset  {
   margin-left: 10%;

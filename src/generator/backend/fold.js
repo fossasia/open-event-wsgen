@@ -196,6 +196,7 @@ function extractEventUrls(event, reqOpts) {
     location : event.location_name,
     latitude : event.latitude,
     longitude: event.longitude
+
   };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
@@ -217,8 +218,21 @@ function getCopyrightData(event) {
 
 function foldByLevel(sponsors ,reqOpts) {
   let levelData = {};
-
+  let level1=0,level2=0,level3=0;
   const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
+  sponsors.forEach( (sponsor) => {
+    if(sponsor.level==="1" && (sponsor.logo !== null||" ")){
+      level1++;
+    }
+    if (sponsor.level==="2" && (sponsor.logo !== null||" ")) {
+       level2++;
+    }
+     if (sponsor.level==="3" && (sponsor.logo !== null||" ")) {
+       level3++;
+    }
+
+  });
+
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
@@ -246,16 +260,37 @@ function foldByLevel(sponsors ,reqOpts) {
 
     switch (sponsorItem.level) {
       case '1':
+      if(level1 === 1) {
         sponsorItem.divclass = 'largeoffset col-md-4';
+      }
+      else if(level1 === 2) {
+        sponsorItem.divclass = 'sublargeoffset col-md-4';
+      }
+      else {
+        sponsorItem.divclass = 'col-md-4';
+      }
         sponsorItem.imgsize = 'large';
         break;
       case '2':
       default:
+       if( level2 > 0 && level2 < 6 ) {
         sponsorItem.divclass = 'mediumoffset col-md-2';
+      }
+      else {
+        sponsorItem.divclass = 'col-md-2';
+      }
         sponsorItem.imgsize = 'medium';
         break;
       case '3':
-        sponsorItem.divclass = 'smalloffset col-md-2';
+      if (level3 === 1) {
+         sponsorItem.divclass = 'smalloffset col-md-2';
+      }
+      else if( level3 >1 && level3 < 5){
+        sponsorItem.divclass = 'mediumoffset col-md-2';
+      }
+      else {
+         sponsorItem.divclass = 'col-md-2';
+      }
         sponsorItem.imgsize = 'small';
         break;
     }

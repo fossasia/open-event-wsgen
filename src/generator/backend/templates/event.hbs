@@ -31,12 +31,10 @@
       <![endif]-->
     </head>
     <style>
-      
     </style>
     <body>
 
     {{> navbar}}
-
     <div class="carousel slide" style="margin-bottom: 0;">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
@@ -73,8 +71,22 @@
         {{/sessions}}
         {{/tracks}}
         </div>
-        
+        <div class= "col-md-2">
+        </div>
      </div> 
+     <div class="row">
+      {{#each sponsorpics}}
+        <div class="row sponsor-row">
+        {{#each this}}
+          <div class="{{{divclass}}}">
+            <a href="{{{url}}}">
+            <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
+            </a>
+          </div>
+        {{/each}}
+         </div> <!-- sponsor-row -->
+      {{/each}}
+     </div>
      {{#if eventurls.latitude }}
      {{#if eventurls.longitude}}
      <div class="row" style="padding:4%">
@@ -83,10 +95,9 @@
      </div>
      </div>
      {{/if}}
-     {{/if}}
- </div>    
+     {{/if}}   
     <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
- 
+    </div>
     {{> footer}}
   
 
@@ -113,6 +124,24 @@
       else {
         $("#homelink").addClass('active');
       }
+$(function() {  
+  $('.nav.navbar-nav > li a').removeClass('active');
+  var linkUrl=window.location.href.split("/");
+  if((linkUrl).indexOf("tracks.html")!=-1){
+    $("#trackslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("rooms.html")!=-1){
+    $("#roomslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("speakers.html")!=-1){
+    $("#speakerslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("sessions.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
+  else {
+    $("#homelink").addClass('active');
+  }
 });
 </script> 
    <script type="text/javascript">
