@@ -11,6 +11,7 @@ const jsonfile = require('jsonfile');
 
 const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
+const mailer = require('./mailer');
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
 const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
@@ -170,8 +171,19 @@ exports.createDistDir = function(req, socket, callback) {
           socket.emit('live.error' , {status : "Error in Compiling/Writing templates"} );
       }
 
-      callback(appFolder);
       done(null, 'write');
+    },
+    (done) => {
+      console.log('=================================SENDING MAIL\n\n\n');
+      socket.emit('live.process', {status: "Website is being generated"});
+      
+      mailer.sendMail(req.body.email, req.body.name, () => {
+
+        callback(appFolder);
+        done(null, 'write');
+        
+      });
+      
     }
   ]);
 };
