@@ -185,7 +185,9 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, reqOpts) {
-
+  const sociallinks = Array.from(event.social_links);
+  const twitterLink = sociallinks[0];
+  console.log(twitterLink);
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo,
@@ -195,7 +197,8 @@ function extractEventUrls(event, reqOpts) {
     name : event.name,
     location : event.location_name,
     latitude : event.latitude,
-    longitude: event.longitude
+    longitude: event.longitude,
+    twitterLink: twitterLink.link
 
   };
   if (reqOpts.assetmode === 'download') {
