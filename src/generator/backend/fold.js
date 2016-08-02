@@ -200,7 +200,7 @@ function extractEventUrls(event, reqOpts) {
     longitude: event.longitude,
     twitterLink: twitterLink.link
 
-  };
+ };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
