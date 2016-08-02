@@ -10,14 +10,20 @@
     <link href="css/main.css" rel="stylesheet">
   <script src="./js/jquery.min.js"></script>
   <script src="./js/form.js"></script>
+  <script src="./js/validation.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
 </head>
+<style>
+  .error {
+    font-weight :normal;
+  }
+</style>
 <body>
 
 <div class="container"><br><br>
 	<form class="col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-group generator_form" method="post" id="form" name="form" role="form"  enctype="multipart/form-data">
     	<label for="name">Email</label>
-    	<input type="email" class="form-control" id="email" name="email">
+    	<input type="email" class="form-control" id="email" name="email" required="true" email="true">
     <br>
   		<!--<label for="theme">Choose your theme</label>-->
   		  <!--<select class="form-control" id="theme" name="theme">-->
@@ -28,7 +34,7 @@
         <input type="hidden" id="theme" name="theme" value="light">
 
         <label for="name">App's Name</label>
-    	<input type="text" class="form-control" id="name" name="name">
+    	<input type="text" class="form-control" id="name" name="name" required="true">
  		<br>
       <label> Choose your data source </label>
       <ul style="list-style-type:none">
@@ -40,11 +46,11 @@
     <section id="eventapi-input" style="display:none;">
     	<label for="apiendpoint">Link to Open Event API endpoint</label>
     	<input type="url" class="form-control"
-      id="apiendpoint" name="apiendpoint">
+      id="apiendpoint" name="apiendpoint" required="true"/>
     </section>
     <br>
     <section id="jsonupload-input" style="display:none;">
-      <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control"/>
+      <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control" required="true" accept="application/zip"/>
  	<br>
     </section>
     <br>
@@ -59,7 +65,7 @@
           <br>
           <div id="status"></div>
           <br>
-      <button type="button" class="download btn btn-default" id="btnGenerate">GENERATE WEBAPP</button>
+      <button type="button" class="download btn btn-default" id="btnGenerate" value="Validate">GENERATE WEBAPP</button>
       <button type="button" class="download btn btn-default" id="btnLive" >PREVIEW</button>
       <button type="button" class="download btn btn-default" id="btnDownload" >DOWNLOAD</button>
           <br>
