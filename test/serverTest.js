@@ -67,7 +67,7 @@ describe('fold', function() {
 
       assert.equal(linkModeUrls.main_page_url, data.event.event_url);
       assert.equal(linkModeUrls.logo_url, data.event.logo);
-      assert.equal(downloadModeUrls.logo_url, 'images/speakers/Logo_OpenTecSummit_TXT_grey.png');
+      assert.equal(downloadModeUrls.logo_url, 'images/Logo_OpenTecSummit_TXT_grey.png');
     })
   });
   describe('getCopyrightData()', function () {
