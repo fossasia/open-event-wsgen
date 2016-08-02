@@ -3,6 +3,7 @@
 const moment = require('moment');
 const distHelper = require('./dist');
 const urlencode  = require('urlencode');
+const urljoin = require('url-join');
 
 function byProperty(key) {
 
@@ -36,15 +37,20 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
-      if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
-        speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+      if (speaker.photo !== null) {
+        if (speaker.photo.substring(0, 4) === 'http') {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+        } else {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
+        }
+
       }
       else {
         var reg = speaker.photo.split('');
         if(reg[0] =='/'){
-            speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+          speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
         }
-        
+
       }
       //console.log(speaker.photo);
     });
@@ -203,10 +209,10 @@ function extractEventUrls(event, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-     urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
+     urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
     }
     if ((event.background_url !== null) && (event.background_url.substring(0, 4) === 'http')) {
-     urls.background_url = distHelper.downloadSpeakerPhoto(appFolder, event.background_url);
+     urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
     }
   }
 
@@ -239,9 +245,14 @@ function foldByLevel(sponsors ,reqOpts) {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-    if ((sponsor.logo !== null) && (sponsor.logo.substring(0, 4) === 'http')) {
+    if (sponsor.logo !== null) {
+      if (sponsor.logo.substring(0, 4) === 'http') {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
+      } else {
+        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
+
       }
+    } 
     else {
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
