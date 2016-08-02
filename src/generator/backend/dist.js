@@ -171,6 +171,15 @@ module.exports = {
     downloadFile(photoUrl, appPath + '/' + photoFilePath);
     return photoFilePath;
   },
+  downloadLogo: function(appFolder, logoUrl) {
+    const appPath = distPath + '/' +appFolder;
+    const photoFileName = logoUrl.split('/').pop();
+    const photoFilePath = 'images/' + photoFileName;
+
+    console.log('Downloading logo : ' + photoFileName);
+    downloadFile(logoUrl, appPath + '/' + photoFilePath);
+    return photoFilePath;
+  },
    downloadSponsorPhoto: function(appFolder, photoUrl) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
