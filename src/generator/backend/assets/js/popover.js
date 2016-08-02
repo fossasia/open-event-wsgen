@@ -4,9 +4,10 @@ $(document).ready(function () {
   let widthWindow = $(window).width();
       popbox = $(".pop-box");
       headerpop = $(".header-pop");
-      outerContheight = $(".main").offset().top + $(".main").outerHeight();
+      //outerContheight = $(".main").offset().top + $(".main").outerHeight();
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
+      popcard = $(".popcard");
 
   popbox.hide();
   if( widthWindow < 768) {
@@ -21,6 +22,16 @@ $(document).ready(function () {
       popbox.hide();
       hidePopbox();
       hideUnderline();
+    });
+    popcard.hover(function (event) {
+    var trackin =$(event.target).next().next().next();
+    console.log(trackin);
+    popbox.hide();
+    event.preventDefault();
+    event.stopPropagation();
+    trackin.show();
+    },function(){
+    
     });
   }  
   function popBox(e) {
