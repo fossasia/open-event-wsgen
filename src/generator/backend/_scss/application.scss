@@ -630,20 +630,21 @@ a {
 
 //event page
 
-.carousel {
+.carousel, .carousel .item {
+  height: 500px;
 
- height: 500px;
   &-caption {
+
     z-index: 10;
-    text-align: left;
-    position: absolute;
-    right: 15%;
     bottom: 20px;
+    color: $white;
     left: 15%;  
     padding-top: 20px;
-    padding-bottom: 20px;
-    color: $white;
-    text-shadow: 0 1px 2px rgba(0,0,0,.6); 
+    position: absolute;
+    right: 15%;
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    padding-bottom: 20px; 
 
     h4  {
       color: $white;
@@ -654,10 +655,6 @@ a {
     }
 
   }
-}
-
-.carousel .item {
-  height: 500px;
 }
 
 @media (min-width: 768px) {
@@ -675,7 +672,7 @@ a {
 
   .name { 
     padding: 0 4px;
-    word-wrap:break-word; 
+    word-wrap: break-word; 
   }
 
 }
