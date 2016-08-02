@@ -187,7 +187,6 @@ function createSocialLinks(event) {
 function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
   const twitterLink = sociallinks[0];
-  console.log(twitterLink);
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo,
