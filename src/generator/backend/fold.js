@@ -80,7 +80,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
+        date: moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sessions: []
       };
@@ -191,19 +191,21 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, reqOpts) {
-
+  const sociallinks = Array.from(event.social_links);
+  const twitterLink = sociallinks[0];
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo,
     background_url :event.background_url,
-    date : moment(event.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(event.start_time).format('ddd, Do MMM'),
+    date : moment(event.start_time).format('ddd, Do MMM'),
     time : moment(event.start_time).format('HH:mm'),
     name : event.name,
     location : event.location_name,
     latitude : event.latitude,
-    longitude: event.longitude
+    longitude: event.longitude,
+    twitterLink: twitterLink.link
 
-  };
+ };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
