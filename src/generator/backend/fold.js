@@ -193,7 +193,10 @@ function extractEventUrls(event, reqOpts) {
     date : moment(event.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(event.start_time).format('ddd, Do MMM'),
     time : moment(event.start_time).format('HH:mm'),
     name : event.name,
-    location : event.location_name
+    location : event.location_name,
+    latitude : event.latitude,
+    longitude: event.longitude
+
   };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
@@ -229,8 +232,7 @@ function foldByLevel(sponsors ,reqOpts) {
     }
 
   });
-  console.log(level2);
-  console.log(level1);
+
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];

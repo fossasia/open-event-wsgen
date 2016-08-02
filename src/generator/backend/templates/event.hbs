@@ -31,43 +31,10 @@
       <![endif]-->
     </head>
     <style>
-      .carousel {
-        height : 500px;
-      }
-      .carousel .item {
-        height :500px;
-      }
-      .carousel-caption {
-        z-index: 10;
-        text-align: left;
-        position: absolute;
-        right: 15%;
-        bottom: 20px;
-        left: 15%;  
-        padding-top: 20px;
-        padding-bottom: 20px;
-        color: #fff;
-        text-shadow: 0 1px 2px rgba(0,0,0,.6);
-      }
-      .carousel-caption h4  {
-         color: #ffffff;
-      }
-      .carousel-caption h1 {
-        color: #ffffff;
-      }
-     @media (min-width: 768px) {
-      .carousel-caption h1 {
-         font-size: 50px;
-      }
-    }
-    .speaker-info {
-      margin-bottom: 10px;
-    }
     </style>
     <body>
 
     {{> navbar}}
-    <div class="row">
     <div class="carousel slide" style="margin-bottom: 0;">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('{{eventurls.background_url }}')" class="item active"> 
@@ -83,7 +50,8 @@
         </div>
       </div> 
     </div>
-    </div>
+
+  <div class="container" style="background-color: white;">  
     <div class ="row" style="padding:4%">
       <div class="col-md-10">
       <h3>Speakers</h3><br>
@@ -92,7 +60,12 @@
         {{#speakers_list}}
           <div class="col-md-2 col-sm-6 speaker-info">
             <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" style="width: 133px; height: 133px; display:block; margin:auto; " src="{{photo}}"/>
-            
+            <div class="name text-center">
+            <h4 style="font-weight: 500;">{{name}}</h4>
+            </div>
+            <div class="name text-center">
+            <h5>{{organisation}}</h5>
+            </div>
           </div>
         {{/speakers_list}}
         {{/sessions}}
@@ -124,14 +97,33 @@
      {{/if}}
      {{/if}}   
     <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
-
+    </div>
     {{> footer}}
   
 
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
+   <script src="./js/map.js" type="text/javascript"></script>
    <script>
+    $(function() {  
+      $('.nav.navbar-nav > li a').removeClass('active');
+      var linkUrl=window.location.href.split("/");
+      if((linkUrl).indexOf("tracks.html")!=-1){
+        $("#trackslink").addClass('active');
+      }
+      else if((linkUrl).indexOf("rooms.html")!=-1){
+        $("#roomslink").addClass('active');
+      }
+      else if((linkUrl).indexOf("speakers.html")!=-1){
+        $("#speakerslink").addClass('active');
+      }
+      else if((linkUrl).indexOf("sessions.html")!=-1){
+        $("#sessionslink").addClass('active');
+      }
+      else {
+        $("#homelink").addClass('active');
+      }
 $(function() {  
   $('.nav.navbar-nav > li a').removeClass('active');
   var linkUrl=window.location.href.split("/");
