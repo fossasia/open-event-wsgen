@@ -7,7 +7,7 @@ $(document).ready(function () {
       //outerContheight = $(".main").offset().top + $(".main").outerHeight();
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
-      popcard = $(".popcard");
+      speakerinfo = $(".speaker-info");
 
   popbox.hide();
   if( widthWindow < 768) {
@@ -23,15 +23,17 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
-    popcard.hover(function (event) {
-    var trackin =$(event.target).next().next().next();
-    console.log(trackin);
+    speakerinfo.hover(function (event) {
+    var trackin =$(event.target).children(popbox);
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
     trackin.show();
     },function(){
-    
+      console.log(event.target);
+       if (!$('.pop-box').is(event.target)){
+         popbox.hide();
+       } 
     });
   }  
   function popBox(e) {

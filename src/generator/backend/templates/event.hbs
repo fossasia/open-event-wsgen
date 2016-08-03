@@ -58,21 +58,60 @@
         {{#tracks}}
         {{#sessions}}
         {{#speakers_list}}
-          <div class="col-md-2 col-sm-6 speaker-info">
-            <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="popcard card-img-top" style="width: 133px; height: 133px; display:block; margin:auto; " src="{{photo}}"/>
-            <div class="name text-center">
-            <h4 style="font-weight: 500;">{{name}}</h4>
-            </div>
-            <div class="name text-center">
-            <h5>{{organisation}}</h5>
-            </div>
+          <div class="col-md-4 col-sm-6 speaker-info">
+            <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="popcard card-img-top" style="width: 233px; height: 233px; display:block; margin:auto; " src="{{photo}}"/>
           <div style="display:none;" class="pop-box">
             <div class="arrow">
               <span></span>
             </div>
-            <div class="pop-container" style="color:black";>
-             rstdctgcvghvgvgvfgcfcgf
-            
+           <div class="pop-container" style="color:black";>
+              <div class="pop">
+                <div class="pop-header">
+                  <span>
+                  <a class="session-link" href="#{{session_id}}">
+                    Share <i class="fa fa-link"></i>
+                  </a>
+                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  </span>
+                </div>
+                <div class="pop-over row">
+                  {{#linkify}}{{long_biography}}{{/linkify}}
+                </div>
+                <hr style="clear:both;width:75%;">
+                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
+                <div class="pop-speakers"> 
+                 <div class="pop-over row">
+                   <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
+                   <div class="col-xs-9 col-md-9">
+                   <center><h3 class="card-text">{{name}}</h3></center>
+                   <center><h5 class="card-text">{{../title}}</h5></center>
+                   <div class="icons row">
+                   {{#if website}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+                  {{/if}}
+                   {{#if github}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+                  {{/if}}
+                  {{#if twitter}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  {{/if}}
+                 </div>
+                   </div>
+                  </div>
+                </div>  
+                <hr style="clear:both;width:75%;">
+                <div class="pop-footer">
+                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{location}}</p>
+                  <ul class="title-inline">
+                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                  <li>{{../title}}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
            </div>
             </div>
