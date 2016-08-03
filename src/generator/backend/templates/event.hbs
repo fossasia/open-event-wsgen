@@ -58,13 +58,14 @@
         {{#tracks}}
         {{#sessions}}
         {{#speakers_list}}
-          <div class="col-md-4 col-sm-6 speaker-info">
-            <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="popcard card-img-top" style="width: 233px; height: 233px; display:block; margin:auto; " src="{{photo}}"/>
+        <div class="col-md-4 col-sm-6 speaker-info">
+          <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="popcard card-img-top" style="width: 233px; height: 233px; display:block; margin:auto; " src="{{photo}}"/>
+         <h3 class="speakername card-text">{{name}}</h3>
           <div style="display:none;" class="pop-box">
             <div class="arrow">
               <span></span>
             </div>
-           <div class="pop-container" style="color:black";>
+            <div class="pop-container" style="color:black";>
               <div class="pop">
                 <div class="pop-header">
                   <span>
@@ -113,8 +114,8 @@
                 </div>
               </div>
             </div>
-           </div>
-            </div>
+          </div>
+        </div>
     <!--end -->
         {{/speakers_list}}
         {{/sessions}}

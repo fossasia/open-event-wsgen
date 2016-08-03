@@ -24,14 +24,22 @@ $(document).ready(function () {
       hideUnderline();
     });
     speakerinfo.hover(function (event) {
-    var trackin =$(event.target).children(popbox);
+      console.log(event.target);
+    if(speakerinfo.is(event.target)) {
+      var trackin =$(event.target).children('.pop-box');
+      
+    }  
+    else {
+      trackin = $(event.target).parent().children('.pop-box');
+      console.log(trackin);
+    }
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
     trackin.show();
     },function(){
-      console.log(event.target);
-       if (!$('.pop-box').is(event.target)){
+      
+       if (!$('.pop-box').is(event.target) && !$('.speakername').is(event.target) ){
          popbox.hide();
        } 
     });
