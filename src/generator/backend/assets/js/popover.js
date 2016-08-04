@@ -4,7 +4,6 @@ $(document).ready(function () {
   let widthWindow = $(window).width();
       popbox = $(".pop-box");
       headerpop = $(".header-pop");
-      //outerContheight = $(".main").offset().top + $(".main").outerHeight();
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
@@ -24,26 +23,24 @@ $(document).ready(function () {
       hideUnderline();
     });
     speakerinfo.hover(function (event) {
-      console.log(event.target);
     if(speakerinfo.is(event.target)) {
       var trackin =$(event.target).children('.pop-box');
-      
-    }  
+   }  
     else {
       trackin = $(event.target).parent().children('.pop-box');
-      console.log(trackin);
     }
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
     trackin.show();
     },function(){
-      
-       if (!$('.pop-box').is(event.target) && !$('.speakername').is(event.target) ){
+
+    if (!$('.pop-box').is(event.target) && !$('.speakername').is(event.target) ){
          popbox.hide();
        } 
     });
   }  
+
   function popBox(e) {
     event = e || window.event;
 
@@ -52,6 +49,7 @@ $(document).ready(function () {
     event.preventDefault();
     event.stopPropagation();
     var track;
+    let outerContheight = $(".main").offset().top + $(".main").outerHeight();
     let sizecontainer = sizeevent;
         timeOftrack = tracktime;
         
