@@ -34,27 +34,7 @@ function returnTrackColor(trackInfo, id) {
 }
 
 function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
-  if (reqOpts.assetmode === 'download') {
-    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-    speakers.forEach((speaker) => {
-      if (speaker.photo !== null) {
-        if (speaker.photo.substring(0, 4) === 'http') {
-          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } else {
-          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
-        }
 
-      }
-      else {
-        var reg = speaker.photo.split('');
-        if(reg[0] =='/'){
-          speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
-        }
-
-      }
-      //console.log(speaker.photo);
-    });
-  }
 
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -358,7 +338,6 @@ function foldByRooms(roomsData, sessions, trackInfo) {
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
- 
   return roomInfo;
 }
 
@@ -367,6 +346,66 @@ function getAppName(event) {
     return name;
 }
 
+function foldBySpeakers(speakers ,sessions, reqOpts) {
+  if (reqOpts.assetmode === 'download') {
+    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
+    speakers.forEach((speaker) => {
+      if (speaker.photo !== null) {
+        if (speaker.photo.substring(0, 4) === 'http') {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+        } else {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
+        }
+
+      }
+      else {
+        var reg = speaker.photo.split('');
+        if(reg[0] =='/'){
+          speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+        }
+
+      }
+      //console.log(speaker.photo);
+    });
+  }
+
+  var speakerslist = [];
+  
+  speakers.forEach((speaker) => {
+    speakerslist.push({
+      country: speaker.country, 
+      email: speaker.email, 
+      facebook: speaker.facebook , 
+      github: speaker.github , 
+      linkedin: speaker.linkedin , 
+      twitter: speaker.twitter , 
+      website: speaker.website ,
+      long_biography: speaker.long_biography , 
+      mobile: speaker.mobile, 
+      name: speaker.name, 
+      photo : speaker.photo,
+      organisation: speaker.organisation,
+      sessions : getAllSessions(speaker.sessions, sessions)
+       
+    });
+
+ });
+  return speakerslist;
+}
+
+function getAllSessions(speakerid , session){
+var speakersession =[];
+const sessionsMap = new Map(session.map((s) => [s.id, s]));
+speakerid.forEach((speaker) => {
+  if(speaker !== undefined ) {
+    //console.log(speaker.id);
+     speakersession.push({
+      detail :sessionsMap.get(speaker.id)
+    })
+    }
+}) 
+return speakersession;
+}
 module.exports.foldByTrack = foldByTrack;
 module.exports.foldByDate = foldByDate;
 module.exports.createSocialLinks = createSocialLinks;
@@ -376,4 +415,4 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
-
+module.exports.foldBySpeakers = foldBySpeakers;
