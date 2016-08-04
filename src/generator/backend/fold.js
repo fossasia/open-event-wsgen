@@ -34,8 +34,7 @@ function returnTrackColor(trackInfo, id) {
 }
 
 function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
-
-
+  
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
@@ -225,7 +224,7 @@ function foldByLevel(sponsors ,reqOpts) {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-    if (sponsor.logo !== null) {
+    if (sponsor.logo !== null && sponsor.logo != "") {
       if (sponsor.logo.substring(0, 4) === 'http') {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
       } else {
