@@ -369,7 +369,6 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   }
 
   let speakerslist = [];
-  
   speakers.forEach((speaker) => {
     speakerslist.push({
       country: speaker.country, 
@@ -393,26 +392,26 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
 }
 
 function getAllSessions(speakerid , session, trackInfo){
-let speakersession =[];
-let sessiondetail = [];
-let trackDetails = new Object();
+  let speakersession =[];
+  let sessiondetail = [];
+  let trackDetails = new Object();
 
-trackInfo.forEach((track) => {
-  trackDetails[track.id] = track.color;
-});
-const sessionsMap = new Map(session.map((s) => [s.id, s]));
-speakerid.forEach((speaker) => {
-  if(speaker !== undefined ) {
-    //console.log(speaker.id);
-     sessiondetail.push({
-      detail :sessionsMap.get(speaker.id)
-    })
-    }
-}) 
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
+
+  const sessionsMap = new Map(session.map((s) => [s.id, s]));
+  speakerid.forEach((speaker) => {
+    if(speaker !== undefined ) {
+      //console.log(speaker.id);
+       sessiondetail.push({
+        detail :sessionsMap.get(speaker.id)
+      })
+      }
+  }) 
 sessiondetail.forEach((session) => {
-  console.log(session);
 
-   speakersession.push({
+  speakersession.push({
       start: moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
       end:   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
       title: session.detail.title,
@@ -421,7 +420,9 @@ sessiondetail.forEach((session) => {
       microlocation: session.detail.microlocation.name
    });
 })
+
 return speakersession;
+
 }
 module.exports.foldByTrack = foldByTrack;
 module.exports.foldByDate = foldByDate;
