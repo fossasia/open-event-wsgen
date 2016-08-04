@@ -663,8 +663,8 @@ a {
 .speaker-info {
   height: 280px;
   margin-bottom: 10px;
-  overflow: overlay;
   padding: 0;
+  cursor: pointer;
   .name { 
     padding: 0 4px;
     word-wrap: break-word; 
