@@ -52,10 +52,10 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const copyright = fold.getCopyrightData(event);
   const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
+  const speakerslist = fold.foldBySpeakers(speakers, sessions, reqOpts);
   const apptitle = fold.getAppName(event);
-  
 
-  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle};
+  return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle, speakerslist};
 }
 
 function getJsonData(reqOpts) {

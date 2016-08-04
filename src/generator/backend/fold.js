@@ -3,6 +3,7 @@
 const moment = require('moment');
 const distHelper = require('./dist');
 const urlencode  = require('urlencode');
+const urljoin = require('url-join');
 
 function byProperty(key) {
 
@@ -33,23 +34,7 @@ function returnTrackColor(trackInfo, id) {
 }
 
 function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
-  if (reqOpts.assetmode === 'download') {
-    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-    speakers.forEach((speaker) => {
-      if ((speaker.photo !== null) && (speaker.photo.substring(0, 4) === 'http')) {
-        speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-      }
-      else {
-        var reg = speaker.photo.split('');
-        if(reg[0] =='/'){
-            speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
-        }
-        
-      }
-      //console.log(speaker.photo);
-    });
-  }
-
+  
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
@@ -74,7 +59,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        date: moment(session.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(session.start_time).format('ddd, Do MMM'),
+        date: moment(session.start_time).format('ddd, Do MMM'),
         slug: slug,
         sessions: []
       };
@@ -185,23 +170,28 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, reqOpts) {
-
+  const sociallinks = Array.from(event.social_links);
+  const twitterLink = sociallinks[0];
   const urls= {
     main_page_url:event.event_url,
     logo_url : event.logo,
     background_url :event.background_url,
-    date : moment(event.start_time).locale('de').format('ddd D. MMM') + ' / ' + moment(event.start_time).format('ddd, Do MMM'),
+    date : moment(event.start_time).format('ddd, Do MMM'),
     time : moment(event.start_time).format('HH:mm'),
     name : event.name,
-    location : event.location_name
-  };
+    location : event.location_name,
+    latitude : event.latitude,
+    longitude: event.longitude,
+    twitterLink: twitterLink.link
+
+ };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-     urls.logo_url = distHelper.downloadSpeakerPhoto(appFolder, event.logo);
+     urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
     }
     if ((event.background_url !== null) && (event.background_url.substring(0, 4) === 'http')) {
-     urls.background_url = distHelper.downloadSpeakerPhoto(appFolder, event.background_url);
+     urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
     }
   }
 
@@ -229,15 +219,19 @@ function foldByLevel(sponsors ,reqOpts) {
     }
 
   });
-  console.log(level2);
-  console.log(level1);
+
   sponsors.forEach((sponsor) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-    if ((sponsor.logo !== null) && (sponsor.logo.substring(0, 4) === 'http')) {
+    if (sponsor.logo !== null && sponsor.logo != "") {
+      if (sponsor.logo.substring(0, 4) === 'http') {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
+      } else {
+        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
+
       }
+    } 
     else {
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
@@ -343,7 +337,6 @@ function foldByRooms(roomsData, sessions, trackInfo) {
       sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
     });
   });
- 
   return roomInfo;
 }
 
@@ -352,6 +345,74 @@ function getAppName(event) {
     return name;
 }
 
+function foldBySpeakers(speakers ,sessions, reqOpts) {
+  if (reqOpts.assetmode === 'download') {
+    const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
+    speakers.forEach((speaker) => {
+      if (speaker.photo !== null) {
+        if (speaker.photo.substring(0, 4) === 'http') {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+        } else {
+          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
+        }
+
+      }
+      else {
+        var reg = speaker.photo.split('');
+        if(reg[0] =='/'){
+          speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+        }
+
+      }
+      //console.log(speaker.photo);
+    });
+  }
+
+  var speakerslist = [];
+  
+  speakers.forEach((speaker) => {
+    speakerslist.push({
+      country: speaker.country, 
+      email: speaker.email, 
+      facebook: speaker.facebook , 
+      github: speaker.github , 
+      linkedin: speaker.linkedin , 
+      twitter: speaker.twitter , 
+      website: speaker.website ,
+      long_biography: speaker.long_biography , 
+      mobile: speaker.mobile, 
+      name: speaker.name, 
+      photo : speaker.photo,
+      organisation: speaker.organisation,
+      sessions : getAllSessions(speaker.sessions, sessions)
+    });
+
+ });
+
+  return speakerslist;
+}
+
+function getAllSessions(speakerid , session){
+var speakersession =[];
+var sessiondetail = [];
+const sessionsMap = new Map(session.map((s) => [s.id, s]));
+speakerid.forEach((speaker) => {
+  if(speaker !== undefined ) {
+    //console.log(speaker.id);
+     sessiondetail.push({
+      detail :sessionsMap.get(speaker.id)
+    })
+    }
+}) 
+sessiondetail.forEach((session) => {
+   speakersession.push({
+      start : moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
+      end :   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
+      title : session.detail.title
+   })
+})
+return speakersession;
+}
 module.exports.foldByTrack = foldByTrack;
 module.exports.foldByDate = foldByDate;
 module.exports.createSocialLinks = createSocialLinks;
@@ -361,4 +422,4 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
-
+module.exports.foldBySpeakers = foldBySpeakers;

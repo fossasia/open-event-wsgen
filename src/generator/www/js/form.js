@@ -25,8 +25,14 @@ $(document).ready(function () {
           }
       });
   $('#btnGenerate').click(function () {
-    var formData = getData();
-    socket.emit('live', formData);
+     
+     var check = $("#form").valid();
+     $(".error").focus();
+     if (check) {
+       var formData = getData();
+       socket.emit('live', formData);
+     }
+    
   });
 
   socket.on('live.ready', function (data) {
