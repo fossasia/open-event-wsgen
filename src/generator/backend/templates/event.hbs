@@ -82,7 +82,11 @@
                  <div class="pop-over row">
                    <div class="col-md-3 col-xs-3"></div>
                    <div class="col-xs-9 col-md-9">
-                   <center><h3 class="card-text"></h3></center>
+                   {{#each sessions}}
+                   <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+                    <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
+                      {{title}}</h4>
+                   {{/each}}
                    <center><h5 class="card-text"></h5></center>
                    <div class="icons row">
                    {{#if website}}

@@ -385,24 +385,32 @@ function foldBySpeakers(speakers ,sessions, reqOpts) {
       photo : speaker.photo,
       organisation: speaker.organisation,
       sessions : getAllSessions(speaker.sessions, sessions)
-       
     });
 
  });
+
   return speakerslist;
 }
 
 function getAllSessions(speakerid , session){
 var speakersession =[];
+var sessiondetail = [];
 const sessionsMap = new Map(session.map((s) => [s.id, s]));
 speakerid.forEach((speaker) => {
   if(speaker !== undefined ) {
     //console.log(speaker.id);
-     speakersession.push({
+     sessiondetail.push({
       detail :sessionsMap.get(speaker.id)
     })
     }
 }) 
+sessiondetail.forEach((session) => {
+   speakersession.push({
+      start : moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
+      end :   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
+      title : session.detail.title
+   })
+})
 return speakersession;
 }
 module.exports.foldByTrack = foldByTrack;
