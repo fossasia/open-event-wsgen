@@ -354,18 +354,19 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } else  if (reqOpts.datasource === 'eventapi' ) {
+        } 
+        else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         }
-
-      }
-      else {
+        else {
         var reg = speaker.photo.split('');
         if(reg[0] =='/'){
           speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
         }
+      }
 
       }
+      
       //console.log(speaker.photo);
     });
   }
