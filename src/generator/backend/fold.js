@@ -228,7 +228,7 @@ function foldByLevel(sponsors ,reqOpts) {
     if (sponsor.logo !== null && sponsor.logo != "") {
       if (sponsor.logo.substring(0, 4) === 'http') {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
-      } else {
+      } else if (reqOpts.datasource === 'eventapi' ) {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
       }
@@ -350,10 +350,11 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
+      
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } else {
+        } else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         }
 
