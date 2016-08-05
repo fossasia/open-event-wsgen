@@ -51,9 +51,16 @@
       </div> 
     </div>
 
-  <div class="container" style="background-color: white;">  
+  <div class="container" style="background-color: white;"> 
     <div class ="row" style="padding:2%">
       <div class="col-md-10">
+      {{#if eventurls.description}}
+       <div class="row">
+          <div class="col-md-12"><p>{{eventurls.description}}</p></div>
+        </div> 
+      {{/if}}
+      {{#if speakerslist}}
+      <div class="row">
       <h3>Speakers</h3><br>
         {{#speakerslist}}
         <div class="col-md-4 col-sm-6 speaker-info">
@@ -117,12 +124,10 @@
         </div>
     <!--end -->
         {{/speakerslist}}
-      
       </div>  
-      <div style="height:400px;overflow-x:hidden;overflow-y:overlay;" class= "twitter col-md-2">
-        <a class="twitter-timeline" href="{{{eventurls.twitterLink}}}"></a> 
-      </div>
-     </div> 
+        {{/if}}
+
+    {{#if sponsorpics}}
     <div class="row"  style="padding-left:4%">
       <h3>Sponsors</h3><br>
       {{#each sponsorpics}}
@@ -137,6 +142,7 @@
          </div> <!-- sponsor-row -->
       {{/each}}
      </div>
+     {{/if}}
      {{#if eventurls.latitude }}
      {{#if eventurls.longitude}}
      <div class="row" style="padding:4%">
@@ -148,6 +154,11 @@
      {{/if}}   
     <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
     </div>
+     <div style="height:400px;overflow-x:hidden;overflow-y:overlay;" class= "twitter col-md-2">
+        <a class="twitter-timeline" href="{{{eventurls.twitterLink}}}"></a> 
+      </div>
+   </div> 
+   </div>
     {{> footer}}
   
 

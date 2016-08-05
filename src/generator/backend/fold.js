@@ -173,14 +173,15 @@ function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
   const twitterLink = sociallinks[0];
   const urls= {
-    main_page_url:event.event_url,
-    logo_url : event.logo,
-    background_url :event.background_url,
-    date : moment(event.start_time).format('ddd, Do MMM'),
-    time : moment(event.start_time).format('HH:mm'),
-    name : event.name,
-    location : event.location_name,
-    latitude : event.latitude,
+    main_page_url: event.event_url,
+    logo_url: event.logo,
+    background_url: event.background_url,
+    date: moment(event.start_time).format('ddd, Do MMM'),
+    time: moment(event.start_time).format('HH:mm'),
+    name: event.name,
+    description: event.description,
+    location: event.location_name,
+    latitude: event.latitude,
     longitude: event.longitude,
     twitterLink: twitterLink.link
 
