@@ -3,10 +3,12 @@
 const express = require('express');
 const connectDomain = require('connect-domain');
 const compression = require('compression');
+const bodyParser = require('body-parser');
 
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+
 
 app.use(compression());
 var errorHandler;
@@ -47,6 +49,17 @@ app.use('/live/preview', express.static(__dirname + '/../../dist'));
 app.get('/download/:email/:appname', function (req, res) {
   generator.pipeZipToRes(req.params.email, req.params.appname, res)
 }).use(errorHandler);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post('/generate', function (req, res) {
+  generator.createDistDir(req, res, function(appFolder) {
+    res.send("Website generation started. You'll get an email when it is ready");
+  });
+});
+
+
 
 app.use('*', function(req, res) {
   res.sendFile(__dirname + '/www/404.html');

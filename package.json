@@ -23,6 +23,7 @@
     "adm-zip": "^0.4.7",
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
+    "body-parser": "^1.15.2",
     "chai": "^3.5.0",
     "compression": "^1.6.2",
     "connect-domain": "^0.5.0",
