@@ -350,7 +350,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
-      if (speaker.photo !== null) {
+      if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
         } else {
