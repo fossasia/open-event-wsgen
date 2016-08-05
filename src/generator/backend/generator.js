@@ -20,7 +20,7 @@ handlebars.registerPartial('navbar', navbar);
 handlebars.registerPartial('footer', footer);
 
 const tpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
-const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
+// const trackstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
@@ -165,8 +165,8 @@ exports.createDistDir = function(req, socket, callback) {
 
       try {
 
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions.html', tpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', trackstpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', tpl(jsonData));
+          // fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', trackstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', roomstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', speakerstpl(jsonData));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', eventtpl(jsonData));
