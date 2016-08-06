@@ -679,3 +679,84 @@ a {
   width: 100%;
 
 }
+.speakers-row {
+    padding: 0px 15px;
+}
+.section-header {
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+}
+section {
+    padding: 72px 0px;
+    background: #fff;
+}
+.speaker-column {
+    padding: 0px;
+}
+.speaker {
+    position: relative;
+}
+.speaker, .topic {
+    margin-bottom: 36px;
+}
+.image-holder {
+    position: relative;
+    overflow: hidden;
+}
+.speaker .image-holder {
+    margin-bottom: 12px;
+}
+.speaker-name {
+    color: #333333;
+}
+.speaker span {
+    display: block;
+    font-size: 16px;
+}
+.background-image {
+    height: 300px;
+    width: 300px;
+}
+.speaker .hover-state {
+    max-width: 300px;
+}
+.speaker .hover-state {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+}
+.speaker .hover-state .bio {
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 280px;
+    color: #fff;
+}
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.speaker .hover-state .social-links {
+    position: absolute;
+    top: 80%;
+}
+.speaker .social-links {
+    width: 100%;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transform: translate3d(0px,-200px,0px);
+    -webkit-transform: translate3d(0px,-200px,0px);
+    -moz-transform: translate3d(0px,-200px,0px);
+}

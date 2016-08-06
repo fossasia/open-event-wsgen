@@ -7,6 +7,7 @@ $(document).ready(function () {
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
+      imageholder = $(".image-holder");
 
   popbox.hide();
   if( widthWindow < 768) {
@@ -22,6 +23,13 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
+    imageholder.hover(function(event) {
+      console.log(event.target);
+    popbox.hide();
+    event.preventDefault();
+    event.stopPropagation();
+    $(event.target).parent().next().show();
+    })
     speakerinfo.hover(function (event) {
     if(speakerinfo.is(event.target)) {
       var trackin =$(event.target).children('.pop-box');
