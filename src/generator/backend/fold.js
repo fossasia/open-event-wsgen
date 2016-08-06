@@ -233,7 +233,6 @@ function foldByLevel(sponsors ,reqOpts) {
 
       }
       else {
-<<<<<<< HEAD
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
           sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
@@ -241,15 +240,6 @@ function foldByLevel(sponsors ,reqOpts) {
         
       }
     } 
-  
-=======
-        let reg = sponsor.logo.split('');
-          if(reg[0] =='/'){
-            sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
-          }
-      }
-    } 
->>>>>>> 5980fe350739dadb13d0200d867cea2d1759bba2
     const sponsorItem = {
       divclass: '',
       imgsize: '',
