@@ -7,10 +7,7 @@ $(document).ready(function () {
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
-      imageholder = $(".image-holder");
-      speaker = $(".speaker");
-      hoverstate= $(".hover-state");
-
+     
   popbox.hide();
   if( widthWindow < 768) {
     $(document).on('click','.sizeevent',function (event) {
@@ -25,25 +22,46 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
+
+(function(){
+
+  let imageholder = $(".image-holder");
+      speaker = $(".speaker");
+      hoverstate= $(".hover-state");
+      popbox = $(".pop-box");
+      preserve3d= $(".preserve3d");
+
     imageholder.hover(function(event) {
-    popbox.hide();
-    event.preventDefault();
-    event.stopPropagation();
-    console.log(event.target);
-    if((imageholder).is(event.target) ) {
-      $(event.target).next().show();
+      popbox.hide();
+      event.preventDefault();
+      event.stopPropagation();
+      if((imageholder).is(event.target) ) {
+        $(event.target).next().show();
+        $(event.target).children('.preserve3d').addClass('hover-state');
+      }
+      else {
+        $(event.target).parent().next().show();
+        $(event.target).parent().children('.preserve3d').addClass('hover-state');
+      }
+    },function(){
+      if(!$('.preserve3d').is(event.target)){
+         popbox.hide();
+         $(document).removeClass('hover-state');
+      }
+      
+    })
+    speaker.hover(function(event){
+      if(!(hoverstate).is(event.target)){
+        popbox.hide();
     }
-    else {
-      $(event.target).parent().next().show();
-    }
+    })
+    $(document).hover(function(event){
+      popbox.hide();
+    })
+
+  })();  
     
 
-  },function(){
-      if(!(hoverstate).is(event.target)){
-         popbox.hide();
-      }
-     
-    })
     speakerinfo.hover(function (event) {
     if(speakerinfo.is(event.target)) {
       var trackin =$(event.target).children('.pop-box');
