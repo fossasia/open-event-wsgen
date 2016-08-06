@@ -700,12 +700,12 @@ a {
         margin-bottom: 12px;
 
         .background-image {
-          height: 300px;
-          width: 300px;
+          height: 236.25px;
+          width: 236.25px;
         }
 
         .hover-state {
-          max-width: 300px;
+          max-width: 236.25px;
           position: absolute;
           top: 0;
           left: 0;
@@ -751,4 +751,5 @@ a {
 }
 .speaker-name {
   color: #333333;
+  height: 22px;
 }

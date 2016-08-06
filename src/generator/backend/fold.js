@@ -232,14 +232,15 @@ function foldByLevel(sponsors ,reqOpts) {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
       }
-    } 
-    else {
+      else {
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
           sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
         }
         
       }
+    } 
+  
     const sponsorItem = {
       divclass: '',
       imgsize: '',
@@ -357,13 +358,13 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
         } else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         }
-
-      }
-      else {
+        else {
         var reg = speaker.photo.split('');
         if(reg[0] =='/'){
           speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
         }
+
+      }
 
       }
       //console.log(speaker.photo);
