@@ -233,6 +233,7 @@ function foldByLevel(sponsors ,reqOpts) {
 
       }
       else {
+<<<<<<< HEAD
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
           sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
@@ -241,6 +242,14 @@ function foldByLevel(sponsors ,reqOpts) {
       }
     } 
   
+=======
+        let reg = sponsor.logo.split('');
+          if(reg[0] =='/'){
+            sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+          }
+      }
+    } 
+>>>>>>> 5980fe350739dadb13d0200d867cea2d1759bba2
     const sponsorItem = {
       divclass: '',
       imgsize: '',
@@ -355,7 +364,8 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } else  if (reqOpts.datasource === 'eventapi' ) {
+        } 
+        else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         }
         else {
@@ -363,13 +373,12 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
         if(reg[0] =='/'){
           speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
         }
-
       }
 
       }
       //console.log(speaker.photo);
     });
-  }
+  }  
 
   let speakerslist = [];
   speakers.forEach((speaker) => {
