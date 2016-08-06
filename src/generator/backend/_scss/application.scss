@@ -373,7 +373,7 @@ a {
   overflow: hidden;
   left:6px;
   z-index: 1000;
-  margin-top: -2%;
+  margin-top: -2.3%;
 
   span {
     display: block;
@@ -396,7 +396,7 @@ a {
 }
 
 .pop-box{
-  width:420px;
+  width:355px;
   min-height:255px;
   height: auto;
   z-index:1000;
@@ -700,12 +700,12 @@ a {
         margin-bottom: 12px;
 
         .background-image {
-          height: 236.25px;
-          width: 236.25px;
+          height: 300px;
+          width: 300px;
         }
 
         .hover-state {
-          max-width: 236.25px;
+          max-width: 300px;
           position: absolute;
           top: 0;
           left: 0;

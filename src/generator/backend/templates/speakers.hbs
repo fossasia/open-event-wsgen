@@ -31,13 +31,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-  <body>
+  <body style="background-color: #ffffff;">
 
     {{> navbar}}
 
-<div style="background-color: #ffffff" class="container">
- <div class="row"> 
-  <div class="col-md-10">
+<div class="container">
   <div style="margin-top:4%" class="row">
     <div class="middle col-sm-12">
     <h1>Speakers</h1>
@@ -120,21 +118,9 @@
       </div>
     </div>
     {{/speakerslist}}
-  </div>
-  </div>
-  <div class="track-names col-md-2">
-   {{# tracks}}
-      {{#if title}}
-        <ul class="title-inline">
-          <li  style="background-color:{{{color}}}" class="titlecolor"></li>
-          <li>{{title}}</li>
-        </ul>
-        {{/if}}
-    {{/tracks}}  
-  </div>    
+  </div> 
   </div>
 </div>  
-</div>
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
