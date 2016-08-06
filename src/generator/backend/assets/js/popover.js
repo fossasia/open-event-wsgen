@@ -29,7 +29,14 @@ $(document).ready(function () {
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
-    $(event.target).parent().next().show();
+    console.log(event.target);
+    if((imageholder).is(event.target) ) {
+      $(event.target).next().show();
+    }
+    else {
+      $(event.target).parent().next().show();
+    }
+    
 
   },function(){
       if(!(hoverstate).is(event.target)){

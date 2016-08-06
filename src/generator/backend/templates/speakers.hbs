@@ -52,10 +52,18 @@
                  
                 </div>
                <div class="social-links vertical-align">
-                <a href="#"><i class="icon fa fa-external-link"></i></a>
-                <a href="#"><i class="icon fa fa-github"></i></a>
-                <a href="#"><i class="icon social_twitter"></i></a>
-                <a href="#"><i class="icon social_linkedin"></i></a>
+               {{#if website}}
+                <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
+                {{/if}}
+                {{#if github}}
+                <a href="{{github}}"><i class="icon fa fa-github"></i></a>
+                {{/if}}
+                {{#if twitter}}
+                <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                {{/if}}
+                {{#if linkedin}}
+                <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
+                {{/if}}
                </div>
             </div>
           </div>
