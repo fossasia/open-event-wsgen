@@ -8,6 +8,8 @@ $(document).ready(function () {
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
       imageholder = $(".image-holder");
+      speaker = $(".speaker");
+      hoverstate= $(".hover-state");
 
   popbox.hide();
   if( widthWindow < 768) {
@@ -24,11 +26,16 @@ $(document).ready(function () {
       hideUnderline();
     });
     imageholder.hover(function(event) {
-      console.log(event.target);
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
     $(event.target).parent().next().show();
+
+  },function(){
+      if(!(hoverstate).is(event.target)){
+         popbox.hide();
+      }
+     
     })
     speakerinfo.hover(function (event) {
     if(speakerinfo.is(event.target)) {
