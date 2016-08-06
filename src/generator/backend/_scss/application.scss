@@ -708,6 +708,9 @@ a {
           display: inline-block;
           margin-left: 6px;
         }
+        a:hover {
+          color: red;
+        }
     }
       
      .image-holder {

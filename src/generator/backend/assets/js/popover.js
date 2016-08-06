@@ -35,13 +35,14 @@ $(document).ready(function () {
       popbox.hide();
       event.preventDefault();
       event.stopPropagation();
+      let imagehover = event.target;
       if((imageholder).is(event.target) ) {
-        $(event.target).next().show();
-        $(event.target).children('.preserve3d').addClass('hover-state');
+        $(imagehover).next().show();
+        $(imagehover).children('.preserve3d').addClass('hover-state');
       }
       else {
-        $(event.target).parent().next().show();
-        $(event.target).parent().children('.preserve3d').addClass('hover-state');
+        $(imagehover).parent().next().show();
+        $(imagehover).parent().children('.preserve3d').addClass('hover-state');
       }
     },function(){
       if(!$('.preserve3d').is(event.target)){
