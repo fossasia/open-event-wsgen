@@ -232,14 +232,13 @@ function foldByLevel(sponsors ,reqOpts) {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
       }
-    } 
-    else {
-      let reg = sponsor.logo.split('');
-      if(reg[0] =='/'){
-          sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
-        }
-        
+      else {
+        let reg = sponsor.logo.split('');
+          if(reg[0] =='/'){
+            sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+          }
       }
+    } 
     const sponsorItem = {
       divclass: '',
       imgsize: '',
