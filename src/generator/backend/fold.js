@@ -173,14 +173,15 @@ function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
   const twitterLink = sociallinks[0];
   const urls= {
-    main_page_url:event.event_url,
-    logo_url : event.logo,
-    background_url :event.background_url,
-    date : moment(event.start_time).format('ddd, Do MMM'),
-    time : moment(event.start_time).format('HH:mm'),
-    name : event.name,
-    location : event.location_name,
-    latitude : event.latitude,
+    main_page_url: event.event_url,
+    logo_url: event.logo,
+    background_url: event.background_url,
+    date: moment(event.start_time).format('ddd, Do MMM'),
+    time: moment(event.start_time).format('HH:mm'),
+    name: event.name,
+    description: event.description,
+    location: event.location_name,
+    latitude: event.latitude,
     longitude: event.longitude,
     twitterLink: twitterLink.link
 
@@ -227,7 +228,7 @@ function foldByLevel(sponsors ,reqOpts) {
     if (sponsor.logo !== null && sponsor.logo != "") {
       if (sponsor.logo.substring(0, 4) === 'http') {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
-      } else {
+      } else if (reqOpts.datasource === 'eventapi' ) {
         sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
       }
@@ -345,14 +346,15 @@ function getAppName(event) {
     return name;
 }
 
-function foldBySpeakers(speakers ,sessions, reqOpts) {
+function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
-      if (speaker.photo !== null) {
+      
+      if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } else {
+        } else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         }
 
@@ -368,8 +370,7 @@ function foldBySpeakers(speakers ,sessions, reqOpts) {
     });
   }
 
-  var speakerslist = [];
-  
+  let speakerslist = [];
   speakers.forEach((speaker) => {
     speakerslist.push({
       country: speaker.country, 
@@ -384,7 +385,7 @@ function foldBySpeakers(speakers ,sessions, reqOpts) {
       name: speaker.name, 
       photo : speaker.photo,
       organisation: speaker.organisation,
-      sessions : getAllSessions(speaker.sessions, sessions)
+      sessions : getAllSessions(speaker.sessions, sessions, tracksData)
     });
 
  });
@@ -392,26 +393,38 @@ function foldBySpeakers(speakers ,sessions, reqOpts) {
   return speakerslist;
 }
 
-function getAllSessions(speakerid , session){
-var speakersession =[];
-var sessiondetail = [];
-const sessionsMap = new Map(session.map((s) => [s.id, s]));
-speakerid.forEach((speaker) => {
-  if(speaker !== undefined ) {
-    //console.log(speaker.id);
-     sessiondetail.push({
-      detail :sessionsMap.get(speaker.id)
-    })
-    }
-}) 
+function getAllSessions(speakerid , session, trackInfo){
+  let speakersession =[];
+  let sessiondetail = [];
+  let trackDetails = new Object();
+
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
+
+  const sessionsMap = new Map(session.map((s) => [s.id, s]));
+  speakerid.forEach((speaker) => {
+    if(speaker !== undefined ) {
+      //console.log(speaker.id);
+       sessiondetail.push({
+        detail :sessionsMap.get(speaker.id)
+      })
+      }
+  }) 
 sessiondetail.forEach((session) => {
-   speakersession.push({
-      start : moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
-      end :   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
-      title : session.detail.title
-   })
+
+  speakersession.push({
+      start: moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
+      end:   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
+      title: session.detail.title,
+      date: moment(session.detail.start_time).format('ddd, Do MMM'),
+      color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
+      microlocation: session.detail.microlocation.name
+   });
 })
+
 return speakersession;
+
 }
 module.exports.foldByTrack = foldByTrack;
 module.exports.foldByDate = foldByDate;
