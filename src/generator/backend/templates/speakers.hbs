@@ -122,8 +122,16 @@
     {{/speakerslist}}
   </div>
   </div>
-  <div class="col-md-2">
-    
+  <div class="track-names col-md-2">
+   {{# tracks}}
+      {{#if title}}
+        <ul class="title-inline">
+          <li  style="background-color:{{{color}}}" class="titlecolor"></li>
+          <li>{{title}}</li>
+        </ul>
+        {{/if}}
+    {{/tracks}}  
+  </div>    
   </div>
 </div>  
 </div>
