@@ -176,7 +176,7 @@ function extractEventUrls(event, reqOpts) {
     main_page_url: event.event_url,
     logo_url: event.logo,
     background_url: event.background_url,
-    date: moment(event.start_time).format('ddd, Do MMM'),
+    date: moment(event.start_time).format('dddd, Do MMM'),
     time: moment(event.start_time).format('HH:mm'),
     name: event.name,
     description: event.description,
