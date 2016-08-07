@@ -660,6 +660,12 @@ a {
 
 }
 
+.eventdes {
+  color: $gray-dark;
+  padding-top: 30px;
+  text-align: justify;
+}
+
 .speaker-info {
   height: 280px;
   margin-bottom: 10px;
@@ -721,6 +727,8 @@ a {
         .background-image {
           height: 300px;
           width: 300px;
+          display: block;
+          margin: 0 auto;
         }
         .social-links {
           position: absolute;
@@ -731,7 +739,7 @@ a {
             opacity: 1;
             .social-links {
               position: absolute;
-              top: 90%;
+              top: 140%;
             }
           }
 
@@ -770,11 +778,28 @@ a {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
 .speaker-name {
   color: $light-black;
   height: 22px;
 }
+
 .middle {
   text-align: center;
   padding: 4%;
 }
+
+.sponsorscont {
+  padding: 72px 0;
+}
+
+.sponsorimg {
+  height: 80px;
+  line-height: 80px;
+  margin-bottom: 36px;
+  img {
+    max-height: 80px;
+    max-width: 150px;
+  }  
+}
+   

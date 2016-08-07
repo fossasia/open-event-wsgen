@@ -243,6 +243,7 @@ function foldByLevel(sponsors ,reqOpts) {
     const sponsorItem = {
       divclass: '',
       imgsize: '',
+      sponsorimg:'',
       name: sponsor.name,
       logo: sponsor.logo,
       url:  sponsor.url,
@@ -265,7 +266,6 @@ function foldByLevel(sponsors ,reqOpts) {
         sponsorItem.imgsize = 'large';
         break;
       case '2':
-      default:
        if( level2 > 0 && level2 < 6 ) {
         sponsorItem.divclass = 'mediumoffset col-md-2';
       }
@@ -286,6 +286,10 @@ function foldByLevel(sponsors ,reqOpts) {
       }
         sponsorItem.imgsize = 'small';
         break;
+      default:  
+      sponsorItem.divclass = 'col-md-4 col-sm-6';
+      sponsorItem.sponsorimg = 'sponsorimg';
+       
     }
     levelData[sponsor.level].push(sponsorItem);
   });
