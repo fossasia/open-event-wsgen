@@ -56,7 +56,7 @@
       <div class="col-md-10">
       {{#if eventurls.description}}
        <div class="row">
-          <div class="col-md-12"><p>{{eventurls.description}}</p></div>
+          <div class="eventdes col-md-12"><p>{{eventurls.description}}</p></div>
         </div> 
       {{/if}}
       {{#if speakerslist}}
@@ -132,7 +132,7 @@
     </div>
   </div> 
 </div>
-<div class="container">
+<div style="background:#f5f5f5" class="container">
     {{#if sponsorpics}}
   <section class="sponsorscont">
     <div class="row">
@@ -163,20 +163,20 @@
 
 {{#if eventurls.latitude }}
 {{#if eventurls.longitude}}
-<div class="container">
-  <div class="row">
+<div style="background:#ffffff" class="container">
+  <section class="sponsorscont">
+    <div class="row">
       <div class="col-sm-12 col-md-12 col-xs-12 text-center">
-      <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Get me here</h1><br>
+        <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Get me here</h1><br>
       </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12" id="map">
+      <div class="col-md-12" id="map">
+      </div>
     </div>
-  </div>
+     </div>
+  </section>        
+</div> 
 {{/if}}
 {{/if}}  
-</div> 
-
 <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
 
 {{> footer}}
