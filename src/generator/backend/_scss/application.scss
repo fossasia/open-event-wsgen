@@ -661,9 +661,9 @@ a {
 }
 
 .eventdes {
-  color: #777;
-  text-align: justify;
+  color: $gray-dark;
   padding-top: 30px;
+  text-align: justify;
 }
 
 .speaker-info {
@@ -787,16 +787,15 @@ a {
   padding: 4%;
 }
 .sponsorscont {
-  padding: 72px 0px;
+  padding: 72px 0;
 }
-.sponsorimg{
-  margin-bottom: 36px;
+.sponsorimg {
   height: 80px;
   line-height: 80px;
-  
+  margin-bottom: 36px;
   img {
-    max-width: 150px;
     max-height: 80px;
+    max-width: 150px;
   }
 }
     
