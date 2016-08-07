@@ -132,8 +132,9 @@
     </div>
   </div> 
 </div>
+<div class="container">
     {{#if sponsorpics}}
-  <section class="sponsors">
+  <section class="sponsorscont">
     <div class="row">
       <div class="col-sm-12 col-md-12 col-xs-12 text-center">
       <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Proudly supported by</h1><br>
@@ -156,21 +157,29 @@
       {{/each}}
       </div>
     </div>  
-</section>  
-     {{/if}}
-     {{#if eventurls.latitude }}
-     {{#if eventurls.longitude}}
+</section> 
+</div> 
+{{/if}}
 
-     <div class="row" style="padding:4%">
-     <h3>Get Me Here</h3><br>
-     <div class="col-md-8" id="map">
-     </div>
-     </div>
-     {{/if}}
-     {{/if}}   
-    <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+{{#if eventurls.latitude }}
+{{#if eventurls.longitude}}
+<div class="container">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-xs-12 text-center">
+      <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Get me here</h1><br>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" id="map">
+    </div>
+  </div>
+{{/if}}
+{{/if}}  
+</div> 
 
-    {{> footer}}
+<input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+
+{{> footer}}
   
 
     <script src="./dependencies/jquery.min.js"></script>
