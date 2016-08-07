@@ -636,7 +636,7 @@ a {
   &-caption {
 
     z-index: 10;
-    bottom: 20px;
+    bottom: 100px;
     color: $white;
     left: 15%;  
     padding-top: 20px;
@@ -658,6 +658,20 @@ a {
     font-size: 50px;
   }
 
+}
+
+.eventpage {
+  margin-top: -66px;
+  position: relative;
+  .listing-panel {
+    border-style: solid;
+    border-color: #D2D6DF;
+    border-width: 0 0 1px 0;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+  }
 }
 
 .eventdes {
