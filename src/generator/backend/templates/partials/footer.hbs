@@ -1,5 +1,6 @@
   <div class="navbar navbar-default footer">
      {{#if copyright}}
+         {{#if copyright.license}}
 
        <p>
          <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
@@ -8,7 +9,7 @@
          The website and it's contents are licensed under
           <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
        </p>
-       
+         {{/if}}
       {{/if}}
   </div>
 
