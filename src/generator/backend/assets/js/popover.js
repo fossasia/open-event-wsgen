@@ -7,8 +7,7 @@ $(document).ready(function () {
       sizeevent = $(".sizeevent");
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
-      imageholder = $(".image-holder");
-
+     
   popbox.hide();
   if( widthWindow < 768) {
     $(document).on('click','.sizeevent',function (event) {
@@ -23,13 +22,47 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
+
+(function(){
+
+  let imageholder = $(".image-holder");
+      speaker = $(".speaker");
+      hoverstate= $(".hover-state");
+      popbox = $(".pop-box");
+      preserve3d= $(".preserve3d");
+
     imageholder.hover(function(event) {
-      console.log(event.target);
-    popbox.hide();
-    event.preventDefault();
-    event.stopPropagation();
-    $(event.target).parent().next().show();
+      popbox.hide();
+      event.preventDefault();
+      event.stopPropagation();
+      let imagehover = event.target;
+      if((imageholder).is(event.target) ) {
+        $(imagehover).next().show();
+        $(imagehover).children('.preserve3d').addClass('hover-state');
+      }
+      else {
+        $(imagehover).parent().next().show();
+        $(imagehover).parent().children('.preserve3d').addClass('hover-state');
+      }
+    },function(){
+      if(!$('.preserve3d').is(event.target)){
+         popbox.hide();
+         $(document).removeClass('hover-state');
+      }
+      
     })
+    speaker.hover(function(event){
+      if(!(hoverstate).is(event.target)){
+        popbox.hide();
+    }
+    })
+    $(document).hover(function(event){
+      popbox.hide();
+    })
+
+  })();  
+    
+
     speakerinfo.hover(function (event) {
     if(speakerinfo.is(event.target)) {
       var trackin =$(event.target).children('.pop-box');

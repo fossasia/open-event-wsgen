@@ -31,13 +31,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
-  <body>
+  <body style="background-color: #ffffff !important;">
 
     {{> navbar}}
 
-<div style="background-color: #ffffff" class="container">
+<div class="container">
   <div style="margin-top:4%" class="row">
-    <div class="col-sm-12">
+    <div class="middle col-sm-12">
     <h1>Speakers</h1>
     </div>
   </div>
@@ -47,15 +47,23 @@
       <div class="speaker">
         <div class="image-holder">
           <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
-            <div class="hover-state text-center preserve3d">
+            <div class="text-center preserve3d">
                <div class="bio vertical-align">
                  
                 </div>
                <div class="social-links vertical-align">
-                <a href="#"><i class="icon fa fa-external-link"></i></a>
-                <a href="#"><i class="icon fa fa-github"></i></a>
-                <a href="#"><i class="icon social_twitter"></i></a>
-                <a href="#"><i class="icon social_linkedin"></i></a>
+               {{#if website}}
+                <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
+                {{/if}}
+                {{#if github}}
+                <a href="{{github}}"><i class="icon fa fa-github"></i></a>
+                {{/if}}
+                {{#if twitter}}
+                <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                {{/if}}
+                {{#if linkedin}}
+                <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
+                {{/if}}
                </div>
             </div>
           </div>
@@ -118,8 +126,9 @@
       </div>
     </div>
     {{/speakerslist}}
+  </div> 
   </div>
-</div>
+</div>  
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>

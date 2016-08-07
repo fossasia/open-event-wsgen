@@ -233,10 +233,11 @@ function foldByLevel(sponsors ,reqOpts) {
 
       }
       else {
-        let reg = sponsor.logo.split('');
-          if(reg[0] =='/'){
-            sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
-          }
+      let reg = sponsor.logo.split('');
+      if(reg[0] =='/'){
+          sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+        }
+        
       }
     } 
     const sponsorItem = {
@@ -365,10 +366,9 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       }
 
       }
-      
       //console.log(speaker.photo);
     });
-  }
+  }  
 
   let speakerslist = [];
   speakers.forEach((speaker) => {

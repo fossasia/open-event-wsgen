@@ -373,7 +373,7 @@ a {
   overflow: hidden;
   left:6px;
   z-index: 1000;
-  margin-top: -2%;
+  margin-top: -2.3%;
 
   span {
     display: block;
@@ -396,7 +396,7 @@ a {
 }
 
 .pop-box{
-  width:420px;
+  width:355px;
   min-height:255px;
   height: auto;
   z-index:1000;
@@ -693,7 +693,26 @@ a {
         display: block;
         font-size: 16px;
       }
+      .social-links {
+        width: 100%;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        transform: translate3d(0px,-200px,0px);
+        -webkit-transform: translate3d(0px,-200px,0px); 
+        -moz-transform: translate3d(0px,-200px,0px);
 
+        a {
+          color: #fff;
+          font-size: 24px;
+          display: inline-block;
+          margin-left: 6px;
+        }
+        a:hover {
+          color: red;
+        }
+    }
+      
      .image-holder {
         position: relative;
         overflow: hidden;
@@ -703,7 +722,20 @@ a {
           height: 300px;
           width: 300px;
         }
+        .social-links {
+          position: absolute;
+          top: 0%;
+        }
+        &:hover {
+          .hover-state {
+            opacity: 1;
+            .social-links {
+              position: absolute;
+              top: 90%;
+            }
+          }
 
+        }
         .hover-state {
           max-width: 300px;
           position: absolute;
@@ -725,17 +757,6 @@ a {
             color: #fff;
           }
 
-          .social-links {
-            position: absolute;
-            top: 80%;
-            width: 100%;
-            transition: all 0.3s ease-out;
-            -webkit-transition: all 0.3s ease-out;
-            -moz-transition: all 0.3s ease-out;
-            transform: translate3d(0px,-200px,0px);
-            -webkit-transform: translate3d(0px,-200px,0px);
-            -moz-transform: translate3d(0px,-200px,0px);
-          }
         }
       }
     }
@@ -750,5 +771,10 @@ a {
   transform: translateY(-50%);
 }
 .speaker-name {
-  color: #333333;
+  color: $light-black;
+  height: 22px;
+}
+.middle {
+  text-align: center;
+  padding: 4%;
 }
