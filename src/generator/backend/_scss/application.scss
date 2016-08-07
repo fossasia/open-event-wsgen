@@ -721,6 +721,8 @@ a {
         .background-image {
           height: 300px;
           width: 300px;
+          display: block;
+          margin: 0 auto;
         }
         .social-links {
           position: absolute;
@@ -731,7 +733,7 @@ a {
             opacity: 1;
             .social-links {
               position: absolute;
-              top: 90%;
+              top: 140%;
             }
           }
 
@@ -778,3 +780,18 @@ a {
   text-align: center;
   padding: 4%;
 }
+.sponsors {
+  background: #f5f5f5;
+  padding: 72px 0px;
+}
+.sponsorimg{
+  margin-bottom: 36px;
+  height: 80px;
+  line-height: 80px;
+  
+  img {
+    max-width: 150px;
+    max-height: 80px;
+  }
+}
+    
