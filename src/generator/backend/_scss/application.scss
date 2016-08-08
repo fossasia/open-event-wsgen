@@ -880,6 +880,8 @@ a {
     }
       .speaker-description {
         width: 50%;
+        max-height: 250px;
+        overflow: hidden;
         float: left;
         padding-left: 30px;
         span {
@@ -888,10 +890,17 @@ a {
         font-weight: 600;
 
         }
+
+        &:hover {
+          overflow-y: scroll;
+          overflow-x: hidden;
+        }
+        
         p {
           font-size: 14px;
           line-height: 24px;
           margin: 0 0 10px;
         }
       }
+
     }
