@@ -749,9 +749,11 @@ a {
           display: block;
           margin: 0 auto;
         }
+
         .social-links {
           @include sociallinks;
         }
+        
         &:hover {
           .hover-state {
             opacity: 1;
@@ -762,7 +764,7 @@ a {
           }
 
         }
-        
+
         .hover-state {
           max-width: 300px;
           position: absolute;
