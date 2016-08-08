@@ -183,6 +183,7 @@ function extractEventUrls(event, reqOpts) {
     location: event.location_name,
     latitude: event.latitude,
     longitude: event.longitude,
+    register: event.ticket_url,
     twitterLink: twitterLink.link
 
  };

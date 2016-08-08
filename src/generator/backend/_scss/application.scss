@@ -636,7 +636,7 @@ a {
   &-caption {
 
     z-index: 10;
-    bottom: 20px;
+    bottom: 100px;
     color: $white;
     left: 15%;  
     padding-top: 20px;
@@ -657,6 +657,22 @@ a {
   .carousel-caption h1 {
     font-size: 50px;
   }
+
+}
+
+.eventpage {
+  margin-top: -66px;
+  position: relative;
+  
+  .listing-panel {
+    background-color: $white;
+    border-color: $event-border;
+    border-style: solid;
+    border-width: 0 0 1px;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    padding-top: 10px;
+ }
 
 }
 
