@@ -87,20 +87,22 @@
                 <div class="speaker">
                   <div class="image-holder">
                     <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="background-image" alt="{{{name}}}" src="{{{photo}}}">
-                    <div class="hover-state text-center preserve3d">
-                      <div class="social-links vertical-align">
-                      {{#if website}}
-                      <a href="{{website}}" target="default"><i class="icon fa fa-home"></i></a>
-                      {{/if }}
-                      {{#if twitter}}
-                       <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
-                       {{/if}}
-                       {{#if facebook}}
-                       <a href ="{{facebook}}"><i class="icon fa fa-facebook"></i></a>  
-                       {{/if}}
-                       {{#if linkedin}}
-                       <a href ="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>  
-                        {{/if}}
+                    <div class="responsive-overlay">
+                      <div class="hover-state text-center preserve3d">
+                        <div class="social-links vertical-align">
+                        {{#if website}}
+                        <a href="{{website}}" target="default"><i class="icon fa fa-home"></i></a>
+                        {{/if }}
+                        {{#if twitter}}
+                         <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                         {{/if}}
+                         {{#if facebook}}
+                         <a href ="{{facebook}}"><i class="icon fa fa-facebook"></i></a>  
+                         {{/if}}
+                         {{#if linkedin}}
+                         <a href ="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>  
+                          {{/if}}
+                        </div>
                       </div>
                     </div>
                   </div>

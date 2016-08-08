@@ -845,45 +845,55 @@ a {
             
           }
             .background-image {
-              height: 250px;
-              width: 250px;
+              height: 262.5px;
+              width: 262.5px;
             }
         }
-      .hover-state {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 2;
-          opacity: 0;
-          background: rgba(0,0,0,0.5);
-          transition: all 0.3s ease-out;
-          -webkit-transition: all 0.3s ease-out;
-          -moz-transition: all 0.3s ease-out;
-              .social-links {
-                @include sociallinks;
-              }
+    .responsive-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+     .hover-state {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 262.5px;
+        height: 262.5px;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+        background: rgba(0,0,0,0.5);
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+            .social-links {
+              @include sociallinks;
+            }
         }
+    }    
+ 
     }
       .speaker-description {
         width: 50%;
-        max-height: 250px;
-        overflow: hidden;
         float: left;
         padding-left: 30px;
+        max-height: 262.5px;
+        overflow: hidden;
+
+        &:hover {
+          overflow-y: overlay;
+          overflow-x: hidden;
+
+        }
+
         span {
         display: inline-block;
         margin-bottom: 18px;
         font-weight: 600;
-
         }
 
-        &:hover {
-          overflow-y: scroll;
-          overflow-x: hidden;
-        }
-        
         p {
           font-size: 14px;
           line-height: 24px;
@@ -892,3 +902,25 @@ a {
       }
 
     }
+@media (max-width: 767px) {
+  .speaker-with-bio {
+     .speaker {
+      width: 100%;
+      .image-holder {
+        .background-image {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  .speaker-description {
+      width: 100%;
+      padding-left: 0px;
+      .description {
+        p,span {
+         text-align: center;
+        }
+      }
+    }
+  }
+}
