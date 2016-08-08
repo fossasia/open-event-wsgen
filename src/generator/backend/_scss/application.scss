@@ -701,6 +701,28 @@ a {
   width: 100%;
 
 }
+
+@mixin sociallinks {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transform: translate3d(0px,-200px,0px);
+  -webkit-transform: translate3d(0px,-200px,0px); 
+  -moz-transform: translate3d(0px,-200px,0px);
+
+  a {
+    color: #fff;
+    font-size: 24px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+  a:hover {
+    color: red;
+  }
+}
 .speakers-row {
   padding: 0px 15px;
 
@@ -715,26 +737,7 @@ a {
         display: block;
         font-size: 16px;
       }
-      .social-links {
-        width: 100%;
-        transition: all 0.3s ease-out;
-        -webkit-transition: all 0.3s ease-out;
-        -moz-transition: all 0.3s ease-out;
-        transform: translate3d(0px,-200px,0px);
-        -webkit-transform: translate3d(0px,-200px,0px); 
-        -moz-transform: translate3d(0px,-200px,0px);
 
-        a {
-          color: #fff;
-          font-size: 24px;
-          display: inline-block;
-          margin-left: 6px;
-        }
-        a:hover {
-          color: red;
-        }
-    }
-      
      .image-holder {
         position: relative;
         overflow: hidden;
@@ -747,8 +750,7 @@ a {
           margin: 0 auto;
         }
         .social-links {
-          position: absolute;
-          top: 0%;
+          @include sociallinks;
         }
         &:hover {
           .hover-state {
@@ -846,7 +848,6 @@ a {
               height: 250px;
               width: 250px;
             }
-          
         }
       .hover-state {
           position: absolute;
@@ -860,23 +861,9 @@ a {
           transition: all 0.3s ease-out;
           -webkit-transition: all 0.3s ease-out;
           -moz-transition: all 0.3s ease-out;
-            .social-links {
-              position: absolute;
-              top: 0%;
-              width: 100%;
-              transition: all 0.3s ease-out;
-              -webkit-transition: all 0.3s ease-out;
-              -moz-transition: all 0.3s ease-out;
-              transform: translate3d(0px,-200px,0px);
-              -webkit-transform: translate3d(0px,-200px,0px);
-              -moz-transform: translate3d(0px,-200px,0px);
-                a {
-                  color: #fff;
-                  font-size: 24px;
-                  display: inline-block;
-                  margin-left: 6px;
-                }
-            }
+              .social-links {
+                @include sociallinks;
+              }
         }
     }
       .speaker-description {
