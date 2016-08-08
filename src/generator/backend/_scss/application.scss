@@ -753,7 +753,7 @@ a {
         .social-links {
           @include sociallinks;
         }
-        
+
         &:hover {
           .hover-state {
             opacity: 1;
@@ -869,7 +869,7 @@ a {
           left: 0;
           z-index: 2;
           opacity: 0;
-          background: rgba(0,0,0,0.5);
+          background: $overlayimage;
           transition: all 0.3s ease-out;
           -webkit-transition: all 0.3s ease-out;
           -moz-transition: all 0.3s ease-out;
@@ -923,11 +923,7 @@ a {
   .speaker-description {
     padding-left: 0;
     width: 100%;
-      .description {
-        p,span {
-          text-align: center;
-        }
-      }
+    text-align: center;
     }
   }
 }
