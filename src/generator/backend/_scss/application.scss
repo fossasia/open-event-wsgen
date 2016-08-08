@@ -762,6 +762,7 @@ a {
           }
 
         }
+        
         .hover-state {
           max-width: 300px;
           position: absolute;
@@ -841,15 +842,16 @@ a {
              .social-links {
                 position: absolute;
                 top: 140%;
-             } 
+              } 
+            }   
           }
-          
-        }
+
           .background-image {
             height: 262.5px;
             width: 262.5px;
           }
       }
+
     .responsive-overlay {
       position: absolute;
       width: 100%;
@@ -869,25 +871,24 @@ a {
           transition: all 0.3s ease-out;
           -webkit-transition: all 0.3s ease-out;
           -moz-transition: all 0.3s ease-out;
-            .social-links {
+          .social-links {
               @include sociallinks;
-            }
           }
-        }    
-
+        }
       }
+    }
 
     .speaker-description {
       float: left;
-      padding-left: 30px;
-      width: 50%;
       max-height: 262.5px;
       overflow: hidden;
+      padding-left: 30px;
+      width: 50%;
 
       &:hover {
-        overflow-y: overlay;
         overflow-x: hidden;
-
+        overflow-y: overlay;
+    
       }
 
       span {
