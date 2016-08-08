@@ -663,15 +663,17 @@ a {
 .eventpage {
   margin-top: -66px;
   position: relative;
+  
   .listing-panel {
+    background-color: $white;
+    border-color: $event-border;
     border-style: solid;
-    border-color: #D2D6DF;
-    border-width: 0 0 1px 0;
-    background-color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    border-width: 0 0 1px;
     box-sizing: border-box;
-  }
+    padding-bottom: 10px;
+    padding-top: 10px;
+ }
+
 }
 
 .eventdes {
