@@ -663,6 +663,7 @@ a {
 .eventpage {
   margin-top: -66px;
   position: relative;
+  overflow: hidden;
   
   .listing-panel {
     background-color: $white;
@@ -876,11 +877,8 @@ a {
           .social-links {
               @include sociallinks;
           }
-
         }
-
       }
-      
     }
 
     .speaker-description {
