@@ -814,7 +814,9 @@ a {
 .sponsorscont {
   padding: 72px 0;
 }
-
+.vcenter {
+  transform: translateY(30%);
+}
 .sponsorimg {
   height: 80px;
   line-height: 80px;
@@ -909,7 +911,7 @@ a {
 
   }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .speaker-with-bio {
      .speaker {
       width: 100%;
@@ -928,3 +930,28 @@ a {
     }
   }
 }
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .speaker-with-bio {
+      .speaker {
+        .image-holder {
+          .background-image {
+            width: 212.5px;
+            height: 212.5px;
+          }
+          .responsive-overlay {
+            .hover-state {
+              width: 212.5px;
+              height: 212.5px;
+            }
+          }
+        }
+      }
+      .speaker-description {
+        width:212.5px;
+        height: 212.5px;
+      }
+    }
+   
+}
+
