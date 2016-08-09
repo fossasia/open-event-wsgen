@@ -850,17 +850,18 @@ a {
             } 
           }   
         }
-        .background-image {
-          height: 262.5px;
-          width: 262.5px;
-        }
+      .background-image {
+        height: 262.5px;
+        width: 262.5px;
       }
+    }
 
     .responsive-overlay {
       height: 100%;
       position: absolute;
       top: 0;
       width: 100%;
+      
         .hover-state {
           background: $overlayimage;
           display: block;
@@ -875,6 +876,7 @@ a {
           transition: all 0.3s ease-out;
           width: 262.5px;
           z-index: 2;
+
           .social-links {
             @include sociallinks;
           }
