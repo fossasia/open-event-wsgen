@@ -447,6 +447,13 @@ a {
     }
   
   }
+
+  @media (min-width: 490px) and (max-width: 768px) {
+    .pop-box {
+      left: 100px;
+    }
+  }
+
   #headline {
     padding:8px;
   }
