@@ -838,31 +838,31 @@ a {
     width: 50%;
     float: left;
     margin-bottom: 0px;
-      .image-holder {
-        position: relative;
-        overflow: hidden;
-        &:hover {
-          .hover-state {
-             opacity: 1;
-             .social-links {
-                position: absolute;
-                top: 140%;
-              } 
-            }   
-          }
-
-          .background-image {
-            height: 262.5px;
-            width: 262.5px;
-          }
+    .image-holder {
+      position: relative;
+      overflow: hidden;
+      &:hover {
+        .hover-state {
+          opacity: 1;
+          .social-links {
+              position: absolute;
+              top: 140%;
+            } 
+          }   
+        }
+      .background-image {
+        height: 262.5px;
+        width: 262.5px;
       }
+    }
 
     .responsive-overlay {
-      position: absolute;
-      width: 100%;
       height: 100%;
+      position: absolute;
       top: 0;
+      width: 100%;
         .hover-state {
+          background: $overlayimage;
           display: block;
           height: 262.5px;
           left: 0;
@@ -870,14 +870,13 @@ a {
           opacity: 0;
           position: relative;
           top: 0;
+          -moz-transition: all 0.3s ease-out;
+          -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
           width: 262.5px;
           z-index: 2;
-          background: $overlayimage;
-          transition: all 0.3s ease-out;
-          -webkit-transition: all 0.3s ease-out;
-          -moz-transition: all 0.3s ease-out;
           .social-links {
-              @include sociallinks;
+            @include sociallinks;
           }
         }
       }
@@ -893,7 +892,6 @@ a {
       &:hover {
         overflow-x: hidden;
         overflow-y: overlay;
-    
       }
 
       span {

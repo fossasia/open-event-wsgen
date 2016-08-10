@@ -110,9 +110,8 @@
                 <div class="speaker-description">
                   <h2 style="margin-right:20px;">{{name}}</h2>
                   <span class="sub" style="margin-right:20px;">{{organisation}}</span>
-                  <p class="des" style="margin-right:20px;">
-                  {{#linkify}}{{{long_biography}}}{{/linkify}}
-                  </p>
+                  <p style="margin-right:20px;">
+                  {{#linkify}}{{long_biography}}{{/linkify}}
                 </div>
               </div>
             </div>
@@ -138,8 +137,8 @@
           {{#each sponsorpics}}
           <div class="row sponsor-row">
           {{#each this}}
-            <div class="{{{divclass}}}">
-              <div class="{{{sponsorimg}}} text-center">
+            <div class="vcenter {{{divclass}}}">
+              <div class="vcenter {{{sponsorimg}}} text-center">
                 <a href="{{{url}}}">
                 <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
                 </a>
