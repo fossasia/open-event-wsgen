@@ -62,15 +62,19 @@ a {
 
 /* General styling of session list */
 
-.session{
-  &-description {
-    color: $gray-dark;
-  }
-  &-type {
-    color: $gray-dark;
-  }
-  &-list {
-
+.sessions {
+  .session {
+    &-description {
+      color: $gray-dark;
+    }
+    &-type {
+      color: $gray-dark;
+      margin-left: 20px;
+    }
+    &-speakers {
+      float: left;
+    }
+      &-list {
     li{
       cursor: pointer;
     }
@@ -93,7 +97,17 @@ a {
     text-align: left;
     color: $gray-dark;
   }
-
+  }
+  ul {
+    margin-left: 20px;
+    list-style: none;
+    li:after {
+      content: ','
+    }
+    li:last-of-type:after {
+      content:''
+    }
+  }
 }
 
 /* Adjustments for smaller screens */
@@ -703,6 +717,29 @@ a {
 
 }
 
+@mixin hoverstate {
+  background: $overlayimage;
+  display: block;
+  height: 262.5px;
+  left: 0;
+  margin: 0 auto;
+  opacity: 0;
+  position: relative;
+  top: 0;
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  width: 262.5px;
+  z-index: 2;
+}
+
+@mixin responsiveoverlay {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 @mixin sociallinks {
   position: absolute;
   top: 0%;
@@ -738,7 +775,7 @@ a {
         display: block;
         font-size: 16px;
       }
-
+     
      .image-holder {
         position: relative;
         overflow: hidden;
@@ -750,7 +787,25 @@ a {
           display: block;
           margin: 0 auto;
         }
+        
+        .responsive-overlay {
+          @include responsiveoverlay;
+          .preserve3d {
+            height: 300px;
+           }
+           .hover-state {
+            @include hoverstate;
+            width: 300px;
+            height: 300px;
+            .bio {
+              margin-left: 10px;
+              margin-right: 10px;
+              max-width: 280px;
+              color: #fff;
+            }
 
+          }
+        }
         .social-links {
           @include sociallinks;
         }
@@ -763,30 +818,6 @@ a {
               top: 140%;
             }
           }
-
-        }
-
-        .hover-state {
-          max-width: 300px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 2;
-          opacity: 0;
-          background: rgba(0,0,0,0.5);
-          transition: all 0.3s ease-out;
-          -webkit-transition: all 0.3s ease-out;
-          -moz-transition: all 0.3s ease-out;
-
-          .bio {
-            margin-left: 10px;
-            margin-right: 10px;
-            max-width: 280px;
-            color: #fff;
-          }
-
         }
       }
     }
@@ -857,24 +888,9 @@ a {
     }
 
     .responsive-overlay {
-      height: 100%;
-      position: absolute;
-      top: 0;
-      width: 100%;
+      @include responsiveoverlay;
         .hover-state {
-          background: $overlayimage;
-          display: block;
-          height: 262.5px;
-          left: 0;
-          margin: 0 auto;
-          opacity: 0;
-          position: relative;
-          top: 0;
-          -moz-transition: all 0.3s ease-out;
-          -webkit-transition: all 0.3s ease-out;
-          transition: all 0.3s ease-out;
-          width: 262.5px;
-          z-index: 2;
+          @include hoverstate;
           .social-links {
             @include sociallinks;
           }
