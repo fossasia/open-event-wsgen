@@ -4,7 +4,7 @@ The Open Event Web App is a web application that can generate event websites by 
 
 [![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=development)](https://travis-ci.org/fossasia/open-event-webapp?branch=development)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=opev-webgen-dev)](http://opev-webgen-dev.herokuapp.com)
-![Dependencies](https://david-dm.org/fossasia/open-event-webapp.svg)
+[![Dependencies](https://david-dm.org/fossasia/open-event-webapp.svg)](https://david-dm.org/fossasia/open-event-webapp)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-webapp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-webapp&amp;utm_campaign=Badge_Grade)
 [![Code Climate](https://codeclimate.com/github/fossasia/open-event-webapp/badges/gpa.svg?branch=development)](https://codeclimate.com/github/fossasia/open-event-webapp)
 [![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
