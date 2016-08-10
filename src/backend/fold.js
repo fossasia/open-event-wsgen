@@ -371,7 +371,6 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       }
 
       }
-      //console.log(speaker.photo);
     });
   }  
 
@@ -410,7 +409,6 @@ function getAllSessions(speakerid , session, trackInfo){
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
   speakerid.forEach((speaker) => {
     if(speaker !== undefined ) {
-      //console.log(speaker.id);
        sessiondetail.push({
         detail :sessionsMap.get(speaker.id)
       })
