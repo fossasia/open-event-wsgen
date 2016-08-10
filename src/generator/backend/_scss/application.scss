@@ -6,8 +6,8 @@
 
 /* Offsets for fixed navbar */
 body {
-  background-color:$corp-color !important;
-  color: $corp-color;
+  background-color: $background-shade !important;
+  color: $gray-dark;
   font: 12px 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   margin-top: 50px;
 }
@@ -663,6 +663,7 @@ a {
 .eventpage {
   margin-top: -66px;
   position: relative;
+  overflow: hidden;
   
   .listing-panel {
     background-color: $white;
@@ -701,6 +702,28 @@ a {
   width: 100%;
 
 }
+
+@mixin sociallinks {
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  transform: translate3d(0px,-200px,0px);
+  -webkit-transform: translate3d(0px,-200px,0px); 
+  -moz-transform: translate3d(0px,-200px,0px);
+
+  a {
+    color: #fff;
+    font-size: 24px;
+    display: inline-block;
+    margin-left: 6px;
+  }
+  a:hover {
+    color: red;
+  }
+}
 .speakers-row {
   padding: 0px 15px;
 
@@ -715,26 +738,7 @@ a {
         display: block;
         font-size: 16px;
       }
-      .social-links {
-        width: 100%;
-        transition: all 0.3s ease-out;
-        -webkit-transition: all 0.3s ease-out;
-        -moz-transition: all 0.3s ease-out;
-        transform: translate3d(0px,-200px,0px);
-        -webkit-transform: translate3d(0px,-200px,0px); 
-        -moz-transform: translate3d(0px,-200px,0px);
 
-        a {
-          color: #fff;
-          font-size: 24px;
-          display: inline-block;
-          margin-left: 6px;
-        }
-        a:hover {
-          color: red;
-        }
-    }
-      
      .image-holder {
         position: relative;
         overflow: hidden;
@@ -746,10 +750,11 @@ a {
           display: block;
           margin: 0 auto;
         }
+
         .social-links {
-          position: absolute;
-          top: 0%;
+          @include sociallinks;
         }
+
         &:hover {
           .hover-state {
             opacity: 1;
@@ -760,6 +765,7 @@ a {
           }
 
         }
+
         .hover-state {
           max-width: 300px;
           position: absolute;
@@ -808,7 +814,9 @@ a {
 .sponsorscont {
   padding: 72px 0;
 }
-
+.vcenter {
+  transform: translateY(30%);
+}
 .sponsorimg {
   height: 80px;
   line-height: 80px;
@@ -818,4 +826,133 @@ a {
     max-width: 150px;
   }  
 }
-   
+
+.duplicatable-content {
+    padding-bottom: 36px;
+}
+
+.speaker-with-bio {
+  overflow: hidden;
+  margin-bottom: 36px;
+  .speaker {
+    width: 50%;
+    float: left;
+    margin-bottom: 0px;
+      .image-holder {
+        position: relative;
+        overflow: hidden;
+        &:hover {
+          .hover-state {
+             opacity: 1;
+             .social-links {
+                position: absolute;
+                top: 140%;
+              } 
+            }   
+          }
+
+          .background-image {
+            height: 262.5px;
+            width: 262.5px;
+          }
+      }
+
+    .responsive-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+        .hover-state {
+          display: block;
+          height: 262.5px;
+          left: 0;
+          margin: 0 auto;
+          opacity: 0;
+          position: relative;
+          top: 0;
+          width: 262.5px;
+          z-index: 2;
+          background: $overlayimage;
+          transition: all 0.3s ease-out;
+          -webkit-transition: all 0.3s ease-out;
+          -moz-transition: all 0.3s ease-out;
+          .social-links {
+              @include sociallinks;
+          }
+        }
+      }
+    }
+
+    .speaker-description {
+      float: left;
+      max-height: 262.5px;
+      overflow: hidden;
+      padding-left: 30px;
+      width: 50%;
+
+      &:hover {
+        overflow-x: hidden;
+        overflow-y: overlay;
+    
+      }
+
+      span {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-weight: 600;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0 0 10px;
+      }
+
+    }
+
+  }
+
+@media (max-width: 992px) {
+  .speaker-with-bio {
+    .speaker {
+      width: 100%;
+      .image-holder {
+        .background-image {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+
+  .speaker-description {
+    padding-left: 0;
+    text-align: center;
+    width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .speaker-with-bio {
+    .speaker {
+      .image-holder {
+        .background-image {
+          height: 212.5px;
+          width: 212.5px;
+        }
+        .responsive-overlay {
+          .hover-state {
+            height: 212.5px;
+            width: 212.5px;
+          }
+        }
+      }
+    }
+
+    .speaker-description {
+      height: 212.5px;
+      width: 212.5px;
+    }
+  }
+}
+
