@@ -749,6 +749,7 @@ a {
           width: 300px;
           display: block;
           margin: 0 auto;
+          background-color: $background-shade;
         }
 
         .social-links {
@@ -909,9 +910,9 @@ a {
 
   }
 
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   .speaker-with-bio {
-     .speaker {
+    .speaker {
       width: 100%;
       .image-holder {
         .background-image {
@@ -923,8 +924,32 @@ a {
 
   .speaker-description {
     padding-left: 0;
-    width: 100%;
     text-align: center;
+    width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .speaker-with-bio {
+    .speaker {
+      .image-holder {
+        .background-image {
+          height: 212.5px;
+          width: 212.5px;
+        }
+        .responsive-overlay {
+          .hover-state {
+            height: 212.5px;
+            width: 212.5px;
+          }
+        }
+      }
+    }
+
+    .speaker-description {
+      height: 212.5px;
+      width: 212.5px;
     }
   }
 }

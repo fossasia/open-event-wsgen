@@ -155,30 +155,6 @@
         </div><!-- /.col-md-12 -->
       </div><!-- /.row -->
       {{/tracks}}
-      {{#if sponsorpics}}
-      <div id="Sponsors"></div>
-      <section class="sponsors">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h1 class="track-title">Sponsors</h1>
-            </div>
-          </div>
-      {{#each sponsorpics}}
-        <div class="row sponsor-row">
-        {{#each this}}
-          <div class="{{{divclass}}}">
-            <a href="{{{url}}}">
-              <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
-            </a>
-          </div>
-        {{/each}}
-      </div> <!-- sponsor-row -->
-      {{/each}}
-
-    </div>
-    </section><!-- /#session-list -->
-    {{/if}}
    </div>
     {{> footer}}
   
