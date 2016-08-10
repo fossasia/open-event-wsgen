@@ -30,7 +30,6 @@ $(document).ready(function () {
       hoverstate= $(".hover-state");
       popbox = $(".pop-box");
       preserve3d= $(".preserve3d");
-      responsiveoverlay= $(".responsive-overlay");
 
     imageholder.hover(function(event) {
       popbox.hide();
@@ -38,7 +37,6 @@ $(document).ready(function () {
       event.stopPropagation();
       
       let imagehover = event.target;
-      console.log(imagehover);
       if((imageholder).is(event.target) ) {
         $(imagehover).next().show();
         $(imagehover).children('.preserve3d').addClass('hover-state');

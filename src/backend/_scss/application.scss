@@ -809,18 +809,21 @@ a {
         
         .responsive-overlay {
           @include responsiveoverlay;
+
           .preserve3d {
             height: 300px;
            }
-           .hover-state {
+
+          .hover-state {
             @include hoverstate;
-            width: 300px;
             height: 300px;
+            width: 300px;
+
             .bio {
+              color: $white;
               margin-left: 10px;
               margin-right: 10px;
               max-width: 280px;
-              color: #fff;
             }
 
           }
@@ -974,8 +977,9 @@ a {
       width: 212.5px;
     }
   }
+
   .speakers-row {
-    padding: 0px 75px;
+    padding: 0 75px;
     .speaker-column {
       @include responsivespeaker;
       text-align: center;
