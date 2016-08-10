@@ -60,7 +60,7 @@
                 </span>
               </div>
 
-              <div class="col-xs-10 col-md-11">
+              <div class="sessions col-xs-10 col-md-11">
                 <div class="clearfix">
                   <a class="anchor" name="{{session_id}}"></a>
                   <h4 class="session-title">
@@ -94,15 +94,25 @@
                   </audio>
                   {{/if}}
                 </p>
-                <p class="session-speakers">
-                  {{#speakers_list}}
+                {{#speakers_list}}
                   {{#if photo}}
+                <p class="session-speakers">
                   <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                </p>
                   {{/if}}
                   {{/speakers_list}}
-                  {{speakers}}
+                  <ul>
+                  {{#speakers_list}}
+                   <li>
+                   {{name}}
+                   {{#if organisation}}
+                   ({{organisation}})
+                   {{/if}}
+                   </li> 
+                  {{/speakers_list}}
+                  </ul>
                 </p>
-                <p>
+               
                   <span class="session-type">{{type}}</span>
                 </p>
                 <div id="desc-{{session_id}}">

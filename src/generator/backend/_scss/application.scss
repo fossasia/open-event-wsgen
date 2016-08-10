@@ -62,15 +62,19 @@ a {
 
 /* General styling of session list */
 
-.session{
-  &-description {
-    color: $gray-dark;
-  }
-  &-type {
-    color: $gray-dark;
-  }
-  &-list {
-
+.sessions {
+  .session {
+    &-description {
+      color: $gray-dark;
+    }
+    &-type {
+      color: $gray-dark;
+      margin-left: 20px;
+    }
+    &-speakers {
+      float: left;
+    }
+      &-list {
     li{
       cursor: pointer;
     }
@@ -93,7 +97,17 @@ a {
     text-align: left;
     color: $gray-dark;
   }
-
+  }
+  ul {
+    margin-left: 20px;
+    list-style: none;
+    li:after {
+      content: ','
+    }
+    li:last-of-type:after {
+      content:''
+    }
+  }
 }
 
 /* Adjustments for smaller screens */
