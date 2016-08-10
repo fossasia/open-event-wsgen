@@ -424,6 +424,7 @@ a {
       .pop-over {
         padding:2%;
         margin:10px;
+        word-wrap: break-word;
       }
       .pop-footer {
         border-top-left-radius: 5px;
@@ -742,7 +743,6 @@ a {
 
 @mixin responsivespeaker {
   .speaker {
-    text-align: center;
     .image-holder {
       .background-image {
         height: 212.5px;
@@ -854,6 +854,7 @@ a {
 .speaker-name {
   color: $light-black;
   height: 22px;
+  text-align: center;
 }
 
 .middle {

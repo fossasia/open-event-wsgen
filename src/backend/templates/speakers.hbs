@@ -81,7 +81,7 @@
                   </span>
                 </div>
                 <div class="pop-over row">
-                  {{#linkify}}{{long_biography}}{{/linkify}}
+                 {{{long_biography}}}
                    <div style="padding:2%;" class="icons row">
                    {{#if website}}
                   <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
@@ -106,7 +106,7 @@
                   <h5><strong>{{date}}</strong></h5>
                    <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
-                      {{title}}
+                      {{{title}}}
                     </h4>
                    {{/each}}
                    <center><h5 class="card-text"></h5></center>
@@ -115,7 +115,7 @@
                 </div>  
                 <hr style="clear:both;width:75%;">
                 <div class="pop-footer">
-                  <p>{{location}}</p>
+                  <p>{{{location}}}</p>
                   <ul class="title-inline">
                   <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
                   <li>{{../title}}</li>
@@ -124,7 +124,7 @@
               </div>
             </div>
           </div>
-      <span class="speaker-name">{{name}}</span>
+      <span class="speaker-name">{{{name}}}</span>
       </div>
     </div>
     {{/speakerslist}}
