@@ -47,25 +47,27 @@
       <div class="speaker">
         <div class="image-holder">
           <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
-            <div class="text-center preserve3d">
-               <div class="bio vertical-align">
-                 
-                </div>
-               <div class="social-links vertical-align">
-               {{#if website}}
-                <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
-                {{/if}}
-                {{#if github}}
-                <a href="{{github}}"><i class="icon fa fa-github"></i></a>
-                {{/if}}
-                {{#if twitter}}
-                <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
-                {{/if}}
-                {{#if linkedin}}
-                <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
-                {{/if}}
-               </div>
-            </div>
+            <div class="responsive-overlay">
+              <div class="text-center preserve3d">
+                 <div class="bio vertical-align">
+                   
+                  </div>
+                 <div class="social-links vertical-align">
+                 {{#if website}}
+                  <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
+                  {{/if}}
+                  {{#if github}}
+                  <a href="{{github}}"><i class="icon fa fa-github"></i></a>
+                  {{/if}}
+                  {{#if twitter}}
+                  <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
+                  {{/if}}
+                 </div>
+              </div>
+            </div>  
           </div>
           <div style="display:none;" class="pop-box">
             <div class="arrow">
