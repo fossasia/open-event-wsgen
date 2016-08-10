@@ -740,6 +740,24 @@ a {
   width: 100%;
 }
 
+@mixin responsivespeaker {
+  .speaker {
+    text-align: center;
+    .image-holder {
+      .background-image {
+        height: 212.5px;
+        width: 212.5px;
+      }
+      .responsive-overlay {
+        .hover-state {
+          height: 212.5px;
+          width: 212.5px;
+        }
+      }
+    }
+  }
+}
+
 @mixin sociallinks {
   position: absolute;
   top: 0%;
@@ -948,24 +966,18 @@ a {
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .speaker-with-bio {
-    .speaker {
-      .image-holder {
-        .background-image {
-          height: 212.5px;
-          width: 212.5px;
-        }
-        .responsive-overlay {
-          .hover-state {
-            height: 212.5px;
-            width: 212.5px;
-          }
-        }
-      }
-    }
+    @include responsivespeaker;
 
     .speaker-description {
       height: 212.5px;
       width: 212.5px;
+    }
+  }
+  .speakers-row {
+    padding: 0px 75px;
+    .speaker-column {
+      @include responsivespeaker;
+      text-align: center;
     }
   }
 }
