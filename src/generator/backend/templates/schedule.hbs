@@ -42,7 +42,7 @@
         <div class="col-md-12">
 
           <a class="anchor" id="{{slug}}"></a>
-          <h3 class="text">{{title}}</h3>
+          <h3  class="text" style="color: {{{color}}}; font-weight: 500">{{title}}</h3>
           <h5 class="text">{{date}}</h5>
 
           <ul class="list-group session-list">
@@ -101,7 +101,7 @@
                 </p>
                   {{/if}}
                   {{/speakers_list}}
-                  <ul>
+                  <ul style="padding:0">
                   {{#speakers_list}}
                    <li>
                    {{name}}
