@@ -751,10 +751,12 @@ a {
 @mixin responsivespeaker {
   .speaker {
     .image-holder {
+
       .background-image {
         height: 212.5px;
         width: 212.5px;
       }
+      
       .responsive-overlay {
         .hover-state {
           height: 212.5px;
@@ -987,6 +989,7 @@ a {
 
   .speakers-row {
     padding: 0 75px;
+
     .speaker-column {
       @include responsivespeaker;
       text-align: center;
