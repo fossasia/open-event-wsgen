@@ -32,25 +32,9 @@ $(document).ready(function () {
       preserve3d= $(".preserve3d");
 
     imageholder.hover(function(event) {
-      popbox.hide();
-      event.preventDefault();
-      event.stopPropagation();
-      
-      let imagehover = event.target;
-      if((imageholder).is(event.target) ) {
-        $(imagehover).next().show();
-        $(imagehover).children('.preserve3d').addClass('hover-state');
-      }
-      else {
-        $(imagehover).parent().next().show();
-        $(imagehover).parent().children('.preserve3d').addClass('hover-state');
-      }
+       addOverlay(event);
     },function(){
-      if(!$('.preserve3d').is(event.target)){
-         popbox.hide();
-         $(document).removeClass('hover-state');
-      }
-      
+       removeOverlay(event);      
     })
     speaker.hover(function(event){
       if(!(hoverstate).is(event.target)){
@@ -64,7 +48,7 @@ $(document).ready(function () {
     })
 
     imageholder.hover(function (event) {
-    if(imageholder.is(event.target)) {
+    /*if(imageholder.is(event.target)) {
       var trackin =$(event.target).next();
       console.log(trackin);
       adjustFooter(event);
@@ -75,14 +59,11 @@ $(document).ready(function () {
     }
     popbox.hide();
     event.preventDefault();
-    event.stopPropagation();
-    trackin.show();
+    event.stopPropagation();*/
+    //trackin.show();
     },function(){
        
-    if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
-         adjustFooter(event);
-
-       } 
+    
     });
 
   })();  
@@ -147,9 +128,10 @@ $(document).ready(function () {
 
   function adjustFooter(event) {
     let pointer = event.target;
+    console.log(pointer);
     let footer = $('.footer');
     if(!$('.image-holder').is(pointer)){
-     imageholder = $(pointer).parents('.image-holder')
+     imageholder = $(pointer).parent().parent();
     }
     else {
       imageholder = $(pointer);
@@ -160,10 +142,7 @@ $(document).ready(function () {
     let popBoxheight   = popBox.outerHeight() ;
     let totalHeight = imageHoverheight + imageContainer + popBoxheight;
     let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight();
-    console.log(speakersRow);
-    console.log(totalHeight);
     let shift = totalHeight - speakersRow;
-    console.log("shift is :"+ shift )
     if (shift > 0) {
       
       $(".footer").css({
@@ -174,11 +153,45 @@ $(document).ready(function () {
     })
   }
   else {
-    console.log("shift is not this");
     hidePopbox();
+   
+  }
+  }
+
+  function addOverlay(event) {
+    let imageholder = $(".image-holder");
+        speaker = $(".speaker");
+        hoverstate= $(".hover-state");
+        popbox = $(".pop-box");
+        preserve3d = $(".preserve3d");
+
     popbox.hide();
+    event.preventDefault();
+    event.stopPropagation();
+    
+    let imagehover = event.target;
+    if((imageholder).is(event.target) ) {
+      $(imagehover).next().show();
+      $(imagehover).children('.preserve3d').addClass('hover-state');
+    }
+    else {
+      $(imagehover).parents('.image-holder').next().show();
+      $(imagehover).parent().children('.preserve3d').addClass('hover-state');
+    }
+    adjustFooter(event);
   }
+
+  function removeOverlay(event) {
+    if(!$('.preserve3d').is(event.target)){
+     popbox.hide();
+     $(document).removeClass('hover-state');
+    }
+    if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
+         adjustFooter(event);
+
+       } 
   }
+
   if (widthWindow < 768) {
    $(document).mouseup(function(e) {
       let container = popbox;
