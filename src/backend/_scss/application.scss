@@ -63,20 +63,26 @@ a {
 /* General styling of session list */
 
 .sessions {
+
   .session {
     &-description {
       color: $gray-dark;
     }
+
     &-type {
       color: $gray-dark;
     }
+
     &-speakers {
       float: left;
     }
-      &-list {
+
+    &-list {
+
     li{
       cursor: pointer;
     }
+
     .label {
       background: #ff8700;
       border-color: $light-purple;
@@ -85,6 +91,7 @@ a {
       font-size: 80%;
       margin-left: -8px;
     }
+
     .session-title {
       margin-top: 0.1em;
         .session-link {
@@ -92,11 +99,13 @@ a {
         }
     }
   }
-  &-location{
-    text-align: left;
-    color: $gray-dark;
-  }
-  }
+
+    &-location {
+      text-align: left;
+      color: $gray-dark;
+    }
+  } 
+  
   ul {
     list-style: none;
     li:after {
