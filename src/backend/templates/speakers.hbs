@@ -47,25 +47,27 @@
       <div class="speaker">
         <div class="image-holder">
           <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
-            <div class="text-center preserve3d">
-               <div class="bio vertical-align">
-                 
-                </div>
-               <div class="social-links vertical-align">
-               {{#if website}}
-                <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
-                {{/if}}
-                {{#if github}}
-                <a href="{{github}}"><i class="icon fa fa-github"></i></a>
-                {{/if}}
-                {{#if twitter}}
-                <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
-                {{/if}}
-                {{#if linkedin}}
-                <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
-                {{/if}}
-               </div>
-            </div>
+            <div class="responsive-overlay">
+              <div class="text-center preserve3d">
+                 <div class="bio vertical-align">
+                   
+                  </div>
+                 <div class="social-links vertical-align">
+                 {{#if website}}
+                  <a href="{{website}}"><i class="icon fa fa-external-link"></i></a>
+                  {{/if}}
+                  {{#if github}}
+                  <a href="{{github}}"><i class="icon fa fa-github"></i></a>
+                  {{/if}}
+                  {{#if twitter}}
+                  <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <a href="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
+                  {{/if}}
+                 </div>
+              </div>
+            </div>  
           </div>
           <div style="display:none;" class="pop-box">
             <div class="arrow">
@@ -79,7 +81,7 @@
                   </span>
                 </div>
                 <div class="pop-over row">
-                  {{#linkify}}{{long_biography}}{{/linkify}}
+                 {{{long_biography}}}
                    <div style="padding:2%;" class="icons row">
                    {{#if website}}
                   <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
@@ -104,7 +106,7 @@
                   <h5><strong>{{date}}</strong></h5>
                    <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
-                      {{title}}
+                      {{{title}}}
                     </h4>
                    {{/each}}
                    <center><h5 class="card-text"></h5></center>
@@ -113,7 +115,7 @@
                 </div>  
                 <hr style="clear:both;width:75%;">
                 <div class="pop-footer">
-                  <p>{{location}}</p>
+                  <p>{{{location}}}</p>
                   <ul class="title-inline">
                   <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
                   <li>{{../title}}</li>
@@ -122,7 +124,8 @@
               </div>
             </div>
           </div>
-      <span class="speaker-name">{{name}}</span>
+      <span class="speaker-name">{{{name}}}</span>
+      <p style="text-align:center; height:10px;">{{{organisation}}}</p>
       </div>
     </div>
     {{/speakerslist}}

@@ -22,7 +22,7 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
-
+ }
 (function(){
 
   let imageholder = $(".image-holder");
@@ -35,6 +35,7 @@ $(document).ready(function () {
       popbox.hide();
       event.preventDefault();
       event.stopPropagation();
+      
       let imagehover = event.target;
       if((imageholder).is(event.target) ) {
         $(imagehover).next().show();
@@ -60,15 +61,12 @@ $(document).ready(function () {
       popbox.hide();
     })
 
-  })();  
-    
-
-    speakerinfo.hover(function (event) {
-    if(speakerinfo.is(event.target)) {
-      var trackin =$(event.target).children('.pop-box');
+    imageholder.hover(function (event) {
+    if(imageholder.is(event.target)) {
+      var trackin =$(event.target).next();
    }  
     else {
-      trackin = $(event.target).parent().children('.pop-box');
+      trackin = $(event.target).parents('.image-holder').next();
     }
     popbox.hide();
     event.preventDefault();
@@ -76,11 +74,12 @@ $(document).ready(function () {
     trackin.show();
     },function(){
 
-    if (!$('.pop-box').is(event.target) && !$('.speakername').is(event.target) ){
+    if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
          popbox.hide();
        } 
     });
-  }  
+
+  })();  
 
   function popBox(e) {
     event = e || window.event;
