@@ -89,8 +89,7 @@ function getData () {
     data.singlefileUpload = "";
     data.zipLength = 0;
   }
-  console.log(data);
-
+  
   return data;
 }
 

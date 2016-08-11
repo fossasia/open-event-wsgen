@@ -89,7 +89,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
         if (emit) socket.emit('live.process', {status: "Cleaning dist folder"});
       distHelper.cleanDist(appFolder, (cleanerr) => {
-        console.log('================================CLEANING\n\n\n\n');
+        console.log('================================CLEANING\n');
         if (cleanerr !== null) {
             console.log(cleanerr);
             return socket.emit('live.error', {status: "Error in cleaning dist folder"} );
@@ -98,7 +98,7 @@ exports.createDistDir = function(req, socket, callback) {
       });
     },
     (done) => {
-      console.log('================================MAKING\n\n\n\n');
+      console.log('================================MAKING\n');
       if (emit)socket.emit('live.process', {status: "Making dist folder"});
       distHelper.makeDistDir(appFolder);
       done(null, 'make');
@@ -106,7 +106,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       if (emit)socket.emit('live.process', {status: "Copying assets"});
       distHelper.copyAssets(appFolder, (copyerr) => {
-        console.log('================================COPYING\n\n\n\n');
+        console.log('================================COPYING\n');
 
         if (copyerr !== null) {
           console.log(copyerr);
@@ -116,7 +116,7 @@ exports.createDistDir = function(req, socket, callback) {
       });
     },
     (done) => {
-      console.log('================================COPYING JSONS\n\n\n\n');
+      console.log('================================COPYING JSONS\n');
       if (emit)socket.emit('live.process', {status: "Copying the JSONs"});
       switch (req.body.datasource) {
         case 'jsonupload':
@@ -124,7 +124,7 @@ exports.createDistDir = function(req, socket, callback) {
           done(null, 'cleanuploads');
           break;
         case 'eventapi':
-          console.log('================================FETCHING JSONS\n\n\n\n');
+          console.log('================================FETCHING JSONS\n');
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, () => {
             done(null, 'cleanuploads');
           });
@@ -138,7 +138,7 @@ exports.createDistDir = function(req, socket, callback) {
       }
     },
     (done) => {
-      console.log('===============================COMPILING SASS\n\n\n\n');
+      console.log('===============================COMPILING SASS\n');
       if (emit) socket.emit('live.process', {status: "Compiling the SASS files"});
       sass.render({
         file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
@@ -159,7 +159,7 @@ exports.createDistDir = function(req, socket, callback) {
       });
     },
     (done) => {
-      console.log('================================WRITING\n\n\n\n');
+      console.log('================================WRITING\n');
       if (emit)socket.emit('live.process', {status: "Compiling the HTML pages from templates"});
       const jsonData = getJsonData(req.body);
 
@@ -179,11 +179,10 @@ exports.createDistDir = function(req, socket, callback) {
       done(null, 'write');
     },
     (done) => {
-      console.log('=================================SENDING MAIL\n\n\n');
+      console.log('=================================SENDING MAIL\n');
       if (emit) socket.emit('live.process', {status: "Website is being generated"});
       
       mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
-
         callback(appFolder);
         done(null, 'write');
         
@@ -196,7 +195,7 @@ exports.createDistDir = function(req, socket, callback) {
 
 exports.pipeZipToRes = function(email, appName, res) {
   const appFolder = email + '/' + appName;
-  console.log('================================ZIPPING\n\n\n\n');
+  console.log('================================ZIPPING\n');
   const zipfile = archiver('zip');
 
   zipfile.on('error', (err) => {

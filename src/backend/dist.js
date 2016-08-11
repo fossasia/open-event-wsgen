@@ -38,10 +38,6 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
         .on('response', function(response) {
           if (response.statusCode != 200) {
             cb(new Error('Response = ' + response.statusCode + 'received'));
-          } else {
-            console.log('Got response');
-            console.log(response.statusCode); // 200
-            console.log(response.headers['content-type']); // 'image/png'
           }
         })
         .pipe(fileStream);
