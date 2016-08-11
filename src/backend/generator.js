@@ -182,7 +182,7 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('=================================SENDING MAIL\n\n\n');
       if (emit) socket.emit('live.process', {status: "Website is being generated"});
       
-      mailer.sendMail(req.body.email, req.body.name, () => {
+      mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
 
         callback(appFolder);
         done(null, 'write');

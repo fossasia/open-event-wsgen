@@ -2,7 +2,7 @@
 @charset 'UTF-8';
 
 // 1.Base
-@import '_base/_config.scss';
+@import '_base/config';
 
 /* Offsets for fixed navbar */
 body {
@@ -763,6 +763,7 @@ a {
           width: 300px;
           display: block;
           margin: 0 auto;
+          background-color: $background-shade;
         }
 
         .social-links {
@@ -967,4 +968,3 @@ a {
     }
   }
 }
-

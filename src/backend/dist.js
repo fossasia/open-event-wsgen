@@ -4,9 +4,9 @@ const fs = require('fs-extra');
 const request = require('request');
 const async = require('async');
 var admZip = require('adm-zip');
-const distPath = __dirname + '/../../../dist';
-const uploadsPath = __dirname + '/../../../uploads';
-const mockPath = __dirname + '/../../../mockjson';
+const distPath = __dirname + '/../../dist';
+const uploadsPath = __dirname + '/../../uploads';
+const mockPath = __dirname + '/../../mockjson';
 
 const downloadFile = function(url, filePath) {
   const fileStream = fs.createWriteStream(filePath);

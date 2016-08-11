@@ -4,7 +4,7 @@
   "description": "Open Event Webapp",
   "main": "index.js",
   "scripts": {
-    "server.generator": "node src/generator/app.js",
+    "server.generator": "node src/app.js",
     "start": "npm run server.generator",
     "test": "mocha",
     "coverage": "istanbul cover _mocha"

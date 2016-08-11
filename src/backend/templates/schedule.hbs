@@ -42,7 +42,7 @@
         <div class="col-md-12">
 
           <a class="anchor" id="{{slug}}"></a>
-          <h3  class="text" style="color: {{{color}}}; font-weight: 500">{{title}}</h3>
+          <h3  class="text">{{title}}</h3>
           <h5 class="text">{{date}}</h5>
 
           <ul class="list-group session-list">
@@ -55,7 +55,7 @@
               aria-controls="desc-{{session_id}}">
 
               <div class="col-xs-2 col-md-1">
-                <span class="time-alert session-start label label-primary">
+                <span style="background-color: {{../color}}" class="time-alert session-start label label-primary">
                   {{start}}
                 </span>
               </div>
