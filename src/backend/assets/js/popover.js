@@ -55,27 +55,33 @@ $(document).ready(function () {
     speaker.hover(function(event){
       if(!(hoverstate).is(event.target)){
         popbox.hide();
+        hidePopbox();
     }
     })
     $(document).hover(function(event){
       popbox.hide();
+      hidePopbox();
     })
 
     imageholder.hover(function (event) {
     if(imageholder.is(event.target)) {
       var trackin =$(event.target).next();
+      console.log(trackin);
+      adjustFooter(event);
    }  
     else {
       trackin = $(event.target).parents('.image-holder').next();
+      adjustFooter(event);
     }
     popbox.hide();
     event.preventDefault();
     event.stopPropagation();
     trackin.show();
     },function(){
-
+       
     if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
-         popbox.hide();
+         adjustFooter(event);
+
        } 
     });
 
@@ -137,6 +143,41 @@ $(document).ready(function () {
     sizeevent.css({
       "text-decoration":"none"
     })
+  }
+
+  function adjustFooter(event) {
+    let pointer = event.target;
+    let footer = $('.footer');
+    if(!$('.image-holder').is(pointer)){
+     imageholder = $(pointer).parents('.image-holder')
+    }
+    else {
+      imageholder = $(pointer);
+    }
+    let imageHoverheight = imageholder.offset().top;
+    let imageContainer = imageholder.outerHeight();
+    let popBox         = imageholder.next();
+    let popBoxheight   = popBox.outerHeight() ;
+    let totalHeight = imageHoverheight + imageContainer + popBoxheight;
+    let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight();
+    console.log(speakersRow);
+    console.log(totalHeight);
+    let shift = totalHeight - speakersRow;
+    console.log("shift is :"+ shift )
+    if (shift > 0) {
+      
+      $(".footer").css({
+        "position":"absolute",
+        "top": speakersRow + shift,
+        "width":"100%",
+        "z-index": "999"
+    })
+  }
+  else {
+    console.log("shift is not this");
+    hidePopbox();
+    popbox.hide();
+  }
   }
   if (widthWindow < 768) {
    $(document).mouseup(function(e) {
