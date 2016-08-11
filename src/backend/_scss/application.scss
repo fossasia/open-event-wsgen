@@ -99,13 +99,11 @@ a {
         }
     }
   }
-
     &-location {
-      text-align: left;
       color: $gray-dark;
+      text-align: left;
     }
-  } 
-  
+  }  
   ul {
     list-style: none;
     li:after {
