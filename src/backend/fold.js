@@ -2,7 +2,6 @@
 
 const moment = require('moment');
 const distHelper = require('./dist');
-const urlencode  = require('urlencode');
 const urljoin = require('url-join');
 
 function byProperty(key) {
@@ -195,7 +194,7 @@ function extractEventUrls(event, reqOpts) {
         urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.logo.charAt(0) == '/') event.logo = event.logo.substr(1);
-        urls.logo_url = urlencode(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo)));
+        urls.logo_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo)));
       }
     }
 
@@ -204,7 +203,7 @@ function extractEventUrls(event, reqOpts) {
         urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.background_url.charAt(0) == '/') event.background_url = event.background_url.substr(1);
-        urls.background_url = urlencode(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_url)));
+        urls.background_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_url)));
       }
     }
   }
@@ -240,15 +239,15 @@ function foldByLevel(sponsors ,reqOpts) {
     }
     if (sponsor.logo !== null && sponsor.logo != "") {
       if (sponsor.logo.substring(0, 4) === 'http') {
-        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
+        sponsor.logo = encodeURI(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
       } else if (reqOpts.datasource === 'eventapi' ) {
-        sponsor.logo = urlencode(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
+        sponsor.logo = encodeURI(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
       }
       else {
       let reg = sponsor.logo.split('');
       if(reg[0] =='/'){
-          sponsor.logo = urlencode(sponsor.logo.substring(1,sponsor.logo.length));
+          sponsor.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
         }
         
       }
@@ -370,14 +369,14 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
-          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+          speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
         } 
         else  if (reqOpts.datasource === 'eventapi' ) {
-          speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
+          speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         } else {
         var reg = speaker.photo.split('');
         if(reg[0] =='/'){
-          speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));
+          speaker.photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
         }
       }
 
