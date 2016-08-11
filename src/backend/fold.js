@@ -110,6 +110,7 @@ function foldByDate(tracks) {
     if (!dateMap.has(track.date)) {
       dateMap.set(track.date, {
         caption: track.date,
+        firstSlug: track.slug,
         tracks: []
       });
     }
