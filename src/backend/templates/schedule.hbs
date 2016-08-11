@@ -47,7 +47,7 @@
         <div class="col-md-12">
 
           <a class="anchor" id="{{slug}}"></a>
-          <h3 class="text">{{title}}</h3>
+          <h3  class="text">{{title}}</h3>
           <h5 class="text">{{date}}</h5>
 
           <ul class="list-group session-list">
@@ -60,12 +60,12 @@
               aria-controls="desc-{{session_id}}">
 
               <div class="col-xs-2 col-md-1">
-                <span class="time-alert session-start label label-primary">
+                <span style="background-color: {{../color}}" class="time-alert session-start label label-primary">
                   {{start}}
                 </span>
               </div>
 
-              <div class="col-xs-10 col-md-11">
+              <div class="sessions col-xs-10 col-md-11">
                 <div class="clearfix">
                   <a class="anchor" name="{{session_id}}"></a>
                   <h4 class="session-title">
@@ -99,18 +99,28 @@
                   </audio>
                   {{/if}}
                 </p>
-                <p class="session-speakers">
-                  {{#speakers_list}}
+                {{#speakers_list}}
                   {{#if photo}}
+                <p style="margin-right:20px" class="session-speakers">
                   <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                </p>
                   {{/if}}
                   {{/speakers_list}}
-                  {{speakers}}
+                  <ul style="padding:0">
+                  {{#speakers_list}}
+                   <li>
+                   {{name}}
+                   {{#if organisation}}
+                   ({{organisation}})
+                   {{/if}}
+                   </li> 
+                  {{/speakers_list}}
+                  </ul>
                 </p>
-                <p>
+               
                   <span class="session-type">{{type}}</span>
                 </p>
-                <div id="desc-{{session_id}}">
+                <div style="float:right;" id="desc-{{session_id}}">
                   <p class="collapse">
                     <span class="session-description">{{#linkify}}{{description}}{{/linkify}}</span>
                   </p>
