@@ -69,7 +69,6 @@ a {
     }
     &-type {
       color: $gray-dark;
-      margin-left: 20px;
     }
     &-speakers {
       float: left;
@@ -99,7 +98,6 @@ a {
   }
   }
   ul {
-    margin-left: 20px;
     list-style: none;
     li:after {
       content: ','
