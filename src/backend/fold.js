@@ -189,11 +189,23 @@ function extractEventUrls(event, reqOpts) {
  };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-    if ((event.logo !== null) && (event.logo.substring(0, 4) === 'http')) {
-     urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
+
+    if (event.logo !== null && event.logo != '') {
+      if (event.logo.substring(0, 4) === 'http') {
+        urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
+      } else if (reqOpts.datasource === 'eventapi') {
+        if (event.logo.charAt(0) == '/') event.logo = event.logo.substr(1);
+        urls.logo_url = urlencode(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo)));
+      }
     }
-    if ((event.background_url !== null) && (event.background_url.substring(0, 4) === 'http')) {
-     urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
+
+    if ((event.background_url !== null) && (event.background_url != '')) {
+      if (event.background_url.substring(0, 4) === 'http') {
+        urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
+      } else if (reqOpts.datasource === 'eventapi') {
+        if (event.background_url.charAt(0) == '/') event.background_url = event.background_url.substr(1);
+        urls.background_url = urlencode(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_url)));
+      }
     }
   }
 
@@ -362,8 +374,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
         } 
         else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = urlencode(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
-        }
-        else {
+        } else {
         var reg = speaker.photo.split('');
         if(reg[0] =='/'){
           speaker.photo = urlencode(speaker.photo.substring(1,speaker.photo.length));

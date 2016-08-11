@@ -83,11 +83,8 @@ module.exports = {
      zipEntries.forEach(function(zipEntry) {
      
       switch(zipEntry.entryName){
-        case 'images/speakers/':
-        zip.extractEntryTo("images/speakers/", appPath ); 
-        break;
-        case 'images/sponsors/':
-        zip.extractEntryTo("images/sponsors/", appPath ); 
+        case 'images/':
+        zip.extractEntryTo("images/", appPath ); 
         break;
         case 'audio/':
         zip.extractEntryTo("audio/", appPath);
@@ -176,7 +173,7 @@ module.exports = {
     const photoFileName = logoUrl.split('/').pop();
     const photoFilePath = 'images/' + photoFileName;
 
-    console.log('Downloading logo : ' + photoFileName);
+    console.log('Downloading logo : ' + logoUrl + ' to ' + photoFileName);
     downloadFile(logoUrl, appPath + '/' + photoFilePath);
     return photoFilePath;
   },
