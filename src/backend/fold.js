@@ -306,7 +306,7 @@ function foldByLevel(sponsors ,reqOpts) {
     }
     levelData[sponsor.level].push(sponsorItem);
   });
-  console.log(levelData);
+
   return levelData;
 }
 
