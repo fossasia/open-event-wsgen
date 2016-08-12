@@ -197,6 +197,13 @@ function extractEventUrls(event, reqOpts) {
         if (event.logo.charAt(0) == '/') event.logo = event.logo.substr(1);
         urls.logo_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo)));
       }
+      else {
+        let reg = event.logo.split('');
+        if(reg[0] =='/'){
+          event.logo = encodeURI(event.logo.substring(1,event.logo.length));
+        }
+        
+      }
     }
 
     if ((event.background_url !== null) && (event.background_url != '')) {
@@ -205,6 +212,12 @@ function extractEventUrls(event, reqOpts) {
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.background_url.charAt(0) == '/') event.background_url = event.background_url.substr(1);
         urls.background_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_url)));
+      }
+      else {
+        let reg = event.background_url.split('');
+        if(reg[0] =='/'){
+          urls.background_url = encodeURI(event.background_url.substring(1,event.background_url.length));
+        }
       }
     }
   }
@@ -235,6 +248,7 @@ function foldByLevel(sponsors ,reqOpts) {
   });
 
   sponsors.forEach((sponsor) => {
+
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
