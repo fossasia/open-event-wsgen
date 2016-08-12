@@ -33,14 +33,18 @@ $(document).ready(function () {
        socket.emit('live', formData);
      }
     
+    $('#generator-progress').css('display', 'block')
+    
   });
 
   socket.on('live.ready', function (data) {
     updateStatus('live render ready');
     displayButtons(data.appDir);
+    updatePercent(100);
   });
   socket.on('live.process', function (data) {
-    updateStatus(data.status)
+    updateStatus(data.status);
+    updatePercent(data.donePercent);
   });
   socket.on('live.error' , function (err) {
      $('#status').css('color' , 'red');
@@ -50,25 +54,31 @@ $(document).ready(function () {
   
 });
 
+function updatePercent(perc) {
+  $('#generator-progress').animate({'width': perc + '%'}, function () {
+    $('#generator-progress-val').html(perc + '%');
+  });
+}
+
 function displayButtons (appPath) {
   var btnDownload = $('#btnDownload');
   var btnLive = $('#btnLive');
   btnDownload.css('display', 'block');
   btnLive.css('display', 'block');
 
-  btnLive.click(function () {
+  btnLive.unbind('click').click(function () {
     window.open('/live/preview/' + appPath, '_blank')
   });
 
-  btnDownload.click(function () {
+  btnDownload.unbind('click').click(function () {
     window.open('/download/' + appPath, '_blank')
   })
 }
 
 function updateStatus (statusMsg) {
-  $('#status').animate({'opacity': 0}, 500, function () {
+  $('#status').animate({'opacity': 0}, function () {
     $(this).text(statusMsg);
-  }).animate({'opacity': 1}, 500);
+  }).animate({'opacity': 1});
 }
 
 function getData () {
