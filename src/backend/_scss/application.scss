@@ -571,6 +571,22 @@ a {
   margin-left: 4%;
 }
 
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+  .sesroom {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 458px) and (max-width: 600px) {
+  .sesroom {
+    max-width: 300px;
+  }
+}
+@media(max-width: 458px) {
+  .sesroom {
+    max-width: 250px;
+  }
+}
 // titles with color codes
 .titlecolor{
     width: 12px;
