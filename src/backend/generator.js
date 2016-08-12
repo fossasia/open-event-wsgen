@@ -87,7 +87,7 @@ exports.createDistDir = function(req, socket, callback) {
 
   async.series([
     (done) => {
-        if (emit) socket.emit('live.process', {status: "Cleaning dist folder"});
+        if (emit) socket.emit('live.process', {donePercent: 10, status: "Cleaning dist folder"});
       distHelper.cleanDist(appFolder, (cleanerr) => {
         console.log('================================CLEANING\n');
         if (cleanerr !== null) {
@@ -99,25 +99,25 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       console.log('================================MAKING\n');
-      if (emit)socket.emit('live.process', {status: "Making dist folder"});
+      if (emit)socket.emit('live.process', {donePercent: 20, status: "Making dist folder"});
       distHelper.makeDistDir(appFolder);
       done(null, 'make');
     },
     (done) => {
-      if (emit)socket.emit('live.process', {status: "Copying assets"});
+      if (emit)socket.emit('live.process', {donePercent: 30, status: "Copying assets"});
       distHelper.copyAssets(appFolder, (copyerr) => {
         console.log('================================COPYING\n');
 
         if (copyerr !== null) {
           console.log(copyerr);
-          return  socket.emit('live.error', {status: "Error in Copying assets"} );
+          return  socket.emit('live.error', {donePercent: 40, status: "Error in Copying assets"} );
         }
         done(null, 'copy');
       });
     },
     (done) => {
       console.log('================================COPYING JSONS\n');
-      if (emit)socket.emit('live.process', {status: "Copying the JSONs"});
+      if (emit)socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs"});
       switch (req.body.datasource) {
         case 'jsonupload':
           distHelper.copyUploads(appFolder, req.body.singlefileUpload);
@@ -139,7 +139,7 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       console.log('===============================COMPILING SASS\n');
-      if (emit) socket.emit('live.process', {status: "Compiling the SASS files"});
+      if (emit) socket.emit('live.process', {donePercent: 60, status: "Compiling the SASS files"});
       sass.render({
         file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
         outFile: distHelper.distPath + '/' + appFolder + '/css/schedule.css'
@@ -160,7 +160,7 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       console.log('================================WRITING\n');
-      if (emit)socket.emit('live.process', {status: "Compiling the HTML pages from templates"});
+      if (emit)socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates"});
       const jsonData = getJsonData(req.body);
 
       try {
@@ -180,7 +180,7 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       console.log('=================================SENDING MAIL\n');
-      if (emit) socket.emit('live.process', {status: "Website is being generated"});
+      if (emit) socket.emit('live.process', {donePercent: 80, status: "Website is being generated"});
       
       mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
         callback(appFolder);
