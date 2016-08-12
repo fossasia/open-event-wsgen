@@ -32,7 +32,7 @@
     </head>
     <style>
     </style>
-    <body>
+    <body onload="datafetcher()">
 
     {{> navbar}}
     <div class="carousel slide" style="margin-bottom: 0;">
@@ -172,8 +172,32 @@
 
 {{/if}}
 {{/if}}  
+<div class="container">
+
+ 
+</div>
 <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
 </div>
+<div class="container">
+  <section class="contact-tweets">
+    <div class="container vertical-align">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+              <div class="tweets-feed" id="tweets" data-from="{{{eventurls.twitterLink}}}" data-count=50 data-query="{{eventurls.twitterLink}}">
+                  <div class="arrow-up"></div>
+                  <p id="tweet" class="tweet">
+                    Loading...
+                  </p>
+                   <div class="panel-footer">
+                    <span id="tweet-info">Fetching tweets...</span>
+                  </div>
+                  <p>Twitted<span id="dateTweeted"></span>ago</p>
+                </div>
+        </div>
+    </div>
+  </section>
+</div>
+
 {{> footer}}
   
 
@@ -182,7 +206,10 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
    <script src="./js/map.js" type="text/javascript"></script>
+   <script src="./dependencies/loklak-fetcher.js" type="text/javascript"></script>
+   <script src="./dependencies/tweets.js" type="text/javascript"></script>
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+   
    <script>
  
     $(function() {  

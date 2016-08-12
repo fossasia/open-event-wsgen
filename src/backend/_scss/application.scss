@@ -1026,3 +1026,55 @@ a {
     }
   }
 }
+.contact-tweets {
+    background: #e12b00;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.tweets-feed {
+    color: #FFFFFF;
+    line-height: 30px;
+    font-size: 20px;
+    transition: opacity 0.2s linear;
+    margin-bottom: 20px;
+    height: 100px;
+    
+    a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    font-weight: 700;
+    }    
+}
+
+.text-white {
+    color: #fff;
+}
+.tweets-feed .dateTweeted {
+    font-size: 15px;
+    display: block;
+}
+.icon.social_rss {
+    display: block;
+    margin: 20px 0 10px;
+}
+.contact-tweets span a {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 1px;
+}
+.tweets-feed .dateTweeted {
+    font-size: 15px;
+    display: block;
+}
