@@ -314,12 +314,13 @@ function foldByLevel(sponsors ,reqOpts) {
         sponsorItem.imgsize = 'small';
         break;
       default:  
-      sponsorItem.divclass = 'col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'sponsorimg';
+      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+      sponsorItem.sponsorimg = 'vcenter sponsorimg';
        
     }
     levelData[sponsor.level].push(sponsorItem);
   });
+
   return levelData;
 }
 

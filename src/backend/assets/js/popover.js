@@ -47,25 +47,6 @@ $(document).ready(function () {
       hidePopbox();
     })
 
-    imageholder.hover(function (event) {
-    /*if(imageholder.is(event.target)) {
-      var trackin =$(event.target).next();
-      console.log(trackin);
-      adjustFooter(event);
-   }  
-    else {
-      trackin = $(event.target).parents('.image-holder').next();
-      adjustFooter(event);
-    }
-    popbox.hide();
-    event.preventDefault();
-    event.stopPropagation();*/
-    //trackin.show();
-    },function(){
-       
-    
-    });
-
   })();  
 
   function popBox(e) {
@@ -156,7 +137,7 @@ $(document).ready(function () {
     hidePopbox();
    
   }
-  }
+}
 
   function addOverlay(event) {
     let imageholder = $(".image-holder");
@@ -183,13 +164,13 @@ $(document).ready(function () {
 
   function removeOverlay(event) {
     if(!$('.preserve3d').is(event.target)){
-     popbox.hide();
-     $(document).removeClass('hover-state');
+      popbox.hide();
+      $(document).removeClass('hover-state');
     }
     if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
-         adjustFooter(event);
+      adjustFooter(event);
 
-       } 
+    } 
   }
 
   if (widthWindow < 768) {
