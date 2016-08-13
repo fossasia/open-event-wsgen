@@ -34,7 +34,7 @@ function nextTweet() {
 	}
 	interval();
 	document.getElementById("tweet").style.opacity = 0;
-	//document.getElementById("tweet-info").style.opacity = 0;
+	document.getElementById("dateTweeted").style.opacity = 0;
 	window.setTimeout(parseFunc, 560);
 }
 function lastTweet() {
@@ -42,7 +42,7 @@ function lastTweet() {
 		tweetNum -= 1;
 		interval();
 		document.getElementById("tweet").style.opacity = 0;
-		document.getElementById("tweet-info").style.opacity = 0;
+		document.getElementById("dateTweeted").style.opacity = 0;
 		window.setTimeout(parseFunc, 560);
 	}
 }
@@ -76,6 +76,7 @@ function timeSince(date) {
 }
 
 function parser(data) {
+	console.log(data);
 	var parsed = "";
 	var tweet = data.statuses[tweetNum].text;
 	var words = tweet.split(" ");
@@ -100,8 +101,8 @@ function parser(data) {
 
 	var user = data.statuses[tweetNum].user;
 	var tweetDate = new Date(data.statuses[tweetNum].created_at);
-	document.getElementById("tweet-info").innerHTML = "Posted by <a href='https://twitter.com/" + user.screen_name + "'><b>" + user.name + "</b></a>, <a href='" + data.statuses[tweetNum].link + "'><i>" + timeSince(tweetDate.toUTCString()) + "</i></a>";
-    document.getElementById("dateTweeted").innerHTML = timeSince(tweetDate);
+    document.getElementById("dateTweeted").innerHTML = "Tweeted " + timeSince(tweetDate) + " ago";
 	document.getElementById("tweet").style.opacity = 1;
-	document.getElementById("tweet-info").style.opacity = 1;
+	document.getElementById("dateTweeted").style.opacity = 1;
+	//document.getElementById("tweet-info").innerHTML = "Follow  <a href='https://twitter.com/" + user.screen_name + "'>" + "</a>";
 }

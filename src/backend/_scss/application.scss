@@ -747,11 +747,8 @@ a {
 
 #map {
   display: block;
-  height: 100%;
   margin: auto;
   min-height: 360px;
-  width: 100%;
-
 }
 
 @mixin hoverstate {
@@ -1026,16 +1023,6 @@ a {
     }
   }
 }
-.contact-tweets {
-    background: #e12b00;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    height: 600px;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
 .vertical-align {
     position: relative;
     top: 50%;
@@ -1045,7 +1032,7 @@ a {
 }
 
 .tweets-feed {
-    color: #FFFFFF;
+    color: $black;
     line-height: 30px;
     font-size: 20px;
     transition: opacity 0.2s linear;
@@ -1053,14 +1040,14 @@ a {
     height: 100px;
     
     a {
-    color: #FFFFFF;
+    color: $black;
     text-decoration: underline;
     font-weight: 700;
     }    
 }
 
 .text-white {
-    color: #fff;
+    color: $black;
 }
 .tweets-feed .dateTweeted {
     font-size: 15px;
@@ -1071,10 +1058,14 @@ a {
     margin: 20px 0 10px;
 }
 .contact-tweets span a {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid $black;
     padding-bottom: 1px;
 }
-.tweets-feed .dateTweeted {
+#dateTweeted {
     font-size: 15px;
     display: block;
+}
+.social_twitter {
+  font-size: 60px;
+  margin-bottom: 12px;
 }

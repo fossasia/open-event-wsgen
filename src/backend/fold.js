@@ -189,7 +189,8 @@ function extractEventUrls(event, reqOpts) {
     latitude: event.latitude,
     longitude: event.longitude,
     register: event.ticket_url,
-    twitterLink: twitterLink
+    twitterLink: twitterLink,
+    tweetUrl: sociallinks[0].link
 
  };
   if (reqOpts.assetmode === 'download') {

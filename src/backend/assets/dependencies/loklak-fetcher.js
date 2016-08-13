@@ -48,7 +48,7 @@ window.loklakFetcher = (function() {
       if(dataset.query) {
         query = dataset.query.replace(/\s/gi, '%20').replace(/#/gi, '%23'); //replace spaces and hashtags in URL
       } else {
-        query = "fossasia";
+        //query = "fossasia";
       }
 
       if(dataset.start) {
@@ -81,6 +81,7 @@ window.loklakFetcher = (function() {
         '&timezoneOffset=' + options.tzOffset +
         '&minified=' + options.minified;
       // If the script element for JSONP already exists, remove it
+      console.log(url);
       if(script !== null) {
         document.head.removeChild(script);
       }
