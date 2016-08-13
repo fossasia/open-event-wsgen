@@ -1032,40 +1032,30 @@ a {
 }
 
 .tweets-feed {
-    color: $black;
-    line-height: 30px;
-    font-size: 20px;
-    transition: opacity 0.2s linear;
-    margin-bottom: 20px;
-    height: 100px;
+  color: $black;
+  line-height: 30px;
+  font-size: 20px;
+  transition: opacity 0.2s linear;
+  margin-bottom: 20px;
+  height: 100px;
     
-    a {
+  a {
     color: $black;
     text-decoration: underline;
     font-weight: 700;
-    }    
+  } 
+
+  #dateTweeted {
+    font-size: 15px;
+    display: block;
+  }
 }
 
-.text-white {
-    color: $black;
-}
-.tweets-feed .dateTweeted {
-    font-size: 15px;
-    display: block;
-}
-.icon.social_rss {
-    display: block;
-    margin: 20px 0 10px;
-}
-.contact-tweets span a {
-    border-bottom: 2px solid $black;
-    padding-bottom: 1px;
-}
-#dateTweeted {
-    font-size: 15px;
-    display: block;
-}
-.social_twitter {
-  font-size: 60px;
-  margin-bottom: 12px;
+.tweet-row {
+  padding: 0 80px;
+  margin-bottom: 80px;
+  .social_twitter {
+    font-size: 60px;
+    margin-bottom: 12px;
+  }
 }

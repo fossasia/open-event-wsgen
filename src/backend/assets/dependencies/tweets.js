@@ -76,7 +76,7 @@ function timeSince(date) {
 }
 
 function parser(data) {
-	console.log(data);
+
 	var parsed = "";
 	var tweet = data.statuses[tweetNum].text;
 	var words = tweet.split(" ");
