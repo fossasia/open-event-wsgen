@@ -172,10 +172,7 @@ function createSocialLinks(event) {
 function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
   const arrayTwitterLink = sociallinks[0].link.split('/');
-  console.log(arrayTwitterLink);
-  console.log(arrayTwitterLink.length - 1);
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
-  console.log(twitterLink);
   
   const urls= {
     main_page_url: event.event_url,
@@ -312,7 +309,7 @@ function foldByLevel(sponsors ,reqOpts) {
     }
     levelData[sponsor.level].push(sponsorItem);
   });
-  console.log(levelData);
+
   return levelData;
 }
 
