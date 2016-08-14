@@ -1037,6 +1037,7 @@ a {
     }
   }
 }
+
 .vertical-align {
     position: relative;
     top: 50%;
@@ -1073,3 +1074,63 @@ a {
     margin-bottom: 12px;
   }
 }
+
+.footer-container {
+  max-width: 1600px;
+  margin: 0px auto;
+    .classic {
+      padding: 72px 0px 36px 0px;
+      background: #f5f5f5;
+        .menu {
+          display: inline-block;
+          text-align: left;
+          line-height: 1;
+          list-style: none;
+          li {
+            float: none;
+            margin-bottom: 12px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            position: relative;
+            top: 4px;
+            color: $black;
+
+            a {
+              text-decoration: none;
+            }
+            a: hover {
+              color: #428bca;
+            }
+          }
+        }
+        span {
+          .lead {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-weight: 400;
+          }
+        }
+
+    }
+    .contact-methods { 
+      i {
+      font-size: 36px;
+      color: #333333;   
+      }
+      span {
+        display: inline-block;
+        position: relative;
+        bottom: 10px;
+        left: 8px;
+        font-size: 16px;
+        a {
+          padding-bottom: 4px;
+          border-bottom: 3px solid #fff;
+        }
+      }
+    }
+
+}
+
