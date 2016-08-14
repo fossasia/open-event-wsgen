@@ -1096,15 +1096,9 @@ a {
             position: relative;
             top: 4px;
             color: $black;
-
-            a {
-              text-decoration: none;
-            }
-            a: hover {
-              color: #428bca;
-            }
           }
         }
+
         span {
           .lead {
             display: inline-block;
@@ -1112,13 +1106,32 @@ a {
             font-weight: 400;
           }
         }
+      .social-profiles {
+        display: inline-block;
+        li {
+          display: inline-block;
+        }
+      }
 
+     a {
+      text-decoration: none;
+        &:hover {
+          color: $black;
+        }
+      }  
     }
+
     .contact-methods { 
       i {
       font-size: 36px;
       color: #333333;   
       }
+
+      li {
+        margin-bottom: 20px;
+        list-style: none;
+      }
+
       span {
         display: inline-block;
         position: relative;

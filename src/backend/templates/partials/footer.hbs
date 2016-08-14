@@ -1,26 +1,12 @@
-  <div class="navbar navbar-default footer">
-     {{#if copyright}}
-         {{#if copyright.license}}
-
-       <p>
-         <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
-         &copy; {{copyright.year}}
-         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}</a>
-         The website and it's contents are licensed under
-          <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
-       </p>
-         {{/if}}
-      {{/if}}
-  </div>
 
 <div class="footer-container">
-  <footer class="classic">
+  <footer class="classic" style="background-color:#fff;">
     <div class="container">
       <div class="row ui-sortable">
         <div class="col-sm-2">
           <ul class="menu">
-            <li><a target="_self" href="#about">About</a></li>
-            <li><a target="_blank" href="{{{eventurls.register}}}">Tickets</a></li>
+            <li><a target="_self" href="#description">About</a></li>
+            <li><a target="_self" href="{{{eventurls.register}}}">Tickets</a></li>
             <li><a target="_self" href="tracks.html">Tracks</a></li>
             <li><a target="_self" href="rooms.html">Rooms</a></li>
             <li><a target="_self" href="speakers.html">Speakers</a></li>
@@ -42,23 +28,33 @@
         </div>
     <div class="col-sm-3">
       <ul class="contact-methods">
-        <li><i class="icon pe-7s-mail"></i><span><a href="mailto:fossasia@googlegroups.com" target="_self" style="color:#777777">fossasia@googlegroups.com</a></span></li>
-        <li><i class="icon pe-7s-phone"></i><span>+65 83435672</span></li>
-        <li><i class="icon pe-7s-map-marker"></i><span>Ms. DANG Hong Phuc</span>
-        <span></span>FOSSASIA Xoai Building, 93 Mau Than Street Xuan Khan, Ninh Kieu 9000 Can Tho, Vietnam</li>
+       {{#if eventurls.email}}
+        <li>
+        <i class="fa fa-envelope"></i>
+        <span>
+        <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
+        {{eventurls.email}}
+        </a>
+        </span>
+        </li>
+        {{/if}}
+        {{#if eventurls.location}}
+        <li>
+        <i class="fa fa-map-marker"></i>
+        <span>{{{eventurls.name}}}&#44;&nbsp;{{eventurls.location}}</span></br>             
+        </li>
+        {{/if}}
       </ul>
     </div>
   </div>
   <div class="row ui-sortable">
     <div class="col-sm-12 text-center">
       <ul class="social-profiles">
-        <li><a target="_self" href="http://twitter.com/fossasia"><i class="icon 
-        social_twitter"></i></a></li>
-        <li><a target="_self" href="http://facebook.com/fossasia"><i class="icon social_facebook"></i></a></li>
-        <li><a target="_self" href="https://www.linkedin.com/groups/FOSSASIA-3762811"><i class="icon social_linkedin icon-large"></i></a></li>
-        <li><a target="_self" href="https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ"><i class="icon social_youtube icon-large"></i></a></li>
-        <li><a target="_self" href="https://www.flickr.com/photos/fossasia"><i class="icon social_flickr icon-large"></i></a></li>
-        <li><a target="_self" href="https://www.instagram.com/explore/tags/fossasia/"><i class="icon social_instagram"></i></a></li>
+        {{#sociallinks}}
+          {{#if show}}
+            <li class="pull-left"><a href="{{link}}" style="padding-right:0; padding-left:0;margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+          {{/if}}
+        {{/sociallinks}}
       </ul>
     </div>
   </div>

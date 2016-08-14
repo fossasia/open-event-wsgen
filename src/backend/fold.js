@@ -187,9 +187,11 @@ function extractEventUrls(event, reqOpts) {
     longitude: event.longitude,
     register: event.ticket_url,
     twitterLink: twitterLink,
-    tweetUrl: sociallinks[0].link
-
- };
+    tweetUrl: sociallinks[0].link,
+    email: event.email,
+    name: event.organizer_name,
+    location_name: event.location_name
+};
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
 
