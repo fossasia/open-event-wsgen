@@ -750,11 +750,8 @@ a {
 
 #map {
   display: block;
-  height: 100%;
   margin: auto;
   min-height: 360px;
-  width: 100%;
-
 }
 
 @mixin hoverstate {
@@ -1027,5 +1024,41 @@ a {
       @include responsivespeaker;
       text-align: center;
     }
+  }
+}
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.tweets-feed {
+  color: $black;
+  line-height: 30px;
+  font-size: 20px;
+  transition: opacity 0.2s linear;
+  margin-bottom: 20px;
+  height: 100px;
+    
+  a {
+    color: $black;
+    text-decoration: underline;
+    font-weight: 700;
+  } 
+
+  #dateTweeted {
+    font-size: 15px;
+    display: block;
+  }
+}
+
+.tweet-row {
+  padding: 0 80px;
+  margin-bottom: 80px;
+  .social_twitter {
+    font-size: 60px;
+    margin-bottom: 12px;
   }
 }

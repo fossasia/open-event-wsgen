@@ -32,7 +32,7 @@
     </head>
     <style>
     </style>
-    <body>
+    <body onload="datafetcher()">
 
     {{> navbar}}
     <div class="carousel slide" style="margin-bottom: 0;">
@@ -71,7 +71,7 @@
       {{/if}}
     </div>  
     {{#if speakerslist}}
-    <div class="container">      
+  <div class="container">      
     <div class="row"> 
       <div class="col-md-12">   
         <section class="speakers duplicatable-content">
@@ -125,8 +125,9 @@
        <a class="twitter-timeline" href="{{{eventurls.twitterLink}}}"></a> 
       </div>-->
     </div> 
-    </div>
+  </div>
     {{/if}}
+</div>
     <div style="background:#f5f5f5" class="container">
       {{#if sponsorpics}}
     <section class="sponsorscont">
@@ -172,8 +173,29 @@
 
 {{/if}}
 {{/if}}  
-<input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
-</div>
+  <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+  {{#if eventurls.tweetUrl}}
+   <div style="background:#f5f5f5" class="container">
+    <section class="sponsorscont">
+      <div class="tweet-row row">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <i class ="social_twitter fa fa-twitter"></i>
+          <div class="tweets-feed" id="tweets" data-count=50 data-query="{{eventurls.twitterLink}}" data-from="{{eventurls.twitterLink}}">
+            <div class="arrow-up"></div>
+              <p id="tweet" class="tweet">
+              Loading...
+              </p>
+              <span style="margin-bottom: 20px;" id="dateTweeted"></span>
+              <p>Follow<u>
+              <b><a href="{{eventurls.tweetUrl}}"/>
+              @{{eventurls.twitterLink}}</a>
+              </b></u> for more updates</p>  
+          </div> 
+        </div>
+      </div>
+    </section>  
+  </div>
+  {{/if}}
 {{> footer}}
   
 
@@ -182,7 +204,10 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
    <script src="./js/map.js" type="text/javascript"></script>
+   <script src="./dependencies/loklak-fetcher.js" type="text/javascript"></script>
+   <script src="./dependencies/tweets.js" type="text/javascript"></script>
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+   
    <script>
  
     $(function() {  
