@@ -1086,6 +1086,8 @@ a {
           text-align: left;
           line-height: 1;
           list-style: none;
+          padding: 0;
+          margin-bottom: 14px;
           li {
             float: none;
             margin-bottom: 12px;
@@ -1123,14 +1125,15 @@ a {
     }
 
     .contact-methods { 
+      margin: 0 0 10px 0;
+      padding: 0;
       i {
         color: $black;   
         font-size: 36px;     
       }
-
+    
       li {
         list-style: none;
-        margin-bottom: 20px;
       }
 
       span {
