@@ -171,7 +171,9 @@ function createSocialLinks(event) {
 
 function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
-  const twitterLink = sociallinks[0];
+  const arrayTwitterLink = sociallinks[0].link.split('/');
+  const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
+  
   const urls= {
     main_page_url: event.event_url,
     logo_url: event.logo,
@@ -184,7 +186,8 @@ function extractEventUrls(event, reqOpts) {
     latitude: event.latitude,
     longitude: event.longitude,
     register: event.ticket_url,
-    twitterLink: twitterLink.link
+    twitterLink: twitterLink,
+    tweetUrl: sociallinks[0].link
 
  };
   if (reqOpts.assetmode === 'download') {
