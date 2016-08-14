@@ -50,14 +50,24 @@ a {
   max-width: 110px;
   max-height: 45px;
 }
+
 .navbar-default {
   background-color: $white;
   border-color: $gray-extra-light;
 }
 
+.navbar-header {
+  margin-left: 20px;
+}
 .navbar-toggle {
   padding: 6px 10px;
   color: $gray-dark;
+}
+
+.navbaricon {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 8px
 }
 
 /* General styling of session list */
