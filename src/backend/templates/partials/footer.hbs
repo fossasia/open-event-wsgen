@@ -3,7 +3,7 @@
   <footer class="classic" style="background-color:#fff;">
     <div class="container">
       <div class="row ui-sortable">
-        <div class="col-sm-2">
+        <div class="col-sm-2 col-md-2 col-xs-12">
           <ul class="menu">
             <li><a target="_self" href="#description">About</a></li>
             <li><a target="_self" href="{{{eventurls.register}}}">Tickets</a></li>
@@ -13,7 +13,7 @@
             <li><a class="inner-link back-to-top" href="#top">Back To Top</a></li>
           </ul>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-6 col-md-6 col-xs-12">
          {{#if copyright}}
          {{#if copyright.license}}
          <p>
@@ -26,12 +26,12 @@
          {{/if}}
         {{/if}}
         </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4 col-md-4 col-xs-12">
       <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
-        <i class="fa fa-envelope"></i>
         <span>
+        <i class="fa fa-envelope"></i>
         <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
         {{eventurls.email}}
         </a>
@@ -40,8 +40,8 @@
         {{/if}}
         {{#if eventurls.location}}
         <li>
-        <i class="fa fa-map-marker"></i>
-        <span>{{{eventurls.name}}}&#44;&nbsp;{{eventurls.location}}</span></br>             
+        <i class="fa fa-map-marker"></i>         
+        <span>{{{eventurls.name}}}&#44;&nbsp;{{eventurls.location}}</span></br>    
         </li>
         {{/if}}
       </ul>

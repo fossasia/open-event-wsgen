@@ -1106,6 +1106,7 @@ a {
             font-weight: 400;
           }
         }
+
       .social-profiles {
         display: inline-block;
         li {
@@ -1115,7 +1116,7 @@ a {
 
      a {
       text-decoration: none;
-        &:hover {
+      &:hover {
           color: $black;
         }
       }  
@@ -1123,24 +1124,23 @@ a {
 
     .contact-methods { 
       i {
-      font-size: 36px;
-      color: #333333;   
+        color: $black;   
+        font-size: 36px;     
       }
 
       li {
-        margin-bottom: 20px;
         list-style: none;
+        margin-bottom: 20px;
       }
 
       span {
-        display: inline-block;
-        position: relative;
         bottom: 10px;
-        left: 8px;
+        display: inline-block;
         font-size: 16px;
+        position: relative;        
         a {
+          border-bottom: 3px solid $white;
           padding-bottom: 4px;
-          border-bottom: 3px solid #fff;
         }
       }
     }
