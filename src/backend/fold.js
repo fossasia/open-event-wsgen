@@ -189,7 +189,7 @@ function extractEventUrls(event, reqOpts) {
     twitterLink: twitterLink,
     tweetUrl: sociallinks[0].link,
     email: event.email,
-    name: event.organizer_name,
+    orgname: event.organizer_name,
     location_name: event.location_name
 };
   if (reqOpts.assetmode === 'download') {
