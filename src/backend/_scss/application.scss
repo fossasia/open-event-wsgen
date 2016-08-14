@@ -59,6 +59,13 @@ a {
 .navbar-header {
   margin-left: 20px;
 }
+
+.navlink {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .navbar-toggle {
   padding: 6px 10px;
   color: $gray-dark;
