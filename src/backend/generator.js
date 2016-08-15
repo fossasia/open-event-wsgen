@@ -183,11 +183,13 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('=================================SENDING MAIL\n');
       if (emit) socket.emit('live.process', {donePercent: 80, status: "Website is being generated"});
       
-      setTimeout(()=>{
-        ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
-          //Send call back to orga server
-        })
-      }, 30000);
+      if (req.body.ftpdetails) {
+        setTimeout(()=>{
+          ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
+            //Send call back to orga server
+          })
+        }, 30000);
+      }
       
       mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
         callback(appFolder);
