@@ -1,16 +1,63 @@
-  <div class="navbar navbar-default footer">
-     {{#if copyright}}
-         {{#if copyright.license}}
 
-       <p>
+<div class="footer-container">
+  <footer class="classic" style="background-color:#fff;">
+    <div class="container">
+      <div class="row ui-sortable">
+        <div  style="margin-bottom: 14px;" class="col-sm-2 col-md-2 col-xs-12">
+          <ul class="menu">
+            <li><a target="_self" href="#description">About</a></li>
+            <li><a target="_self" href="{{{eventurls.register}}}">Tickets</a></li>
+            <li><a target="_self" href="tracks.html">Tracks</a></li>
+            <li><a target="_self" href="rooms.html">Rooms</a></li>
+            <li><a target="_self" href="speakers.html">Speakers</a></li>
+            <li><a class="inner-link back-to-top" href="#top">Back To Top</a></li>
+          </ul>
+        </div>
+        <div  style="margin-bottom: 14px;" class="col-sm-6 col-md-6 col-xs-12">
+         {{#if copyright}}
+         {{#if copyright.license}}
+         <p>
          <a href="{{{copyright.license_url}}}"> <img src="{{{copyright.logo}}}"> </a>
          &copy; {{copyright.year}}
          <a href="{{{copyright.holder_url}}}">{{copyright.holder}}</a>
          The website and it's contents are licensed under
           <a href="{{{copyright.license_url}}}"> {{copyright.license}} </a>
-       </p>
+         </p>
          {{/if}}
-      {{/if}}
+        {{/if}}
+        </div>
+    <div style="margin-bottom: 14px;" class="col-sm-4 col-md-4 col-xs-12">
+      <ul class="contact-methods">
+       {{#if eventurls.email}}
+        <li>
+        <span>
+        <i class="fa fa-envelope"></i>
+        <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
+        {{eventurls.email}}
+        </a>
+        </span>
+        </li>
+        {{/if}}
+        {{#if eventurls.location}}
+        <li>
+        <i class="fa fa-map-marker"></i>         
+        <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span></br>    
+        </li>
+        {{/if}}
+      </ul>
+    </div>
   </div>
-
- 
+  <div class="row ui-sortable">
+    <div class="col-sm-12 text-center">
+      <ul class="social-profiles">
+        {{#sociallinks}}
+          {{#if show}}
+            <li class="pull-left"><a href="{{link}}" style="padding-right:0; padding-left:0;margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+          {{/if}}
+        {{/sociallinks}}
+      </ul>
+    </div>
+  </div>
+</div>
+</footer>
+</div>
