@@ -30,6 +30,7 @@
     "express": "^4.13.4",
     "fs": "0.0.2",
     "fs-extra": "^0.30.0",
+    "ftp-deploy": "^1.1.0",
     "handlebars": "^4.0.5",
     "jsonfile": "^2.3.1",
     "moment": "^2.13.0",
