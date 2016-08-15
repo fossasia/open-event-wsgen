@@ -82,7 +82,7 @@ window.loklakFetcher = (function() {
         '&timezoneOffset=' + options.tzOffset +
         '&minified=' + options.minified ;
       // If the script element for JSONP already exists, remove it
-         console.log(url);
+      
       if(script !== null) {
         document.head.removeChild(script);
       }

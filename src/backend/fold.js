@@ -179,7 +179,7 @@ function extractEventUrls(event, reqOpts) {
   }) 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
-  console.log(twitterLink);
+ 
   const urls= {
     main_page_url: event.event_url,
     logo_url: event.logo,
