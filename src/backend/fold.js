@@ -177,7 +177,7 @@ function extractEventUrls(event, reqOpts) {
   const urls= {
     main_page_url: event.event_url,
     logo_url: event.logo,
-    background_url: event.background_url,
+    background_url: event.background_image,
     date: moment(event.start_time).format('dddd, Do MMM'),
     time: moment(event.start_time).format('HH:mm'),
     name: event.name,
@@ -191,7 +191,7 @@ function extractEventUrls(event, reqOpts) {
     email: event.email,
     orgname: event.organizer_name,
     location_name: event.location_name
-};
+  };
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
 
@@ -211,17 +211,17 @@ function extractEventUrls(event, reqOpts) {
       }
     }
 
-    if ((event.background_url != null) && (event.background_url != '')) {
-      if (event.background_url.substring(0, 4) === 'http') {
-        urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
+    if ((event.background_image != null) && (event.background_image != '')) {
+      if (event.background_image.substring(0, 4) === 'http') {
+        urls.background_url = distHelper.downloadLogo(appFolder, event.background_image);
       } else if (reqOpts.datasource === 'eventapi') {
-        if (event.background_url.charAt(0) == '/') event.background_url = event.background_url.substr(1);
-        urls.background_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_url)));
+        if (event.background_image.charAt(0) == '/') event.background_image = event.background_image.substr(1);
+        urls.background_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_image)));
       }
       else {
-        let reg = event.background_url.split('');
+        let reg = event.background_image.split('');
         if(reg[0] =='/'){
-          urls.background_url = encodeURI(event.background_url.substring(1,event.background_url.length));
+          urls.background_url = encodeURI(event.background_image.substring(1,event.background_image.length));
         }
       }
     }
