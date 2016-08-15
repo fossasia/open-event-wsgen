@@ -171,9 +171,15 @@ function createSocialLinks(event) {
 
 function extractEventUrls(event, reqOpts) {
   const sociallinks = Array.from(event.social_links);
-  const arrayTwitterLink = sociallinks[0].link.split('/');
+  var sociallink ="";
+  sociallinks.forEach((link) => {
+    if(link.name.toLowerCase() === "twitter") {
+      sociallink = link.link;
+    }
+  }) 
+  const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
-  
+ 
   const urls= {
     main_page_url: event.event_url,
     logo_url: event.logo,
@@ -187,7 +193,7 @@ function extractEventUrls(event, reqOpts) {
     longitude: event.longitude,
     register: event.ticket_url,
     twitterLink: twitterLink,
-    tweetUrl: sociallinks[0].link,
+    tweetUrl: sociallink,
     email: event.email,
     orgname: event.organizer_name,
     location_name: event.location_name
@@ -205,7 +211,7 @@ function extractEventUrls(event, reqOpts) {
       else {
         let reg = event.logo.split('');
         if(reg[0] =='/'){
-          event.logo = encodeURI(event.logo.substring(1,event.logo.length));
+          urls.logo_url = encodeURI(event.logo.substring(1,event.logo.length));
         }
         
       }
@@ -226,7 +232,7 @@ function extractEventUrls(event, reqOpts) {
       }
     }
   }
-
+  
   return urls;
 }
 
@@ -325,7 +331,7 @@ function foldByLevel(sponsors ,reqOpts) {
     }
     levelData[sponsor.level].push(sponsorItem);
   });
-
+   
   return levelData;
 }
 

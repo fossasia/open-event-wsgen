@@ -5,7 +5,7 @@
             <div class="navbar-header navbar-left pull-left">
                 <a class="navbar-brand" href="{{ eventurls.main_page_url }}">
                     {{#if eventurls.logo_url}}
-                        <img alt="Logo" class="logo logo-dark" src="{{ eventurls.logo_url }}">
+                        <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
                     {{else}}
                         {{ eventurls.name }}
                     {{/if}}
@@ -33,9 +33,15 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="navlink"><a href="#Sponsors"></a></li>
             <li class="navlink"><a id="homelink" href="index.html">Home</a>
+            {{#if tracks}}
             <li class="navlink"><a id="trackslink" href="tracks.html">Tracks</a></li>
+            {{/if}}
+            {{#if roominfo}}
             <li class="navlink"><a id="roomslink" href="rooms.html">Rooms</a></li>
+            {{/if}}
+            {{#if speakerslist}}
             <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
+            {{/if}}
           </ul>
         </div>
       </div>
