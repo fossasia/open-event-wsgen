@@ -32,15 +32,15 @@ $(document).ready(function () {
        var formData = getData();
        socket.emit('live', formData);
      }
-    
+    $('.progress').css('display','block');
     $('#generator-progress').css('display', 'block')
     
   });
 
   socket.on('live.ready', function (data) {
     updateStatus('live render ready');
-    displayButtons(data.appDir);
     updatePercent(100);
+    displayButtons(data.appDir);
   });
   socket.on('live.process', function (data) {
     updateStatus(data.status);
