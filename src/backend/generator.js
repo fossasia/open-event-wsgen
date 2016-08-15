@@ -12,6 +12,7 @@ const jsonfile = require('jsonfile');
 const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
 const mailer = require('./mailer');
+const ftpDeployer = require('./ftpdeploy');
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
 const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
@@ -182,10 +183,15 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('=================================SENDING MAIL\n');
       if (emit) socket.emit('live.process', {donePercent: 80, status: "Website is being generated"});
       
+      setTimeout(()=>{
+        ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
+          //Send call back to orga server
+        })
+      }, 30000);
+      
       mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
         callback(appFolder);
         done(null, 'write');
-        
       });
       
     }

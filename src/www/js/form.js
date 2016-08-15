@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
   var socket = io();
+
+  $('input:radio[name="datasource"]').prop('checked', false);
+  $('#upload-ftp').prop('checked', false);
   
 
   $('input:radio[name="datasource"]').change(
@@ -24,6 +27,15 @@ $(document).ready(function () {
             }
           }
       });
+  $('#upload-ftp').change(
+    function () {
+      if ($(this).is(':checked')) {
+        $('#upload-ftp-details').show(100);
+      } else {
+        $('#upload-ftp-details').hide(100);
+      }
+    }
+  );
   $('#btnGenerate').click(function () {
      
      var check = $("#form").valid();
@@ -92,6 +104,14 @@ function getData () {
     if (field.name == 'apiendpoint') {data.apiendpoint = field.value }
     if (field.name == 'assetmode') {data.assetmode = field.value }
   });
+  if ($('#upload-ftp').prop('checked')) {
+    data.ftpdetails = {
+      host: $('#ftp-host').val(),
+      user: $('#ftp-user').val(),
+      pass: $('#ftp-pass').val(),
+      path: $('#ftp-path').val()
+    }
+  }
   try {
     data.singlefileUpload = $('#singlefileUpload')[0].files[0];
     data.zipLength = $('#singlefileUpload')[0].files[0].size;
