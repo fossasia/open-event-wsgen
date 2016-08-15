@@ -195,7 +195,7 @@ function extractEventUrls(event, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
 
-    if (event.logo !== null && event.logo != '') {
+    if (event.logo != null && event.logo != '') {
       if (event.logo.substring(0, 4) === 'http') {
         urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
       } else if (reqOpts.datasource === 'eventapi') {
@@ -211,7 +211,7 @@ function extractEventUrls(event, reqOpts) {
       }
     }
 
-    if ((event.background_url !== null) && (event.background_url != '')) {
+    if ((event.background_url != null) && (event.background_url != '')) {
       if (event.background_url.substring(0, 4) === 'http') {
         urls.background_url = distHelper.downloadLogo(appFolder, event.background_url);
       } else if (reqOpts.datasource === 'eventapi') {
