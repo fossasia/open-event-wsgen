@@ -232,7 +232,7 @@ function extractEventUrls(event, reqOpts) {
       }
     }
   }
-  
+
   return urls;
 }
 
