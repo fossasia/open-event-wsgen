@@ -289,22 +289,28 @@ function foldByLevel(sponsors ,reqOpts) {
       description: sponsor.description,
       type: sponsor.sponsor_type
     };
-
     switch (sponsorItem.level) {
       case '1':
       if(level1 === 1) {
-        sponsorItem.divclass = 'largeoffset col-md-4';
+        sponsorItem.divclass = 'vcenter largeoffset col-md-4';
       }
       else if(level1 === 2) {
-        sponsorItem.divclass = 'sublargeoffset col-md-4';
+        sponsorItem.divclass = 'vcenter sublargeoffset col-md-4';
       }
       else {
-        sponsorItem.divclass = 'col-md-4';
+        sponsorItem.divclass = 'vcenter col-md-3';
       }
+
         sponsorItem.imgsize = 'large';
         break;
       case '2':
-       if( level2 > 0 && level2 < 6 ) {
+      if (level2 === 1) {
+        sponsorItem.divclass = 'largeoffset col-md-4';
+      }
+      if (level2 === 2) {
+        sponsorItem.divclass = 'lev2mediumoffset col-md-3';
+      }
+      else if( level2 > 2 && level2 < 6 ) {
         sponsorItem.divclass = 'mediumoffset col-md-2';
       }
       else {
@@ -314,10 +320,13 @@ function foldByLevel(sponsors ,reqOpts) {
         break;
       case '3':
       if (level3 === 1) {
-         sponsorItem.divclass = 'smalloffset col-md-2';
+         sponsorItem.divclass = ' smalloffset col-md-2';
       }
-      else if( level3 >1 && level3 < 5){
-        sponsorItem.divclass = 'mediumoffset col-md-2';
+      else if (level3 === 2) {
+         sponsorItem.divclass = 'lev3smalloffset col-md-2';
+      }
+      else if( level3 >2 && level3 < 5){
+        sponsorItem.divclass = 'col-md-2';
       }
       else {
          sponsorItem.divclass = 'col-md-2';
@@ -327,7 +336,7 @@ function foldByLevel(sponsors ,reqOpts) {
       default:  
       sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
       sponsorItem.sponsorimg = 'vcenter sponsorimg';
-       
+      break;
     }
     levelData[sponsor.level].push(sponsorItem);
   });
