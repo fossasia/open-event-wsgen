@@ -1,11 +1,16 @@
 "use strict";
+var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal;
 
 $(document).ready(function () {
   var socket = io();
 
   $('input:radio[name="datasource"]').prop('checked', false);
   $('#upload-ftp').prop('checked', false);
-  
+  generateProgressBar = $('#generator-progress-bar');
+  generateProgressVal = $('#generator-progress-val');
+  uploadProgressBar = $('#upload-progress-bar');
+  uploadProgressVal = $('#upload-progress-val');
+
 
   $('input:radio[name="datasource"]').change(
       function() {
@@ -37,6 +42,8 @@ $(document).ready(function () {
     }
   );
   $('#singlefileUpload').change(function () {
+    $('.upload-progress').show();
+    $('#upload-progress-bar').show();
     var fileData = getFile();
     socket.emit('upload', fileData);
   });
@@ -48,34 +55,43 @@ $(document).ready(function () {
        var formData = getData();
        socket.emit('live', formData);
      }
-    $('.progress').css('display','block');
-    $('#generator-progress').css('display', 'block')
+    $('.generator-progress').show();
+    $('#generator-progress-bar').show();
     
   });
 
   socket.on('live.ready', function (data) {
-    updateStatus('live render ready');
-    updatePercent(100);
+    updateStatusAnimate('live render ready');
+    updateGenerateProgress(100);
     displayButtons(data.appDir);
   });
   socket.on('live.process', function (data) {
-    updateStatus(data.status);
-    updatePercent(data.donePercent);
+    updateStatusAnimate(data.status);
+    updateGenerateProgress(data.donePercent);
   });
   socket.on('live.error' , function (err) {
      $('#status').css('color' , 'red');
-      updateStatus(err.status);
+      updateStatusAnimate(err.status);
 
   });
   socket.on('upload.progress', function(data) {
-    console.log(data)
+    updateUploadProgress(data.percentage);
+    updateStatusAnimate('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps', 50);
+    if (data.percentage == 100) {
+      updateStatusAnimate('Zip uploaded');
+    }
   })
   
 });
 
-function updatePercent(perc) {
-  $('#generator-progress').animate({'width': perc + '%'}, function () {
-    $('#generator-progress-val').html(perc + '%');
+function updateGenerateProgress(perc) {
+  generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
+    generateProgressVal.html(parseInt(perc) + '%');
+  });
+}
+function updateUploadProgress(perc) {
+  uploadProgressBar.animate({'width': perc + '%'}, 50, 'linear', function () {
+    uploadProgressVal.html(parseInt(perc) + '%');
   });
 }
 
@@ -94,11 +110,14 @@ function displayButtons (appPath) {
   })
 }
 
-function updateStatus (statusMsg) {
-  $('#status').animate({'opacity': 0}, function () {
+function updateStatusAnimate (statusMsg, speed) {
+  speed = speed || 200;
+  var lowerOpaque = (speed < 200) ? 0.8 : 0.2;
+  $('#status').animate({'opacity': lowerOpaque}, speed, function () {
     $(this).text(statusMsg);
-  }).animate({'opacity': 1});
+  }).animate({'opacity': 1}, speed);
 }
+
 
 function getFile () {
   var data = {};

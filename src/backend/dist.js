@@ -56,7 +56,6 @@ module.exports = {
   uploadWithProgress: function(fileBuffer, fileSize, emitter) {
     console.log('upload with progress');
     const progressor = progressStream({length: fileSize}, function(progress) {
-      console.log(progress);
       emitter.emit('upload.progress', progress)
     });
     var fileBufferStream = new streamBuffer.ReadableStreamBuffer();
