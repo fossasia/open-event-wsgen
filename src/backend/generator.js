@@ -129,13 +129,13 @@ exports.createDistDir = function(req, socket, callback) {
       if (emit)socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs"});
       switch (req.body.datasource) {
         case 'jsonupload':
-          distHelper.copyUploads(appFolder, req.body.singlefileUpload);
-          done(null, 'cleanuploads');
+          distHelper.copyUploads(appFolder);
+          done(null, 'copyUploads');
           break;
         case 'eventapi':
           console.log('================================FETCHING JSONS\n');
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, () => {
-            done(null, 'cleanuploads');
+            done(null, 'fetchApiJsons');
           });
           break;
         case 'mockjson':

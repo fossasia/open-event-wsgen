@@ -121,7 +121,6 @@ function updateStatusAnimate (statusMsg, speed) {
 
 function getFile () {
   var data = {};
-  var formData = $('#form').serializeArray();
   try {
     data.singlefileUpload = $('#singlefileUpload')[0].files[0];
     data.zipLength = $('#singlefileUpload')[0].files[0].size;
@@ -151,14 +150,6 @@ function getData () {
       path: $('#ftp-path').val()
     }
   }
-  try {
-    data.singlefileUpload = $('#singlefileUpload')[0].files[0];
-    data.zipLength = $('#singlefileUpload')[0].files[0].size;
-  } catch (err) {
-    data.singlefileUpload = "";
-    data.zipLength = 0;
-  }
-  
   return data;
 }
 

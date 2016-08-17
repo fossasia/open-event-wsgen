@@ -90,10 +90,10 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
-  copyUploads: function(appFolder, uploadedFile) {
+  copyUploads: function(appFolder) {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
-    var zip = new admZip(uploadedFile);
+    var zip = new admZip(path.join(uploadsPath, 'upload.zip'));
      var zipEntries = zip.getEntries(); 
 
      zipEntries.forEach(function(zipEntry) {
