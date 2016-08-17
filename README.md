@@ -18,7 +18,7 @@ Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-web-ap
 
 ## 1. Event Website Output
 
-The component that is generator from the web app are the event websites. A sample event site that was generated is added to this repo as a Github Pages site. You can see the live site at http://fossasia.github.io/open-eventwebapp/
+The component that is generator from the web app are the event websites. A sample event site that was generated is added to this repo as a Github Pages site. You can see the live site at http://fossasia.github.io/open-event-webapp/
 
 ## 2. Web App Generator
 
