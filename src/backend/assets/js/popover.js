@@ -30,7 +30,13 @@ $(document).ready(function () {
       hoverstate= $(".hover-state");
       popbox = $(".pop-box");
       preserve3d= $(".preserve3d");
-
+      widthWindow = $(window).width();
+  if( widthWindow < 768) {
+    $(document).on('click','.image-holder',function (event) {
+       addOverlay(event);
+    });
+  }
+  else {
     imageholder.hover(function(event) {
        addOverlay(event);
     },function(){
@@ -47,6 +53,8 @@ $(document).ready(function () {
       hidePopbox();
     })
 
+  }
+    
   })();  
 
   function popBox(e) {
@@ -97,7 +105,7 @@ $(document).ready(function () {
 
   }
   function hidePopbox () {
-    $(".footer").css({
+    $(".classic").css({
       "position":"static"
     })
   }
@@ -122,11 +130,11 @@ $(document).ready(function () {
     let popBox         = imageholder.next();
     let popBoxheight   = popBox.outerHeight() ;
     let totalHeight = imageHoverheight + imageContainer + popBoxheight;
-    let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight();
+    let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight()+ $('.classic').outerHeight();
     let shift = totalHeight - speakersRow;
     if (shift > 0) {
       
-      $(".footer").css({
+      $(".classic").css({
         "position":"absolute",
         "top": speakersRow + shift,
         "width":"100%",
@@ -179,6 +187,7 @@ $(document).ready(function () {
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.hide();
          hidePopbox();
+         removeOverlay(e);
       }
     });
   } 
