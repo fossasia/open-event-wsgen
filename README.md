@@ -71,7 +71,7 @@ Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
 
-![Generator Screencast](docs/screencast.gif)
+![Generator Screencast](docs/screenshots/screencast.gif)
 
  - Add your **email id**, **name of app** (name of event),
 
@@ -82,7 +82,20 @@ Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
 
 ## Accessing the Generator via REST API
 
-See documentation about REST API [here](docs/REST_API.md)
+### Endpoints
+```
+POST /generate 
+```
+
+**Parameters `(x-www-form-urlencoded)` or `json`**
+
+| Parameter  | Description | Purpose | 
+|---         |---          |---      |
+|name|(required) Name of the webapp   | Unique name of the webapp|
+|email|(required) Your email id | We will send a email to this when your webapp is ready|
+|datasource | (required) Either `jsonupload` or `eventapi` | |
+|apiendpoint| (if datasource = eventapi) API endpoint url | |
+
 
 
 ## Contributions, Bug Reports, Feature Requests
