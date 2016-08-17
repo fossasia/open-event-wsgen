@@ -10,31 +10,53 @@ The Open Event Web App is a web application that can generate event websites by 
 [![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-
-## Installation/Deployment
-
-### How do I install it locally
-
-To install it locally please refer to the  [Installation readme](/docs/INSTALLATION.md).
-
-### How do I install it on a server
-
-To install it on a server please refer to the [Installation readme](/docs/INSTALLATION.md).
-
-### How do I install it with Docker
-
-To install loklak with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
-
-### How do I deploy it with Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)   
-
 ## Usage
 
 NOTE: You can try out the app at  https://opev-webgen.herokuapp.com
 
 The development version is available here: https://opev-webgen-dev.herokuapp.com
 
-### Via the Generator web form
+## Sample Event App
+
+A sample app is added to this repo as a Github Pages site. You can see the live site at http://fossasia.github.io/open-event-webapp/
+
+## Installation/Deployment
+
+### Installation of the Web App Generator
+
+#### How do I install Web App Generator on a Server
+
+Please check out [the documentation here](/docs/INSTALLATION.md).
+
+#### How do I install Web App Generator on my local machine
+
+Please check out [the documentation here](/docs/INSTALLATION_LOCAL.md).
+
+#### How do I install Web App Generator on Google Cloud
+
+To install the system on Google Cloud please refer to the [Google Cloud installation readme](/docs/INSTALLATION_GOOGLE.md).
+
+#### How do I install Web App Generator on AWS
+
+To install the system on AWS please refer to the [AWS installation readme](/docs/INSTALLATION_AWS.md).
+
+#### How do I install Web App Generator on Digital Ocean
+
+To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).
+
+#### How do I install Web App Generator on Docker
+
+To install system with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
+
+#### How do I deploy Web App Generator with Heroku
+
+Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
+
+### How do I deploy it with Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)   
+
+## The Generator Web Form
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
 
@@ -46,7 +68,8 @@ The development version is available here: https://opev-webgen-dev.herokuapp.com
 
  - Now when you click on **GENERATE APP and DOWNLOAD** button, you'll get to download a zip of the event website.
 
-### Via REST API.
+## Accessing the Generator via REST API
+
 Once deployed, the generator can also be used via a REST API.
 A `POST` endpoint at `/generate` gets set up, which you can hit using the following parameters -
 
@@ -119,14 +142,6 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
-
-## Maintainers
-The project is maintained by
-- Arnav Gupta ([@championswimmer](https://github.com/championswimmer))
-- Aayush Arora ([@aayusharora](https://github.com/aayusharora))
-- Mario Behling ([@mariobehling](http://github.com/mariobehling))
-- Justin Lee ([@juslee](http://github.com/juslee))
-
 ## LICENSE
 OpenEvent Webapp - A webapp and it's generator, written under the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure.
 
@@ -137,3 +152,10 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## Maintainers
+The project is maintained by
+- Arnav Gupta ([@championswimmer](https://github.com/championswimmer))
+- Aayush Arora ([@aayusharora](https://github.com/aayusharora))
+- Mario Behling ([@mariobehling](http://github.com/mariobehling))
+- Justin Lee ([@juslee](http://github.com/juslee))
