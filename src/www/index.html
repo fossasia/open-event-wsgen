@@ -76,8 +76,17 @@
         </section>
         <section>
             <br><br>
-            <div class="progress" style="display:none;">
-                <div class="progress-bar" role="progressbar" id="generator-progress" style="width:0%; height: 20px;">
+            <div class="upload-progress progress" style="display:none;">
+                <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
+                    <span id="upload-progress-val">0%</span>
+                </div>
+            </div>
+            <br>
+        </section>
+        <section>
+            <br><br>
+            <div class="generator-progress progress" style="display:none;">
+                <div class="progress-bar" role="progressbar" id="generator-progress-bar" style="width:0%; height: 20px;">
                     <span id="generator-progress-val">0%</span>
                 </div>
             </div>
@@ -87,9 +96,15 @@
           <br>
           <div id="status"></div>
           <br>
-      <button type="button" class="download btn btn-default" id="btnGenerate" value="Validate">GENERATE WEBAPP</button>
-      <button type="button" class="download btn btn-default" id="btnLive" >PREVIEW</button>
-      <button type="button" class="download btn btn-default" id="btnDownload" >DOWNLOAD</button>
+      <button disabled title="Upload zip or use API mode to enable"
+              type="button" class="download btn btn-default"
+              id="btnGenerate" value="Validate">GENERATE WEBAPP</button>
+      <button
+              type="button" class="download btn btn-default"
+              id="btnLive" >PREVIEW</button>
+      <button
+              type="button" class="download btn btn-default"
+              id="btnDownload" >DOWNLOAD</button>
           <br>
       </center>
 

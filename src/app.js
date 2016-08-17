@@ -25,6 +25,9 @@ io.on('connection', function(socket){
       });
       //generator.showLivePreview(req, socket);
     });
+  });
+  socket.on('upload', function(fileData) {
+    generator.uploadJsonZip(fileData, socket)
   })
 });
 

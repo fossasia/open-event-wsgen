@@ -41,3 +41,6 @@ jspm_packages
 
 # IDEs
 .idea/
+
+# Temp files
+/uploads

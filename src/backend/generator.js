@@ -76,6 +76,14 @@ function getJsonData(reqOpts) {
   return data;
 }
 
+exports.uploadJsonZip = function(fileData, socket) {
+  console.log('=============================ZIP UPLOAD START\n');
+  distHelper.makeUploadsDir();
+  distHelper.cleanUploads();
+  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
+
+};
+
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   const theme = req.body.theme || 'light';
@@ -121,13 +129,13 @@ exports.createDistDir = function(req, socket, callback) {
       if (emit)socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs"});
       switch (req.body.datasource) {
         case 'jsonupload':
-          distHelper.copyUploads(appFolder, req.body.singlefileUpload);
-          done(null, 'cleanuploads');
+          distHelper.copyUploads(appFolder);
+          done(null, 'copyUploads');
           break;
         case 'eventapi':
           console.log('================================FETCHING JSONS\n');
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, () => {
-            done(null, 'cleanuploads');
+            done(null, 'fetchApiJsons');
           });
           break;
         case 'mockjson':
