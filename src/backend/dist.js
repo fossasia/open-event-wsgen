@@ -3,7 +3,11 @@
 const fs = require('fs-extra');
 const request = require('request');
 const async = require('async');
-var admZip = require('adm-zip');
+const admZip = require('adm-zip');
+const progressStream = require('progress-stream');
+const streamBuffer = require('stream-buffers');
+const path = require("path");
+
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
@@ -47,16 +51,33 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
 };
 
 module.exports = {
-  distPath: distPath,
-  cleanUploads: function(err) {
-    fs.emptyDir(uploadsPath, err);
+  distPath,
+  uploadsPath,
+  uploadWithProgress: function(fileBuffer, fileSize, emitter) {
+    console.log('upload with progress');
+    const progressor = progressStream({length: fileSize}, function(progress) {
+      console.log(progress);
+      emitter.emit('upload.progress', progress)
+    });
+    var fileBufferStream = new streamBuffer.ReadableStreamBuffer();
+    fileBufferStream.put(fileBuffer);
+    fileBufferStream
+      .pipe(progressor)
+      .pipe(fs.createWriteStream(path.join(uploadsPath, 'upload.zip')))
+
+  },
+  cleanUploads: function() {
+    fs.emptyDirSync(uploadsPath);
   },
   cleanDist: function(appFolder, err) {
     fs.emptyDir(distPath + '/' + appFolder, (emptyErr) => {
       if(emptyErr)
-         return err(emptyErr);
+         err(emptyErr);
       fs.remove(distPath + '/' + appFolder, err);
     });
+  },
+  makeUploadsDir: function(err) {
+    fs.mkdirpSync(uploadsPath)
   },
   makeDistDir: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;

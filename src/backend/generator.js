@@ -76,6 +76,14 @@ function getJsonData(reqOpts) {
   return data;
 }
 
+exports.uploadJsonZip = function(fileData, socket) {
+  console.log('upload');
+  distHelper.makeUploadsDir();
+  distHelper.cleanUploads();
+  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
+
+};
+
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   const theme = req.body.theme || 'light';

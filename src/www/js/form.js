@@ -36,6 +36,10 @@ $(document).ready(function () {
       }
     }
   );
+  $('#singlefileUpload').change(function () {
+    var fileData = getFile();
+    socket.emit('upload', fileData);
+  });
   $('#btnGenerate').click(function () {
      
      var check = $("#form").valid();
@@ -63,6 +67,9 @@ $(document).ready(function () {
       updateStatus(err.status);
 
   });
+  socket.on('upload.progress', function(data) {
+    console.log(data)
+  })
   
 });
 
@@ -91,6 +98,19 @@ function updateStatus (statusMsg) {
   $('#status').animate({'opacity': 0}, function () {
     $(this).text(statusMsg);
   }).animate({'opacity': 1});
+}
+
+function getFile () {
+  var data = {};
+  var formData = $('#form').serializeArray();
+  try {
+    data.singlefileUpload = $('#singlefileUpload')[0].files[0];
+    data.zipLength = $('#singlefileUpload')[0].files[0].size;
+  } catch (err) {
+    data.singlefileUpload = "";
+    data.zipLength = 0;
+  }
+  return data;
 }
 
 function getData () {
