@@ -77,7 +77,7 @@ function getJsonData(reqOpts) {
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
-  console.log('upload');
+  console.log('=============================ZIP UPLOAD START\n');
   distHelper.makeUploadsDir();
   distHelper.cleanUploads();
   distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)

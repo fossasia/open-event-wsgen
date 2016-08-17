@@ -1,11 +1,11 @@
 "use strict";
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal;
+var uploadFinished = false;
 
 $(document).ready(function () {
   var socket = io();
 
-  $('input:radio[name="datasource"]').prop('checked', false);
-  $('#upload-ftp').prop('checked', false);
+  initialState();
   generateProgressBar = $('#generator-progress-bar');
   generateProgressVal = $('#generator-progress-val');
   uploadProgressBar = $('#upload-progress-bar');
@@ -24,11 +24,17 @@ $(document).ready(function () {
             if ($(this).val() === 'jsonupload') {
               $('#jsonupload-input').show(100);
               $('#eventapi-input').hide(100);
+              if (uploadFinished) {
+                enableGenerateButton(true);
+              } else {
+                enableGenerateButton(false);
+              }
             }
 
             if ($(this).val() === 'eventapi') {
               $('#eventapi-input').show(100);
               $('#jsonupload-input').hide(100);
+              enableGenerateButton(true);
             }
           }
       });
@@ -76,9 +82,11 @@ $(document).ready(function () {
   });
   socket.on('upload.progress', function(data) {
     updateUploadProgress(data.percentage);
-    updateStatusAnimate('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps', 50);
+    updateStatusAnimate('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps', 30);
     if (data.percentage == 100) {
       updateStatusAnimate('Zip uploaded');
+      uploadFinished = true;
+      enableGenerateButton(true);
     }
   })
   
@@ -116,6 +124,22 @@ function updateStatusAnimate (statusMsg, speed) {
   $('#status').animate({'opacity': lowerOpaque}, speed, function () {
     $(this).text(statusMsg);
   }).animate({'opacity': 1}, speed);
+}
+
+function initialState() {
+  $('input:radio[name="datasource"]').prop('checked', false);
+  $('#upload-ftp').prop('checked', false);
+  $('#btnGenerate').prop('disabled', true);
+  uploadFinished = false;
+}
+
+function enableGenerateButton(enabled) {
+  $('#btnGenerate').prop('disabled', !enabled);
+  if (enabled) {
+    $('#btnGenerate').attr('title', 'Generate webapp')
+  } else {
+    $('#btnGenerate').attr('title', 'Select a zip to upload first')
+  }
 }
 
 

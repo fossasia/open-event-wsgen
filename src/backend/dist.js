@@ -54,8 +54,8 @@ module.exports = {
   distPath,
   uploadsPath,
   uploadWithProgress: function(fileBuffer, fileSize, emitter) {
-    console.log('upload with progress');
     const progressor = progressStream({length: fileSize}, function(progress) {
+      console.log('Zip upload: Status =' + parseInt(progress.percentage) + '%');
       emitter.emit('upload.progress', progress)
     });
     var fileBufferStream = new streamBuffer.ReadableStreamBuffer();
