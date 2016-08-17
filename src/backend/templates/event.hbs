@@ -156,19 +156,20 @@
       </div>
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-          {{#each sponsorpics}}
+          
           <div class="row sponsor-row">
+          {{#each sponsorpics}}
           {{#each this}}
             <div class=" {{{divclass}}}">
               <div class=" {{{sponsorimg}}} text-center">
-                <a href="{{{url}}}">
+                <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
                 <img class="centre {{{imgsize}}}" alt="{{{name}}}" src="{{{logo}}}">
                 </a>
               </div>
             </div>
           {{/each}}
-           </div> <!-- sponsor-row -->
         {{/each}}
+           </div> <!-- sponsor-row -->
         </div>
       </div>  
     </section> 
@@ -265,7 +266,12 @@ $(function() {
         }
       })
     });
+
     </script>
- 
+    <script>
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+   });
+</script>
 </body>
 </html>
