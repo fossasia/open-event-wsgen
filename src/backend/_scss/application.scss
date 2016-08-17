@@ -276,15 +276,18 @@ a {
 }
 .large {
   @include sponsorimages;
-  max-height:200px; 
+  max-height: 120px;
+  min-height: 65px;
 }
 .medium {
   @include sponsorimages;
-  max-height:140px;
+  max-height: 85px;
+  min-height: 60px;
 }
 .small {  
   @include sponsorimages;
-  max-height:120px;
+  max-height: 70px;
+  min-height: 55px;
 }
 
 .sponsors {
@@ -301,39 +304,69 @@ a {
   margin-left: 8.33%;
 }
 
+.lev2mediumoffset:first-child {
+  margin-left: 25.33%;
+}
+
+.lev3smalloffset:first-child {
+  margin-left: 25.33%;
+}
+
 .smalloffset {
   margin-left: 41.66666667%;
 }
+
 .largeoffset {
-  margin-left: 36%;
-}
-.sublargeoffset :first-child {
-   margin-left: 16.6%;
-}
-.subsmalloffset {
-   margin-left: 41.66666667%;
-}
-@media (max-width: 792px) { 
-.sublargeoffset :first-child {
-   margin-left: 0%;
-}
-.mediumoffset:first-child{
-  margin-left: 0%;
-}
-}
-@media (max-width: 892px) { 
-.largeoffset  {
-  margin-left: 10%;
-}
-.smalloffset {
-  margin-left: 10%;
+  margin-left: 34%;
 }
 
+.sublargeoffset :first-child {
+  margin-left: 16.6%;
 }
- .centre {
-   display: block;
-   margin: 0 auto;
- } 
+
+.subsmalloffset {
+  margin-left: 41.66666667%;
+}
+
+@media (max-width: 792px) { 
+  .sublargeoffset :first-child {
+    margin-left: 0%;
+  }
+
+  .mediumoffset:first-child{
+    margin-left: 0%;
+  }
+
+  .lev2mediumoffset:first-child {
+    margin-left: 0%;
+  }
+
+  .lev3smalloffset:first-child {
+    margin-left: 0%;
+  }
+
+}
+@media (max-width: 892px) { 
+  .largeoffset  {
+    margin-left: 10%;
+  }
+
+  .smalloffset {
+    margin-left: 10%;
+  }
+
+  .centre {
+    margin-bottom:10px;
+  }
+  
+}
+
+.centre {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 35px;
+} 
+
 /* Track SCSS */
 
 .event { 
@@ -923,9 +956,8 @@ a {
 .sponsorimg {
   height: 80px;
   line-height: 80px;
-  margin-bottom: 36px;
   img {
-    max-height: 80px;
+    max-height: 55px;
     max-width: 150px;
   }  
 }
