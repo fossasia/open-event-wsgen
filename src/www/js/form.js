@@ -1,5 +1,6 @@
 "use strict";
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal;
+var statusText;
 var uploadFinished = false;
 
 $(document).ready(function () {
@@ -10,6 +11,7 @@ $(document).ready(function () {
   generateProgressVal = $('#generator-progress-val');
   uploadProgressBar = $('#upload-progress-bar');
   uploadProgressVal = $('#upload-progress-val');
+  statusText = $('#status');
 
 
   $('input:radio[name="datasource"]').change(
@@ -76,15 +78,15 @@ $(document).ready(function () {
     updateGenerateProgress(data.donePercent);
   });
   socket.on('live.error' , function (err) {
-     $('#status').css('color' , 'red');
+     statusText.css('color' , 'red');
       updateStatusAnimate(err.status);
 
   });
   socket.on('upload.progress', function(data) {
     updateUploadProgress(data.percentage);
-    updateStatusAnimate('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps', 30);
+    updateStatus('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps');
     if (data.percentage == 100) {
-      updateStatusAnimate('Zip uploaded');
+      updateStatus('Zip uploaded');
       uploadFinished = true;
       enableGenerateButton(true);
     }
@@ -98,9 +100,8 @@ function updateGenerateProgress(perc) {
   });
 }
 function updateUploadProgress(perc) {
-  uploadProgressBar.animate({'width': perc + '%'}, 50, 'linear', function () {
-    uploadProgressVal.html(parseInt(perc) + '%');
-  });
+  uploadProgressBar.css('width', perc + '%');
+  uploadProgressVal.html(parseInt(perc) + '%');
 }
 
 function displayButtons (appPath) {
@@ -121,9 +122,12 @@ function displayButtons (appPath) {
 function updateStatusAnimate (statusMsg, speed) {
   speed = speed || 200;
   var lowerOpaque = (speed < 200) ? 0.8 : 0.2;
-  $('#status').animate({'opacity': lowerOpaque}, speed, function () {
-    $(this).text(statusMsg);
+  statusText.animate({'opacity': lowerOpaque}, speed, function () {
+    statusText.text(statusMsg);
   }).animate({'opacity': 1}, speed);
+}
+function updateStatus(statusMsg) {
+  statusText.text(statusMsg)
 }
 
 function initialState() {
