@@ -103,7 +103,12 @@
                  <div class="pop-over row">
                    <div class="col-xs-12 col-md-12">
                    {{#each sessions}}
-                  <h5><strong>{{date}}</strong></h5>
+                  <h5>
+                    <strong>
+                    {{date}}
+                    <span style="font-size:12px;font-weight:normal;margin:6px 0;">{{microlocation}}</span>
+                    </strong>
+                  </h5>
                    <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
                       {{{title}}}
