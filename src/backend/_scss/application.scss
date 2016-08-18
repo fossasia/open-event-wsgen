@@ -87,6 +87,11 @@ a {
     &-speakers {
       float: left;
     }
+    
+    &-id {
+      float:right;
+      word-wrap:break-word;
+    }
 
     &-list {
 
@@ -147,6 +152,9 @@ a {
       float: right;
       width: 25%;
       text-align: right;
+    }
+    &-id {
+      float:none;
     }
   }
 
