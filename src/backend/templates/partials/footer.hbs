@@ -36,18 +36,21 @@
       <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
-        <span>
+       
         <i class="fa fa-envelope"></i>
-        <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
-        {{eventurls.email}}
-        </a>
-        </span>
+          <span>
+          <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
+          {{eventurls.email}}
+          </a>
+          </span>
+    
+       
         </li>
         {{/if}}
         {{#if eventurls.location}}
         <li>
-        <i class="fa fa-map-marker"></i>         
-        <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span></br>    
+        <i class="fa fa-map-marker"></i>  
+          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>        
         </li>
         {{/if}}
       </ul>
