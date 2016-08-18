@@ -120,9 +120,9 @@
                
                   <span class="session-type">{{type}}</span>
                 </p>
-                <div style="float:right;" id="desc-{{session_id}}">
+                <div class="session-id" id="desc-{{session_id}}">
                   <p class="collapse">
-                    <span class="session-description">{{#linkify}}{{description}}{{/linkify}}</span>
+                    <span class="session-description">{{{description}}}</span>
                   </p>
                   <div class="session-speakers-list collapse">
                     {{#speakers_list}}
@@ -132,7 +132,7 @@
                     </p>
                     <div class="session-speakers-more">
                       <p>
-                        <span class="session-description">{{#linkify}}{{long_biography}}{{/linkify}}</span>
+                        <span class="session-description">{{{long_biography}}}</span>
                       </p>
                       <p class="session-speaker-social">
                       {{#if web}}
