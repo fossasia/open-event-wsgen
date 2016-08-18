@@ -1125,8 +1125,9 @@ a {
     }
 
     .contact-methods { 
-      margin: 0 0 10px 0;
-      padding: 0;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
       i {
         color: $black;   
         font-size: 36px;     
@@ -1134,11 +1135,12 @@ a {
     
       li {
         list-style: none;
+        margin-bottom: 12px;
       }
 
       span {
-        bottom: 10px;
         display: inline-block;
+        position: relative;
         font-size: 16px;
         position: relative;        
         a {
