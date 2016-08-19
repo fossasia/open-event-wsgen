@@ -50,13 +50,21 @@ $(document).ready(function () {
     }
   );
   $('#singlefileUpload').change(function () {
+    var ext = this.value.match(/\.([^\.]+)$/)[1];
+    switch (ext) {
+        case 'zip':
+            break;
+        default:
+            alert('Only zip files are allowed');
+            this.value = '';
+    }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
     var fileData = getFile();
     socket.emit('upload', fileData);
   });
   $('#btnGenerate').click(function () {
-     
+
      var check = $("#form").valid();
      $(".error").focus();
      if (check) {
@@ -65,7 +73,7 @@ $(document).ready(function () {
      }
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
-    
+
   });
 
   socket.on('live.ready', function (data) {
@@ -91,7 +99,7 @@ $(document).ready(function () {
       enableGenerateButton(true);
     }
   })
-  
+
 });
 
 function updateGenerateProgress(perc) {
@@ -180,5 +188,3 @@ function getData () {
   }
   return data;
 }
-
-
