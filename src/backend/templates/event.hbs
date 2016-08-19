@@ -137,8 +137,20 @@
       <div class="col-sm-12 col-md-12 col-xs-12 text-center">
         <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Get me here</h1><br>
       </div>
-      <div class="col-md-12" id="map">
+      <div class="col-md-6" id="map">
       </div>
+      <div class="col-md-6">
+      {{#if eventurls.location}}
+       <h4> Address </h4>
+       <p>{{eventurls.location}}</p>
+      {{/if}}
+       <br>
+       {{#if eventurls.email}}
+       <h4>Contact</h4>
+       <p>{{eventurls.email}}</p>
+       {{/if}}
+      </div>
+     
     </div>
   </section> 
 </div>         
