@@ -27,7 +27,10 @@ io.on('connection', function(socket){
     console.log(err)
   });
   uploader.on('saved', function(event) {
-    console.log(event.file)
+    generator.finishZipUpload(event.file)
+  });
+  uploader.on('start', function(event) {
+    generator.startZipUpload(event.file)
   });
 
   socket.on('live', function(formData) {
