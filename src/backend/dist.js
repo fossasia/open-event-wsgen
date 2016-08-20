@@ -53,6 +53,11 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
 module.exports = {
   distPath,
   uploadsPath,
+  moveZip: function(dlPath) {
+    fs.move(dlPath, path.join(__dirname, "../../uploads/upload.zip"), () => {
+      
+    })
+  },
   uploadWithProgress: function(fileBuffer, fileSize, emitter) {
     const progressor = progressStream({length: fileSize, speed: 1}, function(progress) {
       console.log('Zip upload: Status =' + parseInt(progress.percentage) + '%');

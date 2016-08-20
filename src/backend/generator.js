@@ -77,10 +77,19 @@ function getJsonData(reqOpts) {
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
-  console.log('=============================ZIP UPLOAD START\n');
+  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
+};
+exports.finishZipUpload = function(file) {
+  console.log('=============================ZIP SAVED\n');
+  console.log(file.base);
+  console.log(file.pathName);
+  distHelper.moveZip(file.pathName);
+
+};
+exports.startZipUpload = function(file) {
+  console.log('========================ZIP UPLOAD START\n\n');
   distHelper.makeUploadsDir();
   distHelper.cleanUploads();
-  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
 
 };
 
