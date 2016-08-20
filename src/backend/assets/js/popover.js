@@ -39,7 +39,7 @@ $(document).ready(function () {
   else {
     imageholder.hover(function(event) {
        addOverlay(event);
-    },function(){
+    },function(event){
        removeOverlay(event);      
     })
     speaker.hover(function(event){
