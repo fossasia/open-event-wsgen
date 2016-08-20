@@ -35,10 +35,12 @@
     "jsonfile": "^2.3.1",
     "moment": "^2.13.0",
     "node-sass": "^3.7.0",
+    "path": "^0.12.7",
     "progress-stream": "^1.2.0",
     "request": "^2.74.0",
     "sendgrid": "^3.0.11",
     "socket.io": "^1.4.8",
+    "socketio-file-upload": "^0.4.7",
     "stream-buffers": "^3.0.1",
     "url-join": "^1.1.0"
   },

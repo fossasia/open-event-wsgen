@@ -44,3 +44,4 @@ jspm_packages
 
 # Temp files
 /uploads
+/mockjson

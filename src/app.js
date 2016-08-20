@@ -4,6 +4,8 @@ const express = require('express');
 const connectDomain = require('connect-domain');
 const compression = require('compression');
 const bodyParser = require('body-parser');
+const path = require('path');
+var siofu = require("socketio-file-upload");
 
 var app = express();
 var server = require('http').Server(app);
@@ -11,10 +13,21 @@ var io = require('socket.io')(server);
 
 
 app.use(compression());
+app.use(siofu.router);
 var errorHandler;
 
 io.on('connection', function(socket){
   socket.on('disconnect', function () {
+  });
+
+  var uploader = new siofu();
+  uploader.dir = path.join(__dirname, "..",  "uploads");
+  uploader.listen(socket);
+  uploader.on('error', function(err) {
+    console.log(err)
+  });
+  uploader.on('saved', function(event) {
+    console.log(event.file)
   });
 
   socket.on('live', function(formData) {
