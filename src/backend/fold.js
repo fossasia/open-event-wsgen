@@ -354,16 +354,60 @@ function sessionsByRooms(id, sessions, trackInfo) {
  return sessionInRooms;
 }
 
-function foldByRooms(roomsData, sessions, trackInfo) {
-  var roomInfo = [];
+function foldByRooms(room, sessions, trackInfo) {
+   const roomData = new Map();
+  const trackDetails = new Object();
 
-  roomsData.forEach((room) => {
-    roomInfo.push({
-      hall: room.name,
-      sessionDetail: sessionsByRooms(room.id, sessions,trackInfo)
-    });
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
   });
-  return roomInfo;
+
+  sessions.forEach((session) => {
+    if (!session.start_time) {
+      return;
+    }
+
+    // generate slug/key for session
+    const date = moment(session.start_time).format('YYYY-MM-DD');
+    const roomName = (session.microlocation == null) ? 'defroom' : session.microlocation.name;
+    const slug = date + '-' + slugify(roomName);
+    let room = null;
+
+    // set up room if it does not exist
+    if (!roomData.has(slug) && (session.microlocation != null)) {
+      room = {
+        title: session.microlocation.name,
+        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        date: moment(session.start_time).format('ddd, Do MMM'),
+        slug: slug,
+        sessions: []
+      };
+      roomData.set(slug,room);
+    } else {
+      room = roomData.get(slug);
+    }
+
+    if (room == undefined) {
+      return;
+    }
+    room.sessions.push({
+      start: moment(session.start_time).utcOffset(2).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(2).format('HH:mm'),
+      title: session.title,
+      type: session.session_type.name,
+      location: session.microlocation.name,
+      description: session.long_abstract,
+      session_id: session.id
+
+    });
+
+  });
+  
+  let roomsDetail = Array.from(roomData.values());
+
+  roomsDetail.sort(byProperty('date'));
+  console.log(roomsDetail);
+  return roomsDetail;
 }
 
 function getAppName(event) {
