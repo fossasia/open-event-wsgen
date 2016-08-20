@@ -13,6 +13,7 @@
   <script src="js/form.js"></script>
   <script src="js/validation.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+    <script src="/siofu/client.js"></script>
 </head>
 <style>
   .error {
@@ -51,9 +52,15 @@
     </section>
     <br>
     <section id="jsonupload-input" style="display:none;">
-      <input type="file" name="singlefileUpload" id="singlefileUpload" class="form-control" required="true" accept="application/zip"/>
+      <input type="file" name="singlefileUpload" id="siofu_input" class="form-control" required="true" accept="application/zip"/>
  	<br>
+        <div class="upload-progress progress" style="display:none;">
+            <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
+                <span id="upload-progress-val">0%</span>
+            </div>
+        </div>
     </section>
+
     <br>
     <!--<label title="Wether to download assets into website folder or link to external sources"-->
     <!--for="theme">How to link audio/images</label>-->
@@ -73,15 +80,6 @@
                 <input id="ftp-path" class="form-control" type="text" placeholder="/path/to/deploy/folder">
 
             </div>
-        </section>
-        <section>
-            <br><br>
-            <div class="upload-progress progress" style="display:none;">
-                <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
-                    <span id="upload-progress-val">0%</span>
-                </div>
-            </div>
-            <br>
         </section>
         <section>
             <br><br>

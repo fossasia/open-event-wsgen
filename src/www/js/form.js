@@ -5,6 +5,18 @@ var uploadFinished = false;
 
 $(document).ready(function () {
   var socket = io();
+  var uploader = new SocketIOFileUpload(socket);
+  uploader.listenOnInput(document.getElementById("siofu_input"));
+
+  uploader.addEventListener('start', function(event) {
+    $('.upload-progress').show();
+    $('#upload-progress-bar').show();
+  });
+
+  uploader.addEventListener('progress', function(event) {
+    var percentage = (event.bytesLoaded / event.file.size * 100);
+    updateUploadProgress(percentage);
+  });
 
   initialState();
   generateProgressBar = $('#generator-progress-bar');
