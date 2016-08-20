@@ -29,6 +29,12 @@ io.on('connection', function(socket){
   uploader.on('saved', function(event) {
     generator.finishZipUpload(event.file)
   });
+  uploader.on('progress', function(event) {
+    console.log(event.file.bytesLoaded / event.file.size)
+    socket.emit('upload.progress', {
+      percentage:(event.file.bytesLoaded / event.file.size) * 100
+    })
+  });
   uploader.on('start', function(event) {
     generator.startZipUpload(event.file)
   });
