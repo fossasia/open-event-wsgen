@@ -47,12 +47,12 @@
           </span>
         </h2>
         <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div id="track-list">
             {{#roomsinfo}}
             <div class="row">
               <div class="col-md-12">
-              <h5 class="text">{{date}}</h5>
+              <h4 class="text"><b>{{date}}</b></h4>
               </div>
                 
             </div>
@@ -60,12 +60,12 @@
             {{#sessions}}
               <div class="height col-xs-4 col-sm-4 col-md-4">
               {{#if venue }}
-                <h6 class="text">{{venue}}</h6>
+                <h4 class="text">{{venue}}</h4>
               {{/if}}   
               </div>
-              <div class=" col-xs-8 col-sm-8 col-md-8">
+              <div class="left-border col-xs-8 col-sm-8 col-md-8">
               
-                <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+                <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                   <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
                   {{title}}
                 </h4>
@@ -77,7 +77,7 @@
               {{/roomsinfo}}
           </div>
         </div>
-        <div class="track-names col-md-4">
+        <div class="track-names col-md-3">
         {{# tracks}}
         {{#if title}}
          

@@ -400,11 +400,14 @@ a {
 
 .height{ 
   min-height: 70px; 
-  border-right: 1px solid $black; 
 } 
+.left-border {
+  border-left: 1px solid $border-venue;
+}
 .text{ 
   color: $black; 
   word-wrap: break-word;
+  text-align: justify;
 } 
 .tracks {
   min-height: 70px; 

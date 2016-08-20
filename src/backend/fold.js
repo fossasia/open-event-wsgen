@@ -376,7 +376,6 @@ function foldByRooms(room, sessions, trackInfo) {
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         date: moment(session.start_time).format('dddd, Do MMM'),
         slug: slug,
         sessions: []
@@ -400,6 +399,7 @@ function foldByRooms(room, sessions, trackInfo) {
     console.log(venue);
     room.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
+      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
       venue: venue,
       end : moment(session.end_time).utcOffset(2).format('HH:mm'),
       title: session.title,
