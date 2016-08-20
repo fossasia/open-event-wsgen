@@ -131,15 +131,11 @@
 
 {{#if eventurls.latitude }}
 {{#if eventurls.longitude}}
-<div style="background:#f5f5f5" class="container">
-  <section class="sponsorscont">
-    <div class="row">
-      <div class="col-sm-12 col-md-12 col-xs-12 text-center">
-        <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Get me here</h1><br>
-      </div>
+<div style="background:#f5f5f5" class="container-fluid">
+    <div style="margin-right:0;margin-left:0;" class="row">
       <div class="col-md-6" id="map">
       </div>
-      <div class="col-md-6">
+      <div style="margin-top:20px;" class="col-md-6">
       {{#if eventurls.location}}
        <h4> Address </h4>
        <p>{{eventurls.location}}</p>
@@ -149,10 +145,8 @@
        <h4>Contact</h4>
        <p>{{eventurls.email}}</p>
        {{/if}}
-      </div>
-     
+      </div>  
     </div>
-  </section> 
 </div>         
 
 {{/if}}
@@ -161,12 +155,12 @@
  {{#if sponsorpics}}
     <div style="background:#ffffff" >    
     <section class="sponsorscont">
-      <div class="row">
+      <div style="margin-right:0;margin-left:0;"  class="row">
         <div class="col-sm-12 col-md-12 col-xs-12 text-center">
         <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Proudly supported by</h1><br>
         </div>
       </div>
-      <div class="row">
+      <div style="margin-right:0;margin-left:0;"  class="row">
         <div class="col-sm-10 col-sm-offset-1">
           
           <div class="row sponsor-row">
