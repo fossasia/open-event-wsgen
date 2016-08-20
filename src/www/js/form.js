@@ -14,14 +14,14 @@ $(document).ready(function () {
     $('#upload-progress-bar').show();
   });
 
-  uploader.addEventListener('progress', function(event) {
-    var percentage = (event.bytesLoaded / event.file.size * 100);
-    updateUploadProgress(percentage);
-    if (percentage == 100) {
-      uploadFinished = true;
-      enableGenerateButton(true);
-    }
-  });
+  // uploader.addEventListener('progress', function(event) {
+  //   var percentage = (event.bytesLoaded / event.file.size * 100);
+  //   updateUploadProgress(percentage);
+  //   if (percentage == 100) {
+  //     uploadFinished = true;
+  //     enableGenerateButton(true);
+  //   }
+  // });
 
   initialState();
   generateProgressBar = $('#generator-progress-bar');
@@ -109,9 +109,7 @@ $(document).ready(function () {
   });
   socket.on('upload.progress', function(data) {
     updateUploadProgress(data.percentage);
-    updateStatus('ETA : ' + data.eta + 's' + '  Speed: ' + (data.speed/1000) + 'KBps');
     if (data.percentage == 100) {
-      updateStatus('Zip uploaded');
       uploadFinished = true;
       enableGenerateButton(true);
     }
