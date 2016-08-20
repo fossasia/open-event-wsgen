@@ -357,7 +357,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
 function foldByRooms(room, sessions, trackInfo) {
    const roomData = new Map();
   const trackDetails = new Object();
-
+  const microlocationArray = [];
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
   });
@@ -370,15 +370,14 @@ function foldByRooms(room, sessions, trackInfo) {
     // generate slug/key for session
     const date = moment(session.start_time).format('YYYY-MM-DD');
     const roomName = (session.microlocation == null) ? 'defroom' : session.microlocation.name;
-    const slug = date + '-' + slugify(roomName);
+    const slug = date ;
     let room = null;
 
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        title: session.microlocation.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        date: moment(session.start_time).format('ddd, Do MMM'),
+        date: moment(session.start_time).format('dddd, Do MMM'),
         slug: slug,
         sessions: []
       };
@@ -390,15 +389,25 @@ function foldByRooms(room, sessions, trackInfo) {
     if (room == undefined) {
       return;
     }
+     const slug2 = date + '-' + session.microlocation.name ;
+    if(microlocationArray.indexOf(slug2) == -1 ) {
+      microlocationArray.push(slug2);
+      var venue = session.microlocation.name;
+    }
+    else {
+      venue = "";
+    }
+    console.log(venue);
     room.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
+      venue: venue,
       end : moment(session.end_time).utcOffset(2).format('HH:mm'),
       title: session.title,
       type: session.session_type.name,
       location: session.microlocation.name,
       description: session.long_abstract,
       session_id: session.id
-
+        
     });
 
   });
@@ -406,7 +415,7 @@ function foldByRooms(room, sessions, trackInfo) {
   let roomsDetail = Array.from(roomData.values());
 
   roomsDetail.sort(byProperty('date'));
-  console.log(roomsDetail);
+
   return roomsDetail;
 }
 
