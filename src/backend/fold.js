@@ -396,7 +396,7 @@ function foldByRooms(room, sessions, trackInfo) {
     else {
       venue = "";
     }
-    console.log(venue);
+   
     room.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
