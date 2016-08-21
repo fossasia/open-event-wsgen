@@ -55,7 +55,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
   const speakerslist = fold.foldBySpeakers(speakers, sessions, tracksData, reqOpts);
   const apptitle = fold.getAppName(event);
-  console.log(roomsinfo);
+  
   return {tracks, days, sociallinks, eventurls, copyright, sponsorpics, roomsinfo, apptitle, speakerslist};
 }
 
