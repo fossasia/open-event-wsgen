@@ -27,7 +27,7 @@ function slugify(str) {
 
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
-    return '#000000'
+    return '#f8f8fa'
   }
   return trackInfo[id];
 }
@@ -50,6 +50,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     // generate slug/key for session
     const date = moment(session.start_time).format('YYYY-MM-DD');
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
+    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
+    const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
     const slug = date + '-' + slugify(trackName);
     let track = null;
 
@@ -77,12 +79,13 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     if (track == undefined) {
       return;
     }
-    track.sessions.push({
+    
+      track.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       end : moment(session.end_time).utcOffset(2).format('HH:mm'),
       title: session.title,
-      type: session.session_type.name,
-      location: session.microlocation.name,
+      type: session_type,
+      location: roomName,
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       description: session.long_abstract,
       session_id: session.id,
@@ -92,6 +95,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
+
+
 
   });
   
@@ -388,6 +393,7 @@ function foldByRooms(room, sessions, trackInfo) {
     if (room == undefined) {
       return;
     }
+    if(session.microlocation !== null ) {
      const slug2 = date + '-' + session.microlocation.name ;
     if(microlocationArray.indexOf(slug2) == -1 ) {
       microlocationArray.push(slug2);
@@ -396,19 +402,20 @@ function foldByRooms(room, sessions, trackInfo) {
     else {
       venue = "";
     }
-   
+   }
+  
     room.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
       venue: venue,
       end : moment(session.end_time).utcOffset(2).format('HH:mm'),
       title: session.title,
-      type: session.session_type.name,
-      location: session.microlocation.name,
       description: session.long_abstract,
       session_id: session.id
         
     });
+  
+
 
   });
   
@@ -479,6 +486,7 @@ function getAllSessions(speakerid , session, trackInfo){
   });
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
+  const roomname = (session.detail == null) ?' ': session.detail.microlocation.name;
   speakerid.forEach((speaker) => {
     if(speaker !== undefined ) {
        sessiondetail.push({
@@ -494,7 +502,7 @@ sessiondetail.forEach((session) => {
       title: session.detail.title,
       date: moment(session.detail.start_time).format('ddd, Do MMM'),
       color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
-      microlocation: session.detail.microlocation.name
+      microlocation: roomname
    });
 })
 
