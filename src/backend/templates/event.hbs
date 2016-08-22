@@ -78,11 +78,12 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-              <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Keynote Speakers</h1>
+              <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Featured Speakers</h1>
               </div>
             </div> 
             <div class="row">
-              {{#speakerslist}}    
+              {{#speakerslist}} {{#if featured}}
+
               <div class="col-md-6 col-sm-12">
                <div class="speaker-with-bio">
                 <div class="speaker">
@@ -117,10 +118,11 @@
                 </div>
               </div>
             </div>
-            {{/speakerslist}} 
+
+              {{/if}} {{/speakerslist}}
             </div>  
           </div> 
-      </div>    
+      </section>
       <!--<div style="height:400px;overflow-x:hidden;overflow-y:overlay;" class= "twitter col-md-2">
        <a class="twitter-timeline" href="{{{eventurls.twitterLink}}}"></a> 
       </div>-->

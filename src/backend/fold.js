@@ -457,7 +457,8 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   let speakerslist = [];
   speakers.forEach((speaker) => {
     speakerslist.push({
-      country: speaker.country, 
+      country: speaker.country,
+      featured: speaker.featured,
       email: speaker.email, 
       facebook: speaker.facebook , 
       github: speaker.github , 
