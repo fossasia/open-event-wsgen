@@ -24,7 +24,12 @@ The component that is generator from the web app are the event websites. A sampl
 
 ### Components and Technology
 
-The web app generator uses Javascript...
+The webapp generator used following technologies - 
+ 1. HTML/CSS/Javascript based frontend
+ 2. [Node.js](http://nodejs.org) /Javascript for the generator backend
+ 3. [Express.js](http://expressjs.com) - Server framework
+ 4. [Handelbars](http://handlebarsjs.com) - Template for rendering
+ 5. [Socket.io](http://socket.io) - For handling multi-user client, with progress of upload/generation
 
 ### Web App Generator Test Installation
 
