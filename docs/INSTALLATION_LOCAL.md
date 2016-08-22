@@ -1,15 +1,29 @@
 # How to install the Open Event Web App Generator on my local machine
 
-## Build Server Requirements
+## Deploying Locally
+First install the dependencies.
 
+```shell
+npm install
+```
 
+Run the app
 
-## Required Components
+```shell
+npm run start
+```
+or
+```shell
+npm run server.generator
+```
 
+The app will be running on http://localhost:5000
 
-## Server Setup
+## Requirements
 
-
-
-## Glosarry
+| Component  | Name/Flavour | Minimum Version |
+|---|---|---|
+|  OS | Mac/Windows/Linux | Any |
+| Node.js |  | v4.0 (or above) |
+| Browser | Firefox/Chrome/Safari | 21+/11+/9+
 
