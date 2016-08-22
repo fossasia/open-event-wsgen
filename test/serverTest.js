@@ -79,8 +79,8 @@ describe('fold', function() {
   });
   describe('extractEventUrls()' , function () {
     it('should return event and logo urls', function () {
-      const linkModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, {assetmode:'link'},data.speakers.json);
-      const downloadModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, {assetmode:'download', email:"a@b.com", name:"testapp"});
+      const linkModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'link'},data.speakers.json);
+      const downloadModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'download', email:"a@b.com", name:"testapp"});
 
       assert.equal(linkModeUrls.main_page_url, data.event.json.event_url);
       assert.equal(linkModeUrls.logo_url, data.event.json.logo);

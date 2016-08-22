@@ -174,13 +174,20 @@ function createSocialLinks(event) {
   return sociallinks;
 }
 
-function extractEventUrls(event, speakers, reqOpts) {
+function extractEventUrls(event, speakers, sponsors, reqOpts) {
   const sociallinks = Array.from(event.social_links);
   var sociallink ="";
   var featuresection = 0;
+  var sponsorsection = 0;
   sociallinks.forEach((link) => {
     if(link.name.toLowerCase() === "twitter") {
       sociallink = link.link;
+    }
+  }) 
+
+  sponsors.forEach((sponsor) => {
+    if( sponsor.id !==undefined && typeof(sponsor.id)==='number') {
+      sponsorsection ++;
     }
   }) 
   speakers.forEach((speaker) => {
@@ -209,7 +216,8 @@ function extractEventUrls(event, speakers, reqOpts) {
     email: event.email,
     orgname: event.organizer_name,
     location_name: event.location_name,
-    featuresection: featuresection
+    featuresection: featuresection,
+    sponsorsection: sponsorsection
   };
 
   if (reqOpts.assetmode === 'download') {
