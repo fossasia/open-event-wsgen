@@ -406,9 +406,6 @@ a {
   margin-bottom: 8%; 
 } 
 
-.height{ 
-  min-height: 70px; 
-} 
 .left-border {
   border-left: 1px solid $border-venue;
 }
@@ -416,6 +413,7 @@ a {
   color: $black; 
   word-wrap: break-word;
   text-align: justify;
+  font-size: 22px;
 } 
 .tracks {
   min-height: 70px; 
@@ -591,8 +589,16 @@ a {
 }
 */
 .active {
-  color: $gray-extra-dark !important;
+  color: $black !important;
   font-weight:bold;
+}
+
+.eventtime {
+  text-align: center;
+  color: black;
+  vertical-align: middle;
+  height: 46px;
+  transform: translateY(30%);
 }
 
 .sesroom {
