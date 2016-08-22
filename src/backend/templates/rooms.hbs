@@ -51,22 +51,27 @@
           <div id="track-list">
             {{#roomsinfo}}
             <div class="row">
-              <div class="col-md-12">
-              <h4 class="text"><b>{{date}}</b></h4>
+              <div style="padding:0" class="col-md-12">
+              <h5 class="text"><b>{{date}}</b></h4>
               </div>
                 
             </div>
             <div class="row">
             {{#sessions}}
-              <div class="height col-xs-4 col-sm-4 col-md-4">
-              {{#if venue }}
-                <h4 class="text">{{venue}}</h4>
-              {{/if}}   
+            <div class="row">
+              <div style="clear:both" class="col-md-12">
+                {{#if venue }}
+                <h5 class="text" style="padding-bottom:20px;">{{venue}}</h4>
+               {{/if}} 
+              </div>
+            </div>
+              <div class="eventtime col-xs-4 col-sm-4 col-md-2">
+
+                <span class="time-track">{{start}} - {{end}}</span>
               </div>
               <div class="left-border col-xs-8 col-sm-8 col-md-8">
               
                 <h4 style="background-color:{{{color}}}"  class="sizeevent event">
-                  <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
                   {{title}}
                 </h4>
             
