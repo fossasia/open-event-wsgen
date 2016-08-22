@@ -81,8 +81,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     }
     
       track.sessions.push({
-      start: moment(session.start_time).utcOffset(2).format('HH:mm'),
-      end : moment(session.end_time).utcOffset(2).format('HH:mm'),
+      start: moment(session.start_time).utcOffset(4).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(4).format('HH:mm'),
       title: session.title,
       type: session_type,
       location: roomName,
@@ -99,7 +99,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
 
   });
-  
+
   let tracks = Array.from(trackData.values());
 
   tracks.sort(byProperty('date'));
@@ -181,10 +181,10 @@ function extractEventUrls(event, reqOpts) {
     if(link.name.toLowerCase() === "twitter") {
       sociallink = link.link;
     }
-  }) 
+  })
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
- 
+
   const urls= {
     main_page_url: event.event_url,
     logo_url: event.logo,
@@ -218,7 +218,7 @@ function extractEventUrls(event, reqOpts) {
         if(reg[0] =='/'){
           urls.logo_url = encodeURI(event.logo.substring(1,event.logo.length));
         }
-        
+
       }
     }
 
@@ -280,9 +280,9 @@ function foldByLevel(sponsors ,reqOpts) {
       if(reg[0] =='/'){
           sponsor.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
         }
-        
+
       }
-    } 
+    }
     const sponsorItem = {
       divclass: '',
       imgsize: '',
@@ -311,14 +311,14 @@ function foldByLevel(sponsors ,reqOpts) {
       sponsorItem.sponsorimg = 'vcenter sponsorimg';
         sponsorItem.imgsize = 'small';
         break;
-      default:  
+      default:
       sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
       sponsorItem.sponsorimg = 'vcenter sponsorimg';
-       
+
     }
     levelData[sponsor.level].push(sponsorItem);
   });
- 
+
   return levelData;
 }
 
@@ -336,11 +336,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
    const slug = date + '-' + session.microlocation.name;
     //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
    if (!DateData.has(slug)) {
-     var dated = moment(session.start_time).format('YYYY-MM-DD');  
+     var dated = moment(session.start_time).format('YYYY-MM-DD');
     }
    else {
      dated = "";
-   }  
+   }
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
@@ -354,7 +354,7 @@ function sessionsByRooms(id, sessions, trackInfo) {
   }
 
 });
- 
+
  sessionInRooms.sort(byProperty('date'));
  return sessionInRooms;
 }
@@ -404,22 +404,22 @@ function foldByRooms(room, sessions, trackInfo) {
       venue = "";
     }
 
-  
+
     room.sessions.push({
-      start: moment(session.start_time).utcOffset(2).format('HH:mm'),
+      start: moment(session.start_time).utcOffset(4).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
       venue: venue,
-      end : moment(session.end_time).utcOffset(2).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(4).format('HH:mm'),
       title: session.title,
       description: session.long_abstract,
       session_id: session.id
-        
+
     });
-  
+
 
 
   });
-  
+
   let roomsDetail = Array.from(roomData.values());
 
   roomsDetail.sort(byProperty('date'));
@@ -436,11 +436,11 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     speakers.forEach((speaker) => {
-      
+
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
           speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
-        } 
+        }
         else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         } else {
@@ -452,22 +452,22 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
 
       }
     });
-  }  
+  }
 
   let speakerslist = [];
   speakers.forEach((speaker) => {
     speakerslist.push({
       country: speaker.country,
       featured: speaker.featured,
-      email: speaker.email, 
-      facebook: speaker.facebook , 
-      github: speaker.github , 
-      linkedin: speaker.linkedin , 
-      twitter: speaker.twitter , 
+      email: speaker.email,
+      facebook: speaker.facebook ,
+      github: speaker.github ,
+      linkedin: speaker.linkedin ,
+      twitter: speaker.twitter ,
       website: speaker.website ,
-      long_biography: speaker.long_biography , 
-      mobile: speaker.mobile, 
-      name: speaker.name, 
+      long_biography: speaker.long_biography ,
+      mobile: speaker.mobile,
+      name: speaker.name,
       photo : speaker.photo,
       organisation: speaker.organisation,
       sessions : getAllSessions(speaker.sessions, sessions, tracksData)
@@ -495,12 +495,12 @@ function getAllSessions(speakerid , session, trackInfo){
         detail :sessionsMap.get(speaker.id)
       })
       }
-  }) 
+  })
 sessiondetail.forEach((session) => {
 
   speakersession.push({
-      start: moment(session.detail.start_time).utcOffset(2).format('HH:mm'),
-      end:   moment(session.detail.end_time).utcOffset(2).format('HH:mm'),
+      start: moment(session.detail.start_time).utcOffset(4).format('HH:mm'),
+      end:   moment(session.detail.end_time).utcOffset(4).format('HH:mm'),
       title: session.detail.title,
       date: moment(session.detail.start_time).format('ddd, Do MMM'),
       color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
