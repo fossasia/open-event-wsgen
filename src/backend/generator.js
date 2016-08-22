@@ -49,7 +49,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
   const days = fold.foldByDate(tracks);
   const sociallinks = fold.createSocialLinks(event);
-  const eventurls = fold.extractEventUrls(event, reqOpts);
+  const eventurls = fold.extractEventUrls(event, speakers, reqOpts);
   const copyright = fold.getCopyrightData(event);
   const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
   const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
