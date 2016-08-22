@@ -53,10 +53,11 @@ a {
 .navbar-default {
   background-color: $navbar-color;
   border-color: $gray-extra-light;
+
   .navbar-nav {
     li {
       a {
-        color: black;
+        color: $black;
         font-size: 11px;
       }
     }
