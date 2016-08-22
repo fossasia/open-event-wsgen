@@ -399,10 +399,11 @@ function foldByRooms(room, sessions, trackInfo) {
       microlocationArray.push(slug2);
       var venue = session.microlocation.name;
     }
+  }
     else {
       venue = "";
     }
-   }
+
   
     room.sessions.push({
       start: moment(session.start_time).utcOffset(2).format('HH:mm'),
