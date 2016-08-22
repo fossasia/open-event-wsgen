@@ -59,16 +59,10 @@ To install the system on AWS please refer to the [AWS installation readme](/docs
 
 To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).
 
-#### How do I install Web App Generator on Docker
-
-To install system with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
-
 #### How do I deploy Web App Generator with Heroku
 
-Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
-
-### How do I deploy it with Heroku
-
+Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)  
+Or use the 1-click deployment button  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)   
 
 
