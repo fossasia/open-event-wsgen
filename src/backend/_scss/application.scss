@@ -9,7 +9,6 @@ body {
   background-color: $background-shade !important;
   color: $gray-dark;
   font: 12px 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  margin-top: 50px;
 }
 
 .anchor {
@@ -52,8 +51,16 @@ a {
 }
 
 .navbar-default {
-  background-color: $white;
+  background-color: $navbar-color;
   border-color: $gray-extra-light;
+  .navbar-nav {
+    li {
+      a {
+        color: black;
+        font-size: 11px;
+      }
+    }
+  }
 }
 
 .navbar-header {
