@@ -60,7 +60,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        date: moment(session.start_time).format('ddd, Do MMM'),
+        date: moment(session.start_time).format('dddd, Do MMM'),
         slug: slug,
         sessions: []
       };

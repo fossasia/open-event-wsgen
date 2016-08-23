@@ -39,19 +39,25 @@
   <div class="container">
     <div  style="margin-top:4%" class="main row">
       <div class="col-md-12">
-        <h2 class="filter-heading text-center">
+        <h2 style="margin-bottom:40px;" class="filter-heading text-center">
          <span>
           <span>
             Venue
           </span>
           </span>
         </h2>
+
+    <div id="session-list" class="container">
+      {{#days}}
+          <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
+        {{/days}}
         <div class="row">
         <div class="col-md-10">
-          <div id="track-list">
+          <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
             <div class="row">
               <div style="padding:0" class="col-md-12">
+              <a class="anchor" id="{{date}}"></a>
               <h5 class="text">{{date}}</h4>
               </div>
                 
@@ -65,7 +71,7 @@
                {{/if}} 
               </div>
             </div>
-              <div class="eventtime col-xs-4 col-sm-4 col-md-2">
+              <div class="eventtime col-xs-2 col-sm-4 col-md-2">
 
                 <span class="time-track">{{start}}</span>
               </div>
@@ -74,7 +80,7 @@
               data-target="#desc-{{session_id}} .collapse"
               aria-expanded="false"
               aria-controls="desc-{{session_id}}">
-              <div class="left-border col-xs-8 col-sm-8 col-md-9">
+              <div class="left-border col-xs-10 col-sm-10 col-md-9">
               
                 <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                   {{title}}
@@ -93,9 +99,9 @@
                         <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
                        </p>
                       {{/if}}
-                       {{#if long_biography}}
                       <span class="blacktext ">About {{name}}:</span>
                     </p>
+                  {{#if long_biography}}
                     <div class="session-speakers-more">
                       <p>
                         <span class="blacktext tip-description">{{{long_biography}}}</span>
