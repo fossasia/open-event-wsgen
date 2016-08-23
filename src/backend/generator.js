@@ -52,7 +52,7 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const eventurls = fold.extractEventUrls(event, speakers, sponsors, reqOpts);
   const copyright = fold.getCopyrightData(event);
   const sponsorpics = fold.foldByLevel(sponsors, reqOpts);
-  const roomsinfo  =  fold.foldByRooms(roomsData, sessions, tracksData);
+  const roomsinfo  =  fold.foldByRooms(roomsData, sessions, speakers, tracksData);
   const speakerslist = fold.foldBySpeakers(speakers, sessions, tracksData, reqOpts);
   const apptitle = fold.getAppName(event);
   

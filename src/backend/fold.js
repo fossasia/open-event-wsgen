@@ -376,9 +376,10 @@ function sessionsByRooms(id, sessions, trackInfo) {
  return sessionInRooms;
 }
 
-function foldByRooms(room, sessions, trackInfo) {
-   const roomData = new Map();
+function foldByRooms(room, sessions, speakers, trackInfo) {
+  const roomData = new Map();
   const trackDetails = new Object();
+  const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const microlocationArray = [];
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
@@ -391,8 +392,9 @@ function foldByRooms(room, sessions, trackInfo) {
 
     // generate slug/key for session
     const date = moment(session.start_time).format('YYYY-MM-DD');
-    const roomName = (session.microlocation == null) ? 'defroom' : session.microlocation.name;
+    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
     const slug = date ;
+    const tracktitle = (session.track == null) ? " " : session.track.name;
     let room = null;
 
     // set up room if it does not exist
@@ -421,7 +423,7 @@ function foldByRooms(room, sessions, trackInfo) {
       venue = "";
     }
 
-
+   
     room.sessions.push({
       start: moment(session.start_time).utcOffset(4).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
@@ -429,7 +431,11 @@ function foldByRooms(room, sessions, trackInfo) {
       end : moment(session.end_time).utcOffset(4).format('HH:mm'),
       title: session.title,
       description: session.long_abstract,
-      session_id: session.id
+      session_id: session.id,
+      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      tracktitle: tracktitle,
+      sessiondate: moment(session.start_time).format('dddd, Do MMM'),
+      roomname: roomName
 
     });
 
