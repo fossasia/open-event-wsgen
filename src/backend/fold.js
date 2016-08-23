@@ -505,7 +505,6 @@ function getAllSessions(speakerid , session, trackInfo){
   });
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
-  const roomname = (session.detail == null) ?' ': session.detail.microlocation.name;
   speakerid.forEach((speaker) => {
     if(speaker !== undefined ) {
        sessiondetail.push({
@@ -514,14 +513,15 @@ function getAllSessions(speakerid , session, trackInfo){
       }
   })
 sessiondetail.forEach((session) => {
-
+  const roomname = (session.detail == null) ?' ': session.detail.microlocation.name;
   speakersession.push({
       start: moment(session.detail.start_time).utcOffset(4).format('HH:mm'),
       end:   moment(session.detail.end_time).utcOffset(4).format('HH:mm'),
       title: session.detail.title,
       date: moment(session.detail.start_time).format('ddd, Do MMM'),
       color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
-      microlocation: roomname
+      microlocation: roomname,
+      session_id: session.detail.id
    });
 })
 
