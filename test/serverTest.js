@@ -105,7 +105,7 @@ describe('fold', function() {
   });
   describe('.foldByRooms()', function () {
     it('should return sessions grouped by rooms', function () {
-      const roomData = fold.foldByRooms(data.microlocations.json, data.sessions.json, data.tracks.json);
+      const roomData = fold.foldByRooms(data.microlocations.json, data.sessions.json, data.speakers.json, data.tracks.json);
       //sassert.equal(roomData[0].hall, 'Dalton Hall');
     })
   });
