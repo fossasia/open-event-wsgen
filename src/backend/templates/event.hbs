@@ -132,28 +132,28 @@
 </div>
   {{/if}}
  </div>  
-{{#if eventurls.latitude }}
-{{#if eventurls.longitude}}
-<div style="background:#f5f5f5" class="container-fluid">
-    <div style="margin-right:0;margin-left:0;" class="row">
-      <div class="col-md-6" id="map">
+ {{#if eventurls.tweetUrl}}
+   <div class="row" style="background:#f5f5f5;margin-right:0;margin-left:0px">
+    <section class="sponsorscont">
+      <div class="tweet-row">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <i class ="social_twitter fa fa-twitter"></i>
+          <div class="tweets-feed" id="tweets" data-count=50 data-query="{{{eventurls.twitterLink}}}" data-from="{{{eventurls.twitterLink}}}">
+            <div class="arrow-up"></div>
+              <p id="tweet" class="tweet">
+              Loading...
+              </p>
+              <span style="margin-bottom: 20px;" id="dateTweeted"></span>
+              <p>Follow<u>
+              <b><a href="{{eventurls.tweetUrl}}"/>
+              @{{eventurls.twitterLink}}</a>
+              </b></u> for more updates</p>  
+          </div> 
+        </div>
       </div>
-      <div style="margin-top:20px;" class="col-md-6">
-      {{#if eventurls.location}}
-       <h4> Address </h4>
-       <p>{{eventurls.location}}</p>
-      {{/if}}
-       <br>
-       {{#if eventurls.email}}
-       <h4>Contact</h4>
-       <p>{{eventurls.email}}</p>
-       {{/if}}
-      </div>  
-    </div>
-</div>         
-
-{{/if}}
-{{/if}}  
+    </section>  
+  </div>
+  {{/if}}
 
  {{#if eventurls.sponsorsection}}
     <div style="background:#ffffff" >    
@@ -185,29 +185,31 @@
     </div> 
       {{/if}}
 
-  <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
-  {{#if eventurls.tweetUrl}}
-   <div class="row" style="background:#f5f5f5;margin-right:0;margin-left:0px">
-    <section class="sponsorscont">
-      <div class="tweet-row">
-        <div class="col-sm-12 col-md-12 col-xs-12">
-          <i class ="social_twitter fa fa-twitter"></i>
-          <div class="tweets-feed" id="tweets" data-count=50 data-query="{{{eventurls.twitterLink}}}" data-from="{{{eventurls.twitterLink}}}">
-            <div class="arrow-up"></div>
-              <p id="tweet" class="tweet">
-              Loading...
-              </p>
-              <span style="margin-bottom: 20px;" id="dateTweeted"></span>
-              <p>Follow<u>
-              <b><a href="{{eventurls.tweetUrl}}"/>
-              @{{eventurls.twitterLink}}</a>
-              </b></u> for more updates</p>  
-          </div> 
-        </div>
+{{#if eventurls.latitude }}
+{{#if eventurls.longitude}}
+<div style="background:#f5f5f5" class="container">
+    <div style="margin-right:0;margin-left:0;" class="row">
+      <div class="col-md-6" id="map">
       </div>
-    </section>  
-  </div>
-  {{/if}}
+      <div style="margin-top:20px;" class="col-md-6">
+      {{#if eventurls.location}}
+       <h4> Address </h4>
+       <p>{{eventurls.location}}</p>
+      {{/if}}
+       <br>
+       {{#if eventurls.email}}
+       <h4>Contact</h4>
+       <p>{{eventurls.email}}</p>
+       {{/if}}
+      </div>  
+    </div>
+</div>         
+
+{{/if}}
+{{/if}}  
+
+  <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+
 {{> footer}}
   
 
