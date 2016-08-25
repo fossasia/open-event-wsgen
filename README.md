@@ -31,6 +31,8 @@ The webapp generator used following technologies -
  4. [Handelbars](http://handlebarsjs.com) - Template for rendering
  5. [Socket.io](http://socket.io) - For handling multi-user client, with progress of upload/generation
 
+Please check the [components documentation](/docs/COMPONENTS.md) to learn about the components, and how to change the final outcome of the HTML generated. 
+
 ### Web App Generator Test Installation
 
 You can try out the web generator at  https://opev-webgen.herokuapp.com
