@@ -1,0 +1,13 @@
+{
+  "PORT": 5000,
+  "SENDGRID_API_KEY": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "speaker_images": {
+    "MAX_WIDTH": 262.5,
+    "MAX_HEIGHT": 262.5,
+    "TRACK_WIDTH_REM": 5,
+    "TRACK_HEIGHT_REM": 5
+  },
+  "audio_files": {
+    "MAX_SIZE_MB": 100
+  }
+}
