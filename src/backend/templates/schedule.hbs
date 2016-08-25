@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
   Note to contributors: Do not submit any changes to this page, as it is generated automatically
@@ -30,196 +31,146 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
     </head>
+
     <body>
 
       {{> navbar}}
-
-
-    <div id="session-list" class="container">
-        <div  style="margin-top:4%" class="main row">
-            {{#days}}
-                <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
-            {{/days}}
+   <div class="container" id="session-list">
+    <div style="margin-top:4%" class="main row">
+    <div class="col-md-12 ">
+      <h2 class="filter-heading track-heading text-center">
+        <span>
+          <span>
+            Schedule
+          </span>
+        </span>
+      </h2>
+        <div class="main row">
+            {{#timeList}}
+                <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
+            {{/timeList}}
         </div>
-     
-      {{#tracks}}
-      <div  style="margin-top:4%" class="main row">
-        <div class="col-md-12">
+      <div id=track-list class="container">
 
-          <a class="anchor" id="{{slug}}"></a>
-          <h3  class="text">{{title}}</h3>
-          <h5 class="text">{{date}}</h5>
+      {{#timeList}}
+          <div style="padding:0" class="col-md-12">
+              <a class="anchor" id="{{slug}}"></a>
+              <h4 class="text">{{date}}</h4>
+          </div>
+        {{#times}}
 
-          <ul class="list-group session-list">
-            {{#sessions}}
-            <li class="list-group-item" data-session-id="{{session_id}}">
-              <div class="row"
-              data-toggle="collapse"
-              data-target="#desc-{{session_id}} .collapse"
-              aria-expanded="false"
-              aria-controls="desc-{{session_id}}">
+        <div class="row">
+          <div class="col-xs-8 col-sm-2 col-md-2">
+           <h4 class="text"><strong>{{caption}}</strong></h4>
+          </div>
 
-              <div class="col-xs-2 col-md-1">
-                <span style="background-color: {{../color}}" class="time-alert session-start label label-primary">
-                  {{start}}
-                </span>
-              </div>
-
-              <div class="sessions col-xs-10 col-md-11">
-                <div class="clearfix">
-                  <a class="anchor" name="{{session_id}}"></a>
-                  <h4 class="session-title">
-                    {{title}}&nbsp;
-                    <a class="session-link" href="#{{session_id}}">
-                      <i class="fa fa-link"></i>
-                    </a>
-                    <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
-                    {{#if video}}
-                    <a class="video-link" href="{{video}}" target="_blank">
-                      <i class="fa fa-youtube-play fa-2x"></i>
-                    </a>
-                    {{/if}}
-                    {{#if slides}}
-                    <a class="slide-link" href="{{slides}}" target="_blank">
-                      [Slides]
-                    </a>
-                    {{/if}}
-                    {{#if sign_up}}
-                    <a href="{{sign_up}}" class="btn btn-xs btn-sign-up"> Sign up </a>
-                    {{/if}}
-                  </h4>
-                  <p class="session-location">
-                    {{location}}
-                  </p>
+          <div class="tracks col-xs-12 col-md-10">
+          {{#sessions}}
+            <div class="header-pop">
+            <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+            <!--<span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>-->
+            {{title}}</h4>
+             <div style="display:none;" class="pop-box">
+            <div class="arrow">
+              <span></span>
+            </div>
+            <div class="pop-container" style="color:black";>
+              <div class="pop">
+                <div class="pop-header">
+                  <span>
+                  <a class="session-link" href="#{{session_id}}">
+                    Share <i class="fa fa-link"></i>
+                  </a>
+                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  </span>
                 </div>
-                <p class="audio-player">
-                  {{#if audio}}
-                  <audio controls preload="none">
-                    <source src="{{audio}}" type="audio/mpeg">
-                  </audio>
+                <div class="pop-over row">
+                  {{#linkify}}{{description}}{{/linkify}}
+                </div>
+                <hr style="clear:both;width:75%;">
+                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
+                <div class="pop-speakers">
+                 {{#each speakers_list}}
+
+                 <div class="pop-over row">
+                   <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
+                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
+                   <p>{{organisation}}</p>
+                   <div class="icons row">
+                   {{#if website}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
                   {{/if}}
-                </p>
-                {{#speakers_list}}
-                  {{#if photo}}
-                <p style="margin-right:20px" class="session-speakers">
-                  <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
-                </p>
+                   {{#if github}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
                   {{/if}}
-                  {{/speakers_list}}
-                  <ul style="padding:0">
-                  {{#speakers_list}}
-                   <li>
-                   {{name}}
-                   {{#if organisation}}
-                   ({{organisation}})
-                   {{/if}}
-                   </li> 
-                  {{/speakers_list}}
-                  </ul>
-                </p>
-               
-                  <span class="session-type">{{type}}</span>
-                </p>
-                <div class="session-id" id="desc-{{session_id}}">
-                  <p class="collapse">
-                    <span class="session-description">{{{description}}}</span>
-                  </p>
-                  <div class="session-speakers-list collapse">
-                    {{#speakers_list}}
-                    {{#if long_biography}}
-                    <p class="session-speakers-less">
-                      <span class="session-description">About {{name}}:</span>
-                    </p>
-                    <div class="session-speakers-more">
-                      <p>
-                        <span class="session-description">{{{long_biography}}}</span>
-                      </p>
-                      <p class="session-speaker-social">
-                      {{#if web}}
-                        <a class="social speaker-social" href="{{{web}}}"}>
-                          <i class="fa fa-home"></i> Web
-                        </a>
-                      {{/if}}
-                      {{#if github}}
-                        <a class="social speaker-social" href="{{{github}}}"}>
-                          <i class="fa fa-github"></i> Github
-                        </a>
-                      {{/if}}
-                      {{#if twitter}}
-                        <a class="social speaker-social" href="{{{twitter}}}"}>
-                          <i class="fa fa-twitter"></i> Twitter
-                        </a>
-                       {{/if}}
-                       {{#if linkedin}} 
-                        <a class="social speaker-social" href="{{{linkedin}}}"}>
-                          <i class="fa fa-linkedin"></i> LinkedIn
-                        </a>
-                        {{/if}}
-                        
-                      </p>
-                    </div>
-                    {{/if}}
-                    {{/speakers_list}}
+                  {{#if twitter}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  {{/if}}
+                 </div>
+                   </div>
                   </div>
+
+                  {{/each}}
                 </div>
+                <hr style="clear:both;width:75%;">
+                <div class="pop-footer">
+                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{location}}</p>
+                  <ul class="title-inline">
+                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                  <li>{{../title}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          {{/sessions}}
+          </div>
 
-              </div><!-- /.row -->
-            </li><!-- /.list-group-item -->
-            {{/sessions}}
-          </ul>
-        </div><!-- /.col-md-12 -->
-      </div><!-- /.row -->
-      {{/tracks}}
+
+        </div><br>
+        {{/times}}
+      {{/timeList}}
+
+      </div>
+    </div>
+    </div>
    </div>
+   <!-- /#session-list -->
     {{> footer}}
-  
-
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/popover.js"></script>
 
    <script>
-  $(function() {  
-    $('.nav.navbar-nav > li a').removeClass('active');
-    var linkUrl=window.location.href.split("/");
-    if((linkUrl).indexOf("tracks.html")!=-1){
-      $("#trackslink").addClass('active');
-    }
-    else if((linkUrl).indexOf("rooms.html")!=-1){
-      $("#roomslink").addClass('active');
-    }
-    else if((linkUrl).indexOf("speakers.html")!=-1){
-      $("#speakerslink").addClass('active');
-    }
-    else if((linkUrl).indexOf("sessions.html")!=-1){
-      $("#sessionslink").addClass('active');
-    }
-    else {
-      $("#homelink").addClass('active');
-    }
-});
-   </script> 
-   <script type="text/javascript">
-       $(document).ready(function(){
-
-        $('.session-link').click(function() {
-          $(this).next('.inputbox').toggle().select();
+    $(document).ready(function(){
+      $('.session-link').click(function() {
+        $(this).next('.inputbox').toggle().select();
         });
       });
-      $(function() {
-      $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      })
-    });
-    </script>
- 
+$(function() {  
+  $('.nav.navbar-nav > li a').removeClass('active');
+  var linkUrl=window.location.href.split("/");
+  if((linkUrl).indexOf("tracks.html")!=-1){
+    $("#trackslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("rooms.html")!=-1){
+    $("#roomslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("speakers.html")!=-1){
+    $("#speakerslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("sessions.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
+  else {
+    $("#homelink").addClass('active');
+  }
+});
+</script> 
 </body>
 </html>

@@ -107,6 +107,63 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   return tracks;
 }
 
+function foldByTime(sessions, speakers, trackInfo) {
+  let dateMap = new Map();
+  const speakersMap = new Map(speakers.map((s) => [s.id, s]));
+  const trackDetails = {};
+
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
+
+  sessions.forEach((session) => {
+    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
+    const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
+    let date = moment(session.start_time).format('YYYY-MM-DD');
+    let time = moment(session.start_time).utcOffset(4).format('HH:mm');
+    console.log(date);
+    if (!dateMap.has(date)) {
+      dateMap.set(date, {
+        slug: date,
+        date: moment(session.start_time).utcOffset(4).format('dddd, Do MMM'),
+        times: new Map()
+      })
+    }
+    let timeMap = dateMap.get(date).times;
+    if (!timeMap.has(time)) {
+      timeMap.set(time, {
+        caption: time,
+        sessions: []
+      })
+    }
+    timeMap.get(time).sessions.push({
+      start: moment(session.start_time).utcOffset(4).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(4).format('HH:mm'),
+      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      title: session.title,
+      type: session_type,
+      location: roomName,
+      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      description: session.long_abstract,
+      session_id: session.id,
+      sign_up: session.signup_url,
+      video: session.video,
+      slides: session.slides,
+      audio: session.audio
+
+    });
+  });
+  const dates = Array.from(dateMap.values());
+  dates.sort(byProperty('caption'));
+  dates.forEach((date) => {
+    const times = Array.from(date.times.values());
+    times.sort(byProperty('caption'));
+    date.times = times;
+  });
+
+  return dates;
+}
+
 function foldByDate(tracks) {
   let dateMap = new Map();
 
@@ -122,9 +179,7 @@ function foldByDate(tracks) {
   });
 
   const dates = Array.from(dateMap.values());
-
   dates.forEach((date) => date.tracks.sort(byProperty('sortKey')));
-
   return dates;
 }
 
@@ -400,7 +455,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        date: moment(session.start_time).format('dddd, Do MMM'),
+        date: moment(session.start_time).utcOffset(4).format('dddd, Do MMM'),
         slug: slug,
         sessions: []
       };
@@ -544,3 +599,4 @@ module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
 module.exports.foldBySpeakers = foldBySpeakers;
+module.exports.foldByTime = foldByTime;
