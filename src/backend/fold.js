@@ -107,6 +107,39 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   return tracks;
 }
 
+function foldByTime(sessions) {
+  let dateMap = new Map();
+
+  sessions.forEach((session) => {
+    let date = moment(session.start_time).format('YYYY-MM-DD');
+    let time = moment(session.start_time).utcOffset(4).format('HH:mm');
+    console.log(date);
+    if (!dateMap.has(date)) {
+      dateMap.set(date, {
+        caption: date,
+        times: new Map()
+      })
+    }
+    let timeMap = dateMap.get(date).times;
+    if (!timeMap.has(time)) {
+      timeMap.set(time, {
+        caption: time,
+        sessions: []
+      })
+    }
+    timeMap.get(time).sessions.push(session);
+  });
+  const dates = Array.from(dateMap.values());
+  dates.sort(byProperty('caption'));
+  dates.forEach((date) => {
+    const times = Array.from(date.times.values());
+    times.sort(byProperty('caption'));
+    date.times = times;
+  });
+
+  return dates;
+}
+
 function foldByDate(tracks) {
   let dateMap = new Map();
 
@@ -122,9 +155,7 @@ function foldByDate(tracks) {
   });
 
   const dates = Array.from(dateMap.values());
-
   dates.forEach((date) => date.tracks.sort(byProperty('sortKey')));
-
   return dates;
 }
 
@@ -544,3 +575,4 @@ module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
 module.exports.foldBySpeakers = foldBySpeakers;
+module.exports.foldByTime = foldByTime;
