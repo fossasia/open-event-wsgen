@@ -1148,12 +1148,12 @@ a {
             color: $black;
         }
       } 
-
     }
+
     .contact-details {
       margin-bottom: 14px;
       left: 40px;
-        .contact-methods { 
+      .contact-methods { 
         list-style: none;
         margin: 0;
         padding: 0;
@@ -1182,6 +1182,7 @@ a {
         }
       }
     }
+    
     @media (max-width: 892px){
      .contact-details {
         left:0;
