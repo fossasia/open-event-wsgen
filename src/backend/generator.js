@@ -21,7 +21,7 @@ handlebars.registerPartial('navbar', navbar);
 handlebars.registerPartial('footer', footer);
 
 const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
-const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/oldtracks.hbs').toString('utf-8'));
+const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
