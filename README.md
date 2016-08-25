@@ -33,6 +33,9 @@ The webapp generator used following technologies -
 
 Please check the [components documentation](/docs/COMPONENTS.md) to learn about the components, and how to change the final outcome of the HTML generated. 
 
+### Configurations
+You can find documentation and details of various configurations of the server [here](/docs/CONFIGURATIONS.md) 
+
 ### Web App Generator Test Installation
 
 You can try out the web generator at  https://opev-webgen.herokuapp.com

@@ -4,7 +4,8 @@
 "use strict";
 
 const helper = require('sendgrid').mail;
-const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY);
+const config = require('../../config.json');
+const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
 
 const appUrl = process.env.HEROKU_URL;
 
