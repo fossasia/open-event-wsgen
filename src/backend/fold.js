@@ -124,7 +124,8 @@ function foldByTime(sessions, speakers, trackInfo) {
     console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
-        caption: date,
+        slug: date,
+        date: moment(session.start_time).utcOffset(4).format('dddd, Do MMM'),
         times: new Map()
       })
     }
@@ -454,7 +455,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        date: moment(session.start_time).format('dddd, Do MMM'),
+        date: moment(session.start_time).utcOffset(4).format('dddd, Do MMM'),
         slug: slug,
         sessions: []
       };

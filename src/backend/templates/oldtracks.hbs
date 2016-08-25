@@ -45,21 +45,30 @@
           </span>
         </span>
       </h2>
+        <div class="main row">
+            {{#timeList}}
+                <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
+            {{/timeList}}
+        </div>
       <div id=track-list class="container">
+
       {{#timeList}}
+          <div style="padding:0" class="col-md-12">
+              <a class="anchor" id="{{slug}}"></a>
+              <h4 class="text">{{date}}</h4>
+          </div>
         {{#times}}
 
         <div class="row">
-          <div class="col-xs-12 col-sm-3 col-md-3">
+          <div class="col-xs-8 col-sm-2 col-md-2">
            <h4 class="text"><strong>{{caption}}</strong></h4>
-           <h4 class="text">{{caption}}</h4>
           </div>
 
-          <div class="tracks col-xs-10 col-md-9">
+          <div class="tracks col-xs-12 col-md-10">
           {{#sessions}}
             <div class="header-pop">
             <h4 style="background-color:{{{color}}}"  class="sizeevent event">
-            <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
+            <!--<span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>-->
             {{title}}</h4>
              <div style="display:none;" class="pop-box">
             <div class="arrow">
