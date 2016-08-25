@@ -107,10 +107,18 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
   return tracks;
 }
 
-function foldByTime(sessions) {
+function foldByTime(sessions, speakers, trackInfo) {
   let dateMap = new Map();
+  const speakersMap = new Map(speakers.map((s) => [s.id, s]));
+  const trackDetails = {};
+
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
 
   sessions.forEach((session) => {
+    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
+    const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
     let date = moment(session.start_time).format('YYYY-MM-DD');
     let time = moment(session.start_time).utcOffset(4).format('HH:mm');
     console.log(date);
@@ -127,7 +135,22 @@ function foldByTime(sessions) {
         sessions: []
       })
     }
-    timeMap.get(time).sessions.push(session);
+    timeMap.get(time).sessions.push({
+      start: moment(session.start_time).utcOffset(4).format('HH:mm'),
+      end : moment(session.end_time).utcOffset(4).format('HH:mm'),
+      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      title: session.title,
+      type: session_type,
+      location: roomName,
+      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      description: session.long_abstract,
+      session_id: session.id,
+      sign_up: session.signup_url,
+      video: session.video,
+      slides: session.slides,
+      audio: session.audio
+
+    });
   });
   const dates = Array.from(dateMap.values());
   dates.sort(byProperty('caption'));
