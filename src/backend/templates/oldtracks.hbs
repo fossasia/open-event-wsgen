@@ -41,23 +41,24 @@
       <h2 class="filter-heading track-heading text-center">
         <span>
           <span>
-            Tracks
+            Schedule
           </span>
         </span>
       </h2>
       <div id=track-list class="container">
-        {{#tracks}}
-        
+      {{#timeList}}
+        {{#times}}
+
         <div class="row">
           <div class="col-xs-12 col-sm-3 col-md-3">
-           <h4 class="text"><strong>{{title}}</strong></h4>
-           <h4 class="text">{{date}}</h4>
+           <h4 class="text"><strong>{{caption}}</strong></h4>
+           <h4 class="text">{{caption}}</h4>
           </div>
-          
+
           <div class="tracks col-xs-10 col-md-9">
           {{#sessions}}
             <div class="header-pop">
-            <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+            <h4 style="background-color:{{{color}}}"  class="sizeevent event">
             <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
             {{title}}</h4>
              <div style="display:none;" class="pop-box">
@@ -79,9 +80,9 @@
                 </div>
                 <hr style="clear:both;width:75%;">
                 <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
-                <div class="pop-speakers"> 
+                <div class="pop-speakers">
                  {{#each speakers_list}}
-                
+
                  <div class="pop-over row">
                    <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
                    <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
@@ -102,9 +103,9 @@
                  </div>
                    </div>
                   </div>
-                
+
                   {{/each}}
-                </div>  
+                </div>
                 <hr style="clear:both;width:75%;">
                 <div class="pop-footer">
                   <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
@@ -120,10 +121,12 @@
           </div>
           {{/sessions}}
           </div>
-           
+
 
         </div><br>
-        {{/tracks}}
+        {{/times}}
+      {{/timeList}}
+
       </div>
     </div>
     </div>
