@@ -346,6 +346,7 @@ a {
 }
 
 }
+
  .centre {
    display: block;
    margin: 0 auto;
@@ -1146,37 +1147,46 @@ a {
         &:hover {
             color: $black;
         }
-      }  
-    }
+      } 
 
-    .contact-methods { 
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      i {
-        color: $gray-dark;   
-        font-size: 36px;     
-      }
-      li {
+    }
+    .contact-details {
+      margin-bottom: 14px;
+      left: 40px;
+        .contact-methods { 
         list-style: none;
-        margin-bottom: 12px;
-        position: relative;
-      }
-      span {
-        display: inline-block;
-        font-size: 14px;
-        position: relative;
-        left: 8px;
-        width: 188px;
-        a {
-          border-bottom: 3px solid $white;
-          padding-bottom: 4px;
+        margin: 0;
+        padding: 0;
+        i {
+          color: $gray-dark;   
+          font-size: 36px;     
+        }
+        li {
+          list-style: none;
+          margin-bottom: 12px;
           position: relative;
-          bottom: 10px;
-          left: 8px; 
+        }
+        span {
+          display: inline-block;
+          font-size: 14px;
+          position: relative;
+          left: 8px;
+          width: 188px;
+          a {
+            border-bottom: 3px solid $white;
+            padding-bottom: 4px;
+            position: relative;
+            bottom: 10px;
+            left: 8px; 
+          }
         }
       }
     }
+    @media (max-width: 892px){
+     .contact-details {
+        left:0;
+     }   
+    } 
   }
 
   .room-container {
