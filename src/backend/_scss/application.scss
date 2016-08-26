@@ -1080,7 +1080,7 @@ a {
 }
 
 .tweets-feed {
-  color: $black;
+  color: $gray-dark;
   line-height: 30px;
   font-size: 20px;
   transition: opacity 0.2s linear;
@@ -1088,7 +1088,7 @@ a {
   height: 100px;
     
   a {
-    color: $black;
+    color: $gray-dark;
     text-decoration: underline;
     font-weight: 700;
   } 
@@ -1102,6 +1102,7 @@ a {
 .tweet-row {
   margin-bottom: 80px;
   padding: 0;
+  transform: translateY(30%);
   .social_twitter {
     font-size: 60px;
     margin-bottom: 12px;
