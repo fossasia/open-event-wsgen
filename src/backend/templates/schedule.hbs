@@ -150,34 +150,15 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
 
-   <script>
+      <script src="./js/navbar.js" type="text/javascript"></script>
+
+
+      <script>
     $(document).ready(function(){
       $('.session-link').click(function() {
         $(this).next('.inputbox').toggle().select();
         });
       });
-$(function() {  
-  $('.nav.navbar-nav > li a').removeClass('active');
-  var linkUrl=window.location.href.split("/");
-  if((linkUrl).indexOf("tracks.html")!=-1){
-    $("#trackslink").addClass('active');
-  }
-  else if((linkUrl).indexOf("rooms.html")!=-1){
-    $("#roomslink").addClass('active');
-  }
-  else if((linkUrl).indexOf("speakers.html")!=-1){
-    $("#speakerslink").addClass('active');
-  }
-  else if((linkUrl).indexOf("sessions.html")!=-1){
-    $("#sessionslink").addClass('active');
-  }
-  else if ((linkUrl).indexOf("schedule.html")!=-1) {
-     $("#schedulelink").addClass('active');
-  }
-  else {
-    $("#homelink").addClass('active');
-  }
-});
 </script> 
 </body>
 </html>
