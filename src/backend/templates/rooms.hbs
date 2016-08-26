@@ -39,18 +39,18 @@
   <div class="container">
     <div  style="margin-top:4%" class="main row">
       <div class="col-md-12">
-        <h2 style="margin-bottom:40px;" class="filter-heading text-center">
+        <h2 class="filter-heading text-center">
          <span>
-          <span>
             Venue
-          </span>
           </span>
         </h2>
 
+          {{#days}}
+              <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
+          {{/days}}
+
     <div id="session-list" class="container">
-      {{#days}}
-          <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
-        {{/days}}
+
         <div class="row">
         <div class="col-md-10">
           <div style="margin-top:4%" id="track-list">

@@ -45,11 +45,10 @@
           </span>
         </span>
       </h2>
-        <div class="main row">
-            {{#timeList}}
-                <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
-            {{/timeList}}
-        </div>
+        {{#timeList}}
+            <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
+        {{/timeList}}
+
       <div id=track-list class="container">
 
       {{#timeList}}
