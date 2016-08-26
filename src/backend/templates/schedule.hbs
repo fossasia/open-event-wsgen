@@ -60,11 +60,11 @@
         {{#times}}
 
         <div class="row">
-          <div class="col-xs-8 col-sm-2 col-md-2">
-           <h4 class="text"><strong>{{caption}}</strong></h4>
+          <div class="col-xs-2 col-sm-2 col-md-2">
+          <span class="time-track">{{caption}}</span>
           </div>
 
-          <div class="tracks col-xs-12 col-md-10">
+          <div class="tracks col-xs-10 col-sm-10 col-md-10">
           {{#sessions}}
             <div class="header-pop">
             <h4 style="background-color:{{{color}}}"  class="sizeevent event">
@@ -85,10 +85,12 @@
                   </span>
                 </div>
                 <div class="pop-over row">
-                  {{#linkify}}{{description}}{{/linkify}}
+                  {{{description}}}
                 </div>
+                {{#if speakers}}
                 <hr style="clear:both;width:75%;">
-                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
+                <h5 style="padding-left:20px" class="text">Speakers</h5>
+                {{/if}}
                 <div class="pop-speakers">
                  {{#each speakers_list}}
 
@@ -115,7 +117,9 @@
 
                   {{/each}}
                 </div>
+                {{#if speakers}}
                 <hr style="clear:both;width:75%;">
+                {{/if}}
                 <div class="pop-footer">
                   <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
                   <p>{{location}}</p>
@@ -166,6 +170,9 @@ $(function() {
   }
   else if((linkUrl).indexOf("sessions.html")!=-1){
     $("#sessionslink").addClass('active');
+  }
+  else if ((linkUrl).indexOf("schedule.html")!=-1) {
+     $("#schedulelink").addClass('active');
   }
   else {
     $("#homelink").addClass('active');

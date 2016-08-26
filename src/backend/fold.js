@@ -121,6 +121,8 @@ function foldByTime(sessions, speakers, trackInfo) {
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
     let date = moment(session.start_time).format('YYYY-MM-DD');
     let time = moment(session.start_time).utcOffset(4).format('HH:mm');
+    let speakersNum = session.speakers.length;
+
     console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
@@ -149,8 +151,8 @@ function foldByTime(sessions, speakers, trackInfo) {
       sign_up: session.signup_url,
       video: session.video,
       slides: session.slides,
-      audio: session.audio
-
+      audio: session.audio,
+      speakers: speakersNum
     });
   });
   const dates = Array.from(dateMap.values());
