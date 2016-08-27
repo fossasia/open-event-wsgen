@@ -117,7 +117,6 @@ $(document).ready(function () {
 
   function adjustFooter(event) {
     let pointer = event.target;
-    console.log(pointer);
     let footer = $('.footer');
     if(!$('.image-holder').is(pointer)){
      imageholder = $(pointer).parent().parent();
@@ -130,17 +129,18 @@ $(document).ready(function () {
     let popBox         = imageholder.next();
     let popBoxheight   = popBox.outerHeight() ;
     let totalHeight = imageHoverheight + imageContainer + popBoxheight;
-    let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight()+ $('.classic').outerHeight();
-    let shift = totalHeight - speakersRow;
-    if (shift > 0) {
-      
-      $(".classic").css({
-        "position":"absolute",
-        "top": speakersRow + shift,
-        "width":"100%",
-        "z-index": "999"
-    })
-  }
+    if($('.speakers-row').offset() !== undefined) {
+      let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight()+ $('.classic').outerHeight();
+      let shift = totalHeight - speakersRow;
+        if (shift > 0) {
+           $(".classic").css({
+            "position":"absolute",
+            "top": speakersRow + shift,
+            "width":"100%",
+            "z-index": "999"
+          })
+        }
+     }
   else {
     hidePopbox();
    
