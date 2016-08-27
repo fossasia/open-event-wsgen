@@ -36,22 +36,23 @@
 
     {{> navbar}}
 
-  <div class="container">
-    <div  style="margin-top:4%" class="main row">
-      <div class="col-md-12">
-        <h2 class="filter-heading text-center">
-         <span>
-            Venue
+  <div class="main container">
+     <div class="row">
+      <div class="middle col-sm-12">
+          <h2 class="filter-heading track-heading text-center">
+          <span>
+             Venue
           </span>
-        </h2>
+          </h2>
+      </div>
+    </div>
 
-          {{#days}}
-              <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
-          {{/days}}
+    {{#days}}
+        <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
+    {{/days}}
 
     <div id="session-list" class="container">
-
-        <div class="row">
+      <div class="row">
         <div class="col-md-10">
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
@@ -60,45 +61,42 @@
               <a class="anchor" id="{{date}}"></a>
               <h5 class="text">{{date}}</h4>
               </div>
-                
             </div>
             <div class="row">
-            {{#sessions}}
-            <div class="row">
-              <div style="clear:both" class="col-md-12">
+              {{#sessions}}
+              <div class="row">
+                <div style="clear:both" class="col-md-12">
                 {{#if venue }}
                 <h5 class="text" style="padding-bottom:20px;">{{venue}}</h4>
-               {{/if}} 
+                {{/if}} 
+                </div>
               </div>
-            </div>
               <div class="eventtime col-xs-2 col-sm-4 col-md-2">
-
                 <span class="time-track">{{start}}</span>
               </div>
-               <div class="room-container row"
-              data-toggle="collapse"
-              data-target="#desc-{{session_id}} .collapse"
-              aria-expanded="false"
-              aria-controls="desc-{{session_id}}">
-              <div class="left-border col-xs-10 col-sm-10 col-md-9">
-              
-                <h4 style="background-color:{{{color}}}"  class="sizeevent event">
-                  {{title}}
-                </h4>
-               <div  id="desc-{{session_id}}">
-                  <p class="collapse">
-                    <span class="tip-description">{{{description}}}
-                    </span>
-                  </p>
-                  <hr style="clear:both" class="collapse">
-                  <div class="session-speakers-list collapse">
-                    {{#speakers_list}}
-                    <p class="session-speakers-less">
-                      {{#if photo}}
-                      <p style="margin-right:20px" class="session-speakers">
-                        <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
-                       </p>
-                      {{/if}}
+               <div class="room-container"
+                data-toggle="collapse"
+                data-target="#desc-{{session_id}} .collapse"
+                aria-expanded="false"
+                aria-controls="desc-{{session_id}}">
+                  <div class="left-border col-xs-10 col-sm-10 col-md-9">
+                    <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                      {{title}}
+                    </h4>
+                    <div  id="desc-{{session_id}}">
+                      <p class="collapse">
+                        <span class="tip-description">{{{description}}}
+                        </span>
+                      </p>
+                    <hr style="clear:both" class="collapse">
+                      <div class="session-speakers-list collapse">
+                        {{#speakers_list}}
+                        <p class="session-speakers-less">
+                          {{#if photo}}
+                          <p style="margin-right:20px" class="session-speakers">
+                          <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
+                        </p>
+                        {{/if}}
                       <span class="blacktext ">About {{name}}:</span>
                     </p>
                   {{#if long_biography}}

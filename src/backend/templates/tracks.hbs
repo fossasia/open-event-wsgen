@@ -35,20 +35,23 @@
       {{> navbar}}
 
 
-    <div id="session-list" class="container">
-        <div  style="margin-top:4%" class="main row">
-            <h2 class="filter-heading track-heading text-center">
-        <span>
+  <div id="session-list" class="main container">
+    <div class="row">
+      <div class="middle col-sm-12">
+        <h2 class="filter-heading track-heading text-center">
+          <span>
             Tracks
-        </span>
-            </h2>
-            {{#days}}
-                <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
-            {{/days}}
-        </div>
+          </span>
+        </h2>
+      </div>
+    </div>
      
+      {{#days}}
+      <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
+      {{/days}} 
+    <div id="session-list" style="margin-top: 4%;" class="container">    
       {{#tracks}}
-      <div  style="margin-top:4%" class="main row">
+      <div class="row">
         <div class="col-md-12">
 
           <a class="anchor" id="{{slug}}"></a>
@@ -175,6 +178,7 @@
         </div><!-- /.col-md-12 -->
       </div><!-- /.row -->
       {{/tracks}}
+    </div>
    </div>
     {{> footer}}
   

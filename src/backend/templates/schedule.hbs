@@ -35,9 +35,9 @@
     <body>
 
       {{> navbar}}
-   <div class="container" id="session-list">
-    <div style="margin-top:4%" class="main row">
-    <div class="col-md-12 ">
+   <div class="main container" id="session-list">
+    <div class="row">
+    <div class="middle col-sm-12">
       <h2 class="filter-heading track-heading text-center">
         <span>
           <span>
@@ -45,11 +45,13 @@
           </span>
         </span>
       </h2>
+    </div>
+  </div>
         {{#timeList}}
             <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
         {{/timeList}}
 
-      <div id=track-list class="container">
+      <div id=track-list style="margin-top:4%;" class="container">
 
       {{#timeList}}
           <div style="padding:0" class="col-md-12">
@@ -59,8 +61,8 @@
         {{#times}}
 
         <div class="row">
-          <div class="col-xs-2 col-sm-2 col-md-2">
-          <span class="time-track">{{caption}}</span>
+          <div class="eventtime col-xs-2 col-sm-2 col-md-2">
+          <span>{{caption}}</span>
           </div>
 
           <div class="tracks col-xs-10 col-sm-10 col-md-10">
@@ -135,14 +137,12 @@
           </div>
 
 
-        </div><br>
+        </div>
         {{/times}}
       {{/timeList}}
 
       </div>
     </div>
-    </div>
-   </div>
    <!-- /#session-list -->
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
