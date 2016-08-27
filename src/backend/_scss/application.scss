@@ -508,7 +508,7 @@ a {
   }
   .main {
     margin-top :2%;
-    padding:2%;
+    padding-top:2%;
     margin-bottom :1%;
     background-color: $main-background;
   }
@@ -935,9 +935,16 @@ a {
 .speaker-name {
   color: $light-black;
   height: 22px;
-  text-align: center;
 }
 
+@media only screen and (max-width: 692px) {
+  span.speaker-name {
+    text-align: center;
+  }
+  .pop-box {
+    left: 100px;
+  }
+}
 .middle {
   text-align: center;
   padding: 4%;
