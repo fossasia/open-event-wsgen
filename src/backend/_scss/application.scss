@@ -383,10 +383,11 @@ a {
   width: auto;
   font-weight: 400;
   font-style: normal;
+    span {
+     font-weight :700;
+    }
 }
-.sizeevent span {
-  font-weight :700;
-}
+
 .trackwidth {
   width: 112px;
 }
@@ -498,21 +499,13 @@ a {
   
   }
 
-  @media (min-width: 490px) and (max-width: 768px) {
-    .pop-box {
-      left: 100px;
-    }
-  }
-
   #headline {
     padding:8px;
   }
   .main {
     margin-top :2%;
-    padding:6%;
-    padding-right: 0;
+    padding:2%;
     margin-bottom :1%;
-    border-radius: 4px; 
     background-color: $main-background;
   }
 
@@ -723,7 +716,6 @@ a {
 
 }
 .header-pop {
-  padding: 1%;
   display: inline-block;
   cursor:pointer;
 }
