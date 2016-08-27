@@ -476,6 +476,10 @@ a {
         padding:2%;
         margin:10px;
         word-wrap: break-word;
+        line-height: 20px;
+        font-weight: 400;
+        color: $gray-dark;
+        text-align: justify;
       }
       .pop-footer {
         border-top-left-radius: 5px;
