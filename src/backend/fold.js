@@ -122,7 +122,8 @@ function foldByTime(sessions, speakers, trackInfo) {
     let date = moment(session.start_time).format('YYYY-MM-DD');
     let time = moment(session.start_time).utcOffset(4).format('HH:mm');
     let speakersNum = session.speakers.length;
-
+    const tracktitle = (session.track == null) ? " " : session.track.name;
+      
     console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
@@ -152,6 +153,8 @@ function foldByTime(sessions, speakers, trackInfo) {
       video: session.video,
       slides: session.slides,
       audio: session.audio,
+      sessiondate: moment(session.start_time).format('dddd, Do MMM'),
+      tracktitle: tracktitle,
       speakers: speakersNum
     });
   });
@@ -492,6 +495,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
       tracktitle: tracktitle,
       sessiondate: moment(session.start_time).format('dddd, Do MMM'),
+
       roomname: roomName
 
     });
