@@ -108,7 +108,8 @@
                   {{/if}}
                 </p>
                 {{#speakers_list}}
-                  {{#if photo}}
+                <a href="speakers.html#{{id}}">
+                  {{#if photo}}  
                 <p style="margin-right:20px" class="session-speakers">
                   <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
                 </p>
@@ -125,7 +126,7 @@
                   {{/speakers_list}}
                   </ul>
                 </p>
-               
+                </a>
                   <span class="session-type">{{type}}</span>
                 </p>
                 <div class="session-id" id="desc-{{session_id}}">

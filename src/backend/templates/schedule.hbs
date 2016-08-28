@@ -96,9 +96,12 @@
                  {{#each speakers_list}}
 
                  <div class="pop-over row">
+                  <a href="speakers.html#{{id}}">
                    <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
                    <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
+                   </a>
                    <p>{{organisation}}</p>
+                   
                    <div class="icons row">
                    {{#if website}}
                   <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>

@@ -550,7 +550,8 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       name: speaker.name,
       photo : speaker.photo,
       organisation: speaker.organisation,
-      sessions : getAllSessions(speaker.sessions, sessions, tracksData)
+      sessions : getAllSessions(speaker.sessions, sessions, tracksData),
+      speaker_id: speaker.id
     });
 
  });

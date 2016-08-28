@@ -91,6 +91,7 @@
                     <hr style="clear:both" class="collapse">
                       <div class="session-speakers-list collapse">
                         {{#speakers_list}}
+                       <a href="speakers.html#{{id}}">
                         <p class="session-speakers-less">
                           {{#if photo}}
                           <p style="margin-right:20px" class="session-speakers">
@@ -99,6 +100,7 @@
                         {{/if}}
                       <span class="graytext ">About {{name}}:</span>
                     </p>
+                      </a>
                   {{#if long_biography}}
                     <div class="session-speakers-more">
                       <p>
