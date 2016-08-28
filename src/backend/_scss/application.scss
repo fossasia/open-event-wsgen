@@ -487,6 +487,7 @@ a {
         background: #fff;
         padding:2%;
         line-height: .80em;
+        color: $gray-dark;
        
       }
    
@@ -603,7 +604,7 @@ a {
 
 .eventtime {
   text-align: center;
-  color: black;
+  color: $gray-dark;
   vertical-align: middle;
   height: 46px;
   transform: translateY(30%);
@@ -1213,6 +1214,7 @@ a {
     .tip-description {
       color: $gray-dark;
       line-height: 2;
+      text-align: left;
     }
   }
 
