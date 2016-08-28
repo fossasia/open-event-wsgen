@@ -96,9 +96,12 @@
                  {{#each speakers_list}}
 
                  <div class="pop-over row">
+                  <a href="speakers.html#{{id}}">
                    <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
                    <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
+                   </a>
                    <p>{{organisation}}</p>
+                   
                    <div class="icons row">
                    {{#if website}}
                   <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
@@ -122,11 +125,11 @@
                 <hr style="clear:both;width:75%;">
                 {{/if}}
                 <div class="pop-footer">
-                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{sessiondate}},&nbsp; &nbsp;{{start}} - {{end}}</p>
                   <p>{{location}}</p>
                   <ul class="title-inline">
-                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
-                  <li>{{../title}}</li>
+                    <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                    <li class="blacktext">{{tracktitle}}</li>
                   </ul>
                 </div>
               </div>
