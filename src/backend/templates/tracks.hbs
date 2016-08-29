@@ -31,7 +31,7 @@
       <![endif]-->
     </head>
     <body>
-
+      <a id="top"></a>  
       {{> navbar}}
 
 
@@ -81,7 +81,7 @@
                     <a class="session-link" href="#{{session_id}}">
                       <i class="fa fa-link"></i>
                     </a>
-                    <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                    <input class="inputbox" type="text" onclick="this.select()" value="base#{{session_id}}" style="display:none;">
                     {{#if video}}
                     <a class="video-link" href="{{video}}" target="_blank">
                       <i class="fa fa-youtube-play fa-2x"></i>
@@ -108,25 +108,27 @@
                   {{/if}}
                 </p>
                 {{#speakers_list}}
-                <a href="speakers.html#{{id}}">
+
                   {{#if photo}}  
                 <p style="margin-right:20px" class="session-speakers">
-                  <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                        <a href="speakers.html#{{nameIdSlug}}">
+                        <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                        </a>
                 </p>
                   {{/if}}
                   {{/speakers_list}}
                   <ul style="padding:0">
                   {{#speakers_list}}
-                   <li>
+                   <li><a href="speakers.html#{{id}}">
                    {{name}}
                    {{#if organisation}}
                    ({{organisation}})
                    {{/if}}
-                   </li> 
+                   </a></li>
                   {{/speakers_list}}
                   </ul>
                 </p>
-                </a>
+
                   <span class="session-type">{{type}}</span>
                 </p>
                 <div class="session-id" id="desc-{{session_id}}">
@@ -188,28 +190,17 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
 
       <script src="./js/navbar.js" type="text/javascript"></script>
+      <script src="./js/scroll.js" type="text/javascript"></script>
 
       <script type="text/javascript">
        $(document).ready(function(){
 
         $('.session-link').click(function() {
-          $(this).next('.inputbox').toggle().select();
+            $(this).next('.inputbox').toggle().select();
+            var val = $(this).next('.inputbox').val();
+            $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
       });
-      $(function() {
-      $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      })
-    });
     </script>
  
 </body>

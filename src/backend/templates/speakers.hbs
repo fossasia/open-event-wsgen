@@ -32,7 +32,7 @@
       <![endif]-->
     </head>
   <body style="background-color: #f8f8f8 !important;">
-
+  <a id="top"></a>
     {{> navbar}}
 
 <div class="main container" style="background-color: #fff; padding: 2%">
@@ -51,7 +51,7 @@
     <div class="col-md-3 col-sm-6 speaker-column">
       <div class="speaker">
         <div class="image-holder">
-         <a class="anchor" name="{{speaker_id}}"></a>
+         <a class="anchor" name="{{nameIdSlug}}"></a>
           <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
             <div class="responsive-overlay">
               <div class="text-center preserve3d">
@@ -150,6 +150,7 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
+    <script src="./js/scroll.js" type="text/javascript"></script>
 
   </body>
 </html>

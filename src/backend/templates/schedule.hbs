@@ -33,7 +33,7 @@
     </head>
 
     <body>
-
+      <a id="top"></a>
       {{> navbar}}
    <div class="main container" id="session-list">
     <div class="row">
@@ -82,7 +82,7 @@
                   <a class="session-link" href="#{{session_id}}">
                     Share <i class="fa fa-link"></i>
                   </a>
-                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  <input class="inputbox" type="text" onclick="this.select()" value="base#{{session_id}}" style="display:none;">
                   </span>
                 </div>
                 <div class="pop-over row">
@@ -96,7 +96,7 @@
                  {{#each speakers_list}}
 
                  <div class="pop-over row">
-                  <a href="speakers.html#{{id}}">
+                  <a href="speakers.html#{{nameIdSlug}}">
                    <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
                    <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
                    </a>
@@ -153,12 +153,15 @@
     <script type="text/javascript" src="./js/popover.js"></script>
 
       <script src="./js/navbar.js" type="text/javascript"></script>
+      <script src="./js/scroll.js" type="text/javascript"></script>
 
 
       <script>
     $(document).ready(function(){
       $('.session-link').click(function() {
         $(this).next('.inputbox').toggle().select();
+          var val = $(this).next('.inputbox').val();
+          $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
         });
       });
 

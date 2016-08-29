@@ -1,5 +1,4 @@
-
-@charset 'UTF-8';
+@charset "UTF-8";
 
 // 1.Base
 @import '_base/config';
@@ -270,6 +269,14 @@ a {
   }
 
 }
+
+.section-header {
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 42px;
+  margin-top: 50px;
+}
+
 .inputbox {
   width:35%;;
   padding: 4px;
@@ -727,7 +734,7 @@ a {
 }
 .header-pop {
   display: inline-block;
-  cursor:pointer;
+  //cursor:pointer;
 }
 
 //event page

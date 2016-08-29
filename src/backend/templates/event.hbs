@@ -57,6 +57,7 @@
            <div class="col-md-4">
            </div>
            <div style="padding-right:30px" class="col-md-8">
+             <a id="ticket-button" style="display: block ; position: relative ; top: -87px ; visibility: hidden; "></a>  
              <a href="{{{eventurls.register}}}" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
            </div>
          </div>
@@ -78,11 +79,11 @@
           <div style="padding:0px;" class="container">
             <div class="row">
               <div class="col-sm-12 text-center">
-                  <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Featured Speakers</h1>
+                  <h1 class="section-header">Featured Speakers</h1>
               </div>
             </div> 
           </div>
-            <div class="row">
+            <div class="row" style="margin-top: 50px">
               {{#speakerslist}}{{#if featured}}
 
               <div class="col-md-6 col-sm-12">
@@ -160,7 +161,7 @@
     <section class="sponsorscont">
       <div style="margin-right:0;margin-left:0;"  class="row">
         <div class="col-sm-12 col-md-12 col-xs-12 text-center">
-        <h1 style="font-size: 30px;line-height: 36px;margin-bottom: 42px;">Proudly supported by</h1><br>
+        <h1 class="section-header">Proudly supported by</h1><br>
         </div>
       </div>
       <div style="margin-right:0;margin-left:0;"  class="row">
@@ -223,24 +224,8 @@
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
     <script src="./js/navbar.js" type="text/javascript"></script>
+    <script src="./js/scroll.js" type="text/javascript"></script>
 
-   <script type="text/javascript">
-      $(function() {
-      $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      })
-    });
-
-    </script>
     <script>
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
