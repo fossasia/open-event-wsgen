@@ -71,7 +71,7 @@
                 {{/if}} 
                 </div>
               </div>
-              <div class="eventtime col-xs-2 col-sm-4 col-md-2">
+              <div class="eventtime col-xs-2 col-sm-2 col-md-2">
                 <span class="time-track">{{start}}</span>
               </div>
                <div class="room-container"
@@ -79,7 +79,7 @@
                 data-target="#desc-{{session_id}} .collapse"
                 aria-expanded="false"
                 aria-controls="desc-{{session_id}}">
-                  <div class="left-border col-xs-10 col-sm-10 col-md-9">
+                  <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
                     <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                       {{title}}
                     </h4>
@@ -178,7 +178,22 @@
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
 
-      <script src="./js/navbar.js" type="text/javascript"></script>
-
+    <script src="./js/navbar.js" type="text/javascript"></script>
+    <script type="text/javascript">
+         $(function() {
+      $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      })
+    });
+    </script>
   </body>
 </html>

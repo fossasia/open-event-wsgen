@@ -643,9 +643,11 @@ a {
   }
   .title-inline { 
     padding:0;
+    position: relative;
+    left: 70px;
     li{
       display:inline-block;
-      max-width: 188.7px;
+      max-width: 188.6px;
       word-wrap: break-word;
       vertical-align: top;
     }
