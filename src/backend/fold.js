@@ -546,8 +546,6 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
           }
         }
       }
-      
-      speaker.nameIdSlug = slugify(speaker.name + speaker.id)
     });
   }
 
@@ -568,7 +566,8 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       photo : speaker.photo,
       organisation: speaker.organisation,
       sessions : getAllSessions(speaker.sessions, sessions, tracksData),
-      speaker_id: speaker.id
+      speaker_id: speaker.id,
+      nameIdSlug: slugify(speaker.name + speaker.id)
     });
 
  });
