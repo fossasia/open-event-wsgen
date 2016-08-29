@@ -86,7 +86,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       title: session.title,
       type: session_type,
       location: roomName,
-      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      speakers_list: session.speakers.map((speaker) => {
+        let spkr = speakersMap.get(speaker.id);
+        spkr.nameIdSlug = slugify(spkr.name + spkr.id);
+        return spkr;
+      }),
       description: session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
@@ -146,7 +150,11 @@ function foldByTime(sessions, speakers, trackInfo) {
       title: session.title,
       type: session_type,
       location: roomName,
-      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      speakers_list: session.speakers.map((speaker) =>  {
+        let spkr = speakersMap.get(speaker.id);
+        spkr.nameIdSlug = slugify(spkr.name + spkr.id);
+        return spkr;
+      }),
       description: session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
@@ -492,7 +500,11 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       title: session.title,
       description: session.long_abstract,
       session_id: session.id,
-      speakers_list: session.speakers.map((speaker) => speakersMap.get(speaker.id)),
+      speakers_list: session.speakers.map((speaker) => {
+        let spkr = speakersMap.get(speaker.id);
+        spkr.nameIdSlug = slugify(spkr.name + spkr.id);
+        return spkr;
+      }),
       tracktitle: tracktitle,
       sessiondate: moment(session.start_time).format('dddd, Do MMM'),
 
@@ -528,13 +540,14 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
         else  if (reqOpts.datasource === 'eventapi' ) {
           speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
         } else {
-        var reg = speaker.photo.split('');
-        if(reg[0] =='/'){
-          speaker.photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+          var reg = speaker.photo.split('');
+          if(reg[0] =='/'){
+            speaker.photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+          }
         }
       }
-
-      }
+      
+      speaker.nameIdSlug = slugify(speaker.name + speaker.id)
     });
   }
 
