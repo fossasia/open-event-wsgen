@@ -47,9 +47,9 @@
       </div>
     </div>
 
-    {{#days}}
-        <span class="date-pill"><a href="./rooms.html#{{caption}}"> {{caption}} </a></span>
-    {{/days}}
+    {{#timeList}}
+        <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
+    {{/timeList}}
 
     <div id="session-list" class="container">
       <div class="row">
@@ -58,7 +58,7 @@
             {{#roomsinfo}}
             <div class="row">
               <div style="padding:0" class="col-md-12">
-              <a class="anchor" id="{{date}}"></a>
+              <a class="anchor" id="{{slug}}"></a>
               <h5 class="text">{{date}}</h4>
               </div>
             </div>
