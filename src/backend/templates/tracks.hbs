@@ -108,25 +108,27 @@
                   {{/if}}
                 </p>
                 {{#speakers_list}}
-                <a href="speakers.html#{{id}}">
+
                   {{#if photo}}  
                 <p style="margin-right:20px" class="session-speakers">
-                  <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                        <a href="speakers.html#{{nameIdSlug}}">
+                        <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                        </a>
                 </p>
                   {{/if}}
                   {{/speakers_list}}
                   <ul style="padding:0">
                   {{#speakers_list}}
-                   <li>
+                   <li><a href="speakers.html#{{id}}">
                    {{name}}
                    {{#if organisation}}
                    ({{organisation}})
                    {{/if}}
-                   </li> 
+                   </a></li>
                   {{/speakers_list}}
                   </ul>
                 </p>
-                </a>
+
                   <span class="session-type">{{type}}</span>
                 </p>
                 <div class="session-id" id="desc-{{session_id}}">
