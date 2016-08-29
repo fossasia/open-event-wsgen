@@ -195,8 +195,7 @@
         $('.session-link').click(function() {
             $(this).next('.inputbox').toggle().select();
             var val = $(this).next('.inputbox').val();
-            val = val.replace('base', window.location.href);
-            $(this).next('.inputbox').val(window.location.href.split('#')[0] + val)
+            $(this).next('.inputbox').val(window.location.href.split('#')[0] + val.split('#').pop());
         });
       });
       $(function() {
