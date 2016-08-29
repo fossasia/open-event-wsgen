@@ -160,7 +160,7 @@
       $('.session-link').click(function() {
         $(this).next('.inputbox').toggle().select();
           var val = $(this).next('.inputbox').val();
-          $(this).next('.inputbox').val(window.location.href.split('#')[0] + val.split('#').pop());
+          $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
         });
       });
 </script> 
