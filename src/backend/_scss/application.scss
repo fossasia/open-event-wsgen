@@ -1,5 +1,4 @@
-
-@charset 'UTF-8';
+@charset "UTF-8";
 
 // 1.Base
 @import '_base/config';
@@ -270,6 +269,14 @@ a {
   }
 
 }
+
+h1.section-header {
+  font-size: 30px;
+  line-height: 36px;
+  margin-top: 50px;
+  margin-bottom: 42px;
+}
+
 .inputbox {
   width:35%;;
   padding: 4px;
