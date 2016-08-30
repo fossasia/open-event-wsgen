@@ -52,7 +52,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
-    const slug = date + '-' + slugify(trackName);
+    const slug = date + '-' + trackName;
     let track = null;
 
     // set up track if it does not exist
