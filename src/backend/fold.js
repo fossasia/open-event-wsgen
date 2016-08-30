@@ -61,6 +61,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         date: moment(session.start_time).format('dddd, Do MMM'),
+        sortKey: moment(session.start_time).format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -106,7 +107,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
   let tracks = Array.from(trackData.values());
 
-  tracks.sort(byProperty('date'));
+  tracks.sort(byProperty('sortKey'));
 
   return tracks;
 }
@@ -469,6 +470,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
         date: moment(session.start_time).utcOffset(4).format('dddd, Do MMM'),
+        sortKey: moment(session.start_time).utcOffset(4).format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -518,7 +520,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 
   let roomsDetail = Array.from(roomData.values());
 
-  roomsDetail.sort(byProperty('date'));
+  roomsDetail.sort(byProperty('sortKey'));
 
   return roomsDetail;
 }
