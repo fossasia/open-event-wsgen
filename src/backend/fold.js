@@ -197,6 +197,46 @@ function foldByDate(tracks) {
   return dates;
 }
 
+function returnTracknames(sessions, trackInfo) {
+  
+  const trackData = new Map();
+  const trackDetails = new Object();
+
+  trackInfo.forEach((track) => {
+    trackDetails[track.id] = track.color;
+  });
+
+  sessions.forEach((session) => {
+    if (!session.start_time) {
+      return;
+    }
+    
+    const trackName = (session.track == null) ? 'deftrack' : session.track.name;
+    // generate slug/key for session
+    const slug = trackName;
+    let track = null;
+
+    // set up track if it does not exist
+    if (!trackData.has(slug) && (session.track != null)) {
+      track = {
+        title: session.track.name,
+        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        slug: slug
+      };
+      trackData.set(slug, track);
+    } else {
+      track = trackData.get(slug);
+    }
+  });
+
+  let tracks = Array.from(trackData.values());
+
+  tracks.sort(byProperty('sortKey'));
+
+  return tracks;
+}  
+
 function createSocialLinks(event) {
 
   const sociallinks = Array.from(event.social_links);
@@ -627,3 +667,4 @@ module.exports.getAppName = getAppName;
 module.exports.getOrganizerName = getOrganizerName;
 module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;
+module.exports.returnTracknames = returnTracknames;
