@@ -57,10 +57,11 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   const apptitle = fold.getAppName(event);
   const timeList = fold.foldByTime(sessions, speakers, tracksData);
   const metaauthor = fold.getOrganizerName(event);
+  const tracknames = fold.returnTracknames(sessions, tracksData);
   
   return {tracks, days, sociallinks, 
     eventurls, copyright, sponsorpics, 
-    roomsinfo, apptitle, speakerslist, timeList, metaauthor};
+    roomsinfo, apptitle, speakerslist, timeList, metaauthor,tracknames};
 }
 
 function getJsonData(reqOpts) {
