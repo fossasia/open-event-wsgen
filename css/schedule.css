@@ -58,6 +58,9 @@ a {
   padding: 6px 10px;
   color: #777; }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #777; }
+
 /* General styling of session list */
 .sessions .session-description {
   color: #777; }
@@ -497,10 +500,12 @@ a {
   border-radius: 50%; }
 
 .title-inline {
-  padding: 0; }
+  padding: 0;
+  position: relative;
+  left: 70px; }
   .title-inline li {
     display: inline-block;
-    max-width: 188.7px;
+    max-width: 188.6px;
     word-wrap: break-word;
     vertical-align: top; }
 
