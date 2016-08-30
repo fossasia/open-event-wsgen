@@ -530,6 +530,11 @@ function getAppName(event) {
     return name;
 }
 
+function getOrganizerName(event) {
+    const name = event.organizer_name;
+    return name;
+}
+
 function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
@@ -619,5 +624,6 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
+module.exports.getOrganizerName = getOrganizerName;
 module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;
