@@ -24,17 +24,46 @@ The component that is generator from the web app are the event websites. A sampl
 
 ### Components and Technology
 
-The webapp generator used following technologies - 
+#### Technologies used
+
+The webapp generator uses the following technologies - 
  1. HTML/CSS/Javascript based frontend
  2. [Node.js](http://nodejs.org) /Javascript for the generator backend
  3. [Express.js](http://expressjs.com) - Server framework
  4. [Handelbars](http://handlebarsjs.com) - Template for rendering
  5. [Socket.io](http://socket.io) - For handling multi-user client, with progress of upload/generation
 
-Please check the [components documentation](/docs/COMPONENTS.md) to learn about the components, and how to change the final outcome of the HTML generated. 
+#### Components of the Generator
 
-### Configurations
-You can find documentation and details of various configurations of the server [here](/docs/CONFIGURATIONS.md) 
+1. Webform
+
+ The source of the webform can be found [here](/src/www). It consists of - 
+
+ - [index.html](/src/www/index.html) - The webform page
+ - [form.js](/src/www/js/form.js) - The script that uploads the zips, and starts the generator process
+ 
+2. Generator
+
+ The generator runs on a ExpressJS server, using this main [app script](/src/app.js). 
+
+3. Scripts
+
+ - [generator.js](/src/backend/generator.js) - Does the main generation tasks, and controls other scripts
+ - [fold.js](/src/backend/fold.js) - Groups data of sessions, speakers, tracks etc from JSONs
+ - [dist.js](/src/backend/dist.js) - Creates folders, cleans folders, unzips/zips packages
+ - [ftpdeploy.js](/src/backend/ftpdeploy.js) - Deploys finished website to organiser's server (optional)
+ - [mailer.js](/src/backend/mailer.js) - Sends mail to organiser notifying of successful creation
+ 
+4. Templates
+
+ The HTML pages of the generated website are created using Handelbars templates. You can find all the templates [here](/src/backend/templates) - 
+
+  - **footer.hbs** : Common template for footer on all pages
+  - **navbar.hbs** : Common template for navbar on all pages
+  - **event.hbs** : index.html - Home page
+  - **rooms.hbs** : rooms.html - Venues page
+  - **schedule.hbs** : tracks.html - Tracks page
+  - **speakers.hbs** : speakers.html - Speakers page
 
 ### Web App Generator Test Installation
 
@@ -101,13 +130,55 @@ POST /generate
 |apiendpoint| (if datasource = eventapi) API endpoint url | |
 
 
+## Configurations
+
+All configurations are saved in the [config.js](/config.json) file.  
+
+NOTE: In this document all `config.<obj>` variables refer to the data in the *config.json* file. 
+
+### Server Configs
+
+#### PORT
+| Variable | Description |
+| ----     | ----        |
+`process.env.PORT` |(Can be described in shell env, or in Heroku type platforms)
+`config.PORT` |(Falls back to config file if above not found)
+
+#### Mailer
+We use Sendgrid to send mails, and you need a Sendgrid API to make it work. 
+
+| Variable | Description |
+| ----     | ----        |
+`process.env.SENDGRID_API_KEY` | (Tries to get from shell env first) 
+`config.SENDGRID_API_KEY` | (Falls back to config file) 
+
+
+#### Images
+We need to process all the speaker images and there are certain configs used - 
+
+| Variable | Description |
+| ----     | ----        |
+`config.speaker_images.MAX_WIDTH` |(Max needed height of speaker image)
+`config.speaker_images.MAX_HEIGHT` |(Max needed width of speaker image)
+`config.speaker_images.TRACK_HEIGHT_REM` |(Speaker image height, in CSS rem units, for tracks page)
+`config.speaker_images.TRACK_WIDTH_REM` |(Speaker image width, in CSS rem units, for tracks page)
+
+#### Audio 
+Some sessions can have a recorded audio attached to them. The parameters for that are 
+
+| Variable | Description |
+| ----     | ----        |
+`config.audio_files.MAX_SIZE_MB` | Max size of the audio (limited by Github file size)
+
 
 ## Contributions, Bug Reports, Feature Requests
 
 This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests submitting pull requests as well. Please report issues here https://github.com/fossasia/open-event-webapp/issues
 
 
-## Branch Policy
+## Issue and Branch Policy
+
+Before making a pull request, please file an issue. So, other developers have the chance to give feedback or discuss details. Match every pull request with an issue please and add the issue number in description e.g. like "Fixes #123".
 
 We have the following branches   
  * **development**   
