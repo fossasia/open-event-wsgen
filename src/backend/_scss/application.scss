@@ -86,6 +86,10 @@ a {
   color: $gray-dark;
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: $gray-dark;
+}
+
 /* General styling of session list */
 
 .sessions {

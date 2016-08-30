@@ -52,7 +52,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
-    const slug = date + '-' + slugify(trackName);
+    const slug = date + '-' + trackName;
     let track = null;
 
     // set up track if it does not exist
@@ -61,6 +61,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -106,7 +107,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
   let tracks = Array.from(trackData.values());
 
-  tracks.sort(byProperty('date'));
+  tracks.sort(byProperty('sortKey'));
 
   return tracks;
 }
@@ -469,6 +470,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -518,13 +520,18 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 
   let roomsDetail = Array.from(roomData.values());
 
-  roomsDetail.sort(byProperty('date'));
+  roomsDetail.sort(byProperty('sortKey'));
 
   return roomsDetail;
 }
 
 function getAppName(event) {
     const name = event.name;
+    return name;
+}
+
+function getOrganizerName(event) {
+    const name = event.organizer_name;
     return name;
 }
 
@@ -617,5 +624,6 @@ module.exports.foldByLevel = foldByLevel;
 module.exports.foldByRooms = foldByRooms;
 module.exports.slugify = slugify;
 module.exports.getAppName = getAppName;
+module.exports.getOrganizerName = getOrganizerName;
 module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;

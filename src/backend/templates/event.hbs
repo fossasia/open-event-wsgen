@@ -11,8 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <meta name="description" content="OpenTechSummit 2016 Schedule">
-  <meta name="author" content="OpenTechSummit">
+  <meta name="description" content="{{ apptitle }} Schedule">
+  <meta name="author" content="{{ metaauthor }}">
 
   <title>{{ apptitle }}</title>
 
@@ -51,6 +51,7 @@
     </div>
 
   <div class="eventpage container" style="background-color: white;"> 
+    {{#if eventurls.register}}
     <div class="listing-panel row">
         <div class="col-md-12">
          <div class="row">
@@ -63,6 +64,7 @@
          </div>
         </div>
     </div>
+    {{/if}}
     <a id="description"></a>
     <div class ="container">
       {{#if eventurls.description}}
