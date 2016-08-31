@@ -47,9 +47,11 @@
       </div>
     </div>
 
+    <p class="date-list">
     {{#timeList}}
         <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
     {{/timeList}}
+    </p>
 
     <div id="session-list" class="container">
       <div class="row">
@@ -166,7 +168,7 @@
         {{# tracknames}}
         {{#if title}}
          
-            <ul class="title-inline">
+            <ul class="title-inline title-legend">
               <li  style="background-color:{{{color}}}" class="titlecolor"></li>
               <li>{{title}}</li>
             </ul>
