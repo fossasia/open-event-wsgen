@@ -655,7 +655,6 @@ a {
   .title-inline { 
     padding:0;
     position: relative;
-    left: 70px;
     li{
       display:inline-block;
       max-width: 188.6px;
@@ -664,6 +663,10 @@ a {
     }
   }
 
+  .title-legend {
+    left: 70px;
+  } 
+
   .track-names {
     margin-top: 16%;
     color: black;
@@ -671,7 +674,7 @@ a {
 
  @media (max-width: 990px) {
     .title-inline {
-      width: 50%;
+      width: 40%;
       float: left;
     }
     .track-names {
