@@ -415,11 +415,16 @@ a {
 
 }
 
+.date-list {
+  line-height: 40px;
+}
+
 .date-pill {
   border: thin solid;
   border-radius: 4px;
   margin: 10px;
   padding: 6px;
+  white-space: nowrap;
 }
 
 #track-list { 
@@ -607,6 +612,11 @@ a {
   width:299px;
 }
 */
+
+.track-heading {
+  margin-top: 40px;
+}
+
 .active {
   color: $black !important;
   font-weight: bold;
