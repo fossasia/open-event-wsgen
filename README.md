@@ -14,7 +14,7 @@ The Open Event Web App project has two components a) a event website generator a
 
 Please join our mailing list to discuss questions regarding the project: https://groups.google.com/forum/#!forum/open-event
 
-Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-web-app
+Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-webapp
 
 ## 1. Event Website Output
 
