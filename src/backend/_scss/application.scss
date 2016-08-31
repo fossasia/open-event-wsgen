@@ -673,24 +673,24 @@ a {
     }
   }
 
-  .title-legend {
-    left: 70px;
-  } 
+.title-legend {
+  left: 70px;
+}
 
-  .track-names {
-    margin-top: 16%;
-    color: black;
-  } 
+.track-names {
+  margin-top: 16%;
+  color: black;
+} 
 
- @media (max-width: 990px) {
-    .title-inline {
-      width: 40%;
-      float: left;
-    }
-    .track-names {
-      margin-top :0;
-    }
+@media (max-width: 990px) {
+  .title-inline {
+    float: left;
+    width: 40%;
   }
+  .track-names {
+    margin-top :0;
+  }
+}
 
 /*
 @media (max-width: 1202px) and (min-width: 760px){
