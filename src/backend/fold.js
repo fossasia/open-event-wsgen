@@ -522,18 +522,16 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     if (room == undefined) {
       return;
     }
+    
+    let venue = '';
     if(session.microlocation !== null ) {
-     const slug2 = date + '-' + session.microlocation.name ;
-    if(microlocationArray.indexOf(slug2) == -1 ) {
-      microlocationArray.push(slug2);
-      var venue = session.microlocation.name;
-    }
-  }
-    else {
-      venue = "";
+      const slug2 = date + '-' + session.microlocation.name ;
+      if(microlocationArray.indexOf(slug2) == -1 ) {
+        microlocationArray.push(slug2);
+      }
+      venue = session.microlocation.name;
     }
 
-   
     room.sessions.push({
       start: moment.utc(session.start_time).local().format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
@@ -549,18 +547,30 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       }),
       tracktitle: tracktitle,
       sessiondate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-
-      roomname: roomName
-
+      roomname: roomName,
+      sortKey: venue + moment.utc(session.start_time).local().format('HH:mm')
     });
-
-
-
   });
 
   let roomsDetail = Array.from(roomData.values());
-
   roomsDetail.sort(byProperty('sortKey'));
+  
+  let roomsDetailLength = roomsDetail.length;
+  for (let i = 0; i < roomsDetailLength; i++) {
+    // sort all sessions in each day by 'venue + date'
+    roomsDetail[i].sessions.sort(byProperty('sortKey'));
+
+    // remove venue names from all but the 1st session in each venue
+    let sessionsLength = roomsDetail[i].sessions.length;
+    let prevVenue = '';
+    for (let j = 0; j < sessionsLength; j++) {
+      if (roomsDetail[i].sessions[j].venue == prevVenue) {
+        roomsDetail[i].sessions[j].venue = '';
+      } else {
+        prevVenue = roomsDetail[i].sessions[j].venue; 
+      }
+    }
+  }
 
   return roomsDetail;
 }
