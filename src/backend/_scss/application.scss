@@ -495,7 +495,6 @@ a {
         line-height: 20px;
         font-weight: 400;
         color: $gray-dark;
-        text-align: justify;
       }
       .pop-footer {
         border-top-left-radius: 5px;
@@ -674,7 +673,7 @@ a {
   }
 
 .title-legend {
-  left: 70px;
+  left: 0;
 }
 
 .track-names {
