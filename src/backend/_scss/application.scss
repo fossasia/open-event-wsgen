@@ -415,11 +415,16 @@ a {
 
 }
 
+.date-list {
+  line-height: 40px;
+}
+
 .date-pill {
   border: thin solid;
   border-radius: 4px;
   margin: 10px;
   padding: 6px;
+  white-space: nowrap;
 }
 
 #track-list { 
@@ -490,7 +495,6 @@ a {
         line-height: 20px;
         font-weight: 400;
         color: $gray-dark;
-        text-align: justify;
       }
       .pop-footer {
         border-top-left-radius: 5px;
@@ -607,6 +611,11 @@ a {
   width:299px;
 }
 */
+
+.track-heading {
+  margin-top: 40px;
+}
+
 .active {
   color: $black !important;
   font-weight: bold;
@@ -655,7 +664,6 @@ a {
   .title-inline { 
     padding:0;
     position: relative;
-    left: 70px;
     li{
       display:inline-block;
       max-width: 188.6px;
@@ -664,20 +672,25 @@ a {
     }
   }
 
-  .track-names {
-    margin-top: 16%;
-    color: black;
-  } 
+.title-legend {
+  left: 0;
+}
 
- @media (max-width: 990px) {
-    .title-inline {
-      width: 50%;
-      float: left;
-    }
-    .track-names {
-      margin-top :0;
-    }
+.track-names {
+  color: $black;
+  margin-top: 16%;
+}
+
+@media (max-width: 990px) {
+  .title-inline {
+    float: left;
+    width: 40%;
   }
+
+  .track-names {
+    margin-top: 0;
+  }
+}
 
 /*
 @media (max-width: 1202px) and (min-width: 760px){
