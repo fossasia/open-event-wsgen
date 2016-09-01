@@ -21,7 +21,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
- <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
   <link rel="stylesheet" href="./dependencies/bootstrap.min.css">
   <link rel="stylesheet" href="./css/schedule.css">
 
@@ -37,19 +37,19 @@
     {{> navbar}}
 
   <div class="main container">
-     <div class="row">
+    <div class="row">
       <div class="middle col-sm-12">
           <h2 class="filter-heading track-heading text-center">
-          <span>
-             Venue
-          </span>
+            <span>
+              Venue
+            </span>
           </h2>
       </div>
     </div>
 
     <p class="date-list">
     {{#timeList}}
-        <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
+      <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
     {{/timeList}}
     </p>
 
@@ -60,8 +60,8 @@
             {{#roomsinfo}}
             <div class="row">
               <div style="padding:0" class="col-md-12">
-              <a class="anchor" id="{{slug}}"></a>
-              <h5 class="text">{{date}}</h4>
+                <a class="anchor" id="{{slug}}"></a>
+                <h5 class="text">{{date}}</h4>
               </div>
             </div>
             <div class="row">
@@ -76,110 +76,108 @@
               <div class="eventtime col-xs-2 col-sm-2 col-md-2">
                 <span class="time-track">{{start}}</span>
               </div>
-               <div class="room-container"
+              <div class="room-container"
                 data-toggle="collapse"
                 data-target="#desc-{{session_id}} .collapse"
                 aria-expanded="false"
                 aria-controls="desc-{{session_id}}">
-                  <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
-                    <h4 style="background-color:{{{color}}}"  class="sizeevent event">
-                      {{title}}
-                    </h4>
-                    <div  id="desc-{{session_id}}">
-                      <p class="collapse">
-                        <span class="tip-description">{{{description}}}
-                        </span>
-                      </p>
-                    <hr style="clear:both" class="collapse">
-                      <div class="session-speakers-list collapse">
-                       {{#speakers_list}}
-                       <a href="speakers.html#{{nameIdSlug}}">
+                <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
+                  <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                    {{title}}
+                  </h4>
+                  <div id="desc-{{session_id}}">
+                    <p class="collapse">
+                      <span class="tip-description">{{{description}}}
+                      </span>
+                    </p>
+                  <hr style="clear:both" class="collapse">
+                    <div class="session-speakers-list collapse">
+                    {{#speakers_list}}
+                      <a href="speakers.html#{{nameIdSlug}}">
                         <p class="session-speakers-less">
-                          {{#if photo}}
                           <p style="margin-right:20px" class="session-speakers">
-                           <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
-                          </p>
-                          {{/if}}
-                          {{#if long_biography}}
-                          <span class="graytext ">About {{name}}:</span>
+                          {{#if photo}}
+                            <img onError="this.onerror=null;this.src='dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
                           {{else}}
-                          <span class="graytext ">{{name}}</span>
+                            <img class="card-img-top" src="dependencies/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
                           {{/if}}
+                          </p>
+                          <span class="graytext">{{name}}</span>
                         </p>
                       </a>
-                    {{#if long_biography}}
-                    <div class="session-speakers-more">
-                      <p>
-                        <span class="blacktext tip-description">{{{long_biography}}}</span>
+                      {{#if organisation}}
+                      <p class="session-speakers-more">
+                        {{organisation}}
                       </p>
+                      {{/if}}
+                      {{#if long_biography}}
+                      <p class="session-speakers-more">
+                        {{long_biography}}
+                      </p>
+                      {{/if}}
                       <p class="blacktext session-speaker-social">
-                      {{#if web}}
-                        <a class="blacktext social speaker-social" href="{{{web}}}"}>
-                          <i class="fa fa-home"></i> Web
-                        </a>&nbsp;
-                      {{/if}}
-                      {{#if github}}
-                        <a class="blacktext  social speaker-social" href="{{{github}}}"}>
-                          <i class="fa fa-github"></i> Github
-                        </a>&nbsp;
-                      {{/if}}
-                      {{#if twitter}}
-                        <a class="blacktext  social speaker-social" href="{{{twitter}}}"}>
-                          <i class="fa fa-twitter"></i> Twitter
-                        </a>&nbsp;
-                       {{/if}}
-                       {{#if linkedin}} 
-                        <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
-                          <i class="fa fa-linkedin"></i> LinkedIn
-                        </a>
-                        {{/if}}
+                        <div class="session-speakers-more">
+                          {{#if website}}
+                          <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                            <i class="fa fa-home"></i> Web
+                          </a>&nbsp;
+                          {{/if}}
+                          {{#if github}}
+                          <a class="blacktext  social speaker-social" href="{{{github}}}"}>
+                            <i class="fa fa-github"></i> Github
+                          </a>&nbsp;
+                          {{/if}}
+                          {{#if twitter}}
+                          <a class="blacktext  social speaker-social" href="{{{twitter}}}"}>
+                            <i class="fa fa-twitter"></i> Twitter
+                          </a>&nbsp;
+                          {{/if}}
+                          {{#if linkedin}}
+                          <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
+                            <i class="fa fa-linkedin"></i> LinkedIn
+                          </a>
+                          {{/if}}
+                        </div>
                       </p>
-                    </div>
-                    {{/if}}
-                    <hr style="clear:both">
+                      <hr style="clear:both">
                     {{/speakers_list}}
-                    <div class="blacktext">
-                    {{#if roomname}}
-                    <p><i>{{roomname}}</i></p>
-                    {{/if}}
-                    {{#if sessiondate}}
-                    <p> {{sessiondate}}, <span>{{start}} - {{end}}</span></p>
-                    {{/if}}
-                    <p> 
-                    <ul class="title-inline">
-                      <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
-                      <li class="blacktext">{{tracktitle}}</li>
-                    </ul>
-                    </p><br>
+                      <div class="blacktext">
+                        {{#if roomname}}
+                        <p><i>{{roomname}}</i></p>
+                        {{/if}}
+                        {{#if sessiondate}}
+                        <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
+                        {{/if}}
+                        <p> 
+                          <ul class="title-inline">
+                            <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                            <li class="blacktext">{{tracktitle}}</li>
+                          </ul>
+                        </p><br>
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
-              
-             </div> 
-               {{/sessions}}
+              {{/sessions}}
             </div>
-              
-              {{/roomsinfo}}
+            {{/roomsinfo}}
           </div>
         </div>
         <div class="track-names">
-        {{# tracknames}}
+        {{#tracknames}}
         {{#if title}}
-         
-            <ul class="title-inline title-legend">
-              <li  style="background-color:{{{color}}}" class="titlecolor"></li>
-              <li>{{title}}</li>
-            </ul>
-          
+          <ul class="title-inline title-legend">
+            <li  style="background-color:{{{color}}}" class="titlecolor"></li>
+            <li>{{title}}</li>
+          </ul>
         {{/if}}
         {{/tracknames}}  
         </div>     
-        </div>   
-      </div>
+      </div>   
     </div>
   </div>
+  
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
