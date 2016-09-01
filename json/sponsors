@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1, 
+        "name": "Google", 
+        "logo": "/images/sponsors/Google_1.png", 
+        "level": "1", 
+        "sponsor_type": "Diamond", 
+        "url": "https://developers.google.com/open-source/", 
+        "description": ""
+    }, 
+    {
+        "id": 2, 
+        "name": "RedHat", 
+        "logo": "/images/sponsors/Redhat_2.png", 
+        "level": "2", 
+        "sponsor_type": "Platinum", 
+        "url": "http://redhat.com", 
+        "description": ""
+    }, 
+    {
+        "id": 3, 
+        "name": "GitHub", 
+        "logo": "/images/sponsors/Github_3.png", 
+        "level": "1", 
+        "sponsor_type": "Platinum", 
+        "url": "http://github.com", 
+        "description": ""
+    }, 
+    {
+        "id": 4, 
+        "name": "MySQL", 
+        "logo": "/images/sponsors/Mysql_4.png", 
+        "level": "4", 
+        "sponsor_type": "Gold", 
+        "url": "http://mysql.com", 
+        "description": ""
+    }, 
+    {
+        "id": 5, 
+        "name": "FOSSASIA", 
+        "logo": "/images/sponsors/Fossasia_5.png", 
+        "level": "1", 
+        "sponsor_type": "Diamond", 
+        "url": "http://blog.fossasia.org/", 
+        "description": ""
+    }, 
+    {
+        "id": 6, 
+        "name": "UNESCO", 
+        "logo": "/images/sponsors/Unesco_6.png", 
+        "level": "3", 
+        "sponsor_type": "Gold", 
+        "url": "http://www.unesco.org/new/en/communication-and-information/access-to-knowledge/free-and-open-source-software-foss/", 
+        "description": ""
+    }, 
+    {
+        "id": 7, 
+        "name": "MBM", 
+        "logo": "/images/sponsors/Mbm_7.png", 
+        "level": "2", 
+        "sponsor_type": "Gold", 
+        "url": "http://mbm.asia/", 
+        "description": ""
+    }, 
+    {
+        "id": 8, 
+        "name": "hackerspace.sg", 
+        "logo": "/images/sponsors/Hackerspace.Sg_8.png", 
+        "level": "5", 
+        "sponsor_type": "Silver", 
+        "url": "https://hackerspace.sg/", 
+        "description": ""
+    }, 
+    {
+        "id": 9, 
+        "name": "NUS Enterprise", 
+        "logo": "/images/sponsors/NusEnterprise_9.png", 
+        "level": "4", 
+        "sponsor_type": "Silver", 
+        "url": "http://enterprise.nus.edu.sg/", 
+        "description": ""
+    }, 
+    {
+        "id": 10, 
+        "name": "Python", 
+        "logo": "/images/sponsors/Python_10.png", 
+        "level": "5", 
+        "sponsor_type": "Silver", 
+        "url": "https://www.python.org/", 
+        "description": ""
+    }, 
+    {
+        "id": 11, 
+        "name": "Science Centre Singapore", 
+        "logo": "/images/sponsors/ScienceCentreSingapore_11.png", 
+        "level": "1", 
+        "sponsor_type": "Gold", 
+        "url": "http://www.science.edu.sg/", 
+        "description": ""
+    }, 
+    {
+        "id": 12, 
+        "name": "Youth Mobile", 
+        "logo": "/images/sponsors/YouthMobile_12.png", 
+        "level": "4", 
+        "sponsor_type": "Bronze", 
+        "url": "http://www.youthmobile.org/", 
+        "description": ""
+    }
+]

@@ -1,0 +1,138 @@
+[
+    {
+        "id": 1, 
+        "name": "Dalton Hall", 
+        "floor": 1, 
+        "latitude": 1.333169, 
+        "longitude": 103.735516, 
+        "room": null
+    }, 
+    {
+        "id": 2, 
+        "name": "Lewis Lab", 
+        "floor": 3, 
+        "latitude": 1.332835, 
+        "longitude": 103.735677, 
+        "room": null
+    }, 
+    {
+        "id": 3, 
+        "name": "Digital Design Studio", 
+        "floor": 1, 
+        "latitude": 1.332668, 
+        "longitude": 103.735725, 
+        "room": null
+    }, 
+    {
+        "id": 4, 
+        "name": "Digital Design Studio", 
+        "floor": 1, 
+        "latitude": 1.332835, 
+        "longitude": 103.735677, 
+        "room": null
+    }, 
+    {
+        "id": 5, 
+        "name": "Observatory Room", 
+        "floor": 1, 
+        "latitude": 1.332913, 
+        "longitude": 103.735716, 
+        "room": null
+    }, 
+    {
+        "id": 6, 
+        "name": "Eco Garden Lab", 
+        "floor": 1, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 7, 
+        "name": "Planck Lab", 
+        "floor": 3, 
+        "latitude": 1.332782, 
+        "longitude": 103.736022, 
+        "room": null
+    }, 
+    {
+        "id": 8, 
+        "name": "Faraday Lab", 
+        "floor": 3, 
+        "latitude": 1.332587, 
+        "longitude": 103.735938, 
+        "room": null
+    }, 
+    {
+        "id": 9, 
+        "name": "Pauling Lab", 
+        "floor": 3, 
+        "latitude": 1.332636, 
+        "longitude": 103.735806, 
+        "room": null
+    }, 
+    {
+        "id": 10, 
+        "name": "Fermi Lab", 
+        "floor": 3, 
+        "latitude": 1.332768, 
+        "longitude": 103.736008, 
+        "room": null
+    }, 
+    {
+        "id": 11, 
+        "name": "Herschel Lab", 
+        "floor": 2, 
+        "latitude": 1.332591, 
+        "longitude": 103.735792, 
+        "room": null
+    }, 
+    {
+        "id": 12, 
+        "name": "Einstein Room", 
+        "floor": 2, 
+        "latitude": 1.332768, 
+        "longitude": 103.736008, 
+        "room": null
+    }, 
+    {
+        "id": 13, 
+        "name": "Einstein Hall", 
+        "floor": 2, 
+        "latitude": 1.333081, 
+        "longitude": 103.735698, 
+        "room": null
+    }, 
+    {
+        "id": 14, 
+        "name": "Tinkering Studio", 
+        "floor": 1, 
+        "latitude": 1.333266, 
+        "longitude": 103.735214, 
+        "room": null
+    }, 
+    {
+        "id": 15, 
+        "name": "Observatory Room", 
+        "floor": 1, 
+        "latitude": 1.332689, 
+        "longitude": 103.735733, 
+        "room": null
+    }, 
+    {
+        "id": 16, 
+        "name": "Eco Garden Lab", 
+        "floor": 1, 
+        "latitude": 1.33276, 
+        "longitude": 103.736165, 
+        "room": null
+    }, 
+    {
+        "id": 17, 
+        "name": "Ground Floor, Scientist For a day, Hall A", 
+        "floor": 1, 
+        "latitude": 1.333192, 
+        "longitude": 103.735154, 
+        "room": null
+    }
+]
