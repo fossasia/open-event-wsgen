@@ -627,6 +627,8 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
       nameIdSlug: slugify(speaker.name + speaker.id)
     });
 
+  speakerslist.sort(byProperty('name'));
+
  });
 
   return speakerslist;

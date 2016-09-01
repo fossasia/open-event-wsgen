@@ -52,7 +52,11 @@
       <div class="speaker">
         <div class="image-holder">
          <a class="anchor" name="{{nameIdSlug}}"></a>
-          <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
+          {{#if photo}}
+          <img onError="this.onerror=null;this.src='dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
+          {{else}}
+          <img class="background-image" alt="{{{name}}}" src="dependencies/avatar.png"/>
+          {{/if}}
             <div class="responsive-overlay">
               <div class="text-center preserve3d">
                  <div class="bio vertical-align">
