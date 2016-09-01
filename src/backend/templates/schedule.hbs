@@ -70,7 +70,7 @@
 
           <div class="tracks col-xs-10 col-sm-10 col-md-10">
             {{#sessions}}
-            <div class="header-pop">
+            <div class="track-inline">
               <div class="schedule-container"
                 data-toggle="collapse"
                 data-target="#desc-{{session_id}} .collapse"
@@ -156,26 +156,10 @@
 
       </div>
     </div>
-   <!-- /#session-list -->
     {{> footer}}
     <script src="./dependencies/jquery.min.js"></script>
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/popover.js"></script>
-
-      <script src="./js/navbar.js" type="text/javascript"></script>
-      <script src="./js/scroll.js" type="text/javascript"></script>
-
-
-      <script>
-    $(document).ready(function(){
-      $('.session-link').click(function() {
-        $(this).next('.inputbox').toggle().select();
-          var val = $(this).next('.inputbox').val();
-          $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
-        });
-      });
-
-    
-</script> 
+    <script src="./js/navbar.js" type="text/javascript"></script>
+    <script src="./js/scroll.js" type="text/javascript"></script>
 </body>
 </html>
