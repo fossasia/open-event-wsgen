@@ -673,7 +673,7 @@ a {
   }
 
 .title-legend {
-  left: 0;
+  left: 70px;
 }
 
 .track-names {
@@ -682,7 +682,7 @@ a {
 }
 
 @media (max-width: 990px) {
-  .title-inline {
+  .title-legend {
     float: left;
     width: 40%;
   }
