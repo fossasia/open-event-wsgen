@@ -157,6 +157,10 @@
                 "title": "A Funny Thing Happened On My Way To The Science Centre"
             }, 
             {
+                "id": 191, 
+                "title": "Technologies developed by Red Hat"
+            },
+            {
                 "id": 352, 
                 "title": "How to be an IETF champion"
             }, 
@@ -781,7 +785,7 @@
         "name": "Saif Niazi", 
         "email": "saif_niazi@fossasia.org", 
         "mobile": null, 
-        "photo": "", 
+        "photo": "/images/speakers/SaifNiazi_35.png", 
         "organisation": "Data Scientist", 
         "position": null, 
         "country": "India", 
@@ -1428,7 +1432,7 @@
         "name": "Leon Lim", 
         "email": "leon_lim@fossasia.org", 
         "mobile": null, 
-        "photo": "", 
+        "photo": "/images/speakers/LeonLim_58.jpg", 
         "organisation": "Touch & Print", 
         "position": null, 
         "country": "Singapore", 
@@ -1608,6 +1612,10 @@
             {
                 "id": 95, 
                 "title": "Practical Computerized Home Automation"
+            },
+            {
+                "id": 329, 
+                "title": "PostgreSQL fun at Lightning Talks"
             }
         ]
     }, 
@@ -2022,29 +2030,7 @@
             }
         ]
     }, 
-    {
-        "id": 92, 
-        "name": "Red Hat Family", 
-        "email": "red_hat_family@fossasia.org", 
-        "mobile": null, 
-        "photo": "", 
-        "organisation": "Red Hat", 
-        "position": null, 
-        "country": "Not available", 
-        "short_biography": "", 
-        "long_biography": "", 
-        "website": "", 
-        "twitter": "", 
-        "facebook": null, 
-        "github": "", 
-        "linkedin": "", 
-        "sessions": [
-            {
-                "id": 191, 
-                "title": "Technologies developed by Red Hat"
-            }
-        ]
-    }, 
+
     {
         "id": 93, 
         "name": "Yaniv Bronhaim", 
@@ -3292,30 +3278,7 @@
                 "title": "(Ab)using 4D indexing in PostGIS 2.2 with Postgres 9.5 to give you the perfect match"
             }
         ]
-    }, 
-    {
-        "id": 149, 
-        "name": "PostgreSQL Community", 
-        "email": "postgresql_community@fossasia.org", 
-        "mobile": null, 
-        "photo": "", 
-        "organisation": "Not available", 
-        "position": null, 
-        "country": "Not available", 
-        "short_biography": "", 
-        "long_biography": "", 
-        "website": "", 
-        "twitter": "", 
-        "facebook": null, 
-        "github": "", 
-        "linkedin": "", 
-        "sessions": [
-            {
-                "id": 329, 
-                "title": "PostgreSQL fun at Lightning Talks"
-            }
-        ]
-    }, 
+    },  
     {
         "id": 152, 
         "name": "Abhishek Ranjan", 
@@ -3482,16 +3445,17 @@
         "name": "Anh Tuan Truong", 
         "email": "anh_tuan_truong@fossasia.org", 
         "mobile": null, 
-        "photo": "", 
+        "photo": "/images/speakers/AnhTuanTruong_158.jpg", 
         "organisation": "VFOSSA", 
         "position": null, 
         "country": "Not available", 
         "short_biography": "", 
         "long_biography": "Start working after being graduated since 1995, I have worked as almost roles in software industry, from software developer, team leader, project manager, product manager to general managers like CTO, CIO and Company president.  I love the freedom in free and/or open source software so I spend almost my time on working together with friends and colleagues to develop, promote FOSS and FOSS communities more and more.  I am currently member of many FOSS communities, domestic as well as international, generic as well as product specific, such as: HanoiLUG, AsiaSource 2, Zimbra, OTRS, Drupal, Fedora, CentOS linux, etc. I am currently Vietnam Free and Open Source Software Association Vice President.", 
-        "website": "http://vfossa.vn/", 
-        "twitter": "", 
+        "website": "http://vfossa.vn", 
+        "website": "http://www.iwayvietnam.com", 
+        "twitter": "https://twitter.com/tatuan", 
         "facebook": null, 
-        "github": "", 
+        "github": "https://github.com/tuanta", 
         "linkedin": "", 
         "sessions": [
             {
@@ -3670,17 +3634,17 @@
         "name": "Huzaifa Sidhpurwala", 
         "email": "huzaifa_sidhpurwala@fossasia.org", 
         "mobile": null, 
-        "photo": "", 
+        "photo": "/images/speakers/HuzaifaSidhpurwala_169.jpg", 
         "organisation": "Red Hat", 
         "position": null, 
         "country": "India", 
         "short_biography": "", 
         "long_biography": "Speaker is a Senior Security Engineer at Red Hat and a regular speaker at conferences.", 
         "website": "http://huzaifas.livejournal.com/", 
-        "twitter": "", 
+        "twitter": "https://twitter.com/sidhpurwala", 
         "facebook": null, 
-        "github": "", 
-        "linkedin": "", 
+        "github": "https://github.com/sidhpurwala-huzaifa", 
+        "linkedin": "https://www.linkedin.com/in/huzaifa-sidhpurwala-bb639b11", 
         "sessions": [
             {
                 "id": 368, 
@@ -4731,7 +4695,7 @@
     }, 
     {
         "id": 175, 
-        "name": "Phillips", 
+        "name": "Jon Phillips", 
         "email": "jon_phillips@fossasia.org", 
         "mobile": null, 
         "photo": "/images/speakers/JonPhillips_175.jpg", 
@@ -4739,11 +4703,12 @@
         "position": null, 
         "country": "USA", 
         "short_biography": "", 
-        "long_biography": "Barry Threw (@barrythrew) is an artist and technologist focused on spatial media, mutible architectures, and cultural infrastructures. He works in collaboration with institutions, artists and organizations at the intersection of technology and culture. He is Director of Software at Obscura Digital, and is a curator with the Gray Area Foundation for the Arts. He works on free software and open knowledge projects with Fabricatorz.  He is serving as Interim Director of #NEWPALMYRA until Bassel Khartabil's release.", 
+        "long_biography": "Jon Phillips.", 
         "website": "http://newpalmyra.org", 
-        "twitter": "https://twitter.com/NewPalmyraOrg", 
+	"website": "http://rejon.org",
+        "twitter": "https://twitter.com/rejon", 
         "facebook": null, 
-        "github": "https://github.com/newpalmyra", 
+        "github": "https://github.com/rejon", 
         "linkedin": "", 
         "sessions": [
             {
