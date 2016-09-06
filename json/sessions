@@ -6561,8 +6561,8 @@
         "signup_url": null, 
         "speakers": [
             {
-                "id": 92, 
-                "name": "Red Hat Family", 
+                "id": 4, 
+                "name": "Harish Pillay", 
                 "organisation": "Red Hat"
             }
         ], 
@@ -11481,9 +11481,9 @@
         "signup_url": null, 
         "speakers": [
             {
-                "id": 149, 
-                "name": "PostgreSQL Community", 
-                "organisation": "Not available"
+                "id": 67, 
+                "name": "Bruce Momjian", 
+                "organisation": "EnterpriseDB"
             }
         ], 
         "state": "accepted", 
