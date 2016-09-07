@@ -89,8 +89,14 @@
                   <span>
                   <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
                   </span>
+                  <a class="session-link" href="#s-{{nameIdSlug}}">
+                      <i class="fa fa-link"></i>
+                    </a>
+                    <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#s-{{nameIdSlug}}" style="display:none;">
                 </div>
                 <div class="pop-over row">
+                  <span class="speaker-name">{{{name}}}</span>
+                  <span class="speaker-name" style="color: #777777">{{{organisation}}}</p>
                  {{{long_biography}}}
                    <div style="padding:2%;" class="icons row">
                    {{#if website}}
@@ -155,6 +161,16 @@
     <script type="text/javascript" src="./js/popover.js"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
+    <script type="text/javascript">
+       $(document).ready(function(){
+
+        $('.session-link').click(function() {
+            $(this).next('.speakers-inputbox').toggle().select();
+            var val = $(this).next('.speakers-inputbox').val();
+            $(this).next('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        });
+      });
+    </script>
 
   </body>
 </html>
