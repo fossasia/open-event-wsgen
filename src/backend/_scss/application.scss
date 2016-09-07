@@ -291,7 +291,29 @@ a {
   height: 92%;
   margin-left: 5px;
   padding: 4px;
-  width: 80%;
+  vertical-align: top;
+  width: 25%;
+}
+
+.s-popup-header-name {
+  display: inline-block !important;
+  font-size: 15px !important;
+  font-weight: bold;
+  max-width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.s-popup-header-org {
+  display: inline-block !important;
+  font-size: 15px !important;
+  max-width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 ::selection {

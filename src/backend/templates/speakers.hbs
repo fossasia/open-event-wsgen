@@ -86,17 +86,18 @@
             <div class="pop-container" style="color:black";>
               <div class="pop">
                 <div class="pop-header">
-                  <span>
-                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
-                  </span>
+                  <span class="s-popup-header-name">{{{name}}}</span>
+                  <span class="s-popup-header-org">( {{{organisation}}}</span>
+                  <span class="s-popup-header-name" style="width: 6px"> ) </span>
+
                   <a class="session-link" href="#s-{{nameIdSlug}}">
                       <i class="fa fa-link"></i>
                     </a>
                     <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#s-{{nameIdSlug}}" style="display:none;">
                 </div>
                 <div class="pop-over row">
-                  <span class="speaker-name">{{{name}}}</span>
-                  <span class="speaker-name" style="color: #777777">{{{organisation}}}</p>
+                 <span class="speaker-name">{{{name}}}</span>
+                 <span class="speaker-name" style="color: #777777">{{{organisation}}}</p> 
                  {{{long_biography}}}
                    <div style="padding:2%;" class="icons row">
                    {{#if website}}
