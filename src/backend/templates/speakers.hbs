@@ -90,28 +90,27 @@
                   <span class="s-popup-header-org">( {{{organisation}}}</span>
                   <span class="s-popup-header-name" style="width: 6px"> ) </span>
 
-                  <a class="session-link" href="#s-{{nameIdSlug}}">
-                      <i class="fa fa-link"></i>
-                    </a>
-                    <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#s-{{nameIdSlug}}" style="display:none;">
+                  
                 </div>
                 <div class="pop-over row">
-                 <span class="speaker-name">{{{name}}}</span>
-                 <span class="speaker-name" style="color: #777777">{{{organisation}}}</p> 
                  {{{long_biography}}}
                    <div style="padding:2%;" class="icons row">
                    {{#if website}}
-                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
                   {{/if}}
                    {{#if github}}
-                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
                   {{/if}}
                   {{#if twitter}}
-                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
                   {{/if}}
                   {{#if linkedin}}
-                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
                   {{/if}}
+                  <a class="session-link" href="#s-{{nameIdSlug}}">
+                      <div class="col-xs-1 col-sm-1 col-md-1"><i class="fa fa-link"></i></div>
+                    </a>
+                    <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#{{nameIdSlug}}" style="display:none;">
                  </div>
                 </div>
                 <hr style="clear:both;width:75%;">

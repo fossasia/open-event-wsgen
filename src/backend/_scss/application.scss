@@ -288,18 +288,17 @@ a {
 }
 
 .speakers-inputbox {
-  height: 92%;
   margin-left: 5px;
-  padding: 4px;
+  padding: 0;
   vertical-align: top;
-  width: 25%;
+  width: 50%;
 }
 
 .s-popup-header-name {
   display: inline-block !important;
   font-size: 15px !important;
   font-weight: bold;
-  max-width: 30%;
+  max-width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: top;
@@ -309,7 +308,7 @@ a {
 .s-popup-header-org {
   display: inline-block !important;
   font-size: 15px !important;
-  max-width: 30%;
+  max-width: 45%;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: top;
