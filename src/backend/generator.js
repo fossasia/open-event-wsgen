@@ -52,8 +52,7 @@ function minifyHtml(file){
   minifyJS: true,
   minifyURLs: true,
   removeScriptTypeAttributes: true,
-  removeStyleLinkTypeAttributes: true,
-  collapseWhitespace: true
+  removeStyleLinkTypeAttributes: true
   });
  return result;
 }
