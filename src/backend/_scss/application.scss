@@ -287,6 +287,34 @@ a {
   margin-left: 5px;
 }
 
+.speakers-inputbox {
+  margin-left: 5px;
+  padding: 0;
+  vertical-align: top;
+  width: 50%;
+}
+
+.s-popup-header-name {
+  display: inline-block !important;
+  font-size: 15px !important;
+  font-weight: bold;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.s-popup-header-org {
+  display: inline-block !important;
+  font-size: 15px !important;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
 ::selection {
   background-color: $pure-orange;
   color: #FFFFFF;
