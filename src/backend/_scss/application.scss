@@ -1014,14 +1014,16 @@ a {
     left: 100px;
   }
 }
+
 @media only screen and (max-width: 500px) {
   span.speaker-name {
     text-align: center;
   }
   .pop-box {
-    left: 0px;
+    left: 0;
   }
 }
+
 .middle {
   text-align: center;
   padding: 4%;
