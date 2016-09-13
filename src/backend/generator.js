@@ -8,7 +8,7 @@ const async = require('async');
 const archiver = require('archiver');
 const sass = require('node-sass');
 const jsonfile = require('jsonfile');
-
+const minify = require('html-minifier').minify;
 const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
 const mailer = require('./mailer');
@@ -44,6 +44,18 @@ handlebars.registerHelper('linkify', function(options) {
 
   return new handlebars.SafeString(content.linkify());
 });
+
+function minifyHtml(file){
+  var result = minify(file, {
+  removeAttributeQuotes: true,
+  minifyCSS: true,
+  minifyJS: true,
+  minifyURLs: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true
+  });
+ return result;
+}
 
 function transformData(sessions, speakers, event, sponsors, tracksData, roomsData, reqOpts) {
   const tracks = fold.foldByTrack(sessions, speakers, tracksData, reqOpts);
@@ -188,11 +200,11 @@ exports.createDistDir = function(req, socket, callback) {
 
       try {
 
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', tracksTpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', scheduleTpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', roomstpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', speakerstpl(jsonData));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', eventtpl(jsonData));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html',minifyHtml(scheduleTpl(jsonData)));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
+          fs.writeFileSync(distHelper.distPath + '/' + appFolder +  '/index.html', minifyHtml(eventtpl(jsonData)));
       } catch (err)
       {
           console.log(err);
