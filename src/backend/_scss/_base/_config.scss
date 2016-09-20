@@ -1,5 +1,5 @@
 @charset "UTF-8";
- 
+
 // Colors
 $black: #000;
 $white: #fff;
@@ -7,6 +7,7 @@ $red: #e2061c;
 $gray-light: #c9c8c8;
 $gray: #838282;
 $gray-dark: #777;
+$gray-dim: #696969;
 $gray-extra-dark: #757575;
 $gray-extra-light:#e7e7e7 !default;
 $gray-perfect :#ddd;
@@ -30,6 +31,7 @@ $filter-heading:$gray-extra-dark !default;
 $background-shade: #f8f8fa;
 $event-border: #d2d6df;
 $overlayimage: rgba(0, 0, 0, 0.5);
+$border-event: rgba(0, 0, 0, 0.15);
 $border-venue: #e6e6e6;
 $navbar-color: rgba(255, 255, 255, 0.8);
 
@@ -43,10 +45,8 @@ $corp-color-second-dark: darken($corp-color-second, 15%) !default;
 $base-font-size: 1.8 !default;
 $base-font-family: Helvetica, Arial, Sans-Serif !default;
 $base-font-color: $gray-dark !default;
- 
+
 // Border
 $base-border-radius: 2px !default;
 $rounded-border-radius: 50% !default;
 $base-border-color: $gray !default;
-
-
