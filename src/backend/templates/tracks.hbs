@@ -23,7 +23,29 @@
  <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
   <link rel="stylesheet" href="./dependencies/bootstrap.min.css">
   <link rel="stylesheet" href="./css/schedule.css">
+  <style>
+  #fossasia-filter {
+      float:left;
+  }
 
+  #filter-form {
+      display: inline;
+      float: right;
+      padding-top: 6px;
+  }
+
+  @media only screen and (max-width: 600px) {
+      #fossasia-filter {
+          display:block;
+          float: none;
+          margin:0px auto;
+      }
+
+      #filter-form {
+          float: none;
+      }
+  }
+  </style>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -50,26 +72,29 @@
       {{#days}}
       <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
       {{/days}}
+      <span id=filter-form>
+          <input id="fossasia-filter" class="filter" type="text" placeholder="Search" />
+      </span>
       </p>
 
     <div id="session-list" style="margin-top: 4%;" class="container">
       {{#tracks}}
+      <div class="day-filter">
       <div class="row">
         <div class="col-md-12">
-
           <a class="anchor" id="{{slug}}"></a>
-          <h3  class="text">{{title}}</h3>
+          <h3  class="text title-filter">{{title}}</h3>
           <h5 class="text">{{date}}</h5>
 
-          <ul class="list-group session-list">
+          <ul class="list-group">
             {{#sessions}}
+            <div class="session-filter">
             <li class="list-group-item" data-session-id="{{session_id}}">
               <div class="row"
               data-toggle="collapse"
               data-target="#desc-{{session_id}} .collapse"
               aria-expanded="false"
               aria-controls="desc-{{session_id}}">
-
               <div class="col-xs-2 col-md-1">
                 <span style="background-color: {{../color}}" class="time-alert session-start label label-primary">
                   {{start}}
@@ -114,9 +139,9 @@
 
                   {{#if photo}}
                 <p style="margin-right:20px" class="session-speakers">
-                        <a href="speakers.html#{{nameIdSlug}}">
-                        <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
-                        </a>
+                  <a href="speakers.html#{{nameIdSlug}}">
+                  <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                  </a>
                 </p>
                   {{/if}}
                   {{/speakers_list}}
@@ -176,16 +201,17 @@
                     {{/speakers_list}}
                   </div>
                 </div>
-
-              </div><!-- /.row -->
+              </div>
+             </div><!-- /.row -->
             </li><!-- /.list-group-item -->
+            </div>
             {{/sessions}}
           </ul>
-        </div><!-- /.col-md-12 -->
+          </div><!-- /.col-md-12 -->
       </div><!-- /.row -->
+      </div>
       {{/tracks}}
     </div>
-   </div>
 </div>
     {{> footer}}
 
@@ -203,6 +229,53 @@
             $(this).next('.inputbox').toggle().select();
             var val = $(this).next('.inputbox').val();
             $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        });
+
+        $('#fossasia-filter').focus();
+        $('#fossasia-filter').change(function() {
+                var filterVal = $(this).val();
+                if (filterVal) {
+                    $('.day-filter').each(function(){
+                      var flag = 1;
+
+                      $(this).find('.session-filter').each(function() {
+                          if ($(this).find('.clearfix .session-title').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                              $(this).find('.session-speakers-less span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                              $(this).find('.session-speakers-more p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                              $(this).find('.session-id p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                              $(this).find('.session-location').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                              $(this).find('.sessions ul li a').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                               $(this).hide();
+                           } else {
+                               flag = 0;
+                               $(this).show();
+                           }
+                      });
+                      if (flag == 1) {
+                        $(this).hide();
+                      } else {
+                        $(this).show();
+                      }
+                    });
+                } else {
+                    $('.day-filter').each(function() {
+                      $(this).find('.session-filter').each(function() {
+                        $(this).show();
+                      });
+                      $(this).show();
+                    });
+                }
+
+                // show "no results" if search input value matches zero items
+                if ($('.day-filter:visible').length == 0) {
+                    $('#no-results').remove();
+                    $('#filter-form').after('<p id="no-results">No matching results found.</p>');
+                } else {
+                    $('#no-results').remove();
+                }
+                return false;
+            }).keyup(function() {
+                $(this).change();
         });
       });
     </script>

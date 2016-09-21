@@ -24,7 +24,29 @@
   <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
   <link rel="stylesheet" href="./dependencies/bootstrap.min.css">
   <link rel="stylesheet" href="./css/schedule.css">
+  <style>
+  #fossasia-filter {
+      float:left;
+  }
 
+  #filter-form {
+      display: inline;
+      float: right;
+      padding-top: 6px;
+  }
+
+  @media only screen and (max-width: 600px) {
+      #fossasia-filter {
+          display:block;
+          float: none;
+          margin:0px auto;
+      }
+
+      #filter-form {
+          float: none;
+      }
+  }
+  </style>
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -48,9 +70,12 @@
     </div>
 
     <p class="date-list">
-    {{#timeList}}
-      <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
-    {{/timeList}}
+        {{#timeList}}
+          <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
+        {{/timeList}}
+        <span id=filter-form>
+            <input id="fossasia-filter" class="filter" type="text" placeholder="Search" />
+        </span>
     </p>
 
     <div id="session-list" class="container">
@@ -58,108 +83,112 @@
         <div style="margin: 15px 0 0 15px;" class="col-md-9">
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
-            <div style="padding:0" class="row">
-              <div style="padding:0" class="col-md-12">
-                <a class="anchor" id="{{slug}}"></a>
-                <h5 class="text">{{date}}</h4>
-              </div>
-            </div>
-            <div class="row">
-              {{#sessions}}
-              <div class="row">
-                <div style="clear:both" class="col-md-12">
-                {{#if venue }}
-                <h5 class="text">{{venue}}</h5>
-                {{/if}}
-                </div>
-              </div>
-              <div class="eventtime col-xs-2 col-sm-2 col-md-2">
-                <span class="time-track">{{start}}</span>
-              </div>
-              <div class="room-container"
-                data-toggle="collapse"
-                data-target="#desc-{{session_id}} .collapse"
-                aria-expanded="false"
-                aria-controls="desc-{{session_id}}">
-                <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
-                  <h4 style="background-color:{{{color}}}"  class="sizeevent event">
-                    {{title}}
-                  </h4>
-                  <div id="desc-{{session_id}}">
-                    <p class="collapse">
-                      <span class="tip-description">{{{description}}}
-                      </span>
-                    </p>
-                  <hr style="clear:both" class="collapse">
-                    <div class="session-speakers-list collapse">
-                    {{#speakers_list}}
-                      <a href="speakers.html#{{nameIdSlug}}">
-                        <p class="session-speakers-less">
-                          <p style="margin-right:20px" class="session-speakers">
-                          {{#if photo}}
-                            <img onError="this.onerror=null;this.src='dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
-                          {{else}}
-                            <img class="card-img-top" src="dependencies/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
-                          {{/if}}
-                          </p>
-                          <span class="graytext">{{name}}</span>
-                        </p>
-                      </a>
-                      {{#if organisation}}
-                      <p class="session-speakers-more">
-                        {{organisation}}
-                      </p>
-                      {{/if}}
-                      {{#if long_biography}}
-                      <p class="session-speakers-more">
-                        {{long_biography}}
-                      </p>
-                      {{/if}}
-                      <p class="blacktext session-speaker-social">
-                        <div class="session-speakers-more">
-                          {{#if website}}
-                          <a class="blacktext social speaker-social" href="{{{website}}}"}>
-                            <i class="fa fa-home"></i> Web
-                          </a>&nbsp;
-                          {{/if}}
-                          {{#if github}}
-                          <a class="blacktext  social speaker-social" href="{{{github}}}"}>
-                            <i class="fa fa-github"></i> Github
-                          </a>&nbsp;
-                          {{/if}}
-                          {{#if twitter}}
-                          <a class="blacktext  social speaker-social" href="{{{twitter}}}"}>
-                            <i class="fa fa-twitter"></i> Twitter
-                          </a>&nbsp;
-                          {{/if}}
-                          {{#if linkedin}}
-                          <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
-                            <i class="fa fa-linkedin"></i> LinkedIn
-                          </a>
-                          {{/if}}
-                        </div>
-                      </p>
-                      <hr style="clear:both">
-                    {{/speakers_list}}
-                      <div class="blacktext">
-                        {{#if roomname}}
-                        <p><i>{{roomname}}</i></p>
-                        {{/if}}
-                        {{#if sessiondate}}
-                        <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
-                        {{/if}}
-                        <p>
-                          <ul class="title-inline">
-                            <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
-                            <li class="blacktext">{{tracktitle}}</li>
-                          </ul>
-                        </p><br>
-                      </div>
-                    </div>
+            <div class="date">
+                <div style="padding:0" class="row">
+                  <div style="padding:0" class="col-md-12">
+                    <a class="anchor" id="{{slug}}"></a>
+                    <h5 class="text">{{date}}</h4>
                   </div>
                 </div>
-              </div>
-              {{/sessions}}
+                <div class="row">
+                  {{#sessions}}
+                  <div class="room">
+                      <div class="row">
+                        <div style="clear:both" class="col-md-12">
+                        {{#if venue }}
+                        <h5 class="text">{{venue}}</h5>
+                        {{/if}}
+                        </div>
+                      </div>
+                      <div class="eventtime col-xs-2 col-sm-2 col-md-2">
+                        <span class="time-track">{{start}}</span>
+                      </div>
+                      <div class="room-container"
+                        data-toggle="collapse"
+                        data-target="#desc-{{session_id}} .collapse"
+                        aria-expanded="false"
+                        aria-controls="desc-{{session_id}}">
+                        <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
+                          <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                            {{title}}
+                          </h4>
+                          <div id="desc-{{session_id}}">
+                            <p class="collapse">
+                              <span class="tip-description">{{{description}}}
+                              </span>
+                            </p>
+                          <hr style="clear:both" class="collapse">
+                            <div class="session-speakers-list collapse">
+                            {{#speakers_list}}
+                              <a href="speakers.html#{{nameIdSlug}}">
+                                <p class="session-speakers-less">
+                                  <p style="margin-right:20px" class="session-speakers">
+                                  {{#if photo}}
+                                    <img onError="this.onerror=null;this.src='dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                  {{else}}
+                                    <img class="card-img-top" src="dependencies/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                  {{/if}}
+                                  </p>
+                                  <span class="graytext">{{name}}</span>
+                                </p>
+                              </a>
+                              {{#if organisation}}
+                              <p class="session-speakers-more">
+                                {{organisation}}
+                              </p>
+                              {{/if}}
+                              {{#if long_biography}}
+                              <p class="session-speakers-more">
+                                {{long_biography}}
+                              </p>
+                              {{/if}}
+                              <p class="blacktext session-speaker-social">
+                                <div class="session-speakers-more">
+                                  {{#if website}}
+                                  <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                    <i class="fa fa-home"></i> Web
+                                  </a>&nbsp;
+                                  {{/if}}
+                                  {{#if github}}
+                                  <a class="blacktext  social speaker-social" href="{{{github}}}"}>
+                                    <i class="fa fa-github"></i> Github
+                                  </a>&nbsp;
+                                  {{/if}}
+                                  {{#if twitter}}
+                                  <a class="blacktext  social speaker-social" href="{{{twitter}}}"}>
+                                    <i class="fa fa-twitter"></i> Twitter
+                                  </a>&nbsp;
+                                  {{/if}}
+                                  {{#if linkedin}}
+                                  <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
+                                    <i class="fa fa-linkedin"></i> LinkedIn
+                                  </a>
+                                  {{/if}}
+                                </div>
+                              </p>
+                              <hr style="clear:both">
+                            {{/speakers_list}}
+                              <div class="blacktext">
+                                {{#if roomname}}
+                                <p><i>{{roomname}}</i></p>
+                                {{/if}}
+                                {{#if sessiondate}}
+                                <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
+                                {{/if}}
+                                <p>
+                                  <ul class="title-inline">
+                                    <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                    <li class="blacktext">{{tracktitle}}</li>
+                                  </ul>
+                                </p><br>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  {{/sessions}}
+                </div>
             </div>
             {{/roomsinfo}}
           </div>
@@ -183,5 +212,52 @@
     <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+        $('#fossasia-filter').focus();
+        $('#fossasia-filter').change(function() {
+                var filterVal = $(this).val();
+                if (filterVal) {
+                    $('.date').each(function() {
+                        var flag = 1;
+                        $(this).find('.room').each(function() {
+                            if ($(this).find('.top-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                                 $(this).hide();
+                             } else {
+                                 flag = 0;
+                                 $(this).show();
+                             }
+                        });
+                        if (flag == 1) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+                } else {
+                    $('.date').each(function() {
+                        $(this).find('.room').each(function() {
+                            $(this).show();
+                        });
+                        $(this).show();
+                    });
+                }
+
+                // show "no results" if search input value matches zero items
+                if ($('.room:visible').length == 0) {
+                    $('#no-results').remove();
+                    $('#filter-form').after('<p id="no-results">No matching results found.</p>');
+                } else {
+                    $('#no-results').remove();
+                }
+                return false;
+            }).keyup(function() {
+                $(this).change();
+        });
+      });
+    </script>
   </body>
 </html>
