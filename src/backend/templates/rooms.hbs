@@ -46,7 +46,13 @@
           </h2>
       </div>
     </div>
+    <!-- --------------------------------------------------------------
+        search-filter, search-filter-speaker and fossasia-filter
+        These classes are designed for search tab.
 
+        room-filter and date-filter classes are intended for searching
+        text across the page.
+        --------------------------------------------------------------- -->
     <p class="date-list">
         {{#timeList}}
           <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
@@ -61,7 +67,7 @@
         <div style="margin: 15px 0 0 15px;" class="col-md-9">
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
-            <div class="date">
+            <div class="date-filter">
                 <div style="padding:0" class="row">
                   <div style="padding:0" class="col-md-12">
                     <a class="anchor" id="{{slug}}"></a>
@@ -70,7 +76,7 @@
                 </div>
                 <div class="row">
                   {{#sessions}}
-                  <div class="room">
+                  <div class="room-filter">
                       <div class="row">
                         <div style="clear:both" class="col-md-12">
                         {{#if venue }}
@@ -196,9 +202,9 @@
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
-                    $('.date').each(function() {
+                    $('.date-filter').each(function() {
                         var flag = 1;
-                        $(this).find('.room').each(function() {
+                        $(this).find('.room-filter').each(function() {
                             if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
@@ -216,8 +222,8 @@
                         }
                     });
                 } else {
-                    $('.date').each(function() {
-                        $(this).find('.room').each(function() {
+                    $('.date-filter').each(function() {
+                        $(this).find('.room-filter').each(function() {
                             $(this).show();
                         });
                         $(this).show();
@@ -225,7 +231,7 @@
                 }
 
                 // show "no results" if search input value matches zero items
-                if ($('.room:visible').length == 0) {
+                if ($('.date-filter:visible').length == 0) {
                     $('#no-results').remove();
                     $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
                 } else {

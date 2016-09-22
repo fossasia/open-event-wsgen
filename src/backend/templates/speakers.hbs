@@ -45,7 +45,13 @@
           </h2>
       </div>
     </div>
+    <!-- --------------------------------------------------------------
+        search-filter, search-filter-speaker and fossasia-filter
+        These classes are designed for search tab.
 
+        speaker-filter class is intended for searching
+        text across the page.
+        --------------------------------------------------------------- -->
     <div class=row>
         <div class="search-filter-speaker">
             <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -55,7 +61,7 @@
   <div class="row speakers-row">
   {{#speakerslist}}
     <div class="col-md-3 col-sm-6 speaker-column">
-      <div class="speaker">
+      <div class="speaker-filter">
         <div class="image-holder">
          <a class="anchor" name="{{nameIdSlug}}"></a>
           {{#if photo}}
@@ -173,7 +179,7 @@
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
-                    $('.speaker').each(function() {
+                    $('.speaker-filter').each(function() {
                         if ($(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.pop-over').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                              $(this).parent().hide();
@@ -182,13 +188,13 @@
                          }
                     });
                 } else {
-                    $('.speaker').each(function() {
+                    $('.speaker-filter').each(function() {
                         $(this).parent().show();
                     });
                 }
 
                 // show "no results" if search input value matches zero items
-                if ($('.speaker:visible').length == 0) {
+                if ($('.speaker-filter:visible').length == 0) {
                     $('#no-results').remove();
                     $('.search-filter-speaker:first').after('<p id="no-results">No matching results found.</p>');
                 } else {
