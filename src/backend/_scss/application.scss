@@ -1305,13 +1305,42 @@ width: 116px;
   color: $gray-dark;
 }
 
-.filter {
-  background-color: $white;
-  border: 1px solid $gray-dim;
-  color: $black;
-  font-family: verdana;
-  font-size: 10pt;
-  height: 28px;
-  padding-left: 2px;
-  width: 186px;
+.search-filter, .search-filter-speaker {
+  #fossasia-filter {
+    background-color: $white;
+    border: 1px solid $gray-dim;
+    color: $black;
+    font-family: verdana;
+    font-size: 10pt;
+    height: 28px;
+    padding-left: 2px;
+    width: 186px;
+  }
+}
+
+.search-filter-speaker {
+  margin-bottom: 3.5rem;
+  overflow: hidden;
+  #fossasia-filter {
+      display: block;
+      margin: 0 auto;
+  }
+}
+
+.search-filter {
+  display: inline;
+  float: right;
+  padding-top: 6px;
+  #fossasia-filter {
+      float: left;
+  }
+
+  @media only screen and (max-width: 600px) {
+    float: none;
+    #fossasia-filter {
+        display: block;
+        float: none;
+        margin: 0 auto;
+    }
+  }
 }
