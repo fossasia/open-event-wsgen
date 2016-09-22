@@ -1306,7 +1306,7 @@ width: 116px;
 }
 
 .search-filter, .search-filter-speaker {
-  #fossasia-filter {
+  .fossasia-filter {
     background-color: $white;
     border: 1px solid $gray-dim;
     color: $black;
@@ -1321,9 +1321,10 @@ width: 116px;
 .search-filter-speaker {
   margin-bottom: 3.5rem;
   overflow: hidden;
-  #fossasia-filter {
-      display: block;
-      margin: 0 auto;
+
+  .fossasia-filter {
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -1331,16 +1332,18 @@ width: 116px;
   display: inline;
   float: right;
   padding-top: 6px;
-  #fossasia-filter {
-      float: left;
+
+  .fossasia-filter {
+    float: left;
   }
 
   @media only screen and (max-width: 600px) {
     float: none;
-    #fossasia-filter {
-        display: block;
-        float: none;
-        margin: 0 auto;
+
+    .fossasia-filter {
+      display: block;
+      float: none;
+      margin: 0 auto;
     }
   }
 }

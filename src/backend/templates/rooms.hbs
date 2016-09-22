@@ -51,8 +51,8 @@
         {{#timeList}}
           <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
         {{/timeList}}
-        <span id="filter-form" class="search-filter">
-            <input id="fossasia-filter" type="text" placeholder="Search" />
+        <span class="search-filter">
+            <input class="fossasia-filter" type="text" placeholder="Search" />
         </span>
     </p>
 
@@ -192,8 +192,8 @@
     <script src="./js/scroll.js" type="text/javascript"></script>
     <script type="text/javascript">
        $(document).ready(function() {
-        $('#fossasia-filter').focus();
-        $('#fossasia-filter').change(function() {
+        $('.fossasia-filter:first').focus();
+        $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
                     $('.date').each(function() {
@@ -227,7 +227,7 @@
                 // show "no results" if search input value matches zero items
                 if ($('.room:visible').length == 0) {
                     $('#no-results').remove();
-                    $('#filter-form').after('<p id="no-results">No matching results found.</p>');
+                    $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
                 } else {
                     $('#no-results').remove();
                 }

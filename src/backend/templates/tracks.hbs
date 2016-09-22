@@ -50,8 +50,8 @@
       {{#days}}
       <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
       {{/days}}
-      <span id="filter-form" class="search-filter">
-          <input id="fossasia-filter" type="text" placeholder="Search" />
+      <span class="search-filter">
+          <input class="fossasia-filter" type="text" placeholder="Search" />
       </span>
       </p>
 
@@ -209,8 +209,8 @@
             $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
 
-        $('#fossasia-filter').focus();
-        $('#fossasia-filter').change(function() {
+        $('.fossasia-filter:first').focus();
+        $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
                     $('.day-filter').each(function(){
@@ -247,7 +247,7 @@
                 // show "no results" if search input value matches zero items
                 if ($('.day-filter:visible').length == 0) {
                     $('#no-results').remove();
-                    $('#filter-form').after('<p id="no-results">No matching results found.</p>');
+                    $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
                 } else {
                     $('#no-results').remove();
                 }
