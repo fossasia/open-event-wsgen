@@ -48,16 +48,14 @@
                 <li><input type="radio" name="datasource" value="eventapi"> API endpoint of event on OpenEvent </input>
                 </li>
             </ul>
-            <br>
             <section id="eventapi-input" style="display:none;">
                 <label for="apiendpoint">Link to Open Event API endpoint</label>
                 <input type="url" class="form-control" id="apiendpoint" name="apiendpoint" required="true" />
             </section>
-            <br>
+
             <section id="jsonupload-input" style="display:none;">
                 <label for="siofu_input">Zip file containing resources for the event</label>
                 <input type="file" name="singlefileUpload" id="siofu_input" class="form-control" required="true" accept="application/zip" />
-                <br>
                 <div class="upload-progress progress" style="display:none;">
                     <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
                         <span id="upload-progress-val">0%</span>
@@ -65,7 +63,7 @@
                 </div>
             </section>
 
-            <br>
+
             <!--<label title="Wether to download assets into website folder or link to external sources"-->
             <!--for="theme">How to link audio/images</label>-->
             <!--<select class="form-control" id="assetmode" name="assetmode" style="-webkit-appearance: menulist;">-->
@@ -86,22 +84,18 @@
                 </div>
             </section>
             <section>
-                <br><br>
                 <div class="generator-progress progress" style="display:none;">
                     <div class="progress-bar" role="progressbar" id="generator-progress-bar" style="width:0%; height: 20px;">
                         <span id="generator-progress-val">0%</span>
                     </div>
                 </div>
-                <br>
             </section>
             <center>
-                <br>
                 <div id="status"></div>
                 <br>
                 <button disabled title="Upload zip or use API mode to enable" type="button" class="download btn btn-default" id="btnGenerate" value="Validate">GENERATE WEBAPP</button>
                 <button type="button" class="download btn btn-default" id="btnLive">PREVIEW</button>
                 <button type="button" class="download btn btn-default" id="btnDownload">DOWNLOAD</button>
-                <br>
             </center>
 
         </form>

@@ -7,6 +7,13 @@
 }
 
 input[type="file"] {
-    height:inherit;
-    display:block;
+    height: inherit;
+    display: block;
+}
+
+section,
+center,
+.progress {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
