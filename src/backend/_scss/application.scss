@@ -416,7 +416,9 @@ a {
   box-shadow: 0 1px 2px $event-box-shadow;
   cursor: pointer;
   display: block;
-  margin: 0 12px 12px 0;
+  margin: 12px;
+  margin-top: 0;
+  margin-left: 0;
   position: relative;
   text-shadow: 1px 1px 0 $border-event;
   width: auto;
@@ -522,63 +524,59 @@ a {
   min-height: 255px;
   position: absolute;
   transition: all 0.5s ease;
-  background-color:white;
   width: 355px;
   z-index: 1000;
 
-    .pop>hr {
-      margin: 10px 0px 10px 0px;
-      width: calc(100% - 20px)!important;
+  .pop>hr {
+    margin: 10px 0;
+    min-width: calc(100% - 20px);
+  }
+
+  .pop>h4 {
+    margin-left: -20px;
+  }
+
+  .pop>.pop-over.row {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+
+  .pop {
+    background-color: $white;
+    margin-left: 20px;
+
+    a {
+      margin-left: -5px;
     }
 
-    .pop>h4 {
-      margin-left: -20px;
+    .pop-over>.sessions {
+      padding: 0;
     }
 
-    .pop>.pop-over.row {
-      padding: 10px 20px 0px 0px;
-    }
-
-    .pop {
-      background-color: #fff;
-      margin-left: 20px;
-
-        a {
-          margin-left: -5px;
-        }
-
-        .pop-over>.col-xs-12, .pop-over>.col-md-12 {
-          padding: 0px;
-        }
-
-        .pop-over {
-          padding: 0px;
-          margin: 0px;
-          word-wrap: break-word;
-          line-height: 20px;
-          font-weight: 400;
-          color: $gray-dark;
-        }
-    }
-
-    .pop-footer {
-      background: $white;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      background: #fff;
-      line-height: .80em;
+    .pop-over {
       color: $gray-dark;
+      font-weight: 400;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      word-wrap: break-word;
     }
+  }
 
-    .pop-header {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      background: $span-background;
-      height: 35px;
-      padding: 5px 5px 0 20px;
-      border-bottom: 1px solid $gray-perfect;
-      margin-left: -20px;
-    }
+  .pop-header {
+    background: $span-background;
+    border-bottom: 1px solid $gray-perfect;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 35px;
+    margin-left: -20px;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 5px;
+    padding-top: 5px;
+  }
 }
 
 #headline {
