@@ -18,6 +18,8 @@ script:
   - istanbul cover _mocha
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash cli.sh; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash gh_deploy.sh; fi'
 deploy:
   provider: heroku
   api_key:
