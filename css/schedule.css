@@ -294,7 +294,9 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: block;
-  margin: 0 12px 12px;
+  margin: 12px;
+  margin-top: 0;
+  margin-left: 0;
   position: relative;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
   width: auto;
@@ -383,29 +385,41 @@ a {
   transition: all 0.5s ease;
   width: 355px;
   z-index: 1000; }
+  .pop-box .pop > hr {
+    margin: 10px 0;
+    min-width: calc(100% - 20px); }
+  .pop-box .pop > h4 {
+    margin-left: -20px; }
+  .pop-box .pop > .pop-over.row {
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 20px;
+    padding-top: 10px; }
   .pop-box .pop {
-    background-color: #fff; }
+    background-color: #fff;
+    margin-left: 20px; }
+    .pop-box .pop a {
+      margin-left: -5px; }
+    .pop-box .pop .pop-over > .sessions {
+      padding: 0; }
     .pop-box .pop .pop-over {
       color: #777;
       font-weight: 400;
       line-height: 20px;
-      margin: 10px;
-      padding: 2%;
+      margin: 0;
+      padding: 0;
       word-wrap: break-word; }
-    .pop-box .pop .pop-footer {
-      background: #fff;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      color: #777;
-      line-height: 0.80em;
-      padding: 20px; }
-    .pop-box .pop .pop-header {
-      background: #efefef;
-      border-bottom: 1px solid #ddd;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      height: 35px;
-      padding: 5px 5px 0 20px; }
+  .pop-box .pop-header {
+    background: #efefef;
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 35px;
+    margin-left: -20px;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 5px;
+    padding-top: 5px; }
 
 #headline {
   padding: 8px; }
@@ -989,7 +1003,8 @@ width: 116px;
 .graytext {
   color: #777; }
 
-.filter {
+.search-filter .fossasia-filter,
+.search-filter-speaker .fossasia-filter {
   background-color: #fff;
   border: 1px solid #696969;
   color: #000;
@@ -998,3 +1013,24 @@ width: 116px;
   height: 28px;
   padding-left: 2px;
   width: 186px; }
+
+.search-filter-speaker {
+  margin-bottom: 3.5rem;
+  overflow: hidden; }
+  .search-filter-speaker .fossasia-filter {
+    display: block;
+    margin: 0 auto; }
+
+.search-filter {
+  display: inline;
+  float: right;
+  padding-top: 6px; }
+  .search-filter .fossasia-filter {
+    float: left; }
+  @media only screen and (max-width: 600px) {
+    .search-filter {
+      float: none; }
+      .search-filter .fossasia-filter {
+        display: block;
+        float: none;
+        margin: 0 auto; } }

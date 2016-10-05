@@ -23,7 +23,7 @@
  <link rel=stylesheet href=./dependencies/font-awesome.min.css>
   <link rel=stylesheet href=./dependencies/bootstrap.min.css>
   <link rel=stylesheet href=./css/schedule.css>
-  <style>#fossasia-filter{float:left}#filter-form{display:inline;float:right;padding-top:6px}@media only screen and (max-width:600px){#fossasia-filter{display:block;float:none;margin:0 auto}#filter-form{float:none}}</style>
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -84,13 +84,19 @@
         </h2>
       </div>
     </div>
+    <!-- --------------------------------------------------------------
+        search-filter, search-filter-speaker and fossasia-filter
+        These classes are designed for search tab.
 
+        day-filter and session-filter classes are intended for searching
+        text across the page.
+        --------------------------------------------------------------- -->
       <p class=date-list>
       <span class=date-pill><a href="./tracks.html#2016-03-18-OpenTech and IoT"> Friday, 18th Mar </a></span>
       <span class=date-pill><a href=./tracks.html#2016-03-19-Exhibition> Saturday, 19th Mar </a></span>
       <span class=date-pill><a href="./tracks.html#2016-03-20-Tech Kids II"> Sunday, 20th Mar </a></span>
-      <span id=filter-form>
-          <input id=fossasia-filter class=filter type=text placeholder=Search>
+      <span class=search-filter>
+          <input class=fossasia-filter type=text placeholder=Search>
       </span>
       </p>
 
@@ -28904,6 +28910,7 @@
             <div style=margin-bottom:14px class="col-sm-2 col-md-2 col-xs-12">
               <ul class=menu>
                 <li><a target=_self href=index.html#description>About</a></li>
+                <li><a target=_self href=index.html#ticket-button>Tickets</a></li>
                 <li><a target=_self href=schedule.html>Schedule</a></li>
                 <li><a target=_self href=tracks.html>Tracks</a></li>
                 <li><a target=_self href=rooms.html>Rooms</a></li>
@@ -28963,7 +28970,7 @@
       <script src=./js/navbar.js></script>
       <script src=./js/scroll.js></script>
 
-      <script>$(document).ready(function(){$(".session-link").click(function(){$(this).next(".inputbox").toggle().select();var e=$(this).next(".inputbox").val();$(this).next(".inputbox").val(window.location.href.split("#")[0]+"#"+e.split("#").pop())}),$("#fossasia-filter").focus(),$("#fossasia-filter").change(function(){var e=$(this).val();return e?$(".day-filter").each(function(){var s=1;$(this).find(".session-filter").each(function(){$(this).find(".clearfix .session-title").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-speakers-less span").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-speakers-more p span").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-id p span").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-location").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".sessions ul li a").text().toUpperCase().indexOf(e.toUpperCase())<0?$(this).hide():(s=0,$(this).show())}),1==s?$(this).hide():$(this).show()}):$(".day-filter").each(function(){$(this).find(".session-filter").each(function(){$(this).show()}),$(this).show()}),0==$(".day-filter:visible").length?($("#no-results").remove(),$("#filter-form").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
+      <script>$(document).ready(function(){$(".session-link").click(function(){$(this).next(".inputbox").toggle().select();var s=$(this).next(".inputbox").val();$(this).next(".inputbox").val(window.location.href.split("#")[0]+"#"+s.split("#").pop())}),$(".fossasia-filter:first").focus(),$(".fossasia-filter:first").change(function(){var s=$(this).val();return s?$(".day-filter").each(function(){var e=1;$(this).find(".session-filter").each(function(){$(this).find(".clearfix .session-title").text().toUpperCase().indexOf(s.toUpperCase())<0&&$(this).find(".session-speakers-less span").text().toUpperCase().indexOf(s.toUpperCase())<0&&$(this).find(".session-speakers-more p span").text().toUpperCase().indexOf(s.toUpperCase())<0&&$(this).find(".session-id p span").text().toUpperCase().indexOf(s.toUpperCase())<0&&$(this).find(".session-location").text().toUpperCase().indexOf(s.toUpperCase())<0&&$(this).find(".sessions ul li a").text().toUpperCase().indexOf(s.toUpperCase())<0?$(this).hide():(e=0,$(this).show())}),1==e?$(this).hide():$(this).show()}):$(".day-filter").each(function(){$(this).find(".session-filter").each(function(){$(this).show()}),$(this).show()}),0==$(".day-filter:visible").length?($("#no-results").remove(),$(".search-filter:first").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
 
 </body>
 </html>
