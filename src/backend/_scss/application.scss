@@ -445,11 +445,14 @@ a {
 
 .date-list {
   line-height: 40px;
+  margin-top: 50px;
 }
 
 .date-pill {
   border: thin solid;
   border-radius: 4px;
+  display: inline-block;
+  line-height: 1.5;
   margin: 10px;
   padding: 6px;
   white-space: nowrap;
@@ -1354,7 +1357,7 @@ width: 116px;
 .search-filter {
   display: inline;
   float: right;
-  padding-top: 6px;
+  padding-top: 12px;
 
   .fossasia-filter {
     float: left;
