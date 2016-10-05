@@ -3,7 +3,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header navbar-left pull-left">
-                <a class="navbar-brand" href="{{ eventurls.main_page_url }}">
+                <a class="navbar-brand" href="index.html">
                     {{#if eventurls.logo_url}}
                         <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
                     {{else}}
@@ -13,13 +13,6 @@
             </div>
 
         <div class="navbar-header navbar-right pull-right">
-          <ul style="margin-left:20px" class="nav navbar-nav pull-left">
-            {{#sociallinks}}
-              {{#if show}}
-                <li class="pull-left"><a href="{{link}}" style="padding-right:0; padding-left:0;margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
-              {{/if}}
-            {{/sociallinks}}
-          </ul>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-left:2em;margin-top:1em;">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -44,6 +37,13 @@
             {{#if speakerslist}}
             <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
             {{/if}}
+
+            {{#sociallinks}}
+              {{#if show}}
+                <li class="pull-left social-icons"><a href="{{link}}" style="padding-right:0; padding-left:0; margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+              {{/if}}
+            {{/sociallinks}}
+
           </ul>
         </div>
       </div>
