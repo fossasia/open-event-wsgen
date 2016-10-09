@@ -71,6 +71,8 @@ You can try out the web generator at  https://opev-webgen.herokuapp.com
 
 The development version is available here: https://opev-webgen-dev.herokuapp.com
 
+You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
+
 ### Installation/Deployment of the Web App Generator
 
 #### How do I install Web App Generator on a Server
