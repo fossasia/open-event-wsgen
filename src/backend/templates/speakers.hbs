@@ -60,7 +60,7 @@
     <div class="col-md-3 col-sm-6 speaker-column">
       <div class="speaker">
         <div class="image-holder">
-         <a class="anchor" name="{{nameIdSlug}}"></a>
+         <a class="anchor" id="{{nameIdSlug}}"></a>
           {{#if photo}}
           <img onError="this.onerror=null;this.src='dependencies/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
           {{else}}
@@ -164,7 +164,6 @@
             var val = $(this).next('.speakers-inputbox').val();
             $(this).next('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
-        $('.fossasia-filter:first').focus();
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
