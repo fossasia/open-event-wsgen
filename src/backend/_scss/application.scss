@@ -484,7 +484,7 @@ a {
 .arrow {
   height: 10px;
   left: 6px;
-  margin-top: -2.3%;
+  margin-top: -9px;
   overflow: hidden;
   position: absolute;
   width: 25px;
@@ -803,12 +803,13 @@ width: 116px;
 
 */
 
-@media (max-width: 544px) {
+@media (max-width: 767px) {
   .pop-box {
-    width: 350px;
+    width: 100%;
 
     .arrow {
-      margin-top: -2.5%;
+      left: 48%;
+      margin-top: -10px;
     }
   }
 }
@@ -1043,19 +1044,11 @@ width: 116px;
   span.speaker-name {
     text-align: center;
   }
-
-  .pop-box {
-    left: 100px;
-  }
 }
 
 @media only screen and (max-width: 500px) {
   span.speaker-name {
     text-align: center;
-  }
-
-  .pop-box {
-    left: 0;
   }
 }
 
