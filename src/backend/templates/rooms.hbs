@@ -89,12 +89,36 @@
                       </div>
                       <div class="room-container"
                         data-toggle="collapse"
-                        data-target="#desc-{{session_id}} .collapse"
+                        data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
                         aria-expanded="false"
                         aria-controls="desc-{{session_id}}">
-                        <div style="padding-right:0px;" class="left-border col-xs-10 col-sm-10 col-md-10">
+                        <div class="left-border col-xs-10 col-sm-10 col-md-10"
+			  style="padding-right: 0px; margin-bottom: 12px;">
                           <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                             {{title}}
+			    <div id="desc2-{{session_id}}"
+				class="collapse in"
+				style="background-color:{{{color}}}; margin-top: 20px;">
+				{{#speakers_list}}
+				
+				  {{#if photo}}
+				    <p style="margin-right:20px; float:left" class="session-speakers">
+		                      <img  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{photo}}" 						style="width:5rem; height:5rem; border-radius:50%;"/>
+		             	    </p>
+		             	  {{/if}}
+		             	{{/speakers_list}}
+		             	<ul style="padding:0;font-size:15px;">
+		             	  {{#speakers_list}}
+		             	    {{name}}
+		             	    {{#if organisation}}
+		             	      ({{organisation}})
+		             	    {{/if}}
+		             	 {{/speakers_list}}
+		             	</ul>
+		             	<ul style="padding:0;font-size:15px;">
+		             	  {{type}}
+		             	</ul>
+		             </div>
                           </h4>
                           <div id="desc-{{session_id}}">
                             <p class="collapse">
