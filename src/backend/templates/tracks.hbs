@@ -87,7 +87,7 @@
 
               <div class="sessions col-xs-10 col-md-11" style="cursor:pointer">
                 <div class="clearfix">
-                  <a class="anchor" name="{{session_id}}"></a>
+                  <a class="anchor" id="{{session_id}}"></a>
                   <h4 class="session-title">
                     {{title}}&nbsp;
                     <a class="session-link" href="#{{session_id}}">
@@ -215,7 +215,6 @@
             $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
 
-        $('.fossasia-filter:first').focus();
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
