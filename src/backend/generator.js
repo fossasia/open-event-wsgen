@@ -151,6 +151,17 @@ exports.createDistDir = function(req, socket, callback) {
       });
     },
     (done) => {
+        if(emit)socket.emit('live.process', {donePercent : 40, status: "Cleaning dependencies folder"});
+        distHelper.removeDependency(appFolder, (copyerr) => {
+            console.log('============================Moving contents from dependency folder and deleting the dependency folder');
+            if(copyerr !== null){
+                console.log(copyerr);
+                return socket.emit('live.error', {donePercent:45, status: "Error in moving files from dependency folder"} );
+            }
+            done(null, 'move');
+        });
+    },
+    (done) => {
       console.log('================================COPYING JSONS\n');
       if (emit)socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs"});
       switch (req.body.datasource) {
