@@ -240,10 +240,6 @@ a {
       color: $vivid-blue;
     }
   }
-
-  & + .inputbox {
-    font-size: 12px;
-  }
 }
 
 @media (max-width: 450px) {

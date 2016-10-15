@@ -90,10 +90,6 @@
                   <a class="anchor" id="{{session_id}}"></a>
                   <h4 class="session-title">
                     {{title}}&nbsp;
-                    <a class="session-link" href="#{{session_id}}">
-                      <i class="fa fa-link"></i>
-                    </a>
-                    <input class="inputbox" type="text" onclick="this.select()" value="base#{{session_id}}" style="display:none;">
                     {{#if video}}
                     <a class="video-link" href="{{video}}" target="_blank">
                       <i class="fa fa-youtube-play fa-2x"></i>
@@ -153,36 +149,47 @@
                     <p class="session-speakers-less">
                       <span class="session-description">About {{name}}:</span>
                     </p>
+                    {{/if}}
+                    {{/speakers_list}}
                     <div class="session-speakers-more">
+                      {{#speakers_list}}
+                      {{#if long_biography}}
                       <p>
                         <span class="session-description">{{{long_biography}}}</span>
                       </p>
+                      {{/if}}
+                      {{/speakers_list}}
                       <p class="session-speaker-social">
+                      {{#speakers_list}}
+                      {{#if long_biography}}
                       {{#if web}}
                         <a class="social speaker-social" href="{{{web}}}"}>
                           <i class="fa fa-home"></i> Web
-                        </a>
+                        </a>&nbsp;
                       {{/if}}
                       {{#if github}}
                         <a class="social speaker-social" href="{{{github}}}"}>
                           <i class="fa fa-github"></i> Github
-                        </a>
+                        </a>&nbsp;
                       {{/if}}
                       {{#if twitter}}
                         <a class="social speaker-social" href="{{{twitter}}}"}>
                           <i class="fa fa-twitter"></i> Twitter
-                        </a>
+                        </a>&nbsp;
                        {{/if}}
                        {{#if linkedin}}
                         <a class="social speaker-social" href="{{{linkedin}}}"}>
                           <i class="fa fa-linkedin"></i> LinkedIn
-                        </a>
+                        </a>&nbsp;
                         {{/if}}
-
+                        {{/if}}
+                        {{/speakers_list}}
+                        <a class="session-lin social speaker-social" href="#{{session_id}}">
+                          <i class="fa fa-link"></i> Link
+                        </a>&nbsp;
+                        <input class="inputbox" type="text" onclick="this.select()" value="base#{{session_id}}" style="display:none;" readonly>
                       </p>
                     </div>
-                    {{/if}}
-                    {{/speakers_list}}
                   </div>
                 </div>
               </div>
@@ -208,13 +215,17 @@
 
       <script type="text/javascript">
        $(document).ready(function(){
-
-        $('.session-link').click(function() {
+         $('.session-lin').click(function(e) {
+           e.stopPropagation();
+         });
+        $('.session-lin').click(function() {
             $(this).next('.inputbox').toggle().select();
             var val = $(this).next('.inputbox').val();
             $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
-
+        $('.inputbox').click(function(e) {
+          e.stopPropagation();
+        });
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
