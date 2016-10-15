@@ -32,7 +32,7 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
     console.log(err);
   });
   fileStream.on('finish', function () {
-    cb()
+    cb();
   });
 
   try {
@@ -56,12 +56,12 @@ module.exports = {
   moveZip: function(dlPath) {
     fs.move(dlPath, path.join(__dirname, "../../uploads/upload.zip"), () => {
       
-    })
+    });
   },
   uploadWithProgress: function(fileBuffer, fileSize, emitter) {
     const progressor = progressStream({length: fileSize, speed: 1}, function(progress) {
       console.log('Zip upload: Status =' + parseInt(progress.percentage) + '%');
-      emitter.emit('upload.progress', progress)
+      emitter.emit('upload.progress', progress);
     });
     var fileBufferStream = new streamBuffer.ReadableStreamBuffer({
       // frequency: 100,   // in milliseconds. 
@@ -70,7 +70,7 @@ module.exports = {
     fileBufferStream.put(fileBuffer);
     fileBufferStream
       .pipe(progressor)
-      .pipe(fs.createWriteStream(path.join(uploadsPath, 'upload.zip')))
+      .pipe(fs.createWriteStream(path.join(uploadsPath, 'upload.zip')));
 
   },
   cleanUploads: function() {
@@ -84,7 +84,7 @@ module.exports = {
     });
   },
   makeUploadsDir: function(err) {
-    fs.mkdirpSync(uploadsPath)
+    fs.mkdirpSync(uploadsPath);
   },
   makeDistDir: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
@@ -97,6 +97,70 @@ module.exports = {
   copyAssets: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
+  },
+  removeDependency: function(appFolder, done) {
+      const appPath = distPath + '/' + appFolder;
+      const cssPath = appPath + '/css';
+      const jsPath = appPath + '/js';
+      const imagesPath = appPath + '/images';
+      const dependencyPath = appPath + '/dependencies';
+      fs.readdir(dependencyPath, function(err, list){
+          if(err) {
+              console.log("Error in reading the directory\n");
+              return done(err);
+          }
+          console.log(list);
+          // the variable below stores the no of files copied so far
+          var filesCopiedCounter = 0;
+
+          //check whether an error occured during the copying of a file or not
+          function checkFileCopyError(err) {
+              if(err) {
+                  return done(err);
+              }
+              // Since error didn't occur, increament the no of files copied by one
+              filesCopiedCounter += 1;
+          }
+
+          // checks whether all the files of the folder have been copied or not
+          function checkForCompletion(){
+              if(filesCopiedCounter === list.length){
+                  fs.remove(dependencyPath, done);
+              }
+          }
+
+          list.forEach(function(file){
+              console.log(file);
+              var extension = path.extname(file);
+              var filePath = dependencyPath + '/' + file;
+              switch(extension) {
+                case '':
+                  fs.copy(filePath, appPath + '/' + file, function(err){
+                    checkFileCopyError(err);
+                    checkForCompletion();
+                  });
+                break;
+                case '.css':
+                  fs.copy(filePath, cssPath + '/' + file, function(err) {
+                    checkFileCopyError(err);
+                    checkForCompletion();
+                  });
+                break;
+                case '.png':
+                  fs.copy(filePath, imagesPath + '/' + file, function(err) {
+                    checkFileCopyError(err);
+                    checkForCompletion();
+                  });
+                break;
+                case '.js':
+                  fs.copy(filePath, jsPath + '/' + file, function(err) {
+                    checkFileCopyError(err);
+                    checkForCompletion();
+                  });
+                break;
+              }
+          });
+      });
   },
   copyUploads: function(appFolder) {
     const appPath = distPath + '/' + appFolder;
