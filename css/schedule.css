@@ -159,9 +159,6 @@ a {
   .session-link > .fa:hover {
     color: #2196F3; }
 
-.session-link + .inputbox {
-  font-size: 12px; }
-
 @media (max-width: 450px) {
   .session-link > .fa {
     font-size: 24px; }
@@ -322,11 +319,14 @@ a {
     max-width: 270px; } }
 
 .date-list {
-  line-height: 40px; }
+  line-height: 40px;
+  margin-top: 50px; }
 
 .date-pill {
   border: thin solid;
   border-radius: 4px;
+  display: inline-block;
+  line-height: 1.5;
   margin: 10px;
   padding: 6px;
   white-space: nowrap; }
@@ -352,7 +352,7 @@ a {
 .arrow {
   height: 10px;
   left: 6px;
-  margin-top: -2.3%;
+  margin-top: -9px;
   overflow: hidden;
   position: absolute;
   width: 25px;
@@ -397,7 +397,8 @@ a {
     padding-top: 10px; }
   .pop-box .pop {
     background-color: #fff;
-    margin-left: 20px; }
+    margin-left: 20px;
+    border-radius: 3px; }
     .pop-box .pop a {
       margin-left: -5px; }
     .pop-box .pop .pop-over > .sessions {
@@ -412,8 +413,8 @@ a {
   .pop-box .pop-header {
     background: #efefef;
     border-bottom: 1px solid #ddd;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     height: 35px;
     margin-left: -20px;
     padding-bottom: 0;
@@ -607,11 +608,12 @@ width: 116px;
 }
 
 */
-@media (max-width: 544px) {
+@media (max-width: 767px) {
   .pop-box {
-    width: 350px; }
+    width: 100%; }
     .pop-box .arrow {
-      margin-top: -2.5%; } }
+      left: 48%;
+      margin-top: -10px; } }
 
 .header-pop {
   display: inline-block; }
@@ -760,15 +762,11 @@ width: 116px;
 
 @media only screen and (max-width: 692px) {
   span.speaker-name {
-    text-align: center; }
-  .pop-box {
-    left: 100px; } }
+    text-align: center; } }
 
 @media only screen and (max-width: 500px) {
   span.speaker-name {
-    text-align: center; }
-  .pop-box {
-    left: 0; } }
+    text-align: center; } }
 
 .middle {
   padding: 4%;
@@ -1024,7 +1022,7 @@ width: 116px;
 .search-filter {
   display: inline;
   float: right;
-  padding-top: 6px; }
+  padding-top: 12px; }
   .search-filter .fossasia-filter {
     float: left; }
   @media only screen and (max-width: 600px) {
