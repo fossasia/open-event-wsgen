@@ -91,53 +91,6 @@ a {
 /* General styling of session list */
 
 .sessions {
-  .session {
-    &-description {
-      color: $gray-dark;
-    }
-
-    &-type {
-      color: $gray-dark;
-    }
-
-    &-speakers {
-      float: left;
-    }
-
-    &-id {
-      float: right;
-      word-wrap: break-word;
-    }
-
-    &-list {
-      li {
-        cursor: pointer;
-      }
-
-      .label {
-        background: $pure-orange;
-        border-color: $light-purple;
-        color: $white;
-        font-weight: 500;
-        font-size: 80%;
-        margin-left: -8px;
-      }
-
-      .session-title {
-        margin-top: 0.1em;
-
-        .session-link {
-          font-size: 12px;
-        }
-      }
-    }
-
-    &-location {
-      color: $gray-dark;
-      text-align: left;
-    }
-  }
-
   ul {
     list-style: none;
 
@@ -156,28 +109,6 @@ a {
 @media (min-width: 450px) {
   body {
     font-size: 14px;
-  }
-
-  .session {
-    &-list > .label {
-      font-size: 90%;
-      padding: 0.2em 0.6em 0.3em;
-    }
-
-    &-title {
-      float:left;
-      width: 75%;
-    }
-
-    &-location {
-      float: right;
-      text-align: right;
-      width: 25%;
-    }
-
-    &-id {
-      float: none;
-    }
   }
 }
 
@@ -254,10 +185,6 @@ a {
   .btn-sign-up {
     font-size: 15px;
     margin-top: -8px;
-  }
-
-  .session-title {
-    line-height: 1.5;
   }
 }
 
