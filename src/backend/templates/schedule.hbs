@@ -80,8 +80,8 @@
 
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="track-inline">
-                  <div class="schedule-container" id="{{session_id}}"
+                <div class="track-inline" id="{{session_id}}">
+                  <div class="schedule-container"
                     data-toggle="collapse"
                     data-target="#desc-{{session_id}} .collapse"
                     aria-expanded="false"
@@ -129,21 +129,21 @@
                               </a>&nbsp;
                               {{/if}}
                               {{#if github}}
-                              <a class="blacktext  social speaker-social" href="{{{github}}}"}>
+                              <a class="blacktext social speaker-social" href="{{{github}}}"}>
                                 <i class="fa fa-github"></i> Github
                               </a>&nbsp;
                               {{/if}}
                               {{#if twitter}}
-                              <a class="blacktext  social speaker-social" href="{{{twitter}}}"}>
+                              <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
                                 <i class="fa fa-twitter"></i> Twitter
                               </a>&nbsp;
                               {{/if}}
                               {{#if linkedin}}
-                              <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
+                              <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
                                 <i class="fa fa-linkedin"></i> LinkedIn
                               </a>&nbsp;
                               {{/if}}
-                              <a class="session-lin social speaker-social" href="#{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
+                              <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
                               <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
                             </div>
                           </p>
@@ -154,7 +154,7 @@
                             <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
                             <p>
                               <ul class="title-inline">
-                                <li  style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
                                 <li class="blacktext">{{tracktitle}}</li>
                               </ul>
                             </p><br>
@@ -178,7 +178,7 @@
       {{#tracknames}}
       {{#if title}}
         <ul class="title-inline title-legend">
-          <li  style="background-color:{{{color}}}" class="titlecolor"></li>
+          <li style="background-color:{{{color}}}" class="titlecolor"></li>
           <li>{{title}}</li>
         </ul>
       {{/if}}
