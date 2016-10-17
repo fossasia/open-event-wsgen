@@ -81,7 +81,7 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="track-inline">
-                  <div class="schedule-container"
+                  <div class="schedule-container" id="{{session_id}}"
                     data-toggle="collapse"
                     data-target="#desc-{{session_id}} .collapse"
                     aria-expanded="false"
@@ -141,8 +141,10 @@
                               {{#if linkedin}}
                               <a class="blacktext  social speaker-social" href="{{{linkedin}}}"}>
                                 <i class="fa fa-linkedin"></i> LinkedIn
-                              </a>
+                              </a>&nbsp;
                               {{/if}}
+                              <a class="session-lin social speaker-social" href="#{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
+                              <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
                             </div>
                           </p>
                           <hr style="clear:both">
@@ -192,6 +194,11 @@
   <script src="./js/scroll.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
+       $('.session-lin').click(function() {
+         $(this).next('.inputbox').toggle().select();
+         var val = $(this).next('.inputbox').val();
+         $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        });
       $('.fossasia-filter:first').change(function() {
               var filterVal = $(this).val();
               if (filterVal) {
