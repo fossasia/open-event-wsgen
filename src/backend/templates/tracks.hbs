@@ -16,13 +16,13 @@
 
     <title>{{ apptitle }}</title>
 
-    <!-- Bootstrap core CSS -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ eventurls.ico_url }}" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
-    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/schedule.css">
+  <!-- Bootstrap core CSS -->
+  <!-- Latest compiled and minified CSS -->
+ <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/schedule.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,7 +46,7 @@
             search-filter, search-filter-speaker and fossasia-filter
             These classes are designed for search tab.
 
-            room-filter and date-filter classes are intended for searching
+            day-filter and session-filter classes are intended for searching
             text across the page.
             --------------------------------------------------------------- -->
         <p class="date-list">
@@ -73,7 +73,7 @@
                   </div>
                   <div class="row">
                     {{#sessions}}
-                    <div class="room-filter">
+                    <div class="room-filter" id="{{session_id}}">
                       <div class="row">
                         <div style="clear:both" class="col-md-12">
                         {{#if venue }}
@@ -88,11 +88,11 @@
                         <div class="left-border col-xs-10 col-sm-10 col-md-10" style="padding-right: 0px; margin-bottom: 12px;">
                           <h4 style="background-color: {{../color}}" class="sizeevent event">
                             {{title}}
-			                      <div id="desc2-{{session_id}}" class="collapse in" style="background-color: {{../color}}; margin-top: 20px;">
+			                      <div id="desc2-{{session_id}}" class="collapse in"	style="background-color: {{../color}}; margin-top: 20px;">
 				                      {{#speakers_list}}
 				                      {{#if photo}}
 				                      <p style="margin-right:20px; float:left" class="session-speakers">
-		                            <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{photo}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+		                            <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{photo}}" 						style="width:5rem; height:5rem; border-radius:50%;"/>
 		             	            </p>
 		             	            {{/if}}
 		             	            {{/speakers_list}}
@@ -110,60 +110,60 @@
                               <span class="tip-description">{{{description}}}</span>
                             </p>
                             <hr style="clear:both" class="collapse">
-                            <div class="session-speakers-list collapse">
-                              {{#speakers_list}}
-                              <a href="speakers.html#{{nameIdSlug}}">
-                                <p class="session-speakers-less">
-                                  <p style="margin-right:20px" class="session-speakers">
-                                    {{#if photo}}
-                                    <img onError="this.onerror=null;this.src='dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
-                                    {{else}}
-                                    <img class="card-img-top" src="dependencies/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
-                                    {{/if}}
+                              <div class="session-speakers-list collapse">
+                                {{#speakers_list}}
+                                <a href="speakers.html#{{nameIdSlug}}">
+                                  <p class="session-speakers-less">
+                                    <p style="margin-right:20px" class="session-speakers">
+                                      {{#if photo}}
+                                      <img onError="this.onerror=null;this.src='dependencies/avatar.png';" class="card-img-top" src="{{photo}}" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                      {{else}}
+                                      <img class="card-img-top" src="dependencies/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                      {{/if}}
+                                    </p>
+                                    <span class="graytext">{{name}}</span>
                                   </p>
-                                  <span class="graytext">{{name}}</span>
+                                </a>
+                                {{#if organisation}}
+                                <p class="session-speakers-more">{{organisation}}</p>
+                                {{/if}}
+                                {{#if long_biography}}
+                                <p class="session-speakers-more">{{long_biography}}</p>
+                                {{/if}}
+                                <p class="blacktext session-speaker-social">
+                                  <div class="session-speakers-more">
+                                    {{#if web}}
+                                    <a class="blacktext social speaker-social" href="{{{web}}}"><i class="fa fa-home"></i> Web</a>&nbsp;
+                                    {{/if}}
+                                    {{#if github}}
+                                    <a class="blacktext social speaker-social" href="{{{github}}}"><i class="fa fa-github"></i> Github</a>&nbsp;
+                                    {{/if}}
+                                    {{#if twitter}}
+                                    <a class="blacktext social speaker-social" href="{{{twitter}}}"><i class="fa fa-twitter"></i> Twitter</a>&nbsp;
+                                    {{/if}}
+                                    {{#if linkedin}}
+                                    <a class="blacktext social speaker-social" href="{{{linkedin}}}"><i class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
+                                    {{/if}}
+                                    <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
+                                    <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
+                                  </div>
                                 </p>
-                              </a>
-                              {{#if organisation}}
-                              <p class="session-speakers-more">{{organisation}}</p>
-                              {{/if}}
-                              {{#if long_biography}}
-                              <p class="session-speakers-more">{{long_biography}}</p>
-                              {{/if}}
-                              <p class="blacktext session-speaker-social">
-                                <div class="session-speakers-more">
-                                  {{#if web}}
-                                  <a class="blacktext social speaker-social" href="{{{web}}}"><i class="fa fa-home"></i> Web</a>&nbsp;
-                                  {{/if}}
-                                  {{#if github}}
-                                  <a class="blacktext social speaker-social" href="{{{github}}}"><i class="fa fa-github"></i> Github</a>&nbsp;
-                                  {{/if}}
-                                  {{#if twitter}}
-                                  <a class="blacktext social speaker-social" href="{{{twitter}}}"><i class="fa fa-twitter"></i> Twitter</a>&nbsp;
-                                  {{/if}}
-                                  {{#if linkedin}}
-                                  <a class="blacktext social speaker-social" href="{{{linkedin}}}"><i class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
-                                  {{/if}}
-                                  <a class="session-lin social speaker-social" href="#{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
-                                  <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
+                                <hr style="clear:both">
+                                {{/speakers_list}}
+                                <div class="blacktext">
+                                  {{#if location}}<p><i>{{location}}</i></p>{{/if}}
+                                  {{#if ../date}}<p>{{../date}}, <span>{{start}} - {{end}}</span></p>{{/if}}
+                                  <p>
+                                    <ul class="title-inline">
+                                      <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                                      <li class="blacktext">{{../title}}</li>
+                                    </ul>
+                                  </p><br>
                                 </div>
-                              </p>
-                              {{/speakers_list}}
-                              <hr style="clear:both">
-                              <div class="blacktext">
-                                {{#if location}}<p><i>{{location}}</i></p>{{/if}}
-                                {{#if ../date}}<p>{{../date}}, <span>{{start}} - {{end}}</span></p>{{/if}}
-                                <p>
-                                  <ul class="title-inline">
-                                    <li style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
-                                    <li class="blacktext">{{../title}}</li>
-                                  </ul>
-                                </p><br>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
                   </div>
                   {{/sessions}}
                 </div>
@@ -185,67 +185,70 @@
       </div>
     </div>
 
-    {{> footer}}
+  {{> footer}}
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./js/navbar.js" type="text/javascript"></script>
-    <script src="./js/scroll.js" type="text/javascript"></script>
+      <script src="./js/navbar.js" type="text/javascript"></script>
+      <script src="./js/scroll.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.session-lin').click(function(e) {
-          e.stopPropagation();
-        });
-        $('.session-lin').click(function() {
-          $(this).next('.inputbox').toggle().select();
-          var val = $(this).next('.inputbox').val();
-          $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
-        });
-        $('.inputbox').click(function(e) {
-          e.stopPropagation();
-        });
-        $('.fossasia-filter:first').change(function() {
-          var filterVal = $(this).val();
-          if (filterVal) {
-            $('.date-filter').each(function() {
-              var flag = 1;
-              $(this).find('.room-filter').each(function() {
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('.session-lin').click(function(e) {
+            e.stopPropagation();
+          });
+          $('.session-lin').click(function() {
+            $(this).next('.inputbox').toggle().select();
+            var val = $(this).next('.inputbox').val();
+            $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+          });
+          $('.inputbox').click(function(e) {
+            e.stopPropagation();
+          });
+          $('.fossasia-filter:first').change(function() {
+            var filterVal = $(this).val();
+            if (filterVal) {
+              $('.day-filter').each(function(){
+                var flag = 1;
+
+                $(this).find('.session-filter').each(function() {
+                  if ($(this).find('.clearfix .session-title').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-less span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-more p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-id p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-location').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.sessions ul li a').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                    $(this).hide();
+                  } else {
+                    flag = 0;
+                    $(this).show();
+                  }
+                });
+                if (flag == 1) {
                   $(this).hide();
                 } else {
-                  flag = 0;
                   $(this).show();
                 }
               });
-              if (flag == 1) {
-                $(this).hide();
-              } else {
-                $(this).show();
-              }
-            });
-          } else {
-            $('.date-filter').each(function() {
-              $(this).find('.room-filter').each(function() {
+            } else {
+              $('.day-filter').each(function() {
+                $(this).find('.session-filter').each(function() {
+                  $(this).show();
+                });
                 $(this).show();
               });
-              $(this).show();
-            });
-          }
+            }
 
-          // show "no results" if search input value matches zero items
-          if ($('.date-filter:visible').length == 0) {
-            $('#no-results').remove();
-            $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
-          } else {
-            $('#no-results').remove();
-          }
-          return false;
-        }).keyup(function() {
-          $(this).change();
+            // show "no results" if search input value matches zero items
+            if ($('.day-filter:visible').length == 0) {
+              $('#no-results').remove();
+              $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+            } else {
+              $('#no-results').remove();
+            }
+            return false;
+          }).keyup(function() {
+            $(this).change();
         });
       });
     </script>
