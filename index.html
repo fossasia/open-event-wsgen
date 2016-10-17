@@ -20,8 +20,8 @@
   <!-- Latest compiled and minified CSS -->
  <link rel="shortcut icon" href="" type=image/x-icon>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel=stylesheet>
- <link rel=stylesheet href=./dependencies/font-awesome.min.css>
-  <link rel=stylesheet href=./dependencies/bootstrap.min.css>
+ <link rel=stylesheet href=./css/font-awesome.min.css>
+  <link rel=stylesheet href=./css/bootstrap.min.css>
   <link rel=stylesheet href=./css/schedule.css>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -38,21 +38,12 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class=container>
                 <div class="navbar-header navbar-left pull-left">
-                    <a class=navbar-brand href="">
+                    <a class=navbar-brand href=.>
                             <img alt="FOSSASIA 2016" class="logo logo-dark" src=images/fossasia-dark.png>
                     </a>
                 </div>
     
             <div class="navbar-header navbar-right pull-right">
-              <ul style=margin-left:20px class="nav navbar-nav pull-left">
-                    <li class=pull-left><a href=https://twitter.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
-                    <li class=pull-left><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
-                    <li class=pull-left><a href=https://www.facebook.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
-                    <li class=pull-left><a href=https://www.flickr.com/photos/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
-                    <li class=pull-left><a href=https://plus.google.com/108920596016838318216 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-google-plus" aria-hidden=true title=google-plus></i></a></li>
-                    <li class=pull-left><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
-                    <li class=pull-left><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
-              </ul>
               <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-collapse style=margin-left:2em;margin-top:1em>
                 <span class=sr-only>Toggle navigation</span>
                 <span class=icon-bar></span>
@@ -69,6 +60,15 @@
                 <li class=navlink><a id=trackslink href=tracks.html>Tracks</a></li>
                 <li class=navlink><a id=roomslink href=rooms.html>Rooms</a></li>
                 <li class=navlink><a id=speakerslink href=speakers.html>Speakers</a></li>
+    
+                    <li class="pull-left social-icons"><a href=https://twitter.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://www.facebook.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://www.flickr.com/photos/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://plus.google.com/108920596016838318216 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-google-plus" aria-hidden=true title=google-plus></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
+    
               </ul>
             </div>
           </div>
@@ -90,6 +90,18 @@
     </div>
 
   <div class="eventpage container" style=background-color:#fff> 
+    <div class="listing-panel row">
+        <div class=col-md-12>
+         <div class=row>
+           <div class=col-md-4>
+           </div>
+           <div style=padding-right:30px class=col-md-8>
+             <a id=ticket-button style=display:block;position:relative;top:-87px;visibility:hidden></a>  
+             <a href=http://www.eventnook.com/event/fossasia class="pull-right btn btn-lg btn-primary" role=button>Tickets</a>
+           </div>
+         </div>
+        </div>
+    </div>
     <a id=description></a>
     <div class=container>
        <div class=row>
@@ -114,7 +126,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Cat Allman" src=images/speakers/CatAllman_8.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Cat Allman" src=images/speakers/CatAllman_8.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -142,7 +154,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Colin Charles" src=images/speakers/ColinCharles_39.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Colin Charles" src=images/speakers/ColinCharles_39.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -169,7 +181,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Davide Storti" src=images/speakers/DavideStorti_7.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Davide Storti" src=images/speakers/DavideStorti_7.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -197,7 +209,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Lim Tit Meng" src=images/speakers/LimTitMeng_3.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Lim Tit Meng" src=images/speakers/LimTitMeng_3.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -223,7 +235,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Mike McQuaid" src=images/speakers/MikeMcquaid_10.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Mike McQuaid" src=images/speakers/MikeMcquaid_10.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -251,7 +263,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./dependencies/avatar.png"' class=background-image alt="Ricky Setyawan" src=images/speakers/RickySetyawan_14.jpg>
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' class=background-image alt="Ricky Setyawan" src=images/speakers/RickySetyawan_14.jpg>
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -429,6 +441,7 @@
         <div style=margin-bottom:14px class="col-sm-2 col-md-2 col-xs-12">
           <ul class=menu>
             <li><a target=_self href=index.html#description>About</a></li>
+            <li><a target=_self href=index.html#ticket-button>Tickets</a></li>
             <li><a target=_self href=schedule.html>Schedule</a></li>
             <li><a target=_self href=tracks.html>Tracks</a></li>
             <li><a target=_self href=rooms.html>Rooms</a></li>
@@ -482,13 +495,13 @@
 </footer>
 </div>  
 
-    <script src=./dependencies/jquery.min.js></script>
-    <script src=./dependencies/bootstrap.min.js></script>
+    <script src=./js/jquery.min.js></script>
+    <script src=./js/bootstrap.min.js></script>
     <script async defer=defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap"></script>
     <script src=./js/popover.js></script>
    <script src=./js/map.js></script>
-   <script src=./dependencies/loklak-fetcher.js></script>
-   <script src=./dependencies/tweets.js></script>
+   <script src=./js/loklak-fetcher.js></script>
+   <script src=./js/tweets.js></script>
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
     <script src=./js/navbar.js></script>

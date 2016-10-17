@@ -54,7 +54,7 @@
             "name": "External Event URL"
         }
     ], 
-    "ticket_url": null, 
+    "ticket_url": "http://www.eventnook.com/event/fossasia", 
     "privacy": "public", 
     "type": "Conference", 
     "topic": "Science & Technology", 
