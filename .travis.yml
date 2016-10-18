@@ -18,6 +18,8 @@ script:
   - istanbul cover _mocha
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - bash cli.sh
+  - bash gh_deploy.sh
 deploy:
   provider: heroku
   api_key:
