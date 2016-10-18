@@ -112,54 +112,47 @@ exports.startZipUpload = function(file) {
 
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
+  // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
+  req.body.name = 'tempProject';  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
-  const appFolder = req.body.email + '/' + fold.slugify(req.body.name);
+  var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
 
   if (socket.constructor.name == 'Socket') {
     emit = true;
   }
+  // the below variable will store the actual name of the event
+  var eventName;
 
   async.series([
     (done) => {
-        if (emit) socket.emit('live.process', {donePercent: 10, status: "Cleaning dist folder"});
-      distHelper.cleanDist(appFolder, (cleanerr) => {
-        console.log('================================CLEANING\n');
-        if (cleanerr !== null) {
-            console.log(cleanerr);
-            return socket.emit('live.error', {status: "Error in cleaning dist folder"} );
-        }
-          done(null, 'clean');
-      });
-    },
-    (done) => {
       console.log('================================MAKING\n');
-      if (emit)socket.emit('live.process', {donePercent: 20, status: "Making dist folder"});
+      if (emit)socket.emit('live.process', {donePercent: 10, status: "Making dist folder"});
       distHelper.makeDistDir(appFolder);
       done(null, 'make');
     },
     (done) => {
-      if (emit)socket.emit('live.process', {donePercent: 30, status: "Copying assets"});
+      if (emit)socket.emit('live.process', {donePercent: 20, status: "Copying assets"});
       distHelper.copyAssets(appFolder, (copyerr) => {
         console.log('================================COPYING\n');
 
         if (copyerr !== null) {
           console.log(copyerr);
-          return  socket.emit('live.error', {donePercent: 40, status: "Error in Copying assets"} );
+          return  socket.emit('live.error', {donePercent: 30, status: "Error in Copying assets"} );
         }
         done(null, 'copy');
       });
     },
     (done) => {
-        if(emit)socket.emit('live.process', {donePercent : 40, status: "Cleaning dependencies folder"});
-        distHelper.removeDependency(appFolder, (copyerr) => {
-            console.log('============================Moving contents from dependency folder and deleting the dependency folder');
-            if(copyerr !== null){
-                console.log(copyerr);
-                return socket.emit('live.error', {donePercent:45, status: "Error in moving files from dependency folder"} );
-            }
-            done(null, 'move');
-        });
+      if(emit)socket.emit('live.process', {donePercent : 40, status: "Cleaning dependencies folder"});
+      distHelper.removeDependency(appFolder, (copyerr) => {
+        console.log('============================Moving contents from dependency folder and deleting the dependency folder');
+        if(copyerr !== null){
+          console.log(copyerr);
+          return socket.emit('live.error', {donePercent:45, status: "Error in moving files from dependency folder"} );
+        }
+        done(null, 'move');
+      });
     },
     (done) => {
       console.log('================================COPYING JSONS\n');
@@ -208,6 +201,8 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('================================WRITING\n');
       if (emit)socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates"});
       const jsonData = getJsonData(req.body);
+      eventName = jsonData['eventurls']['name'];
+      //console.log(eventName);
 
       try {
 
@@ -225,8 +220,41 @@ exports.createDistDir = function(req, socket, callback) {
       done(null, 'write');
     },
     (done) => {
+      console.log("============Cleaning up remaining folders of the same name\n");
+      if(emit) socket.emit('live.process', {donePercent:80, status: "Cleaning up folders of the same name"});
+
+      distHelper.removeDuplicateEventFolders(eventName, req.body.email, (remerr) => {
+        if(remerr !== null){
+          console.log(remerr);
+          if(emit) socket.emit('live.error', {status: "Error in removing the duplicate event folders of the same name"});
+        }
+
+        done(null, 'remove');
+      });
+
+    },
+    (done) => {
+      console.log("============Renaming temporary folder to the actual event folder");
+      if(emit) socket.emit('live.process', {donePercent:85, status : "Generating the event folder"});
+
+      const eventFolderSource = __dirname + '/../../dist/';
+
+      fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
+        if(moveerr !== null) {
+          //console.log("Error in moving files to the event folder");
+          if(emit) socket.emit('live.error', {status: "Error in moving files to the event directory"});
+        }
+
+        appFolder = req.body.email + '/' + eventName;
+        //console.log(appFolder);
+        done(null, 'move');
+
+      });
+
+    },
+    (done) => {
       console.log('=================================SENDING MAIL\n');
-      if (emit) socket.emit('live.process', {donePercent: 80, status: "Website is being generated"});
+      if (emit) socket.emit('live.process', {donePercent: 90, status: "Website is being generated"});
       
       if (req.body.ftpdetails) {
         setTimeout(()=>{
@@ -236,7 +264,7 @@ exports.createDistDir = function(req, socket, callback) {
         }, 30000);
       }
       
-      mailer.sendMail(req.body.email, fold.slugify(req.body.name), () => {
+      mailer.sendMail(req.body.email, eventName, () => {
         callback(appFolder);
         done(null, 'write');
       });
