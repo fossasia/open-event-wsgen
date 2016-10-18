@@ -62,39 +62,6 @@ a {
   background-color: #777; }
 
 /* General styling of session list */
-.sessions .session-description {
-  color: #777; }
-
-.sessions .session-type {
-  color: #777; }
-
-.sessions .session-speakers {
-  float: left; }
-
-.sessions .session-id {
-  float: right;
-  word-wrap: break-word; }
-
-.sessions .session-list li {
-  cursor: pointer; }
-
-.sessions .session-list .label {
-  background: #ff8700;
-  border-color: #ebccd1;
-  color: #fff;
-  font-weight: 500;
-  font-size: 80%;
-  margin-left: -8px; }
-
-.sessions .session-list .session-title {
-  margin-top: 0.1em; }
-  .sessions .session-list .session-title .session-link {
-    font-size: 12px; }
-
-.sessions .session-location {
-  color: #777;
-  text-align: left; }
-
 .sessions ul {
   list-style: none; }
   .sessions ul li:after {
@@ -105,19 +72,7 @@ a {
 /* Adjustments for smaller screens */
 @media (min-width: 450px) {
   body {
-    font-size: 14px; }
-  .session-list > .label {
-    font-size: 90%;
-    padding: 0.2em 0.6em 0.3em; }
-  .session-title {
-    float: left;
-    width: 75%; }
-  .session-location {
-    float: right;
-    text-align: right;
-    width: 25%; }
-  .session-id {
-    float: none; } }
+    font-size: 14px; } }
 
 @media (min-width: 768px) {
   #day-menu .dropdown-menu {
@@ -166,9 +121,7 @@ a {
     font-size: 28px; }
   .btn-sign-up {
     font-size: 15px;
-    margin-top: -8px; }
-  .session-title {
-    line-height: 1.5; } }
+    margin-top: -8px; } }
 
 @media (max-width: 500px) {
   .nav > li > a {
