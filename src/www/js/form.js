@@ -186,7 +186,6 @@ function getData () {
   var data = {};
   var formData = $('#form').serializeArray();
   formData.forEach( function(field) {
-    if (field.name == 'name') {data.name = field.value }
     if (field.name == 'email') {data.email = field.value }
     if (field.name == 'theme') {data.theme = field.value }
     if (field.name == 'datasource') {data.datasource = field.value }

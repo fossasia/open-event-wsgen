@@ -99,68 +99,68 @@ module.exports = {
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
   removeDependency: function(appFolder, done) {
-      const appPath = distPath + '/' + appFolder;
-      const cssPath = appPath + '/css';
-      const jsPath = appPath + '/js';
-      const imagesPath = appPath + '/images';
-      const dependencyPath = appPath + '/dependencies';
-      fs.readdir(dependencyPath, function(err, list){
-          if(err) {
-              //console.log("Error in reading the directory\n");
-              return done(err);
-          }
-          //console.log(list);
-          // the variable below stores the no of files copied so far
-          var filesCopiedCounter = 0;
+    const appPath = distPath + '/' + appFolder;
+    const cssPath = appPath + '/css';
+    const jsPath = appPath + '/js';
+    const imagesPath = appPath + '/images';
+    const dependencyPath = appPath + '/dependencies';
+    fs.readdir(dependencyPath, function(err, list){
+      if(err) {
+        //console.log("Error in reading the directory\n");
+        return done(err);
+      }
+      //console.log(list);
+      // the variable below stores the no of files copied so far
+      var filesCopiedCounter = 0;
 
-          //check whether an error occured during the copying of a file or not
-          function checkFileCopyError(err) {
-              if(err) {
-                  return done(err);
-              }
-              // Since error didn't occur, increament the no of files copied by one
-              filesCopiedCounter += 1;
-          }
+      //check whether an error occured during the copying of a file or not
+      function checkFileCopyError(err) {
+        if(err) {
+          return done(err);
+        }
+        // Since error didn't occur, increament the no of files copied by one
+        filesCopiedCounter += 1;
+      }
 
-          // checks whether all the files of the folder have been copied or not
-          function checkForCompletion(){
-              if(filesCopiedCounter === list.length){
-                  fs.remove(dependencyPath, done);
-              }
-          }
+      // checks whether all the files of the folder have been copied or not
+      function checkForCompletion(){
+        if(filesCopiedCounter === list.length){
+          fs.remove(dependencyPath, done);
+        }
+      }
 
-          list.forEach(function(file){
-              //console.log(file);
-              var extension = path.extname(file);
-              var filePath = dependencyPath + '/' + file;
-              switch(extension) {
-                case '':
-                  fs.copy(filePath, appPath + '/' + file, function(err){
-                    checkFileCopyError(err);
-                    checkForCompletion();
-                  });
-                break;
-                case '.css':
-                  fs.copy(filePath, cssPath + '/' + file, function(err) {
-                    checkFileCopyError(err);
-                    checkForCompletion();
-                  });
-                break;
-                case '.png':
-                  fs.copy(filePath, imagesPath + '/' + file, function(err) {
-                    checkFileCopyError(err);
-                    checkForCompletion();
-                  });
-                break;
-                case '.js':
-                  fs.copy(filePath, jsPath + '/' + file, function(err) {
-                    checkFileCopyError(err);
-                    checkForCompletion();
-                  });
-                break;
-              }
-          });
+      list.forEach(function(file){
+        //console.log(file);
+        var extension = path.extname(file);
+        var filePath = dependencyPath + '/' + file;
+        switch(extension) {
+          case '':
+            fs.copy(filePath, appPath + '/' + file, function(err){
+              checkFileCopyError(err);
+              checkForCompletion();
+            });
+          break;
+          case '.css':
+            fs.copy(filePath, cssPath + '/' + file, function(err) {
+              checkFileCopyError(err);
+                checkForCompletion();
+            });
+          break;
+          case '.png':
+            fs.copy(filePath, imagesPath + '/' + file, function(err) {
+              checkFileCopyError(err);
+              checkForCompletion();
+            });
+          break;
+          case '.js':
+            fs.copy(filePath, jsPath + '/' + file, function(err) {
+              checkFileCopyError(err);
+              checkForCompletion();
+            });
+          break;
+        }
       });
+    });
   },
   copyUploads: function(appFolder) {
     const appPath = distPath + '/' + appFolder;
@@ -201,6 +201,49 @@ module.exports = {
       
     });
     
+  },
+  removeDuplicateEventFolders: function(newName, emailAddress, done) {
+    const searchFolder = distPath + '/' + emailAddress;
+    const removeFolder = distPath + '/' + emailAddress + '/' + newName;
+    fs.readdir(searchFolder, function(err, list) {
+      if(err) {
+        //Error in reading the directory
+        return done(err);
+      }
+
+      //The contents of the directory are in the list array
+      //console.log(list);
+
+      // counter stores the no of folders that have been matched against the given event name 
+      var counter = 0;
+      
+      // The function below checks whether all the files have been successfully checked or not. If yes, then return 
+      function checkForCompletion() {
+        if(counter === list.length) {
+          return done(null);
+        }
+      }
+
+      list.forEach(function(file) { 
+        // the duplicate entry we are searching for must be a folder so its extension must be an empty string '' 
+        var extension = path.extname(file);
+        if(file === newName && extension == '') {
+          // duplicate folder found
+          fs.remove(removeFolder, function(err) {
+            if(err !== null) {
+              // error occured during deletion of the duplicate folder
+              return done(err);
+            }
+            counter += 1;
+            checkForCompletion();
+          });
+        }
+        else {
+          counter += 1;
+          checkForCompletion();
+        }
+      });
+    });
   },
   fetchApiJsons: function(appFolder, apiEndpoint, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
