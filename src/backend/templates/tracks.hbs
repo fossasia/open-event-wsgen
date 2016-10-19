@@ -206,50 +206,47 @@
             e.stopPropagation();
           });
           $('.fossasia-filter:first').change(function() {
-            var filterVal = $(this).val();
-            if (filterVal) {
-              $('.day-filter').each(function(){
-                var flag = 1;
-
-                $(this).find('.session-filter').each(function() {
-                  if ($(this).find('.clearfix .session-title').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-speakers-less span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-speakers-more p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-id p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-location').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.sessions ul li a').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                    $(this).hide();
+                  var filterVal = $(this).val();
+                  if (filterVal) {
+                      $('.date-filter').each(function() {
+                          var flag = 1;
+                          $(this).find('.room-filter').each(function() {
+                              if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                                   $(this).hide();
+                               } else {
+                                   flag = 0;
+                                   $(this).show();
+                               }
+                          });
+                          if (flag == 1) {
+                              $(this).hide();
+                          } else {
+                              $(this).show();
+                          }
+                      });
                   } else {
-                    flag = 0;
-                    $(this).show();
+                      $('.date-filter').each(function() {
+                          $(this).find('.room-filter').each(function() {
+                              $(this).show();
+                          });
+                          $(this).show();
+                      });
                   }
-                });
-                if (flag == 1) {
-                  $(this).hide();
-                } else {
-                  $(this).show();
-                }
-              });
-            } else {
-              $('.day-filter').each(function() {
-                $(this).find('.session-filter').each(function() {
-                  $(this).show();
-                });
-                $(this).show();
-              });
-            }
 
-            // show "no results" if search input value matches zero items
-            if ($('.day-filter:visible').length == 0) {
-              $('#no-results').remove();
-              $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
-            } else {
-              $('#no-results').remove();
-            }
-            return false;
-          }).keyup(function() {
-            $(this).change();
-        });
+                  // show "no results" if search input value matches zero items
+                  if ($('.date-filter:visible').length == 0) {
+                      $('#no-results').remove();
+                      $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+                  } else {
+                      $('#no-results').remove();
+                  }
+                  return false;
+              }).keyup(function() {
+                  $(this).change();
+          });
       });
     </script>
   </body>
