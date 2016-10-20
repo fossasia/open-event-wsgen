@@ -20,7 +20,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - bash cli.sh
   - bash heroku_cli.sh
-  - bash gh_deploy.sh
+  - bash sample_deploy.sh
 deploy:
   provider: heroku
   api_key:
