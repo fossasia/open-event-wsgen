@@ -70,6 +70,7 @@ app.set('port', (process.env.PORT || config.PORT));
 // Use the www folder as static frontend
 app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../dist'));
+app.use('/sample', express.static(__dirname + '/../sample'));
 
 app.get('/download/:email/:appname', function (req, res) {
   generator.pipeZipToRes(req.params.email, req.params.appname, res)

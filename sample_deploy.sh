@@ -10,7 +10,10 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cd dist/a@a.com/testapp
+HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA\ 2016}"
+GH_EVENT="${GH_EVENT:-FOSSASIA\ 2016}"
+eval mv dist/a@a.com/$HSAMPLE_EVENT/* sample
+eval cd dist/a@a.com/$GH_EVENT/
 
 git init
 git config user.name "shubham-padia"
@@ -25,3 +28,4 @@ touch .
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git push -q upstream HEAD:gh-pages
+rm -rf dist/a@a.com
