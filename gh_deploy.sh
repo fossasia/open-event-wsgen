@@ -10,7 +10,8 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cd dist/a@a.com/testapp
+mv dist/a@a.com/heroku_dir/* sample
+cd dist/a@a.com/testapp/
 
 git init
 git config user.name "shubham-padia"
@@ -25,3 +26,4 @@ touch .
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git push -q upstream HEAD:gh-pages
+rm -rf dist/a@a.com
