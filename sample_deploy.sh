@@ -10,10 +10,10 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA%202016}"
-HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA%202016}"
-mv dist/a@a.com/$HSAMPLE_EVENT/* sample
-cd dist/a@a.com/$GH_EVENT/
+HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA\ 2016}"
+GH_EVENT="${GH_EVENT:-FOSSASIA\ 2016}"
+eval mv dist/a@a.com/$HSAMPLE_EVENT/* sample
+eval cd dist/a@a.com/$GH_EVENT/
 
 git init
 git config user.name "shubham-padia"
