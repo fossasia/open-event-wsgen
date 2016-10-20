@@ -10,8 +10,10 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-mv dist/a@a.com/heroku_dir/* sample
-cd dist/a@a.com/testapp/
+HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA%202016}"
+HSAMPLE_EVENT="${HSAMPLE_EVENT:-FOSSASIA%202016}"
+mv dist/a@a.com/$HSAMPLE_EVENT/* sample
+cd dist/a@a.com/$GH_EVENT/
 
 git init
 git config user.name "shubham-padia"

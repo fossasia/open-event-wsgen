@@ -10,7 +10,7 @@ client.on('connect', function () {
     if (i == 1) {
         i = 0;
         var data = {
-            name: process.argv[2] || 'testapp',
+            name: process.argv[2] || 'FOSSASIA%202016',
             email: 'a@a.com',
             theme: 'light',
             datasource: 'eventapi',
