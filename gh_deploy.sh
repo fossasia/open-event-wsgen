@@ -10,7 +10,8 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cd dist/a@a.com/testapp
+GH_EVENT="${GH_EVENT:-FOSSASIA\ 2016}"
+eval cd dist/a@a.com/$GH_EVENT
 
 git init
 git config user.name "shubham-padia"

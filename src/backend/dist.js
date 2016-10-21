@@ -19,7 +19,7 @@ const downloadFile = function(url, filePath) {
     console.log(err);
   });
   try {
-    request(url).pipe(fileStream);
+    request.get(url, {timeout: 10000}).pipe(fileStream);
   } catch (err) {
     console.log(err);
   }

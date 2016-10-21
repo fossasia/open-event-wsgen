@@ -72,10 +72,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
 
     if (reqOpts.assetmode === 'download') {
       const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-      if ((session.audio !== null) && (session.audio.substring(0, 4) === 'http')) {
-        session.audio = distHelper.downloadAudio(appFolder, session.audio);
+      if ((session.audio !== null) && (session.audio !== '') ) {
+        if(session.audio.substring(0, 4) === 'http'){
+          session.audio = distHelper.downloadAudio(appFolder, session.audio);
+        }
+        else if (reqOpts.datasource === 'eventapi') {
+           session.audio = encodeURI(distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio)));
+        } 
       }
     }
+
 
     if (track == undefined) {
       return;
