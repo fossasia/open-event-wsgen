@@ -270,11 +270,11 @@ exports.createDistDir = function(req, socket, callback) {
       });
         notifier.notify({action: "WebApp is generated",
                          message: "some message....",
-                         email: res.body.email,
+                         email: req.body.email,
                          title: "Open Event App"
-                        },(err,apiResponse,apiBody)=>{
+                        },(err,apiResponse,apiBody) => {
                          if(!err&apiResponse.statusCode==200){
-                             console.log("notified")
+                             console.log("notified");
                          }else{
                              console.log("something went wrong while notifying");
                          }
