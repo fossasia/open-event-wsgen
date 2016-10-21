@@ -18,8 +18,33 @@ const downloadFile = function(url, filePath) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+  fileStream.on('finish', function () {
+    fileStream.close();
+  });
+
   try {
-    request.get(url, {timeout: 10000}).pipe(fileStream);
+    request.get(url, {timeout: 50000, Accept: 'application/octet-stream'}).pipe(fileStream);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const downloadAudioFile = function(url, filePath, next) {
+  const fileStream = fs.createWriteStream(filePath);
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+  fileStream.on('finish', function () {
+    fileStream.close();
+  });
+
+  try {
+    request.get(url, {timeout: 50000}, function(error, response, body){
+      response.pipe(fileStream);
+       next();
+    })
+   
   } catch (err) {
     console.log(err);
   }
@@ -285,10 +310,13 @@ module.exports = {
     const audioFileName = audioUrl.split('/').pop();
     const audioFilePath = 'audio/' + audioFileName;
 
-    console.log('Downloading audio : ' + audioFileName);
+    
 
-    downloadFile(audioUrl, appPath + '/' + audioFilePath);
-    return audioFilePath;
+    downloadAudioFile(audioUrl, appPath + '/' + audioFilePath,function(){
+      console.log('Downloading audio : ' + audioFileName);
+       return audioFilePath;
+    });
+   
   },
   downloadSpeakerPhoto: function(appFolder, photoUrl) {
     const appPath = distPath + '/' +appFolder;
