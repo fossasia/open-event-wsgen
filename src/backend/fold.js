@@ -3,6 +3,7 @@
 const moment = require('moment');
 const distHelper = require('./dist');
 const urljoin = require('url-join');
+const async = require('async');
 
 function byProperty(key) {
 
@@ -32,7 +33,7 @@ function returnTrackColor(trackInfo, id) {
   return trackInfo[id];
 }
 
-function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
+function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -42,7 +43,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     trackDetails[track.id] = track.color;
   });
 
-  sessions.forEach((session) => {
+  async.eachSeries(sessions,(session,callback) => {
     if (!session.start_time) {
       return;
     }
@@ -69,25 +70,10 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
     } else {
       track = trackData.get(slug);
     }
-
-    if (reqOpts.assetmode === 'download') {
-      const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-      if ((session.audio !== null) && (session.audio !== '') ) {
-        if(session.audio.substring(0, 4) === 'http'){
-          session.audio = distHelper.downloadAudio(appFolder, session.audio);
-        }
-        else if (reqOpts.datasource === 'eventapi') {
-           session.audio = encodeURI(distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio)));
-        
-      } 
+    const goahead = function(){
+      if (track == undefined) {
+        return;
       }
-    }
-
-
-    if (track == undefined) {
-      return;
-    }
-    
       track.sessions.push({
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
@@ -107,16 +93,32 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts) {
       audio: session.audio
 
     });
+    callback();
+  };
 
-
-
-  });
-
-  let tracks = Array.from(trackData.values());
-
-  tracks.sort(byProperty('sortKey'));
-
-  return tracks;
+    if (reqOpts.assetmode === 'download') {
+      const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
+      if ((session.audio !== null) && (session.audio !== '') ) {
+        if(session.audio.substring(0, 4) === 'http'){
+          session.audio = distHelper.downloadAudio(appFolder, session.audio);
+        }
+        else if (reqOpts.datasource === 'eventapi') {
+           distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio), function(audio){
+            session.audio = encodeURI(audio );
+             goahead();
+           });
+        } 
+      }else {
+        goahead();
+      }
+    }else {
+      goahead();
+    }
+  },function(){
+      let tracks = Array.from(trackData.values());
+      tracks.sort(byProperty('sortKey'));
+      next(tracks);
+    });
 }
 
 function foldByTime(sessions, speakers, trackInfo) {

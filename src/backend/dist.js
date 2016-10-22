@@ -23,14 +23,14 @@ const downloadFile = function(url, filePath) {
   });
 
   try {
-    request.get(url, {timeout: 50000, Accept: 'application/octet-stream'}).pipe(fileStream);
+    request.get(url).pipe(fileStream);
   } catch (err) {
     console.log(err);
   }
 };
 
 const downloadAudioFile = function(url, filePath, next) {
-  const fileStream = fs.createWriteStream(filePath);
+  const fileStream = fs.createWriteStream(filePath,{encoding: null});
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -40,10 +40,11 @@ const downloadAudioFile = function(url, filePath, next) {
   });
 
   try {
-    request.get(url, {timeout: 50000}, function(error, response, body){
-      response.pipe(fileStream);
-       next();
-    })
+    request.get(url, {timeout: 100000, Accept: 'application/octet-stream'})
+            .on('response',function(response){
+                 response.pipe(fileStream);
+             next();
+    });
    
   } catch (err) {
     console.log(err);
@@ -305,7 +306,7 @@ module.exports = {
     fs.copySync(mockPath + '/sponsors', appPath + '/json/sponsors');
     fs.copySync(mockPath + '/microlocations', appPath + '/json/microlocations');
   },
-  downloadAudio: function(appFolder, audioUrl) {
+  downloadAudio: function(appFolder, audioUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const audioFileName = audioUrl.split('/').pop();
     const audioFilePath = 'audio/' + audioFileName;
@@ -314,7 +315,7 @@ module.exports = {
 
     downloadAudioFile(audioUrl, appPath + '/' + audioFilePath,function(){
       console.log('Downloading audio : ' + audioFileName);
-       return audioFilePath;
+       next(audioFilePath);
     });
    
   },
