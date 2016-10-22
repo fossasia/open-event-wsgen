@@ -13,7 +13,7 @@ const distHelper = require(__dirname + '/dist.js');
 const fold = require(__dirname + '/fold.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
-
+const notifier=require('./notifier');
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
 const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
 
@@ -268,6 +268,17 @@ exports.createDistDir = function(req, socket, callback) {
         callback(appFolder);
         done(null, 'write');
       });
+        notifier.notify({action: "WebApp is generated",
+                         message: "some message....",
+                         email: req.body.email,
+                         title: "Open Event App"
+                        },(err,apiResponse,apiBody) => {
+                         if(!err&apiResponse.statusCode==200){
+                             console.log("notified");
+                         }else{
+                             console.log("something went wrong while notifying");
+                         }
+        })
       
     }
   ]);
