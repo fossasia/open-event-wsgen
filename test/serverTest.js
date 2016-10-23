@@ -9,7 +9,8 @@
 const assert = require('chai').assert;
 const jsonfile = require('jsonfile');
 const async = require('async');
-const request = require('request');
+const config = require('../config.json');
+const request = require('request').defaults({'proxy': config.proxy});
 
 var fold = require('../src/backend/fold.js');
 var generator = require('../src/backend/generator.js');

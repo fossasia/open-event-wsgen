@@ -1,7 +1,8 @@
 'use strict';
 
 const fs = require('fs-extra');
-const request = require('request');
+const config = require('../../config.json');
+const request = require('request').defaults({'proxy': config.proxy});
 const async = require('async');
 const admZip = require('adm-zip');
 const progressStream = require('progress-stream');
