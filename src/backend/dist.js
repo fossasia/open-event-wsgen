@@ -18,8 +18,34 @@ const downloadFile = function(url, filePath) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+  fileStream.on('finish', function () {
+    fileStream.close();
+  });
+
   try {
-    request.get(url, {timeout: 10000}).pipe(fileStream);
+    request.get(url).pipe(fileStream);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const downloadAudioFile = function(url, filePath, next) {
+  const fileStream = fs.createWriteStream(filePath,{encoding: null});
+
+  fileStream.on('error', function(err) {
+    console.log(err);
+  });
+  fileStream.on('finish', function () {
+    fileStream.close();
+  });
+
+  try {
+    request.get(url, {timeout: 100000, Accept: 'application/octet-stream'})
+            .on('response',function(response){
+                 response.pipe(fileStream);
+             next();
+    });
+   
   } catch (err) {
     console.log(err);
   }
@@ -280,15 +306,18 @@ module.exports = {
     fs.copySync(mockPath + '/sponsors', appPath + '/json/sponsors');
     fs.copySync(mockPath + '/microlocations', appPath + '/json/microlocations');
   },
-  downloadAudio: function(appFolder, audioUrl) {
+  downloadAudio: function(appFolder, audioUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const audioFileName = audioUrl.split('/').pop();
     const audioFilePath = 'audio/' + audioFileName;
 
-    console.log('Downloading audio : ' + audioFileName);
+    
 
-    downloadFile(audioUrl, appPath + '/' + audioFilePath);
-    return audioFilePath;
+    downloadAudioFile(audioUrl, appPath + '/' + audioFilePath,function(){
+      console.log('Downloading audio : ' + audioFileName);
+       next(audioFilePath);
+    });
+   
   },
   downloadSpeakerPhoto: function(appFolder, photoUrl) {
     const appPath = distPath + '/' +appFolder;

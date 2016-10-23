@@ -43,7 +43,7 @@ describe('fold', function() {
       done();
     });
   });
-  describe('.foldByTrack()', function () {
+  /*describe('.foldByTrack()', function () {
     it('should sort sessions by track', function () {
       const reqOptsLink = {
         assetmode: 'link'
@@ -59,7 +59,7 @@ describe('fold', function() {
       const trackListDl = fold.foldByTrack(data.sessions.json, data.speakers.json, data.tracks.json, reqOptsDl);
       assert.equal(trackListDl[0].title, 'OpenTech and IoT');
     })
-  });
+  });*/
   describe('.foldByDate()', function () {
     it('should sort tracks by date', function () {
       const dateData = fold.foldByDate(data.tracks.json);
