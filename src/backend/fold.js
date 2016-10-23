@@ -550,6 +550,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       type: (session.session_type == null) ? ' ' : session.session_type.name,
       description: session.long_abstract,
       session_id: session.id,
+      audio:session.audio,
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
