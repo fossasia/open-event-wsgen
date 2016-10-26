@@ -20,7 +20,6 @@ function sendMail(toEmail, appName, done) {
     "<br><br><br>" +
     "Thank you for using Open Event Webapp Generator :) ");
   const mail = new helper.Mail(from_email, subject, to_email, content);
-
   var requestBody = mail.toJSON();
   var request = sg.emptyRequest();
   request.host = 'api.sendgrid.com';
@@ -32,7 +31,7 @@ function sendMail(toEmail, appName, done) {
     console.log(response.statusCode);
     console.log(response.body);
     console.log(response.headers);
-    done()
+    done();
   });
 
 }

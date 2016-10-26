@@ -32,31 +32,32 @@ $(document).ready(function () {
 
 
   $('input:radio[name="datasource"]').change(
-      function() {
-          if ($(this).is(':checked')) {
+    function() {
+      if ($(this).is(':checked')) {
 
-            if ($(this).val() === 'mockjson') {
-              $('#jsonupload-input').hide(100);
-              $('#eventapi-input').hide(100);
-            }
+        if ($(this).val() === 'mockjson') {
+          $('#jsonupload-input').hide(100);
+          $('#eventapi-input').hide(100);
+        }
 
-            if ($(this).val() === 'jsonupload') {
-              $('#jsonupload-input').show(100);
-              $('#eventapi-input').hide(100);
-              if (uploadFinished) {
-                enableGenerateButton(true);
-              } else {
-                enableGenerateButton(false);
-              }
-            }
-
-            if ($(this).val() === 'eventapi') {
-              $('#eventapi-input').show(100);
-              $('#jsonupload-input').hide(100);
-              enableGenerateButton(true);
-            }
+        if ($(this).val() === 'jsonupload') {
+          $('#jsonupload-input').show(100);
+          $('#eventapi-input').hide(100);
+          if (uploadFinished) {
+            enableGenerateButton(true);
+          } else {
+            enableGenerateButton(false);
           }
-      });
+        }
+
+        if ($(this).val() === 'eventapi') {
+          $('#eventapi-input').show(100);
+          $('#jsonupload-input').hide(100);
+          enableGenerateButton(true);
+        }
+      }
+    });
+
   $('#upload-ftp').change(
     function () {
       if ($(this).is(':checked')) {
@@ -66,62 +67,107 @@ $(document).ready(function () {
       }
     }
   );
+
   $('#singlefileUpload').change(function () {
     var ext = this.value.match(/\.([^\.]+)$/)[1];
     switch (ext) {
-        case 'zip':
-            break;
-        default:
-            alert('Only zip files are allowed');
-            this.value = '';
+      case 'zip':
+      break;
+      default:
+      alert('Only zip files are allowed');
+      this.value = '';
     }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
     var fileData = getFile();
     socket.emit('upload', fileData);
   });
+
   $('#btnGenerate').click(function () {
 
-     var check = $("#form").valid();
-     $(".error").focus();
-     if (check) {
-       var formData = getData();
-       socket.emit('live', formData);
-     }
+    var check = $("#form").valid();
+    $(".error").focus();
+    if (check) {
+      var formData = getData();
+      socket.emit('live', formData);
+    }
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
 
   });
+
+  $('#aLog').click(function(e) {
+    $('#buildLog').toggle();
+  });
+
 
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir);
   });
+
   socket.on('live.process', function (data) {
     updateStatusAnimate(data.status);
     updateGenerateProgress(data.donePercent);
   });
+
   socket.on('live.error' , function (err) {
-     statusText.css('color' , 'red');
-      updateStatusAnimate(err.status);
+    statusText.css('color' , 'red');
+    updateStatusAnimate(err.status);
 
   });
+
   socket.on('upload.progress', function(data) {
     updateUploadProgress(data.percentage);
-    if (data.percentage == 100) {
+    if (data.percentage === 100) {
       uploadFinished = true;
       enableGenerateButton(true);
     }
-  })
+  });
+
+  var errorno = 0; // stores the id of an error needed for its div element 
+  socket.on('buildLog', function(data) {
+    var spanElem = $("<span></span>");
+    var spanMess = $("<span></span>");
+    var aElem = $("<button></button>");
+    var divElem = $("<div></div>");
+    var paragraph = $("<p></p>");
+    spanMess.css({'margin-left' : '5px'});
+    aElem.css({'margin-left' : '5px'});
+    aElem.attr({'data-toggle' : 'collapse', 'href' : '#error' + String(errorno)});
+    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : "collapse"});
+    divElem.css({'color' : 'red'});
+    aElem.text("Know More");
+    spanMess.text(data.smallMessage);
+    spanElem.text(data.type.toUpperCase() + ":");
+    paragraph.append(spanElem);
+    paragraph.append(spanMess);
+
+    if(data.type === 'Info') 
+      spanElem.css({'color' : 'blue'});
+    
+    else if(data.type === 'Success') 
+      spanElem.css({'color' : 'green'});
+    
+    else if(data.type === 'Error') {
+      spanElem.css({'color' : 'red'});
+      divElem.text(data.largeMessage);
+      paragraph.append(aElem);
+      paragraph.append(divElem);
+      errorno += 1;
+    }
+    $('#buildLog').append(paragraph);
+  });
 
 });
 
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
-    generateProgressVal.html(parseInt(perc) + '%');
+      generateProgressVal.html(parseInt(perc) + '%');
   });
 }
+
 function updateUploadProgress(perc) {
   uploadProgressBar.css('width', perc + '%');
   uploadProgressVal.html(parseInt(perc) + '%');
@@ -134,23 +180,24 @@ function displayButtons (appPath) {
   btnLive.css('display', 'block');
 
   btnLive.unbind('click').click(function () {
-    window.open('/live/preview/' + appPath, '_blank')
+      window.open('/live/preview/' + appPath, '_blank');
   });
 
   btnDownload.unbind('click').click(function () {
-    window.open('/download/' + appPath, '_blank')
-  })
+      window.open('/download/' + appPath, '_blank');
+  });
 }
 
 function updateStatusAnimate (statusMsg, speed) {
   speed = speed || 200;
   var lowerOpaque = (speed < 200) ? 0.8 : 0.2;
   statusText.animate({'opacity': lowerOpaque}, speed, function () {
-    statusText.text(statusMsg);
+      statusText.text(statusMsg);
   }).animate({'opacity': 1}, speed);
 }
+
 function updateStatus(statusMsg) {
-  statusText.text(statusMsg)
+  statusText.text(statusMsg);
 }
 
 function initialState() {
@@ -164,7 +211,8 @@ function enableGenerateButton(enabled) {
   $('#btnGenerate').prop('disabled', !enabled);
   if (enabled) {
     $('#btnGenerate').attr('title', 'Generate webapp')
-  } else {
+  }
+  else {
     $('#btnGenerate').attr('title', 'Select a zip to upload first')
   }
 }
@@ -175,7 +223,8 @@ function getFile () {
   try {
     data.singlefileUpload = $('#singlefileUpload')[0].files[0];
     data.zipLength = $('#singlefileUpload')[0].files[0].size;
-  } catch (err) {
+  }
+  catch (err) {
     data.singlefileUpload = "";
     data.zipLength = 0;
   }
@@ -186,11 +235,11 @@ function getData () {
   var data = {};
   var formData = $('#form').serializeArray();
   formData.forEach( function(field) {
-    if (field.name == 'email') {data.email = field.value }
-    if (field.name == 'theme') {data.theme = field.value }
-    if (field.name == 'datasource') {data.datasource = field.value }
-    if (field.name == 'apiendpoint') {data.apiendpoint = field.value }
-    if (field.name == 'assetmode') {data.assetmode = field.value }
+    if (field.name === 'email') {data.email = field.value; }
+    if (field.name === 'theme') {data.theme = field.value; }
+    if (field.name === 'datasource') {data.datasource = field.value; }
+    if (field.name === 'apiendpoint') {data.apiendpoint = field.value; }
+    if (field.name === 'assetmode') {data.assetmode = field.value; }
   });
   if ($('#upload-ftp').prop('checked')) {
     data.ftpdetails = {
@@ -198,7 +247,7 @@ function getData () {
       user: $('#ftp-user').val(),
       pass: $('#ftp-pass').val(),
       path: $('#ftp-path').val()
-    }
+    };
   }
   return data;
 }

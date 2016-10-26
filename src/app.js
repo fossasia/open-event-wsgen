@@ -72,7 +72,7 @@ app.use('/', express.static(__dirname + '/www'));
 app.use('/live/preview', express.static(__dirname + '/../dist'));
 
 app.get('/download/:email/:appname', function (req, res) {
-  generator.pipeZipToRes(req.params.email, req.params.appname, res)
+  generator.pipeZipToRes(req.params.email, req.params.appname, res);
 }).use(errorHandler);
 
 app.use(bodyParser.urlencoded({ extended: false }));
