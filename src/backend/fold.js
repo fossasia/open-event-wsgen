@@ -70,7 +70,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     } else {
       track = trackData.get(slug);
     }
-    const goahead = function(){
+      
       if (track == undefined) {
         return;
       }
@@ -93,26 +93,27 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       audio: session.audio
 
     });
-    callback();
-  };
 
     if (reqOpts.assetmode === 'download') {
       const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
       if ((session.audio !== null) && (session.audio !== '') ) {
         if(session.audio.substring(0, 4) === 'http'){
-          session.audio = distHelper.downloadAudio(appFolder, session.audio);
+          distHelper.downloadAudio(appFolder, session.audio, function(audio){
+             track.sessions.audio = encodeURI(audio);
+             callback();  
+          });
         }
         else if (reqOpts.datasource === 'eventapi') {
            distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio), function(audio){
-            session.audio = encodeURI(audio );
-             goahead();
+             track.sessions.audio = encodeURI(audio);
+             callback();
            });
         } 
       }else {
-        goahead();
+        callback();
       }
     }else {
-      goahead();
+      callback();
     }
   },function(){
       let tracks = Array.from(trackData.values());
@@ -292,7 +293,7 @@ function createSocialLinks(event) {
   return sociallinks;
 }
 
-function extractEventUrls(event, speakers, sponsors, reqOpts) {
+function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
   const sociallinks = Array.from(event.social_links);
   var sociallink ="";
   var featuresection = 0;
@@ -343,10 +344,14 @@ function extractEventUrls(event, speakers, sponsors, reqOpts) {
 
     if (event.logo != null && event.logo != '') {
       if (event.logo.substring(0, 4) === 'http') {
-        urls.logo_url = distHelper.downloadLogo(appFolder, event.logo);
+        distHelper.downloadLogo(appFolder, event.logo, function(result){
+          urls.logo_url = encodeURI(result);
+        });
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.logo.charAt(0) == '/') event.logo = event.logo.substr(1);
-        urls.logo_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo)));
+        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo),function(result){
+          urls.logo_url = encodeURI(result);
+        });
       }
       else {
         let reg = event.logo.split('');
@@ -359,21 +364,30 @@ function extractEventUrls(event, speakers, sponsors, reqOpts) {
 
     if ((event.background_image != null) && (event.background_image != '')) {
       if (event.background_image.substring(0, 4) === 'http') {
-        urls.background_url = distHelper.downloadLogo(appFolder, event.background_image);
+        distHelper.downloadLogo(appFolder, event.background_image, function(result){
+          urls.background_url = result;
+          next(urls);
+        });
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.background_image.charAt(0) == '/') event.background_image = event.background_image.substr(1);
-        urls.background_url = encodeURI(distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_image)));
+        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_image), function(result){
+          urls.background_url = encodeURI(result);
+          next(urls);
+        });
       }
       else {
         let reg = event.background_image.split('');
         if(reg[0] =='/'){
           urls.background_url = encodeURI(event.background_image.substring(1,event.background_image.length));
+          next(urls);  
         }
       }
+    } else {
+      next(urls);
     }
   }
 
-  return urls;
+  
 }
 
 function getCopyrightData(event) {
@@ -381,7 +395,7 @@ function getCopyrightData(event) {
   return copyright;
 }
 
-function foldByLevel(sponsors ,reqOpts) {
+function foldByLevel(sponsors ,reqOpts, next) {
   let levelData = {};
   let level1=0,level2=0,level3=0;
   const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
@@ -398,26 +412,12 @@ function foldByLevel(sponsors ,reqOpts) {
 
   });
 
-  sponsors.forEach((sponsor) => {
+  async.eachSeries(sponsors, (sponsor, callback) => {
 
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
-    if (sponsor.logo !== null && sponsor.logo != "") {
-      if (sponsor.logo.substring(0, 4) === 'http') {
-        sponsor.logo = encodeURI(distHelper.downloadSponsorPhoto(appFolder, sponsor.logo));
-      } else if (reqOpts.datasource === 'eventapi' ) {
-        sponsor.logo = encodeURI(distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo)));
 
-      }
-      else {
-      let reg = sponsor.logo.split('');
-      if(reg[0] =='/'){
-          sponsor.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
-        }
-
-      }
-    }
     const sponsorItem = {
       divclass: '',
       imgsize: '',
@@ -449,12 +449,36 @@ function foldByLevel(sponsors ,reqOpts) {
       default:
       sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
       sponsorItem.sponsorimg = 'vcenter sponsorimg';
-
     }
-    levelData[sponsor.level].push(sponsorItem);
-  });
 
-  return levelData;
+    if (sponsor.logo !== null && sponsor.logo != "") {
+      if (sponsor.logo.substring(0, 4) === 'http') {
+        distHelper.downloadSponsorPhoto(appFolder, sponsor.logo, function(result){
+          sponsorItem.logo = encodeURI(result);
+          levelData[sponsor.level].push(sponsorItem);
+          callback();
+        });
+      } else if (reqOpts.datasource === 'eventapi' ) {
+        distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo), function(result){
+          sponsorItem.logo = encodeURI(result);
+          levelData[sponsor.level].push(sponsorItem);
+          callback();
+        });
+      }
+      else {
+      let reg = sponsor.logo.split('');
+      if(reg[0] =='/'){
+          sponsorItem.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
+          levelData[sponsor.level].push(sponsorItem);
+          callback();
+        }
+      }
+    } else {
+      callback();
+    }
+  }, function(){
+    next(levelData);
+  });
 }
 
 function sessionsByRooms(id, sessions, trackInfo) {
@@ -596,53 +620,59 @@ function getOrganizerName(event) {
     return name;
 }
 
-function foldBySpeakers(speakers ,sessions, tracksData, reqOpts) {
+function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-    speakers.forEach((speaker) => {
+    async.eachOfSeries(speakers, (speaker, key, callback) => {
 
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
-          speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, speaker.photo));
+          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo), function(result){
+            speakers[key].photo = encodeURI(result);
+            callback();
+          };
         }
         else  if (reqOpts.datasource === 'eventapi' ) {
-          speaker.photo = encodeURI(distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo)))
+          distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
+            speakers[key].photo = encodeURI(result);
+            callback();
+          })
         } else {
           var reg = speaker.photo.split('');
           if(reg[0] =='/'){
-            speaker.photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+            speakers[key].photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+            callback();
           }
         }
+      } else {
+        callback();
       }
-    });
+    }, function(){
+        let speakerslist = [];
+        speakers.forEach((speaker) => {
+          speakerslist.push({
+            country: speaker.country,
+            featured: speaker.featured,
+            email: speaker.email,
+            facebook: speaker.facebook ,
+            github: speaker.github ,
+            linkedin: speaker.linkedin ,
+            twitter: speaker.twitter ,
+            website: speaker.website ,
+            long_biography: speaker.long_biography ,
+            mobile: speaker.mobile,
+            name: speaker.name,
+            photo : speaker.photo,
+            organisation: speaker.organisation,
+            sessions : getAllSessions(speaker.sessions, sessions, tracksData),
+            speaker_id: speaker.id,
+            nameIdSlug: slugify(speaker.name + speaker.id)
+          });
+        speakerslist.sort(byProperty('name'));
+      });
+        next(speakerslist);
+      });
   }
-
-  let speakerslist = [];
-  speakers.forEach((speaker) => {
-    speakerslist.push({
-      country: speaker.country,
-      featured: speaker.featured,
-      email: speaker.email,
-      facebook: speaker.facebook ,
-      github: speaker.github ,
-      linkedin: speaker.linkedin ,
-      twitter: speaker.twitter ,
-      website: speaker.website ,
-      long_biography: speaker.long_biography ,
-      mobile: speaker.mobile,
-      name: speaker.name,
-      photo : speaker.photo,
-      organisation: speaker.organisation,
-      sessions : getAllSessions(speaker.sessions, sessions, tracksData),
-      speaker_id: speaker.id,
-      nameIdSlug: slugify(speaker.name + speaker.id)
-    });
-
-  speakerslist.sort(byProperty('name'));
-
- });
-
-  return speakerslist;
 }
 
 function getAllSessions(speakerid , session, trackInfo){
