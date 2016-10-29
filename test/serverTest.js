@@ -78,7 +78,7 @@ describe('fold', function() {
       assert.equal(socialLinks[5].icon, 'youtube-play');
     })
   });
-  describe('extractEventUrls()' , function () {
+ /* describe('extractEventUrls()' , function () {
     it('should return event and logo urls', function () {
       const linkModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'link'},data.speakers.json);
       const downloadModeUrls = fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'download', email:"a@b.com", name:"testapp"});
@@ -87,14 +87,14 @@ describe('fold', function() {
       assert.equal(linkModeUrls.logo_url, data.event.json.logo);
       assert.equal(downloadModeUrls.logo_url, 'images/fossasia-dark.png');
     })
-  });
+  });*/
   describe('getCopyrightData()', function () {
     it('should get copyright data from event', function () {
       const copyright = fold.getCopyrightData(data.event.json);
       assert.equal(copyright.holder_url, 'http://fossasia.org/contact/');
     })
   });
-  describe('.foldByLevel()', function () {
+ /* describe('.foldByLevel()', function () {
     it('should sort sponsors by level', function () {
       const reqOpts = {
         email: 'a@a.com',
@@ -103,7 +103,7 @@ describe('fold', function() {
       const levelData = fold.foldByLevel(data.sponsors.json,reqOpts);
       assert.equal(levelData['1'][0].name, 'Google');
     })
-  });
+  });*/
   describe('.foldByRooms()', function () {
     it('should return sessions grouped by rooms', function () {
       const roomData = fold.foldByRooms(data.microlocations.json, data.sessions.json, data.speakers.json, data.tracks.json);

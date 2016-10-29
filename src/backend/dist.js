@@ -13,7 +13,7 @@ const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
 
-const downloadFile = function(url, filePath) {
+const downloadFile = function(url, filePath, next) {
   const fileStream = fs.createWriteStream(filePath);
 
   fileStream.on('error', function(err) {
@@ -24,7 +24,11 @@ const downloadFile = function(url, filePath) {
   });
 
   try {
-    request.get(url).pipe(fileStream);
+    request.get(url)
+           .on('response',function(response){
+                response.pipe(fileStream);
+                next();
+           });
   } catch (err) {
     console.log(err);
   }
@@ -42,10 +46,10 @@ const downloadAudioFile = function(url, filePath, next) {
 
   try {
     request.get(url, {timeout: 100000, Accept: 'application/octet-stream'})
-            .on('response',function(response){
-                 response.pipe(fileStream);
-             next();
-    });
+           .on('response',function(response){
+              response.pipe(fileStream);
+              next();
+           });
    
   } catch (err) {
     console.log(err);
@@ -312,39 +316,40 @@ module.exports = {
     const audioFileName = audioUrl.split('/').pop();
     const audioFilePath = 'audio/' + audioFileName;
 
-    
-
     downloadAudioFile(audioUrl, appPath + '/' + audioFilePath,function(){
       console.log('Downloading audio : ' + audioFileName);
        next(audioFilePath);
     });
    
   },
-  downloadSpeakerPhoto: function(appFolder, photoUrl) {
+  downloadSpeakerPhoto: function(appFolder, photoUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'images/speakers/' + photoFileName;
 
-    console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
-    downloadFile(photoUrl, appPath + '/' + photoFilePath);
-    return photoFilePath;
+    downloadFile(photoUrl, appPath + '/' + photoFilePath, function(){
+      console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
+      next(photoFilePath);
+    });
   },
-  downloadLogo: function(appFolder, logoUrl) {
+  downloadLogo: function(appFolder, logoUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = logoUrl.split('/').pop();
     const photoFilePath = 'images/' + photoFileName;
-
-    console.log('Downloading logo : ' + logoUrl + ' to ' + photoFileName);
-    downloadFile(logoUrl, appPath + '/' + photoFilePath);
-    return photoFilePath;
+ 
+    downloadFile(logoUrl, appPath + '/' + photoFilePath, function(){
+      console.log('Downloading logo : ' + logoUrl + ' to ' + photoFileName);
+      next(photoFilePath);  
+    });
   },
-   downloadSponsorPhoto: function(appFolder, photoUrl) {
+   downloadSponsorPhoto: function(appFolder, photoUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'images/sponsors/' + photoFileName;
-
-     console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
-    downloadFile(photoUrl, appPath + '/' + photoFilePath);
-    return photoFilePath;
+   
+    downloadFile(photoUrl, appPath + '/' + photoFilePath, function(){
+      console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
+      next(photoFilePath);
+    });
   }
 };
