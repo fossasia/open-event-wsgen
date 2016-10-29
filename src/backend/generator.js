@@ -223,7 +223,9 @@ exports.createDistDir = function(req, socket, callback) {
           console.log(err);
           if (emit) socket.emit('live.error', { status: "Error in Compiling/Writing templates" });
         }
-        done(null, 'write');
+        distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder,function(){
+          done(null, 'write');  
+        });
       });
 
     },
