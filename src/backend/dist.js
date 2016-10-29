@@ -357,7 +357,6 @@ module.exports = {
   },
   generateThumbnails: function(path, next){
     recursive(path + '/images/speakers/',function (err, files) {
-      if (err) console.log(err);
       console.log(files);
       async.each(files, function(file,callback){
         const thumbFileName = file.split('/').pop();
@@ -365,7 +364,6 @@ module.exports = {
         .resize(100, 100)
         .toFile(path + '/images/thumbnails/speakers/' + thumbFileName, function(err, info) {
           if (err) console.log(err);
-          console.log("resized " + path);
           callback();
         });
       },function(){
