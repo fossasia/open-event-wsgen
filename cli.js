@@ -1,7 +1,8 @@
 "use strict";
 var fs = require('fs');
 var io = require('socket.io-client');
-var request = require('request');
+const config = require('./config.json');
+var request = require('request').defaults({'proxy': config.proxy});
 
 var client = io.connect('http://127.0.0.1:5000');
 var i = 1;
@@ -15,7 +16,7 @@ client.on('connect', function () {
             theme: 'light',
             datasource: 'eventapi',
             assetmode: 'download',
-            apiendpoint: "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/" || process.env.GH_ENDPOINT
+            apiendpoint: process.argv[3] || "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/" || process.env.GH_ENDPOINT
         }
         client.emit('live', data);
     }

@@ -96,6 +96,11 @@
 			  style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px"">
                           <h4 style="background-color:{{{color}}}"  class="sizeevent event">
                             {{title}}
+                            {{#if audio}}
+                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                                 <source src="{{ audio }}">
+                               </audio>
+                            {{/if}}
 			    <div id="desc2-{{session_id}}"
 				class="collapse in"
 				style="background-color:{{{color}}}; margin-top: 20px;">
