@@ -219,9 +219,9 @@ a {
 
 @media (max-width: 792px) {
   .sublargeoffset:first-child {
-    margin-left: 0%; }
+    margin-left: 0; }
   .mediumoffset:first-child {
-    margin-left: 0%; } }
+    margin-left: 0; } }
 
 @media (max-width: 892px) {
   .largeoffset {
@@ -244,9 +244,7 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   display: block;
-  margin: 12px;
-  margin-top: 0;
-  margin-left: 0;
+  margin: 0 12px 12px 0;
   position: relative;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.15);
   width: auto;
@@ -262,10 +260,6 @@ a {
 
 .trackwidth {
   width: 112px; }
-
-@media (max-width: 660px) {
-  .event {
-    max-width: 400px; } }
 
 @media (max-width: 660px) {
   .event {
@@ -344,10 +338,7 @@ a {
   .pop-box .pop > h4 {
     margin-left: -20px; }
   .pop-box .pop > .pop-over.row {
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 20px;
-    padding-top: 10px; }
+    padding: 10px 20px 0 0; }
   .pop-box .pop {
     background-color: #fff;
     margin-left: 20px;
@@ -370,10 +361,7 @@ a {
     border-top-right-radius: 4px;
     height: 35px;
     margin-left: -20px;
-    padding-bottom: 0;
-    padding-left: 20px;
-    padding-right: 5px;
-    padding-top: 5px; }
+    padding: 5px 5px 0 20px; }
 
 #headline {
   padding: 8px; }
@@ -423,34 +411,6 @@ a {
       padding: 4%;
       text-align: center; }
 
-/*
-.filter-heading span{
-position :relative;
-color: $black;
-}
-.filter-heading span:after{
-left:100%;
-margin-left:0.5em;
-}
-.filter-heading span:after{
-right:100%;
-margin-right:0.5em;
-}
-.filter-heading span:after, .filter-heading span:before {
-content: "";
-position: absolute;
-top: 50%;
-height: 3px;
-display: block;
-width:349px;
-margin-top: -2px;
-border-top: 1px solid $gray-dark;
-border-bottom: 1px solid $gray-dark;
-}
-.track-heading span:after,.track-heading span:before {
-width:299px;
-}
-*/
 .track-heading {
   margin-top: 40px; }
 
@@ -513,54 +473,6 @@ width:299px;
   .track-names {
     margin-top: 0; } }
 
-/*
-@media (max-width: 1202px) and (min-width: 760px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 270px;
-}
-}
-@media (max-width: 760px) and (min-width: 664px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 223px;
-}
-}
-@media (max-width: 664px) and (min-width: 620px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 213px;
-}
-}
-@media (max-width: 620px) and (min-width: 581px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 188px;
-}
-}
-@media (max-width: 581px) and (min-width: 550px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 176px;
-}
-}
-@media (max-width: 550px) and (min-width: 521px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 156px;
-}
-}
-@media (max-width: 550px) and (min-width: 521px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 156px;
-}
-}
-@media (max-width: 521px) and (min-width: 421px){
-.filter-heading span:after, .filter-heading span:before  {
-width: 134px;
-}
-}
-@media (max-width: 421px) {
-.filter-heading span:after, .filter-heading span:before  {
-width: 116px;
-}
-}
-
-*/
 @media (max-width: 767px) {
   .pop-box {
     width: 100%; }
@@ -680,7 +592,7 @@ width: 116px;
               margin: 0 auto; } }
         .speakers-row .speaker-column .speaker .image-holder .social-links {
           position: absolute;
-          top: 0%;
+          top: 0;
           width: 100%;
           -moz-transform: translate3d(0, -200px, 0);
           -moz-transition: all 0.3s ease-out;
@@ -780,7 +692,7 @@ width: 116px;
         transition: all 0.3s ease-out; }
         .speaker-with-bio .speaker .responsive-overlay .hover-state .social-links {
           position: absolute;
-          top: 0%;
+          top: 0;
           width: 100%;
           -moz-transform: translate3d(0, -200px, 0);
           -moz-transition: all 0.3s ease-out;
@@ -959,7 +871,7 @@ width: 116px;
   background-color: #fff;
   border: 1px solid #696969;
   color: #000;
-  font-family: verdana;
+  font-family: verdana sans-serif;
   font-size: 10pt;
   height: 28px;
   padding-left: 2px;
