@@ -260,8 +260,10 @@ exports.createDistDir = function(req, socket, callback) {
           logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
           if (emit) socket.emit('live.error', { status: "Error in Compiling/Writing templates" });
         }
-        logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
-        done(null, 'write');
+        distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder,function(){
+          logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
+          done(null, 'write');  
+        });
       });
 
     },

@@ -9,6 +9,8 @@ const admZip = require('adm-zip');
 const progressStream = require('progress-stream');
 const streamBuffer = require('stream-buffers');
 const path = require("path");
+const recursive = require('recursive-readdir');
+const sharp = require('sharp');
 
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
@@ -126,6 +128,7 @@ module.exports = {
       fs.mkdirpSync(appPath + '/audio');
       fs.mkdirpSync(appPath + '/images/speakers');
       fs.mkdirpSync(appPath + '/images/sponsors');
+      fs.mkdirpSync(appPath + '/images/speakers/thumbnails/');
     }
     catch(err) {
       logger.addLog('Error', 'Error while making dist directory', socket, err);
@@ -379,6 +382,21 @@ module.exports = {
     downloadFile(photoUrl, appPath + '/' + photoFilePath, function(){
       console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
       next(photoFilePath);
+    });
+  },
+  generateThumbnails: function(path, next){
+    recursive(path + '/images/speakers/',function (err, files) {
+      async.each(files, function(file,callback){
+        const thumbFileName = file.split('/').pop();
+        sharp(file)
+        .resize(100, 100)
+        .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
+          if (err) console.log(err);
+          callback();
+        });
+      },function(){
+        next();
+      })
     });
   }
 };
