@@ -1196,6 +1196,14 @@ a {
       display: block;
       float: none;
       margin: 0 auto;
+      width: 327px;
     }
   }
+
 }
+
+ @media only screen and (max-width: 600px) {
+   .date-pill {
+      display: block;
+   }
+ }
