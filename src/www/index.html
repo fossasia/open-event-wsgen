@@ -37,9 +37,9 @@
             <!--<br>-->
             <input type="hidden" id="theme" name="theme" value="light">
             <!--
-            <label for="name">App's Name</label>
-            <input type="text" class="form-control" id="name" name="name" required="true">
-            <br>
+                <label for="name">App's Name</label>
+                <input type="text" class="form-control" id="name" name="name" required="true">
+                <br>
             -->
             <label> Choose your data source </label>
             <ul style="list-style-type:none">
@@ -92,9 +92,12 @@
                 </div>
             </section>
             <center>
-                <div id="status"></div>
+                <div id="status" style = "margin-bottom:10px;"></div>
+                <a id = "aLog" style = "cursor:pointer;"> -Logs- </a> 
+                <div id = "buildLog" style = "display:none;">
+                </div>
                 <br>
-                <button disabled title="Upload zip or use API mode to enable" type="button" class="download btn btn-default" id="btnGenerate" value="Validate">GENERATE WEBAPP</button>
+                <button disabled title="Upload zip or use API mode to enable" type="button" class="download btn btn-default" id="btnGenerate" value="Validate" style = "margin-top:7px">GENERATE WEBAPP</button>
                 <button type="button" class="download btn btn-default" id="btnLive">PREVIEW</button>
                 <button type="button" class="download btn btn-default" id="btnDownload">DOWNLOAD</button>
             </center>
