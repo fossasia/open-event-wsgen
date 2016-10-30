@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs-extra');
+var logger = require('./buildlogger.js');
 const config = require('../../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 const async = require('async');
@@ -119,28 +120,36 @@ module.exports = {
   makeUploadsDir: function(err) {
     fs.mkdirpSync(uploadsPath);
   },
-  makeDistDir: function(appFolder, err) {
+  makeDistDir: function(appFolder, socket) {
     const appPath = distPath + '/' + appFolder;
-    fs.mkdirpSync(distPath);
-    fs.mkdirpSync(appPath);
-    fs.mkdirpSync(appPath + '/audio');
-    fs.mkdirpSync(appPath + '/images/speakers');
-    fs.mkdirpSync(appPath + '/images/sponsors');
-    fs.mkdirpSync(appPath + '/images/thumbnails/speakers');
+    try {
+      fs.mkdirpSync(distPath);
+      fs.mkdirpSync(appPath);
+      fs.mkdirpSync(appPath + '/audio');
+      fs.mkdirpSync(appPath + '/images/speakers');
+      fs.mkdirpSync(appPath + '/images/sponsors');
+      fs.mkdirpSync(appPath + '/images/speakers/thumbnails/');
+    }
+    catch(err) {
+      logger.addLog('Error', 'Error while making dist directory', socket, err);
+      console.log(err);
+    }
+    logger.addLog('Success', 'Dist directory made successfully', socket);
   },
   copyAssets: function(appFolder, err) {
     const appPath = distPath + '/' + appFolder;
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
-  removeDependency: function(appFolder, done) {
+  removeDependency: function(appFolder, socket, done) {
     const appPath = distPath + '/' + appFolder;
     const cssPath = appPath + '/css';
     const jsPath = appPath + '/js';
     const imagesPath = appPath + '/images';
     const dependencyPath = appPath + '/dependencies';
+    logger.addLog('Info', 'Reading the contents of the dependenices directory', socket);
     fs.readdir(dependencyPath, function(err, list){
       if(err) {
-        //console.log("Error in reading the directory\n");
+        logger.addLog('Error', 'Error while reading directory', socket, err);
         return done(err);
       }
       //console.log(list);
@@ -159,6 +168,8 @@ module.exports = {
       // checks whether all the files of the folder have been copied or not
       function checkForCompletion(){
         if(filesCopiedCounter === list.length){
+          logger.addLog('Info', 'All files of the folder have been copied', socket);
+          logger.addLog('Info', 'Now removing the dependenices folder', socket);
           fs.remove(dependencyPath, done);
         }
       }
@@ -196,11 +207,19 @@ module.exports = {
       });
     });
   },
-  copyUploads: function(appFolder) {
+  copyUploads: function(appFolder, socket) {
     const appPath = distPath + '/' + appFolder;
-    fs.mkdirpSync(appPath + '/json');
+    try {
+      fs.mkdirpSync(appPath + '/json');
+      logger.addLog('Info','Creating the json folder inside the appPath', socket); 
+    }
+    catch(err) {
+      logger.addlog('Error', 'Error occured while creating the json folder inside the appPath', socket, err);
+      console.log(err);
+    }
     var zip = new admZip(path.join(uploadsPath, 'upload.zip'));
      var zipEntries = zip.getEntries(); 
+     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
 
      zipEntries.forEach(function(zipEntry) {
      
@@ -231,22 +250,19 @@ module.exports = {
         break;
         default:
       }
-  
-      
+
     });
     
   },
-  removeDuplicateEventFolders: function(newName, emailAddress, done) {
+  removeDuplicateEventFolders: function(newName, emailAddress, socket, done) {
     const searchFolder = distPath + '/' + emailAddress;
     const removeFolder = distPath + '/' + emailAddress + '/' + newName;
     fs.readdir(searchFolder, function(err, list) {
       if(err) {
-        //Error in reading the directory
+        logger.addLog('Error', 'Error in reading the directory', socket, err);
         return done(err);
       }
-
-      //The contents of the directory are in the list array
-      //console.log(list);
+      logger.addLog('Info', 'Directory succesfully read', socket);
 
       // counter stores the no of folders that have been matched against the given event name 
       var counter = 0;
@@ -254,6 +270,7 @@ module.exports = {
       // The function below checks whether all the files have been successfully checked or not. If yes, then return 
       function checkForCompletion() {
         if(counter === list.length) {
+          logger.addLog('Info', 'All files in the directory have been compared and duplicate folder removed', socket);
           return done(null);
         }
       }
@@ -261,11 +278,13 @@ module.exports = {
       list.forEach(function(file) { 
         // the duplicate entry we are searching for must be a folder so its extension must be an empty string '' 
         var extension = path.extname(file);
-        if(file === newName && extension == '') {
+        if(file === newName && extension === '') {
+          logger.addLog('Info', 'Duplicate folder found having the same name as that of the event', socket);
           // duplicate folder found
+          logger.addLog('Info', 'Removing the duplicate folder', socket);
           fs.remove(removeFolder, function(err) {
             if(err !== null) {
-              // error occured during deletion of the duplicate folder
+              logger.addLog('Error', 'Error occured during deletion of the duplicate folder', socket, err);
               return done(err);
             }
             counter += 1;
@@ -279,7 +298,7 @@ module.exports = {
       });
     });
   },
-  fetchApiJsons: function(appFolder, apiEndpoint, done) {
+  fetchApiJsons: function(appFolder, apiEndpoint, socket, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
     const appPath = distPath + '/' + appFolder;
 
@@ -292,15 +311,25 @@ module.exports = {
       'event'
     ];
 
-    fs.mkdirpSync(appPath + '/json');
+    try {
+      fs.mkdirpSync(appPath + '/json');
+      logger.addLog('Info', 'Creating json folder insde the appPath directory', socket);
+    }
+    catch(err) {
+      logger.addLog('Error', 'Error while creating the json folder', socket, err);
+      done(err);
+    }
+
     async.eachSeries(jsons, (json, callback) => {
       downloadJson(appPath, endpoint, json, callback);
     }, (err) => {
       if (err) {
-        console.log(err);
-      } else {
+        logger.addLog('Error', 'Error occured while downloading jsons from the internet', socket, err);
+        done(err);
+      }
+      else {
         console.log('Jsons downloaded');
-        done();
+        done(null);
       }
     });
   },
@@ -357,12 +386,11 @@ module.exports = {
   },
   generateThumbnails: function(path, next){
     recursive(path + '/images/speakers/',function (err, files) {
-      console.log(files);
       async.each(files, function(file,callback){
         const thumbFileName = file.split('/').pop();
         sharp(file)
         .resize(100, 100)
-        .toFile(path + '/images/thumbnails/speakers/' + thumbFileName, function(err, info) {
+        .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
           if (err) console.log(err);
           callback();
         });

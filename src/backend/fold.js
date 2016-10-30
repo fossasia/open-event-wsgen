@@ -83,7 +83,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/thumbnails/speakers/' + (spkr.photo).split('/').pop();
+           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
@@ -167,7 +167,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       speakers_list: session.speakers.map((speaker) =>  {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/thumbnails/speakers/' + (spkr.photo).split('/').pop();
+           spkr.thumb = 'images/speakers/thumbnails/'+ (spkr.photo).split('/').pop();
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
@@ -584,7 +584,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/thumbnails/speakers/' + (spkr.photo).split('/').pop();
+           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
@@ -660,7 +660,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
         let speakerslist = [];
         speakers.forEach((speaker) => {
           if(speaker.photo){
-            var thumb = 'images/thumbnails/speakers/' + (speaker.photo).split('/').pop();
+            var thumb = 'images/speakers/thumbnails/' + (speaker.photo).split('/').pop();
           }
           speakerslist.push({
             country: speaker.country,
