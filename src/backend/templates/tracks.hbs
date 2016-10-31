@@ -110,7 +110,14 @@
                           </h4>
                           <div id="desc-{{session_id}}">
                             <p class="collapse">
-                              <span class="tip-description">{{{description}}}</span>
+                              <span class="tip-description">
+                                {{{description}}}
+                                {{#if audio}}
+                                  <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                                    <source src="{{ audio }}">
+                                  </audio>
+                                {{/if}}
+                              </span>
                             </p>
                             <hr style="clear:both" class="collapse">
                               <div class="session-speakers-list collapse">

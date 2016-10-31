@@ -96,6 +96,11 @@
                       <div id="desc-{{session_id}}">
                         <p class="collapse">
                           <span class="tip-description">
+                            {{#if audio}}
+                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                                 <source src="{{ audio }}">
+                               </audio>
+                            {{/if}}
                             {{{description}}}
                           </span>
                         </p>
