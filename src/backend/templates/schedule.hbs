@@ -89,16 +89,14 @@
                     <div style="padding-right:0px;">
                       <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event">
                         {{title}}
+                        {{#if audio}}
+                          <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
+                        {{/if}}
                       </h4>
                       <div id="desc-{{session_id}}">
                         <p class="collapse">
                           <span class="tip-description">
                             {{{description}}}
-                            {{#if audio}}
-                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                 <source src="{{ audio }}">
-                               </audio>
-                            {{/if}}
                           </span>
                         </p>
                         <hr style="clear:both" class="collapse">
