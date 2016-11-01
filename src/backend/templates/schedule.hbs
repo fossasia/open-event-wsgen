@@ -81,28 +81,33 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="track-inline" id="{{session_id}}">
-                  <div class="schedule-container"
-                    data-toggle="collapse"
-                    data-target="#desc-{{session_id}} .collapse"
-                    aria-expanded="false"
-                    aria-controls="desc-{{session_id}}">
+                  <div class="schedule-container">
                     <div style="padding-right:0px;">
-                      <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event">
+                      <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
+                        data-target="#desc-{{session_id}} .collapse"
+                        aria-expanded="false"
+                        aria-controls="desc-{{session_id}}">
                         {{title}}
+                        {{#if audio}}
+                          <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
+                        {{/if}}
                       </h4>
                       <div id="desc-{{session_id}}">
                         <p class="collapse">
                           <span class="tip-description">
-                            {{{description}}}
                             {{#if audio}}
                                <audio controls="" preload="none" style="display: block; margin-top: 15px">
                                  <source src="{{ audio }}">
                                </audio>
                             {{/if}}
+                            {{{description}}}
                           </span>
                         </p>
                         <hr style="clear:both" class="collapse">
-                        <div class="session-speakers-list collapse">
+                        <div class="session-speakers-list collapse"  data-toggle="collapse"
+                          data-target="#desc-{{session_id}} .collapse"
+                          aria-expanded="false"
+                          aria-controls="desc-{{session_id}}">
                           {{#each speakers_list}}
                           <a href="speakers.html#{{nameIdSlug}}">
                             <p class="session-speakers-less">

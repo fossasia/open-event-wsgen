@@ -87,19 +87,16 @@
                       <div class="eventtime col-xs-2 col-sm-2 col-md-2">
                         <span class="time-track">{{start}}</span>
                       </div>
-                      <div class="room-container"
-                        data-toggle="collapse"
-                        data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
-                        aria-expanded="false"
-                        aria-controls="desc-{{session_id}}">
+                      <div class="room-container">
                         <div class="left-border col-xs-10 col-sm-10 col-md-10"
 			  style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px"">
-                          <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                          <h4 style="background-color:{{{color}}}"  class="sizeevent event" data-toggle="collapse"
+                            data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
+                            aria-expanded="false"
+                            aria-controls="desc-{{session_id}}">
                             {{title}}
                             {{#if audio}}
-                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                 <source src="{{ audio }}">
-                               </audio>
+                               <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
                             {{/if}}
 			    <div id="desc2-{{session_id}}"
 				class="collapse in"
@@ -127,11 +124,20 @@
                           </h4>
                           <div id="desc-{{session_id}}">
                             <p class="collapse">
-                              <span class="tip-description">{{{description}}}
+                              <span class="tip-description">
+                                {{{description}}}
+                                {{#if audio}}
+                                <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                                   <source src="{{ audio }}">
+                                </audio>
+                                {{/if}}
                               </span>
                             </p>
                           <hr style="clear:both" class="collapse">
-                            <div class="session-speakers-list collapse">
+                            <div class="session-speakers-list collapse" data-toggle="collapse"
+                            data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
+                            aria-expanded="false"
+                            aria-controls="desc-{{session_id}}">
                             {{#speakers_list}}
                               <a href="speakers.html#{{nameIdSlug}}">
                                 <p class="session-speakers-less">
