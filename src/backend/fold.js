@@ -121,6 +121,9 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   },function(){
       let tracks = Array.from(trackData.values());
       tracks.sort(byProperty('sortKey'));
+      tracks.forEach(function(track) {
+        track.sessions.sort(byProperty('start'));
+      });
       next(tracks);
     });
 }
