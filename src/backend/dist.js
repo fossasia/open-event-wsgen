@@ -6,7 +6,6 @@ var zip = require('decompress-zip');
 const config = require('../../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 const async = require('async');
-const admZip = require('adm-zip');
 const progressStream = require('progress-stream');
 const streamBuffer = require('stream-buffers');
 const path = require("path");
