@@ -34,7 +34,6 @@ function returnTrackColor(trackInfo, id) {
 }
 
 function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
-  
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
@@ -42,7 +41,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
   });
-
+    
   async.eachSeries(sessions,(session,callback) => {
     if (!session.start_time) {
       return;
@@ -112,10 +111,15 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
              callback();
            });
         } 
-      }else {
+        else {
+            callback();
+        }
+      }
+      else {
         callback();
       }
-    }else {
+    }
+    else {
       callback();
     }
   },function(){
@@ -145,7 +149,7 @@ function foldByTime(sessions, speakers, trackInfo) {
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
       
-    console.log(date);
+    //console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,

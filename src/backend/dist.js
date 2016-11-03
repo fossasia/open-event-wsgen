@@ -2,10 +2,10 @@
 
 const fs = require('fs-extra');
 var logger = require('./buildlogger.js');
+var zip = require('decompress-zip');
 const config = require('../../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 const async = require('async');
-const admZip = require('adm-zip');
 const progressStream = require('progress-stream');
 const streamBuffer = require('stream-buffers');
 const path = require("path");
@@ -22,19 +22,23 @@ const downloadFile = function(url, filePath, next) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+
   fileStream.on('finish', function () {
     fileStream.close();
   });
 
   try {
     request.get(url)
-           .on('response',function(response){
-                response.pipe(fileStream);
-                next();
-           });
-  } catch (err) {
+      .on('response',function(response){
+        response.pipe(fileStream);
+        next();
+      });
+  }
+
+  catch (err) {
     console.log(err);
   }
+
 };
 
 const downloadAudioFile = function(url, filePath, next) {
@@ -43,20 +47,24 @@ const downloadAudioFile = function(url, filePath, next) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+
   fileStream.on('finish', function () {
     fileStream.close();
   });
 
   try {
     request.get(url, {timeout: 100000, Accept: 'application/octet-stream'})
-           .on('response',function(response){
-              response.pipe(fileStream);
-              next();
-           });
+      .on('response',function(response){
+        response.pipe(fileStream);
+        next();
+      });
    
-  } catch (err) {
+  }
+
+  catch (err) {
     console.log(err);
   }
+
 };
 
 const downloadJson = function(appPath, endpoint, jsonFile, cb) {
@@ -65,6 +73,7 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
   fileStream.on('error', function(err) {
     console.log(err);
   });
+
   fileStream.on('finish', function () {
     cb();
   });
@@ -72,16 +81,19 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
   try {
     console.log('Downloading ' + endpoint + '/' + jsonFile);
     request
-        .get(endpoint + '/' + jsonFile)
-        .on('response', function(response) {
-          if (response.statusCode != 200) {
-            cb(new Error('Response = ' + response.statusCode + 'received'));
-          }
-        })
-        .pipe(fileStream);
-  } catch (err) {
+      .get(endpoint + '/' + jsonFile)
+      .on('response', function(response) {
+        if (response.statusCode != 200) {
+          cb(new Error('Response = ' + response.statusCode + 'received'));
+        }
+      })
+      .pipe(fileStream);
+  }
+
+  catch (err) {
     console.log(err);
   }
+
 };
 
 module.exports = {
@@ -97,15 +109,16 @@ module.exports = {
       console.log('Zip upload: Status =' + parseInt(progress.percentage) + '%');
       emitter.emit('upload.progress', progress);
     });
+
     var fileBufferStream = new streamBuffer.ReadableStreamBuffer({
       // frequency: 100,   // in milliseconds. 
       chunkSize: 4096  // in bytes.
     });
+
     fileBufferStream.put(fileBuffer);
     fileBufferStream
       .pipe(progressor)
       .pipe(fs.createWriteStream(path.join(uploadsPath, 'upload.zip')));
-
   },
   cleanUploads: function() {
     fs.emptyDirSync(uploadsPath);
@@ -152,21 +165,12 @@ module.exports = {
         logger.addLog('Error', 'Error while reading directory', socket, err);
         return done(err);
       }
-      //console.log(list);
-      // the variable below stores the no of files copied so far
       var filesCopiedCounter = 0;
-
-      //check whether an error occured during the copying of a file or not
-      function checkFileCopyError(err) {
-        if(err) {
+      
+      function check(err) {
+        if(err)
           return done(err);
-        }
-        // Since error didn't occur, increament the no of files copied by one
         filesCopiedCounter += 1;
-      }
-
-      // checks whether all the files of the folder have been copied or not
-      function checkForCompletion(){
         if(filesCopiedCounter === list.length){
           logger.addLog('Info', 'All files of the folder have been copied', socket);
           logger.addLog('Info', 'Now removing the dependenices folder', socket);
@@ -175,39 +179,26 @@ module.exports = {
       }
 
       list.forEach(function(file){
-        //console.log(file);
         var extension = path.extname(file);
         var filePath = dependencyPath + '/' + file;
         switch(extension) {
           case '':
-            fs.copy(filePath, appPath + '/' + file, function(err){
-              checkFileCopyError(err);
-              checkForCompletion();
-            });
+          fs.copy(filePath, appPath + '/' + file, check);
           break;
           case '.css':
-            fs.copy(filePath, cssPath + '/' + file, function(err) {
-              checkFileCopyError(err);
-                checkForCompletion();
-            });
+          fs.copy(filePath, cssPath + '/' + file, check); 
           break;
           case '.png':
-            fs.copy(filePath, imagesPath + '/' + file, function(err) {
-              checkFileCopyError(err);
-              checkForCompletion();
-            });
+          fs.copy(filePath, imagesPath + '/' + file, check); 
           break;
           case '.js':
-            fs.copy(filePath, jsPath + '/' + file, function(err) {
-              checkFileCopyError(err);
-              checkForCompletion();
-            });
+          fs.copy(filePath, jsPath + '/' + file, check); 
           break;
         }
       });
     });
   },
-  copyUploads: function(appFolder, socket) {
+  copyUploads: function(appFolder, socket, done) {
     const appPath = distPath + '/' + appFolder;
     try {
       fs.mkdirpSync(appPath + '/json');
@@ -217,42 +208,69 @@ module.exports = {
       logger.addlog('Error', 'Error occured while creating the json folder inside the appPath', socket, err);
       console.log(err);
     }
-    var zip = new admZip(path.join(uploadsPath, 'upload.zip'));
-     var zipEntries = zip.getEntries(); 
-     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
+    logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
+    var unzipper = new zip(path.join(uploadsPath, 'upload.zip'));
 
-     zipEntries.forEach(function(zipEntry) {
-     
-      switch(zipEntry.entryName){
-        case 'images/':
-        zip.extractEntryTo("images/", appPath ); 
-        break;
-        case 'audio/':
-        zip.extractEntryTo("audio/", appPath);
-        break;
-        case 'sessions':
-        zip.extractEntryTo("sessions", appPath +'/json/');
-        break;
-        case 'speakers':
-        zip.extractEntryTo("speakers", appPath +'/json/');
-        break;
-        case 'microlocations' :
-        zip.extractEntryTo("microlocations", appPath+'/json/');
-        break;
-        case 'event' :
-        zip.extractEntryTo("event", appPath +'/json/');
-        break;
-        case 'sponsors' :
-        zip.extractEntryTo("sponsors", appPath +'/json/');
-        break;
-        case 'tracks':
-        zip.extractEntryTo("tracks", appPath +'/json/');
-        break;
-        default:
-      }
-
+    unzipper.on('error', function (err) {
+      console.log(err);
     });
-    
+
+    unzipper.extract({
+      path: appPath + '/zip'
+    });
+
+    unzipper.on('extract', function (log) {
+      var filesToCopy = 8;
+      fs.readdir(appPath + '/zip' , function(err, list){
+        var filesCopiedCounter = 0;
+        
+        if(err) {
+          logger.addLog('Error', 'Error while reading directory', socket, err);
+          return done(err);
+        }
+
+        function check(err) {
+          if(err)
+            return done(err);
+          filesCopiedCounter += 1;
+          if(filesCopiedCounter === filesToCopy)
+            fs.remove(appPath + '/zip', done);
+        }
+
+        list.forEach(function(file){
+          var filePath = appPath + '/zip/' + file;
+          switch(file) {
+            case 'audios':
+            fs.copy(filePath, appPath + '/audio' , check); 
+            break;
+            case 'audio':
+            fs.copy(filePath, appPath + '/audio' , check); 
+            break;
+            case 'images':
+            fs.copy(filePath, appPath + '/' + file, check); 
+            break;
+            case 'sessions':
+            fs.copy(filePath, appPath + '/json/' + file, check); 
+            break;
+            case 'speakers':
+            fs.copy(filePath, appPath + '/json/' + file, check); 
+            break;
+            case 'event':
+            fs.copy(filePath, appPath + '/json/' + file, check);
+            break;
+            case 'tracks':
+            fs.copy(filePath, appPath + '/json/' + file, check);
+            break;
+            case 'microlocations':
+            fs.copy(filePath, appPath + '/json/' + file, check);
+            break;
+            case 'sponsors':
+            fs.copy(filePath, appPath + '/json/' + file, check); 
+            break;
+          }
+        });
+      });
+    });
   },
   removeDuplicateEventFolders: function(newName, emailAddress, socket, done) {
     const searchFolder = distPath + '/' + emailAddress;

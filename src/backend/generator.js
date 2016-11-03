@@ -85,19 +85,15 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
 function getJsonData(reqOpts, next) {
   const appFolder = reqOpts.email + '/' + fold.slugify(reqOpts.name);
   const distJsonsPath = distHelper.distPath + '/' + appFolder + '/json';
-
   const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions');
   const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers');
   const eventData = jsonfile.readFileSync(distJsonsPath + '/event');
   const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
   const tracksData = jsonfile.readFileSync(distJsonsPath + '/tracks');
   const roomsData = jsonfile.readFileSync(distJsonsPath + '/microlocations');
-
   transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, reqOpts, function(data) {
     next(data);
   });
-
-
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
@@ -188,8 +184,12 @@ exports.createDistDir = function(req, socket, callback) {
       switch (req.body.datasource) {
         case 'jsonupload':
         logger.addLog('Info','Jsons have been uploaded by the user', socket);
-        distHelper.copyUploads(appFolder, socket);
-        done(null, 'copyUploads');
+        distHelper.copyUploads(appFolder, socket, function(err) { 
+          if(err) {
+            console.log(err);
+          }
+          done(null, 'copyUploads');
+        });
         break;
         case 'eventapi':
         console.log('================================FETCHING JSONS\n');
@@ -257,6 +257,7 @@ exports.createDistDir = function(req, socket, callback) {
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
         }
         catch (err) {
+          console.log(err);
           logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
           if (emit) socket.emit('live.error', { status: "Error in Compiling/Writing templates" });
         }
