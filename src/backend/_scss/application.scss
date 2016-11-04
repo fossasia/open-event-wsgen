@@ -76,6 +76,11 @@ a {
       border-bottom: 3px solid $gray-dark;
       text-decoration: none;
     }
+    @media screen and (max-width: 768px) {
+      &:hover {
+          width: 20%;
+      }
+    }
   }
 }
 
