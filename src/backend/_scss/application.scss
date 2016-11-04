@@ -294,6 +294,12 @@ a {
 }
 
 @media (max-width: 792px) {
+  .speaker-with-bio {
+    .speaker-description {
+      display: table;
+    }
+  }
+
   .sublargeoffset:first-child {
     margin-left: 0;
   }
