@@ -218,6 +218,8 @@ a {
   margin-left: 41.66666667%; }
 
 @media (max-width: 792px) {
+  .speaker-with-bio .speaker-description {
+    display: table; }
   .sublargeoffset:first-child {
     margin-left: 0; }
   .mediumoffset:first-child {
