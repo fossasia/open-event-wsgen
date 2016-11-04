@@ -53,6 +53,9 @@ a {
     .navlink a:hover {
       border-bottom: 3px solid #777;
       text-decoration: none; }
+    @media screen and (max-width: 768px) {
+      .navlink a:hover {
+        width: 20%; } }
 
 .navbar-toggle {
   color: #777;
