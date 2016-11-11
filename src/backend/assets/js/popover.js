@@ -8,7 +8,7 @@ $(document).ready(function () {
       tracktime = $(".sizeevent span"); 
       speakerinfo = $(".speaker-info");
      
-  popbox.hide();
+  popbox.addClass('hide');
   if( widthWindow < 768) {
     $(document).on('click','.sizeevent',function (event) {
       popBox(event);
@@ -18,7 +18,7 @@ $(document).ready(function () {
     headerpop.hover(function (event) {
       popBox(event);
     },function(){
-      popbox.hide();
+      popbox.addClass('hide');
       hidePopbox();
       hideUnderline();
     });
@@ -44,12 +44,12 @@ $(document).ready(function () {
     })
     speaker.hover(function(event){
       if(!(hoverstate).is(event.target)){
-        popbox.hide();
+        popbox.addClass('hide');
         hidePopbox();
     }
     })
     $(document).hover(function(event){
-      popbox.hide();
+      popbox.addClass('hide');
       hidePopbox();
     })
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
   function popBox(e) {
     event = e || window.event;
 
-    popbox.hide();
+    popbox.addClass('hide');
     hideUnderline();
     event.preventDefault();
     event.stopPropagation();
@@ -83,7 +83,7 @@ $(document).ready(function () {
     }
 
     let tracknext= $(track).next();
-    tracknext.show();
+    tracknext.removeClass('hide');
     track.css({
       "text-decoration":"underline"
     });
@@ -154,17 +154,17 @@ $(document).ready(function () {
         popbox = $(".pop-box");
         preserve3d = $(".preserve3d");
 
-    popbox.hide();
+    popbox.addClass('hide');
     event.preventDefault();
     event.stopPropagation();
     
     let imagehover = event.target;
     if((imageholder).is(event.target) ) {
-      $(imagehover).next().show();
+      $(imagehover).next().removeClass('hide');
       $(imagehover).children('.preserve3d').addClass('hover-state');
     }
     else {
-      $(imagehover).parents('.image-holder').next().show();
+      $(imagehover).parents('.image-holder').next().removeClass('hide');
       $(imagehover).parent().children('.preserve3d').addClass('hover-state');
     }
     adjustFooter(event);
@@ -172,7 +172,7 @@ $(document).ready(function () {
 
   function removeOverlay(event) {
     if(!$('.preserve3d').is(event.target)){
-      popbox.hide();
+      popbox.addClass('hide');
       $(document).removeClass('hover-state');
     }
     if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
@@ -185,7 +185,7 @@ $(document).ready(function () {
    $(document).mouseup(function(e) {
       let container = popbox;
       if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.hide();
+        container.addClass('hide');
          hidePopbox();
          removeOverlay(e);
       }
