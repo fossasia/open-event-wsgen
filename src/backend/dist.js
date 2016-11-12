@@ -231,19 +231,19 @@ module.exports = {
         }
 
         function check(err) {
+
         if(err !== null) {
             return done(err);
           }
 
           filesCopiedCounter += 1;
-          console.log(filesCopiedCounter);
           if(filesCopiedCounter === filesToCopy)
             fs.remove(appPath + '/zip', done);
         }
 
         list.forEach(function(file){
+
           var filePath = appPath + '/zip/' + file;
-          console.log(file);
           switch(file) {
             case 'audio':
             fs.copy(filePath, appPath + '/audio' , check); 
