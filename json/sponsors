@@ -9,6 +9,15 @@
         "description": ""
     }, 
     {
+        "id": 5, 
+        "name": "FOSSASIA", 
+        "logo": "/images/sponsors/Fossasia_5.png", 
+        "level": "1", 
+        "sponsor_type": "Diamond", 
+        "url": "http://blog.fossasia.org/", 
+        "description": ""
+    }, 
+    {
         "id": 2, 
         "name": "RedHat", 
         "logo": "/images/sponsors/Redhat_2.png", 
@@ -33,15 +42,6 @@
         "level": "4", 
         "sponsor_type": "Gold", 
         "url": "http://mysql.com", 
-        "description": ""
-    }, 
-    {
-        "id": 5, 
-        "name": "FOSSASIA", 
-        "logo": "/images/sponsors/Fossasia_5.png", 
-        "level": "1", 
-        "sponsor_type": "Diamond", 
-        "url": "http://blog.fossasia.org/", 
         "description": ""
     }, 
     {
@@ -87,15 +87,6 @@
         "level": "5", 
         "sponsor_type": "Silver", 
         "url": "https://www.python.org/", 
-        "description": ""
-    }, 
-    {
-        "id": 11, 
-        "name": "Science Centre Singapore", 
-        "logo": "/images/sponsors/ScienceCentreSingapore_11.png", 
-        "level": "1", 
-        "sponsor_type": "Gold", 
-        "url": "http://www.science.edu.sg/", 
         "description": ""
     }, 
     {
