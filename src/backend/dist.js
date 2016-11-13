@@ -199,6 +199,7 @@ module.exports = {
     });
   },
   copyUploads: function(appFolder, socket, done) {
+
     const appPath = distPath + '/' + appFolder;
     try {
       fs.mkdirpSync(appPath + '/json');
@@ -220,7 +221,7 @@ module.exports = {
     });
 
     unzipper.on('extract', function (log) {
-      var filesToCopy = 8;
+      var filesToCopy = 7;
       fs.readdir(appPath + '/zip' , function(err, list){
         var filesCopiedCounter = 0;
         
@@ -230,19 +231,20 @@ module.exports = {
         }
 
         function check(err) {
-          if(err)
+
+        if(err !== null) {
             return done(err);
+          }
+
           filesCopiedCounter += 1;
           if(filesCopiedCounter === filesToCopy)
             fs.remove(appPath + '/zip', done);
         }
 
         list.forEach(function(file){
+
           var filePath = appPath + '/zip/' + file;
           switch(file) {
-            case 'audios':
-            fs.copy(filePath, appPath + '/audio' , check); 
-            break;
             case 'audio':
             fs.copy(filePath, appPath + '/audio' , check); 
             break;

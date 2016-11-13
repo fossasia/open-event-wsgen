@@ -184,7 +184,7 @@ exports.createDistDir = function(req, socket, callback) {
       switch (req.body.datasource) {
         case 'jsonupload':
         logger.addLog('Info','Jsons have been uploaded by the user', socket);
-        distHelper.copyUploads(appFolder, socket, function(err) { 
+        distHelper.copyUploads(appFolder, socket, function(err) {
           if(err) {
             console.log(err);
           }
