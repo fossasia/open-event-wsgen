@@ -224,15 +224,10 @@ module.exports = {
     unzipper.on('extract', function (log) {
 
       var files = fs.readdirSync(appPath + '/zip');
-      for (var i in files) {
-        //var definition = require('./application/models/' + files[i]).Model;
-        //console.log('Model Loaded: ' + files[i]);
-      }
-      //var filesToCopy = 7;
+
       fs.readdir(appPath + '/zip' , function(err, list){
 
         var filesToCopy = list.length + 1;
-        console.log(list);
         
         if(err) {
           logger.addLog('Error', 'Error while reading directory', socket, err);
