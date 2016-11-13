@@ -220,10 +220,14 @@ module.exports = {
       path: appPath + '/zip'
     });
 
+
     unzipper.on('extract', function (log) {
-      var filesToCopy = 7;
+
+      var files = fs.readdirSync(appPath + '/zip');
+
       fs.readdir(appPath + '/zip' , function(err, list){
-        var filesCopiedCounter = 0;
+
+        var filesToCopy = list.length + 1;
         
         if(err) {
           logger.addLog('Error', 'Error while reading directory', socket, err);
@@ -236,9 +240,11 @@ module.exports = {
             return done(err);
           }
 
-          filesCopiedCounter += 1;
-          if(filesCopiedCounter === filesToCopy)
+          filesToCopy -= 1;
+          if(filesToCopy <= 1) {
             fs.remove(appPath + '/zip', done);
+          }
+
         }
 
         list.forEach(function(file){
@@ -268,6 +274,15 @@ module.exports = {
             break;
             case 'sponsors':
             fs.copy(filePath, appPath + '/json/' + file, check); 
+            break;
+            case 'meta':
+            fs.copy(filePath, appPath + '/json/' + file, check);
+            break;
+            case 'forms':
+            fs.copy(filePath, appPath + '/json/' + file, check);
+            break;
+            case 'session_types':
+            fs.copy(filePath, appPath + '/json/' + file, check);
             break;
           }
         });
