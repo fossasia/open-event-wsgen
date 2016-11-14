@@ -22,7 +22,7 @@ process.env.AWS_SECRET_ACCESS_KEY = (process.env.AWS_SECRET_ACCESS_KEY || config
 
 function uploadAndsendMail(toEmail, appName, socket, done) {
   var file = distHelper.distPath + '/' + toEmail + '/event.zip';
-  var fileName = uuid.v4() + "/" + appName;
+  var fileName = uuid.v4() + appName + '.zip';
   var uploadParams = {Bucket: 'princu7firstbucket',  Key: fileName , Body: ''};
   var fileStream = fs.createReadStream(file);
   fileStream.on('error', function(err) {
@@ -44,7 +44,7 @@ function uploadAndsendMail(toEmail, appName, socket, done) {
       const content = new helper.Content("text/html", "Hi ! " + "<br>" +
         " Your webapp has been generated " + "<br>" +
         "You can preview it live on " + appUrl + "live/preview/" + toEmail + "/" + appName + "<br>" +
-        "You can download a zip of your website from  " + appUrl + "download/" + toEmail + "/" + appName + "<br>" +
+        "You can download a zip of your website from  " + data.Location + 
         "<br><br><br>" +
         "Thank you for using Open Event Webapp Generator :) ");
       const mail = new helper.Mail(from_email, subject, to_email, content);
