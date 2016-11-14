@@ -6,14 +6,12 @@
 const helper = require('sendgrid').mail;
 const config = require('../../config.json');
 const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
-const archiver = require('archiver');
 const distHelper = require('./dist.js');
 const logger = require('./buildlogger.js');
 const aws = require('aws-sdk');
 const fs = require('fs');
 const generator = require('./generator.js');
 const s3 = new aws.S3();
-const crypto = require('crypto');
 const uuid = require('node-uuid');
 const appUrl = process.env.HEROKU_URL;
 
@@ -23,7 +21,7 @@ process.env.AWS_SECRET_ACCESS_KEY = (process.env.AWS_SECRET_ACCESS_KEY || config
 function uploadAndsendMail(toEmail, appName, socket, done) {
   var file = distHelper.distPath + '/' + toEmail + '/event.zip';
   var fileName = uuid.v4() + appName + '.zip';
-  var uploadParams = {Bucket: 'princu7firstbucket',  Key: fileName , Body: ''};
+  var uploadParams = {Bucket: 'FOSSASIA',  Key: fileName , Body: ''};
   var fileStream = fs.createReadStream(file);
   fileStream.on('error', function(err) {
     console.log("File Error");
