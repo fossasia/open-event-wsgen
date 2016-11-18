@@ -43,9 +43,10 @@ io.on('connection', function(socket){
 
   socket.on('live', function(formData) {
     var req = {body: formData};
-    generator.createDistDir(req, socket, function(appFolder) {
+    generator.createDistDir(req, socket, function(appFolder, url) {
       socket.emit('live.ready', {
-        appDir: appFolder
+        appDir: appFolder,
+        url: url
       });
       //generator.showLivePreview(req, socket);
     });

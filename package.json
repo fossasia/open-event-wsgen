@@ -22,6 +22,7 @@
   "dependencies": {
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
+    "aws-sdk": "^2.6.15",
     "body-parser": "^1.15.2",
     "chai": "^3.5.0",
     "compression": "^1.6.2",

@@ -104,7 +104,7 @@ $(document).ready(function () {
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
-    displayButtons(data.appDir);
+    displayButtons(data.appDir, data.url);
   });
 
   socket.on('live.process', function (data) {
@@ -173,7 +173,7 @@ function updateUploadProgress(perc) {
   uploadProgressVal.html(parseInt(perc) + '%');
 }
 
-function displayButtons (appPath) {
+function displayButtons (appPath, url) {
   var btnDownload = $('#btnDownload');
   var btnLive = $('#btnLive');
   btnDownload.css('display', 'block');
@@ -184,7 +184,7 @@ function displayButtons (appPath) {
   });
 
   btnDownload.unbind('click').click(function () {
-      window.open('/download/' + appPath, '_blank');
+      window.open(url);
   });
 }
 

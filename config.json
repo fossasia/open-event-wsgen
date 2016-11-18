@@ -10,5 +10,7 @@
   "audio_files": {
     "MAX_SIZE_MB": 100
   },
-  "proxy":"" 
+  "proxy": "", 
+  "AWS_ACCESS_KEY_ID": "XXXXXXXXXXXXXXXXX",
+  "AWS_SECRET_ACCESS_KEY": "XXXXXXXXXXXXXXXXXXXXX"
 }

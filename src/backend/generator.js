@@ -306,6 +306,22 @@ exports.createDistDir = function(req, socket, callback) {
 
     },
     (done) => {
+      logger.addLog('Info', 'Creating zip file of the event', socket);
+      console.log("==================================Creating zip file");
+      if (emit) socket.emit('live.process', {donePercent:95, status: "Website is being generated"});
+      var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
+      var archive = archiver('zip', {store: true});
+      output.on('close', function() {
+        logger.addLog('Success', 'Zip file has been created', socket);
+        done(null, 'zip');
+      });
+      archive.on('error', function(err) {
+        logger.addLog('Error', 'Error occured while zipping the file', socket, err)
+      });
+      archive.pipe(output);
+      archive.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
+    },
+    (done) => {
       logger.addLog('Info', 'Sending mail to the user', socket);
       console.log('=================================SENDING MAIL\n');
       if (emit) socket.emit('live.process', {donePercent: 90, status: "Website is being generated" });
@@ -318,28 +334,12 @@ exports.createDistDir = function(req, socket, callback) {
         }, 30000);
       }
 
-      mailer.sendMail(req.body.email, eventName, () => {
+      mailer.uploadAndsendMail(req.body.email, eventName, socket, (url) => {
         logger.addLog('Success', 'Mail sent succesfully', socket);
-        callback(appFolder);
+        callback(appFolder, url);
         done(null, 'write');
       });
 
     }
   ]);
-};
-
-
-exports.pipeZipToRes = function(email, appName, res) {
-  const appFolder = email + '/' + appName;
-  console.log('================================ZIPPING\n');
-  const zipfile = archiver('zip');
-
-  zipfile.on('error', (err) => {
-    throw err;
-  });
-  res.setHeader('Content-Type', 'application/zip');
-
-  zipfile.pipe(res);
-
-  zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
