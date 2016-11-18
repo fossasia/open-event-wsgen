@@ -262,7 +262,8 @@ a {
   font-style: normal;
   font-weight: 400;
   padding: 20px;
-  width: auto; }
+  width: auto;
+  cursor: pointer; }
   .sizeevent span {
     font-weight: 700; }
 
@@ -561,7 +562,8 @@ a {
       .speakers-row .speaker-column .speaker .image-holder {
         margin-bottom: 12px;
         overflow: hidden;
-        position: relative; }
+        position: relative;
+        cursor: pointer; }
         .speakers-row .speaker-column .speaker .image-holder .background-image {
           background-color: #f8f8fa;
           display: block;
