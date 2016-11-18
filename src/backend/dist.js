@@ -257,6 +257,9 @@ module.exports = {
             case 'images':
             fs.copy(filePath, appPath + '/' + file, check); 
             break;
+            case 'video':
+            fs.copy(filePath, appPath + '/' + file, check);
+            break;
             case 'sessions':
             fs.copy(filePath, appPath + '/json/' + file, check); 
             break;
