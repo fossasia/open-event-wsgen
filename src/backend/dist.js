@@ -220,45 +220,35 @@ module.exports = {
       path: appPath + '/zip'
     });
 
-
-    unzipper.on('extract', function (log) {
-
-      var files = fs.readdirSync(appPath + '/zip');
+    unzipper.on('extract', function(log) {
+      logger.addLog('Info', 'zip successfully extracted', socket);
 
       fs.readdir(appPath + '/zip' , function(err, list){
-
-        var filesToCopy = list.length + 1;
-        
         if(err) {
           logger.addLog('Error', 'Error while reading directory', socket, err);
           return done(err);
         }
 
-        function check(err) {
-
-        if(err !== null) {
-            return done(err);
-          }
-
-          filesToCopy -= 1;
-          if(filesToCopy <= 1) {
-            fs.remove(appPath + '/zip', done);
-          }
-
-        }
-
-        list.forEach(function(file){
+        async.each(list, function(file, callback){
 
           var filePath = appPath + '/zip/' + file;
+
+          function check(err){
+            if(err !== null) {
+              logger.addLog('Error', 'Error while copying folder', socket, err);
+              callback(err);
+            }
+            else {
+              callback(null);
+            }
+          }
+
           switch(file) {
             case 'audio':
             fs.copy(filePath, appPath + '/audio' , check); 
             break;
             case 'images':
             fs.copy(filePath, appPath + '/' + file, check); 
-            break;
-            case 'video':
-            fs.copy(filePath, appPath + '/' + file, check);
             break;
             case 'sessions':
             fs.copy(filePath, appPath + '/json/' + file, check); 
@@ -278,15 +268,14 @@ module.exports = {
             case 'sponsors':
             fs.copy(filePath, appPath + '/json/' + file, check); 
             break;
-            case 'meta':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'forms':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'session_types':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
+            default: callback(null);
+          }
+        }, function(err) {
+          if(err !== null) {
+            return done(err);
+          }
+          else {
+            fs.remove(appPath + '/zip', done);
           }
         });
       });
