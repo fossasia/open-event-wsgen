@@ -219,76 +219,64 @@ module.exports = {
     unzipper.extract({
       path: appPath + '/zip'
     });
+ unzipper.on('extract', function(log) {
+   logger.addLog('Info', 'zip successfully extracted', socket);
+   fs.readdir(appPath + '/zip' , function(err, list){
+     if(err) {
+       logger.addLog('Error', 'Error while reading directory', socket, err);
+       return done(err);
+     }
+     async.each(list, function(file, callback){
+       var filePath = appPath + '/zip/' + file;
 
+       function check(err){
+         if(err !== null) {
+           logger.addLog('Error', 'Error while copying folder', socket, err);
+           callback(err);
+         }
+         else {
+           callback(null);
+         }
+       }
 
-    unzipper.on('extract', function (log) {
-
-      var files = fs.readdirSync(appPath + '/zip');
-
-      fs.readdir(appPath + '/zip' , function(err, list){
-
-        var filesToCopy = list.length + 1;
-        
-        if(err) {
-          logger.addLog('Error', 'Error while reading directory', socket, err);
-          return done(err);
-        }
-
-        function check(err) {
-
-        if(err !== null) {
-            return done(err);
-          }
-
-          filesToCopy -= 1;
-          if(filesToCopy <= 1) {
-            fs.remove(appPath + '/zip', done);
-          }
-
-        }
-
-        list.forEach(function(file){
-
-          var filePath = appPath + '/zip/' + file;
-          switch(file) {
-            case 'audio':
-            fs.copy(filePath, appPath + '/audio' , check); 
-            break;
-            case 'images':
-            fs.copy(filePath, appPath + '/' + file, check); 
-            break;
-            case 'sessions':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            case 'speakers':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            case 'event':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'tracks':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'microlocations':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'sponsors':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            case 'meta':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'forms':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'session_types':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-          }
-        });
-      });
-    });
-  },
+       switch(file) {
+        case 'audio':
+        fs.copy(filePath, appPath + '/audio' , check); 
+        break;
+        case 'images':
+        fs.copy(filePath, appPath + '/' + file, check); 
+        break;
+        case 'sessions':
+        fs.copy(filePath, appPath + '/json/' + file, check); 
+        break;
+        case 'speakers':
+        fs.copy(filePath, appPath + '/json/' + file, check); 
+        break;
+        case 'event':
+        fs.copy(filePath, appPath + '/json/' + file, check);
+        break;
+        case 'tracks':
+        fs.copy(filePath, appPath + '/json/' + file, check);
+        break;
+        case 'microlocations':
+        fs.copy(filePath, appPath + '/json/' + file, check);
+        break;
+        case 'sponsors':
+        fs.copy(filePath, appPath + '/json/' + file, check); 
+        break;
+        default: callback(null);
+       }
+     }, function(err) {
+       if(err !== null) {
+         return done(err);
+       }
+       else {
+         fs.remove(appPath + '/zip', done);
+       }
+     });
+   });
+   });
+ },
   removeDuplicateEventFolders: function(newName, emailAddress, socket, done) {
     const searchFolder = distPath + '/' + emailAddress;
     const removeFolder = distPath + '/' + emailAddress + '/' + newName;
