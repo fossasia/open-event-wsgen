@@ -6,21 +6,24 @@ $(document).ready(function () {
 
   $('input:radio[name="datasource"]').change(
       function() {
+          var jsonuploadInput = $('#jsonupload-input');
+          var eventapiInput = $('#eventapi-input');
+          
           if ($(this).is(':checked')) {
 
             if ($(this).val() === 'mockjson') {
-              $('#jsonupload-input').hide(100);
-              $('#eventapi-input').hide(100);
+              jsonuploadInput.hide(100);
+              eventapiInput.hide(100);
             }
 
             if ($(this).val() === 'jsonupload') {
-              $('#jsonupload-input').show(100);
-              $('#eventapi-input').hide(100);
+              jsonuploadInput.show(100);
+              eventapiInput.hide(100);
             }
 
             if ($(this).val() === 'eventapi') {
-              $('#eventapi-input').show(100);
-              $('#jsonupload-input').hide(100);
+              eventapiInput.show(100);
+              jsonuploadInput.hide(100);
             }
           }
       });
