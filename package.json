@@ -37,6 +37,7 @@
     "jsonfile": "^2.3.1",
     "moment": "^2.13.0",
     "node-sass": "^3.7.0",
+    "node-uuid": "^1.4.7",
     "path": "^0.12.7",
     "progress-stream": "^1.2.0",
     "recursive-readdir": "^2.1.0",
