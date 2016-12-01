@@ -6,6 +6,7 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const path = require('path');
 var siofu = require("socketio-file-upload");
+var generator = require('./backend/generator.js');
 
 const config = require('../config.json');
 
@@ -56,9 +57,6 @@ io.on('connection', function(socket){
   })
 });
 
-
-var generator = require('./backend/generator.js');
-
 app.use(connectDomain());
 errorHandler = function(err, req, res, next) {
   res.sendFile(__dirname + '/www/404.html');
@@ -84,8 +82,6 @@ app.post('/generate', function (req, res) {
     res.send("Website generation started. You'll get an email when it is ready");
   });
 });
-
-
 
 app.use('*', function(req, res) {
   res.sendFile(__dirname + '/www/404.html');
