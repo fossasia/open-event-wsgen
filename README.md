@@ -54,6 +54,7 @@ The webapp generator uses the following technologies -
  - [dist.js](/src/backend/dist.js) - Creates folders, cleans folders, unzips/zips packages
  - [ftpdeploy.js](/src/backend/ftpdeploy.js) - Deploys finished website to organiser's server (optional)
  - [mailer.js](/src/backend/mailer.js) - Sends mail to organiser notifying of successful creation
+ - [buildlogger.js](/src/backend/buildlogger.js) - Displays build logs while generating webapp
  
 4. Templates
 
