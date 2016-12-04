@@ -106,11 +106,11 @@ exports.finishZipUpload = function(file) {
   distHelper.moveZip(file.pathName);
 
 };
+
 exports.startZipUpload = function(file) {
   console.log('========================ZIP UPLOAD START\n\n');
   distHelper.makeUploadsDir();
   distHelper.cleanUploads();
-
 };
 
 exports.createDistDir = function(req, socket, callback) {
@@ -342,4 +342,19 @@ exports.createDistDir = function(req, socket, callback) {
 
     }
   ]);
+};
+
+exports.pipeZipToRes = function(email, appName, res) {
+  const appFolder = email + '/' + appName;
+  console.log('================================ZIPPING\n');
+  const zipfile = archiver('zip');
+
+  zipfile.on('error', (err) => {
+    throw err;
+  });
+  res.setHeader('Content-Type', 'application/zip');
+
+  zipfile.pipe(res);
+
+  zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };

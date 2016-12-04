@@ -17,7 +17,6 @@ const appUrl = process.env.HEROKU_URL;
 
 process.env.AWS_ACCESS_KEY_ID = (process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID);
 process.env.AWS_SECRET_ACCESS_KEY = (process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY);
-
 function uploadAndsendMail(toEmail, appName, socket, done) {
   var file = distHelper.distPath + '/' + toEmail + '/event.zip';
   var fileName = uuid.v4() + appName + '.zip';
@@ -29,20 +28,20 @@ function uploadAndsendMail(toEmail, appName, socket, done) {
   });
   uploadParams.Body = fileStream;
   s3.upload(uploadParams, function (err, data) {
-    if(err) {
-      console.log("Error", err);
-      logger.addLog('Error', 'Error while uploading the zip', socket, err);
-    }
-    if(data) {
-      logger.addLog('Success', 'Upload successful to s3', socket); 
-      console.log("Upload Success", data.Location);
+
+    function emailSend(url) {
       const from_email = new helper.Email("championswimmer@gmail.com");
       const to_email = new helper.Email(toEmail);
       const subject = "Your webapp " + appName + " is Ready";
+      var downloadUrl = url;
+      if(url === null) {
+        downloadUrl = appUrl + "download/" + toEmail + "/" + appName;
+      }
+
       const content = new helper.Content("text/html", "Hi ! " + "<br>" +
         " Your webapp has been generated " + "<br>" +
         "You can preview it live on " + appUrl + "live/preview/" + toEmail + "/" + appName + "<br>" +
-        "You can download a zip of your website from  " + data.Location + 
+        "You can download a zip of your website from  " + downloadUrl + 
         "<br><br><br>" +
         "Thank you for using Open Event Webapp Generator :) ");
       const mail = new helper.Mail(from_email, subject, to_email, content);
@@ -57,8 +56,19 @@ function uploadAndsendMail(toEmail, appName, socket, done) {
         console.log(response.statusCode);
         console.log(response.body);
         console.log(response.headers);
-        done(data.Location);
+        done(url);
       });
+    }
+        
+    if(err) {
+      console.log("Error", err);
+      logger.addLog('Info', 'Failed while uploading the zip. No Amazon S3 keys found', socket);
+      emailSend(null);
+    }
+    if(data) {
+      logger.addLog('Success', 'Upload successful to s3', socket); 
+      console.log("Upload Success", data.Location);
+      emailSend(data.Location);
     }
   });
 }
