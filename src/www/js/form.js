@@ -184,7 +184,12 @@ function displayButtons (appPath, url) {
   });
 
   btnDownload.unbind('click').click(function () {
+    if(url === null) {
+      window.open('/download/' + appPath, '_blank');
+    }
+    else {
       window.open(url);
+    }
   });
 }
 
