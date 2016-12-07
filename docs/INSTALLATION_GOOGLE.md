@@ -1,77 +1,72 @@
 # How to install the Open Event Web App Generator on Google Cloud
+This documentation provides instructions to deploy the Open Event Web App on Google Cloud using the App Engine flexible environment.
 
-## Phase 1
-We need to set up a Google Cloud compute instance (VPS), which runs a Linux distro, and has SSH access. 
-Other than that, there are no special requirements. 
+## Step 1
+##### Create a new project on Google Cloud Console
+To start, visit this website to begin your free trial period for Google Cloud:
+https://cloud.google.com/free-trial/
 
-## Phase 2 
-Now we need to install the requirements needed to run it on the server. 
+_Note: You will have to enter credit card details to prove you are not a robot, but you will not be charged without your permission._
 
-First, update and upgrade all packages to ensure we are up-to-date on everything 
+After creating an account, go to the Google Cloud Console: https://console.cloud.google.com/
+When you finish the tutorial of the basics of the Console, click on the dropdown in the navigation panel on top, and select 'Create Project'.
 
-```shell
-sudo apt-get update
-sudo apt-get upgrade
+Enter your project name. Make sure the name is meaningful. 
+You will be provided with a Project ID. Keep a copy of the ID on your system.
+
+The URL of your deployed app will have the following strucutre: `https://[YOUR_PROJECT_ID].appspot.com`
+## Step 2
+##### Download and initialize the Google Cloud SDK
+Google Cloud SDK is a set of tools that you can use to manage resources and applications hosted on Google Cloud Platform.
+
+Visit this website to download the SDK package for your respective operating system: https://cloud.google.com/sdk/docs
+
+After downloading, unzip the package and move the folder to the desktop.
+Open the terminal, and navigate to the desktop using the `cd` command.
+
+Next, enter the following command in the terminal:
 ```
-
-Next we need to install Nodejs to our system. For this project, we recommend you use Nodejs v6.x
-
-```shell
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
-sudo apt-get install -y nodejs
+./google-cloud-sdk/bin/gcloud init
 ```
+The terminal will then ask for a series of numeric choices. Remember to choose your existing Google Cloud account, and selecting the Cloud project you created in Step 1
 
-Also, additionally, install build tools
+Your Google Cloud SDK will now be configured and ready to use. 
 
+
+## Step 3 
+##### Cloning the repository from Github and deploying the app
+The next step is to clone the Open Event Web App repository into a folder.
+Navigate to the folder where you want to clone, and then enter the command:
 ```shell
-sudo apt-get install -y build-essential
+git clone https://github.com/fossasia/open-event-webapp
 ```
-
-
-## Phase 3 
-
-Now you should clone this repository to a folder 
-
-```shell
-git clone https://github.com/fossasia/open-event-webapp -b development
+Enter the location of the Web App repository using the command: 
 ```
-(Leave use branch master for stable release, development for latest source) 
-
-After that we need to install the dependencies
-
-```shell
 cd open-event-webapp
-npm install 
+```
+Initialize the Cloud SDK
+```
+gcloud init
+```
+_Note: Make sure your repository contains an app.yaml file in the root directory. Your app cannot be deployed without an app.yaml file_
+
+Now, enter the following Cloud SDK command to deploy the app:
+```
+gcloud app deploy
 ```
 
-Run the app
 
-```shell
-npm run start
+Your app will now start deploying to the URL:
+`https://[YOUR_PROJECT_ID].appspot.com`
+
+You will get a message asking if you want to continue with deploying. Type 'y' (yes) to proceed.
+
+It will take a few minutes for your app to finish deploying. When the deployment finishes, you will get the following two messages:
+###### Updating service ... Done
+###### Deployed service to [https://[YOUR_PROJECT_ID].appspot.com]
+#
+You can view the application in your web browser using: 
 ```
-or
-```shell
-npm run server.generator
+gcloud app browse
 ```
-
-The app will be running on http://localhost:5000
-
-If you want the app to run on port 80, use the following command instead
-```shell
-sudo PORT=80 npm run start
-```
-
-### Note
-You'd like to keep the server running persistently, without having to keep ssh connection open. For that case,   
-
-Next install **PM2** (a package manager for Node)    
-```shell
-sudo npm install -g pm2
-```    
-
-
-Run the app using `pm start npm -- start`
-
-To make the server automatically run on startup, use this command `pm2 startup systemd`
-
-For a detailed tutorial on how to set up Node.js Apps for production usage, checkout https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04
+The application will now open in a new tab in your browser for you to view.
