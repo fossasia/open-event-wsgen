@@ -10,22 +10,19 @@ The Open Event Web App project has two components a) an event website generator 
 [![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##Communication
+## Communication
 
-Please join our mailing list to discuss questions regarding the project: https://groups.google.com/forum/#!forum/open-event
+* Please join our mailing list to discuss questions regarding the project: https://groups.google.com/forum/#!forum/open-event
 
-Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-webapp
+* Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-webapp
 
-## 1. Event Website Output
+## Event Website Output
 
 The component that is generator from the web app are the event websites. A sample event site using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) was generated and added to this repo as a Github Pages site. You can see the live site at http://fossasia.github.io/open-event-webapp/
 
-## 2. Web App Generator
-
+## Web App Generator
 ### Components and Technology
-
 #### Technologies used
-
 The webapp generator uses the following technologies - 
  1. HTML/CSS/Javascript based frontend
  2. [SASS](http://sass-lang.com/) - SASS to write optimized CSS.
@@ -37,27 +34,19 @@ The webapp generator uses the following technologies -
 #### Components of the Generator
 
 1. Webform
-
  The source of the webform can be found [here](/src/www). It consists of - 
-
  - [index.html](/src/www/index.html) - The webform page
  - [form.js](/src/www/js/form.js) - The script that uploads the zips, and starts the generator process
- 
 2. Generator
-
  The generator runs on a ExpressJS server, using this main [app script](/src/app.js). 
-
 3. Scripts
-
  - [generator.js](/src/backend/generator.js) - Does the main generation tasks, and controls other scripts
  - [fold.js](/src/backend/fold.js) - Groups data of sessions, speakers, tracks etc from JSONs
  - [dist.js](/src/backend/dist.js) - Creates folders, cleans folders, unzips/zips packages
  - [ftpdeploy.js](/src/backend/ftpdeploy.js) - Deploys finished website to organiser's server (optional)
  - [mailer.js](/src/backend/mailer.js) - Sends mail to organiser notifying of successful creation
  - [buildlogger.js](/src/backend/buildlogger.js) - Displays build logs while generating webapp
- 
 4. Templates
-
  The HTML pages of the generated website are created using Handelbars templates. You can find all the templates [here](/src/backend/templates) - 
 
   - **footer.hbs** : Common template for footer on all pages
@@ -69,39 +58,36 @@ The webapp generator uses the following technologies -
 
 ### Web App Generator Test Installation
 
-You can try out the web generator at  https://opev-webgen.herokuapp.com
-
-The development version is available here: https://opev-webgen-dev.herokuapp.com
-
-You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
+- You can try out the web generator at  https://opev-webgen.herokuapp.com
+- The development version is available here: https://opev-webgen-dev.herokuapp.com
+- You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
 
 ### Installation/Deployment of the Web App Generator
+##### How do I install Web App Generator on a Server
 
-#### How do I install Web App Generator on a Server
+* Please check out [the documentation here](/docs/INSTALLATION.md).
 
-Please check out [the documentation here](/docs/INSTALLATION.md).
+##### How do I install Web App Generator on my local machine
 
-#### How do I install Web App Generator on my local machine
+* Please check out [the documentation here](/docs/INSTALLATION_LOCAL.md).
 
-Please check out [the documentation here](/docs/INSTALLATION_LOCAL.md).
+##### How do I install Web App Generator on Google Cloud
 
-#### How do I install Web App Generator on Google Cloud
+* To install the system on Google Cloud please refer to the [Google Cloud installation readme](/docs/INSTALLATION_GOOGLE.md).
 
-To install the system on Google Cloud please refer to the [Google Cloud installation readme](/docs/INSTALLATION_GOOGLE.md).
+##### How do I install Web App Generator on AWS
 
-#### How do I install Web App Generator on AWS
+* To install the system on AWS please refer to the [AWS installation readme](/docs/INSTALLATION_AWS.md).
 
-To install the system on AWS please refer to the [AWS installation readme](/docs/INSTALLATION_AWS.md).
+##### How do I install Web App Generator on Digital Ocean
 
-#### How do I install Web App Generator on Digital Ocean
-
-To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).
+* To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).
 
 #### How do I deploy Web App Generator with Heroku
 
-Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)  
-Or use the 1-click deployment button  
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)   
+* Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
+Or use the 1-click deployment button
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)
 
 
 ## Accessing the Generator Web Form
@@ -111,14 +97,11 @@ Or use the 1-click deployment button
 ![Generator Screencast](docs/screenshots/screencast.gif)
 
  - Add your **email id**, **name of app** (name of event),
-
  - Then upload the zip file that contains all JSON files for *speakers*, *sessions*, *sponsors*, *event*, *tracks* and *locations* (These you should get from an orga-server or through the API after you have created your event there).
-
  - Now when you click on **GENERATE APP and DOWNLOAD** button, you'll get to download a zip of the event website.
 
 
 ## Accessing the Generator via REST API
-
 ### Endpoints
 ```
 POST /generate 
@@ -186,9 +169,9 @@ Before making a pull request, please file an issue. So, other developers have th
 
 We have the following branches   
  * **development**   
-	 All development goes on in this branch. If you're making a contribution,
-	 you are supposed to make a pull request to _development_.
-	 PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
+   All development goes on in this branch. If you're making a contribution,
+   you are supposed to make a pull request to _development_.
+   PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
  * **master**   
    This contains shipped code. After significant features/bugfixes are accumulated on development, we make a version update, and make a release.
 
