@@ -40,7 +40,7 @@ function uploadAndsendMail(toEmail, appName, socket, done) {
 
       const content = new helper.Content("text/html", "Hi ! " + "<br>" +
         " Your webapp has been generated " + "<br>" +
-        "You can preview it live on " + appUrl + "live/preview/" + toEmail + "/" + appName.replace(/ /g,"%20") + "<br>" +
+        "You can preview it live on " + appUrl + "live/preview/" + toEmail + "/" + appName.replace(/ /g, "%20") + "<br>" +
         "You can download a zip of your website from  " + downloadUrl + 
         "<br><br><br>" +
         "Thank you for using Open Event Webapp Generator :) ");
