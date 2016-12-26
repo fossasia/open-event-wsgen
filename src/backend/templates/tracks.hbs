@@ -58,6 +58,8 @@
           </span>
         </p>
 
+        <button class = "btn btn-primary" id = "starred" >Show Starred</button>
+
         <div id="session-list" class="container">
           <div class="row">
             <div style="margin: 15px 0 0 15px;" class="col-md-9">
@@ -88,7 +90,7 @@
                         <div class="left-border col-xs-10 col-sm-10 col-md-10" style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px;">
                           <div class = "sizeevent event" style = "background-color: {{../color}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px; cursor: unset;">
                             {{title}}
-                            <a style = "cursor:pointer">
+                            <a style = "cursor:pointer" class = "bookmark" >
                               <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
                               </i>
                             </a>
@@ -266,5 +268,84 @@
           });
       });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var flag = 0;
+            var isAdded = 0;
+
+            $('.bookmark').click(function(){
+                flag = 1;
+                var curColor = $(this).css("color");
+                if (curColor == "rgb(0, 0, 0)") {
+                    $(this).css("color", "");
+                    isAdded = 0;
+                }
+                else {
+                    $(this).css("color", "black");
+                    isAdded = 1;
+                }
+            });
+
+            $('.room-filter').click(function(){
+                if (flag) {
+                    var id = $(this).attr('id');
+                    if (isAdded) {
+                        localStorage.setItem(id, 1);
+                    }
+                    else {
+                        localStorage.setItem(id, 0);
+                        if(mode) {
+                            $(this).hide();
+                        }
+                    }
+                    flag = isAdded = 0;
+                }
+            });
+            // mode stores which display mode we are in. 0 for default and 1 for starred
+            var mode = 0;
+            display();
+
+            $('#starred').click(function() {
+                mode = !mode;
+                if(mode)
+                    $(this).text("Show All");
+                else
+                    $(this).text("Show Starred");
+                display();
+            });
+
+            function display() {
+                console.log("Inside the display function");
+                $('.date-filter').each(function() {
+                    var dateFlag = 0;
+                    $(this).find('.room-filter').each(function() {
+                        var elemId = $(this).attr('id');
+                        var elemFlag = 0;
+                        if(localStorage.hasOwnProperty(elemId) && localStorage[elemId] == 1) {
+                            elemFlag = dateFlag = 1;
+                            $(this).find('.bookmark').each(function() {
+                                $(this).css("color", "black");
+                            });
+                        }
+
+                        if (elemFlag || !mode) {
+                            $(this).show();
+                        }
+                        else {
+                            $(this).hide();
+                        }
+                    });
+
+                    if(dateFlag || !mode) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                });
+            }
+        });
+    </script>
+});
   </body>
 </html>
