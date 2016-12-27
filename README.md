@@ -110,7 +110,9 @@ Or use the 1-click deployment button
 
 ![Generator Screencast](docs/screenshots/screencast.gif)
 
- - Add your **email id**, **name of app** (name of event),
+(docs/screenshots/Openevent.mp4)
+
+- Add your **email id**, **name of app** (name of event),
 
  - Then upload the zip file that contains all JSON files for *speakers*, *sessions*, *sponsors*, *event*, *tracks* and *locations* (These you should get from an orga-server or through the API after you have created your event there).
 
