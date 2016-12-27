@@ -110,7 +110,8 @@ Or use the 1-click deployment button
 
 ![Generator Screencast](docs/screenshots/screencast.gif)
 
-![Generator Screencast](docs/screenshots/Openevent.mp4)
+Video of how to open the Generator Web Form
+https://www.youtube.com/watch?v=Idh4gQI2TO0&feature=youtu.be
 
 - Add your **email id**, **name of app** (name of event),
 
