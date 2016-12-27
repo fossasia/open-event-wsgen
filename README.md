@@ -110,7 +110,7 @@ Or use the 1-click deployment button
 
 ![Generator Screencast](docs/screenshots/screencast.gif)
 
-(docs/screenshots/Openevent.mp4)
+![Generator Screencast](docs/screenshots/Openevent.mp4)
 
 - Add your **email id**, **name of app** (name of event),
 
