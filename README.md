@@ -108,10 +108,11 @@ Or use the 1-click deployment button
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
 
-![Generator Screencast](docs/screenshots/screencast.gif)
+![Generator Screencast](docs/screenshots/screencast2.gif)
 
 Video of how to open the Generator Web Form
 https://www.youtube.com/watch?v=Idh4gQI2TO0&feature=youtu.be
+srijanjha09@gmail.com
 
 - Add your **email id**, **name of app** (name of event),
 
