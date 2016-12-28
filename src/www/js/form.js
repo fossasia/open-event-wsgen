@@ -10,9 +10,20 @@ $(document).ready(function () {
   uploader.listenOnInput(document.getElementById("siofu_input"));
 
   uploader.addEventListener('start', function(event) {
-    $('.upload-progress').show();
-    $('#upload-progress-bar').show();
+    $('#siofu_input').hide()
+    $('#upload-info').show();
+    // $('#upload-progress-bar').show();
+    $('#upload-filename').html(event.file.name.substring(0,14))
+    var size = (event.file.size/(1024*1024)).toString().substring(0,3)
+    $('#upload-filesize').html( size + "M") 
   });
+
+  $('#cancelUpload').click(function(e){
+    //TODO cancel soket ongoing uploading of file
+    e.preventDefault();
+    $('#siofu_input').val('').show()
+    $('#upload-info').hide();
+  })
 
   // uploader.addEventListener('progress', function(event) {
   //   var percentage = (event.bytesLoaded / event.file.size * 100);
@@ -77,7 +88,7 @@ $(document).ready(function () {
     }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
-    var fileData = getFile();
+    var fileData = getFile(); 
     socket.emit('upload', fileData);
   });
   $('#btnGenerate').click(function () {

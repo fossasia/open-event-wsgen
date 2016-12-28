@@ -56,9 +56,26 @@
             <section id="jsonupload-input" style="display:none;">
                 <label for="siofu_input">Zip file containing resources for the event</label>
                 <input type="file" name="singlefileUpload" id="siofu_input" class="form-control" required="true" accept="application/zip" />
-                <div class="upload-progress progress" style="display:none;">
-                    <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
-                        <span id="upload-progress-val">0%</span>
+                <div id="upload-info" hidden>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-7">
+                            <p>
+                                <strong id="upload-filename"></strong> 
+                                <small class="text-muted"> 
+                                    <span id="upload-filesize"></span> 
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-sm-5 col-xs-3 progressbar">
+                            <div class="upload-progress progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
+                                    <!-- <span id="upload-progress-val">0%</span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1 col-xs-2" style="padding: 0 10px">
+                            <button id="cancelUpload" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
                     </div>
                 </div>
             </section>
