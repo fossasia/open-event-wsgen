@@ -270,8 +270,10 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
+            var maxNoOfSessions = 1000;
             var flag = 0;
             var isAdded = 0;
+            var mode = 0;
 
             $('.bookmark').click(function(){
                 flag = 1;
@@ -287,23 +289,23 @@
             });
 
             $('.room-filter').click(function(){
+                var temp = JSON.parse(localStorage['tracks']);
+                var id = Number($(this).attr('id'));
                 if (flag) {
                     var id = $(this).attr('id');
                     if (isAdded) {
-                        localStorage.setItem(id, 1);
+                        temp[id] = 1;
                     }
                     else {
-                        localStorage.setItem(id, 0);
+                        temp[id] = 0;
                         if(mode) {
                             $(this).hide();
                         }
                     }
                     flag = isAdded = 0;
+                    localStorage['tracks'] = JSON.stringify(temp);
                 }
             });
-            // mode stores which display mode we are in. 0 for default and 1 for starred
-            var mode = 0;
-            display();
 
             $('#starred').click(function() {
                 mode = !mode;
@@ -316,12 +318,17 @@
 
             function display() {
                 console.log("Inside the display function");
+                if(localStorage.hasOwnProperty('tracks') === false) {
+                    localStorage['tracks'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+                }
+                var temp = JSON.parse(localStorage['tracks']);
+
                 $('.date-filter').each(function() {
                     var dateFlag = 0;
                     $(this).find('.room-filter').each(function() {
                         var elemId = $(this).attr('id');
                         var elemFlag = 0;
-                        if(localStorage.hasOwnProperty(elemId) && localStorage[elemId] == 1) {
+                        if(temp[elemId] == 1) {
                             elemFlag = dateFlag = 1;
                             $(this).find('.bookmark').each(function() {
                                 $(this).css("color", "black");
@@ -344,6 +351,7 @@
                     }
                 });
             }
+            display();
         });
     </script>
 });
