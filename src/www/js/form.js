@@ -1,6 +1,7 @@
 /* global $ */
 "use strict";
 
+
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
 var uploadFinished = false;
 
@@ -17,6 +18,16 @@ function updateUploadProgress(perc) {
   uploadProgressVal.html(parseInt(perc, 10) + '%');
 }
 
+function createCookie(name, value, days) {
+  var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    expires = '; expires=' + date.toUTCString();
+  }
+  document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
+}
+
 $(document).ready(function () {
   var socket = io();
   var uploader = new SocketIOFileUpload(socket);
@@ -24,25 +35,24 @@ $(document).ready(function () {
   uploader.listenOnInput(document.getElementById('siofu_input'));
 
   uploader.addEventListener('choose', function(event) {
-      if($("#siofu_input").val().search('.zip') === -1) {
-        $("#siofu_input").val('');
-        statusText.css({'color' : 'red'});
-        statusText.text("Upload zip extension");
-        return false;
-      }
+    if($('#siofu_input').val().search('.zip') === -1) {
+      $('#siofu_input').val('');
+      statusText.css({'color' : 'red'});
+      statusText.text('Upload zip extension');
+      return false;
+    }
   });
 
   uploader.addEventListener('start', function(event) {
-    $('#siofu_input').hide()
+    $('#siofu_input').hide();
     $('#upload-info').show();
     // $('#upload-progress-bar').show();
-    $('#upload-filename').html(event.file.name.substring(0,14))
-    var size = (event.file.size/(1024*1024)).toString().substring(0,3)
-    $('#upload-filesize').html( size + "M")
+    $('#upload-filename').html(event.file.name.substring(0, 14));
+    var size = (event.file.size/(1024*1024)).toString().substring(0, 3);
+    $('#upload-filesize').html(size + 'M');
   });
 
   $('#cancelUpload').click(function(e){
-    //TODO cancel soket ongoing uploading of file
     e.preventDefault();
 
     isCancelling = true;
@@ -66,11 +76,11 @@ $(document).ready(function () {
     enableGenerateButton(false);
     $('#btnLive').hide();
     $('#btnDownload').hide();
-  })
+  });
 
   $('#siofu_input').click(function() {
     statusText.text('');
-  })
+  });
   // uploader.addEventListener('progress', function(event) {
   //   var percentage = (event.bytesLoaded / event.file.size * 100);
   //   updateUploadProgress(percentage);
@@ -158,13 +168,19 @@ $(document).ready(function () {
     $('#buildLog').toggle();
   });
 
+  function addDeployLink() {
+    $('#deploy').attr('href', '/auth');
+  }
 
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir, data.url);
+    createCookie('folder', data.appDir);
     $('#btnGenerate').prop('disabled', true);
     $('#btnGenerate').attr('title', 'Generated webapp')
+    $('#btnGenerate').prop('disabled', false);
+    addDeployLink();
   });
 
   socket.on('live.process', function (data) {
@@ -176,7 +192,7 @@ $(document).ready(function () {
   });
 
   socket.on('live.error' , function (err) {
-    statusText.css('color' , 'red');
+    statusText.css('color', 'red');
     updateStatusAnimate(err.status);
 
   });
@@ -251,6 +267,8 @@ $(document).ready(function () {
 function displayButtons (appPath, url) {
   var btnDownload = $('#btnDownload');
   var btnLive = $('#btnLive');
+  var deploy = $('#deploy');
+  deploy.show();
   btnDownload.css('display', 'block');
   btnLive.css('display', 'block');
 
@@ -292,10 +310,10 @@ function initialState() {
 function enableGenerateButton(enabled) {
   $('#btnGenerate').prop('disabled', !enabled);
   if (enabled) {
-    $('#btnGenerate').attr('title', 'Generate webapp')
+    $('#btnGenerate').attr('title', 'Generate webapp');
   }
   else {
-    $('#btnGenerate').attr('title', 'Select a zip to upload first')
+    $('#btnGenerate').attr('title', 'Select a zip to upload first');
   }
 }
 
