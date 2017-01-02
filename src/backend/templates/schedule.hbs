@@ -56,6 +56,9 @@
     {{#timeList}}
       <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
     {{/timeList}}
+    <span style = "display:inline-block; padding-top:6px;"> 
+      <button class = "btn btn-primary" id = "starred" style = "background-color:#eee; color:black; border-color:#333" >Show Starred</button>
+    </span>
     <span class="search-filter">
         <input class="fossasia-filter" type="text" placeholder="Search" />
     </span>
@@ -91,6 +94,10 @@
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
                         {{/if}}
+                        <a style = "cursor:pointer" class = "bookmark" id = "c{{session_id}}" >
+                          <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
+                          </i>
+                        </a>
                       </h4>
                       <div id="desc-{{session_id}}">
                         <p class="collapse">
@@ -264,6 +271,96 @@
               $(this).change();
           });
       });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          var maxNoOfSessions = 1000;
+          var mode = 0;
+          var flag = 0;
+          var isAdded = 0;
+
+          $('.bookmark').click(function(event){
+            var temp = JSON.parse(localStorage['schedule']);
+            var id = Number($(this).attr('id').substr(1));
+            flag = 1;
+            var curColor = $(this).css("color");
+            if (curColor == "rgb(0, 0, 0)") {
+              $(this).css("color", "");
+              temp[id] = 0;
+              isAdded = 0;
+            }
+            else {
+              $(this).css("color", "black");
+              temp[id] = 1;
+              isAdded = 1;
+            }
+            localStorage['schedule'] = JSON.stringify(temp);
+          });
+
+          $('.track-inline').click(function(event){
+            event.stopPropagation();
+            if(mode && flag && !isAdded) {
+              $(this).hide();
+              flag = isAdded = 0;
+            }
+          });
+
+
+          $('#starred').click(function() {
+            mode = !mode;
+            if(mode)
+              $(this).text("Show All");
+            else
+              $(this).text("Show Starred");
+            display();
+          });
+
+          function display() {
+            console.log("Inside the display function");
+            if(localStorage.hasOwnProperty('schedule') === false) {
+              localStorage['schedule'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+            }
+            var temp = JSON.parse(localStorage['schedule']);
+
+            $('.day-filter').each(function() {
+              var dayFlag = 0;
+              $(this).find('.time-filter').each(function() {
+                var timeFlag = 0;
+                $(this).find('.track-inline').each(function() {
+                  var elemId = $(this).attr('id');
+                  var elemFlag = 0;
+                  if(temp[elemId] == 1) {
+                    elemFlag = timeFlag = dayFlag = 1;
+                    $(this).find('.bookmark').each(function() {
+                      $(this).css("color", "black");
+                    });
+                  }
+                  if (elemFlag || !mode) {
+                    $(this).show();
+                  }
+                  else {
+                    $(this).hide();
+                  }
+                });
+
+                if(timeFlag || !mode) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+
+              if(dayFlag || !mode) {
+                $(this).show();
+              }
+              else {
+                $(this).hide();
+              }
+            });
+          }
+          display();
+        });
     </script>
 </body>
 </html>
