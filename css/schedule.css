@@ -272,7 +272,7 @@ a {
 
 @media (max-width: 660px) {
   .event {
-    max-width: 270px; } }
+    max-width: 100%; } }
 
 .date-list {
   line-height: 40px;
