@@ -90,7 +90,7 @@ $(document).ready(function () {
     }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
-    var fileData = getFile(); 
+    var fileData = getFile();
     socket.emit('upload', fileData);
   });
 
@@ -137,7 +137,7 @@ $(document).ready(function () {
     }
   });
 
-  var errorno = 0; // stores the id of an error needed for its div element 
+  var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
     var spanElem = $("<span></span>");
     var spanMess = $("<span></span>");
@@ -155,12 +155,12 @@ $(document).ready(function () {
     paragraph.append(spanElem);
     paragraph.append(spanMess);
 
-    if(data.type === 'Info') 
+    if(data.type === 'Info')
       spanElem.css({'color' : 'blue'});
-    
-    else if(data.type === 'Success') 
+
+    else if(data.type === 'Success')
       spanElem.css({'color' : 'green'});
-    
+
     else if(data.type === 'Error') {
       spanElem.css({'color' : 'red'});
       divElem.text(data.largeMessage);
