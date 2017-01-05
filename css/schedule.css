@@ -35,7 +35,7 @@ a {
   max-width: 110px; }
 
 .navbar-default {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #aab1b1;
   border-color: #e7e7e7; }
   .navbar-default .navbar-nav > li > a {
     color: #000;
