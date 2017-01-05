@@ -242,6 +242,10 @@ a {
   margin: 0 auto; }
 
 /* Track SCSS */
+.show-button-filter {
+  display: inline-block;
+  padding-top: 6px; }
+
 .event {
   background: #b7cdff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
@@ -273,6 +277,15 @@ a {
 @media (max-width: 660px) {
   .event {
     max-width: 100%; } }
+
+@media (max-width: 600px) {
+  .show-button-filter {
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 95%; }
+  .show-button-filter button {
+    width: 100%; } }
 
 .date-list {
   line-height: 40px;
@@ -882,7 +895,7 @@ a {
   border: 1px solid #696969;
   color: #000;
   font-family: verdana sans-serif;
-  font-size: 10pt;
+  font-size: 12pt;
   height: 28px;
   padding-left: 2px;
   width: 186px; }
@@ -909,7 +922,9 @@ a {
         display: block;
         float: none;
         margin: 0 auto;
-        width: 327px; } }
+        width: 95%;
+        height: 32px;
+        border-radius: 5px; } }
 
 @media only screen and (max-width: 600px) {
   .date-pill {
