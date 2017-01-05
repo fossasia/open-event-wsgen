@@ -53,8 +53,8 @@
           {{#days}}
           <span class="date-pill"><a href="./tracks.html#{{firstSlug}}"> {{caption}} </a></span>
           {{/days}}
-          <span style = "display:inline-block; padding-top:6px;"> 
-            <button class = "btn btn-primary" id = "starred" style = "background-color:#eee; color:black; border-color:#333" >Show Starred</button>
+          <span class="show-button-filter">
+            <button class = "btn btn-primary" id = "starred" style = "background-color:#eee; color:black; border-color:#333 ;margin:0 auto;" >Show Starred</button>
           </span>
           <span class="search-filter">
             <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -96,7 +96,6 @@
                               </i>
                             </a>
                           </div>
-                            
                           <h4 style="background-color: {{../color}}; margin-top: -15px; padding-top:15px" class="sizeevent event" data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}" aria-expanded="false" aria-controls="desc-{{session_id}}">
                              {{#if audio}}
                                <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
@@ -334,7 +333,7 @@
                             $(this).find('.bookmark').each(function() {
                                 $(this).css("color", "black");
                             });
-                        }
+                                   }
 
                         if (elemFlag || !mode) {
                             $(this).show();
