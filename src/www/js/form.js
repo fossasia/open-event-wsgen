@@ -23,6 +23,7 @@ $(document).ready(function () {
     e.preventDefault();
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
+    updateGenerateProgress(0);
   })
 
   // uploader.addEventListener('progress', function(event) {
