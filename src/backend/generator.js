@@ -288,7 +288,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       logger.addLog('Info', 'Cleaning up remaining folder of the same name as that of the event', socket);
       console.log("============Cleaning up remaining folders of the same name\n");
-      if (emit) socket.emit('live.process', {donePercent: 80, status: "Cleaning up folders of the same name" });
+      if (emit) socket.emit('live.process', {donePercent: 75, status: "Cleaning up folders of the same name" });
 
       distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
         if (remerr !== null) {
@@ -305,7 +305,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       logger.addLog('Info', 'Renaming temporary folder to the actual event folder', socket);
       console.log("============Renaming temporary folder to the actual event folder");
-      if (emit) socket.emit('live.process', {donePercent: 85, status: "Generating the event folder" });
+      if (emit) socket.emit('live.process', {donePercent: 80, status: "Generating the event folder" });
 
       const eventFolderSource = __dirname + '/../../dist/';
 
@@ -325,7 +325,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       logger.addLog('Info', 'Creating zip file of the event', socket);
       console.log("==================================Creating zip file");
-      if (emit) socket.emit('live.process', {donePercent:95, status: "Website is being generated"});
+      if (emit) socket.emit('live.process', {donePercent:90, status: "Website is being generated"});
       var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
       var archive = archiver('zip', {store: true});
       output.on('close', function() {
@@ -341,7 +341,7 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       logger.addLog('Info', 'Sending mail to the user', socket);
       console.log('=================================SENDING MAIL\n');
-      if (emit) socket.emit('live.process', {donePercent: 90, status: "Website is being generated" });
+      if (emit) socket.emit('live.process', {donePercent: 95, status: "Website is being generated" });
 
       if (req.body.ftpdetails) {
         setTimeout(() => {
