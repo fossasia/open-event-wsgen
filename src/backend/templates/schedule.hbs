@@ -298,10 +298,13 @@
           });
 
           $('.track-inline').click(function(event){
-            event.stopPropagation();
-            if(mode && flag && !isAdded) {
-              $(this).hide();
-              flag = isAdded = 0;
+            if(flag) {
+              event.stopPropagation();
+              if(mode && !isAdded) {
+                $(this).hide();
+                isAdded = 0;
+              }
+              flag = 0;
             }
           });
 
