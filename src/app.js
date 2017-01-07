@@ -24,13 +24,15 @@ io.on('connection', function(socket){
   });
 
   var uploader = new siofu();
+  socket.fileUpload = false;
   uploader.dir = path.join(__dirname, "..",  "uploads");
   uploader.listen(socket);
   uploader.on('error', function(err) {
     console.log(err)
   });
   uploader.on('saved', function(event) {
-    generator.finishZipUpload(event.file)
+    generator.finishZipUpload(event.file);
+    socket.fileUpload = true;
   });
   uploader.on('progress', function(event) {
     console.log(event.file.bytesLoaded / event.file.size)
@@ -41,7 +43,7 @@ io.on('connection', function(socket){
   uploader.on('start', function(event) {
     generator.startZipUpload(event.file);
     socket.on('Cancel', function(msg) {
-      if(event.file.success === true) {
+      if(socket.fileUpload === true) {
         return; // file has already been fully transfered so no point of aborting
       }
       console.log(msg);
@@ -60,7 +62,7 @@ io.on('connection', function(socket){
     });
   });
   socket.on('upload', function(fileData) {
-    generator.uploadJsonZip(fileData, socket)
+    generator.uploadJsonZip(fileData, socket);
   })
 });
 

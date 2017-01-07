@@ -25,6 +25,7 @@ $(document).ready(function () {
     $('#upload-info').hide();
     $('#buildLog').empty();
     socket.emit('Cancel', 'Terminate the zip upload');
+    $('#buildLog').empty();
     updateGenerateProgress(0);
   })
 
