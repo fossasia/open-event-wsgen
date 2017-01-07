@@ -7,7 +7,7 @@ $(document).ready(function () {
   var socket = io();
   var uploader = new SocketIOFileUpload(socket);
   uploader.resetFileInputs = false;
-  uploader.listenOnInput(document.getElementById("siofu_input"));
+  uploader.listenOnInput(document.getElementById('siofu_input'));
 
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide()
@@ -23,6 +23,7 @@ $(document).ready(function () {
     e.preventDefault();
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
+    $('#buildLog').empty();
     updateGenerateProgress(0);
   })
 
@@ -97,10 +98,11 @@ $(document).ready(function () {
 
   $('#btnGenerate').click(function () {
 
-    var check = $("#form").valid();
-    $(".error").focus();
+    var check = $('#form').valid();
+    $('.error').focus();
     if (check) {
       var formData = getData();
+      $('#buildLog').empty();
       socket.emit('live', formData);
     }
     $('.generator-progress').show();
@@ -140,17 +142,17 @@ $(document).ready(function () {
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
-    var spanElem = $("<span></span>");
-    var spanMess = $("<span></span>");
-    var aElem = $("<button></button>");
-    var divElem = $("<div></div>");
-    var paragraph = $("<p></p>");
+    var spanElem = $('<span></span>');
+    var spanMess = $('<span></span>');
+    var aElem = $('<button></button>');
+    var divElem = $('<div></div>');
+    var paragraph = $('<p></p>');
     spanMess.css({'margin-left' : '5px'});
     aElem.css({'margin-left' : '5px'});
     aElem.attr({'data-toggle' : 'collapse', 'href' : '#error' + String(errorno)});
-    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : "collapse"});
+    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : 'collapse'});
     divElem.css({'color' : 'red'});
-    aElem.text("Know More");
+    aElem.text('Know More');
     spanMess.text(data.smallMessage);
     spanElem.text(data.type.toUpperCase() + ":");
     paragraph.append(spanElem);
