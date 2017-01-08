@@ -24,6 +24,7 @@ $(document).ready(function () {
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
     $('#buildLog').empty();
+    socket.emit('Cancel', 'Terminate the zip upload');
     updateGenerateProgress(0);
   })
 
