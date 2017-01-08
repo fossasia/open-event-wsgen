@@ -23,6 +23,7 @@ $(document).ready(function () {
     e.preventDefault();
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
+    socket.emit('Cancel', 'Terminate the zip upload');
     updateGenerateProgress(0);
   })
 
