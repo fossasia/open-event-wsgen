@@ -76,24 +76,29 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
             roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames
           });
         });
-        
+
       });
     });
   });
 }
 
 function getJsonData(reqOpts, next) {
-  const appFolder = reqOpts.email + '/' + fold.slugify(reqOpts.name);
-  const distJsonsPath = distHelper.distPath + '/' + appFolder + '/json';
-  const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions');
-  const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers');
-  const eventData = jsonfile.readFileSync(distJsonsPath + '/event');
-  const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
-  const tracksData = jsonfile.readFileSync(distJsonsPath + '/tracks');
-  const roomsData = jsonfile.readFileSync(distJsonsPath + '/microlocations');
-  transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, reqOpts, function(data) {
-    next(data);
-  });
+  try {
+    const appFolder = reqOpts.email + '/' + fold.slugify(reqOpts.name);
+    const distJsonsPath = distHelper.distPath + '/' + appFolder + '/json';
+    const sessionsData = jsonfile.readFileSync(distJsonsPath + '/sessions');
+    const speakersData = jsonfile.readFileSync(distJsonsPath + '/speakers');
+    const eventData = jsonfile.readFileSync(distJsonsPath + '/event');
+    const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
+    const tracksData = jsonfile.readFileSync(distJsonsPath + '/tracks');
+    const roomsData = jsonfile.readFileSync(distJsonsPath + '/microlocations');
+
+    return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, reqOpts, function(data) {
+      next(null, data);
+    });
+  } catch (err) {
+    return next(err);
+  }
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
@@ -133,7 +138,7 @@ exports.createDistDir = function(req, socket, callback) {
       logger.addLog('Info', 'Cleaning up the previously existing temporary folders', socket);
       if (emit) socket.emit('live.process', {donePercent: 5, status: "Cleaning temporary folder"});
       fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
-        if(err !== null) { 
+        if(err !== null) {
           logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
           console.log(err);
         }
@@ -241,11 +246,20 @@ exports.createDistDir = function(req, socket, callback) {
       console.log('================================WRITING\n');
       if (emit) socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates" });
 
-      getJsonData(req.body, function(data) {
+      getJsonData(req.body, function(error, data) {
+        if (error) {
+          console.log('Error Invalid Zip');
+          logger.addLog('Error', 'Invalid Zip', socket, error);
+          if (emit) {
+            socket.emit('live.error', {status: 'Error in read contents of zip'});
+          }
+          return done(error);
+        }
         logger.addLog('Success', 'Json data extracted', socket);
 
         const jsonData = data;
-        eventName = jsonData['eventurls']['name'];
+
+        eventName = jsonData.eventurls.name;
         logger.addLog('Info', 'Name of the event found from the event json file', socket);
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
@@ -255,15 +269,17 @@ exports.createDistDir = function(req, socket, callback) {
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
           fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
-        }
-        catch (err) {
+        } catch (err) {
           console.log(err);
           logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
-          if (emit) socket.emit('live.error', { status: "Error in Compiling/Writing templates" });
+          if (emit) {
+            socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
+          }
+          return done(err);
         }
-        distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder,function(){
+        return distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder, function() {
           logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
-          done(null, 'write');  
+          return done(null, 'write');
         });
       });
 
