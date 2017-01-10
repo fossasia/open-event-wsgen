@@ -223,62 +223,112 @@ module.exports = {
     unzipper.on('extract', function(log) {
       logger.addLog('Info', 'zip successfully extracted', socket);
 
-      fs.readdir(appPath + '/zip' , function(err, list){
-        if(err) {
-          logger.addLog('Error', 'Error while reading directory', socket, err);
-          return done(err);
+        async.series([
+
+          // Resizing sponsors images to 150X80
+          function(callback) {
+            fs.readdir( appPath + '/zip/images/sponsors', function(err, list){
+              if(err) {
+                logger.addLog('Info', 'No sponsors images found', socket, err);
+                return 0;
+              }
+              list.forEach( function( image ){
+                sharp( appPath + '/zip/images/sponsors/' + image)
+                  .resize(150, 80)
+                  .background({r: 255, g: 255, b: 255, a: 0})
+                  .embed()
+                  .toFile( appPath + '/zip/images/sponsors/' + image + '.new', () => {
+                    fs.rename( appPath + '/zip/images/sponsors/' + image + '.new' , appPath + '/zip/images/sponsors/' + image , function(err) {
+                        if ( err ) console.log('ERROR: ' + err);
+                    });
+                  })
+
+              })
+            })
+            callback()
+          },
+          // Resizing speakers images to 300X300
+          function(callback) {
+            fs.readdir( appPath + '/zip/images/speakers', function(err, list){
+              if(err) {
+                logger.addLog('Info', 'No speakers images found', socket, err);
+                return 0;
+              }
+              list.forEach( function( image ){
+                sharp( appPath + '/zip/images/speakers/' + image)
+                  .resize(300, 300)
+                  .background({r: 255, g: 255, b: 255, a: 0})
+                  .embed()
+                  .toFile( appPath + '/zip/images/speakers/' + image + '.new', () => {
+                    fs.rename( appPath + '/zip/images/speakers/' + image + '.new' , appPath + '/zip/images/speakers/' + image , function(err) {
+                        if ( err ) console.log('ERROR: ' + err);
+                    });
+                  })
+
+              })
+            })
+            callback()
+          },
+          function(callback){
+            fs.readdir(appPath + '/zip' , function(err, list){
+              if(err) {
+                logger.addLog('Error', 'Error while reading directory', socket, err);
+                return done(err);
+              }
+
+              async.each(list, function(file, callback){
+
+                var filePath = appPath + '/zip/' + file;
+
+                function check(err){
+                  if(err !== null) {
+                    logger.addLog('Error', 'Error while copying folder', socket, err);
+                    callback(err);
+                  }
+                  else {
+                    callback(null);
+                  }
+                }
+
+                switch(file) {
+                  case 'audio':
+                  fs.copy(filePath, appPath + '/audio' , check); 
+                  break;
+                  case 'images':
+                  fs.copy(filePath, appPath + '/' + file, check); 
+                  break;
+                  case 'sessions':
+                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  break;
+                  case 'speakers':
+                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  break;
+                  case 'event':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                  case 'tracks':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                  case 'microlocations':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                  case 'sponsors':
+                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  break;
+                  default: callback(null);
+                }
+              }, function(err) {
+                if(err !== null) {
+                  return done(err);
+                }
+                else {
+                  fs.remove(appPath + '/zip', done);
+                }
+              });
+            });
+            callback()
         }
-
-        async.each(list, function(file, callback){
-
-          var filePath = appPath + '/zip/' + file;
-
-          function check(err){
-            if(err !== null) {
-              logger.addLog('Error', 'Error while copying folder', socket, err);
-              callback(err);
-            }
-            else {
-              callback(null);
-            }
-          }
-
-          switch(file) {
-            case 'audio':
-            fs.copy(filePath, appPath + '/audio' , check); 
-            break;
-            case 'images':
-            fs.copy(filePath, appPath + '/' + file, check); 
-            break;
-            case 'sessions':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            case 'speakers':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            case 'event':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'tracks':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'microlocations':
-            fs.copy(filePath, appPath + '/json/' + file, check);
-            break;
-            case 'sponsors':
-            fs.copy(filePath, appPath + '/json/' + file, check); 
-            break;
-            default: callback(null);
-          }
-        }, function(err) {
-          if(err !== null) {
-            return done(err);
-          }
-          else {
-            fs.remove(appPath + '/zip', done);
-          }
-        });
-      });
+        ]);
     });
   },
   removeDuplicateEventFolders: function(newName, emailAddress, socket, done) {
