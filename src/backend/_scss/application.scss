@@ -1252,96 +1252,105 @@ a {
   top :0;
 }
 
-.c-tabs-nav {
+.tabs {
+  margin-left: -15px;
+}
+
+.tabs-nav {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.c-tabs-nav__link {
+.tabs-nav-link {
+  background-color: $gray;
+  color: $white;
   flex: 1;
   margin-right: 4px;
   padding: 12px;
-  color: #fff;
-  background-color: #b3b3b3;
   text-align: center;
   transition: color 0.3s;
-}
 
-.c-tabs-nav__link:last-child {
-  margin-right: 0;
-}
+  &:last-child {
+    margin-right: 0;
+  }
 
-.c-tabs-nav__link:hover {
-  color: #6d6d6d;
-}
+  &:hover {
+    color: $border-venue;
+  }
 
-.c-tabs-nav__link.is-active {
-  color: #dc446e;
-  background-color: #e7e7e7;
-}
+  &.is-active {
+    background-color: $gray-extra-light;
+    color: $dark-black;
+  }
 
-.c-tabs-nav__link i,
-.c-tabs-nav__link span {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
+  i,
+  span {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
 
-.c-tabs-nav__link i {
-  font-size: 18px;
-}
+  i {
+    font-size: 18px;
+  }
 
-.c-tabs-nav__link span {
-  display: none;
-  font-size: 18px;
+  span {
+    display: none;
+    font-size: 18px;
+  }
 }
 
 @media all and (min-width: 720px) {
-  .c-tabs-nav__link i {
-    margin-bottom: 12px;
-    font-size: 22px;
+  .tabs-nav-link {
+    i {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    span {
+      display: block;
+    }
   }
-  .c-tabs-nav__link span {
+}
+
+.tab {
+  background-color: $gray-extra-light;
+  display: none;
+
+  &.is-active {
     display: block;
   }
 }
-.c-tab {
-  display: none;
-  background-color: #e7e7e7;
-}
 
-.c-tab.is-active {
-  display: block;
-
-}
-
-.c-tab__content {
-  padding: 1.5rem;
-  color: red;
+.tab-content {
+  color: $dark-black;
   overflow: auto;
-
-}
-.c-tab__content a {
-  margin-right: 1rem;
-  text-decoration-line: none;
-  line-height: 2;
-
-}
-.c-tab__content a:before
-{
-  content: '\00B7';
-  margin-right: 0.5rem;
-}
-@media only screen 
-and (max-width : 420px) {
- .c-tab__content {
   padding: 1.5rem;
-  color: red;
-  white-space: nowrap;
-  max-height: 40px;
-  overflow-x: scroll;
-} 
+
+  a {
+    line-height: 2;
+    margin-right: 1rem;
+    text-decoration-line: none;
+
+    &::before {
+      content: "\00B7";
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      color: $dark-black;
+    }
+  }
 }
 
+@media only screen and (max-width: 420px) {
+  .tab-content {
+    color: $dark-black;
+    max-height: 40px;
+    overflow-x: scroll;
+    padding: 1.5rem;
+    white-space: nowrap;
+  }
+}
