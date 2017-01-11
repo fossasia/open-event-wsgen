@@ -39,7 +39,14 @@ io.on('connection', function(socket){
     })
   });
   uploader.on('start', function(event) {
-    generator.startZipUpload(event.file)
+    generator.startZipUpload(event.file);
+    socket.on('Cancel', function(msg) {
+      if(event.file.success === true) {
+        return; // file has already been fully transfered so no point of aborting
+      }
+      console.log(msg);
+      uploader.abort(event.file.id, socket);
+    });
   });
 
   socket.on('live', function(formData) {
