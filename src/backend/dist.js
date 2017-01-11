@@ -99,8 +99,8 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
 module.exports = {
   distPath,
   uploadsPath,
-  moveZip: function(dlPath) {
-    fs.move(dlPath, path.join(__dirname, "../../uploads/upload.zip"), () => {
+  moveZip: function(dlPath, id) {
+    fs.move(dlPath, path.join(__dirname, "../../uploads/connection-" + id.toString() + "/upload.zip"), () => {
       
     });
   },
@@ -120,8 +120,8 @@ module.exports = {
       .pipe(progressor)
       .pipe(fs.createWriteStream(path.join(uploadsPath, 'upload.zip')));
   },
-  cleanUploads: function() {
-    fs.emptyDirSync(uploadsPath);
+  cleanUploads: function(id) {
+    fs.emptyDirSync(uploadsPath + '/connection-' + id.toString());
   },
   cleanDist: function(appFolder, err) {
     fs.emptyDir(distPath + '/' + appFolder, (emptyErr) => {
@@ -130,8 +130,8 @@ module.exports = {
       fs.remove(distPath + '/' + appFolder, err);
     });
   },
-  makeUploadsDir: function(err) {
-    fs.mkdirpSync(uploadsPath);
+  makeUploadsDir: function(id) {
+    fs.mkdirpSync(uploadsPath + '/connection-' + id.toString());
   },
   makeDistDir: function(appFolder, socket) {
     const appPath = distPath + '/' + appFolder;
@@ -210,7 +210,8 @@ module.exports = {
       console.log(err);
     }
     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
-    var unzipper = new zip(path.join(uploadsPath, 'upload.zip'));
+    var id = socket.connId;
+    var unzipper = new zip(path.join(uploadsPath, 'connection-' + id.toString(), 'upload.zip'));
 
     unzipper.on('error', function (err) {
       logger.addLog('Error', 'Error occurred while Extracting Zip', socket, err);
