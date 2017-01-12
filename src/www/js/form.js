@@ -1,7 +1,17 @@
 "use strict";
-var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal;
-var statusText;
+var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
 var uploadFinished = false;
+
+function updateGenerateProgress(perc) {
+  generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
+    generateProgressVal.html(parseInt(perc, 10) + '%');
+  });
+}
+
+function updateUploadProgress(perc) {
+  uploadProgressBar.css('width', perc + '%');
+  uploadProgressVal.html(parseInt(perc, 10) + '%');
+}
 
 $(document).ready(function () {
   var socket = io();
@@ -15,7 +25,7 @@ $(document).ready(function () {
     // $('#upload-progress-bar').show();
     $('#upload-filename').html(event.file.name.substring(0,14))
     var size = (event.file.size/(1024*1024)).toString().substring(0,3)
-    $('#upload-filesize').html( size + "M") 
+    $('#upload-filesize').html( size + "M")
   });
 
   $('#cancelUpload').click(function(e){
@@ -141,50 +151,40 @@ $(document).ready(function () {
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
-    var spanElem = $("<span></span>");
-    var spanMess = $("<span></span>");
-    var aElem = $("<button></button>");
-    var divElem = $("<div></div>");
-    var paragraph = $("<p></p>");
-    spanMess.css({'margin-left' : '5px'});
-    aElem.css({'margin-left' : '5px'});
-    aElem.attr({'data-toggle' : 'collapse', 'href' : '#error' + String(errorno)});
-    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : "collapse"});
-    divElem.css({'color' : 'red'});
-    aElem.text("Know More");
+    var spanElem = $('<span></span>');
+    var spanMess = $('<span></span>');
+    var aElem = $('<button></button>');
+    var divElem = $('<div></div>');
+    var paragraph = $('<p></p>');
+
+    spanMess.css({'margin-left': '5px'});
+    aElem.css({'margin-left': '5px'});
+    aElem.attr({'data-toggle': 'collapse', 'href': '#error' + String(errorno)});
+    divElem.attr({'id': 'error' + String(errorno), 'class': 'collapse'});
+    divElem.css({'color': 'red'});
+    aElem.text('Know More');
     spanMess.text(data.smallMessage);
-    spanElem.text(data.type.toUpperCase() + ":");
+    spanElem.text(data.type.toUpperCase() + ':');
     paragraph.append(spanElem);
     paragraph.append(spanMess);
 
-    if(data.type === 'Info')
-      spanElem.css({'color' : 'blue'});
-
-    else if(data.type === 'Success')
-      spanElem.css({'color' : 'green'});
-
-    else if(data.type === 'Error') {
-      spanElem.css({'color' : 'red'});
+    if(data.type === 'Info') {
+      spanElem.css({'color': 'blue'});
+    } else if(data.type === 'Success') {
+      spanElem.css({'color': 'green'});
+    } else if(data.type === 'Error') {
+      spanElem.css({'color': 'red'});
       divElem.text(data.largeMessage);
       paragraph.append(aElem);
       paragraph.append(divElem);
       errorno += 1;
+      updateGenerateProgress(0);
+      updateStatusAnimate(data.smallMessage, 200, 'red');
     }
     $('#buildLog').append(paragraph);
   });
 
 });
-
-function updateGenerateProgress(perc) {
-  generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
-      generateProgressVal.html(parseInt(perc) + '%');
-  });
-}
-
-function updateUploadProgress(perc) {
-  uploadProgressBar.css('width', perc + '%');
-  uploadProgressVal.html(parseInt(perc) + '%');
-}
 
 function displayButtons (appPath, url) {
   var btnDownload = $('#btnDownload');
@@ -206,11 +206,13 @@ function displayButtons (appPath, url) {
   });
 }
 
-function updateStatusAnimate (statusMsg, speed) {
+function updateStatusAnimate (statusMsg, speed, color) {
+  color = color || 'black';
   speed = speed || 200;
   var lowerOpaque = (speed < 200) ? 0.8 : 0.2;
   statusText.animate({'opacity': lowerOpaque}, speed, function () {
-      statusText.text(statusMsg);
+    statusText.css({'color' : color});
+    statusText.text(statusMsg);
   }).animate({'opacity': 1}, speed);
 }
 

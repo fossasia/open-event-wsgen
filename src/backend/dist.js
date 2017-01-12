@@ -206,14 +206,16 @@ module.exports = {
       logger.addLog('Info','Creating the json folder inside the appPath', socket); 
     }
     catch(err) {
-      logger.addlog('Error', 'Error occured while creating the json folder inside the appPath', socket, err);
+      logger.addLog('Error', 'Error occured while creating the json folder inside the appPath', socket, err);
       console.log(err);
     }
     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
     var unzipper = new zip(path.join(uploadsPath, 'upload.zip'));
 
     unzipper.on('error', function (err) {
+      logger.addLog('Error', 'Error occurred while Extracting Zip', socket, err);
       console.log(err);
+      return done(err);
     });
 
     unzipper.extract({

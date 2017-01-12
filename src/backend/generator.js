@@ -192,6 +192,7 @@ exports.createDistDir = function(req, socket, callback) {
         distHelper.copyUploads(appFolder, socket, function(err) {
           if(err) {
             console.log(err);
+            done(err);
           }
           done(null, 'copyUploads');
         });
@@ -235,7 +236,7 @@ exports.createDistDir = function(req, socket, callback) {
           });
         }
         else {
-          logger.addlog('Error', 'Error in compiling SASS', socket, err);
+          logger.addLog('Error', 'Error in compiling SASS', socket, err);
           console.log(err);
           if (emit) socket.emit('live.error', { status: "Error in Compiling SASS" });
         }
