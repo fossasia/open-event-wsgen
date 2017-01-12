@@ -24,11 +24,13 @@
   <link rel=stylesheet href=./css/bootstrap.min.css>
   <link rel=stylesheet href=./css/schedule.css>
 
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+   
   </head>
   <body>
     <a id=top></a>
@@ -103,6 +105,26 @@
         <div id=session-list class=container>
           <div class=row>
             <div style="margin:15px 0 0 15px" class=col-md-9>
+                  <div id=tabs class="tabs no-js">
+                        <div class=tabs-nav>
+                          <a href=# class=tabs-nav-link>Friday, 18th Mar</a>
+                          <a href=# class=tabs-nav-link>Saturday, 19th Mar</a>
+                          <a href=# class=tabs-nav-link>Sunday, 20th Mar</a>
+                        </div>
+                        <div class=tab>
+                          <div class=tab-content><a href="./tracks.html#2016-03-18-OpenTech and IoT">OpenTech and IoT  </a><a href=./tracks.html#2016-03-18-Exhibition>Exhibition  </a><a href="./tracks.html#2016-03-18-Tech Kids I">Tech Kids I  </a><a href="./tracks.html#2016-03-18-Tech Kids II">Tech Kids II  </a><a href="./tracks.html#2016-03-18-Internet, Society, Community">Internet, Society, Community  </a><a href="./tracks.html#2016-03-18-Hardware and IoT">Hardware and IoT  </a><a href=./tracks.html#2016-03-18-DevOps>DevOps  </a><a href="./tracks.html#2016-03-18-Big Data/Open Data">Big Data/Open Data  </a></div>
+                        </div>
+
+                        <div class=tab>
+                          <div class=tab-content><a href="./tracks.html#2016-03-19-OpenTech Workshops">OpenTech Workshops  </a><a href=./tracks.html#2016-03-19-Exhibition>Exhibition  </a><a href=./tracks.html#2016-03-19-WebTech>WebTech  </a><a href="./tracks.html#2016-03-19-Hardware and IoT">Hardware and IoT  </a><a href="./tracks.html#2016-03-19-Tech Kids III">Tech Kids III  </a><a href="./tracks.html#2016-03-19-Science Hack Day">Science Hack Day  </a><a href=./tracks.html#2016-03-19-Databases>Databases  </a><a href="./tracks.html#2016-03-19-Tech Kids II">Tech Kids II  </a><a href=./tracks.html#2016-03-19-DevOps>DevOps  </a><a href="./tracks.html#2016-03-19-Big Data/Open Data">Big Data/Open Data  </a><a href="./tracks.html#2016-03-19-OpenTech and IoT">OpenTech and IoT  </a><a href=./tracks.html#2016-03-19-Python>Python  </a><a href="./tracks.html#2016-03-19-Internet, Society, Community">Internet, Society, Community  </a><a href="./tracks.html#2016-03-19-Tech Kids I">Tech Kids I  </a></div>
+                        </div>
+
+                        <div class=tab>
+                          <div class=tab-content><a href=./tracks.html#2016-03-20-DevOps>DevOps  </a><a href="./tracks.html#2016-03-20-Tech Kids II">Tech Kids II  </a><a href="./tracks.html#2016-03-20-Big Data/Open Data">Big Data/Open Data  </a><a href="./tracks.html#2016-03-20-Design, VR, 3D">Design, VR, 3D  </a><a href=./tracks.html#2016-03-20-WebTech>WebTech  </a><a href=./tracks.html#2016-03-20-Databases>Databases  </a><a href="./tracks.html#2016-03-20-Linux and MiniDebConf">Linux and MiniDebConf  </a><a href=./tracks.html#2016-03-20-Python>Python  </a><a href="./tracks.html#2016-03-20-Privacy and Security">Privacy and Security  </a><a href="./tracks.html#2016-03-20-OpenTech Workshops">OpenTech Workshops  </a><a href="./tracks.html#2016-03-20-Science Hack Day">Science Hack Day  </a><a href="./tracks.html#2016-03-20-Tech Kids I">Tech Kids I  </a><a href="./tracks.html#2016-03-20-OpenTech and IoT">OpenTech and IoT  </a><a href=./tracks.html#2016-03-20-Exhibition>Exhibition  </a></div>
+                        </div>
+
+                        
+                      </div>
               <div style=margin-top:4% id=track-list>
                 <div class=date-filter>
                   <div style=padding:0 class=row>
@@ -30827,9 +30849,9 @@
     <script src=./js/bootstrap.min.js></script>
       <script src=./js/navbar.js></script>
       <script src=./js/scroll.js></script>
-
       <script>$(document).ready(function(){$(".session-lin").click(function(t){t.stopPropagation()}),$(".session-lin").click(function(){$(this).next(".inputbox").toggle().select();var t=$(this).next(".inputbox").val();$(this).next(".inputbox").val(window.location.href.split("#")[0]+"#"+t.split("#").pop())}),$(".inputbox").click(function(t){t.stopPropagation()}),$(".fossasia-filter:first").change(function(){var t=$(this).val();return t?$(".date-filter").each(function(){var e=1;$(this).find(".room-filter").each(function(){$(this).find(".tip-description").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".session-speakers-list a span").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".session-speakers-more").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".event").text().toUpperCase().indexOf(t.toUpperCase())<0?$(this).hide():(e=0,$(this).show())}),1==e?$(this).hide():$(this).show()}):$(".date-filter").each(function(){$(this).find(".room-filter").each(function(){$(this).show()}),$(this).show()}),0==$(".date-filter:visible").length?($("#no-results").remove(),$(".search-filter:first").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
     <script>$(document).ready(function(){function t(){console.log("Inside the display function"),localStorage.hasOwnProperty("tracks")===!1&&(localStorage.tracks=JSON.stringify(new Array(i).fill(0)));var t=JSON.parse(localStorage.tracks);$(".date-filter").each(function(){var i=0;$(this).find(".room-filter").each(function(){var r=$(this).attr("id"),o=0;1==t[r]&&(o=i=1,$(this).find(".bookmark").each(function(){$(this).css("color","black")})),o||!a?$(this).show():$(this).hide()}),i||!a?$(this).show():$(this).hide()})}var i=1e3,r=0,o=0,a=0;$(".bookmark").click(function(){r=1;var t=$(this).css("color");"rgb(0, 0, 0)"==t?($(this).css("color",""),o=0):($(this).css("color","black"),o=1)}),$(".room-filter").click(function(){var t=JSON.parse(localStorage.tracks),i=Number($(this).attr("id"));if(r){var i=$(this).attr("id");o?t[i]=1:(t[i]=0,a&&$(this).hide()),r=o=0,localStorage.tracks=JSON.stringify(t)}}),$("#starred").click(function(){a=!a,a?$(this).text("Show All"):$(this).text("Show Starred"),t()}),t()})</script>
 });
   </body>
+    <script src=./js/tabs.js></script>
 </html>

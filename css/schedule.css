@@ -935,3 +935,73 @@ a {
   position: absolute;
   right: 0;
   top: 0; }
+
+.tabs {
+  margin-left: -15px; }
+
+.tabs-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.tabs-nav-link {
+  background-color: #838282;
+  color: #fff;
+  flex: 1;
+  margin-right: 4px;
+  padding: 12px;
+  text-align: center;
+  transition: color 0.3s; }
+  .tabs-nav-link:last-child {
+    margin-right: 0; }
+  .tabs-nav-link:hover {
+    color: #e6e6e6; }
+  .tabs-nav-link.is-active {
+    background-color: #e7e7e7;
+    color: rgba(22, 22, 22, 0.99); }
+  .tabs-nav-link i,
+  .tabs-nav-link span {
+    line-height: 1;
+    margin: 0;
+    padding: 0; }
+  .tabs-nav-link i {
+    font-size: 18px; }
+  .tabs-nav-link span {
+    display: none;
+    font-size: 18px; }
+
+@media all and (min-width: 720px) {
+  .tabs-nav-link i {
+    font-size: 22px;
+    margin-bottom: 12px; }
+  .tabs-nav-link span {
+    display: block; } }
+
+.tab {
+  background-color: #e7e7e7;
+  display: none; }
+  .tab.is-active {
+    display: block; }
+
+.tab-content {
+  color: rgba(22, 22, 22, 0.99);
+  overflow: auto;
+  padding: 1.5rem; }
+  .tab-content a {
+    line-height: 2;
+    margin-right: 1rem;
+    text-decoration-line: none; }
+    .tab-content a::before {
+      content: "\00B7";
+      margin-right: 0.5rem; }
+    .tab-content a:hover {
+      color: rgba(22, 22, 22, 0.99); }
+
+@media only screen and (max-width: 420px) {
+  .tab-content {
+    color: rgba(22, 22, 22, 0.99);
+    max-height: 40px;
+    overflow-x: scroll;
+    padding: 1.5rem;
+    white-space: nowrap; } }
