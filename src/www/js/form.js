@@ -1,4 +1,6 @@
+/* global $ */
 "use strict";
+
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
 var uploadFinished = false;
 
@@ -116,7 +118,7 @@ $(document).ready(function () {
     }
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
-
+    $('#btnGenerate').prop('disabled', true);
   });
 
   $('#aLog').click(function(e) {
@@ -128,6 +130,7 @@ $(document).ready(function () {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir, data.url);
+    $('#btnGenerate').prop('disabled', false);
   });
 
   socket.on('live.process', function (data) {
@@ -180,6 +183,7 @@ $(document).ready(function () {
       errorno += 1;
       updateGenerateProgress(0);
       updateStatusAnimate(data.smallMessage, 200, 'red');
+      $('#btnGenerate').prop('disabled', false);
     }
     $('#buildLog').append(paragraph);
     $("#buildLog").scrollTop($("#buildLog")[0].scrollHeight);
