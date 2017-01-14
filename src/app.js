@@ -13,6 +13,7 @@ const config = require('../config.json');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var id = 0;
 
 
 app.use(compression());
@@ -23,14 +24,16 @@ io.on('connection', function(socket){
   socket.on('disconnect', function () {
   });
 
+  id = id + 1;
+  socket.connId = id;
   var uploader = new siofu();
-  uploader.dir = path.join(__dirname, "..",  "uploads");
+  uploader.dir = path.join(__dirname, '..', 'uploads/connection-' + id.toString());
   uploader.listen(socket);
   uploader.on('error', function(err) {
     console.log(err)
   });
   uploader.on('saved', function(event) {
-    generator.finishZipUpload(event.file)
+    generator.finishZipUpload(event.file, socket.connId);
   });
   uploader.on('progress', function(event) {
     console.log(event.file.bytesLoaded / event.file.size)
@@ -39,7 +42,6 @@ io.on('connection', function(socket){
     })
   });
   uploader.on('start', function(event) {
-    generator.startZipUpload(event.file);
     socket.on('Cancel', function(msg) {
       if(event.file.success === true) {
         return; // file has already been fully transfered so no point of aborting
@@ -47,6 +49,7 @@ io.on('connection', function(socket){
       console.log(msg);
       uploader.abort(event.file.id, socket);
     });
+    generator.startZipUpload(socket.connId);
   });
 
   socket.on('live', function(formData) {

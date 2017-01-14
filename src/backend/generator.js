@@ -104,24 +104,24 @@ function getJsonData(reqOpts, next) {
 exports.uploadJsonZip = function(fileData, socket) {
   distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
 };
-exports.finishZipUpload = function(file) {
+exports.finishZipUpload = function(file, id) {
   console.log('=============================ZIP SAVED\n');
   console.log(file.base);
   console.log(file.pathName);
-  distHelper.moveZip(file.pathName);
+  distHelper.moveZip(file.pathName, id);
 
 };
 
-exports.startZipUpload = function(file) {
+exports.startZipUpload = function(id) {
   console.log('========================ZIP UPLOAD START\n\n');
-  distHelper.makeUploadsDir();
-  distHelper.cleanUploads();
+  distHelper.makeUploadsDir(id);
+  distHelper.cleanUploads(id);
 };
 
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
-  req.body.name = 'tempProject';  // temporary name for the project till the time we get the actual name of the event
+  req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
