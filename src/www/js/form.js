@@ -182,6 +182,7 @@ $(document).ready(function () {
       updateStatusAnimate(data.smallMessage, 200, 'red');
     }
     $('#buildLog').append(paragraph);
+    $("#buildLog").scrollTop($("#buildLog")[0].scrollHeight);
   });
 
 });
