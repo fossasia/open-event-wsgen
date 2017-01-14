@@ -1212,6 +1212,19 @@ a {
     font-family: sans-serif;
     margin: 0 auto;
   }
+
+  @media only screen and (max-width: 600px) {
+    float: none;
+
+    .fossasia-filter {
+      border-radius: 5px;
+      display: block;
+      height: 32px;
+      float: none;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
 }
 
 .search-filter {
