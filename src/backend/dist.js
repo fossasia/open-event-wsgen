@@ -235,20 +235,31 @@ module.exports = {
                 logger.addLog('Info', 'No sponsors images found', socket, err);
                 return 0;
               }
-              list.forEach( function( image ){
+              async.each(list, function(image, trial) {
                 sharp( appPath + '/zip/images/sponsors/' + image)
                   .resize(150, 80)
                   .background({r: 255, g: 255, b: 255, a: 0})
                   .embed()
-                  .toFile( appPath + '/zip/images/sponsors/' + image + '.new', () => {
-                    fs.rename( appPath + '/zip/images/sponsors/' + image + '.new' , appPath + '/zip/images/sponsors/' + image , function(err) {
-                        if ( err ) console.log('ERROR: ' + err);
-                    });
-                  })
+                  .toFile( appPath + '/zip/images/sponsors/' + image + '.new', (err) => {
+                    if(err) {
+                      console.log(image + ' Can not be converted');
+                      console.log(err);
+                      trial(null);
+                      return 0;
+                    }
 
-              })
-            })
-            callback()
+                    fs.rename( appPath + '/zip/images/sponsors/' + image + '.new' , appPath + '/zip/images/sponsors/' + image , function(err) {
+                      if ( err ) {
+                        console.log('ERROR: ' + err);
+                      }
+                      trial(null);
+                    });
+                  });
+              }, function(err) {
+                console.log("All done successfully");
+                callback();
+              });
+            });
           },
           // Resizing speakers images to 300X300
           function(callback) {
@@ -257,20 +268,29 @@ module.exports = {
                 logger.addLog('Info', 'No speakers images found', socket, err);
                 return 0;
               }
-              list.forEach( function( image ){
+              async.each(list, function(image, trial) {
                 sharp( appPath + '/zip/images/speakers/' + image)
                   .resize(300, 300)
                   .background({r: 255, g: 255, b: 255, a: 0})
                   .embed()
-                  .toFile( appPath + '/zip/images/speakers/' + image + '.new', () => {
-                    fs.rename( appPath + '/zip/images/speakers/' + image + '.new' , appPath + '/zip/images/speakers/' + image , function(err) {
-                        if ( err ) console.log('ERROR: ' + err);
-                    });
-                  })
+                  .toFile( appPath + '/zip/images/speakers/' + image + '.new', (err) => {
+                      if(err) {
+                        console.log(image + 'can not be converted');
+                        console.log(err);
+                        trial(null);
+                        return 0;
+                      }
 
-              })
-            })
-            callback()
+                      fs.rename( appPath + '/zip/images/speakers/' + image + '.new' , appPath + '/zip/images/speakers/' + image , function(err) {
+                        if ( err ) console.log('ERROR: ' + err);
+                        trial(null);
+                      });
+                  });
+              }, function(err) {
+                callback();
+                console.log("ALl done successfully");
+              });
+            });
           },
           function(callback){
             fs.readdir(appPath + '/zip' , function(err, list){
