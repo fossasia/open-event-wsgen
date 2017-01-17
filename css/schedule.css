@@ -907,6 +907,16 @@ a {
     display: block;
     font-family: sans-serif;
     margin: 0 auto; }
+  @media only screen and (max-width: 600px) {
+    .search-filter-speaker {
+      float: none; }
+      .search-filter-speaker .fossasia-filter {
+        border-radius: 5px;
+        display: block;
+        float: none;
+        height: 32px;
+        margin: 0 auto;
+        width: 80%; } }
 
 .search-filter {
   display: inline;
