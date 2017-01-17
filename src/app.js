@@ -28,28 +28,41 @@ io.on('connection', function(socket){
   socket.connId = id;
   var uploader = new siofu();
   uploader.dir = path.join(__dirname, '..', 'uploads/connection-' + id.toString());
+  socket.fileUpload = false;
   uploader.listen(socket);
+
   uploader.on('error', function(err) {
-    console.log(err)
+    console.log(err);
   });
+
   uploader.on('saved', function(event) {
     generator.finishZipUpload(event.file, socket.connId);
+    socket.fileUploaded = true;
   });
+
   uploader.on('progress', function(event) {
-    console.log(event.file.bytesLoaded / event.file.size)
+    console.log(event.file.bytesLoaded / event.file.size);
     socket.emit('upload.progress', {
       percentage:(event.file.bytesLoaded / event.file.size) * 100
-    })
-  });
-  uploader.on('start', function(event) {
-    socket.on('Cancel', function(msg) {
-      if(event.file.success === true) {
-        return; // file has already been fully transfered so no point of aborting
-      }
-      console.log(msg);
-      uploader.abort(event.file.id, socket);
     });
+    // if the abort propert is set to true, then cancel the ongoing upload
+    if(socket.fileAbort === true) {
+      uploader.abort(event.file.id, socket);
+      socket.fileAbort = false;
+    }
+  });
+
+  uploader.on('start', function(event) {
     generator.startZipUpload(socket.connId);
+    socket.fileUploaded = false;
+  });
+
+  socket.on('Cancel', function(msg) {
+    console.log(msg);
+    // if the file has not been fully uploaded, then set the abort property to true
+    if(socket.fileUploaded === false) {
+      socket.fileAbort = true;
+    }
   });
 
   socket.on('live', function(formData) {
@@ -62,9 +75,11 @@ io.on('connection', function(socket){
       //generator.showLivePreview(req, socket);
     });
   });
+
   socket.on('upload', function(fileData) {
-    generator.uploadJsonZip(fileData, socket)
-  })
+    generator.uploadJsonZip(fileData, socket);
+  });
+
 });
 
 app.use(connectDomain());

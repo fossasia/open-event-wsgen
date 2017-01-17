@@ -19,7 +19,7 @@ $(document).ready(function () {
   var socket = io();
   var uploader = new SocketIOFileUpload(socket);
   uploader.resetFileInputs = false;
-  uploader.listenOnInput(document.getElementById("siofu_input"));
+  uploader.listenOnInput(document.getElementById('siofu_input'));
 
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide()
@@ -36,6 +36,7 @@ $(document).ready(function () {
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
     socket.emit('Cancel', 'Terminate the zip upload');
+    $('#buildLog').empty();
     updateGenerateProgress(0);
   })
 
@@ -110,10 +111,11 @@ $(document).ready(function () {
 
   $('#btnGenerate').click(function () {
 
-    var check = $("#form").valid();
-    $(".error").focus();
+    var check = $('#form').valid();
+    $('.error').focus();
     if (check) {
       var formData = getData();
+      $('#buildLog').empty();
       socket.emit('live', formData);
     }
     $('.generator-progress').show();
@@ -154,17 +156,23 @@ $(document).ready(function () {
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
-    var spanElem = $('<span></span>');
-    var spanMess = $('<span></span>');
-    var aElem = $('<button></button>');
-    var divElem = $('<div></div>');
-    var paragraph = $('<p></p>');
+    // There are three category of Log statements 
+    // Info statements give information about the task currently being performed by the webapp
+    // Success statements give the information of a task being successfully compeleted
+    // Error statements give information about a task failing to complete. These statements also contain a detailed error log which can be viewed
+    // by clicking on the Know more Button.
 
-    spanMess.css({'margin-left': '5px'});
-    aElem.css({'margin-left': '5px'});
-    aElem.attr({'data-toggle': 'collapse', 'href': '#error' + String(errorno)});
-    divElem.attr({'id': 'error' + String(errorno), 'class': 'collapse'});
-    divElem.css({'color': 'red'});
+    var spanElem = $('<span></span>');  // will contain the info about type of statement
+    var spanMess = $('<span></span>');  // will contain the actual message
+    var aElem = $('<button></button>'); // Button to view the detailed error log
+    var divElem = $('<div></div>');     // Contain the detailed error log
+    var paragraph = $('<p></p>');       // Contain the whole statement
+
+    spanMess.css({'margin-left' : '5px'});
+    aElem.css({'margin-left' : '5px'});
+    aElem.attr({'data-toggle' : 'collapse', 'href' : '#error' + String(errorno)});
+    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : 'collapse'});
+    divElem.css({'color' : 'red'});
     aElem.text('Know More');
     spanMess.text(data.smallMessage);
     spanElem.text(data.type.toUpperCase() + ':');
