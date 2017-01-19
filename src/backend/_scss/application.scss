@@ -1212,6 +1212,18 @@ a {
     font-family: sans-serif;
     margin: 0 auto;
   }
+  @media only screen and (max-width: 600px) {
+    float: none;
+
+    .fossasia-filter {
+      border-radius: 5px;
+      display: block;
+      float: none;
+      height: 32px;
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
 }
 
 .search-filter {
@@ -1357,4 +1369,13 @@ a {
     padding: 1.5rem;
     white-space: nowrap;
   }
+}
+
+#down-button {
+  color: $gray;
+  font-size: 3em;
+  position: fixed;
+  right: 5%;
+  top: 90%;
+  z-index: 1010;
 }
