@@ -149,7 +149,6 @@ function foldByTime(sessions, speakers, trackInfo) {
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
       
-    //console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
@@ -643,12 +642,12 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
 
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
-          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo), function(result){
+          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo, function(result){
             speakers[key].photo = encodeURI(result);
             callback();
-          };
+          });
         }
-        else  if (reqOpts.datasource === 'eventapi' ) {
+        else if (reqOpts.datasource === 'eventapi' ) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
             callback();
@@ -713,7 +712,8 @@ function getAllSessions(speakerid , session, trackInfo){
       }
   })
 sessiondetail.forEach((session) => {
-  const roomname = (session.detail == null) ?' ': session.detail.microlocation.name;
+  const roomname = (session.detail == null) ?' ': 'PleaseWork';
+  if(session.detail) {
   speakersession.push({
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
@@ -722,7 +722,7 @@ sessiondetail.forEach((session) => {
       color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
       microlocation: roomname,
       session_id: session.detail.id
-   });
+   })};
 })
 
 return speakersession;
