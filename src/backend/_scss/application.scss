@@ -1370,3 +1370,12 @@ a {
     white-space: nowrap;
   }
 }
+
+#down-button {
+  color: $gray;
+  font-size: 3em;
+  position: fixed;
+  right: 5%;
+  top: 90%;
+  z-index: 1010;
+}
