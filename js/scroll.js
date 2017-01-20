@@ -14,4 +14,17 @@
           }
         }
       });
+    $('#down-button').hide();
+    $('#down-button').click(function() {
+      $('html, body').animate({scrollTop: 0}, 1000);
+      $('#down-button').fadeOut(1000);
+    });
+    window.addEventListener('scroll', function() {
+      if($(window).scrollTop() > 0) {
+        $('#down-button').fadeIn(1000);
+      }
+      if($(window).scrollTop() === 0) {
+        $('#down-button').fadeOut(1000);
+      }
+    });
     });
