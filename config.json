@@ -1,0 +1,22 @@
+{
+  "PORT": 5000,
+  "DEFAULT_MAIL_STRATEGY": "SMTP",
+  "DEFAULT_FROM_EMAIL": "kumar@uttpal.com",
+  "SMTP_HOST": "mail.smtp2go.com",
+  "SMTP_PORT": 2525,
+  "SMTP_USERNAME": "xxxx",
+  "SMTP_PASSWORD": "xxxx",
+  "SENDGRID_API_KEY": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "speaker_images": {
+    "MAX_WIDTH": 262.5,
+    "MAX_HEIGHT": 262.5,
+    "TRACK_WIDTH_REM": 5,
+    "TRACK_HEIGHT_REM": 5
+  },
+  "audio_files": {
+    "MAX_SIZE_MB": 100
+  },
+  "proxy": "",
+  "AWS_ACCESS_KEY_ID": "XXXXXXXXXXXXXXXXX",
+  "AWS_SECRET_ACCESS_KEY": "XXXXXXXXXXXXXXXXXXXXX"
+}
