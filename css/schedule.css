@@ -29,6 +29,10 @@ a {
     a .speaker-social:hover {
       text-decoration: none; }
 
+/*Scroll button to top*/
+.scroll {
+  display: flex; }
+
 /* Navbar adjustments */
 .logo {
   max-height: 45px;
