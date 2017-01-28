@@ -6,73 +6,52 @@
 
 'use strict';
 
-const assert = require('chai').assert;
+var assert = require('chai').assert;
 const jsonfile = require('jsonfile');
-const async = require('async');
-const config = require('../config.json');
-const request = require('request').defaults({'proxy': config.proxy});
 
-var fold = require('../src/backend/fold.js');
-var generator = require('../src/backend/generator.js');
-var dist = require('../src/backend/dist.js');
-var app = require('../src/app');
-
-
+var fold = require('../src/generator/backend/fold.js');
+var generator = require('../src/generator/backend/generator.js');
+var dist = require('../src/generator/backend/dist.js');
+var app = require('../src/generator/app');
 
 var data = {
-  event: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/event'},
-  speakers: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/speakers'},
-  sessions: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/sessions'},
-  sponsors: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/sponsors'},
-  tracks: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/tracks'},
-  microlocations: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/microlocations'}
+  event: jsonfile.readFileSync(__dirname + '/../mockjson/event'),
+  sponsors: jsonfile.readFileSync(__dirname + '/../mockjson/sponsors'),
+  sessions: jsonfile.readFileSync(__dirname + '/../mockjson/sessions'),
+  speakers: jsonfile.readFileSync(__dirname + '/../mockjson/speakers'),
+  microlocations: jsonfile.readFileSync(__dirname + '/../mockjson/microlocations'),
+  tracks: jsonfile.readFileSync(__dirname + '/../mockjson/tracks')
+  
 };
 
 
 describe('fold', function() {
-  this.timeout(60000);
-  before( (done) => {
-    async.each(data, (dataField, callback) => {
-      let url = dataField.endpoint;
-      request(url, (error, response, body) => {
-        if (!error && response.statusCode == 200) {
-          dataField.json = JSON.parse(body);
-          callback();
-        }
-      })
-    }, (err) => {
-      done();
-    });
-  });
-
-  describe('.foldByTrack()',  () => {
-    it('should sort sessions by track', () => {
+  describe('.foldByTrack()', function () {
+    it('should sort sessions by track', function () {
       const reqOptsLink = {
         assetmode: 'link'
       };
-      fold.foldByTrack(data.sessions.json, data.speakers.json, data.tracks.json, reqOptsLink, (trackListLink) => {
-          assert.equal(trackListLink[0].title, 'OpenTech and IoT');
-      });
+      const trackListLink = fold.foldByTrack(data.sessions, data.speakers, data.tracks, reqOptsLink);
+      assert.equal(trackListLink[0].title, 'Maker Space');
 
       const reqOptsDl = {
         assetmode: 'download',
         email: 'a@a.com',
         name: 'testapp'
       };
-      fold.foldByTrack(data.sessions.json, data.speakers.json, data.tracks.json, reqOptsDl, (trackListDl) => {
-          assert.equal(trackListDl[0].title, 'OpenTech and IoT');
-      });
-    });
-  });
-  describe('.foldByDate()', () => {
-    it('should sort tracks by date', () => {
-      const dateData = fold.foldByDate(data.tracks.json);
-      assert.equal(dateData[0].tracks[0].name, 'Big Data/Open Data');
+      const trackListDl = fold.foldByTrack(data.sessions, data.speakers, data.tracks, reqOptsDl);
+      assert.equal(trackListDl[0].title, 'Maker Space');
     })
   });
-  describe('.createSocialLinks()', () => {
-    it('should return array of social links of event', () => {
-      var socialLinks = fold.createSocialLinks(data.event.json);
+  describe('.foldByDate()', function () {
+    it('should sort tracks by date', function () {
+      const dateData = fold.foldByDate(data.tracks);
+      assert.equal(dateData[0].tracks[0].name, 'Maker Space');
+    })
+  });
+  describe('.createSocialLinks()', function () {
+    it('should return array of social links of event', function () {
+      var socialLinks = fold.createSocialLinks(data.event);
       assert.equal(socialLinks[0].icon, 'twitter');
       assert.equal(socialLinks[1].icon, 'github');
       assert.equal(socialLinks[2].icon, 'facebook');
@@ -81,57 +60,54 @@ describe('fold', function() {
       assert.equal(socialLinks[5].icon, 'youtube-play');
     })
   });
-  describe('extractEventUrls()' , () => {
-    it('should return event and logo urls', () => {
-      fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'link'},data.speakers.json, (linkModeUrls) => {
-      assert.equal(linkModeUrls.main_page_url, data.event.json.event_url);
-      assert.equal(linkModeUrls.logo_url, data.event.json.logo);
-      });
+  describe('extractEventUrls()' , function () {
+    it('should return event and logo urls', function () {
+      const linkModeUrls = fold.extractEventUrls(data.event, {assetmode:'link'});
+      const downloadModeUrls = fold.extractEventUrls(data.event, {assetmode:'download', email:"a@b.com", name:"testapp"});
 
-      fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {assetmode:'download', email:"a@b.com", name:"testapp"}, (downloadModeUrls) => {
-          assert.equal(downloadModeUrls.logo_url, 'images/fossasia-dark.png');
-      });
-    });
-  });
-  describe('getCopyrightData()', () => {
-    it('should get copyright data from event', () => {
-      const copyright = fold.getCopyrightData(data.event.json);
-      assert.equal(copyright.holder_url, 'http://fossasia.org/contact/');
+      assert.equal(linkModeUrls.main_page_url, data.event.event_url);
+      assert.equal(linkModeUrls.logo_url, data.event.logo);
+      assert.equal(downloadModeUrls.logo_url, 'images/speakers/Logo_OpenTecSummit_TXT_grey.png');
     })
   });
-  describe('.foldByLevel()', () => {
-    it('should sort sponsors by level', () => {
+  describe('getCopyrightData()', function () {
+    it('should get copyright data from event', function () {
+      const copyright = fold.getCopyrightData(data.event);
+      assert.equal(copyright.holder_url, 'http://opentechsummit.net');
+    })
+  });
+  describe('.foldByLevel()', function () {
+    it('should sort sponsors by level', function () {
       const reqOpts = {
         email: 'a@a.com',
         name: 'testapp'
       };
-      fold.foldByLevel(data.sponsors.json,reqOpts, (levelData) => {
-          assert.equal(levelData['1'][0].name, 'Google');
-      });
-    });
+      const levelData = fold.foldByLevel(data.sponsors,reqOpts);
+      assert.equal(levelData['1'][0].name, 'FFII');
+    })
   });
-  describe('.foldByRooms()', () => {
-    it('should return sessions grouped by rooms', () => {
-      const roomData = fold.foldByRooms(data.microlocations.json, data.sessions.json, data.speakers.json, data.tracks.json);
-      assert.equal(roomData[0].sortKey, '16-03-18');
-    });
+  describe('.foldByRooms()', function () {
+    it('should return sessions grouped by rooms', function () {
+      const roomData = fold.foldByRooms(data.microlocations, data.sessions, data.tracks);
+      assert.equal(roomData[0].hall, 'Erdgeschoss, Saal / Ground Floor');
+    })
   });
-  describe('.slugify()', () => {
-    it('should turn sentences to slugs', () => {
+  describe('.slugify()', function() {
+    it('should turn sentences to slugs', function() {
       assert.equal(fold.slugify('Hello world'), 'hello-world');
       assert.equal(fold.slugify(), '');
     });
   });
-  describe('.getAppName()', () => {
-    it('should return event title from event object', () => {
-      assert.equal(fold.getAppName(data.event.json), 'FOSSASIA 2016')
+  describe('.getAppName()', function () {
+    it('should return event title from event object', function () {
+      assert.equal(fold.getAppName(data.event), 'Open Tech Summit')
     })
   });
 });
 
-describe('app',  () =>  {
-  describe('run', () => {
-    it('should run app', () =>  {
+describe('app', function () {
+  describe('run', function () {
+    it('should run app', function () {
       const expressApp = app.getApp();
       assert.equal(expressApp.get('port'), (process.env.PORT || 5000))
     })
