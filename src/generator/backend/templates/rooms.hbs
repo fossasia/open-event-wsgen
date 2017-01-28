@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<!--
+  Note to contributors: Do not submit any changes to this page, as it is generated automatically
+  from https://github.com/fossasia/open-event-scraper.
+-->
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <meta name="description" content="OpenTechSummit 2016 Schedule">
+  <meta name="author" content="OpenTechSummit">
+
+  <title>{{ apptitle }}</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
+  <link rel="stylesheet" href="./dependencies/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/schedule.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+  <body>
+
+    {{> navbar}}
+
+  <div class="container">
+    <div  style="margin-top:4%" class="main row">
+      <div class="col-md-12">
+        <h2 class="filter-heading text-center">
+         <span>
+          <span>
+            Rooms
+          </span>
+          </span>
+        </h2>
+        <div class="row">
+        <div class="col-md-8">
+          <div id="track-list">
+            {{#roomsinfo}}
+            <div class="row">
+              {{#if sessionDetail}}
+              <div class="col-md-12" style="margin-top:1%;margin-bottom:1%">
+              <h4 class="text">{{hall}}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+              <h5 class="text">{{date}}</h5>
+              </div>
+                {{/if}}
+            </div>
+              {{#each sessionDetail}}
+              {{#if date}}
+               <div class="col-md-12">
+              <h5 class="text">{{date}}</h5>
+              </div>
+              {{/if}}
+            <div class="row">
+              <div class="height col-xs-2 col-sm-2 col-md-2">
+                <h6 class="text">{{time}}</h6>
+              </div>
+              <div style="background-color:{{{color}}}" class="sesroom event track-title col-xs-8 col-sm-8 col-md-8">
+                {{name}}
+              </div>
+            </div>
+              {{/each}}
+              {{/roomsinfo}}
+          </div>
+        </div>
+        <div class="track-names col-md-4">
+        {{# tracks}}
+        {{#if title}}
+         
+            <ul class="title-inline">
+              <li  style="background-color:{{{color}}}" class="titlecolor"></li>
+              <li>{{title}}</li>
+            </ul>
+          
+        {{/if}}
+        {{/tracks}}  
+        </div>     
+        </div>   
+      </div>
+    </div>
+  </div>
+    {{> footer}}
+    <script src="./dependencies/jquery.min.js"></script>
+    <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
+
+   <script>
+  $(function() {  
+  $('.nav.navbar-nav > li a').removeClass('active');
+  var linkUrl=window.location.href.split("/");
+  if((linkUrl).indexOf("tracks.html")!=-1){
+    $("#trackslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("rooms.html")!=-1){
+    $("#roomslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("speakers.html")!=-1){
+    $("#speakerslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("sessions.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
+  else {
+    $("#homelink").addClass('active');
+  }
+ });
+</script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<!--
+  Note to contributors: Do not submit any changes to this page, as it is generated automatically
+  from https://github.com/fossasia/open-event-scraper.
+-->
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <meta name="description" content="OpenTechSummit 2016 Schedule">
+  <meta name="author" content="OpenTechSummit">
+
+  <title>{{ apptitle }}</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- Latest compiled and minified CSS -->
+ <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" type="text/css" href="./dependencies/font-awesome.min.css">
+  <link rel="stylesheet" href="./dependencies/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/schedule.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+
+    <body>
+
+      {{> navbar}}
+   <div class="container" id="session-list">
+    <div style="margin-top:4%" class="main row">
+    <div class="col-md-12 ">
+      <h2 class="filter-heading track-heading text-center">
+        <span>
+          <span>
+            Tracks
+          </span>
+        </span>
+      </h2>
+      <div id=track-list class="container">
+        {{#tracks}}
+        
+        <div class="row">
+          <div class="col-xs-12 col-sm-3 col-md-3">
+           <h4 class="text"><strong>{{title}}</strong></h4>
+           <h4 class="text">{{date}}</h4>
+          </div>
+          
+          <div class="tracks col-xs-10 col-md-9">
+          {{#sessions}}
+            <div class="header-pop">
+            <h4 style="background-color:{{{../color}}}"  class="sizeevent event">
+            <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
+            {{title}}</h4>
+             <div style="display:none;" class="pop-box">
+            <div class="arrow">
+              <span></span>
+            </div>
+            <div class="pop-container" style="color:black";>
+              <div class="pop">
+                <div class="pop-header">
+                  <span>
+                  <a class="session-link" href="#{{session_id}}">
+                    Share <i class="fa fa-link"></i>
+                  </a>
+                  <input class="inputbox" type="text" onclick="this.select()" value="http://opentechsummit.net/programm/#{{session_id}}" style="display:none;">
+                  </span>
+                </div>
+                <div class="pop-over row">
+                  {{#linkify}}{{description}}{{/linkify}}
+                </div>
+                <hr style="clear:both;width:75%;">
+                <h5 style="padding-left:20px" class="text"><strong>Speakers</strong></h5>
+                <div class="pop-speakers"> 
+                 {{#each speakers_list}}
+                
+                 <div class="pop-over row">
+                   <div class="col-md-3 col-xs-3"><img style="width:75px;height:75px; border-radius:50%;"  onError="this.onerror=null;this.src='./dependencies/avatar.png';" class="card-img-top" src="{{{photo}}}"></div>
+                   <div class="col-xs-9 col-md-9"><h4>{{name}}</h4>
+                   <p>{{organisation}}</p>
+                   <div class="icons row">
+                   {{#if website}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+                  {{/if}}
+                   {{#if github}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+                  {{/if}}
+                  {{#if twitter}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  {{/if}}
+                  {{#if linkedin}}
+                  <div class="col-xs-2 col-sm-2 col-md-2"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  {{/if}}
+                 </div>
+                   </div>
+                  </div>
+                
+                  {{/each}}
+                </div>  
+                <hr style="clear:both;width:75%;">
+                <div class="pop-footer">
+                  <p>{{../date}}&nbsp; &nbsp;{{start}} - {{end}}</p>
+                  <p>{{location}}</p>
+                  <ul class="title-inline">
+                  <li  style="background-color:{{{../color}}}" class="titlecolor"></li>&nbsp;
+                  <li>{{../title}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          {{/sessions}}
+          </div>
+           
+
+        </div><br>
+        {{/tracks}}
+      </div>
+    </div>
+    </div>
+   </div>
+   <!-- /#session-list -->
+    {{> footer}}
+    <script src="./dependencies/jquery.min.js"></script>
+    <script src="./dependencies/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/popover.js"></script>
+
+   <script>
+    $(document).ready(function(){
+      $('.session-link').click(function() {
+        $(this).next('.inputbox').toggle().select();
+        });
+      });
+$(function() {  
+  $('.nav.navbar-nav > li a').removeClass('active');
+  var linkUrl=window.location.href.split("/");
+  if((linkUrl).indexOf("tracks.html")!=-1){
+    $("#trackslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("rooms.html")!=-1){
+    $("#roomslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("speakers.html")!=-1){
+    $("#speakerslink").addClass('active');
+  }
+  else if((linkUrl).indexOf("sessions.html")!=-1){
+    $("#sessionslink").addClass('active');
+  }
+  else {
+    $("#homelink").addClass('active');
+  }
+});
+</script> 
+</body>
+</html>
