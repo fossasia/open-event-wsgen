@@ -66,6 +66,18 @@ $ git remote add heroku https://git.heroku.com/your-heroku-app-name.git
 $ git push heroku development:master
 ```
 
+8) confirm the webapp is running
+```sh
+$ heroku logs --tail
+```
+
+9) sometimes the server may take a while to start, the logs would say `State changed from starting to up` when the server is ready.
+
+10) open the URL of your server in your browser
+```sh
+$ heroku open
+```
+
 > Congrats you are done now!
 
 - Your app should be available at : https://your-heroku-app-name.herokuapp.com/
