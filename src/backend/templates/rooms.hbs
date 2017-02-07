@@ -68,6 +68,18 @@
     <div id="session-list" class="container">
       <div class="row">
         <div style="margin: 15px 0 0 15px;" class="col-md-9">
+        <div id="tabs" class="tabs no-js">
+                        <div class="tabs-nav">
+                          {{#timeList}}
+                       <a href="#" class="tabs-nav-link">{{date}}</a>
+                          {{/timeList}}                          
+                        </div>
+                        {{#roomsinfo}}
+                        <div class="tab">
+                          <div class="tab-content">{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{session_id}}">{{venue}} {{/if}} </a>{{/sessions}}</div>
+                        </div>
+                        {{/roomsinfo}}
+                      </div>
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
             <div class="date-filter">
@@ -80,6 +92,7 @@
                 <div class="row">
                   {{#sessions}}
                       <div class="room-filter" id="{{session_id}}">
+                      <a id = "venue-{{session_id}}"></a>
                       <div class="row">
                         <div style="clear:both" class="col-md-12">
                         {{#if venue }}
@@ -352,7 +365,6 @@
             localStorage['rooms'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
           }
           var temp = JSON.parse(localStorage['rooms']);
-          console.log(localStorage['rooms']);
           $('.date-filter').each(function() {
             var dateFlag = 0;
             $(this).find('.room-filter').each(function() {
@@ -385,4 +397,5 @@
       });
     </script>
   </body>
+      <script type="text/javascript" src = "./js/tabs.js"></script>
 </html>
