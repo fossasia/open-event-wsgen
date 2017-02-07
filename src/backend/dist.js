@@ -233,7 +233,6 @@ module.exports = {
             fs.readdir( appPath + '/zip/images/sponsors', function(err, list){
               if(err) {
                 logger.addLog('Info', 'No sponsors images found', socket, err);
-                return 0;
               }
               async.each(list, function(image, trial) {
                 sharp( appPath + '/zip/images/sponsors/' + image)
@@ -245,7 +244,6 @@ module.exports = {
                       console.log(image + ' Can not be converted');
                       console.log(err);
                       trial(null);
-                      return 0;
                     }
 
                     fs.rename( appPath + '/zip/images/sponsors/' + image + '.new' , appPath + '/zip/images/sponsors/' + image , function(err) {
@@ -266,7 +264,6 @@ module.exports = {
             fs.readdir( appPath + '/zip/images/speakers', function(err, list){
               if(err) {
                 logger.addLog('Info', 'No speakers images found', socket, err);
-                return 0;
               }
               async.each(list, function(image, trial) {
                 sharp( appPath + '/zip/images/speakers/' + image)
@@ -278,7 +275,6 @@ module.exports = {
                         console.log(image + 'can not be converted');
                         console.log(err);
                         trial(null);
-                        return 0;
                       }
 
                       fs.rename( appPath + '/zip/images/speakers/' + image + '.new' , appPath + '/zip/images/speakers/' + image , function(err) {
@@ -287,8 +283,8 @@ module.exports = {
                       });
                   });
               }, function(err) {
+                console.log("All done successfully");
                 callback();
-                console.log("ALl done successfully");
               });
             });
           },
