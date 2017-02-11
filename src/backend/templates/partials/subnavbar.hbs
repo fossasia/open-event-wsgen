@@ -1,29 +1,27 @@
 {{#if flag}}
 <div id="tabs" class="tabs no-js">
-                        <div class="tabs-nav">
-                          {{#days}}
-                          <a href="#" class="tabs-nav-link">{{caption}}</a>
-                          {{/days}}
-                        </div>
-                        {{#days}}
-                        <div class="tab">
-                          <div class="tab-content">{{#tracks}}<a href = "./tracks.html#{{slug}}">{{title}}  </a>{{/tracks}}</div>
-                        </div>
-
-                        {{/days}}
-
-                      </div>
+   <div class="tabs-nav">
+      {{#days}}
+      <a href="#" class="tabs-nav-link">{{caption}}</a>
+      {{/days}}
+   </div>
+   {{#days}}
+   <div class="tab">
+      <div class="tab-content">{{#tracks}}<a href = "./tracks.html#{{slug}}">{{title}}  </a>{{/tracks}}</div>
+   </div>
+   {{/days}}
+</div>
 {{else}}
 <div id="tabs" class="tabs no-js">
-                        <div class="tabs-nav">
-                          {{#timeList}}
-                       <a href="#" class="tabs-nav-link">{{date}}</a>
-                          {{/timeList}}                          
-                        </div>
-                        {{#roomsinfo}}
-                        <div class="tab">
-                          <div class="tab-content">{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{session_id}}">{{venue}} {{/if}} </a>{{/sessions}}</div>
-                        </div>
-                        {{/roomsinfo}}
-                      </div>
+   <div class="tabs-nav">
+      {{#timeList}}
+      <a href="#" class="tabs-nav-link">{{date}}</a>
+      {{/timeList}}                          
+   </div>
+   {{#roomsinfo}}
+   <div class="tab">
+      <div class="tab-content">{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{session_id}}">{{venue}} {{/if}} </a>{{/sessions}}</div>
+   </div>
+   {{/roomsinfo}}
+</div>
 {{/if}}
