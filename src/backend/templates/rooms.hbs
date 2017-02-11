@@ -68,18 +68,7 @@
     <div id="session-list" class="container">
       <div class="row">
         <div style="margin: 15px 0 0 15px;" class="col-md-9">
-        <div id="tabs" class="tabs no-js">
-                        <div class="tabs-nav">
-                          {{#timeList}}
-                       <a href="#" class="tabs-nav-link">{{date}}</a>
-                          {{/timeList}}                          
-                        </div>
-                        {{#roomsinfo}}
-                        <div class="tab">
-                          <div class="tab-content">{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{session_id}}">{{venue}} {{/if}} </a>{{/sessions}}</div>
-                        </div>
-                        {{/roomsinfo}}
-                      </div>
+                      {{> subnavbar flag = 0}}
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
             <div class="date-filter">

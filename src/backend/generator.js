@@ -24,7 +24,6 @@ handlebars.registerPartial('footer', footer);
 handlebars.registerPartial('scroll', scroll);
 handlebars.registerPartial('subnavbar', subnavbar);
 
-
 const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
 const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
