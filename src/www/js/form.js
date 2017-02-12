@@ -48,6 +48,8 @@ $(document).ready(function () {
     socket.emit('Cancel', 'Terminate the zip upload');
     $('#buildLog').empty();
     updateGenerateProgress(0);
+    $('#btnGenerate').prop('disabled', true);
+    enableGenerateButton(false);
   })
 
   $('#siofu_input').click(function() {
@@ -145,7 +147,8 @@ $(document).ready(function () {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir, data.url);
-    $('#btnGenerate').prop('disabled', false);
+    $('#btnGenerate').prop('disabled', true);
+    $('#btnGenerate').attr('title', 'Generated webapp')
   });
 
   socket.on('live.process', function (data) {
