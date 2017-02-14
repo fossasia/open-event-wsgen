@@ -50,6 +50,8 @@ $(document).ready(function () {
     updateGenerateProgress(0);
     $('#btnGenerate').prop('disabled', true);
     enableGenerateButton(false);
+    $('#btnLive').hide();
+    $('#btnDownload').hide();
   })
 
   $('#siofu_input').click(function() {
