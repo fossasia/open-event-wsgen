@@ -21,6 +21,15 @@ $(document).ready(function () {
   uploader.resetFileInputs = false;
   uploader.listenOnInput(document.getElementById('siofu_input'));
 
+  uploader.addEventListener('choose', function(event) {
+      if($("#siofu_input").val().search('.zip') === -1) {
+        $("#siofu_input").val('');
+        statusText.css({'color' : 'red'});
+        statusText.text("Upload zip extension");
+        return false;
+      }
+  });
+
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide()
     $('#upload-info').show();
@@ -35,11 +44,17 @@ $(document).ready(function () {
     e.preventDefault();
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
+    statusText.text('');
     socket.emit('Cancel', 'Terminate the zip upload');
     $('#buildLog').empty();
     updateGenerateProgress(0);
+    $('#btnGenerate').prop('disabled', true);
+    enableGenerateButton(false);
   })
 
+  $('#siofu_input').click(function() {
+    statusText.text('');
+  })
   // uploader.addEventListener('progress', function(event) {
   //   var percentage = (event.bytesLoaded / event.file.size * 100);
   //   updateUploadProgress(percentage);
@@ -132,7 +147,8 @@ $(document).ready(function () {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir, data.url);
-    $('#btnGenerate').prop('disabled', false);
+    $('#btnGenerate').prop('disabled', true);
+    $('#btnGenerate').attr('title', 'Generated webapp')
   });
 
   socket.on('live.process', function (data) {
@@ -156,7 +172,7 @@ $(document).ready(function () {
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
-    // There are three category of Log statements 
+    // There are three category of Log statements
     // Info statements give information about the task currently being performed by the webapp
     // Success statements give the information of a task being successfully compeleted
     // Error statements give information about a task failing to complete. These statements also contain a detailed error log which can be viewed

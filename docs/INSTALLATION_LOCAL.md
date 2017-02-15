@@ -6,6 +6,14 @@ First install the dependencies.
 ```shell
 npm install
 ```
+sometimes it may give an error of fetch failed
+then type
+
+```shell
+npm config set registry http://registry.npmjs.org/
+```
+
+and then restart the terminal and start from step 1
 
 Run the app
 
