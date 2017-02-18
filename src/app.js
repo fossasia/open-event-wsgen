@@ -63,14 +63,10 @@ io.on('connection', function(socket){
     if(socket.fileUploaded === false) {
       socket.fileAbort = true;
     }
-    generator.stopBuild(socket);
   });
 
   socket.on('live', function(formData) {
     var req = {body: formData};
-
-    generator.enableBuild(socket);
-
     generator.createDistDir(req, socket, function(appFolder, url) {
       socket.emit('live.ready', {
         appDir: appFolder,
