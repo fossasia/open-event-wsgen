@@ -4,6 +4,8 @@
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
 var uploadFinished = false;
 
+var isCancelling = false;
+
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
     generateProgressVal.html(parseInt(perc, 10) + '%');
@@ -42,12 +44,24 @@ $(document).ready(function () {
   $('#cancelUpload').click(function(e){
     //TODO cancel soket ongoing uploading of file
     e.preventDefault();
+
+    isCancelling = true;
+
     $('#siofu_input').val('').show()
     $('#upload-info').hide();
-    statusText.text('');
+    updateStatusAnimate("Cancelling");
     socket.emit('Cancel', 'Terminate the zip upload');
     $('#buildLog').empty();
+
+    // Disable the generateProgressBar and hide the status bar as well
     updateGenerateProgress(0);
+    $('.generator-progress').hide();
+    $('#generator-progress-bar').hide();
+
+    // Also disable upload json input
+    $('#jsonupload-input').hide(100);
+    $('#eventapi-input').hide(100);
+
     $('#btnGenerate').prop('disabled', true);
     enableGenerateButton(false);
   })
@@ -152,8 +166,11 @@ $(document).ready(function () {
   });
 
   socket.on('live.process', function (data) {
-    updateStatusAnimate(data.status);
-    updateGenerateProgress(data.donePercent);
+    if(!isCancelling){
+      console.log(data.status);
+      statusText.text(data.status);
+      updateGenerateProgress(data.donePercent);
+    }
   });
 
   socket.on('live.error' , function (err) {
@@ -171,10 +188,16 @@ $(document).ready(function () {
   });
 
   socket.on('Cancel_Build' , function(data){
+    isCancelling = false;
     updateStatusAnimate("Build Canceled");
-    $('.generator-progress').hide();
-    $('#generator-progress-bar').hide();
-    updateGenerateProgress(0);
+    updateGenerateProgress(0)
+    $('.generator-progress').show();
+    $('#generator-progress-bar').show();
+
+
+    // Also disable upload json input
+    $('#jsonupload-input').show(100);
+
   });
 
   var errorno = 0; // stores the id of an error needed for its div element
