@@ -172,6 +172,13 @@ $(document).ready(function () {
     }
   });
 
+  socket.on('Cancel_Build' , function(data){
+    updateStatusAnimate("Build Canceled");
+    $('.generator-progress').hide();
+    $('#generator-progress-bar').hide();
+    updateGenerateProgress(0);
+  });
+
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
     // There are three category of Log statements

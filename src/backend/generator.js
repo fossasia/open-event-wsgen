@@ -30,6 +30,8 @@ const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/room
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
 
+const statusMap = {};
+
 if (!String.linkify) {
   String.prototype.linkify = function() {
     var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
@@ -105,6 +107,17 @@ function getJsonData(reqOpts, next) {
   }
 }
 
+exports.stopBuild = function(socket){
+  if (statusMap[socket.connId]) {
+
+    statusMap[socket.connId] = false;
+  }
+}
+
+exports.enableBuild = function(socket){
+    statusMap[socket.connId] = true;
+}
+
 exports.uploadJsonZip = function(fileData, socket) {
   distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
 };
@@ -114,6 +127,7 @@ exports.finishZipUpload = function(file, id) {
   console.log(file.pathName);
   distHelper.moveZip(file.pathName, id);
 
+  // Return a callback for finished uploading
 };
 
 exports.startZipUpload = function(id) {
@@ -124,6 +138,10 @@ exports.startZipUpload = function(id) {
 
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
+
+  // For maintaining the status of the project we add this to statusMap
+  statusMap[socket.connId] = true;
+
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
   req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
@@ -136,230 +154,328 @@ exports.createDistDir = function(req, socket, callback) {
   // the below variable will store the actual name of the event
   var eventName;
 
+  function isCanceled(socket){
+    if (statusMap[socket.connId] === false) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   async.series([
     (done) => {
       console.log('================================CLEANING TEMPORARY FOLDERS\n');
-      logger.addLog('Info', 'Cleaning up the previously existing temporary folders', socket);
-      if (emit) socket.emit('live.process', {donePercent: 5, status: "Cleaning temporary folder"});
-      fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
-        if(err !== null) {
-          logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
-          console.log(err);
-        }
-        logger.addLog('Success', 'Successfully cleaned up the temporary folders', socket);
-        done(null, 'clean');
-      });
-    },
-    (done) => {
-      console.log('================================MAKING\n');
-      logger.addLog('Info', 'Making the dist folder', socket);
-      if (emit) socket.emit('live.process', {donePercent: 10, status: "Making dist folder" });
-      distHelper.makeDistDir(appFolder, socket);
-      done(null, 'make');
-    },
-    (done) => {
-      if (emit) socket.emit('live.process', { donePercent: 20, status: "Copying assets" });
-      logger.addLog('Info', 'Copying Assets', socket);
-      distHelper.copyAssets(appFolder, (copyerr) => {
-        console.log('================================COPYING\n');
 
-        if (copyerr !== null) {
-          console.log(copyerr);
-          logger.addLog('Error', 'Error occured while copying assets into the appFolder', socket, copyerr);
-          return socket.emit('live.error', {donePercent: 30, status: "Error in Copying assets" });
-        }
-        logger.addLog('Success', 'Assets were successfully copied', socket);
-        done(null, 'copy');
-      });
-    },
-    (done) => {
-      if (emit) socket.emit('live.process', { donePercent: 40, status: "Cleaning dependencies folder" });
-      logger.addLog('Info', 'Cleaning dependencies folder created as a part of copying assets inside the appFolder', socket);
-      distHelper.removeDependency(appFolder, socket, (copyerr) => {
-        console.log('============================Moving contents from dependency folder and deleting the dependency folder');
-        if (copyerr !== null) {
-          logger.addLog('Error', 'Error while reading directory', socket, copyerr);
-          console.log(copyerr);
-          return socket.emit('live.error', {donePercent: 45, status: "Error in moving files from dependency folder" });
-        }
-        logger.addLog('Success', 'Dependencies folder cleaned successfully', socket);
-        done(null, 'move');
-      });
-    },
-    (done) => {
-      console.log('================================COPYING JSONS\n');
-      logger.addLog('Info', 'Copying Jsons', socket);
-      if (emit) socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs" });
-      switch (req.body.datasource) {
-        case 'jsonupload':
-        logger.addLog('Info','Jsons have been uploaded by the user', socket);
-        distHelper.copyUploads(appFolder, socket, function(err) {
-          if(err) {
+      if(!isCanceled(socket)){
+        logger.addLog('Info', 'Cleaning up the previously existing temporary folders', socket);
+        if (emit) socket.emit('live.process', {donePercent: 5, status: "Cleaning temporary folder"});
+        fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
+          if(err !== null) {
+            logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
             console.log(err);
-            done(err);
           }
-          done(null, 'copyUploads');
+          logger.addLog('Success', 'Successfully cleaned up the temporary folders', socket);
+          done(null, 'clean');
         });
-        break;
-        case 'eventapi':
-        console.log('================================FETCHING JSONS\n');
-        logger.addLog('Info', 'Fetching Jsons from the internet', socket);
-        distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
-        if(err !== null) {
-          console.log(err);
+      }
+      else{
+        if(emit){
+            socket.emit('Cancel_Build');
         }
-        logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
-        done(null, 'fetchApiJsons');
-        });
-        break;
-        case 'mockjson':
-        default:
-        distHelper.copyMockJsons(appFolder);
-        done(null, 'cleanuploads');
-        break;
-
       }
     },
     (done) => {
-      console.log('===============================COMPILING SASS\n');
-      if (emit) socket.emit('live.process', {donePercent: 60, status: "Compiling the SASS files" });
-      sass.render({
-        file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
-        outFile: distHelper.distPath + '/' + appFolder + '/css/schedule.css'
-      }, function(err, result) {
-        if (!err) {
-          logger.addLog('Success', 'SASS file compiled successfully', socket);
-          fs.writeFile(distHelper.distPath + '/' + appFolder + '/css/schedule.css', result.css, (writeErr) => {
-            if (writeErr !== null) {
-              logger.addLog('Error', 'Error in writing css file', socket, writeErr);
-              console.log(writeErr);
-              return socket.emit('live.error', { status: "Error in Writing css file" });
+
+      if(!isCanceled(socket)){
+        console.log('================================MAKING\n');
+        logger.addLog('Info', 'Making the dist folder', socket);
+        if (emit) socket.emit('live.process', {donePercent: 10, status: "Making dist folder" });
+        distHelper.makeDistDir(appFolder, socket);
+        done(null, 'make');
+      }
+      else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if (!isCanceled(socket)) {
+        if (emit) socket.emit('live.process', { donePercent: 20, status: "Copying assets" });
+        logger.addLog('Info', 'Copying Assets', socket);
+        distHelper.copyAssets(appFolder, (copyerr) => {
+          console.log('================================COPYING\n');
+
+          if (copyerr !== null) {
+            console.log(copyerr);
+            logger.addLog('Error', 'Error occured while copying assets into the appFolder', socket, copyerr);
+            return socket.emit('live.error', {donePercent: 30, status: "Error in Copying assets" });
+          }
+          logger.addLog('Success', 'Assets were successfully copied', socket);
+          done(null, 'copy');
+        });
+      }
+      else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if(!isCanceled(socket)){
+        if (emit) socket.emit('live.process', { donePercent: 40, status: "Cleaning dependencies folder" });
+        logger.addLog('Info', 'Cleaning dependencies folder created as a part of copying assets inside the appFolder', socket);
+        distHelper.removeDependency(appFolder, socket, (copyerr) => {
+          console.log('============================Moving contents from dependency folder and deleting the dependency folder');
+          if (copyerr !== null) {
+            logger.addLog('Error', 'Error while reading directory', socket, copyerr);
+            console.log(copyerr);
+            return socket.emit('live.error', {donePercent: 45, status: "Error in moving files from dependency folder" });
+          }
+          logger.addLog('Success', 'Dependencies folder cleaned successfully', socket);
+          done(null, 'move');
+        });
+      }
+      else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if(!isCanceled(socket)){
+        console.log('================================COPYING JSONS\n');
+        logger.addLog('Info', 'Copying Jsons', socket);
+        if (emit) socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs" });
+        switch (req.body.datasource) {
+          case 'jsonupload':
+          logger.addLog('Info','Jsons have been uploaded by the user', socket);
+          distHelper.copyUploads(appFolder, socket, function(err) {
+            if(err) {
+              console.log(err);
+              done(err);
             }
-            logger.addLog('Success', 'css file was written successfully', socket);
-            done(null, 'sass');
+            done(null, 'copyUploads');
           });
-        }
-        else {
-          logger.addLog('Error', 'Error in compiling SASS', socket, err);
-          console.log(err);
-          if (emit) socket.emit('live.error', { status: "Error in Compiling SASS" });
-        }
-      });
-    },
-    (done) => {
-      logger.addLog('Info', 'Extracting data from the uploaded jsons', socket);
-      console.log('================================WRITING\n');
-      if (emit) socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates" });
-
-      getJsonData(req.body, function(error, data) {
-        if (error) {
-          console.log('Error Invalid Zip');
-          logger.addLog('Error', 'Invalid Zip', socket, error);
-          if (emit) {
-            socket.emit('live.error', {status: 'Error in read contents of zip'});
+          break;
+          case 'eventapi':
+          console.log('================================FETCHING JSONS\n');
+          logger.addLog('Info', 'Fetching Jsons from the internet', socket);
+          distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
+          if(err !== null) {
+            console.log(err);
           }
-          return done(error);
+          logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
+          done(null, 'fetchApiJsons');
+          });
+          break;
+          case 'mockjson':
+          default:
+          distHelper.copyMockJsons(appFolder);
+          done(null, 'cleanuploads');
+          break;
+
         }
-        logger.addLog('Success', 'Json data extracted', socket);
-
-        const jsonData = data;
-
-        eventName = jsonData.eventurls.name;
-        logger.addLog('Info', 'Name of the event found from the event json file', socket);
-        logger.addLog('Info', 'Compiling the html pages from the templates', socket);
-
-        try {
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
-        } catch (err) {
-          console.log(err);
-          logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
-          if (emit) {
-            socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
-          }
-          return done(err);
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
         }
-        return distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder, function() {
-          logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
-          return done(null, 'write');
-        });
-      });
-
-    },
-    (done) => {
-      logger.addLog('Info', 'Cleaning up remaining folder of the same name as that of the event', socket);
-      console.log("============Cleaning up remaining folders of the same name\n");
-      if (emit) socket.emit('live.process', {donePercent: 75, status: "Cleaning up folders of the same name" });
-
-      distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
-        if (remerr !== null) {
-          logger.addLog('Error', 'Error occured while removing the duplicate event folders', socket, remerr);
-          console.log(remerr);
-          if (emit) socket.emit('live.error', {status: "Error in removing the duplicate event folders of the same name" });
-        }
-        logger.addLog('Success', 'Duplicated events removed successfully', socket);
-
-        done(null, 'remove');
-      });
-
-    },
-    (done) => {
-      logger.addLog('Info', 'Renaming temporary folder to the actual event folder', socket);
-      console.log("============Renaming temporary folder to the actual event folder");
-      if (emit) socket.emit('live.process', {donePercent: 80, status: "Generating the event folder" });
-
-      const eventFolderSource = __dirname + '/../../dist/';
-
-      fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
-        if (moveerr !== null) {
-          logger.addLog('Error', 'Error in moving files to the event folders', socket, moverr);
-          console.log(moveerr);
-          if (emit) socket.emit('live.error', {status: "Error in moving files to the event directory" });
-        }
-        logger.addLog('Success', 'Changed the temporary name of the project to its actual name', socket);
-        appFolder = req.body.email + '/' + eventName;
-        done(null, 'move');
-
-      });
-
-    },
-    (done) => {
-      logger.addLog('Info', 'Creating zip file of the event', socket);
-      console.log("==================================Creating zip file");
-      if (emit) socket.emit('live.process', {donePercent:90, status: "Website is being generated"});
-      var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
-      var archive = archiver('zip', {store: true});
-      output.on('close', function() {
-        logger.addLog('Success', 'Zip file has been created', socket);
-        done(null, 'zip');
-      });
-      archive.on('error', function(err) {
-        logger.addLog('Error', 'Error occured while zipping the file', socket, err)
-      });
-      archive.pipe(output);
-      archive.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
-    },
-    (done) => {
-      logger.addLog('Info', 'Sending mail to the user', socket);
-      console.log('=================================SENDING MAIL\n');
-      if (emit) socket.emit('live.process', {donePercent: 95, status: "Website is being generated" });
-
-      if (req.body.ftpdetails) {
-        setTimeout(() => {
-          ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
-            //Send call back to orga server
-          })
-        }, 30000);
       }
 
-      mailer.uploadAndsendMail(req.body.email, eventName, socket, (url) => {
-        logger.addLog('Success', 'Mail sent succesfully', socket);
-        callback(appFolder, url);
-        done(null, 'write');
-      });
+    },
+    (done) => {
+
+      if(!isCanceled(socket)){
+        console.log('===============================COMPILING SASS\n');
+        if (emit) socket.emit('live.process', {donePercent: 60, status: "Compiling the SASS files" });
+        sass.render({
+          file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
+          outFile: distHelper.distPath + '/' + appFolder + '/css/schedule.css'
+        }, function(err, result) {
+          if (!err) {
+            logger.addLog('Success', 'SASS file compiled successfully', socket);
+            fs.writeFile(distHelper.distPath + '/' + appFolder + '/css/schedule.css', result.css, (writeErr) => {
+              if (writeErr !== null) {
+                logger.addLog('Error', 'Error in writing css file', socket, writeErr);
+                console.log(writeErr);
+                return socket.emit('live.error', { status: "Error in Writing css file" });
+              }
+              logger.addLog('Success', 'css file was written successfully', socket);
+              done(null, 'sass');
+            });
+          }
+          else {
+            logger.addLog('Error', 'Error in compiling SASS', socket, err);
+            console.log(err);
+            if (emit) socket.emit('live.error', { status: "Error in Compiling SASS" });
+          }
+        });
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if (!isCanceled(socket)) {
+        logger.addLog('Info', 'Extracting data from the uploaded jsons', socket);
+        console.log('================================WRITING\n');
+        if (emit) socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates" });
+
+        getJsonData(req.body, function(error, data) {
+          if (error) {
+            console.log('Error Invalid Zip');
+            logger.addLog('Error', 'Invalid Zip', socket, error);
+            if (emit) {
+              socket.emit('live.error', {status: 'Error in read contents of zip'});
+            }
+            return done(error);
+          }
+          logger.addLog('Success', 'Json data extracted', socket);
+
+          const jsonData = data;
+
+          eventName = jsonData.eventurls.name;
+          logger.addLog('Info', 'Name of the event found from the event json file', socket);
+          logger.addLog('Info', 'Compiling the html pages from the templates', socket);
+
+          try {
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
+          } catch (err) {
+            console.log(err);
+            logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
+            if (emit) {
+              socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
+            }
+            return done(err);
+          }
+          return distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder, function() {
+            logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
+            return done(null, 'write');
+          });
+        });
+
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if (!isCanceled(socket)) {
+        logger.addLog('Info', 'Cleaning up remaining folder of the same name as that of the event', socket);
+        console.log("============Cleaning up remaining folders of the same name\n");
+        if (emit) socket.emit('live.process', {donePercent: 75, status: "Cleaning up folders of the same name" });
+
+        distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
+          if (remerr !== null) {
+            logger.addLog('Error', 'Error occured while removing the duplicate event folders', socket, remerr);
+            console.log(remerr);
+            if (emit) socket.emit('live.error', {status: "Error in removing the duplicate event folders of the same name" });
+          }
+          logger.addLog('Success', 'Duplicated events removed successfully', socket);
+
+          done(null, 'remove');
+        });
+
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if (!isCanceled(socket)) {
+        logger.addLog('Info', 'Renaming temporary folder to the actual event folder', socket);
+        console.log("============Renaming temporary folder to the actual event folder");
+        if (emit) socket.emit('live.process', {donePercent: 80, status: "Generating the event folder" });
+
+        const eventFolderSource = __dirname + '/../../dist/';
+
+        fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
+          if (moveerr !== null) {
+            logger.addLog('Error', 'Error in moving files to the event folders', socket, moverr);
+            console.log(moveerr);
+            if (emit) socket.emit('live.error', {status: "Error in moving files to the event directory" });
+          }
+          logger.addLog('Success', 'Changed the temporary name of the project to its actual name', socket);
+          appFolder = req.body.email + '/' + eventName;
+          done(null, 'move');
+
+        });
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+      if (!isCanceled(socket)) {
+        logger.addLog('Info', 'Creating zip file of the event', socket);
+        console.log("==================================Creating zip file");
+        if (emit) socket.emit('live.process', {donePercent:90, status: "Website is being generated"});
+        var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
+        var archive = archiver('zip', {store: true});
+        output.on('close', function() {
+          logger.addLog('Success', 'Zip file has been created', socket);
+          done(null, 'zip');
+        });
+        archive.on('error', function(err) {
+          logger.addLog('Error', 'Error occured while zipping the file', socket, err)
+        });
+        archive.pipe(output);
+        archive.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
+
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
+
+    },
+    (done) => {
+
+      if(!isCanceled(socket)){
+      logger.addLog('Info', 'Sending mail to the user', socket);
+        console.log('=================================SENDING MAIL\n');
+        if (emit) socket.emit('live.process', {donePercent: 95, status: "Website is being generated" });
+
+        if (req.body.ftpdetails) {
+          setTimeout(() => {
+            ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
+              //Send call back to orga server
+            })
+          }, 30000);
+        }
+
+        mailer.uploadAndsendMail(req.body.email, eventName, socket, (url) => {
+          logger.addLog('Success', 'Mail sent succesfully', socket);
+          callback(appFolder, url);
+          done(null, 'write');
+        });
+      }else{
+        if(emit){
+            socket.emit('Cancel_Build');
+        }
+      }
 
     }
   ]);
