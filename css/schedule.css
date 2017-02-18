@@ -1017,10 +1017,7 @@ a {
 @media only screen and (max-width: 420px) {
   .tab-content {
     color: rgba(22, 22, 22, 0.99);
-    max-height: 40px;
-    overflow-x: scroll;
-    padding: 1.5rem;
-    white-space: nowrap; } }
+    padding: 1.5rem; } }
 
 #down-button {
   color: #838282;
