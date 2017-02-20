@@ -385,10 +385,10 @@ a {
 
 @media (max-width:600px) {
   .show-button-filter {
-    display: flex;
+    display: inline-block;
     margin: 0 auto;
-    padding-bottom: 10px;
-    width: 95%;
+    padding-bottom: 0;
+    width: 40%;
   }
 
   .show-button-filter button {
@@ -1308,6 +1308,7 @@ a {
     font-family: sans-serif;
     margin: 0 auto;
   }
+
   @media only screen and (max-width: 600px) {
     float: none;
 
@@ -1337,14 +1338,15 @@ a {
   }
 
   @media only screen and (max-width: 600px) {
+    display: inline-block;
     float: none;
+    width: 40%;
 
     .fossasia-filter {
-      display: block;
       float: none;
       margin: 0 auto;
-      width: 95%;
-      height: 32px;
+      width: 100%;
+      height: 33px;
       border-radius: 5px;
     }
   }
@@ -1352,8 +1354,18 @@ a {
 }
 
  @media only screen and (max-width: 600px) {
+   .middle {
+     padding: 0;
+   }
+
+   .date-list {
+     margin-top: 10px;
+     text-align: center;
+   }
+
    .date-pill {
-      display: block;
+     display: inline-block;
+     margin: 1%;
    }
  }
 
