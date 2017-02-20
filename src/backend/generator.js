@@ -107,6 +107,19 @@ function getJsonData(reqOpts, next) {
   }
 }
 
+exports.stopBuild = function(socket){
+  if (statusMap[socket.connId]) {
+    statusMap[socket.connId] = false;
+  }
+  else{
+    socket.emit('Cancel_Build');
+  }
+}
+
+exports.enableBuild = function(socket){
+    statusMap[socket.connId] = true;
+}
+
 exports.uploadJsonZip = function(fileData, socket) {
   distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
 };
