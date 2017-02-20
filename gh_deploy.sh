@@ -23,10 +23,10 @@ else
 fi
 
 eval cd dist/a@a.com/$GH_EVENT
-
+# Project maintainer information
 git init
-git config user.name "shubham-padia"
-git config user.email "shubhamapadia@gmail.com"
+git config user.name "aayusharora"
+git config user.email "aayusharora113002@gmail.com"
 
 git remote add upstream "https://$GH_TOKEN@github.com/"${TRAVIS_REPO_SLUG}".git"
 git fetch upstream
