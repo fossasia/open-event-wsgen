@@ -64,6 +64,8 @@ $(document).ready(function () {
 
     $('#btnGenerate').prop('disabled', true);
     enableGenerateButton(false);
+    $('#btnLive').hide();
+    $('#btnDownload').hide();
   })
 
   $('#siofu_input').click(function() {
@@ -199,6 +201,7 @@ $(document).ready(function () {
     $('#jsonupload-input').show(100);
 
   });
+
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {

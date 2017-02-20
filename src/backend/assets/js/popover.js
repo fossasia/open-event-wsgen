@@ -31,9 +31,17 @@ $(document).ready(function () {
       popbox = $(".pop-box");
       preserve3d= $(".preserve3d");
       widthWindow = $(window).width();
+      openflag = 0;
   if( widthWindow < 768) {
     $(document).on('click','.image-holder',function (event) {
+      if(openflag === 0) {
        addOverlay(event);
+       openflag = 1;
+      }
+     else {
+      removeOverlay(event)
+      openflag = 0;
+    }
     });
   }
   else {

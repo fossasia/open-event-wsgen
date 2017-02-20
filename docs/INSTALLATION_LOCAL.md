@@ -4,7 +4,7 @@
 First install the dependencies.
 
 ```shell
-npm install
+npm install or npm install bcrypt
 ```
 sometimes it may give an error of fetch failed
 then type
