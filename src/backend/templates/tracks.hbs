@@ -33,6 +33,7 @@
 
   </head>
   <body>
+    <a href="#track-list" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
       {{> navbar}}
@@ -92,7 +93,7 @@
                         <span class="time-track">{{start}}</span>
                       </div>
                       <div class="room-container" >
-                        <div class="left-border col-xs-10 col-sm-10 col-md-10" style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px;">
+                        <button class="left-border col-xs-10 col-sm-10 col-md-10">
                           <div class = "sizeevent event" style = "background-color: {{../color}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px; cursor: unset;">
                             {{title}}
                             <a style = "cursor:pointer" class = "bookmark" >
@@ -187,7 +188,7 @@
                             </div>
                           </div>
                         </div>
-                  </div>
+                  </button>
                   {{/sessions}}
                 </div>
               </div>

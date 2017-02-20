@@ -33,6 +33,7 @@
     </head>
 
   <body>
+    <a href="#rooms" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
@@ -66,12 +67,12 @@
         </span>
     </p>
     <div id="session-list" class="container">
-      <div class="row">
+      <div class="row" >
         <div style="margin: 15px 0 0 15px;" class="col-md-9">
                       {{> subnavbar flag = 0}}
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
-            <div class="date-filter">
+            <div class="date-filter" id="rooms">
                 <div style="padding:0" class="row">
                   <div style="padding:0" class="col-md-12">
                     <a class="anchor" id="{{slug}}"></a>
@@ -93,8 +94,7 @@
                         <span class="time-track">{{start}}</span>
                       </div>
                       <div class="room-container">
-                        <div class="left-border col-xs-10 col-sm-10 col-md-10"
-			  style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px">
+                        <button class="left-border col-xs-10 col-sm-10 col-md-10">
                           <div class = "sizeevent event" style = "background-color: {{{color}}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px; cursor: unset;">
                           {{title}}
                           <a style = "cursor:pointer" class = "bookmark" >
@@ -220,7 +220,7 @@
                           </div>
                         </div>
                       </div>
-                  </div>
+                  </button>
                   {{/sessions}}
                 </div>
             </div>

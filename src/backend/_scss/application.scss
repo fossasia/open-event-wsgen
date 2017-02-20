@@ -1381,3 +1381,50 @@ a {
   top: 90%;
   z-index: 1010;
 }
+
+.skip {
+  background-color: $white;
+  color: $black;
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  text-decoration: none;
+  top: -1000px;
+  width: 1px;
+}
+    
+a.skip:active, 
+a.skip:focus, 
+a.skip:hover {
+  left: 0;
+  top: 50px;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+.schedule-container {
+  background: 0;
+  border: none;
+  outline: 0;
+  padding: 0;
+}
+
+.schedule-container:focus {
+  opacity: 0.9;
+}
+
+.left-border {
+  padding-right: 0;
+  margin-bottom: -1px;
+  padding-bottom: 10px;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.left-border:focus {
+  opacity: 0.9;
+}

@@ -33,6 +33,7 @@
 </head>
 
 <body>
+  <a href="#schedule-list" class="skip">Skip to content</a>
   {{> scroll}}
   <a id="top"></a>
   {{> navbar}}
@@ -65,7 +66,7 @@
     </span>
     </p>
 
-    <div class="row">
+    <div class="row" id="schedule-list">
       <div style="margin: 15px 0 0 15px;" class="col-md-9">
         <div id=track-list style="margin-top:4%;" class="container">
 
@@ -85,7 +86,7 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="track-inline" id="{{session_id}}">
-                  <div class="schedule-container">
+                  <button class="schedule-container">
                     <div style="padding-right:0px;">
                       <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
                         data-target="#desc-{{session_id}} .collapse"
@@ -180,7 +181,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </button>
                 </div>
                 {{/sessions}}
               </div>
