@@ -43,8 +43,25 @@
                 <li class="pull-left social-icons"><a href="{{link}}" style="padding-right:0; padding-left:0; margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
               {{/if}}
             {{/sociallinks}}
-
+              <li class="google_translator">
+                  <div id="google_translate_element"></div>
+                  <script type="text/javascript">
+                  function googleTranslateElementInit() {
+                      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                  }
+                  </script>
+                  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                  <script src="/js/jquery.min.js"></script>
+                  <script type="text/javascript">
+                        $("body").on("change", "#google_translate_element select", function (e) {
+                            if(!navigator.onLine){
+                                alert("No Internet Connection, Plz connect to internet");
+                            }
+                        });
+                  </script>
+              </li>
           </ul>
         </div>
       </div>
     </nav>
+

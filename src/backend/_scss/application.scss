@@ -93,6 +93,24 @@ a {
   }
 }
 
+.google_translator{
+  padding-left: 20px;
+  padding-top: 14px;
+  .goog-logo-link {
+    display:none !important;
+  }
+  .goog-te-gadget{
+    color: transparent !important;
+  }
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+
 .navbar-toggle {
   color: $gray-dark;
   padding: 6px 10px;
