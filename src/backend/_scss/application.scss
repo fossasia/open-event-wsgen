@@ -659,10 +659,47 @@ a {
 
 .track-names {
   color: $black;
-  margin-top: 16%;
+  margin-top: 0;
+}
+
+.social-buttons {
+  float: right;
+  margin-bottom: 100px;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.social-button {
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  height: 40px;
+  margin-right: 3px;
+  text-align: center;
+  width: 40px;
+
+  i {
+    height: 100%;
+    line-height: 40px;
+    width: 100%;
+  }
+}
+
+.facebook {
+  background-color: $facebook-icon;
+}
+
+.twitter {
+  background-color: $twitter-icon;
+}
+
+.google {
+  background-color: $google-icon;
 }
 
 @media (max-width: 990px) {
+
   .title-legend {
     float: left;
     width: 40%;
@@ -670,6 +707,30 @@ a {
 
   .track-names {
     margin-top: 0;
+  }
+
+  .social-buttons {
+    display: block;
+    float: left;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 150px;
+
+    .social-button {
+      border-radius: 0;
+      display: block;
+      height: 30px;
+      width: 30px;
+
+      i {
+        line-height: 30px;
+      }
+    }
+  }
+
+  .fa-2x {
+    transform: scale(0.65);
   }
 }
 
@@ -925,6 +986,36 @@ a {
 .middle {
   padding: 4%;
   text-align: center;
+}
+
+.social-container {
+  text-align: center;
+
+  .social-buttons {
+    float: none;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    display: block;
+  }
+}
+
+@media (max-width: 990px) {
+  .social-container {
+    h3 {
+      display: none;
+    }
+  }
+
+  .title-legend {
+    float: left;
+    width: 40%;
+  }
+
+  .track-names {
+    margin-top: 0;
+  }
 }
 
 .sponsorscont {
