@@ -273,35 +273,48 @@ exports.createDistDir = function(req, socket, callback) {
           }
           return done(error);
         }
+
         logger.addLog('Success', 'Json data extracted', socket);
-
-        const jsonData = data;
-
-        eventName = jsonData.eventurls.name;
         logger.addLog('Info', 'Name of the event found from the event json file', socket);
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
-        try {
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
-          fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
-        } catch (err) {
-          console.log(err);
-          logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
-          if (emit) {
-            socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
-          }
-          return done(err);
+        const jsonData = data;
+        eventName = jsonData.eventurls.name;
+        if(req.body.datasource == 'eventapi') {
+            var basePath = distHelper.distPath + '/' + appFolder + '/images';
+            distHelper.resizeSponsors(basePath, socket, function() {
+                distHelper.resizeSpeakers(basePath, socket, function() {
+                  templateGenerate();
+                });
+            });
         }
-        return distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder, function() {
-          logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
-          return done(null, 'write');
-        });
-      });
+        else {
+          templateGenerate();
+        }
 
+        function templateGenerate() {
+          try {
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
+          } catch (err) {
+            console.log(err);
+            logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
+            if (emit) {
+              socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
+            }
+            return done(err);
+          }
+          return distHelper.generateThumbnails(distHelper.distPath + '/' + appFolder, function() {
+            logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
+            return done(null, 'write');
+          });
+        };
+      });
     },
+
     (done) => {
       logger.addLog('Info', 'Cleaning up remaining folder of the same name as that of the event', socket);
       console.log("============Cleaning up remaining folders of the same name\n");

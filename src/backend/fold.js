@@ -149,7 +149,6 @@ function foldByTime(sessions, speakers, trackInfo) {
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
       
-    //console.log(date);
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
@@ -648,7 +647,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             callback();
           });
         }
-        else  if (reqOpts.datasource === 'eventapi' ) {
+        else if (reqOpts.datasource === 'eventapi' ) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
             callback();
@@ -713,9 +712,11 @@ function getAllSessions(speakerid , session, trackInfo){
       }
   })
 sessiondetail.forEach((session) => {
+
   const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
   if(session.detail !== undefined ) {
     speakersession.push({
+
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
       title: session.detail.title,
@@ -725,7 +726,7 @@ sessiondetail.forEach((session) => {
       session_id: session.detail.id
    });
   }
-  
+
 })
 
 return speakersession;
