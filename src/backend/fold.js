@@ -643,16 +643,16 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
 
       if (speaker.photo !== null && speaker.photo != '') {
         if (speaker.photo.substring(0, 4) === 'http') {
-          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo), function(result){
+          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo, function(result){
             speakers[key].photo = encodeURI(result);
             callback();
-          };
+          });
         }
         else  if (reqOpts.datasource === 'eventapi' ) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
             callback();
-          })
+          });
         } else {
           var reg = speaker.photo.split('');
           if(reg[0] =='/'){
@@ -713,8 +713,9 @@ function getAllSessions(speakerid , session, trackInfo){
       }
   })
 sessiondetail.forEach((session) => {
-  const roomname = (session.detail == null) ?' ': session.detail.microlocation.name;
-  speakersession.push({
+  const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
+  if(session.detail !== undefined ) {
+    speakersession.push({
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
       title: session.detail.title,
@@ -723,6 +724,8 @@ sessiondetail.forEach((session) => {
       microlocation: roomname,
       session_id: session.detail.id
    });
+  }
+  
 })
 
 return speakersession;
