@@ -1088,3 +1088,24 @@ a {
   right: 5%;
   top: 90%;
   z-index: 1010; }
+
+.skip {
+  background-color: #fff;
+  color: #000;
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  text-decoration: none;
+  top: -1000px;
+  width: 1px; }
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+  height: auto;
+  left: 0;
+  overflow: visible;
+  top: 50px;
+  width: auto; }
