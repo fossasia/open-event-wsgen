@@ -33,6 +33,7 @@
     </head>
 
   <body>
+    <a href="#rooms-list" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
@@ -71,7 +72,7 @@
                       {{> subnavbar flag = 0}}
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
-            <div class="date-filter">
+            <div class="date-filter" id="rooms-list">
                 <div style="padding:0" class="row">
                   <div style="padding:0" class="col-md-12">
                     <a class="anchor" id="{{slug}}"></a>
