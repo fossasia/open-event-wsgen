@@ -651,7 +651,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
             callback();
-          })
+          });
         } else {
           var reg = speaker.photo.split('');
           if(reg[0] =='/'){
@@ -712,9 +712,11 @@ function getAllSessions(speakerid , session, trackInfo){
       }
   })
 sessiondetail.forEach((session) => {
-  const roomname = (session.detail == null) ?' ': 'PleaseWork';
-  if(session.detail) {
-  speakersession.push({
+
+  const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
+  if(session.detail !== undefined ) {
+    speakersession.push({
+
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
       title: session.detail.title,
@@ -722,7 +724,9 @@ sessiondetail.forEach((session) => {
       color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
       microlocation: roomname,
       session_id: session.detail.id
-   })};
+   });
+  }
+
 })
 
 return speakersession;
