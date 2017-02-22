@@ -490,59 +490,14 @@ a {
 
 .track-names {
   color: #000;
-  margin-top: 0; }
-
-.social-buttons {
-  float: right;
-  margin-bottom: 100px;
-  margin-right: 10px;
-  margin-top: 15px; }
-
-.social-button {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  height: 40px;
-  margin-right: 3px;
-  text-align: center;
-  width: 40px; }
-  .social-button i {
-    height: 100%;
-    line-height: 40px;
-    width: 100%; }
-
-.facebook {
-  background-color: #3b5998; }
-
-.twitter {
-  background-color: #55acee; }
-
-.google {
-  background-color: #dd4b39; }
+  margin-top: 16%; }
 
 @media (max-width: 990px) {
   .title-legend {
     float: left;
     width: 40%; }
   .track-names {
-    margin-top: 0; }
-  .social-buttons {
-    display: block;
-    float: left;
-    left: 0;
-    margin: 0;
-    position: fixed;
-    top: 150px; }
-    .social-buttons .social-button {
-      border-radius: 0;
-      display: block;
-      height: 30px;
-      width: 30px; }
-      .social-buttons .social-button i {
-        line-height: 30px; }
-  .fa-2x {
-    transform: scale(0.65); } }
+    margin-top: 0; } }
 
 @media (max-width: 767px) {
   .pop-box {
@@ -708,23 +663,6 @@ a {
 .middle {
   padding: 4%;
   text-align: center; }
-
-.social-container {
-  text-align: center; }
-  .social-container .social-buttons {
-    float: none;
-    margin-bottom: 0; }
-  .social-container h3 {
-    display: block; }
-
-@media (max-width: 990px) {
-  .social-container h3 {
-    display: none; }
-  .title-legend {
-    float: left;
-    width: 40%; }
-  .track-names {
-    margin-top: 0; } }
 
 .sponsorscont {
   padding: 72px; }

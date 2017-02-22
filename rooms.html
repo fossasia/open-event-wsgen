@@ -35839,17 +35839,6 @@
           </div>
         </div>
         <div class=track-names>
-        <div class=social-buttons>
-          <div class="facebook social-button" id=fb-share>
-            <i class="fa fa-facebook fa-2x" aria-hidden=true></i>
-          </div>
-          <div class="twitter social-button" id=tw-share>
-            <i class="fa fa-twitter fa-2x" aria-hidden=true></i>
-          </div>
-          <div class="google social-button" id=go-share>
-            <i class="fa fa-google-plus fa-2x" aria-hidden=true></i>
-          </div>
-        </div>
           <ul class="title-inline title-legend">
             <li style=background-color:#3DC8C3 class=titlecolor></li>
             <li>OpenTech and IoT</li>
@@ -35987,7 +35976,6 @@
     <script src=./js/bootstrap.min.js></script>
     <script src=./js/navbar.js></script>
     <script src=./js/scroll.js></script>
-    <script src=./js/social.js></script>
     <script>$(document).ready(function(){$(".session-lin").click(function(){$(this).next(".speakers-inputbox").toggle().select();var e=$(this).next(".speakers-inputbox").val();$(this).next(".speakers-inputbox").val(window.location.href.split("#")[0]+"#"+e.split("#").pop())}),$(".session-lin").click(function(e){e.stopPropagation()}),$(".speakers-inputbox").click(function(e){e.stopPropagation()}),$(".fossasia-filter:first").change(function(){var e=$(this).val();return e?$(".date-filter").each(function(){var t=1;$(this).find(".room-filter").each(function(){$(this).find(".tip-description").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-speakers-list a span").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".session-speakers-more").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".event").text().toUpperCase().indexOf(e.toUpperCase())<0?$(this).hide():(t=0,$(this).show())}),1==t?$(this).hide():$(this).show()}):$(".date-filter").each(function(){$(this).find(".room-filter").each(function(){$(this).show()}),$(this).show()}),0==$(".date-filter:visible").length?($("#no-results").remove(),$(".search-filter:first").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
     <script>$(document).ready(function(){function o(){localStorage.hasOwnProperty("rooms")===!1&&(localStorage.rooms=JSON.stringify(new Array(t).fill(0)));var o=JSON.parse(localStorage.rooms);$(".date-filter").each(function(){var t=0;$(this).find(".room-filter").each(function(){var r=$(this).attr("id"),i=0;1==o[r]&&(i=t=1,$(this).find(".bookmark").each(function(){$(this).css("color","black")})),i||!s?$(this).show():$(this).hide()}),t||!s?$(this).show():$(this).hide()})}var t=1e3,r=0,i=0,s=0;$(".bookmark").click(function(){r=1;var o=$(this).css("color");"rgb(0, 0, 0)"==o?($(this).css("color",""),i=0):($(this).css("color","black"),i=1)}),$(".room-filter").click(function(){var o=JSON.parse(localStorage.rooms),t=Number($(this).attr("id"));r&&(i?o[t]=1:(o[t]=0,s&&$(this).hide()),localStorage.rooms=JSON.stringify(o),r=i=0)}),$("#starred").click(function(){s=!s,s?$(this).text("Show All"):$(this).text("Show Starred"),o()}),o()})</script>
   </body>

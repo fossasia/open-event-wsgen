@@ -13911,20 +13911,6 @@
       </div>
     </div>
   </div>
-  <div class=social-container>
-    <h3>Share on</h3>
-    <div class=social-buttons>
-      <div class="facebook social-button" id=fb-share>
-        <i class="fa fa-facebook fa-2x" aria-hidden=true></i>
-      </div>
-      <div class="twitter social-button" id=tw-share>
-        <i class="fa fa-twitter fa-2x" aria-hidden=true></i>
-      </div>
-      <div class="google social-button" id=go-share>
-        <i class="fa fa-google-plus fa-2x" aria-hidden=true></i>
-      </div>
-    </div>
-  </div>
 </div>
     
     <div class=footer-container>
@@ -13991,7 +13977,6 @@
     <script src=./js/popover.js></script>
     <script src=./js/navbar.js></script>
     <script src=./js/scroll.js></script>
-    <script src=./js/social.js></script>
     <script>$(document).ready(function(){$(".session-link").click(function(){$(this).next(".speakers-inputbox").toggle().select();var e=$(this).next(".speakers-inputbox").val();$(this).next(".speakers-inputbox").val(window.location.href.split("#")[0]+"#"+e.split("#").pop())}),$(".fossasia-filter:first").change(function(){var e=$(this).val();return e?$(".speaker").each(function(){$(this).find(".speaker-name").text().toUpperCase().indexOf(e.toUpperCase())<0&&$(this).find(".pop-over").text().toUpperCase().indexOf(e.toUpperCase())<0?$(this).parent().hide():$(this).parent().show()}):$(".speaker").each(function(){$(this).parent().show()}),0==$(".speaker:visible").length?($("#no-results").remove(),$(".search-filter-speaker:first").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
   </body>
 </html>

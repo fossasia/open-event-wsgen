@@ -30711,17 +30711,6 @@
             </div>
           </div>
           <div class=track-names>
-            <div class=social-buttons>
-              <div class="facebook social-button" id=fb-share>
-                <i class="fa fa-facebook fa-2x" aria-hidden=true></i>
-              </div>
-              <div class="twitter social-button" id=tw-share>
-                <i class="fa fa-twitter fa-2x" aria-hidden=true></i>
-              </div>
-              <div class="google social-button" id=go-share>
-                <i class="fa fa-google-plus fa-2x" aria-hidden=true></i>
-              </div>
-            </div>
             <ul class="title-inline title-legend">
               <li style=background-color:#3DC8C3 class=titlecolor></li>
               <li>OpenTech and IoT</li>
@@ -30860,7 +30849,6 @@
     <script src=./js/bootstrap.min.js></script>
       <script src=./js/navbar.js></script>
       <script src=./js/scroll.js></script>
-      <script src=./js/social.js></script>
       <script>$(document).ready(function(){$(".session-lin").click(function(t){t.stopPropagation()}),$(".session-lin").click(function(){$(this).next(".inputbox").toggle().select();var t=$(this).next(".inputbox").val();$(this).next(".inputbox").val(window.location.href.split("#")[0]+"#"+t.split("#").pop())}),$(".inputbox").click(function(t){t.stopPropagation()}),$(".fossasia-filter:first").change(function(){var t=$(this).val();return t?$(".date-filter").each(function(){var e=1;$(this).find(".room-filter").each(function(){$(this).find(".tip-description").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".session-speakers-list a span").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".session-speakers-more").text().toUpperCase().indexOf(t.toUpperCase())<0&&$(this).find(".event").text().toUpperCase().indexOf(t.toUpperCase())<0?$(this).hide():(e=0,$(this).show())}),1==e?$(this).hide():$(this).show()}):$(".date-filter").each(function(){$(this).find(".room-filter").each(function(){$(this).show()}),$(this).show()}),0==$(".date-filter:visible").length?($("#no-results").remove(),$(".search-filter:first").after('<p id="no-results">No matching results found.</p>')):$("#no-results").remove(),!1}).keyup(function(){$(this).change()})})</script>
     <script>$(document).ready(function(){function t(){console.log("Inside the display function"),localStorage.hasOwnProperty("tracks")===!1&&(localStorage.tracks=JSON.stringify(new Array(i).fill(0)));var t=JSON.parse(localStorage.tracks);$(".date-filter").each(function(){var i=0;$(this).find(".room-filter").each(function(){var r=$(this).attr("id"),o=0;1==t[r]&&(o=i=1,$(this).find(".bookmark").each(function(){$(this).css("color","black")})),o||!a?$(this).show():$(this).hide()}),i||!a?$(this).show():$(this).hide()})}var i=1e3,r=0,o=0,a=0;$(".bookmark").click(function(){r=1;var t=$(this).css("color");"rgb(0, 0, 0)"==t?($(this).css("color",""),o=0):($(this).css("color","black"),o=1)}),$(".room-filter").click(function(){var t=JSON.parse(localStorage.tracks),i=Number($(this).attr("id"));if(r){var i=$(this).attr("id");o?t[i]=1:(t[i]=0,a&&$(this).hide()),r=o=0,localStorage.tracks=JSON.stringify(t)}}),$("#starred").click(function(){a=!a,a?$(this).text("Show All"):$(this).text("Show Starred"),t()}),t()})</script>
 });
