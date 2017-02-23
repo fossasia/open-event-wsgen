@@ -119,7 +119,13 @@
 		             	                {{#if organisation}}({{organisation}}){{/if}}
 		             	              {{/speakers_list}}
 		             	            </ul>
-		             	            <ul style="padding:0;font-size:15px;">{{type}}</ul>
+		             	            <ul style="padding:0;font-size:15px;">
+                                {{#if type}}
+                                  {{type}}
+                                {{else}}
+                                  <br>hjkjhkjhkjhkjhkjhkhkjhk
+                                {{/if}}
+                              </ul>
 		                        </div>
                           </h4>
                           <div id="desc-{{session_id}}">
