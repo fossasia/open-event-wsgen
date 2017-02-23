@@ -16,7 +16,7 @@ client.on('connect', function () {
             theme: 'light',
             datasource: 'eventapi',
             assetmode: 'download',
-            apiendpoint: process.argv[3] || "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/" || process.env.GH_ENDPOINT
+            apiendpoint: process.argv[3] || "https://eventyay.com/api/v1/events/6" || process.env.GH_ENDPOINT
         }
         client.emit('live', data);
     }
