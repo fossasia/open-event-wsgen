@@ -129,21 +129,19 @@
 		                        </div>
                           </h4>
                           <div id="desc-{{session_id}}">
-                            <p class="collapse">
-                              <span class="tip-description">
+                            <div class="collapse">
                                 {{{description}}}
                                 {{#if audio}}
                                   <audio controls="" preload="none" style="display: block; margin-top: 15px">
                                     <source src="{{ audio }}">
                                   </audio>
                                 {{/if}}
-                              </span>
-                            </p>
+                            </div>
                             <hr style="clear:both" class="collapse">
-                              <div class="session-speakers-list collapse" data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}" aria-expanded="false" aria-controls="desc-{{session_id}}">
+                            <div class="session-speakers-list collapse" data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}" aria-expanded="false" aria-controls="desc-{{session_id}}">
                                 {{#speakers_list}}
                                 <a href="speakers.html#{{nameIdSlug}}">
-                                  <p class="session-speakers-less">
+                                  <div class="session-speakers-less">
                                     <p style="margin-right:20px" class="session-speakers">
                                       {{#if photo}}
                                       <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:10rem; height:10rem; border-radius:50%;"/>
@@ -152,15 +150,17 @@
                                       {{/if}}
                                     </p>
                                     <span class="graytext">{{name}}</span>
-                                  </p>
+                                  </div>
                                 </a>
                                 {{#if organisation}}
                                 <p class="session-speakers-more">{{organisation}}</p>
                                 {{/if}}
-                                {{#if long_biography}}
-                                <p class="session-speakers-more">{{long_biography}}</p>
+                                {{#if biography}}
+                                  <div class="session-speakers-more">
+                                    {{{biography}}}
+                                  </div>
                                 {{/if}}
-                                <p class="blacktext session-speaker-social">
+                                <div class="blacktext session-speaker-social">
                                   <div class="session-speakers-more">
                                     {{#if web}}
                                     <a class="blacktext social speaker-social" href="{{{web}}}"><i class="fa fa-home"></i> Web</a>&nbsp;
@@ -177,7 +177,7 @@
                                     <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
                                     <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
                                   </div>
-                                </p>
+                                </div>
                                 <hr style="clear:both">
                                 {{/speakers_list}}
                                 <div class="blacktext">

@@ -135,16 +135,14 @@
 		             </div>
                           </h4>
                           <div id="desc-{{session_id}}">
-                            <p class="collapse">
-                              <span class="tip-description">
-                                {{{description}}}
-                                {{#if audio}}
+                            <div class="collapse">
+                              {{{description}}}
+                              {{#if audio}}
                                 <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                   <source src="{{ audio }}">
+                                <source src="{{ audio }}">
                                 </audio>
-                                {{/if}}
-                              </span>
-                            </p>
+                              {{/if}}
+                            </div>
                           <hr style="clear:both" class="collapse">
                             <div class="session-speakers-list collapse" data-toggle="collapse"
                             data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
@@ -152,7 +150,7 @@
                             aria-controls="desc-{{session_id}}">
                             {{#speakers_list}}
                               <a href="speakers.html#{{nameIdSlug}}">
-                                <p class="session-speakers-less">
+                                <div class="session-speakers-less">
                                   <p style="margin-right:20px" class="session-speakers">
                                   {{#if photo}}
                                     <img onError="this.onerror=null;this.src='images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:10rem; height:10rem; border-radius:50%;"/>
@@ -161,19 +159,19 @@
                                   {{/if}}
                                   </p>
                                   <span class="graytext">{{name}}</span>
-                                </p>
+                                </div>
                               </a>
                               {{#if organisation}}
-                              <p class="session-speakers-more">
+                                <p class="session-speakers-more">
                                 {{organisation}}
-                              </p>
+                                </p>
                               {{/if}}
-                              {{#if long_biography}}
-                              <p class="session-speakers-more">
-                                {{long_biography}}
-                              </p>
+                              {{#if biography}}
+                                <div class="session-speakers-more">
+                                  {{{biography}}}
+                                </div>
                               {{/if}}
-                              <p class="blacktext session-speaker-social">
+                              <div class="blacktext session-speaker-social">
                                 <div class="session-speakers-more">
                                   {{#if website}}
                                   <a class="blacktext social speaker-social" href="{{{website}}}"}>
@@ -200,7 +198,7 @@
                                   </a>
                                   <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#{{nameIdSlug}}" style="display:none;" readonly>
                                 </div>
-                              </p>
+                              </div>
                               <hr style="clear:both">
                             {{/speakers_list}}
                               <div class="blacktext">
