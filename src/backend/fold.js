@@ -41,7 +41,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
   });
-    
+
   async.eachSeries(sessions,(session,callback) => {
     if (!session.start_time) {
       return;
@@ -69,7 +69,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     } else {
       track = trackData.get(slug);
     }
-      
+
       if (track == undefined) {
         return;
       }
@@ -102,7 +102,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         if(session.audio.substring(0, 4) === 'http'){
           distHelper.downloadAudio(appFolder, session.audio, function(audio){
              track.sessions.audio = encodeURI(audio);
-             callback();  
+             callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi') {
@@ -110,7 +110,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
              track.sessions.audio = encodeURI(audio);
              callback();
            });
-        } 
+        }
         else {
             callback();
         }
@@ -148,7 +148,7 @@ function foldByTime(sessions, speakers, trackInfo) {
     let time = moment.utc(session.start_time).local().format('HH:mm');
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
-      
+
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
@@ -190,7 +190,7 @@ function foldByTime(sessions, speakers, trackInfo) {
     });
   });
   const dates = Array.from(dateMap.values());
-  dates.sort(byProperty('caption'));
+  dates.sort(byProperty('slug'));
   dates.forEach((date) => {
     const times = Array.from(date.times.values());
     times.sort(byProperty('caption'));
@@ -220,7 +220,7 @@ function foldByDate(tracks) {
 }
 
 function returnTracknames(sessions, trackInfo) {
-  
+
   const trackData = new Map();
   const trackDetails = new Object();
 
@@ -232,7 +232,7 @@ function returnTracknames(sessions, trackInfo) {
     if (!session.start_time) {
       return;
     }
-    
+
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     // generate slug/key for session
     const slug = trackName;
@@ -257,7 +257,7 @@ function returnTracknames(sessions, trackInfo) {
   tracks.sort(byProperty('sortKey'));
 
   return tracks;
-}  
+}
 
 function createSocialLinks(event) {
 
@@ -314,18 +314,18 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     if(link.name.toLowerCase() === "twitter") {
       sociallink = link.link;
     }
-  }) 
+  })
 
   sponsors.forEach((sponsor) => {
     if( sponsor.id !==undefined && typeof(sponsor.id)==='number') {
       sponsorsection ++;
     }
-  }) 
+  })
   speakers.forEach((speaker) => {
     if(speaker.featured !== undefined && speaker.featured !==false && speaker.featured===true ) {
          featuresection++;
     }
-  }) 
+  })
 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
@@ -391,7 +391,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
         let reg = event.background_image.split('');
         if(reg[0] =='/'){
           urls.background_url = encodeURI(event.background_image.substring(1,event.background_image.length));
-          next(urls);  
+          next(urls);
         }
       }
     } else {
@@ -399,7 +399,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     }
   }
 
-  
+
 }
 
 function getCopyrightData(event) {
@@ -567,7 +567,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     if (room == undefined) {
       return;
     }
-    
+
     let venue = '';
     if(session.microlocation !== null ) {
       const slug2 = date + '-' + session.microlocation.name ;
@@ -604,7 +604,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 
   let roomsDetail = Array.from(roomData.values());
   roomsDetail.sort(byProperty('sortKey'));
-  
+
   let roomsDetailLength = roomsDetail.length;
   for (let i = 0; i < roomsDetailLength; i++) {
     // sort all sessions in each day by 'venue + date'
@@ -617,7 +617,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       if (roomsDetail[i].sessions[j].venue == prevVenue) {
         roomsDetail[i].sessions[j].venue = '';
       } else {
-        prevVenue = roomsDetail[i].sessions[j].venue; 
+        prevVenue = roomsDetail[i].sessions[j].venue;
       }
     }
   }
