@@ -50,8 +50,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     // generate slug/key for session
     const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
-    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
-    const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
+    const roomName = (session.microlocation == null) ? '' : session.microlocation.name;
+    const session_type = (session.session_type == null) ? '' : session.session_type.name ;
     const slug = date + '-' + trackName;
     let track = null;
 

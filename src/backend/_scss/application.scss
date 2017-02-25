@@ -31,7 +31,7 @@ a {
   color: $gray-dark;
 
   &:hover {
-    color: $orange;
+    color: $gray-extra-dark;
     text-decoration: none;
   }
 
@@ -61,7 +61,7 @@ a {
   border-color: $gray-extra-light;
 
   .navbar-nav > li > a {
-    color: $black;
+    color: $gray-extra-dark;
     font-size: 11px;
   }
 }
@@ -820,7 +820,7 @@ a {
   }
 
   a:hover {
-    color: red;
+    color: $black;
   }
 }
 
