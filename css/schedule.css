@@ -22,7 +22,7 @@ a {
   color: #777;
   /* Social media icons for speakers */ }
   a:hover {
-    color: #e12b00;
+    color: #757575;
     text-decoration: none; }
   a .speaker-social {
     margin-right: 0.3em; }
@@ -42,7 +42,7 @@ a {
   background-color: rgba(255, 255, 255, 0.8);
   border-color: #e7e7e7; }
   .navbar-default .navbar-nav > li > a {
-    color: #000;
+    color: #757575;
     font-size: 11px; }
 
 .navbar-header {
@@ -633,7 +633,7 @@ a {
             font-size: 24px;
             margin-left: 6px; }
           .speakers-row .speaker-column .speaker .image-holder .social-links a:hover {
-            color: red; }
+            color: #000; }
         .speakers-row .speaker-column .speaker .image-holder:hover > .hover-state {
           opacity: 1; }
           .speakers-row .speaker-column .speaker .image-holder:hover > .hover-state .social-links {
@@ -733,7 +733,7 @@ a {
             font-size: 24px;
             margin-left: 6px; }
           .speaker-with-bio .speaker .responsive-overlay .hover-state .social-links a:hover {
-            color: red; }
+            color: #000; }
   .speaker-with-bio .speaker-description {
     float: left;
     max-height: 262.5px;
