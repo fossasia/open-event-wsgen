@@ -365,6 +365,8 @@ a {
     margin-left: -20px; }
   .pop-box .pop > .pop-over.row {
     padding: 10px 20px 0 0; }
+    .pop-box .pop > .pop-over.row:hover .fa {
+      color: #000; }
   .pop-box .pop {
     background-color: #fff;
     margin-left: 20px;
@@ -373,6 +375,8 @@ a {
       margin-left: -5px; }
     .pop-box .pop .pop-over > .sessions {
       padding: 0; }
+      .pop-box .pop .pop-over > .sessions .sizeevent:hover span:nth-of-type(2) {
+        text-decoration: underline; }
     .pop-box .pop .pop-over {
       color: #777;
       font-weight: 400;
