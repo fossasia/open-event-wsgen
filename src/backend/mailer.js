@@ -16,6 +16,7 @@ const uuid = require('node-uuid');
 const appUrl = process.env.HEROKU_URL;
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
+const moment = require('moment');
 
 aws.config.setPromisesDependency(Promise);
 const s3 = new aws.S3();
@@ -40,17 +41,26 @@ function uploadToS3(file, fileName, socket) {
 function emailSend(toEmail, url, appName) {
   const subject = 'Your webapp ' + appName + ' is Ready';
   let downloadUrl = url;
+  const previewUrl = appUrl + 'live/preview/' + toEmail + '/' + encodeURIComponent(appName);
+  const currDate = new Date();
+  let previewExpiryDate = new Date();
+  let downloadLinkExpiryDate = new Date();
+
+  previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
+  downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
+  previewExpiryDate = moment.utc(previewExpiryDate).local().format('dddd, h A' );
+  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).local().format('dddd, MMMM Do YYYY');
 
   if(!url) {
     downloadUrl = appUrl + 'download/' + toEmail + '/' + appName;
   }
   const emailContent = 'Hi ! <br>' +
   ' Your webapp has been generated <br>' +
-  'You can preview it live on ' + appUrl + 'live/preview/' + toEmail + '/' + encodeURIComponent(appName) + '<br>' +
-  'You can download a zip of your website from  ' + downloadUrl +
+  'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
+  'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate +
   '<br><br><br>' +
-  'Thank you for using Open Event Webapp Generator :) ';
-
+  'Thank you for using Open Event Webapp Generator :)';
+  
   if(process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
     const smtpConfig = {
       host: process.env.SMTP_HOST || config.SMTP_HOST,
