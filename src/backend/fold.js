@@ -336,6 +336,8 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     background_url: event.background_image,
     date: moment.utc(event.start_time).local().format('dddd, Do MMM'),
     time: moment.utc(event.start_time).local().format('HH:mm'),
+    end_date: moment.utc(event.end_time).local().format('dddd, Do MMM'),
+    end_time: moment.utc(event.end_time).local().format('HH:mm'),
     name: event.name,
     description: event.description,
     location: event.location_name,
