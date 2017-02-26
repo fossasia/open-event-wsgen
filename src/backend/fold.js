@@ -84,10 +84,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         if(spkr.photo){
            spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
         }
+        if(spkr.short_biography !== '') {
+          spkr.biography = spkr.short_biography;
+        }
+        else {
+          spkr.biography = spkr.long_biography;
+        }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: session.long_abstract,
+      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -127,6 +133,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       tracks.sort(byProperty('sortKey'));
       tracks.forEach(function(track) {
         track.sessions.sort(byProperty('start'));
+        console.log(track.sessions.speakers_list);
       });
       next(tracks);
     });
@@ -178,7 +185,7 @@ function foldByTime(sessions, speakers, trackInfo) {
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: session.long_abstract,
+      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -586,13 +593,19 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
       type: (session.session_type == null) ? ' ' : session.session_type.name,
-      description: session.long_abstract,
+      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       audio:session.audio,
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
            spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
+        }
+        if(spkr.short_biography !== '') {
+          spkr.biography = spkr.short_biography;
+        }
+        else {
+          spkr.biography = spkr.long_biography;
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
@@ -679,7 +692,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             linkedin: speaker.linkedin ,
             twitter: speaker.twitter ,
             website: speaker.website ,
-            long_biography: speaker.long_biography ,
+            long_biography: (speaker.long_biography === '') ? speaker.short_biography : speaker.long_biography,
             mobile: speaker.mobile,
             name: speaker.name,
             thumb: thumb,
