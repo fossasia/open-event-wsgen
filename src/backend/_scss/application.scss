@@ -486,6 +486,11 @@ a {
   .pop>.pop-over.row {
 
     padding: 10px 20px 0 0;
+    &:hover{
+      .fa {
+        color: #000;
+      }
+    }
   }
 
   .pop {
@@ -499,6 +504,13 @@ a {
 
     .pop-over>.sessions {
       padding: 0;
+      .sizeevent{
+        &:hover{
+          span:nth-of-type(2){
+            text-decoration: underline;
+          }
+        }
+      }
     }
 
     .pop-over {

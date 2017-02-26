@@ -49,6 +49,15 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
+handlebars.registerHelper('ifvalue', function (conditional, options) {
+    if (conditional !== options.hash.notequals){
+      return options.fn(this);
+    }
+    else{
+      return options.inverse(this);
+    }
+});
+
 function minifyHtml(file) {
   var result = minify(file, {
     removeAttributeQuotes: true,
