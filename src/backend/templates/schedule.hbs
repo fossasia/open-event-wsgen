@@ -102,16 +102,14 @@
                         </a>
                       </h4>
                       <div id="desc-{{session_id}}">
-                        <p class="collapse">
-                          <span class="tip-description">
-                            {{#if audio}}
-                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                 <source src="{{ audio }}">
-                               </audio>
-                            {{/if}}
-                            {{{description}}}
-                          </span>
-                        </p>
+                        <div class="collapse">
+                          {{{description}}}
+                          {{#if audio}}
+                            <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                            <source src="{{ audio }}">
+                            </audio>
+                          {{/if}}
+                        </div>
                         <hr style="clear:both" class="collapse">
                         <div class="session-speakers-list collapse"  data-toggle="collapse"
                           data-target="#desc-{{session_id}} .collapse"
@@ -135,12 +133,12 @@
                             {{organisation}}
                           </p>
                           {{/if}}
-                          {{#if long_biography}}
-                          <p class="session-speakers-more">
-                            {{long_biography}}
-                          </p>
+                          {{#if biography}}
+                            <div class="session-speakers-more">
+                              {{{biography}}}
+                            </div>
                           {{/if}}
-                          <p class="blacktext session-speaker-social">
+                          <div class="blacktext session-speaker-social">
                             <div class="session-speakers-more">
                               {{#if website}}
                               <a class="blacktext social speaker-social" href="{{{website}}}"}>
@@ -165,7 +163,7 @@
                               <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
                               <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
                             </div>
-                          </p>
+                          </div>
                           <hr style="clear:both">
                           {{/each}}
                           <div class="blacktext">
