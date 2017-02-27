@@ -130,7 +130,11 @@
 		             	 {{/speakers_list}}
 		             	</ul>
 		             	<ul style="padding:0;font-size:15px;">
-		             	  {{type}}
+                    {{#if type}}
+                      {{type}}
+                    {{else}}
+                      <br>
+                    {{/if}}
 		             	</ul>
 		             </div>
                           </h4>

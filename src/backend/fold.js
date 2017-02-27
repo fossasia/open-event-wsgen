@@ -592,7 +592,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       venue: venue,
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
-      type: (session.session_type == null) ? ' ' : session.session_type.name,
+      type: (session.session_type == null) ? '' : session.session_type.name,
       description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       audio:session.audio,
