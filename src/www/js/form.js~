@@ -42,7 +42,7 @@ $(document).ready(function () {
       return false;
     }
   });
-var hideButtons = 0;
+var count = 0;
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide();
     $('#upload-info').show();
@@ -50,7 +50,7 @@ var hideButtons = 0;
     $('#upload-filename').html(event.file.name.substring(0, 14));
     var size = (event.file.size/(1024*1024)).toString().substring(0, 3);
     $('#upload-filesize').html(size + 'M');
-    hideButtons = 0;
+    count = 0;
   });
 
   $('#cancelUpload').click(function(e){
@@ -91,7 +91,7 @@ var hideButtons = 0;
     $('#upload-filename').html('');
     $('#upload-filesize').html('');
     updateUploadProgress(0);
-    hideButtons = -1;
+    count = -1;
   });
 
   $('#siofu_input').click(function() {
@@ -225,7 +225,7 @@ var hideButtons = 0;
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
-    if(hideButtons==0){
+    if(count==0){
     displayButtons(data.appDir, data.url);
     createCookie('folder', data.appDir);
     $('#btnGenerate').prop('disabled', true);
