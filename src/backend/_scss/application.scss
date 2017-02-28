@@ -51,9 +51,30 @@ a {
 }
 
 /* Navbar adjustments */
+.logo-container {
+  width: 110px;
+  height: 50px;
+  margin-left: 20px;
+  margin: 1em 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
 .logo {
-  max-height: 45px;
+  position: absolute;
   max-width: 110px;
+  max-height: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  vertical-align: middle;
+}
+
+.helper {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .navbar-default {
@@ -61,13 +82,9 @@ a {
   border-color: $gray-extra-light;
 
   .navbar-nav > li > a {
-    color: $black;
+    color: $gray-extra-dark;
     font-size: 11px;
   }
-}
-
-.navbar-header {
-  margin-left: 20px;
 }
 
 .navlink {

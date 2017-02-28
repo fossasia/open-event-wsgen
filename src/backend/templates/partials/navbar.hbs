@@ -2,10 +2,10 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header navbar-left pull-left">
-                <a class="navbar-brand" href=".">
+            <div class="logo-container navbar-left pull-left" style="margin-top:0; margin-bottom:0;">
+                <a class="helper" href=".">
                     {{#if eventurls.logo_url}}
-                        <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
+                        <img alt="{{eventurls.name}}" class="logo" src="{{ eventurls.logo_url }}">
                     {{else}}
                         {{ eventurls.name }}
                     {{/if}}
