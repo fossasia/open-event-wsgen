@@ -196,14 +196,14 @@
                                     <i class="fa fa-linkedin"></i> LinkedIn
                                   </a>&nbsp;
                                   {{/if}}
-                                  {{/speakers_list}}
-                                  <a class="session-lin blacktext social speaker-social" href="#venue-{{session_id}}">
+                                  <a class="session-lin blacktext social speaker-social" href="#venue-{{../session_id}}">
                                     <i class="fa fa-link"></i> Link
                                   </a>
-                                  <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{session_id}}" style="display:none;" readonly>
+                                  <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" style="display:none;" readonly>
                                 </div>
                               </div>
                               <hr style="clear:both">
+                              {{/speakers_list}}
                               <div class="blacktext">
                                 {{#if roomname}}
                                 <p><i>{{roomname}}</i></p>
