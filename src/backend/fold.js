@@ -26,6 +26,10 @@ function slugify(str) {
   return str.replace(/[^\w]/g, '-').replace(/-+/g, '-').toLowerCase();
 }
 
+function replaceSpaceWithUnderscore(str) {
+  return str.replace(/ /g, '_');
+}
+
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
     return '#f8f8fa'
@@ -52,7 +56,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     const roomName = (session.microlocation == null) ? '' : session.microlocation.name;
     const session_type = (session.session_type == null) ? '' : session.session_type.name ;
-    const slug = date + '-' + trackName;
+    var trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
+    const slug = date + '-' + trackNameUnderscore;
     let track = null;
 
     // set up track if it does not exist
@@ -152,7 +157,9 @@ function foldByTime(sessions, speakers, trackInfo) {
     const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
     let date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-    let time = moment.utc(session.start_time).local().format('HH:mm');
+    let startTime = moment.utc(session.start_time).local().format('HH:mm');
+    let endTime = moment.utc(session.end_time).local().format('HH:mm');
+    let time = startTime + ' - ' + endTime;
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
 
@@ -163,6 +170,7 @@ function foldByTime(sessions, speakers, trackInfo) {
         times: new Map()
       })
     }
+
     let timeMap = dateMap.get(date).times;
     if (!timeMap.has(time)) {
       timeMap.set(time, {

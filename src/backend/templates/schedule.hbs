@@ -86,6 +86,7 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="track-inline" id="{{session_id}}">
+                  <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div style="padding-right:0px;">
                       <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
@@ -111,8 +112,7 @@
                           {{/if}}
                         </div>
                         <hr style="clear:both" class="collapse">
-                        <div class="session-speakers-list collapse"  data-toggle="collapse"
-                          data-target="#desc-{{session_id}} .collapse"
+                        <div class="session-speakers-list collapse"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                           {{#each speakers_list}}
@@ -161,7 +161,7 @@
                               </a>&nbsp;
                               {{/if}}
                               <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
-                              <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
+                              <input class="inputbox" type="text" onclick="this.select()" value="base#s-{{../session_id}}" style="display:none;" readonly>
                             </div>
                           </div>
                           <hr style="clear:both">

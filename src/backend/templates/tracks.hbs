@@ -81,7 +81,8 @@
                   </div>
                   <div class="row">
                     {{#sessions}}
-                    <div class="room-filter" id="{{session_id}}">
+                    <div class="room-filter">
+                      <a class="anchor" id="{{session_id}}"></a>
                       <div class="row">
                         <div style="clear:both" class="col-md-12">
                         {{#if venue }}
@@ -90,11 +91,11 @@
                         </div>
                       </div>
                       <div class="eventtime col-xs-2 col-sm-2 col-md-2">
-                        <span class="time-track">{{start}}</span>
+                        <span class="time-track">{{start}} - {{end}}</span>
                       </div>
                       <div class="room-container" >
                         <div class="left-border col-xs-10 col-sm-10 col-md-10" style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px;">
-                          <div class = "sizeevent event" style = "background-color: {{../color}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px; cursor: unset;">
+                          <div class = "sizeevent event" style = "background-color: {{../color}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px;">
                             {{title}}
                             <a style = "cursor:pointer" class = "bookmark" >
                               <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
@@ -114,10 +115,10 @@
 		             	            {{/if}}
 		             	            {{/speakers_list}}
 		             	            <ul style="padding:0;font-size:15px;">
-		             	              {{#speakers_list}}
-		             	                {{name}}
-		             	                {{#if organisation}}({{organisation}}){{/if}}
-		             	              {{/speakers_list}}
+                                        {{#speakers_list}}
+                                            {{name}}
+                                            {{#if organisation}}({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                        {{/speakers_list}}
 		             	            </ul>
 		             	            <ul style="padding:0;font-size:15px;">
                                       {{#if type}}
@@ -138,7 +139,7 @@
                                 {{/if}}
                             </div>
                             <hr style="clear:both" class="collapse">
-                            <div class="session-speakers-list collapse" data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}" aria-expanded="false" aria-controls="desc-{{session_id}}">
+                            <div class="session-speakers-list collapse" aria-expanded="false" aria-controls="desc-{{session_id}}">
                                 {{#speakers_list}}
                                 <a href="speakers.html#{{nameIdSlug}}">
                                   <div class="session-speakers-less">
@@ -324,6 +325,12 @@
                 else
                     $(this).text("Show Starred");
                 display();
+            });
+
+            $('div.sizeevent').click(function() {
+              if(flag) return;
+              var $par = $(this).parent();
+              $par.children('h4')[0].click();
             });
 
             function display() {
