@@ -408,12 +408,10 @@ function getCopyrightData(event) {
   const copyright = event.copyright;
   return copyright;
 }
+// Will reverse the sponser List
 function sortLevelData(levelData){
-  console.log(levelData);
-
   var keys = Object.keys(levelData);
   keys.reverse();
-  console.log(keys);
   var sortedLevelData= {};
   for(var i=0;i<keys.length; i++)
       sortedLevelData[keys[i]] = levelData[i+1];
@@ -503,7 +501,6 @@ function foldByLevel(sponsors ,reqOpts, next) {
     }
     
   }, function(){
-    
     next(sortLevelData(levelData));
   });
 }
