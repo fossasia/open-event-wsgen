@@ -160,8 +160,15 @@
                                 <i class="fa fa-linkedin"></i> LinkedIn
                               </a>&nbsp;
                               {{/if}}
-                              <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
-                              <input class="inputbox" type="text" onclick="this.select()" value="base#s-{{../session_id}}" style="display:none;" readonly>
+                              <a class="session-lin social speaker-social clickable-link">
+                                <i class="fa fa-share"></i> Share
+                              </a>&nbsp;
+                              <div class="social-buttons row">
+                               {{> social}}
+                               <div class="row social-link">
+                                 <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#s-{{../session_id}}" readonly>
+                               </div>
+                              </div>
                             </div>
                           </div>
                           <hr style="clear:both">
@@ -209,12 +216,13 @@
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
   <script src="./js/navbar.js" type="text/javascript"></script>
   <script src="./js/scroll.js" type="text/javascript"></script>
+  <script src="./js/social.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
        $('.session-lin').click(function() {
-         $(this).next('.inputbox').toggle().select();
-         var val = $(this).next('.inputbox').val();
-         $(this).next('.inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+         $(this).parent().parent().find("div.social-buttons").toggle();
+         var val = $(this).parent().parent().find('.speakers-inputbox').val();
+         $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
       $('.fossasia-filter:first').change(function() {
               var filterVal = $(this).val();
