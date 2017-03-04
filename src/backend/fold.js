@@ -435,7 +435,6 @@ function sortLevelData(levelData){
 };
 
 function foldByLevel(sponsors ,reqOpts, next) {
-  console.log(sponsors);
   let levelData = {};
   let level1=0,level2=0,level3=0;
   const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
