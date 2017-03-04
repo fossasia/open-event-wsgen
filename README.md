@@ -71,13 +71,7 @@ The webapp generator uses the following technologies -
 
 You can try out the web generator at  https://opev-webgen.herokuapp.com
 
-#### How do I install Web App Generator on Digital Ocean
-
-To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).
-
-#### How do I install Web App Generator on Docker
-
-To install system with Docker please refer to the [Docker installation readme](/docs/INSTALLATION_DOCKER.md).
+The development version is available here: https://opev-webgen-dev.herokuapp.com
 
 You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
 
@@ -121,6 +115,7 @@ Or use the 1-click deployment button
  - Then upload the zip file that contains all JSON files for *speakers*, *sessions*, *sponsors*, *event*, *tracks* and *locations* (These you should get from an orga-server or through the API after you have created your event there).
 
  - Now when you click on **GENERATE APP and DOWNLOAD** button, you'll get to download a zip of the event website.
+
 
 ## Accessing the Generator via REST API
 
@@ -191,9 +186,9 @@ Before making a pull request, please file an issue. So, other developers have th
 
 We have the following branches   
  * **development**   
-	 All development goes on in this branch. If you're making a contribution,
-	 you are supposed to make a pull request to _development_.
-	 PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
+   All development goes on in this branch. If you're making a contribution,
+   you are supposed to make a pull request to _development_.
+   PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
  * **master**   
    This contains shipped code. After significant features/bugfixes are accumulated on development, we make a version update, and make a release.
 
