@@ -64,20 +64,6 @@ a {
       .navlink a:hover {
         width: 20%; } }
 
-.google_translator {
-  padding-left: 20px;
-  padding-top: 14px; }
-  .google_translator .goog-logo-link {
-    display: none !important; }
-  .google_translator .goog-te-gadget {
-    color: transparent !important; }
-
-.goog-te-banner-frame.skiptranslate {
-  display: none !important; }
-
-body {
-  top: 0 !important; }
-
 .navbar-toggle {
   color: #777;
   padding: 6px 10px; }
