@@ -24,22 +24,6 @@
         <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-              <li class="google_translator ">
-                  <div class="dropdown">
-                      <div id = "google_translate_element" class="dropdown-toggle"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></div>
-                  </div>
-                  <script src="/js/translator.js"></script>
-                  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">googleTranslateElementInit()</script>
-                  <script src="/js/jquery.min.js"></script>
-
-                  <script type="text/javascript">
-                      $("body").on("change", "#google_translate_element select", function (e) {
-                          if(!navigator.onLine){
-                              alert("No Internet Connection, Plz Connect to Internet");
-                          }
-                      });
-                  </script>
-              </li>
             <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
           {{#if timeList}}
               <li class="navlink"><a id="schedulelink" href="schedule.html">Schedule</a></li>
