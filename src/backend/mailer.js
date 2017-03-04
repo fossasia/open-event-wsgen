@@ -114,11 +114,12 @@ function emailSend(toEmail, url, appName) {
 
 function uploadAndsendMail(toEmail, appName, socket, done) {
   const file = distHelper.distPath + '/' + toEmail + '/event.zip';
-  const fileName = uuid.v4() + appName + '.zip';
+  const fileName = uuid.v4() + '/' + appName + '.zip';
 
   uploadToS3(file, fileName, socket)
     .then((data) => {
       logger.addLog('Success', 'Upload successful to s3', socket);
+      data.Location = decodeURIComponent(data.Location);
       console.log('Upload Success', data.Location);
       return emailSend(toEmail, data.Location, appName);
     })
