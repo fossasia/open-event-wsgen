@@ -29,6 +29,7 @@ a {
     a .speaker-social:hover {
       text-decoration: none; }
 
+/* Mixins used */
 /*Scroll button to top*/
 .scroll {
   display: flex; }
@@ -251,6 +252,7 @@ a {
   padding-top: 6px; }
 
 .event {
+  cursor: pointer;
   background: #b7cdff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   border-left: 1px solid transparent;
@@ -258,7 +260,6 @@ a {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   border-top: 1px solid transparent;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
   display: block;
   margin: 0 12px 12px 0;
   position: relative;
@@ -267,11 +268,11 @@ a {
   word-wrap: break-word; }
 
 .sizeevent {
+  cursor: pointer;
   font-style: normal;
   font-weight: 400;
   padding: 20px;
-  width: auto;
-  cursor: pointer; }
+  width: auto; }
   .sizeevent span {
     font-weight: 700; }
 
@@ -367,6 +368,8 @@ a {
     padding: 10px 20px 0 0; }
     .pop-box .pop > .pop-over.row:hover .fa {
       color: #000; }
+    .pop-box .pop > .pop-over.row:hover .s-button {
+      color: #fff; }
   .pop-box .pop {
     background-color: #fff;
     margin-left: 20px;
@@ -496,6 +499,51 @@ a {
   color: #000;
   margin-top: 16%; }
 
+.social-buttons {
+  display: none;
+  margin-top: 5px;
+  padding-left: 15px;
+  padding-right: 5px; }
+
+.social-buttons-speaker {
+  display: none;
+  padding-left: 10px; }
+
+.social-button {
+  cursor: pointer;
+  color: #fff;
+  display: inline-block;
+  height: 25px;
+  text-align: center;
+  width: 25px; }
+  .social-button i {
+    height: 100%;
+    line-height: 25px;
+    width: 100%; }
+
+.social-session {
+  padding-left: 15px;
+  padding-top: 10px; }
+
+.facebook {
+  background-color: #3b5998; }
+
+.twitter {
+  background-color: #55acee; }
+
+.google {
+  background-color: #dd4b39; }
+
+.linkedin {
+  background-color: #3b5998; }
+
+.social-link {
+  padding-left: 10px;
+  padding-top: 5px; }
+
+.clickable-link {
+  cursor: pointer; }
+
 @media (max-width: 990px) {
   .title-legend {
     float: left;
@@ -581,10 +629,10 @@ a {
         display: block;
         font-size: 16px; }
       .speakers-row .speaker-column .speaker .image-holder {
+        cursor: pointer;
         margin-bottom: 12px;
         overflow: hidden;
-        position: relative;
-        cursor: pointer; }
+        position: relative; }
         .speakers-row .speaker-column .speaker .image-holder .background-image {
           background-color: #f8f8fa;
           display: block;
