@@ -33,6 +33,7 @@
     </head>
 
   <body>
+    <a href="#rooms-list" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
@@ -71,7 +72,7 @@
                       {{> subnavbar flag = 0}}
           <div style="margin-top:4%" id="track-list">
             {{#roomsinfo}}
-            <div class="date-filter">
+            <div class="date-filter" id="rooms-list">
                 <div style="padding:0" class="row">
                   <div style="padding:0" class="col-md-12">
                     <a class="anchor" id="{{slug}}"></a>
@@ -81,7 +82,7 @@
                 <div class="row">
                   {{#sessions}}
                       <div class="room-filter" id="{{session_id}}">
-                      <a id = "venue-{{session_id}}"></a>
+                      <a class="anchor" id="venue-{{session_id}}"></a>
                       <div class="row">
                         <div style="clear:both" class="col-md-12">
                         {{#if venue }}
@@ -90,12 +91,12 @@
                         </div>
                       </div>
                       <div class="eventtime col-xs-2 col-sm-2 col-md-2">
-                        <span class="time-track">{{start}}</span>
+                        <span class="time-track">{{start}} - {{end}}</span>
                       </div>
                       <div class="room-container">
                         <div class="left-border col-xs-10 col-sm-10 col-md-10"
 			  style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px">
-                          <div class = "sizeevent event" style = "background-color: {{{color}}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px; cursor: unset;">
+                          <div class = "sizeevent event" style = "background-color: {{{color}}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px;">
                           {{title}}
                           <a style = "cursor:pointer" class = "bookmark" >
                             <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
@@ -120,38 +121,38 @@
 		             	    </p>
 		             	  {{/if}}
 		             	{{/speakers_list}}
-                    <a href="javascript:return false;"><ul style="padding:0;font-size:15px;">
+		             	<ul style="padding:0;font-size:15px;">
 		             	  {{#speakers_list}}
 		             	    {{name}}
 		             	    {{#if organisation}}
-		             	      ({{organisation}})
-		             	    {{/if}}
+		             	      ({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
 		             	 {{/speakers_list}}
-		             	</ul></a>
+		             	</ul>
 		             	<ul style="padding:0;font-size:15px;">
-		             	  {{type}}
+                    {{#if type}}
+                      {{type}}
+                    {{else}}
+                      <br>
+                    {{/if}}
 		             	</ul>
 		             </div>
                           </h4>
                           <div id="desc-{{session_id}}">
-                            <p class="collapse">
-                              <span class="tip-description">
-                                {{{description}}}
-                                {{#if audio}}
+                            <div class="collapse">
+                              {{{description}}}
+                              {{#if audio}}
                                 <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                   <source src="{{ audio }}">
+                                <source src="{{ audio }}">
                                 </audio>
-                                {{/if}}
-                              </span>
-                            </p>
+                              {{/if}}
+                            </div>
                           <hr style="clear:both" class="collapse">
-                            <div class="session-speakers-list collapse" data-toggle="collapse"
-                            data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
+                            <div class="session-speakers-list collapse"
                             aria-expanded="false"
                             aria-controls="desc-{{session_id}}">
                             {{#speakers_list}}
                               <a href="speakers.html#{{nameIdSlug}}">
-                                <p class="session-speakers-less">
+                                <div class="session-speakers-less">
                                   <p style="margin-right:20px" class="session-speakers">
                                   {{#if photo}}
                                     <img onError="this.onerror=null;this.src='images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:10rem; height:10rem; border-radius:50%;"/>
@@ -160,19 +161,19 @@
                                   {{/if}}
                                   </p>
                                   <span class="graytext">{{name}}</span>
-                                </p>
+                                </div>
                               </a>
                               {{#if organisation}}
-                              <p class="session-speakers-more">
+                                <p class="session-speakers-more">
                                 {{organisation}}
-                              </p>
+                                </p>
                               {{/if}}
-                              {{#if long_biography}}
-                              <p class="session-speakers-more">
-                                {{long_biography}}
-                              </p>
+                              {{#if biography}}
+                                <div class="session-speakers-more">
+                                  {{{biography}}}
+                                </div>
                               {{/if}}
-                              <p class="blacktext session-speaker-social">
+                              <div class="blacktext session-speaker-social">
                                 <div class="session-speakers-more">
                                   {{#if website}}
                                   <a class="blacktext social speaker-social" href="{{{website}}}"}>
@@ -194,14 +195,14 @@
                                     <i class="fa fa-linkedin"></i> LinkedIn
                                   </a>&nbsp;
                                   {{/if}}
-                                  <a class="session-lin blacktext social speaker-social" href="#s-{{nameIdSlug}}">
+                                  <a class="session-lin blacktext social speaker-social" href="#venue-{{../session_id}}">
                                     <i class="fa fa-link"></i> Link
                                   </a>
-                                  <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#{{nameIdSlug}}" style="display:none;" readonly>
+                                  <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" style="display:none;" readonly>
                                 </div>
-                              </p>
+                              </div>
                               <hr style="clear:both">
-                            {{/speakers_list}}
+                              {{/speakers_list}}
                               <div class="blacktext">
                                 {{#if roomname}}
                                 <p><i>{{roomname}}</i></p>
@@ -228,7 +229,6 @@
           </div>
         </div>
         <div class="track-names">
-        {{> social}}
         {{#tracknames}}
         {{#if title}}
           <ul class="title-inline title-legend">
@@ -247,7 +247,6 @@
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
-    <script src="./js/social.js" type="text/javascript"></script>
     <script type="text/javascript">
        $(document).ready(function() {
         $('.session-lin').click(function() {
@@ -342,6 +341,7 @@
             flag = isAdded = 0;
           }
         });
+
         $('#starred').click(function() {
           mode = !mode;
           if(mode)
@@ -349,6 +349,12 @@
           else
             $(this).text("Show Starred");
           display();
+        });
+
+        $('div.sizeevent').click(function() {
+          if(flag) return;
+          var $par = $(this).parent();
+          $par.children('h4')[0].click();
         });
 
         function display() {

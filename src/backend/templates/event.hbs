@@ -32,15 +32,16 @@
     </head>
 
     <body onload="datafetcher()">
+      <a href="#event" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
-    <div class="carousel slide" style="margin-bottom: 0;">
+    <div class="carousel slide" style="margin-bottom: 0;" id="event">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('{{eventurls.background_url }}');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;background-position: center;" class="item active">
           <div class="container">
           <div class="carousel-caption">
-          <h4>{{eventurls.date}} at {{eventurls.time}}</h4>
+          <h4>{{eventurls.date}} {{eventurls.time}} to {{eventurls.end_date}} {{eventurls.end_time}}</h4>
           <h1>{{eventurls.name}}</h1>
           <h4><i class="fa fa-map-marker"></i>
            {{eventurls.location}}</h4>
@@ -138,10 +139,6 @@
  </div>
  {{#if eventurls.tweetUrl}}
    <div class="row" style="background:#f5f5f5;margin-right:0;margin-left:0px;height:600px">
-    <div class="social-container">
-      <h3>Share on</h3>
-      {{> social}}
-    </div>
     <section class="container sponsorscont">
       <div class="tweet-row">
         <div class="col-sm-12 col-md-12 col-xs-12">
@@ -232,7 +229,6 @@
 
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
-    <script src="./js/social.js" type="text/javascript"></script>
 
     <script>
     $(document).ready(function(){

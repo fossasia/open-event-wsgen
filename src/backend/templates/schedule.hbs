@@ -33,11 +33,12 @@
 </head>
 
 <body>
+  <a href="#schedule-list" class="skip">Skip to content</a>
   {{> scroll}}
   <a id="top"></a>
   {{> navbar}}
   <div class="main container" id="session-list">
-    <div class="row">
+    <div class="row" id="schedule-list">
       <div class="middle col-sm-12">
         <h2 class="filter-heading track-heading text-center">
         <span>
@@ -85,13 +86,14 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="track-inline" id="{{session_id}}">
+                  <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div style="padding-right:0px;">
                       <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
                         data-target="#desc-{{session_id}} .collapse"
                         aria-expanded="false"
                         aria-controls="desc-{{session_id}}">
-                          <a href="javascript:return false;">{{title}}</a>
+                        {{title}}
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
                         {{/if}}
@@ -101,19 +103,16 @@
                         </a>
                       </h4>
                       <div id="desc-{{session_id}}">
-                        <p class="collapse">
-                          <span class="tip-description">
-                            {{#if audio}}
-                               <audio controls="" preload="none" style="display: block; margin-top: 15px">
-                                 <source src="{{ audio }}">
-                               </audio>
-                            {{/if}}
-                            {{{description}}}
-                          </span>
-                        </p>
+                        <div class="collapse">
+                          {{{description}}}
+                          {{#if audio}}
+                            <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                            <source src="{{ audio }}">
+                            </audio>
+                          {{/if}}
+                        </div>
                         <hr style="clear:both" class="collapse">
-                        <div class="session-speakers-list collapse"  data-toggle="collapse"
-                          data-target="#desc-{{session_id}} .collapse"
+                        <div class="session-speakers-list collapse"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                           {{#each speakers_list}}
@@ -134,12 +133,12 @@
                             {{organisation}}
                           </p>
                           {{/if}}
-                          {{#if long_biography}}
-                          <p class="session-speakers-more">
-                            {{long_biography}}
-                          </p>
+                          {{#if biography}}
+                            <div class="session-speakers-more">
+                              {{{biography}}}
+                            </div>
                           {{/if}}
-                          <p class="blacktext session-speaker-social">
+                          <div class="blacktext session-speaker-social">
                             <div class="session-speakers-more">
                               {{#if website}}
                               <a class="blacktext social speaker-social" href="{{{website}}}"}>
@@ -162,9 +161,9 @@
                               </a>&nbsp;
                               {{/if}}
                               <a class="session-lin social speaker-social" href="#desc-{{../session_id}}"><i class="fa fa-link"></i> Link</a>&nbsp;
-                              <input class="inputbox" type="text" onclick="this.select()" value="base#{{../session_id}}" style="display:none;" readonly>
+                              <input class="inputbox" type="text" onclick="this.select()" value="base#s-{{../session_id}}" style="display:none;" readonly>
                             </div>
-                          </p>
+                          </div>
                           <hr style="clear:both">
                           {{/each}}
                           <div class="blacktext">
@@ -193,7 +192,6 @@
         </div>
       </div>
       <div class="track-names">
-      {{> social}}
       {{#tracknames}}
       {{#if title}}
         <ul class="title-inline title-legend">
@@ -211,7 +209,6 @@
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
   <script src="./js/navbar.js" type="text/javascript"></script>
   <script src="./js/scroll.js" type="text/javascript"></script>
-  <script src="./js/social.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
        $('.session-lin').click(function() {

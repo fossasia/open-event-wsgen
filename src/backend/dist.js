@@ -96,12 +96,77 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
 
 };
 
+var resizeSponsors = function(dir, socket, done) {
+  fs.readdir(dir + '/sponsors/', function(err, list){
+    if(err) {
+      logger.addLog('Info', 'No sponsors images found', socket, err);
+    }
+
+    async.each(list, function(image, trial) {
+      sharp(dir + '/sponsors/' + image)
+        .resize(150, 80)
+        .background({r: 255, g: 255, b: 255, a: 0})
+        .embed()
+        .toFile(dir + '/sponsors/' + image + '.new', (err) => {
+          if(err) {
+            console.log(image + ' Can not be converted');
+            console.log(err);
+            trial(null);
+            return 0;
+          }
+
+          fs.rename(dir + '/sponsors/' + image + '.new' , dir + '/sponsors/' + image , function(err) {
+            if ( err ) {
+              console.log('ERROR: ' + err);
+            }
+            trial(null);
+          });
+        });
+    }, function(err) {
+      console.log("Sponsors images converted successfully");
+      done();
+    });
+  });
+};
+
+var resizeSpeakers = function(dir, socket, done) {
+  fs.readdir(dir + '/speakers/', function(err, list){
+    if(err) {
+      logger.addLog('Info', 'No sponsors images found', socket, err);
+    }
+    async.each(list, function(image, trial) {
+      sharp(dir + '/speakers/' + image)
+        .resize(300, 300)
+        .background({r: 255, g: 255, b: 255, a: 0})
+        .embed()
+        .toFile(dir + '/speakers/' + image + '.new', (err) => {
+          if(err) {
+            console.log(image + 'can not be converted');
+            console.log(err);
+            trial(null);
+            return 0;
+          }
+
+          fs.rename(dir + '/speakers/' + image + '.new' , dir + '/speakers/' + image , function(err) {
+            if ( err ) console.log('ERROR: ' + err);
+            trial(null);
+          });
+        });
+    }, function(err) {
+      console.log("Speakers images converted successfully");
+      done();
+    });
+  });
+};
+
 module.exports = {
   distPath,
   uploadsPath,
+  resizeSponsors,
+  resizeSpeakers,
   moveZip: function(dlPath, id) {
     fs.move(dlPath, path.join(__dirname, "../../uploads/connection-" + id.toString() + "/upload.zip"), () => {
-      
+
     });
   },
   uploadWithProgress: function(fileBuffer, fileSize, emitter) {
@@ -198,6 +263,7 @@ module.exports = {
       });
     });
   },
+
   copyUploads: function(appFolder, socket, done) {
 
     const appPath = distPath + '/' + appFolder;
@@ -230,64 +296,14 @@ module.exports = {
 
           // Resizing sponsors images to 150X80
           function(callback) {
-            fs.readdir( appPath + '/zip/images/sponsors', function(err, list){
-              if(err) {
-                logger.addLog('Info', 'No sponsors images found', socket, err);
-              }
-              async.each(list, function(image, trial) {
-                sharp( appPath + '/zip/images/sponsors/' + image)
-                  .resize(150, 80)
-                  .background({r: 255, g: 255, b: 255, a: 0})
-                  .embed()
-                  .toFile( appPath + '/zip/images/sponsors/' + image + '.new', (err) => {
-                    if(err) {
-                      console.log(image + ' Can not be converted');
-                      console.log(err);
-                      trial(null);
-                      return 0;
-                    }
-
-                    fs.rename( appPath + '/zip/images/sponsors/' + image + '.new' , appPath + '/zip/images/sponsors/' + image , function(err) {
-                      if ( err ) {
-                        console.log('ERROR: ' + err);
-                      }
-                      trial(null);
-                    });
-                  });
-              }, function(err) {
-                console.log("All done successfully");
-                callback();
-              });
+            resizeSponsors(appPath + '/zip/images', socket, function(){
+              callback();
             });
           },
           // Resizing speakers images to 300X300
           function(callback) {
-            fs.readdir( appPath + '/zip/images/speakers', function(err, list){
-              if(err) {
-                logger.addLog('Info', 'No speakers images found', socket, err);
-              }
-              async.each(list, function(image, trial) {
-                sharp( appPath + '/zip/images/speakers/' + image)
-                  .resize(300, 300)
-                  .background({r: 255, g: 255, b: 255, a: 0})
-                  .embed()
-                  .toFile( appPath + '/zip/images/speakers/' + image + '.new', (err) => {
-                      if(err) {
-                        console.log(image + 'can not be converted');
-                        console.log(err);
-                        trial(null);
-                        return 0;
-                      }
-
-                      fs.rename( appPath + '/zip/images/speakers/' + image + '.new' , appPath + '/zip/images/speakers/' + image , function(err) {
-                        if ( err ) console.log('ERROR: ' + err);
-                        trial(null);
-                      });
-                  });
-              }, function(err) {
-                console.log("ALl done successfully");
-                callback();
-              });
+            resizeSpeakers(appPath + '/zip/images', socket, function() {
+              callback();
             });
           },
           function(callback){
@@ -484,12 +500,19 @@ module.exports = {
   },
   generateThumbnails: function(path, next){
     recursive(path + '/images/speakers/',function (err, files) {
+        if(err) {
+            console.log("Error happened");
+            console.log(err);
+        }
       async.each(files, function(file,callback){
         const thumbFileName = file.split('/').pop();
         sharp(file)
         .resize(100, 100)
         .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
-          if (err) console.log(err);
+          if (err) { 
+              console.log("Error happened in sharp");
+              console.log(err);
+          }
           callback();
         });
       },function(){
