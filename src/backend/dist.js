@@ -58,7 +58,7 @@ const downloadAudioFile = function(url, filePath, next) {
         response.pipe(fileStream);
         next();
       });
-   
+
   }
 
   catch (err) {
@@ -176,7 +176,7 @@ module.exports = {
     });
 
     var fileBufferStream = new streamBuffer.ReadableStreamBuffer({
-      // frequency: 100,   // in milliseconds. 
+      // frequency: 100,   // in milliseconds.
       chunkSize: 4096  // in bytes.
     });
 
@@ -231,7 +231,7 @@ module.exports = {
         return done(err);
       }
       var filesCopiedCounter = 0;
-      
+
       function check(err) {
         if(err)
           return done(err);
@@ -251,13 +251,13 @@ module.exports = {
           fs.copy(filePath, appPath + '/' + file, check);
           break;
           case '.css':
-          fs.copy(filePath, cssPath + '/' + file, check); 
+          fs.copy(filePath, cssPath + '/' + file, check);
           break;
           case '.png':
-          fs.copy(filePath, imagesPath + '/' + file, check); 
+          fs.copy(filePath, imagesPath + '/' + file, check);
           break;
           case '.js':
-          fs.copy(filePath, jsPath + '/' + file, check); 
+          fs.copy(filePath, jsPath + '/' + file, check);
           break;
         }
       });
@@ -269,7 +269,7 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     try {
       fs.mkdirpSync(appPath + '/json');
-      logger.addLog('Info','Creating the json folder inside the appPath', socket); 
+      logger.addLog('Info','Creating the json folder inside the appPath', socket);
     }
     catch(err) {
       logger.addLog('Error', 'Error occured while creating the json folder inside the appPath', socket, err);
@@ -329,16 +329,16 @@ module.exports = {
 
                 switch(file) {
                   case 'audio':
-                  fs.copy(filePath, appPath + '/audio' , check); 
+                  fs.copy(filePath, appPath + '/audio' , check);
                   break;
                   case 'images':
-                  fs.copy(filePath, appPath + '/' + file, check); 
+                  fs.copy(filePath, appPath + '/' + file, check);
                   break;
                   case 'sessions':
-                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  fs.copy(filePath, appPath + '/json/' + file, check);
                   break;
                   case 'speakers':
-                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  fs.copy(filePath, appPath + '/json/' + file, check);
                   break;
                   case 'event':
                   fs.copy(filePath, appPath + '/json/' + file, check);
@@ -350,7 +350,7 @@ module.exports = {
                   fs.copy(filePath, appPath + '/json/' + file, check);
                   break;
                   case 'sponsors':
-                  fs.copy(filePath, appPath + '/json/' + file, check); 
+                  fs.copy(filePath, appPath + '/json/' + file, check);
                   break;
                   default: callback(null);
                 }
@@ -378,10 +378,10 @@ module.exports = {
       }
       logger.addLog('Info', 'Directory succesfully read', socket);
 
-      // counter stores the no of folders that have been matched against the given event name 
+      // counter stores the no of folders that have been matched against the given event name
       var counter = 0;
-      
-      // The function below checks whether all the files have been successfully checked or not. If yes, then return 
+
+      // The function below checks whether all the files have been successfully checked or not. If yes, then return
       function checkForCompletion() {
         if(counter === list.length) {
           logger.addLog('Info', 'All files in the directory have been compared and duplicate folder removed', socket);
@@ -389,8 +389,8 @@ module.exports = {
         }
       }
 
-      list.forEach(function(file) { 
-        // the duplicate entry we are searching for must be a folder so its extension must be an empty string '' 
+      list.forEach(function(file) {
+        // the duplicate entry we are searching for must be a folder so its extension must be an empty string ''
         var extension = path.extname(file);
         if(file === newName && extension === '') {
           logger.addLog('Info', 'Duplicate folder found having the same name as that of the event', socket);
@@ -466,7 +466,7 @@ module.exports = {
       console.log('Downloading audio : ' + audioFileName);
        next(audioFilePath);
     });
-   
+
   },
   downloadSpeakerPhoto: function(appFolder, photoUrl, next) {
     const appPath = distPath + '/' +appFolder;
@@ -482,17 +482,17 @@ module.exports = {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = logoUrl.split('/').pop();
     const photoFilePath = 'images/' + photoFileName;
- 
+
     downloadFile(logoUrl, appPath + '/' + photoFilePath, function(){
       console.log('Downloading logo : ' + logoUrl + ' to ' + photoFileName);
-      next(photoFilePath);  
+      next(photoFilePath);
     });
   },
    downloadSponsorPhoto: function(appFolder, photoUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'images/sponsors/' + photoFileName;
-   
+
     downloadFile(photoUrl, appPath + '/' + photoFilePath, function(){
       console.log('Downloading photo : ' + photoUrl + " to " + photoFilePath);
       next(photoFilePath);
@@ -509,7 +509,7 @@ module.exports = {
         sharp(file)
         .resize(100, 100)
         .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
-          if (err) { 
+          if (err) {
               console.log("Error happened in sharp");
               console.log(err);
           }
