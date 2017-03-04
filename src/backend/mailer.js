@@ -114,6 +114,7 @@ function emailSend(toEmail, url, appName) {
 
 function uploadAndsendMail(toEmail, appName, socket, done) {
   const file = distHelper.distPath + '/' + toEmail + '/event.zip';
+  appName = appName.split(' ').join('_');
   const fileName = uuid.v4() + '/' + appName + '.zip';
 
   uploadToS3(file, fileName, socket)
