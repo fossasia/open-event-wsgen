@@ -31,7 +31,7 @@ a {
   color: $gray-dark;
 
   &:hover {
-    color: $orange;
+    color: $gray-extra-dark;
     text-decoration: none;
   }
 
@@ -385,10 +385,10 @@ a {
 
 @media (max-width:600px) {
   .show-button-filter {
-    display: flex;
+    display: inline-block;
     margin: 0 auto;
-    padding-bottom: 10px;
-    width: 95%;
+    padding-bottom: 0;
+    width: 40%;
   }
 
   .show-button-filter button {
@@ -486,6 +486,11 @@ a {
   .pop>.pop-over.row {
 
     padding: 10px 20px 0 0;
+    &:hover{
+      .fa {
+        color: #000;
+      }
+    }
   }
 
   .pop {
@@ -499,6 +504,13 @@ a {
 
     .pop-over>.sessions {
       padding: 0;
+      .sizeevent{
+        &:hover{
+          span:nth-of-type(2){
+            text-decoration: underline;
+          }
+        }
+      }
     }
 
     .pop-over {
@@ -820,7 +832,7 @@ a {
   }
 
   a:hover {
-    color: red;
+    color: $black;
   }
 }
 
@@ -1217,6 +1229,7 @@ a {
     font-family: sans-serif;
     margin: 0 auto;
   }
+
   @media only screen and (max-width: 600px) {
     float: none;
 
@@ -1246,14 +1259,15 @@ a {
   }
 
   @media only screen and (max-width: 600px) {
+    display: inline-block;
     float: none;
+    width: 40%;
 
     .fossasia-filter {
-      display: block;
       float: none;
       margin: 0 auto;
-      width: 95%;
-      height: 32px;
+      width: 100%;
+      height: 33px;
       border-radius: 5px;
     }
   }
@@ -1261,8 +1275,18 @@ a {
 }
 
  @media only screen and (max-width: 600px) {
+   .middle {
+     padding: 0;
+   }
+
+   .date-list {
+     margin-top: 10px;
+     text-align: center;
+   }
+
    .date-pill {
-      display: block;
+     display: inline-block;
+     margin: 1%;
    }
  }
 
@@ -1369,10 +1393,7 @@ a {
 @media only screen and (max-width: 420px) {
   .tab-content {
     color: $dark-black;
-    max-height: 40px;
-    overflow-x: scroll;
     padding: 1.5rem;
-    white-space: nowrap;
   }
 }
 
@@ -1383,4 +1404,27 @@ a {
   right: 5%;
   top: 90%;
   z-index: 1010;
+}
+
+.skip {
+  background-color: $white;
+  color: $black;
+  height: 1px;
+  left: -1000px;
+  overflow: hidden;
+  position: absolute;
+  text-align: left;
+  text-decoration: none;
+  top: -1000px;
+  width: 1px;
+}
+
+a.skip:active,
+a.skip:focus,
+a.skip:hover {
+  height: auto;
+  left: 0;
+  overflow: visible;
+  top: 50px;
+  width: auto;
 }

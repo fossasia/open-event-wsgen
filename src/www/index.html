@@ -28,7 +28,7 @@
         <form class="form-group generator_form" method="post" id="form" name="form" role="form" enctype="multipart/form-data">
             <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4" style="margin-bottom: 0;">
                 <label for="name">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required="true" email="true">
+                <input type="email" class="form-control" id="email" name="email" required="true" email="true" autofocus>
                 <br>
                 <!--<label for="theme">Choose your theme</label>-->
                 <!--<select class="form-control" id="theme" name="theme">-->
@@ -121,7 +121,8 @@
                     <button disabled title="Upload zip or use API mode to enable" type="button" class="download btn btn-default" id="btnGenerate" value="Validate" style = "margin-top:7px">GENERATE WEBAPP</button>
                     <button type="button" class="download btn btn-default" id="btnLive">PREVIEW</button>
                     <button type="button" class="download btn btn-default" id="btnDownload">DOWNLOAD</button>
-            </center>
+                    <a class = "btn btn-default" style="display:none" id="deploy"> DEPLOY </a>
+                </center>
             </div>
         </form>
     </div>

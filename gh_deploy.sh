@@ -11,7 +11,7 @@ fi
 rev=$(git rev-parse --short HEAD)
 
 HSAMPLE_EVENT="${HSAMPLE_EVENT:-Open\ Tech\ Summit}"
-GH_EVENT="${GH_EVENT:-FOSSASIA\ 2016}"
+GH_EVENT="${GH_EVENT:-FOSSASIA\ Summit}"
 
 if [ -z ${FTP_USER+x} ] || [ -z ${FTP_PASSWORD+x} ]; then   
   echo "please set FTP_USER and FTP_PASSWORD"
@@ -23,10 +23,10 @@ else
 fi
 
 eval cd dist/a@a.com/$GH_EVENT
-
+# Project maintainer information
 git init
-git config user.name "shubham-padia"
-git config user.email "shubhamapadia@gmail.com"
+git config user.name "aayusharora"
+git config user.email "aayush113002@gmail.com"
 
 git remote add upstream "https://$GH_TOKEN@github.com/"${TRAVIS_REPO_SLUG}".git"
 git fetch upstream

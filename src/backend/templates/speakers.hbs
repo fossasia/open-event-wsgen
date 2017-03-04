@@ -32,6 +32,7 @@
       <![endif]-->
     </head>
   <body style="background-color: #f8f8f8 !important;">
+    <a href="#speakers-list" class="skip">Skip to content</a>
     {{> scroll}}
   <a id="top"></a>
     {{> navbar}}
@@ -51,7 +52,7 @@
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
     <div class=row>
-        <div class="search-filter-speaker">
+        <div class="search-filter-speaker" id="speakers-list">
             <input class="fossasia-filter" type="text" placeholder="Search" />
 		    </div>
     </div>
@@ -96,7 +97,12 @@
             <div class="pop-container" style="color:black";>
               <div class="pop">
                 <div class="pop-header">
-                  <span class="s-popup-header-name"><strong>{{{name}}}</strong> ({{{organisation}}})</span>
+                  <span class="s-popup-header-name"><strong>{{{name}}}</strong>
+                    {{#if organisation}}
+                        {{#ifvalue organisation notequals=""}}
+                            ({{{organisation}}})
+                        {{/ifvalue}}
+                    {{/if}}</span>
                 </div>
                 <div class="pop-over row">
                  {{{long_biography}}}
@@ -132,9 +138,9 @@
                     </strong>
                   </h5>
                   <a href="tracks.html#{{session_id}}">
-                   <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                   <h4 style="background-color:{{{color}}};"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
-                      {{{title}}}
+                      <span>{{{title}}}</span>
                     </h4>
                   </a>
                    {{/each}}

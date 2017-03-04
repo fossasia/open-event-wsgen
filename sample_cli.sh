@@ -2,8 +2,8 @@
 
 set -o errexit -o nounset
 
-HSAMPLE_TIMEOUT="${HSAMPLE_TIMEOUT:-60s}"
+HSAMPLE_TIMEOUT="${HSAMPLE_TIMEOUT:-150s}"
 
-HSAMPLE_ENDPOINT="${HSAMPLE_ENDPOINT:-https://raw.githubusercontent.com/fossasia/open-event/master/sample/OTS16/}"
+HSAMPLE_ENDPOINT="${HSAMPLE_ENDPOINT:-https://raw.githubusercontent.com/fossasia/open-event/master/sample/OTS16}"
 
 node cli.js heroku_dir $HSAMPLE_ENDPOINT & timeout $HSAMPLE_TIMEOUT npm run start;
