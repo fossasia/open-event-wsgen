@@ -96,6 +96,15 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
 
 };
 
+var extensionChange = function(image) {
+  var name = image.substring(0, image.lastIndexOf('.'));
+  var extension = image.substring(image.lastIndexOf('.') + 1);
+  if(extension === 'jpg') {
+    return image + '.new';  
+  }
+  return name + '.jpg';
+};
+
 var resizeSponsors = function(dir, socket, done) {
   fs.readdir(dir + '/sponsors/', function(err, list){
     if(err) {
@@ -127,7 +136,7 @@ var resizeSponsors = function(dir, socket, done) {
       done();
     });
   });
-};
+}; 
 
 var resizeSpeakers = function(dir, socket, done) {
   fs.readdir(dir + '/speakers/', function(err, list){
@@ -139,18 +148,27 @@ var resizeSpeakers = function(dir, socket, done) {
         .resize(300, 300)
         .background({r: 255, g: 255, b: 255, a: 0})
         .embed()
-        .toFile(dir + '/speakers/' + image + '.new', (err) => {
+        .toFile(dir + '/speakers/' + extensionChange(image), (err) => {
           if(err) {
-            console.log(image + 'can not be converted');
             console.log(err);
             trial(null);
             return 0;
           }
-
-          fs.rename(dir + '/speakers/' + image + '.new' , dir + '/speakers/' + image , function(err) {
-            if ( err ) console.log('ERROR: ' + err);
+          var extension = image.substring(image.lastIndexOf('.') + 1);
+          if(extension === 'jpg') {
+            fs.rename(dir + '/speakers/' + image + '.new', dir + '/speakers/' + image, function(err) {
+              if(err) {
+                console.log(err);
+              }
+              trial(null);
+            });
+          }
+          else {
+            fs.unlink(dir + '/speakers/' + image, function(err) {
+              if ( err ) console.log('ERROR: ' + err);
+            });
             trial(null);
-          });
+          }
         });
     }, function(err) {
       console.log("Speakers images converted successfully");
@@ -164,6 +182,7 @@ module.exports = {
   uploadsPath,
   resizeSponsors,
   resizeSpeakers,
+  extensionChange,
   moveZip: function(dlPath, id) {
     fs.move(dlPath, path.join(__dirname, "../../uploads/connection-" + id.toString() + "/upload.zip"), () => {
 

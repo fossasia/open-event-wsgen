@@ -678,18 +678,21 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
         if (speaker.photo.substring(0, 4) === 'http') {
           distHelper.downloadSpeakerPhoto(appFolder, speaker.photo, function(result){
             speakers[key].photo = encodeURI(result);
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi' ) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           });
         } else {
           var reg = speaker.photo.split('');
           if(reg[0] =='/'){
             speakers[key].photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           }
         }
