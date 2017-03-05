@@ -106,7 +106,7 @@ describe('fold', function() {
         name: 'testapp'
       };
       fold.foldByLevel(data.sponsors.json,reqOpts, (levelData) => {
-          assert.equal(levelData['1'][0].name, 'hackerspace.sg');
+          assert.equal(levelData['1'][0].name, 'google');
       });
     });
   });

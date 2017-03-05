@@ -424,16 +424,7 @@ function getCopyrightData(event) {
   return copyright;
 }
 
-function sortLevelData(levelData){
-  var keys = Object.keys(levelData);
-  keys.sort().reverse();
-  var lowIndex = parseInt(keys[keys.length-1]);
-  var sortedData = {};
-  keys.forEach(function(key, index){
-    sortedData[key] = levelData[index+lowIndex];
-  });
-  return sortedData;
-}
+
 
 function foldByLevel(sponsors ,reqOpts, next) {
   let levelData = {};
@@ -517,7 +508,7 @@ function foldByLevel(sponsors ,reqOpts, next) {
       callback();
     }
   }, function(){
-    next(sortLevelData(levelData));
+    next(levelData);
   });
 }
 
