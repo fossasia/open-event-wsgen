@@ -795,7 +795,7 @@ a {
     .speaker-with-bio .speaker-description:hover {
       overflow-x: hidden;
       overflow-y: overlay; }
-    .speaker-with-bio .speaker-description span {
+    .speaker-with-bio .speaker-description .sub {
       display: inline-block;
       font-weight: 600;
       margin-bottom: 18px; }
