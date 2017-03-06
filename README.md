@@ -186,9 +186,9 @@ Before making a pull request, please file an issue. So, other developers have th
 
 We have the following branches   
  * **development**   
-	 All development goes on in this branch. If you're making a contribution,
-	 you are supposed to make a pull request to _development_.
-	 PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
+   All development goes on in this branch. If you're making a contribution,
+   you are supposed to make a pull request to _development_.
+   PRs to master must pass a build check and a unit-test (_test/serverTest.js_) check on Travis
  * **master**   
    This contains shipped code. After significant features/bugfixes are accumulated on development, we make a version update, and make a release.
 

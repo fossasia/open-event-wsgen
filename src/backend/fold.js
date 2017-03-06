@@ -37,6 +37,7 @@ function returnTrackColor(trackInfo, id) {
   return trackInfo[id];
 }
 
+
 function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -423,7 +424,16 @@ function getCopyrightData(event) {
   const copyright = event.copyright;
   return copyright;
 }
+// Will reverse the sponser List
+function sortLevelData(levelData){
+  var keys = Object.keys(levelData);
+  keys.reverse();
+  var sortedLevelData= {};
+  for(var i=0;i<keys.length; i++)
+      sortedLevelData[keys[i]] = levelData[i+1];
 
+  return sortedLevelData;
+}
 function foldByLevel(sponsors ,reqOpts, next) {
   let levelData = {};
   let level1=0,level2=0,level3=0;
@@ -505,8 +515,9 @@ function foldByLevel(sponsors ,reqOpts, next) {
     } else {
       callback();
     }
+    
   }, function(){
-    next(levelData);
+    next(sortLevelData(levelData));
   });
 }
 
