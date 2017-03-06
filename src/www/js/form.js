@@ -42,8 +42,8 @@ $(document).ready(function () {
       return false;
     }
   });
-// if hideButtons is zero then X button has not been clicked , if it's -1 then X button has been clicked
-var hideButtons = 0;
+  // if hideButtons is zero then X button has not been clicked , if it's -1 then X button has been clicked
+  var hideButtons = 0;
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide();
     $('#upload-info').show();
@@ -225,12 +225,11 @@ var hideButtons = 0;
     if(hideButtons==0){
       displayButtons(data.appDir, data.url);
       createCookie('folder', data.appDir);
-      $('#btnGenerate').prop('disabled', true);
-      $('#btnGenerate').attr('title', 'Generated webapp');
-      $('#btnGenerate').prop('disabled', false);
-      addDeployLink();
+      //$('#btnGenerate').prop('disabled', false);  
     }
-    
+    $('#btnGenerate').prop('disabled', true);
+    $('#btnGenerate').attr('title', 'Generated webapp');
+    addDeployLink();
   });
 
   socket.on('live.process', function (data) {
@@ -255,7 +254,7 @@ var hideButtons = 0;
     }
   });
 
-  socket.on('Cancel_Build' , function(data) {
+  socket.on('Cancel_Build' , function(data){
     isCancelling = false;
     updateStatusAnimate("Build Canceled");
     updateGenerateProgress(0);
