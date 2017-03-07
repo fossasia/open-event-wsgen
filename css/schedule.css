@@ -793,8 +793,7 @@ a {
     padding-left: 30px;
     width: 50%; }
     .speaker-with-bio .speaker-description:hover {
-      overflow-x: hidden;
-      overflow-y: overlay; }
+      overflow: auto; }
     .speaker-with-bio .speaker-description .sub {
       display: inline-block;
       font-weight: 600;
