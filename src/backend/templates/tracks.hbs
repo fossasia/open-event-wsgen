@@ -108,11 +108,13 @@
                             {{/if}}
 			                      <div id="desc2-{{session_id}}" class="collapse in" style="background-color: {{../color}}; margin-top:0px;">
 				                      {{#speakers_list}}
-				                      {{#if photo}}
 				                      <p style="margin-right:20px; float:left" class="session-speakers">
-		                            <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
-		             	            </p>
-		             	            {{/if}}
+                                {{#if photo}}
+                                    <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                                  {{else}}
+                                    <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
+                                {{/if}}
+                              </p>
 		             	            {{/speakers_list}}
 		             	            <ul style="padding:0;font-size:15px;">
                                         {{#speakers_list}}

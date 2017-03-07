@@ -1076,8 +1076,7 @@ a {
     padding-left: 30px;
     width: 50%;
     &:hover {
-      overflow-x: hidden;
-      overflow-y: overlay;
+      overflow: auto;
     }
 
     .sub {
