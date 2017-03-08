@@ -424,6 +424,17 @@ function getCopyrightData(event) {
   return copyright;
 }
 
+function sortLevelData(levelData){
+  var keys = Object.keys(levelData);
+  keys.sort().reverse();
+  var lowIndex = parseInt(keys[keys.length-1]);
+  var sortedData = {};
+  keys.forEach(function(key, index){
+    sortedData[key] = levelData[index+lowIndex];
+  });
+  return sortedData;
+}
+
 function foldByLevel(sponsors ,reqOpts, next) {
   let levelData = {};
   let level1=0,level2=0,level3=0;
@@ -506,7 +517,7 @@ function foldByLevel(sponsors ,reqOpts, next) {
       callback();
     }
   }, function(){
-    next(levelData);
+    next(sortLevelData(levelData));
   });
 }
 
@@ -667,18 +678,21 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
         if (speaker.photo.substring(0, 4) === 'http') {
           distHelper.downloadSpeakerPhoto(appFolder, speaker.photo, function(result){
             speakers[key].photo = encodeURI(result);
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi' ) {
           distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
             speakers[key].photo = encodeURI(result);
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           });
         } else {
           var reg = speaker.photo.split('');
           if(reg[0] =='/'){
             speakers[key].photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
+            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
             callback();
           }
         }

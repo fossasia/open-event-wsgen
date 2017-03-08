@@ -114,18 +114,17 @@
 				class="collapse in"
 				style="background-color:{{{color}}}; margin-top: 0px;">
 				{{#speakers_list}}
-
-				  {{#if photo}}
-				    <p style="margin-right:20px; float:left" class="session-speakers">
-		                      <img  onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" 						style="width:5rem; height:5rem; border-radius:50%;"/>
-		             	    </p>
-		             	  {{/if}}
+          <p style="margin-right:20px; float:left" class="session-speakers">
+              {{#if photo}}
+                  <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                {{else}}
+                  <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
+              {{/if}}
+                      </p>
 		             	{{/speakers_list}}
 		             	<ul style="padding:0;font-size:15px;">
 		             	  {{#speakers_list}}
-		             	    {{name}}
-		             	    {{#if organisation}}
-                        ({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+		             	    {{name}}{{#if organisation}}({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
 		             	 {{/speakers_list}}
 		             	</ul>
 		             	<ul style="padding:0;font-size:15px;">
@@ -254,59 +253,63 @@
     <script src="./js/scroll.js" type="text/javascript"></script>
     <script src="./js/social.js" type="text/javascript"></script>
     <script type="text/javascript">
-       $(document).ready(function() {
+      $(document).ready(function() {
+
         $('.session-lin').click(function() {
           $(this).parent().parent().find("div.social-buttons").toggle();
           var val = $(this).parent().parent().find('.speakers-inputbox').val();
           $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
+
         $('.session-lin').click(function(e) {
           e.stopPropagation();
         });
+
         $('.speakers-inputbox').click(function(e) {
           e.stopPropagation();
         });
-        $('.fossasia-filter:first').change(function() {
-                var filterVal = $(this).val();
-                if (filterVal) {
-                    $('.date-filter').each(function() {
-                        var flag = 1;
-                        $(this).find('.room-filter').each(function() {
-                            if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                                 $(this).hide();
-                             } else {
-                                 flag = 0;
-                                 $(this).show();
-                             }
-                        });
-                        if (flag == 1) {
-                            $(this).hide();
-                        } else {
-                            $(this).show();
-                        }
-                    });
-                } else {
-                    $('.date-filter').each(function() {
-                        $(this).find('.room-filter').each(function() {
-                            $(this).show();
-                        });
-                        $(this).show();
-                    });
-                }
 
-                // show "no results" if search input value matches zero items
-                if ($('.date-filter:visible').length == 0) {
-                    $('#no-results').remove();
-                    $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+        $('.fossasia-filter:first').change(function() {
+          var filterVal = $(this).val();
+          if (filterVal) {
+            $('.date-filter').each(function() {
+              var flag = 1;
+              $(this).find('.room-filter').each(function() {
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                  $(this).hide();
                 } else {
-                    $('#no-results').remove();
+                  flag = 0;
+                  $(this).show();
                 }
-                return false;
-            }).keyup(function() {
-                $(this).change();
+              });
+              if (flag == 1) {
+                $(this).hide();
+              } else {
+                $(this).show();
+              }
+            });
+          } else {
+            $('.date-filter').each(function() {
+              $(this).find('.room-filter').each(function() {
+                $(this).show();
+              });
+              $(this).show();
+            });
+          }
+
+          // show "no results" if search input value matches zero items
+          if ($('.date-filter:visible').length == 0) {
+            $('#no-results').remove();
+            $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+          } else {
+            $('#no-results').remove();
+          }
+          return false;
+        }).keyup(function() {
+          $(this).change();
         });
       });
     </script>

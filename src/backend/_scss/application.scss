@@ -1076,11 +1076,10 @@ a {
     padding-left: 30px;
     width: 50%;
     &:hover {
-      overflow-x: hidden;
-      overflow-y: overlay;
+      overflow: auto;
     }
 
-    span {
+    .sub {
       display: inline-block;
       font-weight: 600;
       margin-bottom: 18px;

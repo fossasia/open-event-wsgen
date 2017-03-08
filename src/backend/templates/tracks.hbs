@@ -108,16 +108,17 @@
                             {{/if}}
 			                      <div id="desc2-{{session_id}}" class="collapse in" style="background-color: {{../color}}; margin-top:0px;">
 				                      {{#speakers_list}}
-				                      {{#if photo}}
 				                      <p style="margin-right:20px; float:left" class="session-speakers">
-		                            <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
-		             	            </p>
-		             	            {{/if}}
+                                {{#if photo}}
+                                    <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                                  {{else}}
+                                    <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
+                                {{/if}}
+                              </p>
 		             	            {{/speakers_list}}
 		             	            <ul style="padding:0;font-size:15px;">
                                         {{#speakers_list}}
-                                            {{name}}
-                                            {{#if organisation}}({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                            {{name}}{{#if organisation}}({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
                                         {{/speakers_list}}
 		             	            </ul>
 		             	            <ul style="padding:0;font-size:15px;">
@@ -227,156 +228,161 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-      <script src="./js/navbar.js" type="text/javascript"></script>
-      <script src="./js/scroll.js" type="text/javascript"></script>
-      <script src="./js/social.js" type="text/javascript"></script>
-      <script type="text/javascript">
-        $(document).ready(function(){
-          $('.session-lin').click(function(e) {
-            e.stopPropagation();
-          });
-          $('.session-lin').click(function() {
-            $(this).parent().parent().find("div.social-buttons").toggle();
-            var val = $(this).parent().parent().find('.speakers-inputbox').val();
-            $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
-          });
-          $('.speakers-inputbox').click(function(e) {
-            e.stopPropagation();
-          });
-          $('.fossasia-filter:first').change(function() {
-                  var filterVal = $(this).val();
-                  if (filterVal) {
-                      $('.date-filter').each(function() {
-                          var flag = 1;
-                          $(this).find('.room-filter').each(function() {
-                              if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                                   $(this).hide();
-                               } else {
-                                   flag = 0;
-                                   $(this).show();
-                               }
-                          });
-                          if (flag == 1) {
-                              $(this).hide();
-                          } else {
-                              $(this).show();
-                          }
-                      });
-                  } else {
-                      $('.date-filter').each(function() {
-                          $(this).find('.room-filter').each(function() {
-                              $(this).show();
-                          });
-                          $(this).show();
-                      });
-                  }
+    <script src="./js/navbar.js" type="text/javascript"></script>
+    <script src="./js/scroll.js" type="text/javascript"></script>
+    <script src="./js/social.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
 
-                  // show "no results" if search input value matches zero items
-                  if ($('.date-filter:visible').length == 0) {
-                      $('#no-results').remove();
-                      $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
-                  } else {
-                      $('#no-results').remove();
-                  }
-                  return false;
-              }).keyup(function() {
-                  $(this).change();
-          });
+        $('.session-lin').click(function(e) {
+          e.stopPropagation();
+        });
+
+        $('.session-lin').click(function() {
+          $(this).parent().parent().find("div.social-buttons").toggle();
+          var val = $(this).parent().parent().find('.speakers-inputbox').val();
+          $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        });
+
+        $('.speakers-inputbox').click(function(e) {
+          e.stopPropagation();
+        });
+
+        $('.fossasia-filter:first').change(function() {
+          var filterVal = $(this).val();
+          if (filterVal) {
+            $('.date-filter').each(function() {
+              var flag = 1;
+              $(this).find('.room-filter').each(function() {
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                  $(this).hide();
+                } else {
+                  flag = 0;
+                  $(this).show();
+                }
+              });
+              if (flag == 1) {
+                $(this).hide();
+              } else {
+                $(this).show();
+              }
+            });
+          } else {
+            $('.date-filter').each(function() {
+              $(this).find('.room-filter').each(function() {
+                $(this).show();
+              });
+              $(this).show();
+            });
+          }
+
+          // show "no results" if search input value matches zero items
+          if ($('.date-filter:visible').length == 0) {
+            $('#no-results').remove();
+            $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+          } else {
+            $('#no-results').remove();
+          }
+          return false;
+        }).keyup(function() {
+          $(this).change();
+        });
       });
     </script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            var maxNoOfSessions = 1000;
-            var flag = 0;
-            var isAdded = 0;
-            var mode = 0;
+      $(document).ready(function() {
+        var maxNoOfSessions = 1000;
+        var flag = 0;
+        var isAdded = 0;
+        var mode = 0;
 
-            $('.bookmark').click(function(){
-                flag = 1;
-                var curColor = $(this).css("color");
-                if (curColor == "rgb(0, 0, 0)") {
-                    $(this).css("color", "");
-                    isAdded = 0;
-                }
-                else {
-                    $(this).css("color", "black");
-                    isAdded = 1;
-                }
-            });
-
-            $('.room-filter').click(function(){
-                var temp = JSON.parse(localStorage['tracks']);
-                var id = Number($(this).attr('id'));
-                if (flag) {
-                    var id = $(this).attr('id');
-                    if (isAdded) {
-                        temp[id] = 1;
-                    }
-                    else {
-                        temp[id] = 0;
-                        if(mode) {
-                            $(this).hide();
-                        }
-                    }
-                    flag = isAdded = 0;
-                    localStorage['tracks'] = JSON.stringify(temp);
-                }
-            });
-
-            $('#starred').click(function() {
-                mode = !mode;
-                if(mode)
-                    $(this).text("Show All");
-                else
-                    $(this).text("Show Starred");
-                display();
-            });
-
-            $('div.sizeevent').click(function() {
-              if(flag) return;
-              var $par = $(this).parent();
-              $par.children('h4')[0].click();
-            });
-
-            function display() {
-                if(localStorage.hasOwnProperty('tracks') === false) {
-                    localStorage['tracks'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
-                }
-                var temp = JSON.parse(localStorage['tracks']);
-
-                $('.date-filter').each(function() {
-                    var dateFlag = 0;
-                    $(this).find('.room-filter').each(function() {
-                        var elemId = $(this).attr('id');
-                        var elemFlag = 0;
-                        if(temp[elemId] == 1) {
-                            elemFlag = dateFlag = 1;
-                            $(this).find('.bookmark').each(function() {
-                                $(this).css("color", "black");
-                            });
-                                   }
-
-                        if (elemFlag || !mode) {
-                            $(this).show();
-                        }
-                        else {
-                            $(this).hide();
-                        }
-                    });
-
-                    if(dateFlag || !mode) {
-                        $(this).show();
-                    }
-                    else {
-                        $(this).hide();
-                    }
-                });
-            }
-            display();
+        $('.bookmark').click(function(){
+          flag = 1;
+          var curColor = $(this).css("color");
+          if (curColor == "rgb(0, 0, 0)") {
+            $(this).css("color", "");
+            isAdded = 0;
+          }
+          else {
+            $(this).css("color", "black");
+            isAdded = 1;
+          }
         });
+
+        $('.room-filter').click(function(){
+          var temp = JSON.parse(localStorage['tracks']);
+          var anchorElem = $(this).children('a')[0];
+          var id = $(anchorElem).attr('id');
+          if (flag) {
+            if (isAdded) {
+              temp[id] = 1;
+            }
+            else {
+              temp[id] = 0;
+              if(mode) {
+                $(this).hide();
+              }
+            }
+            flag = isAdded = 0;
+            localStorage['tracks'] = JSON.stringify(temp);
+          }
+        });
+
+        $('#starred').click(function() {
+          mode = !mode;
+          if(mode)
+            $(this).text("Show All");
+          else
+            $(this).text("Show Starred");
+          display();
+        });
+
+        $('div.sizeevent').click(function() {
+          if(flag) return;
+          var $par = $(this).parent();
+          $par.children('h4')[0].click();
+        });
+
+        function display() {
+          if(localStorage.hasOwnProperty('tracks') === false) {
+            localStorage['tracks'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          }
+          var temp = JSON.parse(localStorage['tracks']);
+
+          $('.date-filter').each(function() {
+            var dateFlag = 0;
+            $(this).find('.room-filter').each(function() {
+              var anchorElem = $(this).children('a')[0];
+              var elemId = $(anchorElem).attr('id');
+              var elemFlag = 0;
+              if(temp[elemId] == 1) {
+                elemFlag = dateFlag = 1;
+                $(this).find('.bookmark').each(function() {
+                  $(this).css("color", "black");
+                });
+              }
+
+              if (elemFlag || !mode) {
+                $(this).show();
+              }
+              else {
+                $(this).hide();
+              }
+            });
+
+            if(dateFlag || !mode) {
+              $(this).show();
+            }
+            else {
+              $(this).hide();
+            }
+          });
+        }
+        display();
+      });
     </script>
 });
   </body>
