@@ -100,7 +100,7 @@ var extensionChange = function(image) {
   var name = image.substring(0, image.lastIndexOf('.'));
   var extension = image.substring(image.lastIndexOf('.') + 1);
   if(extension === 'jpg') {
-    return image + '.new';  
+    return image + '.new';
   }
   return name + '.jpg';
 };
@@ -136,7 +136,7 @@ var resizeSponsors = function(dir, socket, done) {
       done();
     });
   });
-}; 
+};
 
 var resizeSpeakers = function(dir, socket, done) {
   fs.readdir(dir + '/speakers/', function(err, list){

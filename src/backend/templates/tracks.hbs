@@ -110,7 +110,7 @@
 				                      {{#speakers_list}}
 				                      <p style="margin-right:20px; float:left" class="session-speakers">
                                 {{#if photo}}
-                                    <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:5rem; height:5rem; border-radius:50%;"/>
+                                    <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:5rem; height:5rem; border-radius:50%;"/>
                                   {{else}}
                                     <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
                                 {{/if}}
@@ -146,7 +146,7 @@
                                   <div class="session-speakers-less">
                                     <p style="margin-right:20px" class="session-speakers">
                                       {{#if photo}}
-                                      <img onError="this.onerror=null;this.src='./images/avatar.png';" class="card-img-top" src="{{thumb}}" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                      <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:10rem; height:10rem; border-radius:50%;"/>
                                       {{else}}
                                       <img class="card-img-top" src="./images/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
                                       {{/if}}
@@ -227,12 +227,17 @@
   {{> footer}}
 
     <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.lazyload.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
     <script src="./js/social.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function(){
+
+        $(function() {
+            $("img.lazy").lazyload();
+        });
 
         $('.session-lin').click(function(e) {
           e.stopPropagation();
