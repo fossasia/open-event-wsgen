@@ -6,6 +6,30 @@
 <html lang="en">
 <head>
 
+  <link rel="preload" href="./index.html" >
+  <link rel="preload" as="script" href="./js/jquery.min.js">
+  <link rel="preload" as="script" href="./js/bootstrap.min.js">
+  <link rel="preload" as="script" href="./js/popover.js">
+  <link rel="preload" as="script" href="./js/loklak-fetcher.js">
+  <link rel="preload" as="script" href="./js/navbar.js">
+  <link rel="preload" as="script" href="./js/scroll.js">
+  <link rel="preload" as="script" href="./js/tweets.js">
+  <link rel="preload" as="style" href="./css/schedule.css">
+  <link rel="preload" as="style" href="./css/font-awesome.min.css">
+  <link rel="preload" as="style" href="./css/bootstrap.min.css">
+
+  {{#speakerslist}}{{#if featured}}
+  <link rel="preload" as="image" href="./{{{photo}}}" >
+  {{/if}} {{/speakerslist}}
+
+  {{#if eventurls.sponsorsection}}
+  {{#each sponsorpics}}
+  {{#each this}}
+  <link rel="preload" as="image" href="./{{{logo}}}">
+  {{/each}}
+  {{/each}}
+  {{/if}}
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,10 +43,10 @@
   <!-- Bootstrap core CSS -->
   <!-- Latest compiled and minified CSS -->
  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/schedule.css">
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+  <link href='./css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <link href='./css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link href='./css/schedule.css' rel='stylesheet' type='text/css'>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -216,24 +240,23 @@
   <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
 
 {{> footer}}
+  <script src="./js/jquery.min.js" type="text/javascript"></script>
+  <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
+  <script type="text/javascript" src="./js/popover.js"></script>
+ <script src="./js/map.js" type="text/javascript"></script>
+ <script src="./js/loklak-fetcher.js" type="text/javascript"></script>
+ <script src="./js/tweets.js" type="text/javascript"></script>
+ <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
+  <script src="./js/navbar.js" type="text/javascript"></script>
+  <script src="./js/scroll.js" type="text/javascript"></script>
 
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/popover.js"></script>
-   <script src="./js/map.js" type="text/javascript"></script>
-   <script src="./js/loklak-fetcher.js" type="text/javascript"></script>
-   <script src="./js/tweets.js" type="text/javascript"></script>
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
-
-    <script src="./js/navbar.js" type="text/javascript"></script>
-    <script src="./js/scroll.js" type="text/javascript"></script>
-
     <script>
     $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
    });
-</script>
+  </script>
 </body>
 </html>
