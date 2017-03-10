@@ -984,7 +984,7 @@ a {
     line-height: 24px; }
   @media only screen and (max-width: 600px) {
     .search-filter {
-      display: inline-block;
+      display: inline;
       float: none;
       width: 40%; }
       .search-filter .fossasia-filter {
