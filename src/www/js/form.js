@@ -42,7 +42,8 @@ $(document).ready(function () {
       return false;
     }
   });
-
+  // if hideButtons is zero then X button has not been clicked , if it's -1 then X button has been clicked
+  var hideButtons = 0;
   uploader.addEventListener('start', function(event) {
     $('#siofu_input').hide();
     $('#upload-info').show();
@@ -50,9 +51,10 @@ $(document).ready(function () {
     $('#upload-filename').html(event.file.name.substring(0, 14));
     var size = (event.file.size/(1024*1024)).toString().substring(0, 3);
     $('#upload-filesize').html(size + 'M');
+    hideButtons = 0;
   });
 
-  $('#cancelUpload').click(function(e){
+  $('#cancelUpload').click(function(e) {
     e.preventDefault();
 
     isCancelling = true;
@@ -67,15 +69,24 @@ $(document).ready(function () {
     updateGenerateProgress(0);
     $('.generator-progress').hide();
     $('#generator-progress-bar').hide();
-
     // Also disable upload json input
-    $('#jsonupload-input').hide(100);
-    $('#eventapi-input').hide(100);
-
+    //$('#jsonupload-input').hide(100);
+    //$('#eventapi-input').hide(100);
     $('#btnGenerate').prop('disabled', true);
     enableGenerateButton(false);
     $('#btnLive').hide();
     $('#btnDownload').hide();
+    $('#deploy').hide();
+    //setting some properties to certain elements
+    $('#status').hide();
+    $('#generator-progress-val').html('0%');
+    $('#upload').prop('disabled',false);
+    $('#endpoint').prop('disabled',false);
+    $('#upload-info').hide();
+    $('#upload-filename').html('');
+    $('#upload-filesize').html('');
+    updateUploadProgress(0);
+    hideButtons = -1;
   });
 
   $('#siofu_input').click(function() {
@@ -110,9 +121,11 @@ $(document).ready(function () {
         if ($(this).val() === 'jsonupload') {
           $('#jsonupload-input').show(100);
           $('#eventapi-input').hide(100);
-          if (uploadFinished) {
+          // check whether file upload is complete and check if file is present 
+          if (uploadFinished && (document.getElementById('upload-filename').innerHTML) != '') {
             enableGenerateButton(true);
-          } else {
+          }
+          else {
             enableGenerateButton(false);
           }
         }
@@ -120,7 +133,13 @@ $(document).ready(function () {
         if ($(this).val() === 'eventapi') {
           $('#eventapi-input').show(100);
           $('#jsonupload-input').hide(100);
-          enableGenerateButton(true);
+          // check if api endpoint value is present
+          if($('#apiendpoint').val() != '') {
+            enableGenerateButton(true);
+          }
+          else {
+            enableGenerateButton(false);
+          }
         }
       }
     });
@@ -129,7 +148,8 @@ $(document).ready(function () {
     function () {
       if ($(this).is(':checked')) {
         $('#upload-ftp-details').show(100);
-      } else {
+      }
+      else {
         $('#upload-ftp-details').hide(100);
       }
     }
@@ -162,6 +182,33 @@ $(document).ready(function () {
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
     $('#btnGenerate').prop('disabled', true);
+    // disabling elements
+    $("#email").prop('disabled',true);
+    $("#upload").prop('disabled',true);
+    $("#endpoint").prop('disabled',true);
+    $("#upload-ftp").prop('disabled',true);
+  });
+
+// adding events
+  $('#apiendpoint').change(function() {
+    if($('#apiendpoint').val() === '') {
+      enableGenerateButton(false);
+    } 
+    else {
+      enableGenerateButton(true);
+    }
+  });
+  
+  $("#upload").click(function() {
+    if($('#upload-filename').val() === '') {
+      enableGenerateButton(false);
+    }
+  });
+  
+  $("#endpoint").click(function() {
+    if($('#apiendpoint').val() === '') {
+      enableGenerateButton(false);
+    }
   });
 
   $('#aLog').click(function(e) {
@@ -175,11 +222,13 @@ $(document).ready(function () {
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
-    displayButtons(data.appDir, data.url);
-    createCookie('folder', data.appDir);
+    if(hideButtons==0){
+      displayButtons(data.appDir, data.url);
+      createCookie('folder', data.appDir);
+      //$('#btnGenerate').prop('disabled', false);  
+    }
     $('#btnGenerate').prop('disabled', true);
-    $('#btnGenerate').attr('title', 'Generated webapp')
-    $('#btnGenerate').prop('disabled', false);
+    $('#btnGenerate').attr('title', 'Generated webapp');
     addDeployLink();
   });
 
@@ -208,7 +257,7 @@ $(document).ready(function () {
   socket.on('Cancel_Build' , function(data){
     isCancelling = false;
     updateStatusAnimate("Build Canceled");
-    updateGenerateProgress(0)
+    updateGenerateProgress(0);
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
 
