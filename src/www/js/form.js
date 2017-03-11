@@ -158,10 +158,10 @@ $(document).ready(function () {
       var formData = getData();
       $('#buildLog').empty();
       socket.emit('live', formData);
-    }
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
     $('#btnGenerate').prop('disabled', true);
+  }
   });
 
   $('#aLog').click(function(e) {
