@@ -285,7 +285,7 @@ a {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    display: inline-block;
+    display: inline;
     margin: 0 auto;
     padding-bottom: 0;
     width: 40%; }
@@ -1001,7 +1001,7 @@ a {
     margin-top: 10px;
     text-align: center; }
   .date-pill {
-    display: inline-block;
+    display: block;
     margin: 1%; } }
 
 .bookmark {
