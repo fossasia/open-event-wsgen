@@ -861,6 +861,13 @@ a {
     display: block;
     font-size: 15px; }
 
+@media screen and (max-width: 600px) {
+  .tweets-feed {
+    font-size: 1em; }
+    .tweets-feed #dateTweeted {
+      display: block;
+      font-size: .9em; } }
+
 .tweet-row {
   margin-bottom: 80px;
   padding: 0;
