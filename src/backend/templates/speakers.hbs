@@ -75,7 +75,7 @@
         <div class="image-holder">
          <a class="anchor" id="{{nameIdSlug}}"></a>
           {{#if photo}}
-          <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}" />
+          <img onError="this.onerror=null;this.src='images/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
           {{else}}
           <img class="background-image" alt="{{{name}}}" src="images/avatar.png"/>
           {{/if}}
@@ -177,18 +177,12 @@
     {{> footer}}
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/jquery.lazyload.js"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
     <script src="./js/social.js" type="text/javascript"></script>
     <script type="text/javascript">
        $(document).ready(function(){
-
-       $(function() {
-           $("img.lazy").lazyload();
-       });
-
         $('.session-link').click(function() {
             $(this).parent().parent().find("div.social-buttons-speaker").toggle();
             var val = $(this).parent().parent().find('.speakers-inputbox').val();
