@@ -459,6 +459,10 @@ a {
   transform: translateY(30%);
   vertical-align: middle; }
 
+@media only screen and (max-width: 600px) {
+  .eventtime {
+    padding-left: 0px; } }
+
 .sesroom {
   color: #fff;
   padding: 1%;
