@@ -7,6 +7,7 @@ var $error = $('#error');
 var $progressBar = $('#upload-progress-bar');
 var $progressVal = $('#upload-progress-val');
 var $progressDiv = $('.progress');
+var $title = $('#title');
 
 function resetContents() {
   $error.html('');
@@ -47,6 +48,7 @@ $deploy.click(function() {
   showInfo();
   $deploy.hide();
   $abort.show();
+  $title.html('Press the button below to abort the deployment process');
 });
 
 $abort.click(function() {
@@ -95,4 +97,5 @@ socket.on('abort', function(msg) {
   $deploy.show();
   $error.html("");
   addErrorMessage(msg);
+  $title.html('Press the button below to re-start the deployment process');
 });
