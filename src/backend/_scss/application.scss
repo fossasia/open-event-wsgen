@@ -693,6 +693,12 @@ a {
   vertical-align: middle;
 }
 
+@media only screen and (max-width: 600px) {
+  .eventtime {
+    padding-left: 0px;
+  }
+}
+
 .sesroom {
   color: $white;
   padding: 1%;
