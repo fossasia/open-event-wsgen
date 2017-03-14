@@ -105,6 +105,32 @@ var extensionChange = function(image) {
   return name + '.jpg';
 };
 
+var optimizeBackground = function(image, socket, done) {
+  if(image != null) {
+    sharp(image)
+    .toFile(extensionChange(image), (err) => {
+      if(err) {
+        console.log(err);
+        return 0;
+      }
+      var extension = image.substring(image.lastIndexOf('.') + 1);
+      if(extension === 'jpg') {
+        fs.rename(image + '.new', image, function(err) {
+          if(err) {
+            console.log(err);
+          }
+        });
+      }
+      else {
+        fs.unlink(image, function(err) {
+          if ( err ) console.log('ERROR: ' + err);
+        });
+      }
+    });
+  }
+  done();
+};
+
 var resizeSponsors = function(dir, socket, done) {
   fs.readdir(dir + '/sponsors/', function(err, list){
     if(err) {
@@ -180,6 +206,7 @@ var resizeSpeakers = function(dir, socket, done) {
 module.exports = {
   distPath,
   uploadsPath,
+  optimizeBackground,
   resizeSponsors,
   resizeSpeakers,
   extensionChange,

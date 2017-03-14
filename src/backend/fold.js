@@ -349,6 +349,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     main_page_url: event.event_url,
     logo_url: event.logo,
     background_url: event.background_image,
+    background_path: event.background_image,
     date: moment.utc(event.start_time).local().format('dddd, Do MMM'),
     time: moment.utc(event.start_time).local().format('HH:mm'),
     end_date: moment.utc(event.end_time).local().format('dddd, Do MMM'),
@@ -395,12 +396,16 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
       if (event.background_image.substring(0, 4) === 'http') {
         distHelper.downloadLogo(appFolder, event.background_image, function(result){
           urls.background_url = result;
+          urls.background_path = urls.background_url;
+          urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
           next(urls);
         });
       } else if (reqOpts.datasource === 'eventapi') {
         if (event.background_image.charAt(0) == '/') event.background_image = event.background_image.substr(1);
         distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_image), function(result){
           urls.background_url = encodeURI(result);
+          urls.background_path = urls.background_url;
+          urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
           next(urls);
         });
       }
@@ -408,9 +413,12 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
         let reg = event.background_image.split('');
         if(reg[0] =='/'){
           urls.background_url = encodeURI(event.background_image.substring(1,event.background_image.length));
+          urls.background_path = urls.background_url;
+          urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
           next(urls);
         }
       }
+
     } else {
       next(urls);
     }
