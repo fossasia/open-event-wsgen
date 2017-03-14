@@ -55,6 +55,7 @@ The webapp generator uses the following technologies -
  - [ftpdeploy.js](/src/backend/ftpdeploy.js) - Deploys finished website to organiser's server (optional)
  - [mailer.js](/src/backend/mailer.js) - Sends mail to organiser notifying of successful creation
  - [buildlogger.js](/src/backend/buildlogger.js) - Displays build logs while generating webapp
+ - [deploy.js](/src/backend/deploy.js) - Automatically deploys generated event sites to User's Github Account
  
 4. Templates
 
@@ -149,12 +150,40 @@ NOTE: In this document all `config.<obj>` variables refer to the data in the *co
 `config.PORT` |(Falls back to config file if above not found)
 
 #### Mailer
-We use Sendgrid to send mails, and you need a Sendgrid API to make it work. 
+We use Sendgrid to send mails, and you need a Sendgrid API to make it work. Additionally, you can also use SMTP to send mails if you don't have Sendgrid Key.
 
 | Variable | Description |
 | ----     | ----        |
 `process.env.SENDGRID_API_KEY` | (Tries to get from shell env first) 
 `config.SENDGRID_API_KEY` | (Falls back to config file) 
+`process.env.SMTP_USERNAME` | (Tries to get from shell env first)
+`config.SMTP_USERNAME` | (Falls back to config file)
+`process.env.SMTP_PASSWORD` | (Tries to get from shell env first)
+`config.SMTP_PASSWORD` | (Falls back to config file)
+
+### Upload
+We use AWS S3 services for storing the zip file of the generated event. These zip files are automatically deleted after 3 days from the store. Each
+uploaded file has a unique download link. `node-uuid` module is used for generating the cryptic download link of the file.
+
+| Variable | Description |
+| ----     | ----        |
+`process.env.AWS_ACCESS_KEY_ID` | (Tries to get from shell env first) 
+`config.AWS_ACCESS_KEY_ID` | (Falls back to config file) 
+`process.env.AWS_SECRET_ACCESS_KEY` | (Tries to get from shell env first) 
+`config.AWS_SECRET_ACCESS_KEY` | (Falls back to config file) 
+
+### Github Deploy
+The web-app is able to automatically deploy the generated event sites to Github Pages of a User. We use `passport` library for authentication of
+the user. For uploading and committing the event files, we use `github` library which provides a wrapper for the Github API in node.
+
+| Variable | Description |
+| ----     | ----        |
+`process.env.GITHUB_CLIENT_ID` | (Tries to get from shell env first)
+`config.GITHUB_CLIENT_ID` | (Falls back to config file)
+`process.env.GITHUB_CLIENT_SECRET` | (Tries to get from shell env first)
+`config.GITHUB_CLIENT_SECRET` | (Falls back to config file)
+`process.env.CALLBACK_URL` | (Tries to get from shell env first)
+`config.CALLBACK_URL` | (Falls back to config file)
 
 
 #### Images
