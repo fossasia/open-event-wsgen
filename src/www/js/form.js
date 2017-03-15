@@ -30,67 +30,93 @@ function createCookie(name, value, days) {
 
 $(document).ready(function () {
   var socket = io();
-  var uploader = new SocketIOFileUpload(socket);
-  uploader.resetFileInputs = false;
-  uploader.listenOnInput(document.getElementById('siofu_input'));
 
-  uploader.addEventListener('choose', function(event) {
-    if($('#siofu_input').val().search('.zip') === -1) {
+  function uploadFile(file) {
+
+    var size = (file.size/(1024*1024)).toString().substring(0, 3);
+    var stream = ss.createStream();
+    var blobStream = ss.createBlobReadStream(file);
+    var fileUploadSize = 0;
+
+    $('#siofu_input').hide();
+    $('#upload-info').show();
+    $('#upload-filename').html(file.name);
+    $('#upload-filesize').html(size + 'M');
+
+    stream.on('end', function(data) {
+      console.log('File upload has finished');
+      socket.emit('finished', 'File upload has finished');
+    });
+
+       
+    blobStream.on('data', function(chunk) {
+      fileUploadSize += chunk.length;
+      var percent = (fileUploadSize / file.size * 100) ;
+      socket.emit('progress', percent);
+
+      if(isCancelling) {
+        var msg = 'File upload was cancelled by user';
+        stream.destroy();
+        socket.emit('cancelled', msg);
+        isCancelling = false;
+        console.log(msg);
+      }
+
+      updateUploadProgress(Math.floor(percent));
+
+      if (percent === 100) {
+        uploadFinished = true;
+        enableGenerateButton(true);
+      }
+    });
+
+    ss(socket).emit('file', stream, {size: file.size, name: file.name});
+    blobStream.pipe(stream);
+
+  }
+
+  $('#siofu_input').change(function(e) {
+    var file = e.target.files[0];
+    var extension = file.name.substring(file.name.lastIndexOf('.') + 1);
+
+    statusText.text('');
+    isCancelling = false;
+
+    if(extension === 'zip') {
+      uploadFile(file);
+    }
+
+    else {
       $('#siofu_input').val('');
       statusText.css({'color' : 'red'});
       statusText.text('Upload zip extension');
-      return false;
     }
-  });
 
-  uploader.addEventListener('start', function(event) {
-    $('#siofu_input').hide();
-    $('#upload-info').show();
-    // $('#upload-progress-bar').show();
-    $('#upload-filename').html(event.file.name.substring(0, 14));
-    var size = (event.file.size/(1024*1024)).toString().substring(0, 3);
-    $('#upload-filesize').html(size + 'M');
   });
 
   $('#cancelUpload').click(function(e){
     e.preventDefault();
+    statusText.text('');
 
     isCancelling = true;
 
-    $('#siofu_input').val('').show()
+    $('#siofu_input').val('').show();
     $('#upload-info').hide();
-    updateStatusAnimate("Cancelling");
-    socket.emit('Cancel', 'Terminate the zip upload');
     $('#buildLog').empty();
 
     // Disable the generateProgressBar and hide the status bar as well
     updateGenerateProgress(0);
+    enableGenerateButton(false);
+
     $('.generator-progress').hide();
     $('#generator-progress-bar').hide();
-
-    // Also disable upload json input
-    $('#jsonupload-input').hide(100);
-    $('#eventapi-input').hide(100);
-
     $('#btnGenerate').prop('disabled', true);
-    enableGenerateButton(false);
     $('#btnLive').hide();
     $('#btnDownload').hide();
     $('input[ type = "radio" ]').attr('disabled', false);
     $('#email').prop('disabled', false);
+    $('#deploy').hide();
   });
-
-  $('#siofu_input').click(function() {
-    statusText.text('');
-  });
-  // uploader.addEventListener('progress', function(event) {
-  //   var percentage = (event.bytesLoaded / event.file.size * 100);
-  //   updateUploadProgress(percentage);
-  //   if (percentage == 100) {
-  //     uploadFinished = true;
-  //     enableGenerateButton(true);
-  //   }
-  // });
 
   initialState();
   generateProgressBar = $('#generator-progress-bar');
@@ -200,28 +226,6 @@ $(document).ready(function () {
     updateStatusAnimate(err.status);
 
   });
-
-  socket.on('upload.progress', function(data) {
-    updateUploadProgress(data.percentage);
-    if (data.percentage === 100) {
-      uploadFinished = true;
-      enableGenerateButton(true);
-    }
-  });
-
-  socket.on('Cancel_Build' , function(data){
-    isCancelling = false;
-    updateStatusAnimate("Build Canceled");
-    updateGenerateProgress(0)
-    $('.generator-progress').show();
-    $('#generator-progress-bar').show();
-
-
-    // Also disable upload json input
-    $('#jsonupload-input').show(100);
-
-  });
-
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {

@@ -6,7 +6,6 @@ const connectDomain = require('connect-domain');
 const compression = require('compression');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const siofu = require('socketio-file-upload');
 const bodyParser = require('body-parser');
 const generator = require('./backend/generator.js');
 const deploy = require('./backend/deploy.js');
@@ -16,10 +15,12 @@ const Strategy = require('passport-github').Strategy;
 const session = require('express-session');
 const MemoryStore = session.MemoryStore;
 const sessionStore = new MemoryStore();
+const fs = require('fs');
 const clientId = process.env.GITHUB_CLIENT_ID || config.GITHUB_CLIENT_ID;
 const clientSecret = process.env.GITHUB_CLIENT_SECRET || config.GITHUB_CLIENT_SECRET;
 const sessionSecret = process.env.SESSION_SECRET || config.SESSION_SECRET;
 const callbackUrl = process.env.CALLBACK_URL || config.CALLBACK_URL;
+const ss = require('socket.io-stream');
 
 var errorHandler;
 var app = express();
@@ -28,7 +29,6 @@ var io = require('socket.io')(server);
 var id = 0;
 
 app.use(compression());
-app.use(siofu.router);
 app.use(require('cookie-parser')());
 app.use(session({secret: sessionSecret, resave: true, saveUninitialized: true, store: sessionStore}));
 app.use(passport.initialize());
@@ -57,43 +57,24 @@ io.on('connection', function(socket){
 
   id = id + 1;
   socket.connId = id;
-  var uploader = new siofu();
-  uploader.dir = path.join(__dirname, '..', 'uploads/connection-' + id.toString());
-  socket.fileUpload = false;
-  uploader.listen(socket);
 
-  uploader.on('error', function(err) {
-    console.log(err);
-  });
-
-  uploader.on('saved', function(event) {
-    generator.finishZipUpload(event.file, socket.connId);
-    socket.fileUploaded = true;
-  });
-
-  uploader.on('progress', function(event) {
-    console.log(event.file.bytesLoaded / event.file.size);
-    socket.emit('upload.progress', {
-      percentage:(event.file.bytesLoaded / event.file.size) * 100
-    });
-    // if the abort propert is set to true, then cancel the ongoing upload
-    if(socket.fileAbort === true) {
-      uploader.abort(event.file.id, socket);
-      socket.fileAbort = false;
-    }
-  });
-
-  uploader.on('start', function(event) {
+  ss(socket).on('file', function(stream, file) {
     generator.startZipUpload(socket.connId);
-    socket.fileUploaded = false;
+    console.log(file);
+    var filename = path.join(__dirname, '..', 'uploads/connection-' + id.toString()) + '/upload.zip';
+    stream.pipe(fs.createWriteStream(filename));
   });
 
-  socket.on('Cancel', function(msg) {
+  socket.on('finished', function(msg) {
     console.log(msg);
-    // if the file has not been fully uploaded, then set the abort property to true
-    if(socket.fileUploaded === false) {
-      socket.fileAbort = true;
-    }
+  });
+
+  socket.on('progress', function(percent) {
+    console.log(percent + ' %');
+  });
+
+  socket.on('cancelled', function(msg) {
+    console.log(msg);
   });
 
   socket.on('live', function(formData) {
