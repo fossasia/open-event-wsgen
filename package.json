@@ -62,6 +62,7 @@
     "sendgrid": "^3.0.11",
     "sharp": "^0.16.2",
     "socket.io": "^1.4.8",
+    "socket.io-stream": "^0.9.1",
     "socketio-file-upload": "^0.4.7",
     "stream-buffers": "^3.0.1",
     "url-join": "^1.1.0"
