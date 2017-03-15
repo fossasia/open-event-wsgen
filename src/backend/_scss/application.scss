@@ -173,6 +173,8 @@ a {
 .navbar-toggle {
   color: $gray-dark;
   padding: 6px 10px;
+  margin-left:2em;
+  margin-top:1em;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -1226,6 +1228,7 @@ a {
   max-width: 1600px;
   .classic {
     background: $white-classic-background;
+    background-color: $white-classic-background;
     padding: 72px 0 36px;
     .menu {
       display: inline-block;
@@ -1363,7 +1366,7 @@ a {
 }
 
 .tweets-row{
-    background: #f5f5f5;
+    background: $white-classic-background;
     margin-right: 0px;
     margin-left: 0px;
     height: 600px;
@@ -1557,3 +1560,104 @@ a.skip:hover {
   top: 50px;
   width: auto;
 }
+
+#menuItem {
+  margin-bottom: 14px;
+}
+
+#copyright {
+  margin-bottom: 14px;
+}
+
+#social-icons {
+  padding-right:0;
+  padding-left:0;
+  margin-left:15px
+}
+
+// style from tracks
+
+#starred {
+  background-color:$white-gray;
+  color:black;
+  border-color:$light-black;
+  margin:0 auto;
+}
+
+
+#content-block {
+  margin: 15px 0 0 15px;
+}
+
+#track-list {
+  margin-top:4%;
+}
+
+.paddingzero {
+  padding: 0;
+}
+
+.left-border {
+  padding-right: 0px;
+  margin-bottom: -1px;
+  padding-bottom:10px;
+}
+
+#event-title {
+  font-size:18px;
+  color: $light-black;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#event-upper-block {
+  margin-top: -15px;
+  padding-top:15px;
+}
+
+.session-speakers {
+  margin-right: 20px;
+}
+
+.speaker-image-small {
+  width:5rem;
+  height:5rem;
+  border-radius:50%;
+}
+
+.speaker-image-large {
+  width:10rem;
+  height:10rem;
+  border-radius:50%;
+}
+
+#audio-block {
+  display: block;
+  margin-top: 15px
+}
+
+// style from speaker
+
+#speaker-body {
+  background-color: $header-color !important;
+}
+
+#speaker-container {
+  background-color: $white;
+  padding: 2%;
+}
+
+#pop-speaker-name {
+  color: $black;
+}
+
+#session-location {
+  font-size:12px;
+  font-weight: normal;
+  margin:6px 0;
+}
+
+#speaker-social-icons {
+  padding:2%;
+}
+
