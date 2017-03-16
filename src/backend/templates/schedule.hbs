@@ -8,10 +8,11 @@
 <head>
   <link rel="preload" as="script" href="./js/jquery.min.js">
   <link rel="preload" as="script" href="./js/bootstrap.min.js">
+  <link rel="preload" as="script" href="./js/jquery.lazyload.js">
   <link rel="preload" as="script" href="./js/navbar.js">
   <link rel="preload" as="script" href="./js/scroll.js">
   <link rel="preload" as="script" href="./js/social.js">
- <link rel="preload" as="style" href="./css/schedule.css">
+  <link rel="preload" as="style" href="./css/schedule.css">
   <link rel="preload" as="style" href="./css/font-awesome.min.css">
   <link rel="preload" as="style" href="./css/bootstrap.min.css">
   <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
@@ -129,7 +130,7 @@
                             <p class="session-speakers-less">
                               <p style="margin-right:20px" class="session-speakers">
                               {{#if photo}}
-                                <img onError="this.onerror=null;this.src='images/avatar.png';" src="{{{thumb}}}" class="card-img-top" style="width:10rem; height:10rem; border-radius:50%;" width="10" height="10"/>
+                                <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="lazy card-img-top" style="width:10rem; height:10rem; border-radius:50%;" width="10" height="10"/>
                               {{else}}
                                 <img class="card-img-top" src="images/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
                               {{/if}}
@@ -223,11 +224,18 @@
   {{> footer}}
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./js/jquery.lazyload.js" type="text/javascript"></script>
   <script src="./js/navbar.js" type="text/javascript"></script>
   <script src="./js/scroll.js" type="text/javascript"></script>
   <script src="./js/social.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
+
+       $(function() {
+         $("img.lazy").lazyload({
+           threshold: 2000
+         });
+       });
 
       $('.session-lin').click(function() {
          $(this).parent().parent().find("div.social-buttons").toggle();

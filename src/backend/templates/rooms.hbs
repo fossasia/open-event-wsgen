@@ -8,6 +8,7 @@
 <head>
  <link rel="preload" as="script" href="./js/jquery.min.js">
  <link rel="preload" as="script" href="./js/bootstrap.min.js">
+ <link rel="preload" as="script" href="./js/jquery.lazyload.js">
  <link rel="preload" as="script" href="./js/navbar.js">
  <link rel="preload" as="script" href="./js/scroll.js">
  <link rel="preload" as="script" href="./js/tabs.js">
@@ -127,7 +128,7 @@
 				{{#speakers_list}}
           <p style="margin-right:20px; float:left" class="session-speakers">
               {{#if photo}}
-                  <img onError="this.onerror=null;this.src='./images/avatar.png';" src="{{thumb}}" class="card-img-top" style="width:5rem; height:5rem; border-radius:50%;"/>
+                  <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:5rem; height:5rem; border-radius:50%;"/>
                 {{else}}
                   <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
               {{/if}}
@@ -165,7 +166,7 @@
                                 <div class="session-speakers-less">
                                   <p style="margin-right:20px" class="session-speakers">
                                   {{#if photo}}
-                                    <img onError="this.onerror=null;this.src='images/avatar.png';" src="{{thumb}}" class="card-img-top" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                    <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:10rem; height:10rem; border-radius:50%;"/>
                                   {{else}}
                                     <img class="card-img-top" src="images/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
                                   {{/if}}
@@ -268,7 +269,9 @@
       $(document).ready(function() {
 
         $(function() {
-          $("img.lazy").lazyload();
+          $("img.lazy").lazyload({
+            threshold: 2000
+          });
         });
 
         $('.session-lin').click(function() {
