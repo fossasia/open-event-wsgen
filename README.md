@@ -10,7 +10,7 @@ The Open Event Web App project has two components a) an event website generator 
 [![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##Communication
+## Communication
 
 Please join our mailing list to discuss questions regarding the project: https://groups.google.com/forum/#!forum/open-event
 
