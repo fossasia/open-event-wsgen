@@ -7,16 +7,17 @@
 <head>
 
   <link rel=preload as=script href=./js/jquery.min.js>
-    <link rel=preload as=script href=./js/bootstrap.min.js>
-    <link rel=preload as=script href=./js/popover.js>
-    <link rel=preload as=script href=./js/loklak-fetcher.js>
-    <link rel=preload as=script href=./js/navbar.js>
-    <link rel=preload as=script href=./js/scroll.js>
-    <link rel=preload as=script href=./js/tweets.js>
-    <link rel=preload as=style href=./css/schedule.css>
-    <link rel=preload as=style href=./css/font-awesome.min.css>
-    <link rel=preload as=style href=./css/bootstrap.min.css>
-    <link rel=preload as=font href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+  <link rel=preload as=script href=./js/bootstrap.min.js>
+  <link rel=preload as=script href=./js/jquery.lazyload.js>
+  <link rel=preload as=script href=./js/popover.js>
+  <link rel=preload as=script href=./js/loklak-fetcher.js>
+  <link rel=preload as=script href=./js/navbar.js>
+  <link rel=preload as=script href=./js/scroll.js>
+  <link rel=preload as=script href=./js/tweets.js>
+  <link rel=preload as=style href=./css/schedule.css>
+  <link rel=preload as=style href=./css/font-awesome.min.css>
+  <link rel=preload as=style href=./css/bootstrap.min.css>
+  <link rel=preload as=font href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
 
   <meta charset=utf-8>
   <meta http-equiv=X-UA-Compatible content="IE=edge">
@@ -77,12 +78,12 @@
                 <li class=navlink><a id=roomslink href=rooms.html>Rooms</a></li>
                 <li class=navlink><a id=speakerslink href=speakers.html>Speakers</a></li>
     
-                    <li class="pull-left social-icons"><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
-                    <li class="pull-left social-icons"><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
                     <li class="pull-left social-icons"><a href=http://twitter.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
                     <li class="pull-left social-icons"><a href=http://facebook.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
                     <li class="pull-left social-icons"><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
                     <li class="pull-left social-icons"><a href=https://www.flickr.com/photos/fossasia/ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+                    <li class="pull-left social-icons"><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
     
               </ul>
             </div>
@@ -141,7 +142,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/5f25772c-5608-42df-81c3-db43170d1746.jpg class=background-image alt="Andrew Selle">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/5f25772c-5608-42df-81c3-db43170d1746.jpg class="lazy background-image" alt="Andrew Selle">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -168,7 +169,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/f4ecb81d-a880-438d-ba5c-0637348f43ae.jpg class=background-image alt="Andrey Terekhov">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/f4ecb81d-a880-438d-ba5c-0637348f43ae.jpg class="lazy background-image" alt="Andrey Terekhov">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -195,7 +196,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485846736.3.jpg class=background-image alt="Ben Sadeghi">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485846736.3.jpg class="lazy background-image" alt="Ben Sadeghi">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -222,7 +223,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485888353.84.jpg class=background-image alt="Bunnie Huang">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485888353.84.jpg class="lazy background-image" alt="Bunnie Huang">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -249,7 +250,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485731983.86.jpg class=background-image alt="Chan Cheow Hoe">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485731983.86.jpg class="lazy background-image" alt="Chan Cheow Hoe">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -277,7 +278,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/12a6aa79-3adb-48ae-aca4-b4c0cca484e1.jpg class=background-image alt="Colin Charles">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/12a6aa79-3adb-48ae-aca4-b4c0cca484e1.jpg class="lazy background-image" alt="Colin Charles">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -299,13 +300,13 @@
               </div>
             </div>
 
-                    
+                   
 
               <div class="col-md-6 col-sm-12">
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485925490.97.jpg class=background-image alt="Dietrich Ayala">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485925490.97.jpg class="lazy background-image" alt="Dietrich Ayala">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -333,7 +334,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/81850cd3-272a-41ee-bb06-cde7d7b0de5c.jpg class=background-image alt="Dr. Graham Williams">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/81850cd3-272a-41ee-bb06-cde7d7b0de5c.jpg class="lazy background-image" alt="Dr. Graham Williams">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -359,7 +360,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/6af89f86-4765-4c34-8393-b77b372f4b6c.jpg class=background-image alt="Frank Karlitschek">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/6af89f86-4765-4c34-8393-b77b372f4b6c.jpg class="lazy background-image" alt="Frank Karlitschek">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -387,7 +388,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/2749f69c-3303-4a50-aa7f-b180525963cd.jpg class=background-image alt="Harish Pillay">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/2749f69c-3303-4a50-aa7f-b180525963cd.jpg class="lazy background-image" alt="Harish Pillay">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -415,7 +416,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/12a095c7-1926-4c7b-90bc-2043731df29d.jpg class=background-image alt="Jan Michael Graef">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/12a095c7-1926-4c7b-90bc-2043731df29d.jpg class="lazy background-image" alt="Jan Michael Graef">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -441,7 +442,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/4124d170-ca51-4b36-ad3b-9344fcb97f4f.jpg class=background-image alt="Jason Roy Gary">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/4124d170-ca51-4b36-ad3b-9344fcb97f4f.jpg class="lazy background-image" alt="Jason Roy Gary">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -469,7 +470,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/824cfd99-00b6-4ce6-902f-7a9679e4bf33.jpg class=background-image alt="Konrad Willi Döring">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/824cfd99-00b6-4ce6-902f-7a9679e4bf33.jpg class="lazy background-image" alt="Konrad Willi Döring">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -496,7 +497,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/e8942580-2d52-4ff4-a164-54cf32bb39aa.jpg class=background-image alt="Lim Tit Meng">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/e8942580-2d52-4ff4-a164-54cf32bb39aa.jpg class="lazy background-image" alt="Lim Tit Meng">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -523,7 +524,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/c284e4af-8056-4170-8a01-3ffd1c98a8eb.jpg class=background-image alt="Michael Christen">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/c284e4af-8056-4170-8a01-3ffd1c98a8eb.jpg class="lazy background-image" alt="Michael Christen">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -550,7 +551,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/540b4998-387d-414b-98da-419e73985d9e.jpg class=background-image alt="Michael Meskes">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/540b4998-387d-414b-98da-419e73985d9e.jpg class="lazy background-image" alt="Michael Meskes">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -577,7 +578,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485940384.9.jpg class=background-image alt="Sanjay Manwani">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485940384.9.jpg class="lazy background-image" alt="Sanjay Manwani">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -605,7 +606,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/8e2a1fe8-cb40-4741-975a-dbdd1a191f8a.jpg class=background-image alt="Stephanie Taylor">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/8e2a1fe8-cb40-4741-975a-dbdd1a191f8a.jpg class="lazy background-image" alt="Stephanie Taylor">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -632,7 +633,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/1485731946.67.jpg class=background-image alt="Victoria Bondarchuk">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/1485731946.67.jpg class="lazy background-image" alt="Victoria Bondarchuk">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -659,7 +660,7 @@
                <div class=speaker-with-bio>
                 <div class=speaker>
                   <div class=image-holder>
-                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' src=images/speakers/fd0489fb-e214-41dd-b6df-961f0de61954.jpg class=background-image alt="Øyvind Roti">
+                    <img onerror='this.onerror=null,this.src="./images/avatar.png"' data-original=images/speakers/fd0489fb-e214-41dd-b6df-961f0de61954.jpg class="lazy background-image" alt="Øyvind Roti">
                     <div class=responsive-overlay>
                       <div class="hover-state text-center preserve3d">
                         <div class="social-links vertical-align">
@@ -725,119 +726,119 @@
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://www.google.com/cloud data-toggle=tooltip title="Platinum Sponsor">
-                <img class=centre alt=Google src=images/sponsors/7eb895c9-90b4-4cda-ab91-70218df29756.png>
+                <img class="lazy centre" alt=Google data-original=images/sponsors/7eb895c9-90b4-4cda-ab91-70218df29756.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://daimler.com data-toggle=tooltip title="Special Sponsor">
-                <img class=centre alt=Daimler src=images/sponsors/deb5fa40-e379-4097-b001-0b97a22b390e.png>
+                <img class="lazy centre" alt=Daimler data-original=images/sponsors/deb5fa40-e379-4097-b001-0b97a22b390e.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://microsoft.com data-toggle=tooltip title="Gold Sponsor">
-                <img class=centre alt=Microsoft src=images/sponsors/1485533132.38.png>
+                <img class="lazy centre" alt=Microsoft data-original=images/sponsors/b75ec30e-e830-4c77-9e3c-e317f60e0519.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://opensuse.org data-toggle=tooltip title="Silver Sponsor">
-                <img class=centre alt=OpenSuse src=images/sponsors/1484780185.03.png>
+                <img class="lazy centre" alt=OpenSuse data-original=images/sponsors/1484780185.03.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://kigroup.de data-toggle=tooltip title="Thanks for your Support!">
-                <img class="centre small" alt="KI Group" src=images/sponsors/72ff9e74-b330-4273-ae3a-b16f6f1ce4f9.png>
+                <img class="lazy centre small" alt="KI Group" data-original=images/sponsors/72ff9e74-b330-4273-ae3a-b16f6f1ce4f9.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://www.xltech.io/ data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=XLTech src=images/sponsors/4b07f5f0-efde-4ffd-a66d-e4446eae09f0.png>
+                <img class="lazy centre small" alt=XLTech data-original=images/sponsors/4b07f5f0-efde-4ffd-a66d-e4446eae09f0.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://mysql.com data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=Oracle src=images/sponsors/1484881433.16.png>
+                <img class="lazy centre small" alt=Oracle data-original=images/sponsors/1484881433.16.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://gandi.net data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=Gandi.net src=images/sponsors/ade1b85c-6b79-4ab3-a407-ceade6b09a9b.png>
+                <img class="lazy centre small" alt=Gandi.net data-original=images/sponsors/ade1b85c-6b79-4ab3-a407-ceade6b09a9b.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://nextcloud.com data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=Nextcloud src=images/sponsors/1484780184.16.png>
+                <img class="lazy centre small" alt=Nextcloud data-original=images/sponsors/1484780184.16.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://MBM.asia data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=MBM src=images/sponsors/1484881434.11.png>
+                <img class="lazy centre small" alt=MBM data-original=images/sponsors/1484881434.11.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=https://www.credativ.de data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=credativ src=images/sponsors/a1184b2b-18c4-428a-bac1-8d8c65c9ee4a.png>
+                <img class="lazy centre small" alt=credativ data-original=images/sponsors/a1184b2b-18c4-428a-bac1-8d8c65c9ee4a.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://intel.com data-toggle=tooltip title="Thank you for your support!">
-                <img class="centre small" alt=Intel src=images/sponsors/5ae97581-17ef-4f00-839f-1f189e1fe358.png>
+                <img class="lazy centre small" alt=Intel data-original=images/sponsors/5ae97581-17ef-4f00-839f-1f189e1fe358.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=https://www.imda.gov.sg/industry-development/spaces/pixel-labs data-toggle=tooltip title="Amazing Community Partner">
-                <img class="centre medium" alt="PIXEL Labs" src=images/sponsors/7702e10c-0925-4230-8d2b-300658a56160.png>
+                <img class="lazy centre medium" alt="PIXEL Labs" data-original=images/sponsors/7702e10c-0925-4230-8d2b-300658a56160.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://pgday.asia data-toggle=tooltip title="Amazing Community Partner">
-                <img class="centre medium" alt=Postgres src=images/sponsors/4b540efd-4b9d-48e0-8308-73f03f9e4fa0.png>
+                <img class="lazy centre medium" alt=Postgres data-original=images/sponsors/4b540efd-4b9d-48e0-8308-73f03f9e4fa0.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://python.org data-toggle=tooltip title="Amazing Community Partner">
-                <img class="centre medium" alt="Python Software Foundation" src=images/sponsors/1c349ad0-0316-43c1-affd-0e38991e0376.png>
+                <img class="lazy centre medium" alt="Python Software Foundation" data-original=images/sponsors/1c349ad0-0316-43c1-affd-0e38991e0376.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://fossasia.org data-toggle=tooltip title=Organizers>
-                <img class="centre large" alt=FOSSASIA src=images/sponsors/feed2078-50b4-4f97-ae8c-3c427b4f59ce.png>
+                <img class="lazy centre large" alt=FOSSASIA data-original=images/sponsors/feed2078-50b4-4f97-ae8c-3c427b4f59ce.png>
                 </a>
               </div>
             </div>
             <div class="vcenter col-md-4 col-sm-6">
               <div class="vcenter sponsorimg text-center">
                 <a href=http://www.science.edu.sg/ data-toggle=tooltip title=Organizers>
-                <img class="centre large" alt="Science Centre Singapore" src=images/sponsors/ed7dad23-6fbe-454e-8ec2-ba9a13e547bb.png>
+                <img class="lazy centre large" alt="Science Centre Singapore" data-original=images/sponsors/ed7dad23-6fbe-454e-8ec2-ba9a13e547bb.png>
                 </a>
               </div>
             </div>
@@ -899,12 +900,12 @@
   <div class="row ui-sortable">
     <div class="col-sm-12 text-center">
       <ul class=social-profiles>
-            <li class=pull-left><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
-            <li class=pull-left><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
             <li class=pull-left><a href=http://twitter.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
             <li class=pull-left><a href=http://facebook.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
             <li class=pull-left><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
             <li class=pull-left><a href=https://www.flickr.com/photos/fossasia/ style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
+            <li class=pull-left><a href=https://github.com/fossasia style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+            <li class=pull-left><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 style=padding-right:0;padding-left:0;margin-left:15px><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
       </ul>
     </div>
   </div>
@@ -914,15 +915,16 @@
 
     <script src=./js/jquery.min.js></script>
     <script src=./js/bootstrap.min.js></script>
+    <script src=./js/jquery.lazyload.js></script>
     <script async defer=defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap"></script>
     <script src=./js/popover.js></script>
-   <script src=./js/map.js></script>
-   <script src=./js/loklak-fetcher.js></script>
-   <script src=./js/tweets.js></script>
+    <script src=./js/map.js></script>
+    <script src=./js/loklak-fetcher.js></script>
+    <script src=./js/tweets.js></script>
    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
     <script src=./js/navbar.js></script>
     <script src=./js/scroll.js></script>
-
+    <script>$(function(){$("img.lazy").lazyload({threshold:2e3})})</script>
 </body>
 </html>
