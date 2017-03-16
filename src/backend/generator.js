@@ -2,6 +2,7 @@
 
 var exports = module.exports = {};
 var logger = require('./buildlogger.js');
+var gulp = require('./gulpfile.js');
 const fs = require('fs-extra');
 const handlebars = require('handlebars');
 const async = require('async');
@@ -206,8 +207,10 @@ exports.createDistDir = function(req, socket, callback) {
           console.log(copyerr);
           return socket.emit('live.error', {donePercent: 45, status: "Error in moving files from dependency folder" });
         }
-        logger.addLog('Success', 'Dependencies folder cleaned successfully', socket);
-        done(null, 'move');
+        return gulp.minifyJs(distHelper.distPath + '/' + appFolder, function() {
+          logger.addLog('Success', 'Dependencies folder cleaned successfully', socket);
+          return done(null, 'move');
+        })
       });
     },
     (done) => {
@@ -241,7 +244,6 @@ exports.createDistDir = function(req, socket, callback) {
         distHelper.copyMockJsons(appFolder);
         done(null, 'cleanuploads');
         break;
-
       }
     },
     (done) => {
@@ -259,8 +261,10 @@ exports.createDistDir = function(req, socket, callback) {
               console.log(writeErr);
               return socket.emit('live.error', { status: "Error in Writing css file" });
             }
-            logger.addLog('Success', 'css file was written successfully', socket);
-            done(null, 'sass');
+            return gulp.minifyCss(distHelper.distPath + '/' + appFolder, function () {
+              logger.addLog('Success', 'css file was written successfully', socket);
+              return done(null, 'sass');
+            });
           });
         }
         else {
@@ -340,9 +344,10 @@ exports.createDistDir = function(req, socket, callback) {
           console.log(remerr);
           if (emit) socket.emit('live.error', {status: "Error in removing the duplicate event folders of the same name" });
         }
-        logger.addLog('Success', 'Duplicated events removed successfully', socket);
-
-        done(null, 'remove');
+        return gulp.minifyHtml(distHelper.distPath + '/' + appFolder, function() {
+          logger.addLog('Success', 'Duplicated events removed successfully', socket);
+          return done(null, 'remove');
+        });
       });
 
     },
