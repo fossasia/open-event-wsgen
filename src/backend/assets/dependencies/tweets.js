@@ -1,6 +1,7 @@
-interval_id = null;
+var interval_id = null;
 var tweetP = document.getElementById('tweet');
 var dateOfTweet = document.getElementById("dateTweeted");
+var stuff = null;
 
 function interval() {
   if (interval_id !== null){
@@ -11,7 +12,7 @@ function interval() {
   }
 }
 
-function datafetcher() {
+var datafetcher = function () {
   loklakFetcher.getTweets({}, datahandler);
 }
 
@@ -39,6 +40,7 @@ function nextTweet() {
   dateOfTweet.style.opacity = 0;
   window.setTimeout(parseFunc, 560);
 }
+
 function lastTweet() {
   if (tweetNum > 0) {
     tweetNum -= 1;
@@ -105,10 +107,11 @@ function parser(data) {
     dateOfTweet.innerHTML = "Tweeted " + timeSince(tweetDate) + " ago";
     tweetP.style.opacity = 1;
     dateOfTweet.style.opacity = 1;
-    //document.getElementById("tweet-info").innerHTML = "Follow  <a href='https://twitter.com/" + user.screen_name + "'>" + "</a>";   
+    //document.getElementById("tweet-info").innerHTML = "Follow  <a href='https://twitter.com/" + user.screen_name + "'>" + "</a>";
   }catch(err){
     tweetP.innerHTML = "No Tweets Available";
     tweetP.style.opacity = 1;
   }
-  
 }
+
+window.datafetcher = datafetcher;
