@@ -65,15 +65,15 @@
       </div>
     </div>
 
-  <div class="eventpage container" style="background-color: white;">
+  <div class="eventpage container">
     {{#if eventurls.register}}
     <div class="listing-panel row">
         <div class="col-md-12">
          <div class="row">
            <div class="col-md-4">
            </div>
-           <div style="padding-right:30px" class="col-md-8">
-             <a id="ticket-button" style="display: block ; position: relative ; top: -87px ; visibility: hidden; "></a>
+           <div class="ticket-button-container col-md-8">
+             <a id="ticket-button" ></a>
              <a href="{{{eventurls.register}}}" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
            </div>
          </div>
@@ -84,7 +84,7 @@
     <div class ="container">
       {{#if eventurls.description}}
        <div class="row">
-          <div class="eventdes col-md-12"><p style="padding:1px;">{{{eventurls.description}}}</p></div>
+          <div class="eventdes col-md-12"><p>{{{eventurls.description}}}</p></div>
         </div>
       {{/if}}
     </div>
@@ -93,7 +93,7 @@
     <div class="row">
       <div class="col-md-12">
         <section class="speakers duplicatable-content">
-          <div style="padding:0px;" class="container">
+          <div class="container paddingzero">
             <div class="row">
               <div class="col-sm-12 text-center">
                   <h1 class="section-header">Featured Speakers</h1>
@@ -129,9 +129,9 @@
                   </div>
                 </div>
                 <div class="speaker-description">
-                  <h2 style="margin-right:20px;">{{name}}</h2>
-                  <span class="sub" style="margin-right:20px;">{{organisation}}</span>
-                  <p style="margin-right:20px;">
+                  <h2>{{name}}</h2>
+                  <span class="sub">{{organisation}}</span>
+                  <p >
                   {{{long_biography}}}
                   </p>
                 </div>
@@ -161,7 +161,7 @@
               <p id="tweet" class="tweet">
               Loading...
               </p>
-              <span style="margin-bottom: 20px;" id="dateTweeted"></span>
+              <span id="dateTweeted"></span>
               <p>Follow<u>
               <b><a href="{{eventurls.tweetUrl}}"/>
               @{{eventurls.twitterLink}}</a>
