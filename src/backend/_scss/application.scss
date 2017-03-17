@@ -1219,7 +1219,7 @@ a {
   max-width: 1600px;
   .classic {
     background: $white-classic-background;
-    background-color:#f5f5f5;
+    background-color: $white-classic-background;
     padding: 72px 0 36px;
     .menu {
       display: inline-block;
@@ -1556,9 +1556,9 @@ a.skip:hover {
 }
 
 #starred {
-  background-color:#eee;
-  color:black;
-  border-color:#333;
+  background-color: $light-gray;
+  color: $black;
+  border-color: $light-black;
   margin:0 auto;
 }
 
@@ -1582,7 +1582,7 @@ a.skip:hover {
 
 #event-title {
   font-size:18px;
-  color:#333333;
+  color: $light-black;
   padding-top:10px;
   padding-bottom:10px;
 }
@@ -1614,16 +1614,16 @@ a.skip:hover {
 }
 
 #speaker-body {
-  background-color: #f8f8f8 !important;
+  background-color: $header-color !important;
 }
 
 #speaker-container {
-  background-color: #fff;
+  background-color: $white;
   padding: 2%;
 }
 
 #pop-speaker-name {
-  color: black;
+  color: $black;
 }
 
 #session-location {
