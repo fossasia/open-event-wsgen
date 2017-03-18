@@ -7,6 +7,18 @@
 <html lang="en">
 <head>
 
+  <link rel="preload" as="script" href="./js/jquery.min.js">
+  <link rel="preload" as="script" href="./js/bootstrap.min.js">
+  <link rel="preload" as="script" href="./js/jquery.lazyload.js">
+  <link rel="preload" as="script" href="./js/popover.js">
+  <link rel="preload" as="script" href="./js/navbar.js">
+  <link rel="preload" as="script" href="./js/scroll.js">
+  <link rel="preload" as="script" href="./js/social.js">
+  <link rel="preload" as="style" href="./css/schedule.css">
+  <link rel="preload" as="style" href="./css/font-awesome.min.css">
+  <link rel="preload" as="style" href="./css/bootstrap.min.css">
+  <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,18 +32,19 @@
   <!-- Bootstrap core CSS -->
   <!-- Latest compiled and minified CSS -->
  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/schedule.css">
+ <link rel="stylesheet" href="./css/bootstrap.min.css">
+ <link rel="stylesheet" href="./css/schedule.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
-    </head>
+</head>
   <body style="background-color: #f8f8f8 !important;">
+    <a href="#speakers-list" class="skip">Skip to content</a>
     {{> scroll}}
   <a id="top"></a>
     {{> navbar}}
@@ -51,19 +64,19 @@
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
     <div class=row>
-        <div class="search-filter-speaker">
+        <div class="search-filter-speaker" id="speakers-list">
             <input class="fossasia-filter" type="text" placeholder="Search" />
 		    </div>
     </div>
 
   <div class="row speakers-row">
   {{#speakerslist}}
-    <div class="col-md-3 col-sm-6 speaker-column" id="{{nameIdSlug}}">
+    <div class="col-md-3 col-sm-6 speaker-column">
       <div class="speaker">
         <div class="image-holder">
          <a class="anchor" id="{{nameIdSlug}}"></a>
           {{#if photo}}
-          <img onError="this.onerror=null;this.src='images/avatar.png';"  class="background-image" alt="{{{name}}}" src="{{{photo}}}"/>
+          <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}" />
           {{else}}
           <img class="background-image" alt="{{{name}}}" src="images/avatar.png"/>
           {{/if}}
@@ -96,7 +109,12 @@
             <div class="pop-container" style="color:black";>
               <div class="pop">
                 <div class="pop-header">
-                  <span class="s-popup-header-name"><strong>{{{name}}}</strong> ({{{organisation}}})</span>
+                  <span class="s-popup-header-name"><strong>{{{name}}}</strong>
+                    {{#if organisation}}
+                        {{#ifvalue organisation notequals=""}}
+                            ({{{organisation}}})
+                        {{/ifvalue}}
+                    {{/if}}</span>
                 </div>
                 <div class="pop-over row">
                  {{{long_biography}}}
@@ -113,10 +131,15 @@
                   {{#if linkedin}}
                   <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
                   {{/if}}
-                  <a class="session-link" href="#s-{{nameIdSlug}}">
-                      <div class="col-xs-1 col-sm-1 col-md-1"><i class="fa fa-link"></i></div>
-                    </a>
-                    <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#{{nameIdSlug}}" style="display:none;" readonly>
+                  <a class="session-link clickable-link">
+                      <div class="col-xs-1 col-sm-1 col-md-1"><i class="fa fa-share"></i></div>
+                  </a>
+                 </div>
+                 <div class="social-buttons-speaker row">
+                  {{> social}}
+                  <div class="row social-link">
+                    <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#{{nameIdSlug}}" readonly\>
+                  </div>
                  </div>
                 </div>
                 <hr style="clear:both;width:75%;">
@@ -132,9 +155,9 @@
                     </strong>
                   </h5>
                   <a href="tracks.html#{{session_id}}">
-                   <h4 style="background-color:{{{color}}}"  class="sizeevent event">
+                   <h4 style="background-color:{{{color}}};"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
-                      {{{title}}}
+                      <span>{{{title}}}</span>
                     </h4>
                   </a>
                    {{/each}}
@@ -155,15 +178,24 @@
     {{> footer}}
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/jquery.lazyload.js"></script>
     <script type="text/javascript" src="./js/popover.js"></script>
     <script src="./js/navbar.js" type="text/javascript"></script>
     <script src="./js/scroll.js" type="text/javascript"></script>
+    <script src="./js/social.js" type="text/javascript"></script>
     <script type="text/javascript">
+
+      $(function() {
+            $("img.lazy").lazyload({
+              threshold : 2000
+            });
+      });
+
        $(document).ready(function(){
         $('.session-link').click(function() {
-            $(this).next('.speakers-inputbox').toggle().select();
-            var val = $(this).next('.speakers-inputbox').val();
-            $(this).next('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+            $(this).parent().parent().find("div.social-buttons-speaker").toggle();
+            var val = $(this).parent().parent().find('.speakers-inputbox').val();
+            $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
         $('.fossasia-filter:first').change(function() {
                 var filterVal = $(this).val();

@@ -106,7 +106,7 @@ describe('fold', function() {
         name: 'testapp'
       };
       fold.foldByLevel(data.sponsors.json,reqOpts, (levelData) => {
-          assert.equal(levelData['1'][0].name, 'Google');
+          assert.equal(levelData['1'][0].name, 'hackerspace.sg');
       });
     });
   });
@@ -138,3 +138,25 @@ describe('app',  () =>  {
   })
 });
 
+describe('generate', function() {
+  describe('.createDistDir()', function() {
+    this.timeout(200000);
+
+    it('should generate the event site', function(done) {
+      var data = {}
+      data.body = {
+        "email": "princu7@gmail.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA14/",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      }
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "princu7@gmail.com/FOSSASIA 2014");
+        done();
+      });
+
+    });
+  });
+});

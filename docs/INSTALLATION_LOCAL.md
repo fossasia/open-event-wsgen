@@ -1,11 +1,23 @@
 # How to install the Open Event Web App Generator on my local machine
 
 ## Deploying Locally
+
 First install the dependencies.
 
 ```shell
-npm install
+npm install or npm install bcrypt
 ```
+if getting error than, fix npm permissions globally.and start from step 1.
+refer this:"https://docs.npmjs.com/getting-started/fixing-npm-permissions"
+
+sometimes it may give an error of fetch failed
+then type
+
+```shell
+npm config set registry http://registry.npmjs.org/
+```
+
+and then restart the terminal and start from step 1
 
 Run the app
 
