@@ -43,3 +43,7 @@ pre#buildLog{
 	font-size: 12px;
 	text-align: left;
 }
+
+#btnLive, #btnDownload, #deploy {
+  margin-top : 1%;
+}
