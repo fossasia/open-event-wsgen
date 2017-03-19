@@ -9,12 +9,6 @@ $(document).ready(function () {
       speakerinfo = $(".speaker-info");
 
   popbox.addClass('hide');
-  if( widthWindow < 768) {
-    $(document).on('click','.sizeevent',function (event) {
-      popBox(event);
-    });
-  }
-  else {
     headerpop.hover(function (event) {
       popBox(event);
     },function(){
@@ -22,7 +16,6 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
- }
 
   let imageholder = $(".image-holder"),
       speaker = $(".speaker"),
