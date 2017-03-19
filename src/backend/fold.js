@@ -37,6 +37,11 @@ function returnTrackColor(trackInfo, id) {
   return trackInfo[id];
 }
 
+function checkNullHtml(html) {
+  html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
+  return (html === '');
+}
+
 function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -98,7 +103,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -193,7 +198,7 @@ function foldByTime(sessions, speakers, trackInfo) {
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -620,7 +625,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
       type: (session.session_type == null) ? '' : session.session_type.name,
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       audio:session.audio,
       speakers_list: session.speakers.map((speaker) => {
@@ -722,7 +727,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             linkedin: speaker.linkedin ,
             twitter: speaker.twitter ,
             website: speaker.website ,
-            long_biography: (speaker.long_biography === '') ? speaker.short_biography : speaker.long_biography,
+            long_biography: (checkNullHtml(speaker.long_biography)) ? speaker.short_biography : speaker.long_biography,
             mobile: speaker.mobile,
             name: speaker.name,
             thumb: thumb,
