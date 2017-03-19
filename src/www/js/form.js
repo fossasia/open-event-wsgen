@@ -76,6 +76,8 @@ $(document).ready(function () {
     enableGenerateButton(false);
     $('#btnLive').hide();
     $('#btnDownload').hide();
+    $('input[ type = "radio" ]').attr('disabled', false);
+    $('#email').prop('disabled', false);
   });
 
   $('#siofu_input').click(function() {
@@ -161,6 +163,8 @@ $(document).ready(function () {
     $('.generator-progress').show();
     $('#generator-progress-bar').show();
     $('#btnGenerate').prop('disabled', true);
+    $('input[ type = "radio" ]').attr('disabled', true);
+    $('#email').prop('disabled', true);
   }
   });
 
