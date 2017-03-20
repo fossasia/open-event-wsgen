@@ -87,17 +87,19 @@
                     <h5 class="text">{{date}}</h4>
                   </div>
                 </div>
-                <div class="row">
+                  {{#venue}}
+                  <div class="venue-filter row">
+                    <div class="row">
+                      <div style="clear:both" class="col-md-12">
+                        <a class="anchor" id="venue-{{slug}}"></a>
+                        {{#if venue }}
+                          <h5 class="text">{{venue}}</h5>
+                        {{/if}}
+                      </div>
+                    </div>
                   {{#sessions}}
                       <div class="room-filter" id="{{session_id}}">
                       <a class="anchor" id="venue-{{session_id}}"></a>
-                      <div class="row">
-                        <div style="clear:both" class="col-md-12">
-                        {{#if venue }}
-                        <h5 class="text">{{venue}}</h5>
-                        {{/if}}
-                        </div>
-                      </div>
                       <div class="eventtime col-xs-2 col-sm-2 col-md-2">
                         <span class="time-track">{{start}} - {{end}}</span>
                       </div>
@@ -236,6 +238,7 @@
                   </div>
                   {{/sessions}}
                 </div>
+                {{/venue}}
             </div>
             {{/roomsinfo}}
           </div>
@@ -291,17 +294,26 @@
           if (filterVal) {
             $('.date-filter').each(function() {
               var flag = 1;
-              $(this).find('.room-filter').each(function() {
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+              $(this).find('.venue-filter').each(function() {
+                var flagVenue = 1;
+                $(this).find('.room-filter').each(function() {
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                    $(this).hide();
+                  } else {
+                    if($(this).is(':visible')) {
+                      flag = 0;
+                      flagVenue = 0;
+                      $(this).show();
+                    }
+                  }
+                });
+                if (flagVenue == 1) {
                   $(this).hide();
                 } else {
-                  if($(this).is(':visible')) {
-                    flag = 0;
-                    $(this).show();
-                  }
+                  $(this).show();
                 }
               });
               if (flag == 1) {
@@ -315,7 +327,10 @@
               display();
             } else {
               $('.date-filter').each(function() {
-                $(this).find('.room-filter').each(function() {
+                $(this).find('.venue-filter').each(function() {
+                  $(this).find('.room-filter').each(function() {
+                    $(this).show();
+                  });
                   $(this).show();
                 });
                 $(this).show();
@@ -388,24 +403,31 @@
           var temp = JSON.parse(localStorage['sessions']);
           $('.date-filter').each(function() {
             var dateFlag = 0;
-            $(this).find('.room-filter').each(function() {
-              var elemId = $(this).attr('id');
-              var elemFlag = 0;
-              if(temp[elemId] == 1) {
-                elemFlag = dateFlag = 1;
-                $(this).find('.bookmark').each(function() {
-                  $(this).css("color", "black");
-                });
-              }
-
-              if (elemFlag || !mode) {
+            $(this).find('.venue-filter').each(function() {
+              var venueFlag = 0;
+              $(this).find('.room-filter').each(function() {
+                var elemId = $(this).attr('id');
+                var elemFlag = 0;
+                if(temp[elemId] == 1) {
+                  elemFlag = venueFlag = dateFlag = 1;
+                  $(this).find('.bookmark').each(function() {
+                    $(this).css("color", "black");
+                  });
+                }
+                if (elemFlag || !mode) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(venueFlag || !mode) {
                 $(this).show();
               }
               else {
                 $(this).hide();
               }
             });
-
             if(dateFlag || !mode) {
               $(this).show();
             }
