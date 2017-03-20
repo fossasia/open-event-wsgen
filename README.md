@@ -26,7 +26,7 @@ The component that is generator from the web app are the event websites. A sampl
 
 #### Technologies used
 
-The webapp generator uses the following technologies - 
+The webapp generator uses the following technologies -
  1. HTML/CSS/Javascript based frontend
  2. [SASS](http://sass-lang.com/) - SASS to write optimized CSS.
  3. [Node.js](http://nodejs.org) - Javascript for the generator backend
@@ -38,14 +38,14 @@ The webapp generator uses the following technologies -
 
 1. Webform
 
- The source of the webform can be found [here](/src/www). It consists of - 
+ The source of the webform can be found [here](/src/www). It consists of -
 
  - [index.html](/src/www/index.html) - The webform page
  - [form.js](/src/www/js/form.js) - The script that uploads the zips, and starts the generator process
- 
+
 2. Generator
 
- The generator runs on a ExpressJS server, using this main [app script](/src/app.js). 
+ The generator runs on a ExpressJS server, using this main [app script](/src/app.js).
 
 3. Scripts
 
@@ -55,11 +55,12 @@ The webapp generator uses the following technologies -
  - [ftpdeploy.js](/src/backend/ftpdeploy.js) - Deploys finished website to organiser's server (optional)
  - [mailer.js](/src/backend/mailer.js) - Sends mail to organiser notifying of successful creation
  - [buildlogger.js](/src/backend/buildlogger.js) - Displays build logs while generating webapp
- - [deploy.js](/src/backend/deploy.js) - Automatically deploys generated event sites to User's Github Account
- 
+ - [deploy.js](/src/backend/deploy.js) - Automatically deploys generated event sites to user's github account
+ - [gulpfile.js](/src/backend/gulpfile.js) - Creates minified js and css for generated webapp
+
 4. Templates
 
- The HTML pages of the generated website are created using Handelbars templates. You can find all the templates [here](/src/backend/templates) - 
+ The HTML pages of the generated website are created using Handelbars templates. You can find all the templates [here](/src/backend/templates) -
 
   - **footer.hbs** : Common template for footer on all pages
   - **navbar.hbs** : Common template for navbar on all pages
@@ -127,12 +128,12 @@ Or use the 1-click deployment button
 
 ### Endpoints
 ```
-POST /generate 
+POST /generate
 ```
 
 **Parameters `(x-www-form-urlencoded)` or `json`**
 
-| Parameter  | Description | Purpose | 
+| Parameter  | Description | Purpose |
 |---         |---          |---      |
 |name|(required) Name of the webapp   | Unique name of the webapp|
 |email|(required) Your email id | We will send a email to this when your webapp is ready|
@@ -144,7 +145,7 @@ POST /generate
 
 All configurations are saved in the [config.js](/config.json) file.  
 
-NOTE: In this document all `config.<obj>` variables refer to the data in the *config.json* file. 
+NOTE: In this document all `config.<obj>` variables refer to the data in the *config.json* file.
 
 ### Server Configs
 
@@ -159,8 +160,8 @@ We use Sendgrid to send mails, and you need a Sendgrid API to make it work. Addi
 
 | Variable | Description |
 | ----     | ----        |
-`process.env.SENDGRID_API_KEY` | (Tries to get from shell env first) 
-`config.SENDGRID_API_KEY` | (Falls back to config file) 
+`process.env.SENDGRID_API_KEY` | (Tries to get from shell env first)
+`config.SENDGRID_API_KEY` | (Falls back to config file)
 `process.env.SMTP_USERNAME` | (Tries to get from shell env first)
 `config.SMTP_USERNAME` | (Falls back to config file)
 `process.env.SMTP_PASSWORD` | (Tries to get from shell env first)
@@ -172,10 +173,10 @@ uploaded file has a unique download link. `node-uuid` module is used for generat
 
 | Variable | Description |
 | ----     | ----        |
-`process.env.AWS_ACCESS_KEY_ID` | (Tries to get from shell env first) 
-`config.AWS_ACCESS_KEY_ID` | (Falls back to config file) 
-`process.env.AWS_SECRET_ACCESS_KEY` | (Tries to get from shell env first) 
-`config.AWS_SECRET_ACCESS_KEY` | (Falls back to config file) 
+`process.env.AWS_ACCESS_KEY_ID` | (Tries to get from shell env first)
+`config.AWS_ACCESS_KEY_ID` | (Falls back to config file)
+`process.env.AWS_SECRET_ACCESS_KEY` | (Tries to get from shell env first)
+`config.AWS_SECRET_ACCESS_KEY` | (Falls back to config file)
 
 ### Github Deploy
 The web-app is able to automatically deploy the generated event sites to Github Pages of a User. We use `passport` library for authentication of
@@ -192,7 +193,7 @@ the user. For uploading and committing the event files, we use `github` library 
 
 
 #### Images
-We need to process all the speaker images and there are certain configs used - 
+We need to process all the speaker images and there are certain configs used -
 
 | Variable | Description |
 | ----     | ----        |
@@ -201,8 +202,8 @@ We need to process all the speaker images and there are certain configs used -
 `config.speaker_images.TRACK_HEIGHT_REM` |(Speaker image height, in CSS rem units, for tracks page)
 `config.speaker_images.TRACK_WIDTH_REM` |(Speaker image width, in CSS rem units, for tracks page)
 
-#### Audio 
-Some sessions can have a recorded audio attached to them. The parameters for that are 
+#### Audio
+Some sessions can have a recorded audio attached to them. The parameters for that are
 
 | Variable | Description |
 | ----     | ----        |
