@@ -656,19 +656,33 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
   for (let i = 0; i < roomsDetailLength; i++) {
     // sort all sessions in each day by 'venue + date'
     roomsDetail[i].sessions.sort(byProperty('sortKey'));
+    roomsDetail[i].venue = [];
 
     // remove venue names from all but the 1st session in each venue
     let sessionsLength = roomsDetail[i].sessions.length;
     let prevVenue = '';
+    let tempVenue = {};
+    tempVenue.sessions = [];
+
     for (let j = 0; j < sessionsLength; j++) {
       if (roomsDetail[i].sessions[j].venue == prevVenue) {
         roomsDetail[i].sessions[j].venue = '';
+        tempVenue.sessions.push(roomsDetail[i].sessions[j]);
       } else {
+        if(JSON.stringify(tempVenue) != JSON.stringify({}) && prevVenue != '') {
+          roomsDetail[i].venue.push(tempVenue)
+          tempVenue = {};
+          tempVenue.sessions = [];
+        }
+        tempVenue.venue = roomsDetail[i].sessions[j].venue;
+        tempVenue.slug = replaceSpaceWithUnderscore(tempVenue.venue);
+        tempVenue.sessions.push(roomsDetail[i].sessions[j]);
         prevVenue = roomsDetail[i].sessions[j].venue;
       }
     }
+    roomsDetail[i].venue.push(tempVenue);
+    roomsDetail[i].sessions = {};
   }
-
   return roomsDetail;
 }
 

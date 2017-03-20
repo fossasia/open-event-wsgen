@@ -16,11 +16,11 @@
    <div class="tabs-nav">
       {{#timeList}}
       <a href="#" class="tabs-nav-link">{{date}}</a>
-      {{/timeList}}                          
+      {{/timeList}}
    </div>
    {{#roomsinfo}}
    <div class="tab">
-      <div class="tab-content">{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{session_id}}">{{venue}} {{/if}} </a>{{/sessions}}</div>
+     <div class="tab-content">{{#venue}}{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{../slug}}">{{venue}} {{/if}} </a>{{/sessions}}{{/venue}}</div>
    </div>
    {{/roomsinfo}}
 </div>
