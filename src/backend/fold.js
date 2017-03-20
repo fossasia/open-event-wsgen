@@ -227,7 +227,7 @@ function foldByDate(tracks) {
     if (!dateMap.has(track.date)) {
       dateMap.set(track.date, {
         caption: track.date,
-        firstSlug: track.slug,
+        firstSlug: (track.slug == null) ? null : track.slug.substring(0, track.slug.lastIndexOf('-')),
         tracks: []
       });
     }

@@ -78,16 +78,24 @@
             <div style="margin: 15px 0 0 15px;" class="col-md-9">
                      {{> subnavbar flag = 1}}
               <div style="margin-top:4%" id="track-list">
-                {{#tracks}}
+                {{#days}}
                 <div class="date-filter">
                   <div style="padding:0" class="row">
                     <div style="padding:0" class="col-md-12">
-                      <a class="anchor" id="{{slug}}"></a>
-                      <h3 class="text title-filter">{{title}}</h3>
-                      <h5 class="text">{{date}}</h4>
+                      <a class="anchor" id="{{firstSlug}}"></a>
+                      <h5 class="text">{{caption}}</h4>
                     </div>
                   </div>
-                  <div class="row">
+                  {{#tracks}}
+                  <div class="track-filter row">
+                    <div class="row">
+                      <div style="clear:both" class="col-md-12">
+                      {{#if title }}
+                      <a class="anchor" id="{{slug}}"></a>
+                      <h4 class="text">{{title}}</h5>
+                      {{/if}}
+                      </div>
+                    </div>
                     {{#sessions}}
                     <div class="room-filter">
                       <a class="anchor" id="{{session_id}}"></a>
@@ -214,8 +222,9 @@
                   </div>
                   {{/sessions}}
                 </div>
+                {{/tracks}}
               </div>
-              {{/tracks}}
+              {{/days}}
             </div>
           </div>
           <div class="track-names">
@@ -270,17 +279,26 @@
           if (filterVal) {
             $('.date-filter').each(function() {
               var flag = 1;
-              $(this).find('.room-filter').each(function() {
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+              $(this).find('.track-filter').each(function() {
+                var flagTrack = 1;
+                $(this).find('.room-filter').each(function() {
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                    $(this).hide();
+                  } else {
+                    if($(this).is(':visible')) {
+                      flag = 0;
+                      flagTrack = 0;
+                      $(this).show();
+                    }
+                  }
+                });
+                if (flagTrack == 1) {
                   $(this).hide();
                 } else {
-                  if($(this).is(':visible')) {
-                    flag = 0;
-                    $(this).show();
-                  }
+                  $(this).show();
                 }
               });
               if (flag == 1) {
@@ -294,7 +312,10 @@
               display();
             } else {
               $('.date-filter').each(function() {
-                $(this).find('.room-filter').each(function() {
+                $(this).find('.track-filter').each(function() {
+                  $(this).find('.room-filter').each(function() {
+                    $(this).show();
+                  });
                   $(this).show();
                 });
                 $(this).show();
@@ -369,25 +390,33 @@
 
           $('.date-filter').each(function() {
             var dateFlag = 0;
-            $(this).find('.room-filter').each(function() {
-              var anchorElem = $(this).children('a')[0];
-              var elemId = $(anchorElem).attr('id');
-              var elemFlag = 0;
-              if(temp[elemId] == 1) {
-                elemFlag = dateFlag = 1;
-                $(this).find('.bookmark').each(function() {
-                  $(this).css("color", "black");
-                });
-              }
+            $(this).find('.track-filter').each(function() {
+              var trackFlag = 0;
+              $(this).find('.room-filter').each(function() {
+                var anchorElem = $(this).children('a')[0];
+                var elemId = $(anchorElem).attr('id');
+                var elemFlag = 0;
+                if(temp[elemId] == 1) {
+                  elemFlag = trackFlag = dateFlag = 1;
+                  $(this).find('.bookmark').each(function() {
+                    $(this).css("color", "black");
+                  });
+                }
 
-              if (elemFlag || !mode) {
+                if (elemFlag || !mode) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(trackFlag || !mode) {
                 $(this).show();
               }
               else {
                 $(this).hide();
               }
             });
-
             if(dateFlag || !mode) {
               $(this).show();
             }
