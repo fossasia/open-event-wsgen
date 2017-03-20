@@ -238,6 +238,10 @@
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/tracks.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      var maxNoOfSessions = 1000;
+      var flag = 0;
+      var isAdded = 0;
+      var mode = 0;
 
       $(function() {
             $("img.lazy").lazyload({
@@ -273,8 +277,10 @@
                     $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                   $(this).hide();
                 } else {
-                  flag = 0;
-                  $(this).show();
+                  if($(this).is(':visible')) {
+                    flag = 0;
+                    $(this).show();
+                  }
                 }
               });
               if (flag == 1) {
@@ -284,12 +290,16 @@
               }
             });
           } else {
-            $('.date-filter').each(function() {
-              $(this).find('.room-filter').each(function() {
+            if(mode) {
+              display();
+            } else {
+              $('.date-filter').each(function() {
+                $(this).find('.room-filter').each(function() {
+                  $(this).show();
+                });
                 $(this).show();
               });
-              $(this).show();
-            });
+            }
           }
 
           // show "no results" if search input value matches zero items
@@ -303,14 +313,6 @@
         }).keyup(function() {
           $(this).change();
         });
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var maxNoOfSessions = 1000;
-        var flag = 0;
-        var isAdded = 0;
-        var mode = 0;
 
         $('.bookmark').click(function(){
           flag = 1;
