@@ -780,7 +780,7 @@ sessiondetail.forEach((session) => {
   const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
   if(session.detail !== undefined ) {
     speakersession.push({
-
+      sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
       title: session.detail.title,
@@ -792,7 +792,7 @@ sessiondetail.forEach((session) => {
   }
 
 })
-
+speakersession.sort(byProperty('sortKey'));
 return speakersession;
 
 }
