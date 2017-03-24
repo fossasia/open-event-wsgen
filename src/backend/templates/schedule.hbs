@@ -304,7 +304,7 @@
           });
 
           $('.bookmark').click(function(event){
-            var temp = JSON.parse(localStorage['schedule']);
+            var temp = JSON.parse(localStorage['sessions']);
             var id = Number($(this).attr('id').substr(1));
             flag = 1;
             var curColor = $(this).css("color");
@@ -318,7 +318,7 @@
               temp[id] = 1;
               isAdded = 1;
             }
-            localStorage['schedule'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
           });
 
           $('.track-inline').click(function(event){
@@ -344,10 +344,10 @@
 
           function display() {
             console.log("Inside the display function");
-            if(localStorage.hasOwnProperty('schedule') === false) {
-              localStorage['schedule'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+            if(localStorage.hasOwnProperty('sessions') === false) {
+              localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
             }
-            var temp = JSON.parse(localStorage['schedule']);
+            var temp = JSON.parse(localStorage['sessions']);
 
             $('.day-filter').each(function() {
               var dayFlag = 0;

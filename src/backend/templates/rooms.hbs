@@ -349,7 +349,7 @@
         });
 
         $('.room-filter').click(function(){
-          var temp = JSON.parse(localStorage['rooms']);
+          var temp = JSON.parse(localStorage['sessions']);
           var id = Number($(this).attr('id'));
           if (flag) {
             if (isAdded) {
@@ -361,7 +361,7 @@
                 $(this).hide();
               }
             }
-            localStorage['rooms'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
             flag = isAdded = 0;
           }
         });
@@ -382,10 +382,10 @@
         });
 
         function display() {
-          if(localStorage.hasOwnProperty('rooms') === false) {
-            localStorage['rooms'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty('sessions') === false) {
+            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
           }
-          var temp = JSON.parse(localStorage['rooms']);
+          var temp = JSON.parse(localStorage['sessions']);
           $('.date-filter').each(function() {
             var dateFlag = 0;
             $(this).find('.room-filter').each(function() {

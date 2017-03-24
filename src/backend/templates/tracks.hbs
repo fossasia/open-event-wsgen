@@ -349,7 +349,7 @@
         });
 
         $('.room-filter').click(function(){
-          var temp = JSON.parse(localStorage['tracks']);
+          var temp = JSON.parse(localStorage['sessions']);
           var anchorElem = $(this).children('a')[0];
           var id = $(anchorElem).attr('id');
           if (flag) {
@@ -363,7 +363,7 @@
               }
             }
             flag = isAdded = 0;
-            localStorage['tracks'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
           }
         });
 
@@ -383,10 +383,10 @@
         });
 
         function display() {
-          if(localStorage.hasOwnProperty('tracks') === false) {
-            localStorage['tracks'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty('sessions') === false) {
+            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
           }
-          var temp = JSON.parse(localStorage['tracks']);
+          var temp = JSON.parse(localStorage['sessions']);
 
           $('.date-filter').each(function() {
             var dateFlag = 0;
