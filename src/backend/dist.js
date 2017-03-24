@@ -108,6 +108,7 @@ var extensionChange = function(image) {
 var optimizeBackground = function(image, socket, done) {
   if(image != null) {
     sharp(image)
+    .resize(1150,500)
     .toFile(extensionChange(image), (err) => {
       if(err) {
         console.log(err);
@@ -171,7 +172,7 @@ var resizeSpeakers = function(dir, socket, done) {
     }
     async.each(list, function(image, trial) {
       sharp(dir + '/speakers/' + image)
-        .resize(300, 300)
+        .resize(264, 264)
         .background({r: 255, g: 255, b: 255, a: 0})
         .embed()
         .toFile(dir + '/speakers/' + extensionChange(image), (err) => {
