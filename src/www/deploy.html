@@ -18,21 +18,28 @@
     <div class = "container">
       <div class = "col-md-3"> </div>
       <div class = "col-md-6 col-xs-12" style="text-align:center">
-        <h3 id = "title"> Thanks for logging in to the github account. Press the button below to start the deployment process </h2>
-        <button id = "deploy" class = "btn btn-primary" > DEPLOY </button>
+        <h3 id = "title"> Thanks for logging in to the github account. Press the button below to start the deployment process </h3>
+        <button id = "deploy" class = "btn btn-primary" > DEPLOY </button><br><br>
         <button id = "abort" class = "btn btn-primary btn-danger" style="display:none" > ABORT </button>
         <div class="upload-progress progress" style = "display:none; height:20px; margin-top:20px; margin-bottom:20px;">
           <div class="progress-bar" role="progressbar" id="upload-progress-bar" style="width:0%; height: 20px;">
             <span id="upload-progress-val">0%</span>
-          </div>
         </div>
-        <div id="info">
-          <h3 id = "msg"> </h3>
-          <div id = "error"> </div>
-          <h4 id = "link"> </h4>
-        </div>
+
       </div>
       <div class = "col-md-3"> </div>
+        <br><br>
+        <div class = "col-xs-12">
+          <div class = "row">
+              <a href="http://opev-webgen-dev.herokuapp.com"><button class = "btn btn-primary"><span class = "glyphicon glyphicon-hand-left">&nbsp;</span>Go to website generator</button></a>
+          </div>
+          <div id="info row">
+            <h3 id = "msg"> </h3>
+            <div id = "error"> </div>
+            <h4 id = "link"> </h4>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 

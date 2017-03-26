@@ -8,11 +8,7 @@
 <head>
  <link rel="preload" as="script" href="./js/jquery.min.js">
  <link rel="preload" as="script" href="./js/bootstrap.min.js">
- <link rel="preload" as="script" href="./js/jquery.lazyload.js">
- <link rel="preload" as="script" href="./js/navbar.js">
- <link rel="preload" as="script" href="./js/scroll.js">
- <link rel="preload" as="script" href="./js/tabs.js">
- <link rel="preload" as="script" href="./js/social.js">
+ <link rel="preload" as="script" href="./js/rooms.min.js">
  <link rel="preload" as="style" href="./css/schedule.css">
  <link rel="preload" as="style" href="./css/font-awesome.min.css">
  <link rel="preload" as="style" href="./css/bootstrap.min.css">
@@ -91,17 +87,19 @@
                     <h5 class="text">{{date}}</h4>
                   </div>
                 </div>
-                <div class="row">
+                  {{#venue}}
+                  <div class="venue-filter row">
+                    <div class="row">
+                      <div style="clear:both" class="col-md-12">
+                        <a class="anchor" id="venue-{{slug}}"></a>
+                        {{#if venue }}
+                          <h5 class="text">{{venue}}</h5>
+                        {{/if}}
+                      </div>
+                    </div>
                   {{#sessions}}
                       <div class="room-filter" id="{{session_id}}">
                       <a class="anchor" id="venue-{{session_id}}"></a>
-                      <div class="row">
-                        <div style="clear:both" class="col-md-12">
-                        {{#if venue }}
-                        <h5 class="text">{{venue}}</h5>
-                        {{/if}}
-                        </div>
-                      </div>
                       <div class="eventtime col-xs-2 col-sm-2 col-md-2">
                         <span class="time-track">{{start}} - {{end}}</span>
                       </div>
@@ -239,6 +237,7 @@
                   </div>
                   {{/sessions}}
                 </div>
+                {{/venue}}
             </div>
             {{/roomsinfo}}
           </div>
@@ -259,13 +258,15 @@
 
     {{> footer}}
     <script src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.lazyload.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="./js/navbar.js" type="text/javascript"></script>
-    <script src="./js/scroll.js" type="text/javascript"></script>
-    <script src="./js/social.js" type="text/javascript"></script>
+    <script src="./js/rooms.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+
+        var maxNoOfSessions = 1000;
+        var flag = 0;
+        var isAdded = 0;
+        var mode = 0;
 
         $(function() {
           $("img.lazy").lazyload({
@@ -292,14 +293,25 @@
           if (filterVal) {
             $('.date-filter').each(function() {
               var flag = 1;
-              $(this).find('.room-filter').each(function() {
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+              $(this).find('.venue-filter').each(function() {
+                var flagVenue = 1;
+                $(this).find('.room-filter').each(function() {
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                    $(this).hide();
+                  } else {
+                    if($(this).is(':visible')) {
+                      flag = 0;
+                      flagVenue = 0;
+                      $(this).show();
+                    }
+                  }
+                });
+                if (flagVenue == 1) {
                   $(this).hide();
                 } else {
-                  flag = 0;
                   $(this).show();
                 }
               });
@@ -310,12 +322,19 @@
               }
             });
           } else {
-            $('.date-filter').each(function() {
-              $(this).find('.room-filter').each(function() {
+            if(mode) {
+              display();
+            } else {
+              $('.date-filter').each(function() {
+                $(this).find('.venue-filter').each(function() {
+                  $(this).find('.room-filter').each(function() {
+                    $(this).show();
+                  });
+                  $(this).show();
+                });
                 $(this).show();
               });
-              $(this).show();
-            });
+            }
           }
 
           // show "no results" if search input value matches zero items
@@ -329,14 +348,6 @@
         }).keyup(function() {
           $(this).change();
         });
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var maxNoOfSessions = 1000;
-        var flag = 0;
-        var isAdded = 0;
-        var mode = 0;
 
         $('.bookmark').click(function(){
           flag = 1;
@@ -352,7 +363,7 @@
         });
 
         $('.room-filter').click(function(){
-          var temp = JSON.parse(localStorage['rooms']);
+          var temp = JSON.parse(localStorage['sessions']);
           var id = Number($(this).attr('id'));
           if (flag) {
             if (isAdded) {
@@ -364,7 +375,7 @@
                 $(this).hide();
               }
             }
-            localStorage['rooms'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
             flag = isAdded = 0;
           }
         });
@@ -385,30 +396,37 @@
         });
 
         function display() {
-          if(localStorage.hasOwnProperty('rooms') === false) {
-            localStorage['rooms'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty('sessions') === false) {
+            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
           }
-          var temp = JSON.parse(localStorage['rooms']);
+          var temp = JSON.parse(localStorage['sessions']);
           $('.date-filter').each(function() {
             var dateFlag = 0;
-            $(this).find('.room-filter').each(function() {
-              var elemId = $(this).attr('id');
-              var elemFlag = 0;
-              if(temp[elemId] == 1) {
-                elemFlag = dateFlag = 1;
-                $(this).find('.bookmark').each(function() {
-                  $(this).css("color", "black");
-                });
-              }
-
-              if (elemFlag || !mode) {
+            $(this).find('.venue-filter').each(function() {
+              var venueFlag = 0;
+              $(this).find('.room-filter').each(function() {
+                var elemId = $(this).attr('id');
+                var elemFlag = 0;
+                if(temp[elemId] == 1) {
+                  elemFlag = venueFlag = dateFlag = 1;
+                  $(this).find('.bookmark').each(function() {
+                    $(this).css("color", "black");
+                  });
+                }
+                if (elemFlag || !mode) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(venueFlag || !mode) {
                 $(this).show();
               }
               else {
                 $(this).hide();
               }
             });
-
             if(dateFlag || !mode) {
               $(this).show();
             }
@@ -421,5 +439,4 @@
       });
     </script>
   </body>
-      <script type="text/javascript" src = "./js/tabs.js"></script>
 </html>

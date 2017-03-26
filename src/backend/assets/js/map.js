@@ -1,4 +1,4 @@
-function initMap() {
+var initMap = function () {
   var mapword = document.getElementById('mappos').value;
   var maparray = mapword.split(',');
   var latitude = parseFloat(maparray[0]);
@@ -14,4 +14,6 @@ function initMap() {
     position: myLatLng,
     map: map
   });
-  }
+}
+
+window.initMap = initMap;

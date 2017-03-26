@@ -1,20 +1,14 @@
 /* Created by aayusharora on June 20, 2017 */
 
 $(document).ready(function () {
-  let widthWindow = $(window).width();
-      popbox = $(".pop-box");
-      headerpop = $(".header-pop");
-      sizeevent = $(".sizeevent");
-      tracktime = $(".sizeevent span"); 
+  let widthWindow = $(window).width(),
+      popbox = $(".pop-box"),
+      headerpop = $(".header-pop"),
+      sizeevent = $(".sizeevent"),
+      tracktime = $(".sizeevent span"),
       speakerinfo = $(".speaker-info");
-     
+
   popbox.addClass('hide');
-  if( widthWindow < 768) {
-    $(document).on('click','.sizeevent',function (event) {
-      popBox(event);
-    });
-  }
-  else {
     headerpop.hover(function (event) {
       popBox(event);
     },function(){
@@ -22,15 +16,11 @@ $(document).ready(function () {
       hidePopbox();
       hideUnderline();
     });
- }
-(function(){
 
-  let imageholder = $(".image-holder");
-      speaker = $(".speaker");
-      hoverstate= $(".hover-state");
-      popbox = $(".pop-box");
-      preserve3d= $(".preserve3d");
-      widthWindow = $(window).width();
+  let imageholder = $(".image-holder"),
+      speaker = $(".speaker"),
+      hoverstate= $(".hover-state"),
+      preserve3d= $(".preserve3d"),
       openflag = 0;
   if( widthWindow < 768) {
     $(document).on('click','.image-holder',function (event) {
@@ -48,7 +38,7 @@ $(document).ready(function () {
     imageholder.hover(function(event) {
        addOverlay(event);
     },function(event){
-       removeOverlay(event);      
+       removeOverlay(event);
     })
     speaker.hover(function(event){
       if(!(hoverstate).is(event.target)){
@@ -62,8 +52,6 @@ $(document).ready(function () {
     })
 
   }
-    
-  })();  
 
   function popBox(e) {
     event = e || window.event;
@@ -76,7 +64,7 @@ $(document).ready(function () {
     let outerContheight = $(".main").offset().top + $(".main").outerHeight();
     let sizecontainer = sizeevent;
         timeOftrack = tracktime;
-        
+
     if(!sizecontainer.is(event.target)) {
       if(!timeOftrack.is(event.target)){
         track = $(event.target).children("h4");
@@ -84,7 +72,7 @@ $(document).ready(function () {
       else {
         track = $(event.target).parent();
       }
-      
+
     }
     else {
       track = $(event.target);
@@ -99,7 +87,7 @@ $(document).ready(function () {
    let tracktocheck = track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
        shift = tracktocheck - outerContheight;
    if(shift > 0){
-   
+
     $(".footer").css({
       "position":"absolute",
       "top": outerContheight + shift,
@@ -151,21 +139,21 @@ $(document).ready(function () {
      }
   else {
     hidePopbox();
-   
+
   }
 }
 
   function addOverlay(event) {
-    let imageholder = $(".image-holder");
-        speaker = $(".speaker");
-        hoverstate= $(".hover-state");
-        popbox = $(".pop-box");
+    let imageholder = $(".image-holder"),
+        speaker = $(".speaker"),
+        hoverstate= $(".hover-state"),
+        popbox = $(".pop-box"),
         preserve3d = $(".preserve3d");
 
     popbox.addClass('hide');
     event.preventDefault();
     event.stopPropagation();
-    
+
     let imagehover = event.target;
     if((imageholder).is(event.target) ) {
       $(imagehover).next().removeClass('hide');
@@ -186,7 +174,7 @@ $(document).ready(function () {
     if (!$('.preserve3d').is(event.target) && !$('.pop-box').is(event.target) ){
       adjustFooter(event);
 
-    } 
+    }
   }
 
   if (widthWindow < 768) {
@@ -198,5 +186,5 @@ $(document).ready(function () {
          removeOverlay(e);
       }
     });
-  } 
+  }
 });

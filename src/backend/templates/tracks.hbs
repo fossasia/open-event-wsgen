@@ -7,11 +7,7 @@
   <head>
     <link rel="preload" as="script" href="./js/jquery.min.js">
     <link rel="preload" as="script" href="./js/bootstrap.min.js">
-    <link rel="preload" as="script" href="./js/jquery.lazyload.js">
-    <link rel="preload" as="script" href="./js/tabs.js">
-    <link rel="preload" as="script" href="./js/navbar.js">
-    <link rel="preload" as="script" href="./js/scroll.js">
-    <link rel="preload" as="script" href="./js/social.js">
+    <link rel="preload" as="script" href="./js/tracks.min.js">
     <link rel="preload" as="style" href="./css/schedule.css">
     <link rel="preload" as="style" href="./css/font-awesome.min.css">
     <link rel="preload" as="style" href="./css/bootstrap.min.css">
@@ -82,16 +78,25 @@
             <div id="content-block" class="col-md-9">
                      {{> subnavbar flag = 1}}
               <div id="track-list">
-                {{#tracks}}
+                {{#days}}
                 <div class="date-filter">
                   <div class="row paddingzero">
                     <div class="col-md-12 paddingzero">
-                      <a class="anchor" id="{{slug}}"></a>
-                      <h3 class="text title-filter">{{title}}</h3>
-                      <h5 class="text">{{date}}</h4>
+                      <a class="anchor" id="{{firstSlug}}"></a>
+                      <h5 class="text">{{caption}}</h4>
+                      
                     </div>
                   </div>
-                  <div class="row">
+                  {{#tracks}}
+                  <div class="track-filter row">
+                    <div class="row">
+                      <div style="clear:both" class="col-md-12">
+                      {{#if title }}
+                      <a class="anchor" id="{{slug}}"></a>
+                      <h4 class="text">{{title}}</h5>
+                      {{/if}}
+                      </div>
+                    </div>
                     {{#sessions}}
                     <div class="room-filter">
                       <a class="anchor" id="{{session_id}}"></a>
@@ -218,8 +223,9 @@
                   </div>
                   {{/sessions}}
                 </div>
+                {{/tracks}}
               </div>
-              {{/tracks}}
+              {{/days}}
             </div>
           </div>
           <div class="track-names">
@@ -240,11 +246,12 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="./js/jquery.lazyload.js"></script>
-    <script src="./js/navbar.js" type="text/javascript"></script>
-    <script src="./js/scroll.js" type="text/javascript"></script>
-    <script src="./js/social.js" type="text/javascript"></script>
+    <script src="./js/tracks.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+      var maxNoOfSessions = 1000;
+      var flag = 0;
+      var isAdded = 0;
+      var mode = 0;
 
       $(function() {
             $("img.lazy").lazyload({
@@ -273,14 +280,25 @@
           if (filterVal) {
             $('.date-filter').each(function() {
               var flag = 1;
-              $(this).find('.room-filter').each(function() {
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+              $(this).find('.track-filter').each(function() {
+                var flagTrack = 1;
+                $(this).find('.room-filter').each(function() {
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                    $(this).hide();
+                  } else {
+                    if($(this).is(':visible')) {
+                      flag = 0;
+                      flagTrack = 0;
+                      $(this).show();
+                    }
+                  }
+                });
+                if (flagTrack == 1) {
                   $(this).hide();
                 } else {
-                  flag = 0;
                   $(this).show();
                 }
               });
@@ -291,12 +309,19 @@
               }
             });
           } else {
-            $('.date-filter').each(function() {
-              $(this).find('.room-filter').each(function() {
+            if(mode) {
+              display();
+            } else {
+              $('.date-filter').each(function() {
+                $(this).find('.track-filter').each(function() {
+                  $(this).find('.room-filter').each(function() {
+                    $(this).show();
+                  });
+                  $(this).show();
+                });
                 $(this).show();
               });
-              $(this).show();
-            });
+            }
           }
 
           // show "no results" if search input value matches zero items
@@ -310,14 +335,6 @@
         }).keyup(function() {
           $(this).change();
         });
-      });
-    </script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        var maxNoOfSessions = 1000;
-        var flag = 0;
-        var isAdded = 0;
-        var mode = 0;
 
         $('.bookmark').click(function(){
           flag = 1;
@@ -333,7 +350,7 @@
         });
 
         $('.room-filter').click(function(){
-          var temp = JSON.parse(localStorage['tracks']);
+          var temp = JSON.parse(localStorage['sessions']);
           var anchorElem = $(this).children('a')[0];
           var id = $(anchorElem).attr('id');
           if (flag) {
@@ -347,7 +364,7 @@
               }
             }
             flag = isAdded = 0;
-            localStorage['tracks'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
           }
         });
 
@@ -367,32 +384,40 @@
         });
 
         function display() {
-          if(localStorage.hasOwnProperty('tracks') === false) {
-            localStorage['tracks'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty('sessions') === false) {
+            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
           }
-          var temp = JSON.parse(localStorage['tracks']);
+          var temp = JSON.parse(localStorage['sessions']);
 
           $('.date-filter').each(function() {
             var dateFlag = 0;
-            $(this).find('.room-filter').each(function() {
-              var anchorElem = $(this).children('a')[0];
-              var elemId = $(anchorElem).attr('id');
-              var elemFlag = 0;
-              if(temp[elemId] == 1) {
-                elemFlag = dateFlag = 1;
-                $(this).find('.bookmark').each(function() {
-                  $(this).css("color", "black");
-                });
-              }
+            $(this).find('.track-filter').each(function() {
+              var trackFlag = 0;
+              $(this).find('.room-filter').each(function() {
+                var anchorElem = $(this).children('a')[0];
+                var elemId = $(anchorElem).attr('id');
+                var elemFlag = 0;
+                if(temp[elemId] == 1) {
+                  elemFlag = trackFlag = dateFlag = 1;
+                  $(this).find('.bookmark').each(function() {
+                    $(this).css("color", "black");
+                  });
+                }
 
-              if (elemFlag || !mode) {
+                if (elemFlag || !mode) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(trackFlag || !mode) {
                 $(this).show();
               }
               else {
                 $(this).hide();
               }
             });
-
             if(dateFlag || !mode) {
               $(this).show();
             }
@@ -406,5 +431,4 @@
     </script>
 });
   </body>
-    <script type="text/javascript" src = "./js/tabs.js"></script>
 </html>

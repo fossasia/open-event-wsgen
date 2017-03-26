@@ -37,6 +37,11 @@ function returnTrackColor(trackInfo, id) {
   return trackInfo[id];
 }
 
+function checkNullHtml(html) {
+  html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
+  return (html === '');
+}
+
 function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -98,7 +103,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -193,7 +198,7 @@ function foldByTime(sessions, speakers, trackInfo) {
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       sign_up: session.signup_url,
       video: session.video,
@@ -222,7 +227,7 @@ function foldByDate(tracks) {
     if (!dateMap.has(track.date)) {
       dateMap.set(track.date, {
         caption: track.date,
-        firstSlug: track.slug,
+        firstSlug: (track.slug == null) ? null : track.slug.substring(0, track.slug.lastIndexOf('-')),
         tracks: []
       });
     }
@@ -620,7 +625,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
       type: (session.session_type == null) ? '' : session.session_type.name,
-      description: (session.long_abstract === '') ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       audio:session.audio,
       speakers_list: session.speakers.map((speaker) => {
@@ -651,19 +656,33 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
   for (let i = 0; i < roomsDetailLength; i++) {
     // sort all sessions in each day by 'venue + date'
     roomsDetail[i].sessions.sort(byProperty('sortKey'));
+    roomsDetail[i].venue = [];
 
     // remove venue names from all but the 1st session in each venue
     let sessionsLength = roomsDetail[i].sessions.length;
     let prevVenue = '';
+    let tempVenue = {};
+    tempVenue.sessions = [];
+
     for (let j = 0; j < sessionsLength; j++) {
       if (roomsDetail[i].sessions[j].venue == prevVenue) {
         roomsDetail[i].sessions[j].venue = '';
+        tempVenue.sessions.push(roomsDetail[i].sessions[j]);
       } else {
+        if(JSON.stringify(tempVenue) != JSON.stringify({}) && prevVenue != '') {
+          roomsDetail[i].venue.push(tempVenue)
+          tempVenue = {};
+          tempVenue.sessions = [];
+        }
+        tempVenue.venue = roomsDetail[i].sessions[j].venue;
+        tempVenue.slug = replaceSpaceWithUnderscore(tempVenue.venue);
+        tempVenue.sessions.push(roomsDetail[i].sessions[j]);
         prevVenue = roomsDetail[i].sessions[j].venue;
       }
     }
+    roomsDetail[i].venue.push(tempVenue);
+    roomsDetail[i].sessions = {};
   }
-
   return roomsDetail;
 }
 
@@ -722,7 +741,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             linkedin: speaker.linkedin ,
             twitter: speaker.twitter ,
             website: speaker.website ,
-            long_biography: (speaker.long_biography === '') ? speaker.short_biography : speaker.long_biography,
+            long_biography: (checkNullHtml(speaker.long_biography)) ? speaker.short_biography : speaker.long_biography,
             mobile: speaker.mobile,
             name: speaker.name,
             thumb: thumb,
@@ -761,7 +780,7 @@ sessiondetail.forEach((session) => {
   const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
   if(session.detail !== undefined ) {
     speakersession.push({
-
+      sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
       start: moment.utc(session.detail.start_time).local().format('HH:mm'),
       end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
       title: session.detail.title,
@@ -773,7 +792,7 @@ sessiondetail.forEach((session) => {
   }
 
 })
-
+speakersession.sort(byProperty('sortKey'));
 return speakersession;
 
 }

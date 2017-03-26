@@ -8,10 +8,7 @@
 <head>
   <link rel="preload" as="script" href="./js/jquery.min.js">
   <link rel="preload" as="script" href="./js/bootstrap.min.js">
-  <link rel="preload" as="script" href="./js/jquery.lazyload.js">
-  <link rel="preload" as="script" href="./js/navbar.js">
-  <link rel="preload" as="script" href="./js/scroll.js">
-  <link rel="preload" as="script" href="./js/social.js">
+  <link rel="preload" as="script" href="./js/schedule.min.js">
   <link rel="preload" as="style" href="./css/schedule.css">
   <link rel="preload" as="style" href="./css/font-awesome.min.css">
   <link rel="preload" as="style" href="./css/bootstrap.min.css">
@@ -224,12 +221,13 @@
   {{> footer}}
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="./js/jquery.lazyload.js" type="text/javascript"></script>
-  <script src="./js/navbar.js" type="text/javascript"></script>
-  <script src="./js/scroll.js" type="text/javascript"></script>
-  <script src="./js/social.js" type="text/javascript"></script>
+  <script src="./js/schedule.min.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
+       var maxNoOfSessions = 1000;
+       var mode = 0;
+       var flag = 0;
+       var isAdded = 0;
 
        $(function() {
          $("img.lazy").lazyload({
@@ -257,8 +255,10 @@
                               $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                                $(this).hide();
                            } else {
-                               flag = 0;
-                               $(this).show();
+                             if($(this).is(':visible')) {
+                                 flag = 0;
+                                 $(this).show();
+                             }
                            }
                       });
                       if (flag == 1) {
@@ -275,15 +275,20 @@
                   }
                 });
               } else {
-                $('.day-filter').each(function() {
-                  $(this).find('.time-filter').each(function() {
-                      $(this).find('.track-inline').each(function() {
-                          $(this).show();
-                      });
-                      $(this).show();
+                var flag = 0;
+                if(mode) {
+                  display();
+                } else {
+                  $('.day-filter').each(function() {
+                    $(this).find('.time-filter').each(function() {
+                        $(this).find('.track-inline').each(function() {
+                            $(this).show();
+                        });
+                        $(this).show();
+                    });
+                    $(this).show();
                   });
-                  $(this).show();
-                });
+                }
               }
 
               // show "no results" if search input value matches zero items
@@ -297,17 +302,9 @@
           }).keyup(function() {
               $(this).change();
           });
-      });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-          var maxNoOfSessions = 1000;
-          var mode = 0;
-          var flag = 0;
-          var isAdded = 0;
 
           $('.bookmark').click(function(event){
-            var temp = JSON.parse(localStorage['schedule']);
+            var temp = JSON.parse(localStorage['sessions']);
             var id = Number($(this).attr('id').substr(1));
             flag = 1;
             var curColor = $(this).css("color");
@@ -321,7 +318,7 @@
               temp[id] = 1;
               isAdded = 1;
             }
-            localStorage['schedule'] = JSON.stringify(temp);
+            localStorage['sessions'] = JSON.stringify(temp);
           });
 
           $('.track-inline').click(function(event){
@@ -347,10 +344,10 @@
 
           function display() {
             console.log("Inside the display function");
-            if(localStorage.hasOwnProperty('schedule') === false) {
-              localStorage['schedule'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+            if(localStorage.hasOwnProperty('sessions') === false) {
+              localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
             }
-            var temp = JSON.parse(localStorage['schedule']);
+            var temp = JSON.parse(localStorage['sessions']);
 
             $('.day-filter').each(function() {
               var dayFlag = 0;
