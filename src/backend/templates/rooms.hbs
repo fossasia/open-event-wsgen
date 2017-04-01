@@ -122,6 +122,8 @@
 			    <div id="desc2-{{session_id}}"
 				class="collapse in"
 				style="background-color:{{{color}}}; margin-top: 0px;">
+        <div class="row">
+        <div class="col-md-6 col-xs-12 speakers-list">
 				{{#speakers_list}}
           <p style= "float:left" class="session-speakers">
               {{#if photo}}
@@ -131,12 +133,15 @@
               {{/if}}
                       </p>
 		             	{{/speakers_list}}
+                  </div>
+                  <div class="col-md-6">
 		             	<ul style="padding:0;font-size:15px;">
 		             	  {{#speakers_list}}
 		             	    {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
 		             	 {{/speakers_list}}
 		             	</ul>
 		             	<ul style="padding:0;font-size:15px;">
+                  </ul>
                     {{#if type}}
                       {{type}}
                     {{else}}

@@ -72,7 +72,6 @@
             <input class="fossasia-filter" type="text" placeholder="Search" />
           </span>
         </p>
-
         <div id="session-list" class="container">
           <div class="row">
             <div id="content-block" class="col-md-9">
@@ -119,12 +118,15 @@
                               </i>
                             </a>
                           </div>
+
                           <h4 id="event-upper-block" style="background-color: {{../color}};" class="sizeevent event" data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}" aria-expanded="false" aria-controls="desc-{{session_id}}">
                              {{#if audio}}
                                <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
                             {{/if}}
-			                      <div id="desc2-{{session_id}}" class="collapse in" style="background-color: {{../color}}; margin-top:0px;">
-				                      {{#speakers_list}}
+			                      <div id="desc2-{{session_id}}" class="collapse in" style="background-color: {{../color}}; margin-top:20px;">
+				                      <div class="row">
+                                <div class="col-md-6 col-xs-12 speakers-list">
+                              {{#speakers_list}}
 				                      <p style="float:left" class="session-speakers">
                                 {{#if photo}}
                                     <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
@@ -133,19 +135,19 @@
                                 {{/if}}
                               </p>
 		             	            {{/speakers_list}}
+                               </div>
+                                <div class="col-md-6">
 		             	            <ul style="padding:0;font-size:15px;">
                                         {{#speakers_list}}
-                                            {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                               		         {{name}}
+  		             	                        {{#if organisation}}({{organisation}}){{/if}}
                                         {{/speakers_list}}
 		             	            </ul>
-		             	            <ul style="padding:0;font-size:15px;">
-                                      {{#if type}}
-                                        {{type}}
-                                      {{else}}
-                                          <br>
-                                      {{/if}}
-                              </ul>
-		                        </div>
+		             	            <ul style="padding:0;font-size:15px;">{{type}}</ul>
+                                </div>
+		                          </div>
+                            </div>
+
                           </h4>
                           <div id="desc-{{session_id}}">
                             <div class="collapse">
