@@ -68,7 +68,7 @@
           <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
         {{/timeList}}
         <span class="show-button-filter" >
-          <button class = "btn btn-primary" id = "starred" style = "background-color:#eee; color:black; border-color:#333" >Show Starred</button>
+          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
         </span>
         <span class="search-filter">
             <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -76,13 +76,13 @@
     </p>
     <div id="session-list" class="container">
       <div class="row">
-        <div style="margin: 15px 0 0 15px;" class="col-md-9">
+        <div id="content-block" class="col-md-9">
                       {{> subnavbar flag = 0}}
-          <div style="margin-top:4%" id="track-list">
+          <div id="track-list">
             {{#roomsinfo}}
             <div class="date-filter" id="rooms-list">
-                <div style="padding:0" class="row">
-                  <div style="padding:0" class="col-md-12">
+                <div class="row paddingzero">
+                  <div class="col-md-12 paddingzero">
                     <a class="anchor" id="{{slug}}"></a>
                     <h5 class="text">{{date}}</h4>
                   </div>
@@ -104,16 +104,15 @@
                         <span class="time-track">{{start}} - {{end}}</span>
                       </div>
                       <div class="room-container">
-                        <div class="left-border col-xs-10 col-sm-10 col-md-10"
-			  style="padding-right: 0px; margin-bottom: -1px; padding-bottom:10px">
-                          <div class = "sizeevent event" style = "background-color: {{{color}}}; font-size:18px; color:#333333; padding-top:10px; padding-bottom:10px;">
+                        <div class="left-border col-xs-10 col-sm-10 col-md-10">
+                          <div class = "sizeevent event" id="event-title" style = "background-color: {{{color}}};">
                           {{title}}
                           <a style = "cursor:pointer" class = "bookmark" >
                             <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
                             </i>
                           </a>
                           </div>
-                          <h4 style="background-color:{{{color}}}; margin-top: -15px; padding-top: 15px"  class="sizeevent event" data-toggle="collapse"
+                          <h4 id="event-upper-block" style="background-color:{{{color}}};"  class="sizeevent event" data-toggle="collapse"
                             data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
                             aria-expanded="false"
                             aria-controls="desc-{{session_id}}">
@@ -126,11 +125,11 @@
         <div class="row">
         <div class="col-md-6 col-xs-12 speakers-list">
 				{{#speakers_list}}
-          <p style="margin-right:20px; float:left" class="session-speakers">
+          <p style= "float:left" class="session-speakers">
               {{#if photo}}
-                  <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:5rem; height:5rem; border-radius:50%;"/>
+                  <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
                 {{else}}
-                  <img class="card-img-top" src="./images/avatar.png" style="width:5rem; height:5rem; border-radius:50%;"/>
+                  <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
               {{/if}}
                       </p>
 		             	{{/speakers_list}}
@@ -155,7 +154,7 @@
                             <div class="collapse">
                               {{{description}}}
                               {{#if audio}}
-                                <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                                <audio controls="" preload="none" id= "audio-block">
                                 <source src="{{ audio }}">
                                 </audio>
                               {{/if}}
@@ -167,11 +166,11 @@
                             {{#speakers_list}}
                               <a href="speakers.html#{{nameIdSlug}}">
                                 <div class="session-speakers-less">
-                                  <p style="margin-right:20px" class="session-speakers">
+                                  <p class="session-speakers">
                                   {{#if photo}}
-                                    <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                    <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
                                   {{else}}
-                                    <img class="card-img-top" src="images/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                    <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                                   {{/if}}
                                   </p>
                                   <span class="graytext">{{name}}</span>

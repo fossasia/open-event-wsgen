@@ -174,6 +174,8 @@ a {
 .navbar-toggle {
   color: $gray-dark;
   padding: 6px 10px;
+  margin-left:2em;
+  margin-top:1em;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -883,6 +885,7 @@ a {
   padding: 0;
   position: relative;
   overflow: hidden;
+  background-color: white;
 
   .listing-panel {
     background-color: $white;
@@ -892,6 +895,17 @@ a {
     box-sizing: border-box;
     padding-bottom: 10px;
     padding-top: 10px;
+
+    .ticket-button-container {
+      padding-right: 30px;
+
+        #ticket-button {
+         display: block;
+         position: relative;
+         top: -87px;
+         visibility: hidden;
+      }
+    }
   }
 }
 
@@ -899,6 +913,10 @@ a {
   color: $gray-dark;
   padding-top: 30px;
   text-align: justify;
+
+    p {
+    padding:1px;
+  }
 }
 
 .speaker-info {
@@ -1095,12 +1113,18 @@ a {
       display: inline-block;
       font-weight: 600;
       margin-bottom: 18px;
+      margin-right:20px;
     }
 
     p {
       font-size: 14px;
       line-height: 24px;
       margin: 0 0 10px;
+      margin-right:20px;
+    }
+
+    h2 {
+      margin-right:20px;
     }
   }
 }
@@ -1172,6 +1196,7 @@ a {
   #dateTweeted {
     display: block;
     font-size: 15px;
+    margin-bottom: 20px;
   }
 }
 
@@ -1200,6 +1225,7 @@ a {
   max-width: 1600px;
   .classic {
     background: $white-classic-background;
+    background-color: $white-classic-background;
     padding: 72px 0 36px;
     .menu {
       display: inline-block;
@@ -1519,4 +1545,99 @@ a.skip:hover {
   overflow: visible;
   top: 50px;
   width: auto;
+}
+
+#menuItem {
+  margin-bottom: 14px;
+}
+
+#copyright {
+  margin-bottom: 14px;
+}
+
+#social-icons {
+    padding-right:0;
+    padding-left:0;
+    margin-left:15px;
+}
+
+#starred {
+  background-color: $light-gray;
+  color: $black;
+  border-color: $light-black;
+  margin:0 auto;
+}
+
+#content-block {
+  margin: 15px 0 0 15px;
+}
+
+#track-list {
+  margin-top:4%;
+}
+
+.paddingzero {
+  padding: 0;
+}
+
+.left-border {
+  padding-right: 0px;
+  margin-bottom: -1px;
+  padding-bottom:10px;
+}
+
+#event-title {
+  font-size:18px;
+  color: $light-black;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#event-upper-block {
+  margin-top: -15px;
+  padding-top:15px;
+}
+
+.session-speakers {
+  margin-right: 20px;
+}
+
+.speaker-image-small {
+  width:5rem;
+  height:5rem;
+  border-radius:50%;
+}
+
+.speaker-image-large {
+  width:10rem;
+  height:10rem;
+  border-radius:50%;
+}
+
+#audio-block {
+  display: block;
+  margin-top: 15px
+}
+
+#speaker-body {
+  background-color: $header-color !important;
+}
+
+#speaker-container {
+  background-color: $white;
+  padding: 2%;
+}
+
+#pop-speaker-name {
+  color: $black;
+}
+
+#session-location {
+  font-size:12px;
+  font-weight: normal;
+  margin:6px 0;
+}
+
+#speaker-social-icons {
+  padding:2%;
 }

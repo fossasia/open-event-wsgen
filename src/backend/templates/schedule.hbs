@@ -66,7 +66,7 @@
       <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
     {{/timeList}}
     <span class = "show-button-filter">
-      <button class = "btn btn-primary" id = "starred" style = "background-color:#eee; color:black; border-color:#333" >Show Starred</button>
+      <button class = "btn btn-primary" id = "starred" >Show Starred</button>
     </span>
     <span class="search-filter">
         <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -74,12 +74,12 @@
     </p>
 
     <div class="row">
-      <div style="margin: 15px 0 0 15px;" class="col-md-9">
-        <div id=track-list style="margin-top:4%;" class="container">
+      <div id="content-block" class="col-md-9">
+        <div id=track-list class="container">
 
           {{#timeList}}
           <div class="day-filter">
-            <div style="padding:0" class="col-md-12">
+            <div class="col-md-12 paddingzero">
               <a class="anchor" id="{{slug}}"></a>
               <h4 class="text">{{date}}</h4>
             </div>
@@ -113,7 +113,7 @@
                         <div class="collapse">
                           {{{description}}}
                           {{#if audio}}
-                            <audio controls="" preload="none" style="display: block; margin-top: 15px">
+                            <audio controls="" preload="none" id="audio-block">
                             <source src="{{ audio }}">
                             </audio>
                           {{/if}}
@@ -125,11 +125,11 @@
                           {{#each speakers_list}}
                           <a href="speakers.html#{{nameIdSlug}}">
                             <p class="session-speakers-less">
-                              <p style="margin-right:20px" class="session-speakers">
+                              <p class="session-speakers">
                               {{#if photo}}
-                                <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="lazy card-img-top" style="width:10rem; height:10rem; border-radius:50%;" width="10" height="10"/>
+                                <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="lazy card-img-top speaker-image-large" width="10" height="10"/>
                               {{else}}
-                                <img class="card-img-top" src="images/avatar.png" style="width:10rem; height:10rem; border-radius:50%;"/>
+                                <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                               {{/if}}
                               </p>
                               <span class="graytext speaker-name">{{name}}</span>

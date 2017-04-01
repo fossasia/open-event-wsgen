@@ -1,9 +1,9 @@
 
 <div class="footer-container">
-  <footer class="classic" style="background-color:#f5f5f5;">
+  <footer class="classic">
     <div class="container">
       <div class="row ui-sortable">
-        <div  style="margin-bottom: 14px;" class="col-sm-2 col-md-2 col-xs-12">
+        <div  id="menuItem" class="col-sm-2 col-md-2 col-xs-12">
           <ul class="menu">
             <li><a target="_self" href="index.html#description">About</a></li>
             {{#if eventurls.register}}
@@ -24,7 +24,7 @@
             <li><a class="inner-link back-to-top" href="#top">Back To Top</a></li>
           </ul>
         </div>
-        <div  style="margin-bottom: 14px;" class="col-sm-7 col-md-7 col-xs-12">
+        <div  id="copyright" class="col-sm-7 col-md-7 col-xs-12">
          {{#if copyright}}
          {{#if copyright.licence}}
          <p>
@@ -41,21 +41,21 @@
       <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
-       
+
         <i class="fa fa-envelope"></i>
           <span>
           <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
           {{eventurls.email}}
           </a>
           </span>
-    
-       
+
+
         </li>
         {{/if}}
         {{#if eventurls.location}}
         <li class="address">
-        <i class="fa fa-map-marker"></i>  
-          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>        
+        <i class="fa fa-map-marker"></i>
+          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>
         </li>
         {{/if}}
       </ul>
@@ -66,7 +66,7 @@
       <ul class="social-profiles">
         {{#sociallinks}}
           {{#if show}}
-            <li class="pull-left"><a href="{{link}}" style="padding-right:0; padding-left:0;margin-left:15px"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+            <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
           {{/if}}
         {{/sociallinks}}
       </ul>

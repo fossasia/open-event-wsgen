@@ -39,13 +39,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
 </head>
-  <body style="background-color: #f8f8f8 !important;">
+  <body id="speaker-body">
     <a href="#speakers-list" class="skip">Skip to content</a>
     {{> scroll}}
   <a id="top"></a>
     {{> navbar}}
 
-<div class="main container" style="background-color: #fff; padding: 2%">
+<div class="main container" id="speaker-container">
     <div class="row">
       <div class="middle col-sm-12">
           <h2 class="filter-heading track-heading text-center">
@@ -102,7 +102,7 @@
             <div class="arrow">
               <span></span>
             </div>
-            <div class="pop-container" style="color:black";>
+            <div class="pop-container" id="pop-speaker-name">
               <div class="pop">
                 <div class="pop-header">
                   <span class="s-popup-header-name"><strong>{{{name}}}</strong>
@@ -114,7 +114,7 @@
                 </div>
                 <div class="pop-over row">
                  {{{long_biography}}}
-                   <div style="padding:2%;" class="icons row">
+                   <div id="speaker-social-icons" class="icons row">
                    {{#if website}}
                   <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
                   {{/if}}
@@ -147,7 +147,7 @@
                   <h5>
                     <strong>
                     {{date}}
-                    <span style="font-size:12px;font-weight:normal;margin:6px 0;">{{microlocation}}</span>
+                    <span id="session-location">{{microlocation}}</span>
                     </strong>
                   </h5>
                   <a href="tracks.html#{{session_id}}">
