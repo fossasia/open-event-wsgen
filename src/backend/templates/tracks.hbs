@@ -121,11 +121,11 @@
                             {{#if audio}}
                                <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
                             {{/if}}
-			                      <div id="desc2-{{session_id}}" class="collapse in"	style="background-color: {{../color}}; margin-top: 20px;">
+			                      <div id="desc2-{{session_id}}" class="collapse in"	style="background-color: {{../color}}; margin-top: 0px;">
                               <div class="row">
                                 <div class="col-md-6 col-xs-12 speakers-list">
   				                      {{#speakers_list}}
-                                <p style="margin-right:20px; float:left" class="session-speakers">
+                                <p style="margin-right:10px; float:left" class="session-speakers">
                                   {{#if photo}}
                                       <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top" style="width:5rem; height:5rem; border-radius:50%;"/>
                                     {{else}}
@@ -137,8 +137,7 @@
                                 <div class="col-md-6">
   		             	            <ul style="padding:0;font-size:15px;">
   		             	              {{#speakers_list}}
-  		             	                {{name}}
-  		             	                {{#if organisation}}({{organisation}}){{/if}}
+  		             	                {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
   		             	              {{/speakers_list}}
   		             	            </ul>
   		             	            <ul style="padding:0;font-size:15px;">{{type}}</ul>
