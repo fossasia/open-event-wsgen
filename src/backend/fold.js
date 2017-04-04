@@ -52,14 +52,14 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   });
 
   async.eachSeries(sessions,(session,callback) => {
-    if (!session.start_time) {
-      return;
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
+        return callback(null);
     }
 
     // generate slug/key for session
     const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
-    const roomName = (session.microlocation == null) ? '' : session.microlocation.name;
+    const roomName = session.microlocation.name;
     const session_type = (session.session_type == null) ? '' : session.session_type.name ;
     var trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
     const slug = date + '-' + trackNameUnderscore;
@@ -159,7 +159,10 @@ function foldByTime(sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
+    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending') {
+      return;
+    }
+    const roomName = session.microlocation.name;
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
     let date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
     let startTime = moment.utc(session.start_time).local().format('HH:mm');
@@ -581,13 +584,13 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    if (!session.start_time) {
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
       return;
     }
 
     // generate slug/key for session
     const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-    const roomName = (session.microlocation == null) ? ' ' : session.microlocation.name;
+    const roomName = session.microlocation.name;
     const slug = date ;
     const tracktitle = (session.track == null) ? " " : session.track.name;
     let room = null;
@@ -769,31 +772,36 @@ function getAllSessions(speakerid , session, trackInfo){
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
   speakerid.forEach((speaker) => {
-    if(speaker !== undefined ) {
-       sessiondetail.push({
-        detail :sessionsMap.get(speaker.id)
-      })
+    if(speaker !== undefined) {
+      var speakerSessionDetail = sessionsMap.get(speaker.id);
+      if(speakerSessionDetail === undefined) {
+        return;
       }
-  })
-sessiondetail.forEach((session) => {
+      if(speakerSessionDetail.microlocation !== null && speakerSessionDetail.state !== 'pending' && speakerSessionDetail.state !== 'rejected') {
+        sessiondetail.push({
+          detail:speakerSessionDetail
+        });
+      }
+    }
+  });
+  sessiondetail.forEach((session) => {
+    const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
+    if(session.detail !== undefined ) {
+      speakersession.push({
+        sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
+        start: moment.utc(session.detail.start_time).local().format('HH:mm'),
+        end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
+        title: session.detail.title,
+        date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
+        color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
+        microlocation: roomname,
+        session_id: session.detail.id
+      });
+    }
 
-  const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
-  if(session.detail !== undefined ) {
-    speakersession.push({
-      sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
-      start: moment.utc(session.detail.start_time).local().format('HH:mm'),
-      end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
-      title: session.detail.title,
-      date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
-      color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
-      microlocation: roomname,
-      session_id: session.detail.id
-   });
-  }
-
-})
-speakersession.sort(byProperty('sortKey'));
-return speakersession;
+  });
+  speakersession.sort(byProperty('sortKey'));
+  return speakersession;
 
 }
 module.exports.foldByTrack = foldByTrack;
