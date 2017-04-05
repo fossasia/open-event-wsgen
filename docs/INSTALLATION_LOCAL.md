@@ -24,10 +24,19 @@ Run the app
 ```shell
 npm run start
 ```
+
 or
 ```shell
 npm run server.generator
-```
+````
+
+if getting an binding error do the following:
+```shell
+npm -rf rm node_modules
+npm cache clean
+npm rebuild
+``
+ after running above commands do npm run start.
 
 The app will be running on http://localhost:5000
 
