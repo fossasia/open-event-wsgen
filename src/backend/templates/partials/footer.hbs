@@ -30,9 +30,9 @@
          <p>
          <a href="{{{copyright.licence_url}}}"> <img src="{{{copyright.logo}}}"> </a>
          &copy; {{copyright.year}}
-         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}</a>
+         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}.</a>
          The website and it's contents are licensed under
-          <a href="{{{copyright.licence_url}}}"> {{copyright.licence}} </a>
+          <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
          </p>
          {{/if}}
         {{/if}}
@@ -41,21 +41,21 @@
       <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
-       
+
         <i class="fa fa-envelope"></i>
           <span>
           <a href="mailto:{{eventurls.email}}" target="_self" style="color:#777777">
           {{eventurls.email}}
           </a>
           </span>
-    
-       
+
+
         </li>
         {{/if}}
         {{#if eventurls.location}}
         <li class="address">
-        <i class="fa fa-map-marker"></i>  
-          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>        
+        <i class="fa fa-map-marker"></i>
+          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>
         </li>
         {{/if}}
       </ul>
