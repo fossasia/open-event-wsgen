@@ -42,6 +42,17 @@ function checkNullHtml(html) {
   return (html === '');
 }
 
+function convertLicenseToCopyright(licence, copyright) {
+  var data = {};
+  data.licence_url = licence.licence_url;
+  data.logo = licence.logo;
+  data.licence = licence.long_name;
+  data.year = copyright.year;
+  data.holder = copyright.holder;
+  data.holder_url = copyright.holder_url;
+  return data;
+}
+
 function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
@@ -433,8 +444,11 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 }
 
 function getCopyrightData(event) {
-  const copyright = event.copyright;
-  return copyright;
+  if(event.licence_details) {
+  return convertLicenseToCopyright(event.licence_details, event.copyright);
+  } else {
+  return event.copyright;
+  }
 }
 
 function sortLevelData(levelData){
