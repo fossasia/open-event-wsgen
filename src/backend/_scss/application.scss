@@ -976,6 +976,8 @@ a {
             height: 300px;
             width: 300px;
 
+            
+
             .bio {
               color: $white;
               margin-left: 10px;
@@ -995,12 +997,16 @@ a {
           @include sociallinks;
         }
 
-        &:hover > .hover-state {
-          opacity: 1;
 
-          .social-links {
-            position: absolute;
-            top: 140%;
+        &:hover { 
+            .hover-state {
+            opacity: 1;
+
+            .social-links {
+              @include sociallinks;
+              position: absolute;
+              top: 140%;
+            }
           }
         }
       }
