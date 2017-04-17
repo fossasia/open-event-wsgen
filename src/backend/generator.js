@@ -61,6 +61,15 @@ handlebars.registerHelper('ifvalue', function (conditional, options) {
     }
 });
 
+handlebars.registerHelper('checkpage', function (conditional, options) {
+    if (conditional == options.hash.equals){
+      return options.fn(this);
+    }
+    else{
+      return options.inverse(this);
+    }
+});
+
 function minifyHtml(file) {
   var result = minify(file, {
     removeAttributeQuotes: true,

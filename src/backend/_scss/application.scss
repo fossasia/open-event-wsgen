@@ -17,8 +17,12 @@ body {
   visibility: hidden;
 }
 
-.hide {
+.hide-item {
   display: none;
+}
+
+.show-item {
+  display: block;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -976,7 +980,7 @@ a {
             height: 300px;
             width: 300px;
 
-            
+
 
             .bio {
               color: $white;
@@ -998,7 +1002,7 @@ a {
         }
 
 
-        &:hover { 
+        &:hover {
             .hover-state {
             opacity: 1;
 
@@ -1435,32 +1439,14 @@ a {
   top: 0;
 }
 
-.tabs {
-  margin-left: -15px;
-}
-
-.tabs-nav {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 .tabs-nav-link {
-  background-color: $gray;
-  color: $white;
-  flex: 1;
-  margin-right: 4px;
-  padding: 12px;
+  background-color: $white;
+  color: $black;
   text-align: center;
   transition: color 0.3s;
 
   &:last-child {
     margin-right: 0;
-  }
-
-  &:hover {
-    color: $border-venue;
   }
 
   &.is-active {
@@ -1666,4 +1652,3 @@ a.skip:hover {
 #speaker-social-icons {
   padding:2%;
 }
-

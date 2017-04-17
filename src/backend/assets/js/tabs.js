@@ -2,7 +2,7 @@
 var tabs, i, myTabs;
 
 tabs = function(options) {
-  var goToTab, handleClick, init;
+  var goToTab, handleClick, init, handleDisplay;
   var el = document.querySelector(options.el);
   var tabNavigationLinks = el.querySelectorAll(options.tabNavigationLinks);
   var tabContentContainers = el.querySelectorAll(options.tabContentContainers);
@@ -13,10 +13,14 @@ tabs = function(options) {
     if (index !== activeIndex && index >= 0 && index <= tabNavigationLinks.length) {
       if(activeIndex >= 0) {
         tabNavigationLinks[activeIndex].classList.remove('is-active');
-        tabContentContainers[activeIndex].classList.remove('is-active');
+        if(typeof tabContentContainers[index] != 'undefined')
+          tabContentContainers[activeIndex].classList.remove('is-active');
       }
       tabNavigationLinks[index].classList.add('is-active');
-      tabContentContainers[index].classList.add('is-active');
+      if(typeof tabContentContainers[index] != 'undefined')
+        tabContentContainers[index].classList.add('is-active');
+      
+      handleDisplay(tabNavigationLinks[index].className);
       activeIndex = index;
     }
   };
@@ -26,6 +30,19 @@ tabs = function(options) {
       goToTab(index);
     });
   };
+  handleDisplay = function(className) {
+    className = className.split(' ')[0];
+    var dates = document.getElementsByClassName('date-filter');
+    for(i =0; i< dates.length; i++) {
+      if(dates[i].classList.contains(className)) {
+        dates[i].classList.remove('hide-item');
+        dates[i].classList.add('show-item');
+      } else {
+        dates[i].classList.add('hide-item');
+        dates[i].classList.remove('show-item');
+      }
+    }
+  }
   init = function() {
     var link;
 

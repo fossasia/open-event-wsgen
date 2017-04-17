@@ -62,15 +62,7 @@
         text across the page.
         --------------------------------------------------------------- -->
     <p class="date-list">
-    {{#timeList}}
-      <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
-    {{/timeList}}
-    <span class = "show-button-filter">
-      <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-    </span>
-    <span class="search-filter">
-        <input class="fossasia-filter" type="text" placeholder="Search" />
-    </span>
+    {{> subnavbar flag = 2}}
     </p>
 
     <div class="row">
@@ -78,7 +70,7 @@
         <div id="track-list" class="container">
 
           {{#timeList}}
-          <div class="day-filter">
+          <div class="day-filter date-filter {{slug}}">
             <div class="col-md-12 paddingzero">
               <a class="anchor" id="{{slug}}"></a>
               <h4 class="text">{{date}}</h4>
