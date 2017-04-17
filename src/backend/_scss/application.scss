@@ -78,7 +78,6 @@ a {
   transform: translate3d(0, -200px, 0);
   transition: all 0.3s ease-out;
 
-
   a {
     color: $white;
     display: inline-block;
@@ -165,7 +164,7 @@ a {
     }
     @media screen and (max-width: 768px) {
       &:hover {
-          width: 20%;
+        width: 20%;
       }
     }
   }
@@ -174,6 +173,8 @@ a {
 .navbar-toggle {
   color: $gray-dark;
   padding: 6px 10px;
+  margin-left:2em;
+  margin-top:1em;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -393,7 +394,7 @@ a {
 }
 
 @media (max-width: 892px) {
-  .largeoffset  {
+  .largeoffset {
     margin-left: 10%;
   }
 
@@ -452,7 +453,7 @@ a {
   }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .show-button-filter {
     display: inline;
     margin: 0 auto;
@@ -543,19 +544,19 @@ a {
   width: 355px;
   z-index: 1000;
 
-  .pop>hr {
+  .pop > hr {
     margin: 10px 0;
     min-width: calc(100% - 20px);
   }
 
-  .pop>h4 {
+  .pop > h4 {
     margin-left: -20px;
   }
 
-  .pop>.pop-over.row {
+  .pop > .pop-over.row {
 
     padding: 10px 20px 0 0;
-    &:hover{
+    &:hover {
       .fa {
         color: $black;
       }
@@ -575,11 +576,11 @@ a {
       margin-left: -5px;
     }
 
-    .pop-over>.sessions {
+    .pop-over > .sessions {
       padding: 0;
-      .sizeevent{
-        &:hover{
-          span:nth-of-type(2){
+      .sizeevent {
+        &:hover {
+          span:nth-of-type(2) {
             text-decoration: underline;
           }
         }
@@ -617,7 +618,6 @@ a {
   margin-top: 2%;
   padding-top: 2%;
 }
-
 
 //Speakers Styling
 
@@ -667,7 +667,7 @@ a {
 
     .icons {
       color: $gray-extra-dark;
-      height : 43px;
+      height: 43px;
       font-size: 18px;
       padding: 4%;
       text-align: center;
@@ -785,7 +785,6 @@ a {
   }
 }
 
-
 .social-session {
   padding-left: 15px;
   padding-top: 10px;
@@ -850,8 +849,11 @@ a {
 
 //event page
 
-.carousel, .carousel .item {
-  height: 500px;
+.carousel {
+
+  &, & .item {
+    height: 500px;
+  }
 
   &-caption {
     bottom: 100px;
@@ -882,6 +884,7 @@ a {
   padding: 0;
   position: relative;
   overflow: hidden;
+  background-color: white;
 
   .listing-panel {
     background-color: $white;
@@ -891,6 +894,18 @@ a {
     box-sizing: border-box;
     padding-bottom: 10px;
     padding-top: 10px;
+
+    .ticket-button-container {
+      padding-right: 30px;
+
+      #ticket-button {
+        display: block;
+        position: relative;
+        top: -87px;
+        visibility: hidden;
+      }
+
+    }
   }
 }
 
@@ -898,6 +913,9 @@ a {
   color: $gray-dark;
   padding-top: 30px;
   text-align: justify;
+  p {
+    padding:1px;
+  }
 }
 
 .speaker-info {
@@ -934,7 +952,7 @@ a {
       }
 
       .image-holder {
-        @include cursorpointer
+        @include cursorpointer;
         margin-bottom: 12px;
         overflow: hidden;
         position: relative;
@@ -1029,6 +1047,11 @@ a {
 
 .sponsorscont {
   padding: 72px;
+
+  > div {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }
 
 .vcenter {
@@ -1097,15 +1120,21 @@ a {
     }
 
     .sub {
+      margin-right: 20px;
       display: inline-block;
       font-weight: 600;
       margin-bottom: 18px;
     }
 
     p {
+      margin-right: 20px;
       font-size: 14px;
       line-height: 24px;
       margin: 0 0 10px;
+    }
+
+    h2 {
+      margin-right: 20px;
     }
   }
 }
@@ -1133,7 +1162,6 @@ a {
     margin: 0 auto;
   }
 }
-
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .speaker-with-bio {
@@ -1175,6 +1203,7 @@ a {
   }
 
   #dateTweeted {
+    margin-bottom: 20px;
     display: block;
     font-size: 15px;
   }
@@ -1205,6 +1234,7 @@ a {
   max-width: 1600px;
   .classic {
     background: $white-classic-background;
+    background-color: $white-classic-background;
     padding: 72px 0 36px;
     .menu {
       display: inline-block;
@@ -1341,6 +1371,17 @@ a {
   }
 }
 
+.tweets-row{
+    background: $white-classic-background;
+    margin-right: 0px;
+    margin-left: 0px;
+    height: 600px;
+
+    section {
+      padding : 72px;
+    }
+}
+
 .search-filter {
   display: inline;
   float: right;
@@ -1371,27 +1412,27 @@ a {
 
 }
 
- @media only screen and (max-width: 600px) {
-   .middle {
-     padding: 0;
-   }
+@media only screen and (max-width: 600px) {
+  .middle {
+    padding: 0;
+  }
 
-   .date-list {
-     margin-top: 10px;
-     text-align: center;
-   }
+  .date-list {
+    margin-top: 10px;
+    text-align: center;
+  }
 
-   .date-pill {
-     display: block;
-     margin: 1%;
-   }
- }
+  .date-pill {
+    display: block;
+    margin: 1%;
+  }
+}
 
 .bookmark {
-  padding :5px;
-  position :absolute;
-  right :0;
-  top :0;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .tabs {
@@ -1525,3 +1566,104 @@ a.skip:hover {
   top: 50px;
   width: auto;
 }
+
+#menuItem {
+  margin-bottom: 14px;
+}
+
+#copyright {
+  margin-bottom: 14px;
+}
+
+#social-icons {
+  padding-right:0;
+  padding-left:0;
+  margin-left:15px
+}
+
+// style from tracks
+
+#starred {
+  background-color:$white-gray;
+  color:black;
+  border-color:$light-black;
+  margin:0 auto;
+}
+
+
+#content-block {
+  margin: 15px 0 0 15px;
+}
+
+#track-list {
+  margin-top:4%;
+}
+
+.paddingzero {
+  padding: 0;
+}
+
+.left-border {
+  padding-right: 0px;
+  margin-bottom: -1px;
+  padding-bottom:10px;
+}
+
+#event-title {
+  font-size:18px;
+  color: $light-black;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+#event-upper-block {
+  margin-top: -15px;
+  padding-top:15px;
+}
+
+.session-speakers {
+  margin-right: 20px;
+}
+
+.speaker-image-small {
+  width:5rem;
+  height:5rem;
+  border-radius:50%;
+}
+
+.speaker-image-large {
+  width:10rem;
+  height:10rem;
+  border-radius:50%;
+}
+
+#audio-block {
+  display: block;
+  margin-top: 15px
+}
+
+// style from speaker
+
+#speaker-body {
+  background-color: $header-color !important;
+}
+
+#speaker-container {
+  background-color: $white;
+  padding: 2%;
+}
+
+#pop-speaker-name {
+  color: $black;
+}
+
+#session-location {
+  font-size:12px;
+  font-weight: normal;
+  margin:6px 0;
+}
+
+#speaker-social-icons {
+  padding:2%;
+}
+
