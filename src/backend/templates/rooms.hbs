@@ -64,23 +64,14 @@
         text across the page.
         --------------------------------------------------------------- -->
     <p class="date-list">
-        {{#timeList}}
-          <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
-        {{/timeList}}
-        <span class="show-button-filter" >
-          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-        </span>
-        <span class="search-filter">
-            <input class="fossasia-filter" type="text" placeholder="Search" />
-        </span>
+        {{> subnavbar flag = 0}}
     </p>
     <div id="session-list" class="container">
       <div class="row">
         <div id="content-block" class="col-md-9">
-                      {{> subnavbar flag = 0}}
           <div id="track-list">
             {{#roomsinfo}}
-            <div class="date-filter" id="rooms-list">
+            <div class="date-filter {{slug}}" id="rooms-list">
                 <div class="row paddingzero">
                   <div class="col-md-12 paddingzero">
                     <a class="anchor" id="{{slug}}"></a>

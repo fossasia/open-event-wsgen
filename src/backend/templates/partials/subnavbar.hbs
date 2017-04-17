@@ -1,27 +1,55 @@
 {{#if flag}}
-<div id="tabs" class="tabs no-js">
-   <div class="tabs-nav">
-      {{#days}}
-      <a href="#" class="tabs-nav-link">{{caption}}</a>
-      {{/days}}
-   </div>
-   {{#days}}
-   <div class="tab">
-      <div class="tab-content">{{#tracks}}<a href = "./tracks.html#{{slug}}">{{title}}  </a>{{/tracks}}</div>
-   </div>
-   {{/days}}
-</div>
+  {{#checkpage flag equals='1'}}
+  <span id="tabs" class="tabs no-js">
+     <span class="tabs-nav">
+        {{#days}}
+        <a href="./tracks.html#{{firstSlug}}" class="{{firstSlug}} date-pill tabs-nav-link">{{caption}}</a>
+        {{/days}}
+        <span class="show-button-filter" >
+          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
+        </span>
+        <span class="search-filter">
+            <input class="fossasia-filter" type="text" placeholder="Search" />
+        </span>
+     </span>
+     {{#days}}
+     <span class="tab">
+        <span class="tab-content">{{#tracks}}<a href = "./tracks.html#{{slug}}">{{title}}  </a>{{/tracks}}</span>
+     </span>
+     {{/days}}
+  </span>
+  {{else}}
+  <span id="tabs" class="tabs no-js">
+     <span class="tabs-nav">
+        {{#timeList}}
+        <a href="./schedule.html#{{slug}}" class="{{slug}} date-pill tabs-nav-link">{{date}}</a>
+        {{/timeList}}
+        <span class="show-button-filter" >
+          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
+        </span>
+        <span class="search-filter">
+            <input class="fossasia-filter" type="text" placeholder="Search" />
+        </span>
+     </span>
+  </span>
+{{/checkpage}}
 {{else}}
-<div id="tabs" class="tabs no-js">
-   <div class="tabs-nav">
+<span id="tabs" class="tabs no-js">
+   <span class="tabs-nav">
       {{#timeList}}
-      <a href="#" class="tabs-nav-link">{{date}}</a>
+      <a href="./rooms.html#{{slug}}" class="{{slug}} date-pill tabs-nav-link">{{date}}</a>
       {{/timeList}}
-   </div>
+      <span class="show-button-filter" >
+        <button class = "btn btn-primary" id = "starred" >Show Starred</button>
+      </span>
+      <span class="search-filter">
+          <input class="fossasia-filter" type="text" placeholder="Search" />
+      </span>
+   </span>
    {{#roomsinfo}}
-   <div class="tab">
-     <div class="tab-content">{{#venue}}{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{../slug}}">{{venue}} {{/if}} </a>{{/sessions}}{{/venue}}</div>
-   </div>
+   <span class="tab">
+     <span class="tab-content">{{#venue}}{{#sessions}}{{#if venue}}<a href = "./rooms.html#venue-{{../slug}}">{{venue}} {{/if}} </a>{{/sessions}}{{/venue}}</span>
+   </span>
    {{/roomsinfo}}
-</div>
+</span>
 {{/if}}
