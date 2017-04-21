@@ -1,4 +1,4 @@
-# How to install the Open Event Web App Generator on my local machine
+# How to install the Open Event Web App Generator on linux
 
 ## Deploying Locally
 
