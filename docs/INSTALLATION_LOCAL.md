@@ -30,13 +30,21 @@ or
 npm run server.generator
 ````
 
-if getting an binding error do the following:
+if getting any binding error while doing npm run start do the following:
+
 ```shell
 npm -rf rm node_modules
+```
+```shell
 npm cache clean
+```
+This command runs the npm rebuild command on the matched folders.This is useful when you install a new version of
+node, and must recompile all your C++ addons with the new binary.
+
+```shell
 npm rebuild
-``
- after running above commands do npm run start.
+```
+ after running above commands again do npm run start.
 
 The app will be running on http://localhost:5000
 
