@@ -4,6 +4,7 @@ const moment = require('moment');
 const distHelper = require('./dist');
 const urljoin = require('url-join');
 const async = require('async');
+const timeToPixel = 60; // 15 mins = 60 pixels
 
 function byProperty(key) {
 
@@ -40,6 +41,54 @@ function returnTrackColor(trackInfo, id) {
 function checkNullHtml(html) {
   html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
   return (html === '');
+}
+
+function getHoursFromTime(time) {
+  return time.split(':')[0];
+}
+
+function getMinutessFromTime(time) {
+  return time.split(':')[1];
+}
+
+function getTimeDifferenceOfDates(startTime, sessionTime) {
+  const firstDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), parseInt(getHoursFromTime(startTime)), parseInt(getMinutessFromTime(startTime)), 0);
+  const secondDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), parseInt(getHoursFromTime(sessionTime)), parseInt(getMinutessFromTime(sessionTime)), 0);
+  return (secondDate - firstDate);
+}
+
+function convertTimeToPixel(startTime, sessionTime) {
+  const timeDiff = getTimeDifferenceOfDates(startTime, sessionTime);
+
+  const top = timeDiff * timeToPixel/ (1000 * 60 * 15) + timeToPixel; // distance of session from top of the table
+  return top;
+}
+
+function createTimeLine(startTime, endTime) {
+  let timeLine = [];
+  let startHour = parseInt(getHoursFromTime(startTime));
+  let endHour = parseInt(getHoursFromTime(endTime));
+  let i = 0;
+  let time = '';
+  let height = timeToPixel / 2;
+
+  while(startHour <= endHour) {
+    time = startHour < 10 ? '0' + startHour : startHour;
+    time = time + ':' + (i === 0 ? '0' + i : i);
+    timeLine.push({
+      time: time
+    });
+
+    i = (i + 15) % 60;
+    height += timeToPixel;
+    if(i === 0) {
+      startHour++;
+    }
+  }
+  return {
+    timeline: timeLine,
+    height: height
+  };
 }
 
 function convertLicenseToCopyright(licence, copyright) {
@@ -607,6 +656,9 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     const roomName = session.microlocation.name;
     const slug = date ;
     const tracktitle = (session.track == null) ? " " : session.track.name;
+    const start = moment.utc(session.start_time).local().format('HH:mm');
+    const end = moment.utc(session.end_time).local().format('HH:mm');
+
     let room = null;
 
     // set up room if it does not exist
@@ -615,6 +667,9 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
         sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug,
+        start_time: start,
+        end_time: end,
+        timeLine: [],
         sessions: []
       };
       roomData.set(slug,room);
@@ -635,11 +690,19 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       venue = session.microlocation.name;
     }
 
+    if(room.start_time == slug || room.start_time > start ) {
+      room.start_time = start;
+    }
+
+    if(room.end_time == slug || room.end_time < end ) {
+      room.end_time = end;
+    }
+
     room.sessions.push({
-      start: moment.utc(session.start_time).local().format('HH:mm'),
+      start: start,
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
       venue: venue,
-      end : moment.utc(session.end_time).local().format('HH:mm'),
+      end : end,
       title: session.title,
       type: (session.session_type == null) ? '' : session.session_type.name,
       description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
@@ -674,6 +737,12 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     // sort all sessions in each day by 'venue + date'
     roomsDetail[i].sessions.sort(byProperty('sortKey'));
     roomsDetail[i].venue = [];
+    let startTime = roomsDetail[i].start_time;
+    let endTime = roomsDetail[i].end_time;
+    let timeinfo = createTimeLine(startTime, endTime);
+    roomsDetail[i].timeline = timeinfo.timeline;
+    roomsDetail[i].height = timeinfo.height;
+    roomsDetail[i].timeToPixel = timeToPixel;
 
     // remove venue names from all but the 1st session in each venue
     let sessionsLength = roomsDetail[i].sessions.length;
@@ -682,6 +751,11 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     tempVenue.sessions = [];
 
     for (let j = 0; j < sessionsLength; j++) {
+
+      roomsDetail[i].sessions[j].top = convertTimeToPixel(startTime, roomsDetail[i].sessions[j].start);
+      roomsDetail[i].sessions[j].bottom = convertTimeToPixel(startTime, roomsDetail[i].sessions[j].end);
+      roomsDetail[i].sessions[j].height = roomsDetail[i].sessions[j].bottom - roomsDetail[i].sessions[j].top;
+
       if (roomsDetail[i].sessions[j].venue == prevVenue) {
         roomsDetail[i].sessions[j].venue = '';
         tempVenue.sessions.push(roomsDetail[i].sessions[j]);
