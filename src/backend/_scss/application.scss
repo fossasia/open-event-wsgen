@@ -976,7 +976,7 @@ a {
             height: 300px;
             width: 300px;
 
-            
+
 
             .bio {
               color: $white;
@@ -998,7 +998,7 @@ a {
         }
 
 
-        &:hover { 
+        &:hover {
             .hover-state {
             opacity: 1;
 
@@ -1567,6 +1567,71 @@ a.skip:hover {
   width: auto;
 }
 
+.list-filter {
+  margin-left: 5px;
+}
+
+.view-button {
+  display: inline-block;
+}
+
+.unselect {
+  background-color:$white-gray;
+  border-color: $black;
+  color: $black;
+}
+
+.calendar {
+  margin-top: 20px;
+  display: block;
+}
+
+.calendar-content {
+  display: block;
+}
+
+.times {
+  float: left;
+  display: inline-block;
+}
+
+.rooms {
+  overflow-x : auto;
+  width: 80%;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.room {
+  white-space: initial;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+}
+
+.room-header {
+  display: flex;
+  text-align: center;
+  width: 100%;
+  border-color: $gray-extra-light;
+  border: 1px solid;
+}
+
+.session {
+  color: $black;
+  position: absolute;
+  border: 1px solid $gray-extra-dark;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+.time {
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid $border-event;
+}
+
 #menuItem {
   margin-bottom: 14px;
 }
@@ -1666,4 +1731,3 @@ a.skip:hover {
 #speaker-social-icons {
   padding:2%;
 }
-
