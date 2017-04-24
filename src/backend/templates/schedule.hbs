@@ -63,10 +63,16 @@
         --------------------------------------------------------------- -->
     <p class="date-list">
     {{#timeList}}
-      <span class="date-pill"><a href="./schedule.html#{{slug}}"> {{date}} </a></span>
+      <span class="{{slug}} date-pill"><a class="{{slug}} date-button" href="./schedule.html#{{slug}}"> {{date}} </a></span>
     {{/timeList}}
     <span class = "show-button-filter">
       <button class = "btn btn-primary" id = "starred" >Show Starred</button>
+    </span>
+    <span class = "list-filter view-button">
+      <button class = "btn btn-primary" id = "list" >List View</button>
+    </span>
+    <span class = "calendar-filter view-button">
+      <button class = "btn btn-primary unselect" id = "calendar" >Calendar View</button>
     </span>
     <span class="search-filter">
         <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -74,7 +80,7 @@
     </p>
 
     <div class="row">
-      <div id="content-block" class="col-md-9">
+      <div id="content-block" class="col-md-9 list-view">
         <div id="track-list" class="container">
 
           {{#timeList}}
@@ -205,6 +211,151 @@
 
         </div>
       </div>
+      <div id="content-block" class="col-md-9 calendar-view">
+        {{#roomsinfo}}
+          {{#if @first}}
+            <div class="{{slug}} calendar">
+            {{else}}
+            <div class="{{slug}} calendar hide">
+            {{/if}}
+              <div class="row paddingzero">
+                <div class="col-md-12 paddingzero">
+                  <a class="anchor" id="{{slug}}"></a>
+                  <h5 class="text">{{date}}</h4>
+                </div>
+              </div>
+              <div class="calendar-content">
+                <div class="times">
+                  <div class="time" style="height: {{{timeToPixel}}}px">
+                    &nbsp;
+                  </div>
+                  {{#timeline}}
+                  <div class="time" style="height: {{{../timeToPixel}}}px; line-height: {{{../timeToPixel}}}px">
+                    {{time}}
+                  </div>
+                  {{/timeline}}
+                </div>
+                <div class="rooms" style="height: {{{height}}}px">
+                  {{#venue}}
+                  <div class="room">
+                    <div class="room-header" style="height: {{{../timeToPixel}}}px;">
+                      {{#if venue }}
+                        {{venue}}
+                      {{/if}}
+                    </div>
+                    <div class="session-container">
+                      {{#sessions}}
+                      <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}}">
+                        {{title}}
+                        <div class="pop-box hide">
+                          <div class="arrow">
+                            <span></span>
+                          </div>
+                          <div class="pop-container" id="pop-speaker-name">
+                            <div class="pop">
+                              <div class="pop-header">
+                                <span class="s-popup-header-name"><strong>{{{title}}} ({{start}} - {{end}})</strong>
+                                </span>
+                              </div>
+                              <div class="pop-over row">
+                                <hr>
+                                <h4 class="text"><strong>About the session</strong></h4>
+                                {{{description}}}
+                              </div>
+                              <div class="pop-speakers">
+                               <div class="pop-over row">
+                                 <hr>
+                                 <h4 class="text"><strong>Speakers</strong></h4>
+                                 <div class="session-speakers-list">
+                                 {{#speakers_list}}
+                                   <a href="speakers.html#{{nameIdSlug}}">
+                                     <div class="session-speakers-less">
+                                       <p class="session-speakers">
+                                       {{#if photo}}
+                                         <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
+                                       {{else}}
+                                         <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
+                                       {{/if}}
+                                       </p>
+                                       <span class="graytext">{{name}}</span>
+                                     </div>
+                                   </a>
+                                   {{#if organisation}}
+                                     <p class="session-speakers-more">
+                                     {{organisation}}
+                                     </p>
+                                   {{/if}}
+                                   {{#if biography}}
+                                     <div class="session-speakers-more">
+                                       {{{biography}}}
+                                     </div>
+                                   {{/if}}
+                                   <div class="blacktext session-speaker-social">
+                                     <div class="session-speakers-more">
+                                       {{#if website}}
+                                       <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                         <i class="fa fa-home"></i> Web
+                                       </a>&nbsp;
+                                       {{/if}}
+                                       {{#if github}}
+                                       <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                                         <i class="fa fa-github"></i> Github
+                                       </a>&nbsp;
+                                       {{/if}}
+                                       {{#if twitter}}
+                                       <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                                         <i class="fa fa-twitter"></i> Twitter
+                                       </a>&nbsp;
+                                       {{/if}}
+                                       {{#if linkedin}}
+                                       <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                                         <i class="fa fa-linkedin"></i> LinkedIn
+                                       </a>&nbsp;
+                                       {{/if}}
+                                       <a class="session-lin blacktext social speaker-social clickable-link">
+                                         <i class="fa fa-share"></i> Share
+                                       </a>
+                                       <div class="social-buttons row">
+                                        {{> social}}
+                                        <div class="row social-link">
+                                          <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" readonly>
+                                        </div>
+                                       </div>
+                                     </div>
+                                   </div>
+                                   <hr style="clear:both">
+                                   {{/speakers_list}}
+                                   <div class="blacktext">
+                                     {{#if roomname}}
+                                     <p><i>{{roomname}}</i></p>
+                                     {{/if}}
+                                     {{#if sessiondate}}
+                                     <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
+                                     {{/if}}
+                                     <p>
+                                       <ul class="title-inline">
+                                         <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                         <li class="blacktext">{{tracktitle}}</li>
+                                       </ul>
+                                     </p><br>
+                                   </div>
+                                 </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      {{/sessions}}
+                    </div>
+                  </div>
+                  {{/venue}}
+                </div>
+              </div>
+            </div>
+          {{/roomsinfo}}
+      </div>
       <div class="track-names">
       {{#tracknames}}
       {{#if title}}
@@ -228,6 +379,7 @@
        var mode = 0;
        var flag = 0;
        var isAdded = 0;
+       var isCalendarView = false;
 
        $(function() {
          $("img.lazy").lazyload({
@@ -332,6 +484,45 @@
             }
           });
 
+          $('.date-button').click(function() {
+            if(isCalendarView) {
+              let className = $(this).attr('class').split(' ')[0];
+
+              $('.calendar').each(function () {
+                if($(this).attr('class').split(' ')[0] === className) {
+                  $(this).removeClass('hide');
+                } else {
+                  $(this).addClass('hide');
+                }
+
+              });
+            }
+          });
+
+          $('#calendar').click(function() {
+            isCalendarView = true;
+            toggleButtons();
+            $('.calendar-view').show();
+            $('.list-view').hide();
+          });
+
+          $('#list').click(function() {
+            isCalendarView = false;
+            toggleButtons();
+            $('.calendar-view').hide();
+            $('.list-view').show();
+          });
+
+          $('.session').click(function() {
+            let pop = $(this).find('.pop-box')[0];
+
+            $('.pop-box').each(function() {
+              if(pop !== this) {
+                $(this).addClass('hide');
+              }
+            });
+            $(pop).toggleClass('hide');
+          });
 
           $('#starred').click(function() {
             mode = !mode;
@@ -386,7 +577,14 @@
               }
             });
           }
+
+          function toggleButtons() {
+            $('#list').toggleClass('unselect');
+            $('#calendar').toggleClass('unselect');
+          }
+
           display();
+
         });
     </script>
 </body>
