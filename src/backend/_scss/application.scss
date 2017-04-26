@@ -413,6 +413,7 @@ a {
 .show-button-filter {
   display: inline-block;
   padding-top: 6px;
+  margin : 10px;
 }
 
 .event {
@@ -741,6 +742,7 @@ a {
   position: relative;
 
   li {
+    margin-left : 2%;
     display: inline-block;
     max-width: 188.6px;
     vertical-align: top;
@@ -843,6 +845,7 @@ a {
 }
 
 .track-inline {
+  margin : 1%;
   display: inline-block;
   vertical-align: text-top;
 }
@@ -1569,6 +1572,9 @@ a.skip:hover {
 
 .list-filter {
   margin-left: 5px;
+  button {
+    margin : 10px;
+  }
 }
 
 .view-button {
