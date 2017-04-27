@@ -208,10 +208,9 @@
             {{/times}}
           </div>
           {{/timeList}}
-
         </div>
       </div>
-      <div id="content-block" class="col-md-9 calendar-view">
+      <div id="content-block" class="col-md-12 calendar-view hide">
         {{#roomsinfo}}
           {{#if @first}}
             <div class="{{slug}} calendar">
@@ -235,18 +234,18 @@
                   </div>
                   {{/timeline}}
                 </div>
-                <div class="rooms" style="height: {{{height}}}px">
+                <div class="rooms" style="height: {{{height}}}px;background-image: url('images/timeline.png');background-repeat: repeat;">
                   {{#venue}}
                   <div class="room">
                     <div class="room-header" style="height: {{{../timeToPixel}}}px;">
                       {{#if venue }}
-                        {{venue}}
+                        <span>{{venue}}</span>
                       {{/if}}
                     </div>
                     <div class="session-container">
                       {{#sessions}}
                       <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}}">
-                        {{title}}
+                        <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
                             <span></span>
@@ -345,7 +344,6 @@
                             </div>
                           </div>
                         </div>
-
                       </div>
                       {{/sessions}}
                     </div>
@@ -380,12 +378,13 @@
        var flag = 0;
        var isAdded = 0;
        var isCalendarView = false;
+       var firstCalendar = $('.calendar').first();
+
 
        $(function() {
          $("img.lazy").lazyload({
            threshold: 2000
          });
-         $('.calendar-view').hide();
        });
 
       $('.session-lin').click(function() {
@@ -485,46 +484,6 @@
             }
           });
 
-          $('.date-button').click(function() {
-            if(isCalendarView) {
-              let className = $(this).attr('class').split(' ')[0];
-
-              $('.calendar').each(function () {
-                if($(this).attr('class').split(' ')[0] === className) {
-                  $(this).removeClass('hide');
-                } else {
-                  $(this).addClass('hide');
-                }
-
-              });
-            }
-          });
-
-          $('#calendar').click(function() {
-            isCalendarView = true;
-            toggleButtons();
-            $('.calendar-view').show();
-            $('.list-view').hide();
-          });
-
-          $('#list').click(function() {
-            isCalendarView = false;
-            toggleButtons();
-            $('.calendar-view').hide();
-            $('.list-view').show();
-          });
-
-          $('.session').click(function() {
-            let pop = $(this).find('.pop-box')[0];
-
-            $('.pop-box').each(function() {
-              if(pop !== this) {
-                $(this).addClass('hide');
-              }
-            });
-            $(pop).toggleClass('hide');
-          });
-
           $('#starred').click(function() {
             mode = !mode;
             if(mode)
@@ -533,6 +492,58 @@
               $(this).text("Show Starred");
             display();
           });
+
+          $('.date-button').click(function() {
+            if(isCalendarView) {
+              let className = $(this).attr('class').split(' ')[0];
+
+              $('.calendar').each(function () {
+                if($(this).attr('class').split(' ')[0] === className) {
+                  $(this).removeClass('hide');
+                  adjustCalendar(this);
+                } else {
+                  $(this).addClass('hide');
+                }
+              });
+            }
+          });
+
+          $('#calendar').click(function() {
+            isCalendarView = true;
+            $('#list').addClass('unselect');
+            $('#calendar').removeClass('unselect');
+            $('.list-view').addClass('hide');
+            $('.calendar-view').removeClass('hide');
+            adjustCalendar(firstCalendar);
+          });
+
+          $('#list').click(function() {
+            isCalendarView = false;
+            $('#list').removeClass('unselect');
+            $('#calendar').addClass('unselect');
+            $('.list-view').removeClass('hide');
+            $('.calendar-view').addClass('hide');
+          });
+
+          function adjustCalendar(element) {
+            let rooms = $(element).find('.calendar-content').find('.rooms');
+            let width = 0;
+
+            $(rooms).find('.room').each(function() {
+              width += $(this).outerWidth();
+              $(this).find('.session-container').find('.session').each(function() {
+                var sessionName = $(this).find('.session-name');
+                var textArray = $(sessionName).html().split(' ');
+                while($(sessionName).outerHeight() > $(this).outerHeight()) {
+                    textArray.pop();
+                    $(sessionName).html(textArray.join(' ') + '...');
+                }
+              })
+            });
+            if(width < $(rooms).width()) {
+              $(rooms).width(width);
+            }
+          }
 
           function display() {
             console.log("Inside the display function");
@@ -578,14 +589,7 @@
               }
             });
           }
-
-          function toggleButtons() {
-            $('#list').toggleClass('unselect');
-            $('#calendar').toggleClass('unselect');
-          }
-
           display();
-
         });
     </script>
 </body>

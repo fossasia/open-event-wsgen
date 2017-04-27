@@ -4,7 +4,7 @@ const moment = require('moment');
 const distHelper = require('./dist');
 const urljoin = require('url-join');
 const async = require('async');
-const timeToPixel = 60; // 15 mins = 60 pixels
+const timeToPixel = 50; // 15 mins = 50 pixels
 
 function byProperty(key) {
 
