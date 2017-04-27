@@ -535,6 +535,7 @@ a {
 }
 
 .pop-box {
+  cursor: text;
   background-color: $white;
   border: 1px solid $span-border-left;
   border-radius: 4px;
@@ -1597,37 +1598,51 @@ a.skip:hover {
 }
 
 .times {
+  width: 48px;
   float: left;
   display: inline-block;
 }
 
 .rooms {
   overflow-x : auto;
-  width: 80%;
+  width: calc(100% - 80px);
   display: inline-block;
   white-space: nowrap;
 }
 
 .room {
+  background-color: $white;
   white-space: initial;
   display: inline-block;
   position: relative;
-  width: 200px;
+  min-width: 120px;
+  max-width: 180px;
 }
 
 .room-header {
-  display: flex;
-  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+  display: flex;;
   width: 100%;
+  background-color: $white;
   border-color: $gray-extra-light;
   border: 1px solid;
+
+  span {
+    word-wrap: break-word;
+  }
 }
 
 .session {
-  color: $black;
+  @include cursorpointer;
+  color: $white;
   position: absolute;
   border: 1px solid $gray-extra-dark;
   width: 100%;
+}
+
+.session-name {
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
