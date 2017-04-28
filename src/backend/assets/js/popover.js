@@ -78,9 +78,13 @@ $(document).ready(function () {
 
   function resetPage() {
     if(previousRoomHeight > 0) {
+      let footer = $(roomsdiv).find('.calendar-footer');
       $(roomsdiv).css({
         "height": previousRoomHeight
-      })
+      });
+      $(footer).css({
+        "height": 0
+      });
     }
   }
 
@@ -88,6 +92,7 @@ $(document).ready(function () {
 
     if(session.is(element)) {
       let rooms = $(element).parent().parent().parent();
+      let footer = $(rooms).find('.calendar-footer');
       let roomsPosition = $(rooms).offset();
       let roomsHeight = $(rooms).outerHeight();
       let roomsWidth = $(rooms).outerWidth();
@@ -102,14 +107,14 @@ $(document).ready(function () {
       roomsdiv = $(rooms).hasClass('rooms') ? rooms : roomsdiv;
 
       if(openedPop !== null) {
-        //console.log(popTop + popHeight);
         let parentWidth = roomsPosition.left + roomsWidth;
         let childWidth = popPosition.left + popWidth;
         let parentHeight = roomsPosition.top + roomsHeight;
         let childHeight = popPosition.top + popHeight;
 
         let diff = 0,
-            popDiff = 0;
+            popDiff = 0,
+            footerOffset = 0;
 
         //Change the left value of popbox and avoid increase in width
         if(childWidth >= parentWidth) {
@@ -121,11 +126,16 @@ $(document).ready(function () {
         }
 
         if(childHeight >= parentHeight) {
-          diff = childHeight - parentHeight;
-          diff = roomsHeight + diff + 20;
+          diff = childHeight - parentHeight + 30;
+          footerOffset = diff + 50;
+          diff = roomsHeight + diff;
           previousRoomHeight = previousRoomHeight === 0 ? roomsHeight : previousRoomHeight;
           $(rooms).css({
             "height": diff
+          });
+          $(footer).css({
+            "top": previousRoomHeight,
+            "height": footerOffset
           });
         }
       } else {
