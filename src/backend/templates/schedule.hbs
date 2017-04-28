@@ -349,6 +349,7 @@
                     </div>
                   </div>
                   {{/venue}}
+                  <div class="calendar-footer"></div>
                 </div>
               </div>
             </div>
@@ -528,6 +529,8 @@
           function adjustCalendar(element) {
             let rooms = $(element).find('.calendar-content').find('.rooms');
             let width = 0;
+            let offset = 0;
+            let roomCount = 0;
 
             $(rooms).find('.room').each(function() {
               width += $(this).outerWidth();
@@ -539,9 +542,18 @@
                     $(sessionName).html(textArray.join(' ') + '...');
                 }
               })
+              roomCount++;
             });
+
             if(width < $(rooms).width()) {
-              $(rooms).width(width);
+              offset = ($(rooms).width() - width)/roomCount;
+              $(rooms).find('.room').each(function() {
+                let currentWidth = $(this).width() + offset;
+                $(this).css({
+                  'width': currentWidth,
+                  'max-width': currentWidth
+                });
+              });
             }
           }
 

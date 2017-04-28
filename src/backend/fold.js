@@ -70,7 +70,7 @@ function createTimeLine(startTime, endTime) {
   let endHour = parseInt(getHoursFromTime(endTime));
   let i = 0;
   let time = '';
-  let height = timeToPixel / 2;
+  let height = timeToPixel;
 
   while(startHour <= endHour) {
     time = startHour < 10 ? '0' + startHour : startHour;

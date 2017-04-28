@@ -1596,6 +1596,12 @@ a.skip:hover {
   display: block;
 }
 
+.calendar-footer {
+  position: absolute;
+  background-color: $white;
+  width: 100%;
+}
+
 .times {
   width: 48px;
   float: left;
@@ -1603,6 +1609,7 @@ a.skip:hover {
 }
 
 .rooms {
+  overflow: hidden;
   overflow-x : auto;
   width: calc(100% - 80px);
   display: inline-block;
@@ -1638,6 +1645,7 @@ a.skip:hover {
   position: absolute;
   border: 1px solid $gray-extra-dark;
   width: 100%;
+  word-wrap: break-word;
 }
 
 .session-name {
