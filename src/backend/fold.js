@@ -4,7 +4,7 @@ const moment = require('moment');
 const distHelper = require('./dist');
 const urljoin = require('url-join');
 const async = require('async');
-const timeToPixel = 60; // 15 mins = 60 pixels
+const timeToPixel = 50; // 15 mins = 50 pixels
 
 function byProperty(key) {
 
@@ -70,7 +70,7 @@ function createTimeLine(startTime, endTime) {
   let endHour = parseInt(getHoursFromTime(endTime));
   let i = 0;
   let time = '';
-  let height = timeToPixel / 2;
+  let height = timeToPixel;
 
   while(startHour <= endHour) {
     time = startHour < 10 ? '0' + startHour : startHour;

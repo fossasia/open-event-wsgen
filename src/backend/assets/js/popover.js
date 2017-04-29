@@ -6,7 +6,12 @@ $(document).ready(function () {
       headerpop = $(".header-pop"),
       sizeevent = $(".sizeevent"),
       tracktime = $(".sizeevent span"),
-      speakerinfo = $(".speaker-info");
+      speakerinfo = $(".speaker-info"),
+      session = $(".session"),
+      sessionname = $('.session-name'),
+      roomsdiv = null,
+      openedPop = null,
+      previousRoomHeight = 0.0;
 
   popbox.addClass('hide');
     headerpop.hover(function (event) {
@@ -50,7 +55,95 @@ $(document).ready(function () {
       popbox.addClass('hide');
       hidePopbox();
     })
+  }
 
+  session.click(function(event) {
+    if(session.is(event.target) || sessionname.is(event.target)) {
+      if($(this).is(openedPop)) {
+        resetPage();
+        $(this).find('.pop-box').toggleClass('hide');
+      } else {
+        resetPage();
+        openedPop = this;
+        addPopbox(this);
+      }
+    }
+  });
+
+  function addPopbox(element) {
+    popbox.addClass('hide');
+    $(element).find('.pop-box').removeClass('hide');
+    adjustPage(element);
+  }
+
+  function resetPage() {
+    if(previousRoomHeight > 0) {
+      let footer = $(roomsdiv).find('.calendar-footer');
+      $(roomsdiv).css({
+        "height": previousRoomHeight
+      });
+      $(footer).css({
+        "height": 0
+      });
+    }
+  }
+
+  function adjustPage(element) {
+
+    if(session.is(element)) {
+      let rooms = $(element).parent().parent().parent();
+      let footer = $(rooms).find('.calendar-footer');
+      let roomsPosition = $(rooms).offset();
+      let roomsHeight = $(rooms).outerHeight();
+      let roomsWidth = $(rooms).outerWidth();
+      let pop = $(element).find('.pop-box');
+      let popPosition = $(pop).offset();
+      let popHeight = $(pop).outerHeight();
+      let popWidth = $(pop).outerWidth();
+      let arrow = $(pop).find('.arrow');
+      let arrowPosition = $(arrow).offset();
+      let offset = 5;
+      previousRoomHeight = (roomsdiv !== null && $(roomsdiv).is(':visible')) ? previousRoomHeight : 0;
+      roomsdiv = $(rooms).hasClass('rooms') ? rooms : roomsdiv;
+
+      if(openedPop !== null) {
+        let parentWidth = roomsPosition.left + roomsWidth;
+        let childWidth = popPosition.left + popWidth;
+        let parentHeight = roomsPosition.top + roomsHeight;
+        let childHeight = popPosition.top + popHeight;
+
+        let diff = 0,
+            popDiff = 0,
+            footerOffset = 0;
+
+        //Change the left value of popbox and avoid increase in width
+        if(childWidth >= parentWidth) {
+          diff = childWidth - parentWidth;
+          popDiff = popPosition.left - diff - offset;
+          diff = arrowPosition.left + diff + offset;
+          arrow.offset({ top: arrowPosition.top, left: diff});
+          pop.offset({ top: popPosition.top, left: popDiff});
+        }
+
+        if(childHeight >= parentHeight) {
+          diff = childHeight - parentHeight + 30;
+          footerOffset = diff + 50;
+          diff = roomsHeight + diff;
+          previousRoomHeight = previousRoomHeight === 0 ? roomsHeight : previousRoomHeight;
+          $(rooms).css({
+            "height": diff
+          });
+          $(footer).css({
+            "top": previousRoomHeight,
+            "height": footerOffset
+          });
+        }
+      } else {
+        resetPage();
+      }
+    } else {
+      resetPage();
+    }
   }
 
   function popBox(e) {
@@ -100,6 +193,7 @@ $(document).ready(function () {
     }
 
   }
+
   function hidePopbox () {
     $(".classic").css({
       "position":"static"
