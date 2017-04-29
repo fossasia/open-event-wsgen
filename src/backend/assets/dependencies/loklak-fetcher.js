@@ -46,22 +46,22 @@ window.loklakFetcher = (function() {
       var query;
 
       if(dataset.query) {
-        query = dataset.query.replace(/\s/gi, '%20').replace(/#/gi, '%23').replace('_',""); 
+        query = dataset.query.replace(/\s/gi, '%20').replace(/#/gi, '%23').replace('_',"");
         //replace spaces and hashtags in URL
       } else {
         //query = "fossasia";
       }
 
       if(dataset.start) {
-        query = query + "%20since:" + dataset.start;
+        query = query + "&since:" + dataset.start;
       }
 
       if(dataset.end) {
-        query = query + "%20until:" + dataset.end;
+        query = query + "&until:" + dataset.end;
       }
 
       if(dataset.from) {
-        query = query + "%20from:" + dataset.from;
+        query = query + "&from:" + dataset.from;
       }
 
       // Write unset options as their default
@@ -72,7 +72,7 @@ window.loklakFetcher = (function() {
       }
 
       // Create the URL with all the parameters
-      var url = 'http://loklak.org/api/search.json' +
+      var url = 'https://api.loklak.org/api/search.json' +
         '?callback=loklakFetcher.handleData' +
         '&q=' + query +
         '&count=' + options.count +
@@ -82,7 +82,7 @@ window.loklakFetcher = (function() {
         '&timezoneOffset=' + options.tzOffset +
         '&minified=' + options.minified ;
       // If the script element for JSONP already exists, remove it
-      
+
       if(script !== null) {
         document.head.removeChild(script);
       }
