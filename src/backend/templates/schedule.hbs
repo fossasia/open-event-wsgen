@@ -237,7 +237,7 @@
                 <div class="rooms" style="height: {{{height}}}px;background-image: url('images/timeline.png');background-repeat: repeat;">
                   {{#venue}}
                   <div class="room">
-                    <div class="room-header" style="height: {{{../timeToPixel}}}px;">
+                    <div class="room-header" style="width: {{{../width}}}px; height: {{{../timeToPixel}}}px;">
                       {{#if venue }}
                         <span>{{venue}}</span>
                       {{/if}}
@@ -379,7 +379,6 @@
        var flag = 0;
        var isAdded = 0;
        var isCalendarView = false;
-       var firstCalendar = $('.calendar').first();
 
 
        $(function() {
@@ -501,7 +500,6 @@
               $('.calendar').each(function () {
                 if($(this).attr('class').split(' ')[0] === className) {
                   $(this).removeClass('hide');
-                  adjustCalendar(this);
                 } else {
                   $(this).addClass('hide');
                 }
@@ -515,7 +513,6 @@
             $('#calendar').removeClass('unselect');
             $('.list-view').addClass('hide');
             $('.calendar-view').removeClass('hide');
-            adjustCalendar(firstCalendar);
           });
 
           $('#list').click(function() {
@@ -525,37 +522,6 @@
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
           });
-
-          function adjustCalendar(element) {
-            let rooms = $(element).find('.calendar-content').find('.rooms');
-            let width = 0;
-            let offset = 0;
-            let roomCount = 0;
-
-            $(rooms).find('.room').each(function() {
-              width += $(this).outerWidth();
-              $(this).find('.session-container').find('.session').each(function() {
-                var sessionName = $(this).find('.session-name');
-                var textArray = $(sessionName).html().split(' ');
-                while($(sessionName).outerHeight() > $(this).outerHeight()) {
-                    textArray.pop();
-                    $(sessionName).html(textArray.join(' ') + '...');
-                }
-              })
-              roomCount++;
-            });
-
-            if(width < $(rooms).width()) {
-              offset = ($(rooms).width() - width)/roomCount;
-              $(rooms).find('.room').each(function() {
-                let currentWidth = $(this).width() + offset;
-                $(this).css({
-                  'width': currentWidth,
-                  'max-width': currentWidth
-                });
-              });
-            }
-          }
 
           function display() {
             console.log("Inside the display function");

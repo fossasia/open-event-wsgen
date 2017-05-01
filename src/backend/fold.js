@@ -5,6 +5,8 @@ const distHelper = require('./dist');
 const urljoin = require('url-join');
 const async = require('async');
 const timeToPixel = 50; // 15 mins = 50 pixels
+const columnWidth = 160;
+const calendarWidth = 1060;
 
 function byProperty(key) {
 
@@ -89,6 +91,15 @@ function createTimeLine(startTime, endTime) {
     timeline: timeLine,
     height: height
   };
+}
+
+function checkWidth(columns) {
+  if(columns * columnWidth > calendarWidth) {
+      return columnWidth;
+  } else {
+      let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
+      return columnWidth + whiteSpace;
+  }
 }
 
 function convertLicenseToCopyright(licence, copyright) {
@@ -773,6 +784,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     }
     roomsDetail[i].venue.push(tempVenue);
     roomsDetail[i].sessions = {};
+    roomsDetail[i].width = checkWidth(roomsDetail[i].venue.length);
   }
   return roomsDetail;
 }
