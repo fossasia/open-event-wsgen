@@ -754,6 +754,7 @@ a {
 .title-legend {
   float: right;
   width: 215px;
+  line-height : 13px;
 }
 
 .track-names {
@@ -1571,15 +1572,13 @@ a.skip:hover {
   width: auto;
 }
 
-.list-filter {
-  margin-left: 5px;
-  button {
-    margin : 10px;
-  }
-}
-
 .view-button {
   display: inline-block;
+  button {
+    margin : 5px 10px 10px 10px;
+    background-color : $white-gray;
+    color : $black;
+  }
 }
 
 .unselect {
@@ -1679,7 +1678,7 @@ a.skip:hover {
   background-color:$white-gray;
   color:black;
   border-color:$light-black;
-  margin:0 auto;
+  margin : 5px 5px 10px 5px;
 }
 
 
