@@ -62,9 +62,14 @@
         text across the page.
         --------------------------------------------------------------- -->
     <p class="date-list">
-    {{#timeList}}
-      <span class="{{slug}} date-pill"><a class="{{slug}} date-button" href="./schedule.html#{{slug}}"> {{date}} </a></span>
-    {{/timeList}}
+      <span id="tabs" class="col-md-6 tabs no-js">
+         <span class="tabs-nav">
+            {{#timeList}}
+            <a id="{{slug}}" href="#" class="{{slug}} date-button tabs-nav-link">{{date}}</a>
+            {{/timeList}}
+         </span>
+      </span>
+    </p>
     <span class = "show-button-filter">
       <button class = "btn btn-primary" id = "starred" >Show Starred</button>
     </span>
@@ -84,9 +89,12 @@
         <div id="track-list" class="container">
 
           {{#timeList}}
-          <div class="day-filter">
+          {{#if @first}}
+            <div class="{{slug}} day-filter">
+            {{else}}
+            <div class="{{slug}} day-filter hide">
+          {{/if}}
             <div class="col-md-12 paddingzero">
-              <a class="anchor" id="{{slug}}"></a>
               <h4 class="text">{{date}}</h4>
             </div>
             {{#times}}
@@ -211,18 +219,17 @@
         </div>
       </div>
       <div id="content-block" class="col-md-12 calendar-view hide">
+        <div id="track-list" class="container">
         {{#roomsinfo}}
           {{#if @first}}
             <div class="{{slug}} calendar">
             {{else}}
             <div class="{{slug}} calendar hide">
-            {{/if}}
-              <div class="row paddingzero">
-                <div class="col-md-12 paddingzero">
-                  <a class="anchor" id="{{slug}}"></a>
-                  <h5 class="text">{{date}}</h4>
-                </div>
-              </div>
+          {{/if}}
+            <div class="col-md-12 paddingzero">
+              <a class="anchor" id="{{slug}}"></a>
+              <h5 class="text">{{date}}</h4>
+            </div>
               <div class="calendar-content">
                 <div class="times">
                   <div class="time" style="height: {{{timeToPixel}}}px">
@@ -354,6 +361,7 @@
               </div>
             </div>
           {{/roomsinfo}}
+        </div>
       </div>
       <div class="track-names">
       {{#tracknames}}
@@ -494,18 +502,25 @@
           });
 
           $('.date-button').click(function() {
-            if(isCalendarView) {
               let className = $(this).attr('class').split(' ')[0];
-
-              $('.calendar').each(function () {
-                if($(this).attr('class').split(' ')[0] === className) {
-                  $(this).removeClass('hide');
-                } else {
-                  $(this).addClass('hide');
-                }
-              });
-            }
-          });
+              if(isCalendarView) {
+                $('.calendar').each(function () {
+                  if($(this).attr('class').split(' ')[0] === className) {
+                    $(this).removeClass('hide');
+                  } else {
+                    $(this).addClass('hide');
+                  }
+                });
+              } else {
+                $('.day-filter').each(function () {
+                  if($(this).attr('class').split(' ')[0] === className) {
+                    $(this).removeClass('hide');
+                  } else {
+                    $(this).addClass('hide');
+                  }
+                });
+              }
+            });
 
           $('#calendar').click(function() {
             isCalendarView = true;
