@@ -413,7 +413,6 @@ a {
 .show-button-filter {
   display: inline-block;
   padding-top: 6px;
-  margin : 10px;
 }
 
 .event {
@@ -1441,7 +1440,9 @@ a {
 }
 
 .tabs {
-  margin-left: -15px;
+  margin-top: 10px;
+  line-height: 20px;
+  padding: 0;
 }
 
 .tabs-nav {
@@ -1456,7 +1457,7 @@ a {
   color: $white;
   flex: 1;
   margin-right: 4px;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
   transition: color 0.3s;
 
@@ -1508,6 +1509,7 @@ a {
   display: none;
 
   &.is-active {
+    padding: 5px;
     display: block;
   }
 }
@@ -1575,7 +1577,7 @@ a.skip:hover {
 .view-button {
   display: inline-block;
   button {
-    margin : 5px 10px 10px 10px;
+    margin : 5px 5px 10px 5px;
     background-color : $white-gray;
     color : $black;
   }
@@ -1588,7 +1590,7 @@ a.skip:hover {
 }
 
 .calendar {
-  margin-top: 20px;
+  margin-top: 13px;
   display: block;
 }
 

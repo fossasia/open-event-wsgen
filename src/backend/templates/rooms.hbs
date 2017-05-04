@@ -64,9 +64,7 @@
         text across the page.
         --------------------------------------------------------------- -->
     <p class="date-list">
-        {{#timeList}}
-          <span class="date-pill"><a href="./rooms.html#{{slug}}"> {{date}} </a></span>
-        {{/timeList}}
+        {{> subnavbar flag = 0}}
         <span class="show-button-filter" >
           <button class = "btn btn-primary" id = "starred" >Show Starred</button>
         </span>
@@ -77,13 +75,15 @@
     <div id="session-list" class="container">
       <div class="row">
         <div id="content-block" class="col-md-9">
-                      {{> subnavbar flag = 0}}
           <div id="track-list">
             {{#roomsinfo}}
-            <div class="date-filter" id="rooms-list">
+            {{#if @first}}
+              <div class="{{slug}} date-filter" id="rooms-list">
+              {{else}}
+              <div class="{{slug}} date-filter hide" id="rooms-list">
+            {{/if}}
                 <div class="row paddingzero">
                   <div class="col-md-12 paddingzero">
-                    <a class="anchor" id="{{slug}}"></a>
                     <h5 class="text">{{date}}</h4>
                   </div>
                 </div>
