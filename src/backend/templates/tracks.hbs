@@ -96,8 +96,8 @@
                     </div>
                   </div>
                   {{#sessions}}
-                    <div class="room-filter">
-                      <a class="anchor" id="{{session_id}}"></a>
+                    <div class="room-filter" id="{{session_id}}">
+                      <a class="anchor"></a>
                       <div class="row">
                         <!-- check next line -->
                         <div style="clear:both" class="col-md-12">
@@ -363,10 +363,9 @@
 
     $('.room-filter').click(function () {
       var temp = JSON.parse(localStorage['sessions']);
-      var anchorElem = $(this).children('a')[0];
-      var id = $(anchorElem).attr('id');
+      var id =  Number($(this).attr('id'));;
       if (flag) {
-        if (isAdded) {
+        if (isAdded) { 
           temp[id] = 1;
         }
         else {
@@ -406,8 +405,7 @@
         $(this).find('.track-filter').each(function () {
           var trackFlag = 0;
           $(this).find('.room-filter').each(function () {
-            var anchorElem = $(this).children('a')[0];
-            var elemId = $(anchorElem).attr('id');
+            var elemId = $(this).attr('id');
             var elemFlag = 0;
             if (temp[elemId] == 1) {
               elemFlag = trackFlag = dateFlag = 1;
@@ -439,7 +437,20 @@
       });
     }
 
-    display();
+    function initPage() {
+      console.log("inside initPage");
+      if(localStorage.hasOwnProperty('sessions') === false) {
+        localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+      }
+      var temp = JSON.parse(localStorage['sessions']);
+      var elemId;
+      for (var i = 0; i < temp.length; i++) {
+        if(temp[i] === 1) {
+          elemId = $('#' + i).find('.bookmark').css("color", "black");;
+        }
+      }
+    }
+    initPage();
   });
 </script>
 });
