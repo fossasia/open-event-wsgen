@@ -211,5 +211,19 @@
               }
             });
           }
-          display();
+
+          function initPage() {
+            console.log("inside initPage");
+            if(localStorage.hasOwnProperty('sessions') === false) {
+              localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+            }
+            var temp = JSON.parse(localStorage['sessions']);
+            var elemId;
+            for (var i = 0; i < temp.length; i++) {
+              if(temp[i] === 1) {
+                elemId = $('#' + i).find('.bookmark').css("color", "black");;
+              }
+            }
+          }
+          initPage();
         });</script></body></html>
