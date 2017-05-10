@@ -8,7 +8,6 @@ body {
   background-color: $background-shade !important;
   color: $gray-dark;
   font: 12px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding-top: 50px;
   position: relative;
 }
 
@@ -179,7 +178,7 @@ a {
   margin-top:1em;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-toggle .icon-bar {
   background-color: $gray-dark;
 }
 
@@ -194,14 +193,19 @@ pre {
       right:0;
       transition:right .4s;
       }
+    .side-collapse-container.navbar-fixed-top {
+      position:fixed;
+      }
     .side-collapse-container.out{
-      right:200px;
+      right:220px;
+      }
+    .side-collapse-container.out.navbar-fixed-top {
+      position:relative;
       }
     .side-collapse {
-      top:50px;
-      bottom:0;
+      top:0;
       right:0;
-      width:200px;
+      width:220px;
       position:fixed;
       overflow:hidden;
       transition:width .4s;
@@ -1702,6 +1706,7 @@ a.skip:hover {
   padding-right:0;
   padding-left:0;
   margin-left:15px;
+  float:left;
 }
 
 // style from tracks
