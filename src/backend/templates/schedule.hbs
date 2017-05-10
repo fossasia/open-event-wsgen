@@ -109,17 +109,17 @@
                 <div class="track-inline" id="{{session_id}}">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
-                    <div style="padding-right:0px;">
-                      <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
+                    <div class="padding-right-zero">
+                      <h4 style="background-color:{{{color}}};"  class="margin-right-zero sizeevent event"  data-toggle="collapse"
                         data-target="#desc-{{session_id}} .collapse"
                         aria-expanded="false"
                         aria-controls="desc-{{session_id}}">
                         {{title}}
                         {{#if audio}}
-                          <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
+                          <i class="fa fa-music" aria-hidden="true"></i>
                         {{/if}}
-                        <a style = "cursor:pointer" class = "bookmark" id = "c{{session_id}}" >
-                          <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
+                        <a class = "bookmark" id = "c{{session_id}}" >
+                          <i class="fa fa-star" aria-hidden="true">
                           </i>
                         </a>
                       </h4>
@@ -132,7 +132,7 @@
                             </audio>
                           {{/if}}
                         </div>
-                        <hr style="clear:both" class="collapse">
+                        <hr class="clear-both collapse">
                         <div class="session-speakers-list collapse"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
@@ -192,7 +192,7 @@
                               </div>
                             </div>
                           </div>
-                          <hr style="clear:both">
+                          <hr class="clear-both">
                           {{/each}}
                           <div class="blacktext">
                             <p><i>{{location}}</i></p>
@@ -329,7 +329,7 @@
                                        </div>
                                      </div>
                                    </div>
-                                   <hr style="clear:both">
+                                   <hr class="clear-both">
                                    {{/speakers_list}}
                                    <div class="blacktext">
                                      {{#if roomname}}
