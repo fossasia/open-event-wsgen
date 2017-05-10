@@ -104,7 +104,7 @@ function checkWidth(columns) {
 
 function convertLicenseToCopyright(licence, copyright) {
   var data = {};
-  data.licence_url = licence.licence_url;
+  data.licence_url = licence.licence_url === undefined ? licence.url : licence.licence_url;
   data.logo = licence.logo;
   data.licence = licence.long_name;
   data.year = copyright.year;
