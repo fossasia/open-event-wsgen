@@ -347,6 +347,14 @@ a {
   max-height: 120px;
 }
 
+.sponsor-container {
+  background: $white;
+}
+
+.sponsor-row {
+  margin: 0;
+}
+
 .sponsors {
   background-color: $white;
   border: 1px solid $gray-perfect;
@@ -355,6 +363,14 @@ a {
   margin: 25px;
   padding: 10px 15px;
   position: relative;
+}
+
+.location {
+  background-color: $white-classic-background;
+}
+
+.address {
+  margin-top: 20px;
 }
 
 .mediumoffset:first-child {
@@ -415,6 +431,10 @@ a {
   padding-top: 6px;
 }
 
+#event {
+  margin-bottom: 0;
+}
+
 .event {
   @include cursorpointer;
   background: $light-skyblue;
@@ -441,6 +461,13 @@ a {
   span {
     font-weight: 700;
   }
+  i {
+    margin-left: 10px;
+  }
+}
+
+.featured-speaker {
+  margin-top: 50px;
 }
 
 .trackwidth {
@@ -689,6 +716,10 @@ a {
   color: $black !important;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.clear-both {
+  clear: both;
 }
 
 .eventtime {
@@ -1433,10 +1464,15 @@ a {
 }
 
 .bookmark {
+  @include cursorpointer;
   padding: 5px;
   position: absolute;
   right: 0;
   top: 0;
+
+  i {
+    margin-left: 5px;
+  }
 }
 
 .tabs {
@@ -1696,6 +1732,18 @@ a.skip:hover {
   padding: 0;
 }
 
+.padding-right-zero {
+  padding-right: 0;
+}
+
+.margin-top-zero {
+  margin-top: 0;
+}
+
+.margin-right-zero {
+  margin-right: 0;
+}
+
 .left-border {
   padding-right: 0px;
   margin-bottom: -1px;
@@ -1714,8 +1762,31 @@ a.skip:hover {
   padding-top:15px;
 }
 
+.line {
+  clear: both;
+  width: 75%;
+}
+
+.org-name {
+  color: $gray-dark;
+}
+
+.session-header {
+  padding-left:20px;
+}
+
 .session-speakers {
   margin-right: 20px;
+}
+
+.session-speakers-item {
+  margin-right: 10px;
+  float: left
+}
+
+.speaker-name-list {
+  padding: 0;
+  font-size: 15px;
 }
 
 .speaker-image-small {

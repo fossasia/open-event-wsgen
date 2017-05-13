@@ -44,7 +44,7 @@
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
-    <div class="carousel slide" style="margin-bottom: 0;" id="event">
+    <div class="carousel slide" id="event">
        <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('{{eventurls.background_url }}');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;background-position: center;" class="item active">
           <div class="container">
@@ -95,7 +95,7 @@
               </div>
             </div>
           </div>
-            <div class="row" style="margin-top: 50px">
+            <div class="row featured-speakers">
               {{#speakerslist}}{{#if featured}}
 
               <div class="col-md-6 col-sm-12">
@@ -169,9 +169,9 @@
   {{/if}}
 
  {{#if eventurls.sponsorsection}}
-    <div style="background:#ffffff" >
+    <div class="sponsor-container">
     <section class="sponsorscont">
-      <div style="margin-right:0;margin-left:0;"  class="row">
+      <div class="row sponsor-row">
         <div class="col-sm-12 col-md-12 col-xs-12 text-center">
         <h1 class="section-header">Proudly supported by</h1><br>
         </div>
@@ -179,7 +179,7 @@
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
 
-          <div class="row sponsor-row">
+          <div class="row">
           {{#each sponsorpics}}
           {{#each this}}
             <div class=" {{{divclass}}}">
@@ -200,11 +200,11 @@
 
 {{#if eventurls.latitude }}
 {{#if eventurls.longitude}}
-<div style="background:#f5f5f5">
-    <div style="margin-right:0;margin-left:0;" class="row">
+<div class="location">
+    <div class="sponsor-row row">
       <div class="col-md-8" id="map">
       </div>
-      <div style="margin-top:20px;" class="col-md-4">
+      <div class="address col-md-4">
       {{#if eventurls.location}}
        <h4> Address </h4>
        <p>{{eventurls.location}}</p>
