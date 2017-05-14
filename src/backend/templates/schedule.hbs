@@ -61,28 +61,29 @@
         day-filter and time-filter classes are intended for searching
         text across the page.
         --------------------------------------------------------------- -->
-    <p class="date-list">
-      <span id="tabs" class="col-md-6 tabs no-js">
+    <div class="date-list container">
+      <div id="tabs" class="col-md-6 col-xs-12 col-sm-12 tabs no-js">
          <span class="tabs-nav">
             {{#timeList}}
             <a id="{{slug}}" href="#" class="{{slug}} date-button tabs-nav-link">{{date}}</a>
             {{/timeList}}
          </span>
-      </span>
-    </p>
-    <span class = "show-button-filter">
-      <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-    </span>
-    <span class = "list-filter view-button">
-      <button class = "btn" id = "list" >List View</button>
-    </span>
-    <span class = "calendar-filter view-button">
-      <button class = "btn unselect" id = "calendar" >Calendar View</button>
-    </span>
-    <span class="search-filter">
-        <input class="fossasia-filter" type="text" placeholder="Search" />
-    </span>
-    </p>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
+        <span class = "list-filter view-button">
+          <button class = "btn" id = "list" >List View</button>
+        </span>
+        <span class = "calendar-filter view-button">
+          <button class = "btn unselect" id = "calendar" >Calendar View</button>
+        </span>
+        <span class="search-filter search-filter-schedule">
+            <input class="fossasia-filter" type="text" placeholder="Search" />
+        </span>
+        <span class = "show-button-filter">
+          <button class = "btn btn-primary" id = "starred" >Starred</button>
+        </span>
+      </div>
+    </div>
 
     <div class="row">
       <div id="content-block" class="col-md-9 list-view">
@@ -495,9 +496,9 @@
           $('#starred').click(function() {
             mode = !mode;
             if(mode)
-              $(this).text("Show All");
+              $(this).text("All");
             else
-              $(this).text("Show Starred");
+              $(this).text("Starred");
             display();
           });
 

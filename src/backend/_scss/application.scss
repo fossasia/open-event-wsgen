@@ -427,8 +427,22 @@ a {
 /* Track SCSS */
 
 .show-button-filter {
-  display: inline-block;
-  padding-top: 6px;
+  flex-grow: 1;
+  padding-top: 10px;
+
+  @media only screen and (min-width: 990px) and (max-width: 1190px) {
+    flex-grow: 0;
+  }
+}
+
+.list-filter {
+    flex-grow: 1;
+    padding-top: 8px;
+}
+
+.calendar-filter {
+    flex-grow: 1;
+    padding-top: 8px;
 }
 
 #event {
@@ -482,10 +496,8 @@ a {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    display: inline;
     margin: 0 auto;
     padding-bottom: 0;
-    width: 40%;
   }
 
   .show-button-filter button {
@@ -1368,17 +1380,13 @@ a {
   color: $gray-dark;
 }
 
-.search-filter,
-.search-filter-speaker {
+.search-filter {
+
   .fossasia-filter {
     background-color: $white;
     border: 1px solid $gray-dim;
     color: $black;
-    font-family: verdana sans-serif;
     font-size: 12pt;
-    height: 28px;
-    padding-left: 2px;
-    width: 186px;
   }
 }
 
@@ -1388,8 +1396,9 @@ a {
 
   .fossasia-filter {
     display: block;
-    font-family: sans-serif;
+    height: 28px;
     margin: 0 auto;
+    width: 186px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -1397,10 +1406,7 @@ a {
 
     .fossasia-filter {
       border-radius: 5px;
-      display: block;
-      float: none;
       height: 32px;
-      margin: 0 auto;
       width: 80%;
     }
   }
@@ -1417,34 +1423,63 @@ a {
     }
 }
 
-.search-filter {
-  display: inline;
-  float: right;
+
+.search-filter-schedule {
+  flex-grow: 1;
   padding-top: 12px;
 
   .fossasia-filter {
-    float: left;
-    font-family: sans-serif;
+    height: 33px;
+    width: 180px;
   }
 
+  @media only screen and (max-width: 450px) {
+    margin-right: 5px;
+
+    .fossasia-filter {
+      border-radius: 5px;
+      width: 100%;
+    }
+  }
+}
+
+.search-filter-room {
+  flex-grow: 2;
+  padding-left: 2px;
+  padding-top: 12px;
+
   input {
-    line-height: 24px;
+    line-height: 30px;
+    width: 100%;
   }
 
   @media only screen and (max-width: 600px) {
-    display: inline;
-    float: none;
-    width: 40%;
-
     .fossasia-filter {
-      float: none;
-      margin: 0 auto;
-      width: 100%;
-      height: 33px;
       border-radius: 5px;
+      float: none;
+      height: 33px;
+      margin: 0 auto;
     }
   }
 
+}
+
+.filter-margin {
+  margin-right: 10px;
+
+  @media only screen and (max-width: 340px) {
+    margin-right: 0;
+  }
+}
+
+.navbar-flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0;
+
+  @media only screen and (max-width: 900px) {
+    padding-left: 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1485,6 +1520,7 @@ a {
   display: flex;
   list-style: none;
   margin: 0;
+  overflow: auto;
   padding: 0;
 }
 
@@ -1613,7 +1649,7 @@ a.skip:hover {
 .view-button {
   display: inline-block;
   button {
-    margin : 5px 5px 10px 5px;
+    margin : 5px 5px 10px 0;
     background-color : $white-gray;
     color : $black;
   }
@@ -1716,7 +1752,9 @@ a.skip:hover {
   background-color:$white-gray;
   color:black;
   border-color:$light-black;
-  margin : 5px 5px 10px 5px;
+  margin: 0;
+  width: 100%;
+  flex-grow: 1;
 }
 
 
@@ -1742,6 +1780,16 @@ a.skip:hover {
 
 .margin-right-zero {
   margin-right: 0;
+}
+
+.list-view {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.calendar-view {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .left-border {

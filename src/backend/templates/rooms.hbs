@@ -63,15 +63,17 @@
         room-filter and date-filter classes are intended for searching
         text across the page.
         --------------------------------------------------------------- -->
-    <p class="date-list">
+    <div class="date-list container">
         {{> subnavbar flag = 0}}
-        <span class="show-button-filter" >
-          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-        </span>
-        <span class="search-filter">
-            <input class="fossasia-filter" type="text" placeholder="Search" />
-        </span>
-    </p>
+        <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
+          <div class="search-filter search-filter-room filter-margin">
+            <input class="fossasia-filter" type="text" placeholder="Search"/>
+          </div>
+          <div class="show-button-filter">
+            <button class="btn btn-primary" id="starred">Starred</button>
+          </div>
+        </div>
+    </div>
     <div id="session-list" class="container">
       <div class="row">
         <div id="content-block" class="col-md-9">
@@ -387,9 +389,9 @@
         $('#starred').click(function() {
           mode = !mode;
           if(mode)
-            $(this).text("Show All");
+            $(this).text("All");
           else
-            $(this).text("Show Starred");
+            $(this).text("Starred");
           display();
         });
 
