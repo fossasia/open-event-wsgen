@@ -60,7 +60,7 @@
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
     <div class=row>
-        <div class="search-filter-speaker" id="speakers-list">
+        <div class="search-filter search-filter-speaker" id="speakers-list">
             <input class="fossasia-filter" type="text" placeholder="Search" />
 		    </div>
     </div>
@@ -138,8 +138,8 @@
                   </div>
                  </div>
                 </div>
-                <hr style="clear:both;width:75%;">
-                <h4 style="padding-left:20px" class="text"><strong>Sessions</strong></h4>
+                <hr class="line">
+                <h4 class="session-header text"><strong>Sessions</strong></h4>
                 <div class="pop-speakers">
                  <div class="pop-over row">
                    <div class="sessions col-xs-12 col-md-12">
@@ -165,7 +165,7 @@
             </div>
           </div>
           <span class="speaker-name">{{{name}}}</span>
-          <span class="speaker-name" style="color: #777777">{{{organisation}}}</span>
+          <span class="speaker-name org-name">{{{organisation}}}</span>
       </div>
     </div>
     {{/speakerslist}}

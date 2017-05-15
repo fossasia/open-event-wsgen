@@ -63,15 +63,17 @@
         room-filter and date-filter classes are intended for searching
         text across the page.
         --------------------------------------------------------------- -->
-    <p class="date-list">
+    <div class="date-list container">
         {{> subnavbar flag = 0}}
-        <span class="show-button-filter" >
-          <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-        </span>
-        <span class="search-filter">
-            <input class="fossasia-filter" type="text" placeholder="Search" />
-        </span>
-    </p>
+        <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
+          <div class="search-filter search-filter-room filter-margin">
+            <input class="fossasia-filter" type="text" placeholder="Search"/>
+          </div>
+          <div class="show-button-filter">
+            <button class="btn btn-primary" id="starred">Starred</button>
+          </div>
+        </div>
+    </div>
     <div id="session-list" class="container">
       <div class="row">
         <div id="content-block" class="col-md-9">
@@ -90,7 +92,7 @@
                   {{#venue}}
                   <div class="venue-filter row">
                     <div class="row">
-                      <div style="clear:both" class="col-md-12">
+                      <div class="clear-both col-md-12">
                         <a class="anchor" id="venue-{{../slug}}-{{slug}}"></a>
                         {{#if venue }}
                           <h5 class="text">{{venue}}</h5>
@@ -107,8 +109,8 @@
                         <div class="left-border col-xs-10 col-sm-10 col-md-10">
                           <div class = "sizeevent event" id="event-title" style = "background-color: {{{color}}};">
                           {{title}}
-                          <a style = "cursor:pointer" class = "bookmark" >
-                            <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
+                          <a class = "bookmark" >
+                            <i class="fa fa-star" aria-hidden="true" >
                             </i>
                           </a>
                           </div>
@@ -117,15 +119,15 @@
                             aria-expanded="false"
                             aria-controls="desc-{{session_id}}">
                             {{#if audio}}
-                               <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
+                               <i class="fa fa-music" aria-hidden="true"></i>
                             {{/if}}
-			   <div id="desc2-{{session_id}}"
+			   <div id="desc2-{{session_id}} margin-top-zero"
 				class="collapse in"
-				style="background-color:{{{color}}}; margin-top: 0px;">
+				style="background-color:{{{color}}};">
         <div class="row">
         <div class="col-md-6 col-xs-12 speakers-list">
 				{{#speakers_list}}
-          <p style="margin-right:10px; float:left" class="session-speakers">
+          <p class="session-speakers session-speakers-item">
               {{#if photo}}
                   <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small" />
                 {{else}}
@@ -135,12 +137,12 @@
 		             	{{/speakers_list}}
                   </div>
                   <div class="col-md-6">
-		             	<ul style="padding:0;font-size:15px;">
+		             	<ul class="speaker-name-list">
 		             	  {{#speakers_list}}
 		             	    {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
 		             	 {{/speakers_list}}
 		             	</ul>
-		             	<ul style="padding:0;font-size:15px;">
+		             	<ul class="speaker-name-list">
                     {{#if type}}
                       {{type}}
                     {{else}}
@@ -158,7 +160,7 @@
                                 </audio>
                               {{/if}}
                             </div>
-                          <hr style="clear:both" class="collapse">
+                          <hr class="clear-both collapse">
                             <div class="session-speakers-list collapse"
                             aria-expanded="false"
                             aria-controls="desc-{{session_id}}">
@@ -218,7 +220,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <hr style="clear:both">
+                              <hr class="clear-both">
                               {{/speakers_list}}
                               <div class="blacktext">
                                 {{#if roomname}}
@@ -387,9 +389,9 @@
         $('#starred').click(function() {
           mode = !mode;
           if(mode)
-            $(this).text("Show All");
+            $(this).text("All");
           else
-            $(this).text("Show Starred");
+            $(this).text("Starred");
           display();
         });
 

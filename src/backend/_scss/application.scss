@@ -381,6 +381,14 @@ pre {
   max-height: 120px;
 }
 
+.sponsor-container {
+  background: $white;
+}
+
+.sponsor-row {
+  margin: 0;
+}
+
 .sponsors {
   background-color: $white;
   border: 1px solid $gray-perfect;
@@ -389,6 +397,14 @@ pre {
   margin: 25px;
   padding: 10px 15px;
   position: relative;
+}
+
+.location {
+  background-color: $white-classic-background;
+}
+
+.address {
+  margin-top: 20px;
 }
 
 .mediumoffset:first-child {
@@ -445,8 +461,26 @@ pre {
 /* Track SCSS */
 
 .show-button-filter {
-  display: inline-block;
-  padding-top: 6px;
+  flex-grow: 1;
+  padding-top: 10px;
+
+  @media only screen and (min-width: 990px) and (max-width: 1190px) {
+    flex-grow: 0;
+  }
+}
+
+.list-filter {
+    flex-grow: 1;
+    padding-top: 8px;
+}
+
+.calendar-filter {
+    flex-grow: 1;
+    padding-top: 8px;
+}
+
+#event {
+  margin-bottom: 0;
 }
 
 .event {
@@ -475,6 +509,13 @@ pre {
   span {
     font-weight: 700;
   }
+  i {
+    margin-left: 10px;
+  }
+}
+
+.featured-speaker {
+  margin-top: 50px;
 }
 
 .trackwidth {
@@ -489,10 +530,8 @@ pre {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    display: inline;
     margin: 0 auto;
     padding-bottom: 0;
-    width: 40%;
   }
 
   .show-button-filter button {
@@ -723,6 +762,10 @@ pre {
   color: $black !important;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.clear-both {
+  clear: both;
 }
 
 .eventtime {
@@ -1371,17 +1414,13 @@ pre {
   color: $gray-dark;
 }
 
-.search-filter,
-.search-filter-speaker {
+.search-filter {
+
   .fossasia-filter {
     background-color: $white;
     border: 1px solid $gray-dim;
     color: $black;
-    font-family: verdana sans-serif;
     font-size: 12pt;
-    height: 28px;
-    padding-left: 2px;
-    width: 186px;
   }
 }
 
@@ -1391,8 +1430,9 @@ pre {
 
   .fossasia-filter {
     display: block;
-    font-family: sans-serif;
+    height: 28px;
     margin: 0 auto;
+    width: 186px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -1400,10 +1440,7 @@ pre {
 
     .fossasia-filter {
       border-radius: 5px;
-      display: block;
-      float: none;
       height: 32px;
-      margin: 0 auto;
       width: 80%;
     }
   }
@@ -1420,34 +1457,63 @@ pre {
     }
 }
 
-.search-filter {
-  display: inline;
-  float: right;
+
+.search-filter-schedule {
+  flex-grow: 1;
   padding-top: 12px;
 
   .fossasia-filter {
-    float: left;
-    font-family: sans-serif;
+    height: 33px;
+    width: 180px;
   }
 
+  @media only screen and (max-width: 450px) {
+    margin-right: 5px;
+
+    .fossasia-filter {
+      border-radius: 5px;
+      width: 100%;
+    }
+  }
+}
+
+.search-filter-room {
+  flex-grow: 2;
+  padding-left: 2px;
+  padding-top: 12px;
+
   input {
-    line-height: 24px;
+    line-height: 30px;
+    width: 100%;
   }
 
   @media only screen and (max-width: 600px) {
-    display: inline;
-    float: none;
-    width: 40%;
-
     .fossasia-filter {
-      float: none;
-      margin: 0 auto;
-      width: 100%;
-      height: 33px;
       border-radius: 5px;
+      float: none;
+      height: 33px;
+      margin: 0 auto;
     }
   }
 
+}
+
+.filter-margin {
+  margin-right: 10px;
+
+  @media only screen and (max-width: 340px) {
+    margin-right: 0;
+  }
+}
+
+.navbar-flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0;
+
+  @media only screen and (max-width: 900px) {
+    padding-left: 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1467,10 +1533,15 @@ pre {
 }
 
 .bookmark {
+  @include cursorpointer;
   padding: 5px;
   position: absolute;
   right: 0;
   top: 0;
+
+  i {
+    margin-left: 5px;
+  }
 }
 
 .tabs {
@@ -1483,6 +1554,7 @@ pre {
   display: flex;
   list-style: none;
   margin: 0;
+  overflow: auto;
   padding: 0;
 }
 
@@ -1611,7 +1683,7 @@ a.skip:hover {
 .view-button {
   display: inline-block;
   button {
-    margin : 5px 5px 10px 5px;
+    margin : 5px 5px 10px 0;
     background-color : $white-gray;
     color : $black;
   }
@@ -1715,7 +1787,9 @@ a.skip:hover {
   background-color:$white-gray;
   color:black;
   border-color:$light-black;
-  margin : 5px 5px 10px 5px;
+  margin: 0;
+  width: 100%;
+  flex-grow: 1;
 }
 
 
@@ -1729,6 +1803,28 @@ a.skip:hover {
 
 .paddingzero {
   padding: 0;
+}
+
+.padding-right-zero {
+  padding-right: 0;
+}
+
+.margin-top-zero {
+  margin-top: 0;
+}
+
+.margin-right-zero {
+  margin-right: 0;
+}
+
+.list-view {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.calendar-view {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .left-border {
@@ -1749,8 +1845,31 @@ a.skip:hover {
   padding-top:15px;
 }
 
+.line {
+  clear: both;
+  width: 75%;
+}
+
+.org-name {
+  color: $gray-dark;
+}
+
+.session-header {
+  padding-left:20px;
+}
+
 .session-speakers {
   margin-right: 20px;
+}
+
+.session-speakers-item {
+  margin-right: 10px;
+  float: left
+}
+
+.speaker-name-list {
+  padding: 0;
+  font-size: 15px;
 }
 
 .speaker-image-small {
