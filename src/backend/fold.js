@@ -40,6 +40,13 @@ function returnTrackColor(trackInfo, id) {
   return trackInfo[id];
 }
 
+function returnTrackFontColor(trackInfo, id) {
+  if ((trackInfo === null) || (id === null)) {
+    return '#000000';
+  }
+  return trackInfo[id];
+}
+
 function checkNullHtml(html) {
   html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
   return (html === '');
@@ -117,9 +124,11 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   async.eachSeries(sessions,(session,callback) => {
@@ -140,7 +149,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     if (!trackData.has(slug) && (session.track != null)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
         sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug,
@@ -224,9 +234,11 @@ function foldByTime(sessions, speakers, trackInfo) {
   let dateMap = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = {};
+  const trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
@@ -261,6 +273,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track == null) ? null : session.track.id),
       title: session.title,
       type: session_type,
       location: roomName,
@@ -317,9 +330,11 @@ function returnTracknames(sessions, trackInfo) {
 
   const trackData = new Map();
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
@@ -337,6 +352,7 @@ function returnTracknames(sessions, trackInfo) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
         sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug
       };
@@ -615,8 +631,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
   const DateData = new Map();
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
+
    trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
@@ -636,7 +655,8 @@ function sessionsByRooms(id, sessions, trackInfo) {
           date: dated ,
           name: session.title,
           time: moment.utc(session.start_time).local().format('HH:mm'),
-          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
+          color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+          font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id)
         });
         DateData.set(slug,moment.utc(session.start_time).local().format('YYYY-MM-DD'));
       }
@@ -650,11 +670,14 @@ function sessionsByRooms(id, sessions, trackInfo) {
 
 function foldByRooms(room, sessions, speakers, trackInfo) {
   const roomData = new Map();
-  const trackDetails = new Object();
+  const trackDetails = {};
+  const trackDetailsFont = {};
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const microlocationArray = [];
+
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
@@ -711,7 +734,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 
     room.sessions.push({
       start: start,
-      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
       venue: venue,
       end : end,
       title: session.title,
@@ -864,10 +888,12 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
 function getAllSessions(speakerid , session, trackInfo){
   let speakersession =[];
   let sessiondetail = [];
-  let trackDetails = new Object();
+  let trackDetails = {};
+  let trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
@@ -893,7 +919,8 @@ function getAllSessions(speakerid , session, trackInfo){
         end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
         title: session.detail.title,
         date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
-        color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
+        color: returnTrackColor(trackDetails, (session.detail.track === null) ? null : session.detail.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.detail.track === null) ? null : session.detail.track.id),
         microlocation: roomname,
         session_id: session.detail.id
       });

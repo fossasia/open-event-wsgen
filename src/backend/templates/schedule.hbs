@@ -111,10 +111,11 @@
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
-                      <h4 style="background-color:{{{color}}};"  class="margin-right-zero sizeevent event"  data-toggle="collapse"
-                        data-target="#desc-{{session_id}} .collapse"
-                        aria-expanded="false"
-                        aria-controls="desc-{{session_id}}">
+                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
+                          class="margin-right-zero sizeevent event"  data-toggle="collapse"
+                          data-target="#desc-{{session_id}} .collapse"
+                          aria-expanded="false"
+                          aria-controls="desc-{{session_id}}">
                         {{title}}
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true"></i>
@@ -200,7 +201,7 @@
                             <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
                             <p>
                               <ul class="title-inline">
-                                <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
                                 <li class="blacktext">{{tracktitle}}</li>
                               </ul>
                             </p><br>
@@ -252,7 +253,8 @@
                     </div>
                     <div class="session-container">
                       {{#sessions}}
-                      <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}}">
+                        <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
+                          color: {{{font_color}}};">
                         <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
@@ -341,7 +343,8 @@
                                      {{/if}}
                                      <p>
                                        <ul class="title-inline">
-                                         <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                         <li style="background-color:{{{color}}}; color: {{{font_color}}};"
+                                           class="titlecolor"></li>&nbsp;
                                          <li class="blacktext">{{tracktitle}}</li>
                                        </ul>
                                      </p><br>
@@ -368,7 +371,7 @@
       {{#tracknames}}
       {{#if title}}
         <ul class="title-inline title-legend">
-          <li style="background-color:{{{color}}}" class="titlecolor"></li>
+          <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
           <li>{{title}}</li>
         </ul>
       {{/if}}
