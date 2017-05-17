@@ -113,21 +113,22 @@
                       </div>
                       <div class="room-container">
                         <div class="left-border col-xs-10 col-sm-10 col-md-10">
-                          <div class="sizeevent event" id="event-title" style="background-color: {{../color}};">
+                            <div class="sizeevent event" id="event-title" style="background-color: {{../color}}; color:{{../font_color}};">
                             {{title}}
                             <a class="bookmark">
                               <i class="fa fa-star" aria-hidden="true">
                               </i>
                             </a>
                           </div>
-                          <h4 id="event-upper-block" style="background-color: {{../color}};" class="sizeevent event"
-                              data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
-                              aria-expanded="false" aria-controls="desc-{{session_id}}">
+                          <h4 id="event-upper-block" style="background-color: {{../color}}; color:{{../font_color}};"
+                            class="sizeevent event"
+                            data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
+                            aria-expanded="false" aria-controls="desc-{{session_id}}">
                             {{#if audio}}
                               <i class="fa fa-music" aria-hidden="true"></i>
                             {{/if}}
                             <div id="desc2-{{session_id}}" class="margin-top-zero collapse in"
-                                 style="background-color: {{../color}};">
+                                style="background-color: {{../color}}; color: {{../font_color}};">
                               <div class="row">
                                 <div class="col-md-6 col-xs-12 speakers-list">
                                   {{#speakers_list}}
@@ -224,7 +225,8 @@
                                 {{#if ../date}}<p>{{../date}}, <span>{{start}} - {{end}}</span></p>{{/if}}
                                 <p>
                                 <ul class="title-inline">
-                                  <li style="background-color:{{{../color}}}" class="titlecolor"></li>
+                                  <li style="background-color:{{{../color}}};color:{{{../font_color}}};"
+                                    class="titlecolor"></li>
                                   &nbsp;
                                   <li class="blacktext">{{../title}}</li>
                                 </ul>
@@ -246,7 +248,7 @@
         {{#tracknames}}
           {{#if title}}
             <ul class="title-inline title-legend">
-              <li style="background-color: {{color}}" class="titlecolor"></li>
+              <li style="background-color: {{color}}; color:{{../font_color}};" class="titlecolor"></li>
               <li>{{title}}</li>
             </ul>
           {{/if}}
