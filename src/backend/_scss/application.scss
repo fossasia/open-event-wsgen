@@ -8,6 +8,7 @@ body {
   background-color: $background-shade !important;
   color: $gray-dark;
   font: 12px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
 }
 
 .anchor {
@@ -164,7 +165,7 @@ a {
     }
     @media screen and (max-width: 768px) {
       &:hover {
-        width: 20%;
+        width: 100%;
       }
     }
   }
@@ -177,8 +178,41 @@ a {
   margin-top:1em;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-toggle .icon-bar {
   background-color: $gray-dark;
+}
+
+pre {
+    tab-size: 8;
+}
+
+@media screen and (max-width: 768px) {
+    .side-collapse-container {
+      width:100%;
+      position:relative;
+      right:0;
+      transition:right .4s;
+      }
+    .side-collapse-container.navbar-fixed-top {
+      position:fixed;
+      }
+    .side-collapse-container.out{
+      right:220px;
+      }
+    .side-collapse-container.out.navbar-fixed-top {
+      position:relative;
+      }
+    .side-collapse {
+      top:0;
+      right:0;
+      width:220px;
+      position:fixed;
+      overflow:hidden;
+      transition:width .4s;
+      }
+    .side-collapse.in {
+      width:0;
+      }
 }
 
 /* General styling of session list */
@@ -1747,7 +1781,8 @@ a.skip:hover {
 #social-icons {
   padding-right:0;
   padding-left:0;
-  margin-left:15px
+  margin-left:15px;
+  float:left;
 }
 
 // style from tracks

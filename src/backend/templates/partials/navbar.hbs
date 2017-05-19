@@ -1,50 +1,43 @@
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header navbar-left pull-left">
-                <a class="navbar-brand" href=".">
-                    {{#if eventurls.logo_url}}
-                        <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
-                    {{else}}
-                        {{ eventurls.name }}
-                    {{/if}}
-                </a>
-            </div>
-
-        <div class="navbar-header navbar-right pull-right">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <header role="banner" class="navbar-fixed-top navbar-default side-collapse-container">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href=".">
+              {{#if eventurls.logo_url}}
+                  <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
+              {{else}}
+                  {{ eventurls.name }}
+              {{/if}}
+          </a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse-side" data-target=".side-collapse"  data-target-2=".side-collapse-container" class="navbar-toggle pull-right">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
         </div>
-
-        <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
-          {{#if timeList}}
-              <li class="navlink"><a id="schedulelink" href="schedule.html">Schedule</a></li>
-          {{/if}}
-            {{#if tracks}}
-            <li class="navlink"><a id="trackslink" href="tracks.html">Tracks</a></li>
+        <div class="side-collapse in">
+          <nav role="navigation" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
+            {{#if timeList}}
+                <li class="navlink"><a id="schedulelink" href="schedule.html">Schedule</a></li>
             {{/if}}
-            {{#if roomsinfo}}
-            <li class="navlink"><a id="roomslink" href="rooms.html">Rooms</a></li>
-            {{/if}}
-            {{#if speakerslist}}
-            <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
-            {{/if}}
-
-            {{#sociallinks}}
-              {{#if show}}
-                <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+              {{#if tracks}}
+              <li class="navlink"><a id="trackslink" href="tracks.html">Tracks</a></li>
               {{/if}}
-            {{/sociallinks}}
-
-          </ul>
+              {{#if roomsinfo}}
+              <li class="navlink"><a id="roomslink" href="rooms.html">Rooms</a></li>
+              {{/if}}
+              {{#if speakerslist}}
+              <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
+              {{/if}}
+              {{#sociallinks}}
+                {{#if show}}
+                  <li class="social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+                {{/if}}
+              {{/sociallinks}}
+            </ul>
+          </nav>
         </div>
       </div>
-    </nav>
+    </header>
