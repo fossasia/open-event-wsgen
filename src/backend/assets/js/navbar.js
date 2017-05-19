@@ -44,3 +44,13 @@ function findMatch(arr, pattern){
         return flag;
     }
 }
+
+$(document).ready(function() {   
+  var sideslider = $('[data-toggle=collapse-side]');
+  var sel = sideslider.attr('data-target');
+  var top = $('header[role=banner]').outerHeight();
+  sideslider.click(function(event){
+    $(sel).css('top', top);
+    $(sel).toggleClass('in');
+  });
+});
