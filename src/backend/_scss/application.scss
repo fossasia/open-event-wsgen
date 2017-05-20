@@ -1747,7 +1747,12 @@ a.skip:hover {
 #social-icons {
   padding-right:0;
   padding-left:0;
-  margin-left:15px
+  margin-left:15px;
+  margin-right: 0;
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    margin-right: 15px;
+  }
 }
 
 // style from tracks
@@ -1881,4 +1886,22 @@ a.skip:hover {
 
 #speaker-social-icons {
   padding:2%;
+}
+
+@media screen and (max-width: 768px) {
+  .side-collapse {
+    background-color: $white;
+    bottom: 0;
+    opacity: .9;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    transition: width .4s;
+    width: 60%;
+  }
+  .side-collapse.in {
+    width: 0;
+  }
+
 }
