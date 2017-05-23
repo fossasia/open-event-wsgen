@@ -132,7 +132,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   });
 
   async.eachSeries(sessions,(session,callback) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
         return callback(null);
     }
 
@@ -242,7 +242,7 @@ function foldByTime(sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending') {
+    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending' || session.state === 'draft' ) {
       return;
     }
     const roomName = session.microlocation.name;
@@ -681,7 +681,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
       return;
     }
 
@@ -859,25 +859,28 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
           if(speaker.photo){
             var thumb = 'images/speakers/thumbnails/' + (speaker.photo).split('/').pop();
           }
-          speakerslist.push({
-            country: speaker.country,
-            featured: speaker.featured,
-            email: speaker.email,
-            facebook: speaker.facebook ,
-            github: speaker.github ,
-            linkedin: speaker.linkedin ,
-            twitter: speaker.twitter ,
-            website: speaker.website ,
-            long_biography: (checkNullHtml(speaker.long_biography)) ? speaker.short_biography : speaker.long_biography,
-            mobile: speaker.mobile,
-            name: speaker.name,
-            thumb: thumb,
-            photo: speaker.photo,
-            organisation: speaker.organisation,
-            sessions : getAllSessions(speaker.sessions, sessions, tracksData),
-            speaker_id: speaker.id,
-            nameIdSlug: slugify(speaker.name + speaker.id)
-          });
+          let allSessions = getAllSessions(speaker.sessions, sessions, tracksData);
+          if (allSessions.length) {
+            speakerslist.push({
+              country: speaker.country,
+              featured: speaker.featured,
+              email: speaker.email,
+              facebook: speaker.facebook ,
+              github: speaker.github ,
+              linkedin: speaker.linkedin ,
+              twitter: speaker.twitter ,
+              website: speaker.website ,
+              long_biography: (checkNullHtml(speaker.long_biography)) ? speaker.short_biography : speaker.long_biography,
+              mobile: speaker.mobile,
+              name: speaker.name,
+              thumb: thumb,
+              photo: speaker.photo,
+              organisation: speaker.organisation,
+              sessions: allSessions,
+              speaker_id: speaker.id,
+              nameIdSlug: slugify(speaker.name + speaker.id)
+            });
+          }
         speakerslist.sort(byProperty('name'));
       });
         next(speakerslist);
@@ -903,7 +906,7 @@ function getAllSessions(speakerid , session, trackInfo){
       if(speakerSessionDetail === undefined) {
         return;
       }
-      if(speakerSessionDetail.microlocation !== null && speakerSessionDetail.state !== 'pending' && speakerSessionDetail.state !== 'rejected') {
+      if(speakerSessionDetail.microlocation !== null && (speakerSessionDetail.state === 'accepted' || speakerSessionDetail.state === 'confirmed')) {
         sessiondetail.push({
           detail:speakerSessionDetail
         });
