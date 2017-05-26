@@ -33,3 +33,4 @@ docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag eventyay/webapp-generator:$TRAVIS_COMMIT eventyay/webapp-generator:latest
 docker push eventyay/webapp-generator
 kubectl set image deployment/webapp-generator --namespace=web webapp-generator=eventyay/webapp-generator:$TRAVIS_COMMIT
+rm -rf $GOOGLE_APPLICATION_CREDENTIALS
