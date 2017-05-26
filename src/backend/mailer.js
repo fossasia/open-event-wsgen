@@ -2,11 +2,19 @@
  * Created by championswimmer on 1/8/16.
  * Modified by uttpal.
  */
-"use strict";
+'use strict';
+const config = require('../../config.json');
+
+/**
+ * Set these before requiring aws-sdk for all ENV vars to be loaded properly
+ */
+process.env.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID;
+process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY;
+process.env.AWS_BUCKET = process.env.AWS_BUCKET || config.AWS_BUCKET;
+process.env.CLOUD_STORAGE = process.env.CLOUD_STORAGE || config.CLOUD_STORAGE;
 
 const Promise = require('bluebird');
 const helper = require('sendgrid').mail;
-const config = require('../../config.json');
 const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
 const distHelper = require('./dist.js');
 const logger = require('./buildlogger.js');
@@ -19,16 +27,24 @@ const smtpTransport = require('nodemailer-smtp-transport');
 const moment = require('moment');
 
 aws.config.setPromisesDependency(Promise);
-const s3 = new aws.S3();
 
-process.env.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID;
-process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY;
-process.env.AWS_BUCKET = process.env.AWS_BUCKET || config.AWS_BUCKET;
+let s3 = new aws.S3();
+
+/**
+ * Support Google Cloud Store too using the same AWS SDK via Google Cloud Storage interoperability keys
+ */
+if (process.env.CLOUD_STORAGE === 'google_cloud') {
+  s3 = new aws.S3({endpoint: new aws.Endpoint('https://storage.googleapis.com')});
+}
+
 process.env.DEFAULT_MAIL_STRATEGY = process.env.DEFAULT_MAIL_STRATEGY || config.DEFAULT_MAIL_STRATEGY;
 process.env.DEFAULT_FROM_EMAIL = process.env.DEFAULT_FROM_EMAIL || config.DEFAULT_FROM_EMAIL;
 
 function uploadToS3(file, fileName, socket) {
-  const uploadParams = {Bucket: process.env.AWS_BUCKET,  Key: fileName};
+  const uploadParams = {
+    Bucket: process.env.AWS_BUCKET,
+    Key: fileName
+  };
   const fileStream = fs.createReadStream(file);
 
   fileStream.on('error', function(err) {
@@ -49,7 +65,7 @@ function emailSend(toEmail, url, appName) {
 
   previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
   downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
-  previewExpiryDate = moment.utc(previewExpiryDate).local().format('dddd, h A' );
+  previewExpiryDate = moment.utc(previewExpiryDate).local().format('dddd, h A');
   downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).local().format('dddd, MMMM Do YYYY');
 
   if(!url) {
@@ -61,7 +77,7 @@ function emailSend(toEmail, url, appName) {
   'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate +
   '<br><br><br>' +
   'Thank you for using Open Event Webapp Generator :)';
-  
+
   if(process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
     const smtpConfig = {
       host: process.env.SMTP_HOST || config.SMTP_HOST,
@@ -115,6 +131,7 @@ function emailSend(toEmail, url, appName) {
 
 function uploadAndsendMail(toEmail, appName, socket, done) {
   const file = distHelper.distPath + '/' + toEmail + '/event.zip';
+
   appName = appName.split(' ').join('_');
   const fileName = uuid.v4() + '/' + appName + '.zip';
 

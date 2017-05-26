@@ -10,6 +10,7 @@ data:
   SMTP_USERNAME: "xxxx"
   SMTP_PASSWORD: "xxxx"
   SENDGRID_API_KEY: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  CLOUD_STORAGE: 'google_cloud'
   AWS_BUCKET: "FOSSASIA"
   AWS_ACCESS_KEY_ID: "XXXXXXXXXXXXXXXXX"
   AWS_SECRET_ACCESS_KEY: "XXXXXXXXXXXXXXXXX"
