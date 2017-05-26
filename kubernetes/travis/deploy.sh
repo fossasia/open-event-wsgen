@@ -29,4 +29,4 @@ docker build --no-cache -t eventyay/webapp-generator:$TRAVIS_COMMIT .
 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag eventyay/webapp-generator:$TRAVIS_COMMIT eventyay/webapp-generator:latest
 docker push eventyay/webapp-generator
-kubectl set image deployment/webapp-generator webapp-generator=eventyay/webapp-generator:$TRAVIS_COMMIT
+kubectl set image deployment/webapp-generator --namespace=web webapp-generator=eventyay/webapp-generator:$TRAVIS_COMMIT
