@@ -23,11 +23,12 @@ const s3 = new aws.S3();
 
 process.env.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID;
 process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY;
+process.env.AWS_BUCKET = process.env.AWS_BUCKET || config.AWS_BUCKET;
 process.env.DEFAULT_MAIL_STRATEGY = process.env.DEFAULT_MAIL_STRATEGY || config.DEFAULT_MAIL_STRATEGY;
 process.env.DEFAULT_FROM_EMAIL = process.env.DEFAULT_FROM_EMAIL || config.DEFAULT_FROM_EMAIL;
 
 function uploadToS3(file, fileName, socket) {
-  const uploadParams = {Bucket: 'FOSSASIA',  Key: fileName};
+  const uploadParams = {Bucket: process.env.AWS_BUCKET,  Key: fileName};
   const fileStream = fs.createReadStream(file);
 
   fileStream.on('error', function(err) {
