@@ -1,8 +1,11 @@
 language: node_js
 node_js:
   - 5.1.0
+sudo: required
+services:
+  - docker
 env:
-  - CXX=g++-4.8
+  - CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 addons:
   apt:
     sources:
@@ -21,6 +24,7 @@ after_success:
   - bash cli.sh
   - bash sample_cli.sh
   - bash gh_deploy.sh
+  - bash kubernetes/travis/deploy.sh
 deploy:
   provider: heroku
   api_key:

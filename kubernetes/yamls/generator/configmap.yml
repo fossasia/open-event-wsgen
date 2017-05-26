@@ -1,0 +1,19 @@
+apiVersion: v1
+metadata:
+  name: webapp-generator
+  namespace: web
+data:
+  DEFAULT_MAIL_STRATEGY: "SMTP"
+  DEFAULT_FROM_EMAIL: "info@eventyay.com"
+  SMTP_HOST: "mail.smtp2go.com"
+  SMTP_PORT: "2525"
+  SMTP_USERNAME: "xxxx"
+  SMTP_PASSWORD: "xxxx"
+  SENDGRID_API_KEY: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  AWS_ACCESS_KEY_ID: "XXXXXXXXXXXXXXXXX"
+  AWS_SECRET_ACCESS_KEY: "XXXXXXXXXXXXXXXXX"
+  GITHUB_CLIENT_ID: "XXXXXXXXXXXXXXXXX"
+  GITHUB_CLIENT_SECRET: "XXXXXXXXXXXXXXXXX"
+  SESSION_SECRET: "XXXXXXXXXXXXXXXXX"
+  CALLBACK_URL: "https://webgen.eventyay.com/auth/callback"
+kind: ConfigMap
