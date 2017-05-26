@@ -7,6 +7,8 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_REPO_SLUG" != "fossasia/open-
     exit 0
 fi
 
+export REPOSITORY="https://github.com/${TRAVIS_REPO_SLUG}.git"
+
 sudo rm -f /usr/bin/git-credential-gcloud.sh
 sudo rm -f /usr/bin/bq
 sudo rm -f /usr/bin/gsutil
@@ -24,8 +26,9 @@ mkdir -p lib
 gcloud auth activate-service-account --key-file eventyay-cf9d0dcc3261.json
 export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/eventyay-cf9d0dcc3261.json
 gcloud config set project eventyay
-gcloud container clusters get-credentials eventyay-cluster
-docker build --no-cache -t eventyay/webapp-generator:$TRAVIS_COMMIT .
+gcloud container clusters get-credentials nextgen-cluster
+cd kubernetes/images/generator
+docker build --build-arg COMMIT_HASH=$TRAVIS_COMMIT --build-arg BRANCH=$DEPLOY_BRANCH --build-arg REPOSITORY=$REPOSITORY --no-cache -t eventyay/webapp-generator:$TRAVIS_COMMIT .
 docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 docker tag eventyay/webapp-generator:$TRAVIS_COMMIT eventyay/webapp-generator:latest
 docker push eventyay/webapp-generator
