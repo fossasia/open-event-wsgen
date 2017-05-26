@@ -77,7 +77,7 @@
           <button class = "btn unselect" id = "calendar" >Calendar View</button>
           </span>
         <span class = "calendar-filter view-button">
-          <button type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
+          <button  title="Download as png" type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
           </span>
         <span class="search-filter search-filter-schedule">
             <input class="fossasia-filter" type="text" placeholder="Search" />
@@ -387,6 +387,8 @@
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
   <script src="./js/schedule.min.js" type="text/javascript"></script>
+  <script src="./js/FileSaver.min.js" type="text/javascript"></script>
+  <script src="./js/html2canvas.min.js" type="text/javascript"></script>
   <script type="text/javascript">
      $(document).ready(function() {
        var maxNoOfSessions = 1000;
@@ -394,6 +396,7 @@
        var flag = 0;
        var isAdded = 0;
        var isCalendarView = false;
+       var $timeline;
 
 
        $(function() {
@@ -544,6 +547,28 @@
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
           });
+
+          $(".export-png").click(function () {
+             if (isCalendarView === true) {
+                  $('.calendar').each(function() {
+                  if($(this).attr('class').split(' ').indexOf('hide')<=0)
+                            $timeline = $(this);
+                   });
+              }else {
+                       $('.day-filter').each(function() {
+                      if($(this).attr('class').split(' ').indexOf('hide')<=0)
+                               $timeline = $(this);
+                       });
+                 }
+            html2canvas($timeline, {
+                onrendered: function (canvas) {
+                    canvas.id = "generated-canvas";
+                    canvas.toBlob(function (blob) {
+                        saveAs(blob, ''+$timeline.attr('class')+ '.png');
+                    });
+                },
+            });
+       });
 
           function display() {
             console.log("Inside the display function");

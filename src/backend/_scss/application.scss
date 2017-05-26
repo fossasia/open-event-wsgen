@@ -1514,7 +1514,6 @@ a {
   margin-top: 10px;
   line-height: 20px;
   padding: 0;
-  max-width: 40%;
 }
 
 .tabs-nav {
@@ -1665,8 +1664,13 @@ a.skip:hover {
 .calendar {
   margin-top: 13px;
   display: block;
-  background-color: white;
+  background-color: $white;
 }
+
+.day-filter {
+         background-color: $white;
+}
+
 
 .calendar-content {
   display: block;
