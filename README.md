@@ -168,6 +168,8 @@ uploaded file has a unique download link. `node-uuid` module is used for generat
 
 | Variable | Description |
 | ----     | ----        |
+`process.env.AWS_BUCKET` | (Tries to get from shell env first)
+`config.AWS_BUCKET` | (Falls back to config file)
 `process.env.AWS_ACCESS_KEY_ID` | (Tries to get from shell env first)
 `config.AWS_ACCESS_KEY_ID` | (Falls back to config file)
 `process.env.AWS_SECRET_ACCESS_KEY` | (Tries to get from shell env first)
