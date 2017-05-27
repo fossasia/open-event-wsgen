@@ -15,7 +15,7 @@ process.env.CLOUD_STORAGE = process.env.CLOUD_STORAGE || config.CLOUD_STORAGE;
 
 const Promise = require('bluebird');
 const helper = require('sendgrid').mail;
-const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
+const sg = require('sendgrid')(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
 const distHelper = require('./dist.js');
 const logger = require('./buildlogger.js');
 const aws = require('aws-sdk');
