@@ -13,7 +13,7 @@ exports.minifyJs = function (path, cb) {
 
   gulp.task('scheduleJs', function() {
 
-    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js',  dir + 'jquery.lazyload.js'])
+    return gulp.src([dir + 'FileSaver.js', dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js', dir + 'html2canvas.js',  dir + 'jquery.lazyload.js'])
     .pipe(iife({ useStrict : false}))
     .pipe(concat('schedule.min.js'))
     .pipe(babel({ presets: ['es2015'] }))
