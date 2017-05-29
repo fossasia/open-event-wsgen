@@ -13,7 +13,7 @@ process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.
 process.env.AWS_BUCKET = process.env.AWS_BUCKET || config.AWS_BUCKET;
 process.env.CLOUD_STORAGE = process.env.CLOUD_STORAGE || config.CLOUD_STORAGE;
 
-const Promise = require('bluebird');
+const promise = require('bluebird');
 const helper = require('sendgrid').mail;
 const sg = require('sendgrid')(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
 const distHelper = require('./dist.js');
@@ -26,7 +26,7 @@ const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 const moment = require('moment');
 
-aws.config.setPromisesDependency(Promise);
+aws.config.setPromisesDependency(promise);
 
 let s3 = new aws.S3();
 
@@ -72,11 +72,11 @@ function emailSend(toEmail, url, appName) {
     downloadUrl = appUrl + 'download/' + toEmail + '/' + appName;
   }
   const emailContent = 'Hi ! <br>' +
-  ' Your webapp has been generated <br>' +
-  'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
-  'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate +
-  '<br><br><br>' +
-  'Thank you for using Open Event Webapp Generator :)';
+    ' Your webapp has been generated <br>' +
+    'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
+    'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate +
+    '<br><br><br>' +
+    'Thank you for using Open Event Webapp Generator :)';
 
   if(process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
     const smtpConfig = {
@@ -98,11 +98,10 @@ function emailSend(toEmail, url, appName) {
       console.log('Successfully sent Email');
       console.log(response);
       return url;
-    })
-    .catch((err) => {
+    }).catch((err) => {
       console.log('Error sending Email', err);
       return url;
-    });
+      });
   }
   const fromEmail = new helper.Email(process.env.DEFAULT_FROM_EMAIL);
   const recipientEmail = new helper.Email(toEmail);

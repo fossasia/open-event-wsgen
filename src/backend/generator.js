@@ -53,12 +53,12 @@ handlebars.registerHelper('linkify', function(options) {
 });
 
 handlebars.registerHelper('ifvalue', function (conditional, options) {
-    if (conditional !== options.hash.notequals){
-      return options.fn(this);
-    }
-    else{
-      return options.inverse(this);
-    }
+  if (conditional !== options.hash.notequals){
+    return options.fn(this);
+  }
+  else{
+    return options.inverse(this);
+  }
 });
 
 function minifyHtml(file) {
@@ -127,7 +127,7 @@ exports.stopBuild = function(socket){
 }
 
 exports.enableBuild = function(socket){
-    statusMap[socket.connId] = true;
+  statusMap[socket.connId] = true;
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
@@ -219,31 +219,31 @@ exports.createDistDir = function(req, socket, callback) {
       if (emit) socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs" });
       switch (req.body.datasource) {
         case 'jsonupload':
-        logger.addLog('Info','Jsons have been uploaded by the user', socket);
-        distHelper.copyUploads(appFolder, socket, function(err) {
-          if(err) {
-            console.log(err);
-            done(err);
-          }
-          done(null, 'copyUploads');
-        });
-        break;
+          logger.addLog('Info','Jsons have been uploaded by the user', socket);
+          distHelper.copyUploads(appFolder, socket, function(err) {
+            if(err) {
+              console.log(err);
+              done(err);
+            }
+            done(null, 'copyUploads');
+          });
+          break;
         case 'eventapi':
-        console.log('================================FETCHING JSONS\n');
-        logger.addLog('Info', 'Fetching Jsons from the internet', socket);
-        distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
-        if(err !== null) {
-          console.log(err);
-        }
-        logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
-        done(null, 'fetchApiJsons');
-        });
-        break;
+          console.log('================================FETCHING JSONS\n');
+          logger.addLog('Info', 'Fetching Jsons from the internet', socket);
+          distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
+            if(err !== null) {
+              console.log(err);
+            }
+            logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
+            done(null, 'fetchApiJsons');
+          });
+          break;
         case 'mockjson':
         default:
-        distHelper.copyMockJsons(appFolder);
-        done(null, 'cleanuploads');
-        break;
+          distHelper.copyMockJsons(appFolder);
+          done(null, 'cleanuploads');
+          break;
       }
     },
     (done) => {
@@ -296,15 +296,15 @@ exports.createDistDir = function(req, socket, callback) {
         const jsonData = data;
         eventName = jsonData.eventurls.name;
         if(req.body.datasource == 'eventapi') {
-            var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
-            var basePath = distHelper.distPath + '/' + appFolder + '/images';
-            distHelper.optimizeBackground(backPath, socket, function() {
-              distHelper.resizeSponsors(basePath, socket, function() {
-                distHelper.resizeSpeakers(basePath, socket, function() {
-                  templateGenerate();
-                });
+          var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
+          var basePath = distHelper.distPath + '/' + appFolder + '/images';
+          distHelper.optimizeBackground(backPath, socket, function() {
+            distHelper.resizeSponsors(basePath, socket, function() {
+              distHelper.resizeSpeakers(basePath, socket, function() {
+                templateGenerate();
               });
             });
+          });
         }
         else {
           templateGenerate();
