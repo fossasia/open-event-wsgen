@@ -1664,7 +1664,13 @@ a.skip:hover {
 .calendar {
   margin-top: 13px;
   display: block;
+  background-color: $white;
 }
+
+.day-filter {
+         background-color: $white;
+}
+
 
 .calendar-content {
   display: block;

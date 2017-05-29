@@ -75,7 +75,10 @@
         </span>
         <span class = "calendar-filter view-button">
           <button class = "btn unselect" id = "calendar" >Calendar View</button>
-        </span>
+          </span>
+        <span class = "calendar-filter view-button">
+          <button  title="Download as png" type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
+          </span>
         <span class="search-filter search-filter-schedule">
             <input class="fossasia-filter" type="text" placeholder="Search" />
         </span>
@@ -391,6 +394,11 @@
        var flag = 0;
        var isAdded = 0;
        var isCalendarView = false;
+       var $timeline;
+       var numberOfChildElements;
+       var widthOfChild;
+       var canvasWidth;
+       var initialWidth;
 
 
        $(function() {
@@ -540,6 +548,36 @@
             $('#calendar').addClass('unselect');
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
+          });
+
+          $(".export-png").click(function() {
+              if (isCalendarView === true) {
+                  $('.calendar').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
+                          $timeline = $(this);
+                          initialWidth = $timeline.width();
+                          numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
+                          numberOfChildElements = numberOfChildElements - 1;
+                          widthOfChild = $timeline.find('.room').width();
+                          canvasWidth = numberOfChildElements * widthOfChild + 50;
+                          $timeline.width(canvasWidth);
+                      }
+                  });
+              } else {
+                  $('.day-filter').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
+                          $timeline = $(this);
+                  });
+              }
+              html2canvas($timeline, {
+                  onrendered: function(canvas) {
+                      canvas.id = "generated-canvas";
+                      canvas.toBlob(function(blob) {
+                          saveAs(blob, '' + $timeline.attr('class') + '.png');
+                      });
+                  },
+              });
+              $timeline.width(initialWidth);
           });
 
           function display() {
