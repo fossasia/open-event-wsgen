@@ -68,6 +68,7 @@
     "url-join": "^1.1.0"
   },
   "devDependencies": {
-    "connect-domain": "^0.5.0"
+    "connect-domain": "^0.5.0",
+    "sw-precache": "^5.1.1"
   }
 }

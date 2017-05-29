@@ -6,6 +6,7 @@ var minify = require('gulp-minify-css');
 var htmlmin = require('gulp-htmlmin');
 var iife = require('gulp-iife');
 var clean = require('gulp-clean');
+var swPrecache = require('sw-precache');
 var exports = module.exports = {};
 
 exports.minifyJs = function (path, cb) {
@@ -93,7 +94,7 @@ exports.minifyCss = function (path, cb) {
   gulp.start('minifyCss');
 };
 
-exports.minifyHtml = function (path,cb) {
+exports.minifyHtml = function (path,wrk,cb) {
   gulp.task('minifyHtml', function() {
     //Minify all the html files of the web-app
     return gulp.src(path + '/*.html')
@@ -101,6 +102,30 @@ exports.minifyHtml = function (path,cb) {
     .pipe(gulp.dest(path)).on('end', function() {
       cb();
     })
+  });
+
+  gulp.task('generate-service-worker', function() {
+    swPrecache.write(path + '/service-worker.js', {
+      staticFileGlobs: [wrk + '/**/*.{html,css,png,jpg,gif,svg,eot,ttf,woff}', wrk + '/*.html', wrk + '/**/*.min.js'],
+/*      stripPrefixMulti: {
+          path
+      }*/
+    });
+    return gulp.src(path + '/service-worker.js')
+    .pipe(iife({ useStrict : false}))
+    .pipe(concat('service-worker.min.js'))
+    .pipe(babel({ presets: ['es2015'] }))
+    .pipe(uglify().on('error', function(e) {
+        console.log("Error while compiling service-worker.js");
+    }))
+    .pipe(gulp.dest(path + '/'));
+  });
+
+  var dir = path + '.';
+  gulp.task('minifyHtml',['generate-service-worker'], function() {
+    gulp.src(['!' + dir + '*.min.js', dir + "*.js"])
+    .pipe(clean())
+    cb();
   });
 
   gulp.start('minifyHtml');
