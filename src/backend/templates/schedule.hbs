@@ -551,35 +551,34 @@
           });
 
           $(".export-png").click(function() {
-                if (isCalendarView === true) {
-                    $('.calendar').each(function() {
-                        if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
-                            {
-                            $timeline = $(this);
-                            initialWidth = $timeline.width();
-                            numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
-                            widthOfChild = $timeline.find('.room').width();
-                            canvasWidth = numberOfChildElements * widthOfChild + 50;
-                            $timeline.width(canvasWidth);
-
-                        }
-                    });
-                } else {
-                    $('.day-filter').each(function() {
-                        if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
-                            $timeline = $(this);
-                    });
-                }
-                html2canvas($timeline, {
-                    onrendered: function(canvas) {
-                        canvas.id = "generated-canvas";
-                        canvas.toBlob(function(blob) {
-                            saveAs(blob, '' + $timeline.attr('class') + '.png');
-                        });
-                    },
+              if (isCalendarView === true) {
+                  $('.calendar').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
+                          $timeline = $(this);
+                          initialWidth = $timeline.width();
+                          numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
+                          numberOfChildElements = numberOfChildElements - 1;
+                          widthOfChild = $timeline.find('.room').width();
+                          canvasWidth = numberOfChildElements * widthOfChild + 50;
+                          $timeline.width(canvasWidth);
+                      }
                   });
-               $timeline.width(initialWidth);
-            });
+              } else {
+                  $('.day-filter').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
+                          $timeline = $(this);
+                  });
+              }
+              html2canvas($timeline, {
+                  onrendered: function(canvas) {
+                      canvas.id = "generated-canvas";
+                      canvas.toBlob(function(blob) {
+                          saveAs(blob, '' + $timeline.attr('class') + '.png');
+                      });
+                  },
+              });
+              $timeline.width(initialWidth);
+          });
 
           function display() {
             console.log("Inside the display function");
