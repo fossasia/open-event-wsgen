@@ -7,6 +7,7 @@ services:
 env:
   - CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 addons:
+  sauce_connect: true
   apt:
     sources:
       - ubuntu-toolchain-r-test
