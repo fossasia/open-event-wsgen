@@ -2,59 +2,60 @@
 
 $(document).ready(function () {
   let widthWindow = $(window).width(),
-      popbox = $(".pop-box"),
-      headerpop = $(".header-pop"),
-      sizeevent = $(".sizeevent"),
-      tracktime = $(".sizeevent span"),
-      speakerinfo = $(".speaker-info"),
-      session = $(".session"),
-      sessionname = $('.session-name'),
-      roomsdiv = null,
-      openedPop = null,
-      previousRoomHeight = 0.0;
+    popbox = $(".pop-box"),
+    headerpop = $(".header-pop"),
+    sizeevent = $(".sizeevent"),
+    tracktime = $(".sizeevent span"),
+    speakerinfo = $(".speaker-info"),
+    session = $(".session"),
+    sessionname = $('.session-name'),
+    roomsdiv = null,
+    openedPop = null,
+    previousRoomHeight = 0.0;
 
   popbox.addClass('hide');
-    headerpop.hover(function (event) {
-      popBox(event);
-    },function(){
-      popbox.addClass('hide');
-      hidePopbox();
-      hideUnderline();
-    });
+  headerpop.hover(function (event) {
+    popBox(event);
+  },function(){
+    popbox.addClass('hide');
+    hidePopbox();
+    hideUnderline();
+  });
 
   let imageholder = $(".image-holder"),
-      speaker = $(".speaker"),
-      hoverstate= $(".hover-state"),
-      preserve3d= $(".preserve3d"),
-      openflag = 0;
+    speaker = $(".speaker"),
+    hoverstate= $(".hover-state"),
+    preserve3d= $(".preserve3d"),
+    openflag = 0;
+
   if( widthWindow < 768) {
     $(document).on('click','.image-holder',function (event) {
       if(openflag === 0) {
-       addOverlay(event);
-       openflag = 1;
+        addOverlay(event);
+        openflag = 1;
       }
-     else {
-      removeOverlay(event)
-      openflag = 0;
-    }
+      else {
+        removeOverlay(event);
+        openflag = 0;
+      }
     });
   }
   else {
     imageholder.hover(function(event) {
-       addOverlay(event);
+      addOverlay(event);
     },function(event){
-       removeOverlay(event);
-    })
+      removeOverlay(event);
+    });
     speaker.hover(function(event){
       if(!(hoverstate).is(event.target)){
         popbox.addClass('hide');
         hidePopbox();
-    }
-    })
+      }
+    });
     $(document).hover(function(event){
       popbox.addClass('hide');
       hidePopbox();
-    })
+    });
   }
 
   session.click(function(event) {
@@ -113,8 +114,8 @@ $(document).ready(function () {
         let childHeight = popPosition.top + popHeight;
 
         let diff = 0,
-            popDiff = 0,
-            footerOffset = 0;
+          popDiff = 0,
+          footerOffset = 0;
 
         //Change the left value of popbox and avoid increase in width
         if(childWidth >= parentWidth) {
@@ -156,7 +157,7 @@ $(document).ready(function () {
     var track;
     let outerContheight = $(".main").offset().top + $(".main").outerHeight();
     let sizecontainer = sizeevent;
-        timeOftrack = tracktime;
+    timeOftrack = tracktime;
 
     if(!sizecontainer.is(event.target)) {
       if(!timeOftrack.is(event.target)){
@@ -177,19 +178,19 @@ $(document).ready(function () {
       "text-decoration":"underline"
     });
 
-   let tracktocheck = track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
-       shift = tracktocheck - outerContheight;
-   if(shift > 0){
+    let tracktocheck = track.offset().top + track.outerHeight() + tracknext.outerHeight() + 15;
+    shift = tracktocheck - outerContheight;
+    if(shift > 0){
 
-    $(".footer").css({
-      "position":"absolute",
-      "top": outerContheight + shift,
-      "width":"100%",
-      "z-index": "999"
-    })
-  }
-   else {
-    hidePopbox();
+      $(".footer").css({
+        "position":"absolute",
+        "top": outerContheight + shift,
+        "width":"100%",
+        "z-index": "999"
+      });
+    }
+    else {
+      hidePopbox();
     }
 
   }
@@ -197,19 +198,19 @@ $(document).ready(function () {
   function hidePopbox () {
     $(".classic").css({
       "position":"static"
-    })
+    });
   }
   function hideUnderline () {
     sizeevent.css({
       "text-decoration":"none"
-    })
+    });
   }
 
   function adjustFooter(event) {
     let pointer = event.target;
     let footer = $('.footer');
     if(!$('.image-holder').is(pointer)){
-     imageholder = $(pointer).parent().parent();
+      imageholder = $(pointer).parent().parent();
     }
     else {
       imageholder = $(pointer);
@@ -222,27 +223,27 @@ $(document).ready(function () {
     if($('.speakers-row').offset() !== undefined) {
       let speakersRow =  $('.speakers-row').offset().top + $('.speakers-row').outerHeight()+ $('.classic').outerHeight();
       let shift = totalHeight - speakersRow;
-        if (shift > 0) {
-           $(".classic").css({
-            "position":"absolute",
-            "top": speakersRow + shift,
-            "width":"100%",
-            "z-index": "999"
-          })
-        }
-     }
-  else {
-    hidePopbox();
+      if (shift > 0) {
+        $(".classic").css({
+          "position":"absolute",
+          "top": speakersRow + shift,
+          "width":"100%",
+          "z-index": "999"
+        });
+      }
+    }
+    else {
+      hidePopbox();
 
+    }
   }
-}
 
   function addOverlay(event) {
     let imageholder = $(".image-holder"),
-        speaker = $(".speaker"),
-        hoverstate= $(".hover-state"),
-        popbox = $(".pop-box"),
-        preserve3d = $(".preserve3d");
+      speaker = $(".speaker"),
+      hoverstate= $(".hover-state"),
+      popbox = $(".pop-box"),
+      preserve3d = $(".preserve3d");
 
     popbox.addClass('hide');
     event.preventDefault();
@@ -272,12 +273,12 @@ $(document).ready(function () {
   }
 
   if (widthWindow < 768) {
-   $(document).mouseup(function(e) {
+    $(document).mouseup(function(e) {
       let container = popbox;
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.addClass('hide');
-         hidePopbox();
-         removeOverlay(e);
+        hidePopbox();
+        removeOverlay(e);
       }
     });
   }

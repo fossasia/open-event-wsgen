@@ -14,6 +14,6 @@ var initMap = function () {
     position: myLatLng,
     map: map
   });
-}
+};
 
 window.initMap = initMap;
