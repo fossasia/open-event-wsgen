@@ -17,6 +17,11 @@
       "from": "addressparser@1.0.1",
       "resolved": "https://registry.npmjs.org/addressparser/-/addressparser-1.0.1.tgz"
     },
+    "adm-zip": {
+      "version": "0.4.7",
+      "from": "adm-zip@>=0.4.7 <0.5.0",
+      "resolved": "http://registry.npmjs.org/adm-zip/-/adm-zip-0.4.7.tgz"
+    },
     "after": {
       "version": "0.8.2",
       "from": "after@0.8.2",
@@ -3190,6 +3195,11 @@
         }
       }
     },
+    "selenium-webdriver": {
+      "version": "3.4.0",
+      "from": "selenium-webdriver@latest",
+      "resolved": "http://registry.npmjs.org/selenium-webdriver/-/selenium-webdriver-3.4.0.tgz"
+    },
     "semver": {
       "version": "5.0.3",
       "from": "semver@>=5.0.1 <5.1.0",
@@ -3520,6 +3530,11 @@
       "version": "1.1.0",
       "from": "time-stamp@>=1.0.0 <2.0.0",
       "resolved": "http://registry.npmjs.org/time-stamp/-/time-stamp-1.1.0.tgz"
+    },
+    "tmp": {
+      "version": "0.0.30",
+      "from": "tmp@0.0.30",
+      "resolved": "http://registry.npmjs.org/tmp/-/tmp-0.0.30.tgz"
     },
     "to-array": {
       "version": "0.1.4",

@@ -16,6 +16,7 @@ var fold = require('../src/backend/fold.js');
 var generator = require('../src/backend/generator.js');
 var dist = require('../src/backend/dist.js');
 var app = require('../src/app');
+var webdriver = require('selenium-webdriver');
 
 
 
@@ -145,18 +146,55 @@ describe('generate', function() {
     it('should generate the event site', function(done) {
       var data = {};
       data.body = {
-        "email": "princu7@gmail.com",
+        "email": "test@event.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA14/",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "princu7@gmail.com/FOSSASIA 2014");
+        assert.equal(appFolder, "test@event.com/FOSSASIA 2016");
         done();
       });
 
+    });
+  });
+});
+
+describe("Running Selenium Tests on Chrome Driver", function() {
+  this.timeout(60000);
+  var driver;
+  before(function() {
+    if (process.env.SAUCE_USERNAME !== undefined) {
+      driver = new webdriver.Builder()
+        .usingServer('http://'+ process.env.SAUCE_USERNAME+':'+process.env.SAUCE_ACCESS_KEY+'@ondemand.saucelabs.com:80/wd/hub')
+        .withCapabilities({
+          'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+          build: process.env.TRAVIS_BUILD_NUMBER,
+          username: process.env.SAUCE_USERNAME,
+          accessKey: process.env.SAUCE_ACCESS_KEY,
+          browserName: "chrome"
+        }).build();
+    } else {
+      driver = new webdriver.Builder()
+        .withCapabilities({
+          browserName: "chrome"
+        }).build();
+    }
+  });
+
+  after(function() {
+    return driver.quit();
+  });
+
+  it("Basic test to check the name of the event", function(done) {
+
+    driver.get("http://localhost:5000/live/preview/test@event.com/FOSSASIA%202016");
+    var headline = driver.findElement(webdriver.By.css('h1'));
+    headline.getText().then(function(txt) {
+      assert.equal(txt, "FOSSASIA 2016");
+      done();
     });
   });
 });
