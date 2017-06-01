@@ -196,7 +196,8 @@
                         if ($(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.pop-over').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                              $(this).parent().hide();
-                         } else {
+                    } else if ($(this).find(".speaker-name").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                    $(this).find(".pop-over").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0)  {
                              $(this).parent().show();
                          }
                     });

@@ -420,25 +420,29 @@
                   $(this).find('.time-filter').each(function() {
                       var flag = 1;
                       $(this).find('.track-inline').each(function() {
-                          if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                               $(this).hide();
-                           } else {
-                             if($(this).is(':visible')) {
-                                 flag = 0;
-                                 $(this).show();
-                             }
-                           }
-                      });
-                      if (flag == 1) {
-                          $(this).hide();
-                      } else {
-                          temp = 0;
-                          $(this).show();
-                      }
+                            if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                                $(this).hide();
+                            } else {
+                                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                                    flag = 0;
+                                    $(this).show();
+                                }
+                            }
+                        });
+                        if (flag == 1) {
+                            $(this).hide();
+                        } else {
+                            temp = 0;
+                            $(this).show();
+                        }
                   });
                   if (temp == 1) {
                       $(this).hide();
