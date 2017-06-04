@@ -141,7 +141,7 @@ var resizeSponsors = function(dir, socket, done) {
     async.each(list, function(image, trial) {
       sharp(dir + '/sponsors/' + image)
         .resize(150, 80)
-        .background({r: 255, g: 255, b: 255, a: 0})
+        .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
         .toFile(dir + '/sponsors/' + image + '.new', (err) => {
           if(err) {
@@ -173,7 +173,7 @@ var resizeSpeakers = function(dir, socket, done) {
     async.each(list, function(image, trial) {
       sharp(dir + '/speakers/' + image)
         .resize(264, 264)
-        .background({r: 255, g: 255, b: 255, a: 0})
+        .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
         .toFile(dir + '/speakers/' + extensionChange(image), (err) => {
           if(err) {
