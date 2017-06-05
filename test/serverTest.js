@@ -17,6 +17,9 @@ var generator = require('../src/backend/generator.js');
 var dist = require('../src/backend/dist.js');
 var app = require('../src/app');
 var webdriver = require('selenium-webdriver');
+var eventPage = require('../src/selenium/eventPage.js');
+var By = webdriver.By;
+
 
 
 
@@ -162,8 +165,8 @@ describe('generate', function() {
   });
 });
 
-describe("Running Selenium Tests on Chrome Driver", function() {
-  this.timeout(60000);
+describe("Running Selenium tests on Chrome Driver", function() {
+  this.timeout(600000);
   var driver;
   before(function() {
     if (process.env.SAUCE_USERNAME !== undefined) {
@@ -188,13 +191,19 @@ describe("Running Selenium Tests on Chrome Driver", function() {
     return driver.quit();
   });
 
-  it("Basic test to check the name of the event", function(done) {
+  describe('Testing event page', function() {
 
-    driver.get("http://localhost:5000/live/preview/test@event.com/FOSSASIA%202016");
-    var headline = driver.findElement(webdriver.By.css('h1'));
-    headline.getText().then(function(txt) {
-      assert.equal(txt, "FOSSASIA 2016");
-      done();
+    before(function() {
+      eventPage.init(driver);
+      eventPage.visit('http://localhost:5000/live/preview/test@event.com/FOSSASIA%202016');
+    });
+
+    it('Checking the title of the page', function(done) {
+      eventPage.getEventName().then(function(eventName) {
+        assert.equal(eventName, "FOSSASIA 2016");
+        done();
+      });
     });
   });
 });
+
