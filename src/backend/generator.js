@@ -32,6 +32,7 @@ const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/s
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
+const inditpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/indi.hbs').toString('utf-8'));
 
 if (!String.linkify) {
   String.prototype.linkify = function() {
@@ -152,6 +153,7 @@ exports.createDistDir = function(req, socket, callback) {
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
   req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
+  const mode = req.body.sessionMode;
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
 
@@ -294,6 +296,8 @@ exports.createDistDir = function(req, socket, callback) {
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
         const jsonData = data;
+        //console.log("Printing data");
+        //console.log(jsonData);
         eventName = jsonData.eventurls.name;
         if(req.body.datasource == 'eventapi') {
           var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
@@ -312,6 +316,35 @@ exports.createDistDir = function(req, socket, callback) {
 
         function templateGenerate() {
           try {
+            console.log("mode = " + mode);
+            if(mode == 'single')
+              jsonData.mode = mode;
+            var trackArr = jsonData.tracks;
+            for(var i = 0; i < trackArr.length; i++) {
+              var sessionArr = trackArr[i].sessions;
+              for(var j = 0; j < sessionArr.length; j++) {
+                var sessionObj = sessionArr[j];
+                var sessionId = sessionObj.session_id;
+                var data = {session: sessionObj};
+                data.eventurls = jsonData.eventurls;
+                data.sociallinks = jsonData.sociallinks;
+                data.copyright = jsonData.copyright;
+                if(jsonData.tracks != undefined)
+                  data.tracks = true;
+                if(jsonData.roomsinfo != undefined)
+                  data.roomsinfo = true;
+                if(jsonData.speakerslist != undefined)
+                  data.speakerslist = true;
+                if(jsonData.timeList != undefined)
+                  data.timeList = true;
+
+                console.log("Compiling session = " + sessionId);
+                fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions_' + sessionId + '.html', minifyHtml(inditpl(data)));
+
+                console.log("Compiled session = " + sessionId);
+              }
+            }
+            //console.log(jsonData);
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
@@ -329,7 +362,7 @@ exports.createDistDir = function(req, socket, callback) {
             logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
             return done(null, 'write');
           });
-        };
+        }
       });
     },
 

@@ -169,11 +169,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       return;
     }
     track.sessions.push({
+      startDate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      endDate: moment.utc(session.end_time).local().format('dddd, Do MMM'),
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
       type: session_type,
       location: roomName,
+      color: track.color,
+      font_color: track.font_color,
+      track_title: track.title,
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){

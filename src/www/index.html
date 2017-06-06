@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
     <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="js/form.js"></script>
     <script src="js/validation.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -42,6 +42,11 @@
                     <input type="text" class="form-control" id="name" name="name" required="true">
                     <br>
                 -->
+                <label> Choose Session Style </label>
+                <ul style="list-style-type:none">
+                <li><input type="radio" name="session" value="single"> Single
+                <li><input type="radio" name="session" value="expand"> Expandable
+                </ul>
                 <label> Choose your data source </label>
                 <ul style="list-style-type:none">
                     <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
