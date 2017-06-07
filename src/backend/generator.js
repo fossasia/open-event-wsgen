@@ -317,40 +317,41 @@ exports.createDistDir = function(req, socket, callback) {
         function templateGenerate() {
           try {
             console.log("mode = " + mode);
-            if(mode == 'single')
+            if(mode == 'single') {
               jsonData.mode = mode;
-            var trackArr = jsonData.tracks;
-            for(var i = 0; i < trackArr.length; i++) {
-              var sessionArr = trackArr[i].sessions;
-              for(var j = 0; j < sessionArr.length; j++) {
-                //strengthen the concept. Done
-                var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
-                var sessionId = sessionObj.session_id;
-                var speakerList = sessionObj.speakers_list;
-                for(var k = 0; k < speakerList.length; k++) {
-                  speakerList[k].thumb = '../' + speakerList[k].thumb;
-                }
+              var trackArr = jsonData.tracks;
+              for(var i = 0; i < trackArr.length; i++) {
+                var sessionArr = trackArr[i].sessions;
+                for(var j = 0; j < sessionArr.length; j++) {
+                  //strengthen the concept. Done
+                  var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
+                  var sessionId = sessionObj.session_id;
+                  var speakerList = sessionObj.speakers_list;
+                  for(var k = 0; k < speakerList.length; k++) {
+                    speakerList[k].thumb = '../' + speakerList[k].thumb;
+                  }
 
-                var data = {session: sessionObj};
-                data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
-                data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
-                data.eventurls.name = '../' + jsonData.eventurls.name;
-                data.sociallinks = jsonData.sociallinks;
-                data.copyright = jsonData.copyright;
-                if(jsonData.tracks != undefined)
-                  data.tracks = true;
-                if(jsonData.roomsinfo != undefined)
-                  data.roomsinfo = true;
-                if(jsonData.speakerslist != undefined)
-                  data.speakerslist = true;
-                if(jsonData.timeList != undefined)
-                  data.timeList = true;
-                data.single_session = true;
+                  var data = {session: sessionObj};
+                  data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
+                  data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
+                  data.eventurls.name = '../' + jsonData.eventurls.name;
+                  data.sociallinks = jsonData.sociallinks;
+                  data.copyright = jsonData.copyright;
+                  if(jsonData.tracks != undefined)
+                    data.tracks = true;
+                  if(jsonData.roomsinfo != undefined)
+                    data.roomsinfo = true;
+                  if(jsonData.speakerslist != undefined)
+                    data.speakerslist = true;
+                  if(jsonData.timeList != undefined)
+                    data.timeList = true;
+                  data.single_session = true;
 
-                console.log("Compiling session = " + sessionId);
+                  console.log("Compiling session = " + sessionId);
                   fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(inditpl(data)));
 
-                console.log("Compiled session = " + sessionId);
+                  console.log("Compiled session = " + sessionId);
+                }
               }
             }
             //console.log(jsonData);
