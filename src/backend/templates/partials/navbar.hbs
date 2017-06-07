@@ -25,18 +25,38 @@
     <div class="side-collapse in">
       <nav role="navigation" class="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
+        {{#if single_session}}
+          <li class="navlink"><a id="homelink" href="../index.html">Home</a></li>
+        {{else}}
+          <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
+        {{/if}}
         {{#if timeList}}
+          {{#if single_session}}
+          <li class="navlink"><a id="schedulelink" href="../schedule.html">Schedule</a></li>
+          {{else}}
           <li class="navlink"><a id="schedulelink" href="schedule.html">Schedule</a></li>
+          {{/if}}
         {{/if}}
         {{#if tracks}}
+          {{#if single_session}}
+          <li class="navlink"><a id="trackslink" href="../tracks.html">Tracks</a></li>
+          {{else}}
           <li class="navlink"><a id="trackslink" href="tracks.html">Tracks</a></li>
+          {{/if}}
         {{/if}}
         {{#if roomsinfo}}
+          {{#if single_session}}
+          <li class="navlink"><a id="roomslink" href="../rooms.html">Rooms</a></li>
+          {{else}}
           <li class="navlink"><a id="roomslink" href="rooms.html">Rooms</a></li>
+          {{/if}}
         {{/if}}
         {{#if speakerslist}}
-          <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
+          {{#if single_session}}
+          <li class="navlink"><a id="speakerslink" href="../speakers.html">Speakers</a></li>
+          {{else}}
+          <li class="navlink"><a id="speakerslink" href="../speakers.html">Speakers</a></li>
+          {{/if}}
         {{/if}}
 
         {{#sociallinks}}

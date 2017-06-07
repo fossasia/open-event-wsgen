@@ -392,7 +392,7 @@
           }
           else if(sessionMode == 'single') {
             var curUrl = window.location.href;
-            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions_' + id + ".html";
+            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
             window.location.href = newUrl;
           }
         });
