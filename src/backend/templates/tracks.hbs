@@ -364,10 +364,10 @@
         });
 
         $('.room-filter').click(function () {
-          console.log("I am being clicked");
           var temp = JSON.parse(localStorage['sessions']);
           var id =  Number($(this).attr('id'));;
           var sessionMode = "{{mode}}";
+
           if (flag) {
             if (isAdded) {
               temp[id] = 1;
@@ -382,27 +382,12 @@
             localStorage['sessions'] = JSON.stringify(temp);
           }
           else if(sessionMode == 'single') {
-            //console.log("Inside else if");
             var curUrl = window.location.href;
-            //console.log(curUrl);
             var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
-            //console.log("newUrl = " + newUrl);
-            //curUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1);
-            //console.log(curUrl);
-            //curUrl = curUrl + 'session_' + id + '.html';
-            //console.log(curUrl);
             window.location.href = newUrl;
           }
 
-
         });
-        function test() {
-          var dum = "{{mode}}";
-          console.log(dum);
-        }
-        test();
-
-
 
         $('#starred').click(function () {
           mode = !mode;

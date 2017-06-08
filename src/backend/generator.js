@@ -296,8 +296,7 @@ exports.createDistDir = function(req, socket, callback) {
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
         const jsonData = data;
-        //console.log("Printing data");
-        //console.log(jsonData);
+
         eventName = jsonData.eventurls.name;
         if(req.body.datasource == 'eventapi') {
           var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
@@ -316,45 +315,60 @@ exports.createDistDir = function(req, socket, callback) {
 
         function templateGenerate() {
           try {
-            console.log("mode = " + mode);
+
             if(mode == 'single') {
+              logger.addLog('Info', 'Generating Single Page for each session', socket);
+
+              function checkLinks() {
+
+                function changeEventUrlLinks() {
+                  data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
+                  data.eventurls.name = '../' + jsonData.eventurls.name;
+                }
+
+                if(jsonData.tracks !== undefined)
+                  data.tracks = true;
+                if(jsonData.roomsinfo !== undefined)
+                  data.roomsinfo = true;
+                if(jsonData.speakerslist !== undefined)
+                  data.speakerslist = true;
+                if(jsonData.timeList !== undefined)
+                  data.timeList = true;
+
+                data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
+                data.sociallinks = jsonData.sociallinks;
+                data.copyright = jsonData.copyright;
+
+                changeEventUrlLinks();
+              }
+
               jsonData.mode = mode;
               var trackArr = jsonData.tracks;
               for(var i = 0; i < trackArr.length; i++) {
                 var sessionArr = trackArr[i].sessions;
+
                 for(var j = 0; j < sessionArr.length; j++) {
-                  //strengthen the concept. Done
                   var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
                   var sessionId = sessionObj.session_id;
                   var speakerList = sessionObj.speakers_list;
+
+                  sessionObj.color = trackArr[i].color;
+                  sessionObj.font_color = trackArr[i].font_color;
+                  sessionObj.track_title = trackArr[i].title;
+
                   for(var k = 0; k < speakerList.length; k++) {
                     speakerList[k].thumb = '../' + speakerList[k].thumb;
                   }
 
                   var data = {session: sessionObj};
-                  data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
-                  data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
-                  data.eventurls.name = '../' + jsonData.eventurls.name;
-                  data.sociallinks = jsonData.sociallinks;
-                  data.copyright = jsonData.copyright;
-                  if(jsonData.tracks != undefined)
-                    data.tracks = true;
-                  if(jsonData.roomsinfo != undefined)
-                    data.roomsinfo = true;
-                  if(jsonData.speakerslist != undefined)
-                    data.speakerslist = true;
-                  if(jsonData.timeList != undefined)
-                    data.timeList = true;
                   data.single_session = true;
-
-                  console.log("Compiling session = " + sessionId);
+                  checkLinks();
                   fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(inditpl(data)));
 
-                  console.log("Compiled session = " + sessionId);
                 }
               }
+              logger.addLog('Success', 'Generated single page for each session', socket);
             }
-            //console.log(jsonData);
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));

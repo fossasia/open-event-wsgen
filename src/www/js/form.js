@@ -184,7 +184,6 @@ $(document).ready(function () {
     $('.error').focus();
     if (check) {
       var formData = getData();
-      console.log(formData);
       $('#buildLog').empty();
       socket.emit('live', formData);
       $('.generator-progress').show();

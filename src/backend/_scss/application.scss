@@ -1931,7 +1931,7 @@ a.skip:hover {
   }
 
 }
-/* open-sans-regular - latin */
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -1944,3 +1944,27 @@ a.skip:hover {
   url('../fonts/open-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
   url('../fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
 } /* Taken from https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin */
+
+.session-container {
+  margin-top: 2%;
+  background-color: white;
+  text-align: center;
+}
+
+.single-session {
+  margin-top: 100px;
+}
+
+.session-content {
+  width: 75%;
+  margin: auto;
+}
+
+.session-ul {
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+

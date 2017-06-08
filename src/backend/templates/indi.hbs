@@ -42,12 +42,12 @@
     <a id="top"></a>
     {{> navbar}}
     {{#session}}
-      <div class="container" style="margin-top:2%; background-color:white; text-align:center;">
-        <div class="row singleSession" id="{{session_id}}" style="margin-top:100px">
+      <div class="container session-container">
+        <div class="row single-session" id="{{session_id}}">
           <h3> {{startDate}} </h3>
           <div class = "eventtime"><span class="time-track">{{start}} - {{end}}</span></div>
-          <div class="left-border" style="width:75%; margin:auto; border:0px">
-            <div class="sizeevent event" id="event-title" style="background-color: {{color}}; color:{{font_color}};margin-right:0px;cursor: unset;">
+          <div class="session-content">
+            <div class="sizeevent event" id="event-title" style="background-color:{{color}}; color:{{font_color}}; margin-right:0px; cursor:unset;">
               {{title}} {{#if type}} ({{type}}) {{/if}} | {{track_title}}
               <a class="bookmark">
                 <i class="fa fa-star" aria-hidden="true">
@@ -71,10 +71,10 @@
                     <div class="session-speakers-less">
                       <p class="session-speakers">
                         {{#if photo}}
-                          <img onError="this.onerror=null;this.src='./images/avatar.png';"
+                          <img onError="this.onerror=null;this.src='../images/avatar.png';"
                           src="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
                         {{else}}
-                          <img class="card-img-top speaker-image-large" src="./images/avatar.png"/>
+                          <img class="card-img-top speaker-image-large" src="../images/avatar.png"/>
                         {{/if}}
                       </p>
                       <span class="graytext">{{name}}</span>
@@ -124,11 +124,11 @@
                   {{#if location}}<p><i>{{location}}</i></p>{{/if}}
                   {{#if startDate}}<p>{{startDate}}, <span>{{start}} - {{end}}</span></p>{{/if}}
                   <p>
-                    <ul class="title-inline">
+                    <ul class="session-ul">
                       <li style="background-color:{{{color}}};color:{{{font_color}}};"
                         class="titlecolor"></li>
                       &nbsp;
-                      <li class="blacktext" style="max-width:100%; margin-left:1%;">{{track_title}}</li>
+                      <li>{{track_title}}</li>
                     </ul>
                   </p><br>
                 </div>

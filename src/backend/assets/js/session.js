@@ -1,13 +1,11 @@
 $(document).ready(function() {
-  var flag = 0;
-  var isAdded = 0;
   var sideslider = $('[data-toggle=collapse-side]');
   var sel = sideslider.attr('data-target');
   var top = $('header[role=banner]').outerHeight();
   var downButton = $('#down-button');
-  var sessionElem = $('.singleSession');
+  var sessionElem = $('.single-session');
   var sessionId = Number(sessionElem.attr('id'));
-
+  var maxNoOfSessions = 1000;
 
   function init() {
     if (localStorage.hasOwnProperty('sessions') === false) {
@@ -15,12 +13,12 @@ $(document).ready(function() {
     }
     var temp = JSON.parse(localStorage['sessions']);
 
-    if (temp[sessionId] == 1) {
+    if (temp[sessionId] === 1) {
       sessionElem.find('.bookmark').css('color', 'black');
     }
   }
 
-  sideslider.click(function(event){
+  sideslider.click( function(){
     $(sel).css('top', top);
     $(sel).toggleClass('in');
   });
@@ -45,7 +43,7 @@ $(document).ready(function() {
     var temp = JSON.parse(localStorage['sessions']);
     var curColor = $(this).css('color');
 
-    if (curColor == "rgb(0, 0, 0)") {
+    if (curColor === 'rgb(0, 0, 0)') {
       $(this).css('color', '');
       temp[sessionId] = 0;
     }
