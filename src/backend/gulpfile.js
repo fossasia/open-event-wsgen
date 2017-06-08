@@ -71,7 +71,19 @@ exports.minifyJs = function (path, cb) {
       .pipe(gulp.dest(path + '/js/'));
   });
 
-  gulp.task('minifyJs',['speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs'], function() {
+  gulp.task('sessionJs', function() {
+
+    return gulp.src([dir + 'session.js', dir + 'social.js'])
+      .pipe(iife({ useStrict : false}))
+      .pipe(concat('session.min.js'))
+      .pipe(babel({ presets: ['es2015'] }))
+      .pipe(uglify().on('error', function(e) {
+        console.log("Error while compiling session.js");
+      }))
+      .pipe(gulp.dest(path + '/js/'));
+  });
+
+  gulp.task('minifyJs',['speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs'], function() {
     gulp.src(['!' + dir + '*.min.js', dir + "*.js"])
       .pipe(clean());
     cb();
