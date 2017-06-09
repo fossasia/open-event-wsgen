@@ -48,6 +48,10 @@ function returnTrackFontColor(trackInfo, id) {
 }
 
 function checkNullHtml(html) {
+  if(html === undefined) {
+    return true;
+  }
+
   html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
   return (html === '');
 }
