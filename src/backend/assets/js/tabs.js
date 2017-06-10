@@ -16,6 +16,9 @@ tabs = function(options) {
         $(tabNavigationLinks[activeIndex]).removeClass('is-active');
         $(tabContentContainers[activeIndex]).removeClass('is-active');
       }
+      date = $('.' + $(tabNavigationLinks[index]).attr('id'));
+      $('.date-filter').addClass('hide');
+      $(date).removeClass('hide');
       $(tabNavigationLinks[index]).addClass('is-active');
       $(tabContentContainers[index]).addClass('is-active');
       activeIndex = index;
