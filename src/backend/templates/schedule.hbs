@@ -526,10 +526,9 @@
               } else {
                 $('.day-filter').each(function () {
                   if($(this).attr('class').split(' ')[0] === className) {
-                    var elem = $(this);
-                    $('html,body').animate({
-                      scrollTop: elem.offset().top
-                    }, 500);
+                    $(this).removeClass('hide');
+                  } else {
+                    $(this).addClass('hide');
                   }
                 });
               }
