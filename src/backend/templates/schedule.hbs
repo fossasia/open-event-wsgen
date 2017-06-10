@@ -93,11 +93,7 @@
         <div id="track-list" class="container">
 
           {{#timeList}}
-          {{#if @first}}
-            <div class="{{slug}} day-filter">
-            {{else}}
-            <div class="{{slug}} day-filter hide">
-          {{/if}}
+           <div class="{{slug}} day-filter">
             <div class="col-md-12 paddingzero">
               <h4 class="text">{{date}}</h4>
             </div>
@@ -530,9 +526,10 @@
               } else {
                 $('.day-filter').each(function () {
                   if($(this).attr('class').split(' ')[0] === className) {
-                    $(this).removeClass('hide');
-                  } else {
-                    $(this).addClass('hide');
+                    var elem = $(this);
+                    $('html,body').animate({
+                      scrollTop: elem.offset().top
+                    }, 500);
                   }
                 });
               }
