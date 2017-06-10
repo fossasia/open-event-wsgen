@@ -1386,7 +1386,6 @@ a {
     background-color: $white;
     border: 1px solid $gray-dim;
     color: $black;
-    font-size: 12pt;
   }
 }
 
@@ -1424,14 +1423,34 @@ a {
 }
 
 
-.search-filter-schedule {
+ .search-filter-schedule {
   flex-grow: 1;
-  padding-top: 12px;
-
+  padding: 10px;
+  padding-left: 25px;
+  font-size: small;
+  border-radius: 5px;
+  }
   .fossasia-filter {
     height: 33px;
     width: 180px;
+    padding: 10px;
+    padding-left: 25px;
+    font-size: small;
+    border-radius: 5px;
   }
+
+  .search-filter > label > .fa {
+         position: absolute;
+         padding-left: 12px;
+         padding-right: 3px;
+         margin: -6px;
+  }
+
+  .search-filter input:focus {
+         outline: none;
+         box-shadow: 0px 0px 3px #0076f9;
+}
+
 
   @media only screen and (max-width: 450px) {
     margin-right: 5px;
@@ -1441,7 +1460,7 @@ a {
       width: 100%;
     }
   }
-}
+
 
 .search-filter-room {
   flex-grow: 2;
