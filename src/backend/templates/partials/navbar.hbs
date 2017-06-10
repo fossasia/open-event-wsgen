@@ -3,7 +3,11 @@
 <header role="banner" class="navbar-fixed-top navbar-default">
   <div class="container">
     <div class="navbar-header navbar-left pull-left">
-      <a class="navbar-brand" href=".">
+      {{#if single_session}}
+       <a class="navbar-brand" href="../">
+      {{else}}
+       <a class="navbar-brand" href=".">
+      {{/if}}
         {{#if eventurls.logo_url}}
           <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
         {{else}}

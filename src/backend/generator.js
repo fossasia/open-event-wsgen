@@ -32,7 +32,7 @@ const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/s
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
-const inditpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/indi.hbs').toString('utf-8'));
+const sessiontpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/session.hbs').toString('utf-8'));
 
 if (!String.linkify) {
   String.prototype.linkify = function() {
@@ -355,6 +355,8 @@ exports.createDistDir = function(req, socket, callback) {
                   sessionObj.color = trackArr[i].color;
                   sessionObj.font_color = trackArr[i].font_color;
                   sessionObj.track_title = trackArr[i].title;
+                  sessionObj.track_jump_link = '../tracks.html#' + trackArr[i].slug;
+                  sessionObj.room_jump_link = '../rooms.html#' + 'venue-' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
 
                   for(var k = 0; k < speakerList.length; k++) {
                     speakerList[k].thumb = '../' + speakerList[k].thumb;
@@ -363,7 +365,7 @@ exports.createDistDir = function(req, socket, callback) {
                   var data = {session: sessionObj};
                   data.single_session = true;
                   checkLinks();
-                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(inditpl(data)));
+                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(data)));
 
                 }
               }

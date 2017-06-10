@@ -169,7 +169,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       return;
     }
     track.sessions.push({
-      startDate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      startDay: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      startDate: moment.utc(session.start_time).local().format('YYYY-MM-DD'),
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
@@ -953,3 +954,4 @@ module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;
 module.exports.returnTracknames = returnTracknames;
 module.exports.checkNullHtml = checkNullHtml;
+module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
