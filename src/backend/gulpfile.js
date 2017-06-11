@@ -72,7 +72,6 @@ exports.minifyJs = function (path, cb) {
   });
 
   gulp.task('sessionJs', function() {
-
     return gulp.src([dir + 'session.js', dir + 'social.js'])
       .pipe(iife({ useStrict : false}))
       .pipe(concat('session.min.js'))
