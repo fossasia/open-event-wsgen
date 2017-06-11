@@ -1424,9 +1424,8 @@ a {
 
 
  .search-filter-schedule {
-  flex-grow: 1;
   padding: 10px;
-  padding-left: 25px;
+  padding-left: 0px;
   font-size: small;
   border-radius: 5px;
   }
@@ -1788,7 +1787,6 @@ a.skip:hover {
   border-color:$light-black;
   margin: 0;
   width: 100%;
-  flex-grow: 1;
 }
 
 
