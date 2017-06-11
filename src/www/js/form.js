@@ -48,7 +48,7 @@ $(document).ready(function () {
       socket.emit('finished', 'File upload has finished');
     });
 
-       
+
     blobStream.on('data', function(chunk) {
       fileUploadSize += chunk.length;
       var percent = (fileUploadSize / file.size * 100) ;
@@ -167,10 +167,10 @@ $(document).ready(function () {
     var ext = this.value.match(/\.([^\.]+)$/)[1];
     switch (ext) {
       case 'zip':
-      break;
+        break;
       default:
-      alert('Only zip files are allowed');
-      this.value = '';
+        alert('Only zip files are allowed');
+        this.value = '';
     }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
@@ -186,12 +186,12 @@ $(document).ready(function () {
       var formData = getData();
       $('#buildLog').empty();
       socket.emit('live', formData);
-    $('.generator-progress').show();
-    $('#generator-progress-bar').show();
-    $('#btnGenerate').prop('disabled', true);
-    $('input[ type = "radio" ]').attr('disabled', true);
-    $('#email').prop('disabled', true);
-  }
+      $('.generator-progress').show();
+      $('#generator-progress-bar').show();
+      $('#btnGenerate').prop('disabled', true);
+      $('input[ type = "radio" ]').attr('disabled', true);
+      $('#email').prop('disabled', true);
+    }
   });
 
   $('#aLog').click(function(e) {
@@ -281,7 +281,7 @@ function displayButtons (appPath, url) {
   btnLive.css('display', 'block');
 
   btnLive.unbind('click').click(function () {
-      window.open('/live/preview/' + appPath, '_blank');
+    window.open('/live/preview/' + appPath, '_blank');
   });
 
   btnDownload.unbind('click').click(function () {

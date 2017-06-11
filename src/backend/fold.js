@@ -35,7 +35,14 @@ function replaceSpaceWithUnderscore(str) {
 
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
-    return '#f8f8fa'
+    return '#f8f8fa';
+  }
+  return trackInfo[id];
+}
+
+function returnTrackFontColor(trackInfo, id) {
+  if ((trackInfo === null) || (id === null)) {
+    return '#000000';
   }
   return trackInfo[id];
 }
@@ -95,17 +102,17 @@ function createTimeLine(startTime, endTime) {
 
 function checkWidth(columns) {
   if(columns * columnWidth > calendarWidth) {
-      return columnWidth;
+    return columnWidth;
   } else {
-      let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
-      return columnWidth + whiteSpace;
+    let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
+    return columnWidth + whiteSpace;
   }
 }
 
 function convertLicenseToCopyright(licence, copyright) {
   var data = {};
-  data.licence_url = licence.licence_url;
-  data.logo = licence.logo;
+  data.licence_url = licence.licence_url === undefined ? licence.url : licence.licence_url;
+  data.logo = licence.compact_logo === undefined ? licence.logo : licence.compact_logo;
   data.licence = licence.long_name;
   data.year = copyright.year;
   data.holder = copyright.holder;
@@ -117,14 +124,16 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   async.eachSeries(sessions,(session,callback) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
-        return callback(null);
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
+      return callback(null);
     }
 
     // generate slug/key for session
@@ -140,7 +149,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     if (!trackData.has(slug) && (session.track != null)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
         sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug,
@@ -151,10 +161,10 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       track = trackData.get(slug);
     }
 
-      if (track == undefined) {
-        return;
-      }
-      track.sessions.push({
+    if (track == undefined) {
+      return;
+    }
+    track.sessions.push({
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
       title: session.title,
@@ -163,7 +173,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
+          spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
         }
         if(spkr.short_biography !== '') {
           spkr.biography = spkr.short_biography;
@@ -188,18 +198,18 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       if ((session.audio !== null) && (session.audio !== '') ) {
         if(session.audio.substring(0, 4) === 'http'){
           distHelper.downloadAudio(appFolder, session.audio, function(audio){
-             track.sessions.audio = encodeURI(audio);
-             callback();
+            track.sessions.audio = encodeURI(audio);
+            callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi') {
-           distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio), function(audio){
-             track.sessions.audio = encodeURI(audio);
-             callback();
-           });
+          distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio), function(audio){
+            track.sessions.audio = encodeURI(audio);
+            callback();
+          });
         }
         else {
-            callback();
+          callback();
         }
       }
       else {
@@ -210,27 +220,29 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       callback();
     }
   },function(){
-      let tracks = Array.from(trackData.values());
-      tracks.sort(byProperty('sortKey'));
-      tracks.forEach(function(track) {
-        track.sessions.sort(byProperty('start'));
-        console.log(track.sessions.speakers_list);
-      });
-      next(tracks);
+    let tracks = Array.from(trackData.values());
+    tracks.sort(byProperty('sortKey'));
+    tracks.forEach(function(track) {
+      track.sessions.sort(byProperty('start'));
+      console.log(track.sessions.speakers_list);
     });
+    next(tracks);
+  });
 }
 
 function foldByTime(sessions, speakers, trackInfo) {
   let dateMap = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = {};
+  const trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
-    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending') {
+    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending' || session.state === 'draft' ) {
       return;
     }
     const roomName = session.microlocation.name;
@@ -247,7 +259,7 @@ function foldByTime(sessions, speakers, trackInfo) {
         slug: date,
         date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
         times: new Map()
-      })
+      });
     }
 
     let timeMap = dateMap.get(date).times;
@@ -255,19 +267,20 @@ function foldByTime(sessions, speakers, trackInfo) {
       timeMap.set(time, {
         caption: time,
         sessions: []
-      })
+      });
     }
     timeMap.get(time).sessions.push({
       start: moment.utc(session.start_time).local().format('HH:mm'),
       end : moment.utc(session.end_time).local().format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track == null) ? null : session.track.id),
       title: session.title,
       type: session_type,
       location: roomName,
       speakers_list: session.speakers.map((speaker) =>  {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/'+ (spkr.photo).split('/').pop();
+          spkr.thumb = 'images/speakers/thumbnails/'+ (spkr.photo).split('/').pop();
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
@@ -317,9 +330,11 @@ function returnTracknames(sessions, trackInfo) {
 
   const trackData = new Map();
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
@@ -337,6 +352,7 @@ function returnTracknames(sessions, trackInfo) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
         sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
         slug: slug
       };
@@ -408,18 +424,18 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     if(link.name.toLowerCase() === "twitter") {
       sociallink = link.link;
     }
-  })
+  });
 
   sponsors.forEach((sponsor) => {
     if( sponsor.id !==undefined && typeof(sponsor.id)==='number') {
       sponsorsection ++;
     }
-  })
+  });
   speakers.forEach((speaker) => {
     if(speaker.featured !== undefined && speaker.featured !==false && speaker.featured===true ) {
-         featuresection++;
+      featuresection++;
     }
-  })
+  });
 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
@@ -508,9 +524,9 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 
 function getCopyrightData(event) {
   if(event.licence_details) {
-  return convertLicenseToCopyright(event.licence_details, event.copyright);
+    return convertLicenseToCopyright(event.licence_details, event.copyright);
   } else {
-  return event.copyright;
+    return event.copyright;
   }
 }
 
@@ -534,10 +550,10 @@ function foldByLevel(sponsors ,reqOpts, next) {
       level1++;
     }
     if (sponsor.level==="2" && (sponsor.logo !== null||" ")) {
-       level2++;
+      level2++;
     }
-     if (sponsor.level==="3" && (sponsor.logo !== null||" ")) {
-       level3++;
+    if (sponsor.level==="3" && (sponsor.logo !== null||" ")) {
+      level3++;
     }
 
   });
@@ -562,9 +578,9 @@ function foldByLevel(sponsors ,reqOpts, next) {
 
     switch (sponsorItem.level) {
       case '1':
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
-      sponsorItem.imgsize = 'large';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.imgsize = 'large';
         break;
       case '2':
         sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
@@ -572,13 +588,13 @@ function foldByLevel(sponsors ,reqOpts, next) {
         sponsorItem.imgsize = 'medium';
         break;
       case '3':
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
         sponsorItem.imgsize = 'small';
         break;
       default:
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
     }
 
     if (sponsor.logo !== null && sponsor.logo != "") {
@@ -596,8 +612,8 @@ function foldByLevel(sponsors ,reqOpts, next) {
         });
       }
       else {
-      let reg = sponsor.logo.split('');
-      if(reg[0] =='/'){
+        let reg = sponsor.logo.split('');
+        if(reg[0] =='/'){
           sponsorItem.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
           levelData[sponsor.level].push(sponsorItem);
           callback();
@@ -615,50 +631,57 @@ function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
   const DateData = new Map();
   const trackDetails = new Object();
-   trackInfo.forEach((track) => {
+  const trackDetailsFont = new Object();
+
+  trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
 
-   const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-   const slug = date + '-' + session.microlocation.name;
+    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const slug = date + '-' + session.microlocation.name;
     //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
-   if (!DateData.has(slug)) {
-     var dated = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    if (!DateData.has(slug)) {
+      var dated = moment.utc(session.start_time).local().format('YYYY-MM-DD');
     }
-   else {
-     dated = "";
-   }
+    else {
+      dated = "";
+    }
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
           date: dated ,
           name: session.title,
           time: moment.utc(session.start_time).local().format('HH:mm'),
-          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
+          color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+          font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id)
         });
         DateData.set(slug,moment.utc(session.start_time).local().format('YYYY-MM-DD'));
       }
-  }
+    }
 
-});
+  });
 
- sessionInRooms.sort(byProperty('date'));
- return sessionInRooms;
+  sessionInRooms.sort(byProperty('date'));
+  return sessionInRooms;
 }
 
 function foldByRooms(room, sessions, speakers, trackInfo) {
   const roomData = new Map();
-  const trackDetails = new Object();
+  const trackDetails = {};
+  const trackDetailsFont = {};
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const microlocationArray = [];
+
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   sessions.forEach((session) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
+    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
       return;
     }
 
@@ -711,7 +734,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 
     room.sessions.push({
       start: start,
-      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
       venue: venue,
       end : end,
       title: session.title,
@@ -722,7 +746,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
+          spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
         }
         if(spkr.short_biography !== '') {
           spkr.biography = spkr.short_biography;
@@ -772,7 +796,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         tempVenue.sessions.push(roomsDetail[i].sessions[j]);
       } else {
         if(JSON.stringify(tempVenue) != JSON.stringify({}) && prevVenue != '') {
-          roomsDetail[i].venue.push(tempVenue)
+          roomsDetail[i].venue.push(tempVenue);
           tempVenue = {};
           tempVenue.sessions = [];
         }
@@ -790,13 +814,13 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 }
 
 function getAppName(event) {
-    const name = event.name;
-    return name;
+  const name = event.name;
+  return name;
 }
 
 function getOrganizerName(event) {
-    const name = event.organizer_name;
-    return name;
+  const name = event.organizer_name;
+  return name;
 }
 
 function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
@@ -830,11 +854,13 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
         callback();
       }
     }, function(){
-        let speakerslist = [];
-        speakers.forEach((speaker) => {
-          if(speaker.photo){
-            var thumb = 'images/speakers/thumbnails/' + (speaker.photo).split('/').pop();
-          }
+      let speakerslist = [];
+      speakers.forEach((speaker) => {
+        if(speaker.photo){
+          var thumb = 'images/speakers/thumbnails/' + (speaker.photo).split('/').pop();
+        }
+        let allSessions = getAllSessions(speaker.sessions, sessions, tracksData);
+        if (allSessions.length) {
           speakerslist.push({
             country: speaker.country,
             featured: speaker.featured,
@@ -850,24 +876,27 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             thumb: thumb,
             photo: speaker.photo,
             organisation: speaker.organisation,
-            sessions : getAllSessions(speaker.sessions, sessions, tracksData),
+            sessions: allSessions,
             speaker_id: speaker.id,
             nameIdSlug: slugify(speaker.name + speaker.id)
           });
+        }
         speakerslist.sort(byProperty('name'));
       });
-        next(speakerslist);
-      });
+      next(speakerslist);
+    });
   }
 }
 
 function getAllSessions(speakerid , session, trackInfo){
   let speakersession =[];
   let sessiondetail = [];
-  let trackDetails = new Object();
+  let trackDetails = {};
+  let trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track.font_color !== null) ? track.font_color : '#000000';
   });
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
@@ -877,7 +906,7 @@ function getAllSessions(speakerid , session, trackInfo){
       if(speakerSessionDetail === undefined) {
         return;
       }
-      if(speakerSessionDetail.microlocation !== null && speakerSessionDetail.state !== 'pending' && speakerSessionDetail.state !== 'rejected') {
+      if(speakerSessionDetail.microlocation !== null && (speakerSessionDetail.state === 'accepted' || speakerSessionDetail.state === 'confirmed')) {
         sessiondetail.push({
           detail:speakerSessionDetail
         });
@@ -893,7 +922,8 @@ function getAllSessions(speakerid , session, trackInfo){
         end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
         title: session.detail.title,
         date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
-        color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
+        color: returnTrackColor(trackDetails, (session.detail.track === null) ? null : session.detail.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.detail.track === null) ? null : session.detail.track.id),
         microlocation: roomname,
         session_id: session.detail.id
       });

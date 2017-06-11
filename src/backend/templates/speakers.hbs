@@ -13,7 +13,6 @@
   <link rel="preload" as="style" href="./css/schedule.css">
   <link rel="preload" as="style" href="./css/font-awesome.min.css">
   <link rel="preload" as="style" href="./css/bootstrap.min.css">
-  <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +27,6 @@
   <!-- Bootstrap core CSS -->
   <!-- Latest compiled and minified CSS -->
  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
  <link rel="stylesheet" href="./css/bootstrap.min.css">
  <link rel="stylesheet" href="./css/schedule.css">
@@ -60,7 +58,7 @@
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
     <div class=row>
-        <div class="search-filter-speaker" id="speakers-list">
+        <div class="search-filter search-filter-speaker" id="speakers-list">
             <input class="fossasia-filter" type="text" placeholder="Search" />
 		    </div>
     </div>
@@ -138,8 +136,8 @@
                   </div>
                  </div>
                 </div>
-                <hr style="clear:both;width:75%;">
-                <h4 style="padding-left:20px" class="text"><strong>Sessions</strong></h4>
+                <hr class="line">
+                <h4 class="session-header text"><strong>Sessions</strong></h4>
                 <div class="pop-speakers">
                  <div class="pop-over row">
                    <div class="sessions col-xs-12 col-md-12">
@@ -165,7 +163,7 @@
             </div>
           </div>
           <span class="speaker-name">{{{name}}}</span>
-          <span class="speaker-name" style="color: #777777">{{{organisation}}}</span>
+          <span class="speaker-name org-name">{{{organisation}}}</span>
       </div>
     </div>
     {{/speakerslist}}
@@ -196,7 +194,8 @@
                         if ($(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.pop-over').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                              $(this).parent().hide();
-                         } else {
+                    } else if ($(this).find(".speaker-name").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                    $(this).find(".pop-over").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0)  {
                              $(this).parent().show();
                          }
                     });

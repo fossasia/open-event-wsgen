@@ -1,244 +1,232 @@
 <!DOCTYPE html>
-<!--
-  Note to contributors: Do not submit any changes to this page, as it is generated automatically
-  from https://github.com/fossasia/open-event-scraper.
--->
 <html lang="en">
-<head>
+  <head>
 
-  <link rel="preload" as="script" href="./js/jquery.min.js">
-  <link rel="preload" as="script" href="./js/bootstrap.min.js">
-  <link rel="preload" as="script" href="./js/event.min.js">
-  <link rel="preload" as="style" href="./css/schedule.css">
-  <link rel="preload" as="style" href="./css/font-awesome.min.css">
-  <link rel="preload" as="style" href="./css/bootstrap.min.css">
-  <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+    <link rel="preload" as="script" href="./js/jquery.min.js">
+    <link rel="preload" as="script" href="./js/bootstrap.min.js">
+    <link rel="preload" as="script" href="./js/event.min.js">
+    <link rel="preload" as="style" href="./css/schedule.css">
+    <link rel="preload" as="style" href="./css/font-awesome.min.css">
+    <link rel="preload" as="style" href="./css/bootstrap.min.css">
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <meta name="description" content="{{ apptitle }} Schedule">
-  <meta name="author" content="{{ metaauthor }}">
+    <meta name="description" content="{{ apptitle }} Schedule">
+    <meta name="author" content="{{ metaauthor }}">
 
-  <title>{{ apptitle }}</title>
+    <title>{{ apptitle }}</title>
 
-  <!-- Bootstrap core CSS -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/schedule.css">
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/schedule.css">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
-    <body>
-      <a href="#event" class="skip">Skip to content</a>
+  <body>
+    <a href="#event" class="skip">Skip to content</a>
     {{> scroll}}
     <a id="top"></a>
     {{> navbar}}
-    <div class="carousel slide" style="margin-bottom: 0;" id="event">
-       <div id="info" class="carousel-inner">
+    <div class="carousel slide" id="event">
+      <div id="info" class="carousel-inner">
         <div style=" background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('{{eventurls.background_url }}');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;background-position: center;" class="item active">
           <div class="container">
-          <div class="carousel-caption">
-          <h4>{{eventurls.date}} {{eventurls.time}} to {{eventurls.end_date}} {{eventurls.end_time}}</h4>
-          <h1>{{eventurls.name}}</h1>
-          <h4><i class="fa fa-map-marker"></i>
-           {{eventurls.location}}</h4>
-           <p></p>
-          </div>
+            <div class="carousel-caption">
+              <h4>{{eventurls.date}} {{eventurls.time}} to {{eventurls.end_date}} {{eventurls.end_time}}</h4>
+              <h1>{{eventurls.name}}</h1>
+              <h4><i class="fa fa-map-marker"></i>
+                {{eventurls.location}}</h4>
+              <p></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-  <div class="eventpage container">
-    {{#if eventurls.register}}
-    <div class="listing-panel row">
-        <div class="col-md-12">
-         <div class="row">
-           <div class="col-md-4">
-           </div>
-           <div class="ticket-button-container col-md-8">
-             <a id="ticket-button"></a>
-             <a href="{{{eventurls.register}}}" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
-           </div>
-         </div>
-        </div>
-    </div>
-    {{/if}}
-    <a id="description"></a>
-    <div class ="container">
-      {{#if eventurls.description}}
-       <div class="row">
-          <div class="eventdes col-md-12"><p>{{{eventurls.description}}}</p></div>
-        </div>
-      {{/if}}
-    </div>
-   {{#if eventurls.featuresection}}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <section class="speakers duplicatable-content">
-          <div class="container paddingzero">
+    <div class="eventpage container">
+      {{#if eventurls.register}}
+        <div class="listing-panel row">
+          <div class="col-md-12">
             <div class="row">
-              <div class="col-sm-12 text-center">
-                  <h1 class="section-header">Featured Speakers</h1>
+              <div class="col-md-4">
+              </div>
+              <div class="ticket-button-container col-md-8">
+                <a id="ticket-button"></a>
+                <a href="{{{eventurls.register}}}" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
               </div>
             </div>
           </div>
-            <div class="row" style="margin-top: 50px">
-              {{#speakerslist}}{{#if featured}}
-
-              <div class="col-md-6 col-sm-12">
-               <div class="speaker-with-bio">
-                <div class="speaker">
-                  <div class="image-holder">
-                    <img  onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}">
-                    <div class="responsive-overlay">
-                      <div class="hover-state text-center preserve3d">
-                        <div class="social-links vertical-align">
-                        {{#if website}}
-                        <a href="{{website}}" target="default"><i class="icon fa fa-home"></i></a>
-                        {{/if }}
-                        {{#if twitter}}
-                         <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
-                         {{/if}}
-                         {{#if facebook}}
-                         <a href ="{{facebook}}"><i class="icon fa fa-facebook"></i></a>
-                         {{/if}}
-                         {{#if linkedin}}
-                         <a href ="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
-                          {{/if}}
-                        </div>
-                      </div>
+        </div>
+      {{/if}}
+      <a id="description"></a>
+      <div class ="container">
+        {{#if eventurls.description}}
+          <div class="row">
+            <div class="eventdes col-md-12"><p>{{{eventurls.description}}}</p></div>
+          </div>
+        {{/if}}
+      </div>
+      {{#if eventurls.featuresection}}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <section class="speakers duplicatable-content">
+                <div class="container paddingzero">
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <h1 class="section-header">Featured Speakers</h1>
                     </div>
                   </div>
                 </div>
-                <div class="speaker-description">
-                  <h2>{{name}}</h2>
-                  <span class="sub">{{organisation}}</span>
-                  <p>
-                  {{{long_biography}}}
-                  </p>
+                <div class="row featured-speakers">
+                  {{#speakerslist}}{{#if featured}}
+
+                    <div class="col-md-6 col-sm-12">
+                      <div class="speaker-with-bio">
+                        <div class="speaker">
+                          <div class="image-holder">
+                            <img  onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}">
+                            <div class="responsive-overlay">
+                              <div class="hover-state text-center preserve3d">
+                                <div class="social-links vertical-align">
+                                  {{#if website}}
+                                    <a href="{{website}}" target="default"><i class="icon fa fa-home"></i></a>
+                                  {{/if }}
+                                  {{#if twitter}}
+                                    <a href="{{twitter}}"><i class="icon fa fa-twitter"></i></a>
+                                  {{/if}}
+                                  {{#if facebook}}
+                                    <a href ="{{facebook}}"><i class="icon fa fa-facebook"></i></a>
+                                  {{/if}}
+                                  {{#if linkedin}}
+                                    <a href ="{{linkedin}}"><i class="icon fa fa-linkedin"></i></a>
+                                  {{/if}}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="speaker-description">
+                          <h2>{{name}}</h2>
+                          <span class="sub">{{organisation}}</span>
+                          <p>
+                            {{{long_biography}}}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  {{/if}} {{/speakerslist}}
                 </div>
+              </section>
+            </div>
+          </div>
+
+        </div>
+      {{/if}}
+    </div>
+    {{#if eventurls.tweetUrl}}
+      <div class="row tweets-row">
+        <section class="container">
+          <div class="tweet-row">
+            <div class="col-sm-12 col-md-12 col-xs-12">
+              <i class ="social_twitter fa fa-twitter"></i>
+              <div class="tweets-feed" id="tweets" data-count=50 data-query="{{{eventurls.twitterLink}}}" data-from="{{{eventurls.twitterLink}}}">
+                <div class="arrow-up"></div>
+                <p id="tweet" class="tweet">
+                  Loading...
+                </p>
+                <span id="dateTweeted"></span>
+                <p>Follow <u><b><a href="{{eventurls.tweetUrl}}"/>@{{eventurls.twitterLink}}</a></b></u> for more updates </p>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+    {{/if}}
 
-           {{/if}} {{/speakerslist}}
+    {{#if eventurls.sponsorsection}}
+      <div class="sponsor-container">
+        <section class="sponsorscont">
+          <div class="row sponsor-row">
+            <div class="col-sm-12 col-md-12 col-xs-12 text-center">
+              <h1 class="section-header">Proudly supported by</h1><br>
             </div>
-      </section>
-      <!--<div style="height:400px;overflow-x:hidden;overflow-y:overlay;" class= "twitter col-md-2">
-       <a class="twitter-timeline" href="{{{eventurls.twitterLink}}}"></a>
-      </div>-->
-    </div>
-  </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
 
-</div>
-  {{/if}}
- </div>
- {{#if eventurls.tweetUrl}}
-   <div class="row tweets-row">
-    <section class="container">
-      <div class="tweet-row">
-        <div class="col-sm-12 col-md-12 col-xs-12">
-          <i class ="social_twitter fa fa-twitter"></i>
-          <div class="tweets-feed" id="tweets" data-count=50 data-query="{{{eventurls.twitterLink}}}" data-from="{{{eventurls.twitterLink}}}">
-            <div class="arrow-up"></div>
-              <p id="tweet" class="tweet">
-              Loading...
-              </p>
-              <span id="dateTweeted"></span>
-              <p>Follow<u>
-              <b><a href="{{eventurls.tweetUrl}}"/>
-              @{{eventurls.twitterLink}}</a>
-              </b></u> for more updates</p>
+              <div class="row">
+                {{#each sponsorpics}}
+                  {{#each this}}
+                    <div class=" {{{divclass}}}">
+                      <div class=" {{{sponsorimg}}} text-center">
+                        <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
+                          <img class="lazy centre {{{imgsize}}}" alt="{{{name}}}" data-original="{{{logo}}}">
+                        </a>
+                      </div>
+                    </div>
+                  {{/each}}
+                {{/each}}
+              </div> <!-- sponsor-row -->
+            </div>
+          </div>
+        </section>
+      </div>
+    {{/if}}
+
+    {{#if eventurls.latitude }}
+      {{#if eventurls.longitude}}
+        <div class="location">
+          <div class="sponsor-row row">
+            <div class="col-md-8" id="map">
+            </div>
+            <div class="address col-md-4">
+              {{#if eventurls.location}}
+                <h4> Address </h4>
+                <p>{{eventurls.location}}</p>
+              {{/if}}
+              <br>
+              {{#if eventurls.email}}
+                <h4>Contact</h4>
+                <p>{{eventurls.email}}</p>
+              {{/if}}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-  {{/if}}
 
- {{#if eventurls.sponsorsection}}
-    <div style="background:#ffffff" >
-    <section class="sponsorscont">
-      <div style="margin-right:0;margin-left:0;"  class="row">
-        <div class="col-sm-12 col-md-12 col-xs-12 text-center">
-        <h1 class="section-header">Proudly supported by</h1><br>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-
-          <div class="row sponsor-row">
-          {{#each sponsorpics}}
-          {{#each this}}
-            <div class=" {{{divclass}}}">
-              <div class=" {{{sponsorimg}}} text-center">
-                <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
-                <img class="lazy centre {{{imgsize}}}" alt="{{{name}}}" data-original="{{{logo}}}">
-                </a>
-              </div>
-            </div>
-          {{/each}}
-        {{/each}}
-           </div> <!-- sponsor-row -->
-        </div>
-      </div>
-    </section>
-    </div>
       {{/if}}
+    {{/if}}
 
-{{#if eventurls.latitude }}
-{{#if eventurls.longitude}}
-<div style="background:#f5f5f5">
-    <div style="margin-right:0;margin-left:0;" class="row">
-      <div class="col-md-8" id="map">
-      </div>
-      <div style="margin-top:20px;" class="col-md-4">
-      {{#if eventurls.location}}
-       <h4> Address </h4>
-       <p>{{eventurls.location}}</p>
-      {{/if}}
-       <br>
-       {{#if eventurls.email}}
-       <h4>Contact</h4>
-       <p>{{eventurls.email}}</p>
-       {{/if}}
-      </div>
-    </div>
-</div>
+    <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
 
-{{/if}}
-{{/if}}
-
-  <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
-
-{{> footer}}
+    {{> footer}}
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="./js/event.min.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd_L2ncYmf3Yyr6Or01E_ze6QEv289HYs&callback=initMap" type="text/javascript"></script>
-  <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+    <!--<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
 
     <script>
-    datafetcher();
-
+      datafetcher();
       $(function() {
         $("img.lazy").lazyload({
           threshold: 2000
         });
       });
     </script>
-</body>
+
+  </body>
 </html>

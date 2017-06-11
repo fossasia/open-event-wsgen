@@ -14,7 +14,7 @@ function interval() {
 
 var datafetcher = function () {
   loklakFetcher.getTweets({}, datahandler);
-}
+};
 
 function datahandler(raw) {
   stuff = raw;   // Makes the data available globally.

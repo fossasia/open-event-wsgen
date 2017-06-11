@@ -1,5 +1,5 @@
 {{#if flag}}
-<span id="tabs" class="col-md-6 tabs no-js">
+<div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs no-js">
    <span class="tabs-nav">
       {{#days}}
       <a id="{{firstSlug}}" href="#" class="tabs-nav-link">{{caption}}</a>
@@ -10,9 +10,9 @@
       <span class="tab-content">{{#tracks}}<a href = "./tracks.html#{{slug}}">{{title}}  </a>{{/tracks}}</span>
    </span>
    {{/days}}
-</span>
+</div>
 {{else}}
-<span id="tabs" class="col-md-6 tabs no-js">
+<span id="tabs" class="col-md-8 tabs no-js">
    <span class="tabs-nav">
       {{#roomsinfo}}
       <a id="{{slug}}" href="#" class="tabs-nav-link">{{date}}</a>
@@ -20,7 +20,7 @@
    </span>
    {{#roomsinfo}}
    <span class="tab">
-     <span class="tab-content">{{#venue}}{{#if venue}}<a  href = "./room.html#venue-{{../slug}}-{{slug}}">{{venue}} {{/if}} </a>{{/venue}}</span>
+     <span class="tab-content">{{#venue}}{{#if venue}}<a  href = "./rooms.html#venue-{{../slug}}-{{slug}}">{{venue}} {{/if}} </a>{{/venue}}</span>
    </span>
    {{/roomsinfo}}
 </span>

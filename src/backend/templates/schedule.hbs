@@ -12,7 +12,6 @@
   <link rel="preload" as="style" href="./css/schedule.css">
   <link rel="preload" as="style" href="./css/font-awesome.min.css">
   <link rel="preload" as="style" href="./css/bootstrap.min.css">
-  <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +26,6 @@
   <!-- Bootstrap core CSS -->
   <!-- Latest compiled and minified CSS -->
   <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/schedule.css">
@@ -61,39 +59,39 @@
         day-filter and time-filter classes are intended for searching
         text across the page.
         --------------------------------------------------------------- -->
-    <p class="date-list">
-      <span id="tabs" class="col-md-6 tabs no-js">
+    <div class="date-list container">
+      <div id="tabs" class="col-md-6 col-xs-12 col-sm-12 tabs no-js">
          <span class="tabs-nav">
             {{#timeList}}
             <a id="{{slug}}" href="#" class="{{slug}} date-button tabs-nav-link">{{date}}</a>
             {{/timeList}}
          </span>
-      </span>
-    </p>
-    <span class = "show-button-filter">
-      <button class = "btn btn-primary" id = "starred" >Show Starred</button>
-    </span>
-    <span class = "list-filter view-button">
-      <button class = "btn" id = "list" >List View</button>
-    </span>
-    <span class = "calendar-filter view-button">
-      <button class = "btn unselect" id = "calendar" >Calendar View</button>
-    </span>
-    <span class="search-filter">
-        <input class="fossasia-filter" type="text" placeholder="Search" />
-    </span>
-    </p>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
+        <span class = "list-filter view-button">
+          <button class = "btn" id = "list" >List View</button>
+        </span>
+        <span class = "calendar-filter view-button">
+          <button class = "btn unselect" id = "calendar" >Calendar View</button>
+          </span>
+        <span class = "calendar-filter view-button">
+          <button  title="Download as png" type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
+          </span>
+        <span class="search-filter search-filter-schedule">
+            <input class="fossasia-filter" type="text" placeholder="Search" />
+        </span>
+        <span class = "show-button-filter">
+          <button class = "btn btn-primary" id = "starred" >Starred</button>
+        </span>
+      </div>
+    </div>
 
     <div class="row">
       <div id="content-block" class="col-md-9 list-view">
         <div id="track-list" class="container">
 
           {{#timeList}}
-          {{#if @first}}
-            <div class="{{slug}} day-filter">
-            {{else}}
-            <div class="{{slug}} day-filter hide">
-          {{/if}}
+           <div class="{{slug}} day-filter">
             <div class="col-md-12 paddingzero">
               <h4 class="text">{{date}}</h4>
             </div>
@@ -109,17 +107,18 @@
                 <div class="track-inline" id="{{session_id}}">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
-                    <div style="padding-right:0px;">
-                      <h4 style="background-color:{{{color}}}; margin-right:0px;"  class="sizeevent event"  data-toggle="collapse"
-                        data-target="#desc-{{session_id}} .collapse"
-                        aria-expanded="false"
-                        aria-controls="desc-{{session_id}}">
+                    <div class="padding-right-zero">
+                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
+                          class="margin-right-zero sizeevent event"  data-toggle="collapse"
+                          data-target="#desc-{{session_id}} .collapse"
+                          aria-expanded="false"
+                          aria-controls="desc-{{session_id}}">
                         {{title}}
                         {{#if audio}}
-                          <i class="fa fa-music" aria-hidden="true" style="margin-left: 10px;"></i>
+                          <i class="fa fa-music" aria-hidden="true"></i>
                         {{/if}}
-                        <a style = "cursor:pointer" class = "bookmark" id = "c{{session_id}}" >
-                          <i class="fa fa-star" aria-hidden="true" style="margin-left: 5px;">
+                        <a class = "bookmark" id = "c{{session_id}}" >
+                          <i class="fa fa-star" aria-hidden="true">
                           </i>
                         </a>
                       </h4>
@@ -132,7 +131,7 @@
                             </audio>
                           {{/if}}
                         </div>
-                        <hr style="clear:both" class="collapse">
+                        <hr class="clear-both collapse">
                         <div class="session-speakers-list collapse"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
@@ -192,14 +191,14 @@
                               </div>
                             </div>
                           </div>
-                          <hr style="clear:both">
+                          <hr class="clear-both">
                           {{/each}}
                           <div class="blacktext">
                             <p><i>{{location}}</i></p>
                             <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
                             <p>
                               <ul class="title-inline">
-                                <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
                                 <li class="blacktext">{{tracktitle}}</li>
                               </ul>
                             </p><br>
@@ -251,7 +250,8 @@
                     </div>
                     <div class="session-container">
                       {{#sessions}}
-                      <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}}">
+                        <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
+                          color: {{{font_color}}};">
                         <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
@@ -329,7 +329,7 @@
                                        </div>
                                      </div>
                                    </div>
-                                   <hr style="clear:both">
+                                   <hr class="clear-both">
                                    {{/speakers_list}}
                                    <div class="blacktext">
                                      {{#if roomname}}
@@ -340,7 +340,8 @@
                                      {{/if}}
                                      <p>
                                        <ul class="title-inline">
-                                         <li style="background-color:{{{color}}}" class="titlecolor"></li>&nbsp;
+                                         <li style="background-color:{{{color}}}; color: {{{font_color}}};"
+                                           class="titlecolor"></li>&nbsp;
                                          <li class="blacktext">{{tracktitle}}</li>
                                        </ul>
                                      </p><br>
@@ -367,7 +368,7 @@
       {{#tracknames}}
       {{#if title}}
         <ul class="title-inline title-legend">
-          <li style="background-color:{{{color}}}" class="titlecolor"></li>
+          <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
           <li>{{title}}</li>
         </ul>
       {{/if}}
@@ -387,6 +388,11 @@
        var flag = 0;
        var isAdded = 0;
        var isCalendarView = false;
+       var $timeline;
+       var numberOfChildElements;
+       var widthOfChild;
+       var canvasWidth;
+       var initialWidth;
 
 
        $(function() {
@@ -408,25 +414,29 @@
                   $(this).find('.time-filter').each(function() {
                       var flag = 1;
                       $(this).find('.track-inline').each(function() {
-                          if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                              $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                               $(this).hide();
-                           } else {
-                             if($(this).is(':visible')) {
-                                 flag = 0;
-                                 $(this).show();
-                             }
-                           }
-                      });
-                      if (flag == 1) {
-                          $(this).hide();
-                      } else {
-                          temp = 0;
-                          $(this).show();
-                      }
+                            if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
+                            $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
+                                $(this).hide();
+                            } else {
+                                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                                    flag = 0;
+                                    $(this).show();
+                                }
+                            }
+                        });
+                        if (flag == 1) {
+                            $(this).hide();
+                        } else {
+                            temp = 0;
+                            $(this).show();
+                        }
                   });
                   if (temp == 1) {
                       $(this).hide();
@@ -495,9 +505,9 @@
           $('#starred').click(function() {
             mode = !mode;
             if(mode)
-              $(this).text("Show All");
+              $(this).text("All");
             else
-              $(this).text("Show Starred");
+              $(this).text("Starred");
             display();
           });
 
@@ -536,6 +546,36 @@
             $('#calendar').addClass('unselect');
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
+          });
+
+          $(".export-png").click(function() {
+              if (isCalendarView === true) {
+                  $('.calendar').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
+                          $timeline = $(this);
+                          initialWidth = $timeline.width();
+                          numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
+                          numberOfChildElements = numberOfChildElements - 1;
+                          widthOfChild = $timeline.find('.room').width();
+                          canvasWidth = numberOfChildElements * widthOfChild + 50;
+                          $timeline.width(canvasWidth);
+                      }
+                  });
+              } else {
+                  $('.day-filter').each(function() {
+                      if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
+                          $timeline = $(this);
+                  });
+              }
+              html2canvas($timeline, {
+                  onrendered: function(canvas) {
+                      canvas.id = "generated-canvas";
+                      canvas.toBlob(function(blob) {
+                          saveAs(blob, '' + $timeline.attr('class') + '.png');
+                      });
+                  },
+              });
+              $timeline.width(initialWidth);
           });
 
           function display() {
@@ -582,7 +622,21 @@
               }
             });
           }
-          display();
+
+          function initPage() {
+            console.log("inside initPage");
+            if(localStorage.hasOwnProperty('sessions') === false) {
+              localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+            }
+            var temp = JSON.parse(localStorage['sessions']);
+            var elemId;
+            for (var i = 0; i < temp.length; i++) {
+              if(temp[i] === 1) {
+                elemId = $('#' + i).find('.bookmark').css("color", "black");;
+              }
+            }
+          }
+          initPage();
         });
     </script>
 </body>

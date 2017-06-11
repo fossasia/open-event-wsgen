@@ -347,6 +347,14 @@ a {
   max-height: 120px;
 }
 
+.sponsor-container {
+  background: $white;
+}
+
+.sponsor-row {
+  margin: 0;
+}
+
 .sponsors {
   background-color: $white;
   border: 1px solid $gray-perfect;
@@ -355,6 +363,14 @@ a {
   margin: 25px;
   padding: 10px 15px;
   position: relative;
+}
+
+.location {
+  background-color: $white-classic-background;
+}
+
+.address {
+  margin-top: 20px;
 }
 
 .mediumoffset:first-child {
@@ -411,8 +427,26 @@ a {
 /* Track SCSS */
 
 .show-button-filter {
-  display: inline-block;
-  padding-top: 6px;
+  flex-grow: 1;
+  padding-top: 10px;
+
+  @media only screen and (min-width: 990px) and (max-width: 1190px) {
+    flex-grow: 0;
+  }
+}
+
+.list-filter {
+    flex-grow: 1;
+    padding-top: 8px;
+}
+
+.calendar-filter {
+    flex-grow: 1;
+    padding-top: 8px;
+}
+
+#event {
+  margin-bottom: 0;
 }
 
 .event {
@@ -441,6 +475,13 @@ a {
   span {
     font-weight: 700;
   }
+  i {
+    margin-left: 10px;
+  }
+}
+
+.featured-speaker {
+  margin-top: 50px;
 }
 
 .trackwidth {
@@ -455,10 +496,8 @@ a {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    display: inline;
     margin: 0 auto;
     padding-bottom: 0;
-    width: 40%;
   }
 
   .show-button-filter button {
@@ -689,6 +728,10 @@ a {
   color: $black !important;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.clear-both {
+  clear: both;
 }
 
 .eventtime {
@@ -1337,17 +1380,13 @@ a {
   color: $gray-dark;
 }
 
-.search-filter,
-.search-filter-speaker {
+.search-filter {
+
   .fossasia-filter {
     background-color: $white;
     border: 1px solid $gray-dim;
     color: $black;
-    font-family: verdana sans-serif;
     font-size: 12pt;
-    height: 28px;
-    padding-left: 2px;
-    width: 186px;
   }
 }
 
@@ -1357,8 +1396,9 @@ a {
 
   .fossasia-filter {
     display: block;
-    font-family: sans-serif;
+    height: 28px;
     margin: 0 auto;
+    width: 186px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -1366,10 +1406,7 @@ a {
 
     .fossasia-filter {
       border-radius: 5px;
-      display: block;
-      float: none;
       height: 32px;
-      margin: 0 auto;
       width: 80%;
     }
   }
@@ -1386,34 +1423,63 @@ a {
     }
 }
 
-.search-filter {
-  display: inline;
-  float: right;
+
+.search-filter-schedule {
+  flex-grow: 1;
   padding-top: 12px;
 
   .fossasia-filter {
-    float: left;
-    font-family: sans-serif;
+    height: 33px;
+    width: 180px;
   }
 
+  @media only screen and (max-width: 450px) {
+    margin-right: 5px;
+
+    .fossasia-filter {
+      border-radius: 5px;
+      width: 100%;
+    }
+  }
+}
+
+.search-filter-room {
+  flex-grow: 2;
+  padding-left: 2px;
+  padding-top: 12px;
+
   input {
-    line-height: 24px;
+    line-height: 30px;
+    width: 100%;
   }
 
   @media only screen and (max-width: 600px) {
-    display: inline;
-    float: none;
-    width: 40%;
-
     .fossasia-filter {
-      float: none;
-      margin: 0 auto;
-      width: 100%;
-      height: 33px;
       border-radius: 5px;
+      float: none;
+      height: 33px;
+      margin: 0 auto;
     }
   }
 
+}
+
+.filter-margin {
+  margin-right: 10px;
+
+  @media only screen and (max-width: 340px) {
+    margin-right: 0;
+  }
+}
+
+.navbar-flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 0;
+
+  @media only screen and (max-width: 900px) {
+    padding-left: 0;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1433,10 +1499,15 @@ a {
 }
 
 .bookmark {
+  @include cursorpointer;
   padding: 5px;
   position: absolute;
   right: 0;
   top: 0;
+
+  i {
+    margin-left: 5px;
+  }
 }
 
 .tabs {
@@ -1449,6 +1520,7 @@ a {
   display: flex;
   list-style: none;
   margin: 0;
+  overflow: auto;
   padding: 0;
 }
 
@@ -1577,7 +1649,7 @@ a.skip:hover {
 .view-button {
   display: inline-block;
   button {
-    margin : 5px 5px 10px 5px;
+    margin : 5px 5px 10px 0;
     background-color : $white-gray;
     color : $black;
   }
@@ -1592,7 +1664,13 @@ a.skip:hover {
 .calendar {
   margin-top: 13px;
   display: block;
+  background-color: $white;
 }
+
+.day-filter {
+         background-color: $white;
+}
+
 
 .calendar-content {
   display: block;
@@ -1623,6 +1701,10 @@ a.skip:hover {
   white-space: initial;
   display: inline-block;
   position: relative;
+}
+
+.room-filter {
+  overflow: hidden;
 }
 
 .room-header {
@@ -1671,7 +1753,12 @@ a.skip:hover {
 #social-icons {
   padding-right:0;
   padding-left:0;
-  margin-left:15px
+  margin-left:15px;
+  margin-right: 0;
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    margin-right: 15px;
+  }
 }
 
 // style from tracks
@@ -1680,7 +1767,9 @@ a.skip:hover {
   background-color:$white-gray;
   color:black;
   border-color:$light-black;
-  margin : 5px 5px 10px 5px;
+  margin: 0;
+  width: 100%;
+  flex-grow: 1;
 }
 
 
@@ -1694,6 +1783,28 @@ a.skip:hover {
 
 .paddingzero {
   padding: 0;
+}
+
+.padding-right-zero {
+  padding-right: 0;
+}
+
+.margin-top-zero {
+  margin-top: 0;
+}
+
+.margin-right-zero {
+  margin-right: 0;
+}
+
+.list-view {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.calendar-view {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .left-border {
@@ -1714,8 +1825,31 @@ a.skip:hover {
   padding-top:15px;
 }
 
+.line {
+  clear: both;
+  width: 75%;
+}
+
+.org-name {
+  color: $gray-dark;
+}
+
+.session-header {
+  padding-left:20px;
+}
+
 .session-speakers {
   margin-right: 20px;
+}
+
+.session-speakers-item {
+  margin-right: 10px;
+  float: left
+}
+
+.speaker-name-list {
+  padding: 0;
+  font-size: 15px;
 }
 
 .speaker-image-small {
@@ -1759,3 +1893,34 @@ a.skip:hover {
 #speaker-social-icons {
   padding:2%;
 }
+
+@media screen and (max-width: 768px) {
+  .side-collapse {
+    background-color: $white;
+    bottom: 0;
+    opacity: .9;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    transition: width .4s;
+    width: 60%;
+  }
+  .side-collapse.in {
+    width: 0;
+  }
+
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/open-sans-v13-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans'),
+  url('../fonts/open-sans-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../fonts/open-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/open-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('../fonts/open-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+} /* Taken from https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin */
