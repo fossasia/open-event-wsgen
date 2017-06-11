@@ -131,6 +131,21 @@ describe('fold', function() {
       assert.equal(fold.getAppName(data.event.json), 'FOSSASIA 2016');
     });
   });
+  describe('.checkNullHtml()', () => {
+
+    it('should return true when the html passed doesn\'t contain info', () => {
+      assert.equal(fold.checkNullHtml('<p></p>'), true);
+    });
+
+    it('should return true when the argument passed is undefined', () => {
+      assert.equal(fold.checkNullHtml(), true);
+    });
+
+    it('should return false when the html contains info', () => {
+      assert.equal(fold.checkNullHtml('<p> I like writing tests </p>'), false);
+    });
+
+  })
 });
 
 describe('app',  () =>  {
