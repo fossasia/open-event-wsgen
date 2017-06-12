@@ -514,6 +514,9 @@
 
           $('.date-button').click(function() {
               let className = $(this).attr('class').split(' ')[0];
+              $(this).css({'background-color': '#EEE', 'color': 'black'});
+              $(this).siblings().css({'background-color': '#838282', 'color': 'white'});
+
               if(isCalendarView) {
                 $('.calendar').each(function () {
                   if($(this).attr('class').split(' ')[0] === className) {
