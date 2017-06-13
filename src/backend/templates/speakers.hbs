@@ -36,6 +36,21 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+  <style>
+  .search-filter>label>.fa {
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 67px;
+  }
+  @media only screen and (max-width: 450px) {
+         .search-filter>label>.fa {
+             position: absolute;
+             padding-top: 25px;
+             padding-left: 40px;
+           }
+  }
+  </style>
+
 </head>
   <body id="speaker-body">
     <a href="#speakers-list" class="skip">Skip to content</a>
@@ -57,11 +72,13 @@
         search-filter, search-filter-speaker and fossasia-filter
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
-    <div class=row>
-        <div class="search-filter search-filter-speaker" id="speakers-list">
-            <input class="fossasia-filter" type="text" placeholder="Search" />
-		    </div>
-    </div>
+       <div class="row" style="margin: auto; max-width: 300px;">
+         <div class="search-filter search-filter-speaker" id="speakers-list">
+                  <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+                  <input class="fossasia-filter" type="text" placeholder="Search">
+         </div>
+       </div>
+
 
   <div class="row speakers-row">
   {{#speakerslist}}

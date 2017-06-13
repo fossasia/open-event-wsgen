@@ -48,6 +48,10 @@ function returnTrackFontColor(trackInfo, id) {
 }
 
 function checkNullHtml(html) {
+  if(html === undefined) {
+    return true;
+  }
+
   html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
   return (html === '');
 }
@@ -947,3 +951,4 @@ module.exports.getOrganizerName = getOrganizerName;
 module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;
 module.exports.returnTracknames = returnTracknames;
+module.exports.checkNullHtml = checkNullHtml;
