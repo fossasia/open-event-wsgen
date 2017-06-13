@@ -1664,19 +1664,22 @@ a.skip:hover {
   width: auto;
 }
 
+.view-active {
+  background-color: $white-gray;
+  color: $black;
+}
+
 .view-button {
   display: inline-block;
+
   button {
-    margin : 5px 5px 10px 0;
-    background-color : $white-gray;
-    color : $black;
+    margin: 5px 5px 10px 0;
   }
 }
 
 .unselect {
-  background-color:$white-gray;
-  border-color: $black;
-  color: $black;
+  background-color: $gray;
+  color: $white;
 }
 
 .calendar {

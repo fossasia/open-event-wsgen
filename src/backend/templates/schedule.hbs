@@ -69,7 +69,7 @@
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
         <span class = "list-filter view-button">
-          <button class = "btn" id = "list" >List View</button>
+          <button class = "btn view-active" id = "list" >List View</button>
         </span>
         <span class = "calendar-filter view-button">
           <button class = "btn unselect" id = "calendar" >Calendar View</button>
@@ -514,8 +514,8 @@
 
           $('.date-button').click(function() {
               let className = $(this).attr('class').split(' ')[0];
-              $(this).css({'background-color': '#EEE', 'color': 'black'});
-              $(this).siblings().css({'background-color': '#838282', 'color': 'white'});
+              $(this).addClass('is-active');
+              $(this).siblings().removeClass('is-active');
 
               if(isCalendarView) {
                 $('.calendar').each(function () {
@@ -538,16 +538,16 @@
 
           $('#calendar').click(function() {
             isCalendarView = true;
-            $('#list').addClass('unselect');
-            $('#calendar').removeClass('unselect');
+            $('#list').addClass('unselect').removeClass('view-active');
+            $('#calendar').removeClass('unselect').addClass('view-active');
             $('.list-view').addClass('hide');
             $('.calendar-view').removeClass('hide');
           });
 
           $('#list').click(function() {
             isCalendarView = false;
-            $('#list').removeClass('unselect');
-            $('#calendar').addClass('unselect');
+            $('#list').removeClass('unselect').addClass('view-active');
+            $('#calendar').addClass('unselect').removeClass('view-active');
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
           });
