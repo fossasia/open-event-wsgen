@@ -174,7 +174,7 @@ module.exports = function(accessToken, folder, user, socket, callback) {
           return;
         }
 
-        var sha = res['object']['sha'];
+        var sha = res['data']['object']['sha'];
 
         gh.gitdata.createReference({owner: user, repo: repoName, ref: 'refs/heads/gh-pages', sha: sha}, function(err, res) {
           if(err) {
