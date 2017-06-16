@@ -298,20 +298,18 @@ exports.createDistDir = function(req, socket, callback) {
         const jsonData = data;
 
         eventName = fold.removeSpace(jsonData.eventurls.name);
-        if(req.body.datasource == 'eventapi') {
-          var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
-          var basePath = distHelper.distPath + '/' + appFolder + '/images';
-          distHelper.optimizeBackground(backPath, socket, function() {
+        var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
+        var basePath = distHelper.distPath + '/' + appFolder + '/images';
+        var logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
+        distHelper.optimizeBackground(backPath, socket, function() {
+          distHelper.optimizeLogo(logoPath, socket, function() {
             distHelper.resizeSponsors(basePath, socket, function() {
               distHelper.resizeSpeakers(basePath, socket, function() {
                 templateGenerate();
               });
             });
           });
-        }
-        else {
-          templateGenerate();
-        }
+        });
 
         function templateGenerate() {
           try {
