@@ -13,6 +13,10 @@ function interval() {
 }
 
 var datafetcher = function () {
+  if(tweetP === null) {
+    return;
+  }
+
   loklakFetcher.getTweets({}, datahandler);
 };
 
