@@ -158,7 +158,7 @@ describe('app',  () =>  {
 });
 
 describe('generate', function() {
-  describe('.createOpenTechSummit', function() {
+  describe('.create different event sites and copy assets of overview site', function() {
     this.timeout(800000);
 
     it('should generate the Open Tech Summit site', function(done) {
