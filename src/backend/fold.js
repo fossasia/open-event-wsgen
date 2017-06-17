@@ -141,7 +141,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     }
 
     // generate slug/key for session
-    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const date = moment.parseZone(session.start_time).format('YYYY-MM-DD');
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     const roomName = session.microlocation.name;
     const session_type = (session.session_type == null) ? '' : session.session_type.name ;
@@ -155,8 +155,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+        sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -169,10 +169,10 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       return;
     }
     track.sessions.push({
-      startDay: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-      startDate: moment.utc(session.start_time).local().format('YYYY-MM-DD'),
-      start: moment.utc(session.start_time).local().format('HH:mm'),
-      end : moment.utc(session.end_time).local().format('HH:mm'),
+      startDay: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+      startDate: moment.parseZone(session.start_time).format('YYYY-MM-DD'),
+      start: moment.parseZone(session.start_time).format('HH:mm'),
+      end : moment.parseZone(session.end_time).format('HH:mm'),
       title: session.title,
       type: session_type,
       location: roomName,
@@ -253,9 +253,9 @@ function foldByTime(sessions, speakers, trackInfo) {
     }
     const roomName = session.microlocation.name;
     const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
-    let date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-    let startTime = moment.utc(session.start_time).local().format('HH:mm');
-    let endTime = moment.utc(session.end_time).local().format('HH:mm');
+    let date = moment.parseZone(session.start_time).format('YYYY-MM-DD');
+    let startTime = moment.parseZone(session.start_time).format('HH:mm');
+    let endTime = moment.parseZone(session.end_time).format('HH:mm');
     let time = startTime + ' - ' + endTime;
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
@@ -263,7 +263,7 @@ function foldByTime(sessions, speakers, trackInfo) {
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
         times: new Map()
       });
     }
@@ -276,8 +276,8 @@ function foldByTime(sessions, speakers, trackInfo) {
       });
     }
     timeMap.get(time).sessions.push({
-      start: moment.utc(session.start_time).local().format('HH:mm'),
-      end : moment.utc(session.end_time).local().format('HH:mm'),
+      start: moment.parseZone(session.start_time).format('HH:mm'),
+      end : moment.parseZone(session.end_time).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
       font_color: returnTrackFontColor(trackDetailsFont, (session.track == null) ? null : session.track.id),
       title: session.title,
@@ -297,7 +297,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       video: session.video,
       slides: session.slides,
       audio: session.audio,
-      sessiondate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMM'),
       tracktitle: tracktitle,
       speakers: speakersNum
     });
@@ -359,7 +359,7 @@ function returnTracknames(sessions, trackInfo) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
         slug: slug
       };
       trackData.set(slug, track);
@@ -451,10 +451,10 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     logo_url: event.logo,
     background_url: event.background_image,
     background_path: event.background_image,
-    date: moment.utc(event.start_time).local().format('dddd, Do MMM'),
-    time: moment.utc(event.start_time).local().format('HH:mm'),
-    end_date: moment.utc(event.end_time).local().format('dddd, Do MMM'),
-    end_time: moment.utc(event.end_time).local().format('HH:mm'),
+    date: moment.parseZone(event.start_time).format('dddd, Do MMM'),
+    time: moment.parseZone(event.start_time).format('HH:mm'),
+    end_date: moment.parseZone(event.end_time).format('dddd, Do MMM'),
+    end_time: moment.parseZone(event.end_time).format('HH:mm'),
     name: event.name,
     description: event.description,
     location: event.location_name,
@@ -646,11 +646,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
 
   sessions.forEach((session) => {
 
-    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const date = moment.parseZone(session.start_time).format('YYYY-MM-DD');
     const slug = date + '-' + session.microlocation.name;
     //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
     if (!DateData.has(slug)) {
-      var dated = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+      var dated = moment.parseZone(session.start_time).format('YYYY-MM-DD');
     }
     else {
       dated = "";
@@ -660,11 +660,11 @@ function sessionsByRooms(id, sessions, trackInfo) {
         sessionInRooms.push({
           date: dated ,
           name: session.title,
-          time: moment.utc(session.start_time).local().format('HH:mm'),
+          time: moment.parseZone(session.start_time).format('HH:mm'),
           color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
           font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id)
         });
-        DateData.set(slug,moment.utc(session.start_time).local().format('YYYY-MM-DD'));
+        DateData.set(slug,moment.parseZone(session.start_time).format('YYYY-MM-DD'));
       }
     }
 
@@ -692,20 +692,20 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     }
 
     // generate slug/key for session
-    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const date = moment.parseZone(session.start_time).format('YYYY-MM-DD');
     const roomName = session.microlocation.name;
     const slug = date ;
     const tracktitle = (session.track == null) ? " " : session.track.name;
-    const start = moment.utc(session.start_time).local().format('HH:mm');
-    const end = moment.utc(session.end_time).local().format('HH:mm');
+    const start = moment.parseZone(session.start_time).format('HH:mm');
+    const end = moment.parseZone(session.end_time).format('HH:mm');
 
     let room = null;
 
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+        sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
         slug: slug,
         start_time: start,
         end_time: end,
@@ -764,9 +764,9 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         return spkr;
       }),
       tracktitle: tracktitle,
-      sessiondate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMM'),
       roomname: roomName,
-      sortKey: venue + moment.utc(session.start_time).local().format('HH:mm')
+      sortKey: venue + moment.parseZone(session.start_time).format('HH:mm')
     });
   });
 
@@ -923,11 +923,11 @@ function getAllSessions(speakerid , session, trackInfo){
     const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
     if(session.detail !== undefined ) {
       speakersession.push({
-        sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
-        start: moment.utc(session.detail.start_time).local().format('HH:mm'),
-        end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
+        sortKey :  moment.parseZone(session.detail.start_time).format('YYYY-MM-DD HH:MM'),
+        start: moment.parseZone(session.detail.start_time).format('HH:mm'),
+        end:   moment.parseZone(session.detail.end_time).format('HH:mm'),
         title: session.detail.title,
-        date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
+        date: moment.parseZone(session.detail.start_time).format('ddd, Do MMM'),
         color: returnTrackColor(trackDetails, (session.detail.track === null) ? null : session.detail.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.detail.track === null) ? null : session.detail.track.id),
         microlocation: roomname,
