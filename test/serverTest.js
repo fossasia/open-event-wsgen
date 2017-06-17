@@ -19,7 +19,7 @@ var app = require('../src/app');
 var webdriver = require('selenium-webdriver');
 var eventPage = require('../src/selenium/eventPage.js');
 var By = webdriver.By;
-
+var fs = require('fs');
 
 
 
@@ -158,25 +158,111 @@ describe('app',  () =>  {
 });
 
 describe('generate', function() {
-  describe('.createDistDir()', function() {
-    this.timeout(200000);
+  describe('.createOpenTechSummit', function() {
+    this.timeout(800000);
 
-    it('should generate the event site', function(done) {
+    it('should generate the Open Tech Summit site', function(done) {
       var data = {};
+
       data.body = {
-        "email": "test@event.com",
+        "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/",
+        "apiendpoint": "https://eventyay.com/api/v1/events/69",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "test@event.com/FOSSASIA 2016");
+        assert.equal(appFolder, "a@a.com/OpenTechSummit");
         done();
       });
 
     });
+
+    it('should generate the Facebook Developer Conference Hands', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/mahikaw/open-event/fbf8/sample/F8",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/F8-Facebook Developer Conference 2017");
+        done();
+      });
+
+    });
+
+    it('should generate the FOSSASIA Summit 2017', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "http://eventyay.com/api/v1/events/6",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA Summit");
+        done();
+      });
+
+    });
+
+    it('should generate the Mozilla All Hands 2017', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/arp95/open-event/allhands/sample/MozillaAllHands_17",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/Mozilla All Hands 2017");
+        done();
+      });
+
+    });
+
+    it('should copy all the static files', function(done) {
+      var staticPath = __dirname + '/../src/backend/overviewSite/';
+      var totalFiles = 4;
+      var counter = 0;
+
+      function copyStatic(fileName) {
+        fs.readFile(staticPath + fileName, function(err, data) {
+          if (err) {
+            done(err);
+            return;
+          }
+          fs.writeFile(dist.distPath + '/a@a.com/' + fileName, data, function(err) {
+            if (err) {
+              done(err);
+              return;
+            }
+            counter++;
+            if (counter === totalFiles) { done(); }
+          });
+        });
+      }
+
+      copyStatic('index.html');
+      copyStatic('fasmall.jpg');
+      copyStatic('otssmall.jpg');
+      copyStatic('fbsmall.jpg');
+      copyStatic('mozilla_banner.png');
+
+    });
+
   });
 });
 
@@ -210,12 +296,12 @@ describe("Running Selenium tests on Chrome Driver", function() {
 
     before(function() {
       eventPage.init(driver);
-      eventPage.visit('http://localhost:5000/live/preview/test@event.com/FOSSASIA%202016');
+      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIA%20Summit');
     });
 
     it('Checking the title of the page', function(done) {
       eventPage.getEventName().then(function(eventName) {
-        assert.equal(eventName, "FOSSASIA 2016");
+        assert.equal(eventName, "FOSSASIA Summit");
         done();
       });
     });
