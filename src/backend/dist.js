@@ -135,26 +135,35 @@ var optimizeBackground = function(image, socket, done) {
 var optimizeLogo = function(image, socket, done) {
   sharp(image).metadata(function(err, metaData) {
     if(err) {
-      done(err);
+      return done(err);
     }
     var width = metaData.width;
     var height = metaData.height;
     var ratio = width/height;
+    var padding = 5;
+    var diffHeight = 0;
     height = 45;
     width = Math.floor(45 * ratio);
+    if (width > 110) {
+      width = 110;
+      height = Math.floor(width/ratio);
+      diffHeight = 45 - height;
+      padding = padding + (diffHeight)/2;
+    }
+
     sharp(image).resize(width, height).toFile(image + '.new', function(err, info) {
       if(err) {
-        done(err);
+        return done(err);
       }
       fs.unlink(image, function(err) {
         if(err) {
-          done(err);
+          return done(err);
         }
         fs.rename(image + '.new', image, function(err) {
           if(err) {
-            done(err);
+            return done(err);
           }
-          done();
+          return done(null, padding);
         });
       });
     });

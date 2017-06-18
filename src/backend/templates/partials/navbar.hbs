@@ -4,9 +4,9 @@
   <div class="container">
     <div class="navbar-header navbar-left pull-left">
       {{#if single_session}}
-       <a class="navbar-brand" href="../">
+        <a class="navbar-brand" style="padding: {{navpad}}px;" href="../">
       {{else}}
-       <a class="navbar-brand" href=".">
+        <a class="navbar-brand" style="padding: {{navpad}}px;" href=".">
       {{/if}}
         {{#if eventurls.logo_url}}
           <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
