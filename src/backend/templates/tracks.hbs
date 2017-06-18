@@ -111,10 +111,15 @@
                                 </i>
                               </a>
                             </div>
+                            {{#if ../../../mode}}
                             <h4 id="event-upper-block" style="background-color: {{../color}}; color:{{../font_color}};"
-                              class="sizeevent event"
+                                class="sizeevent event">
+                            {{else}}
+                            <h4 id="event-upper-block" style="background-color: {{../color}}; color:{{../font_color}};"
+                                class="sizeevent event"
                               data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
                               aria-expanded="false" aria-controls="desc-{{session_id}}">
+                            {{/if}}
                               {{#if audio}}
                                 <i class="fa fa-music" aria-hidden="true"></i>
                               {{/if}}
@@ -361,6 +366,8 @@
         $('.room-filter').click(function () {
           var temp = JSON.parse(localStorage['sessions']);
           var id =  Number($(this).attr('id'));;
+          var sessionMode = "{{mode}}";
+
           if (flag) {
             if (isAdded) {
               temp[id] = 1;
@@ -374,6 +381,12 @@
             flag = isAdded = 0;
             localStorage['sessions'] = JSON.stringify(temp);
           }
+          else if(sessionMode == 'single') {
+            var curUrl = window.location.href;
+            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
+            window.location.href = newUrl;
+          }
+
         });
 
         $('#starred').click(function () {

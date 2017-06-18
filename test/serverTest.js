@@ -168,7 +168,8 @@ describe('generate', function() {
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/",
         "datasource": "eventapi",
-        "assetmode" : "download"
+        "assetmode" : "download",
+        "sessionMode" : "single"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {

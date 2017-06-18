@@ -109,11 +109,16 @@
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
+                      {{#if ../../../mode}}
+                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
+                          class="margin-right-zero sizeevent event"  data-toggle="collapse">
+                      {{else}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
                           class="margin-right-zero sizeevent event"  data-toggle="collapse"
                           data-target="#desc-{{session_id}} .collapse"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
+                      {{/if}}
                         {{title}}
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true"></i>
@@ -500,6 +505,15 @@
                 isAdded = 0;
               }
               flag = 0;
+            }
+            else {
+              var id = $(this).attr('id');
+              var sessionMode = "{{mode}}";
+              if(sessionMode == 'single') {
+                var curUrl = window.location.href;
+                var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
+                window.location.href = newUrl;
+              }
             }
           });
 

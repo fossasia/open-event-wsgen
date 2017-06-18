@@ -252,6 +252,7 @@ module.exports = {
       fs.mkdirpSync(distPath);
       fs.mkdirpSync(appPath);
       fs.mkdirpSync(appPath + '/audio');
+      fs.mkdirpSync(appPath + '/sessions');
       fs.mkdirpSync(appPath + '/images/speakers');
       fs.mkdirpSync(appPath + '/images/sponsors');
       fs.mkdirpSync(appPath + '/images/speakers/thumbnails/');

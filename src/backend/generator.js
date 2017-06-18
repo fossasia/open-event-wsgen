@@ -32,6 +32,7 @@ const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/s
 const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
+const sessiontpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/session.hbs').toString('utf-8'));
 
 if (!String.linkify) {
   String.prototype.linkify = function() {
@@ -152,6 +153,7 @@ exports.createDistDir = function(req, socket, callback) {
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
   req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
+  const mode = req.body.sessionMode;
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
 
@@ -294,6 +296,7 @@ exports.createDistDir = function(req, socket, callback) {
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
         const jsonData = data;
+
         eventName = jsonData.eventurls.name;
         if(req.body.datasource == 'eventapi') {
           var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
@@ -312,6 +315,62 @@ exports.createDistDir = function(req, socket, callback) {
 
         function templateGenerate() {
           try {
+
+            if(mode == 'single') {
+              logger.addLog('Info', 'Generating Single Page for each session', socket);
+
+              function checkLinks() {
+
+                function changeEventUrlLinks() {
+                  data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
+                  data.eventurls.name = '../' + jsonData.eventurls.name;
+                }
+
+                if(jsonData.tracks !== undefined)
+                  data.tracks = true;
+                if(jsonData.roomsinfo !== undefined)
+                  data.roomsinfo = true;
+                if(jsonData.speakerslist !== undefined)
+                  data.speakerslist = true;
+                if(jsonData.timeList !== undefined)
+                  data.timeList = true;
+
+                data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
+                data.sociallinks = jsonData.sociallinks;
+                data.copyright = jsonData.copyright;
+
+                changeEventUrlLinks();
+              }
+
+              jsonData.mode = mode;
+              var trackArr = jsonData.tracks;
+              for(var i = 0; i < trackArr.length; i++) {
+                var sessionArr = trackArr[i].sessions;
+
+                for(var j = 0; j < sessionArr.length; j++) {
+                  var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
+                  var sessionId = sessionObj.session_id;
+                  var speakerList = sessionObj.speakers_list;
+
+                  sessionObj.color = trackArr[i].color;
+                  sessionObj.font_color = trackArr[i].font_color;
+                  sessionObj.track_title = trackArr[i].title;
+                  sessionObj.track_jump_link = '../tracks.html#' + trackArr[i].slug;
+                  sessionObj.room_jump_link = '../rooms.html#' + 'venue-' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
+
+                  for(var k = 0; k < speakerList.length; k++) {
+                    speakerList[k].thumb = '../' + speakerList[k].thumb;
+                  }
+
+                  var data = {session: sessionObj};
+                  data.single_session = true;
+                  checkLinks();
+                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(data)));
+
+                }
+              }
+              logger.addLog('Success', 'Generated single page for each session', socket);
+            }
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
@@ -329,7 +388,7 @@ exports.createDistDir = function(req, socket, callback) {
             logger.addLog('Success', 'HTML pages were succesfully compiled from the templates', socket);
             return done(null, 'write');
           });
-        };
+        }
       });
     },
 
