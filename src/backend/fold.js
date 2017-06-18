@@ -409,6 +409,9 @@ function createSocialLinks(event) {
       case 'google plus':
         link.icon = 'google-plus';
         break;
+      case 'instagram':
+        link.icon = 'instagram';
+        break;
       default:
         link.show = false;
         break;
