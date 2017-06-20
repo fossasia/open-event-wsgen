@@ -32,6 +32,8 @@ git remote add upstream "https://$GH_TOKEN@github.com/"${TRAVIS_REPO_SLUG}".git"
 git fetch upstream
 git reset upstream/gh-pages
 
+echo $GH_CNAME > CNAME
+
 touch .
 
 git add -A .
