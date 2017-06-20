@@ -885,6 +885,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             thumb: thumb,
             photo: speaker.photo,
             organisation: speaker.organisation,
+            position: speaker.position,
             sessions: allSessions,
             speaker_id: speaker.id,
             nameIdSlug: slugify(speaker.name + speaker.id)

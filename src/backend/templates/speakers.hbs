@@ -123,7 +123,7 @@
                   <span class="s-popup-header-name"><strong>{{{name}}}</strong>
                     {{#if organisation}}
                         {{#ifvalue organisation notequals=""}}
-                            ({{{organisation}}})
+                          ({{{position}}} {{{organisation}}})
                         {{/ifvalue}}
                     {{/if}}</span>
                 </div>
@@ -180,7 +180,7 @@
             </div>
           </div>
           <span class="speaker-name">{{{name}}}</span>
-          <span class="speaker-name org-name">{{{organisation}}}</span>
+          <span class="speaker-name org-name">{{{position}}} {{{organisation}}}</span>
       </div>
     </div>
     {{/speakerslist}}
