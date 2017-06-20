@@ -185,7 +185,7 @@ describe('generate', function() {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/mahikaw/open-event/fbf8/sample/F8",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
@@ -222,7 +222,7 @@ describe('generate', function() {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/arp95/open-event/allhands/sample/MozillaAllHands_17",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
@@ -236,7 +236,7 @@ describe('generate', function() {
 
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 4;
+      var totalFiles = 5;
       var counter = 0;
 
       function copyStatic(fileName) {
