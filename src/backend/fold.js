@@ -33,6 +33,10 @@ function replaceSpaceWithUnderscore(str) {
   return str.replace(/ /g, '_');
 }
 
+function removeSpace(str) {
+  return str.replace(/ /g, '');
+}
+
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
     return '#f8f8fa';
@@ -885,6 +889,7 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
             thumb: thumb,
             photo: speaker.photo,
             organisation: speaker.organisation,
+            position: speaker.position,
             sessions: allSessions,
             speaker_id: speaker.id,
             nameIdSlug: slugify(speaker.name + speaker.id)
@@ -958,3 +963,4 @@ module.exports.foldByTime = foldByTime;
 module.exports.returnTracknames = returnTracknames;
 module.exports.checkNullHtml = checkNullHtml;
 module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
+module.exports.removeSpace = removeSpace;

@@ -5,38 +5,38 @@
   from https://github.com/fossasia/open-event-scraper.
 -->
 <html lang="en">
-<head>
- <link rel="preload" as="script" href="./js/jquery.min.js">
- <link rel="preload" as="script" href="./js/bootstrap.min.js">
- <link rel="preload" as="script" href="./js/rooms.min.js">
- <link rel="preload" as="style" href="./css/schedule.css">
- <link rel="preload" as="style" href="./css/font-awesome.min.css">
- <link rel="preload" as="style" href="./css/bootstrap.min.css">
+  <head>
+    <link rel="preload" as="script" href="./js/jquery.min.js">
+    <link rel="preload" as="script" href="./js/bootstrap.min.js">
+    <link rel="preload" as="script" href="./js/rooms.min.js">
+    <link rel="preload" as="style" href="./css/schedule.css">
+    <link rel="preload" as="style" href="./css/font-awesome.min.css">
+    <link rel="preload" as="style" href="./css/bootstrap.min.css">
 
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-  <meta name="description" content="{{ apptitle }} Schedule">
-  <meta name="author" content="{{ metaauthor }}">
+    <meta name="description" content="{{ apptitle }} Schedule">
+    <meta name="author" content="{{ metaauthor }}">
 
-  <title>{{ apptitle }}</title>
+    <title>{{ apptitle }}</title>
 
-  <!-- Bootstrap core CSS -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/schedule.css">
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/schedule.css">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    </head>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
   <body>
     <a href="#rooms-list" class="skip">Skip to content</a>
@@ -44,225 +44,228 @@
     <a id="top"></a>
     {{> navbar}}
 
-  <div class="main container">
-    <div class="row">
-      <div class="middle col-sm-12">
-          <h2 class="filter-heading track-heading text-center">
-            <span>
-              Venue
-            </span>
-          </h2>
-      </div>
-    </div>
-    <!-- --------------------------------------------------------------
-        search-filter, search-filter-speaker and fossasia-filter
-        These classes are designed for search tab.
-
-        room-filter and date-filter classes are intended for searching
-        text across the page.
-        --------------------------------------------------------------- -->
-    <div class="date-list container">
-        {{> subnavbar flag = 0}}
-        <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
-          <div class="search-filter search-filter-room filter-margin">
-           <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
-           <input class="fossasia-filter" type="text" placeholder="Search">
-          </div>
-          <div class="show-button-filter">
-            <button class="btn btn-primary" id="starred">Starred</button>
-          </div>
-        </div>
-    </div>
-    <div id="session-list" class="container">
+    <div class="main container">
       <div class="row">
-        <div id="content-block" class="col-md-9">
-          <div id="track-list">
-            {{#roomsinfo}}
-              <div class="{{slug}} date-filter" id="rooms-list">
-                <div class="row paddingzero">
-                  <div class="col-md-12 paddingzero">
-                    <h5 class="text">{{date}}</h4>
-                  </div>
-                </div>
-                  {{#venue}}
-                  <div class="venue-filter row">
-                    <div class="row">
-                      <div class="clear-both col-md-12">
-                        <a class="anchor" id="venue-{{../slug}}-{{slug}}"></a>
-                        {{#if venue }}
-                          <h5 class="text">{{venue}}</h5>
-                        {{/if}}
-                      </div>
-                    </div>
-                  {{#sessions}}
-                      <div class="room-filter" id="{{session_id}}">
-                      <a class="anchor" id="venue-{{session_id}}"></a>
-                      <div class="eventtime col-xs-2 col-sm-2 col-md-2">
-                        <span class="time-track">{{start}} - {{end}}</span>
-                      </div>
-                      <div class="room-container">
-                        <div class="left-border col-xs-10 col-sm-10 col-md-10">
-                            <div class = "sizeevent event" id="event-title" style = "background-color: {{{color}}};
-                              color: {{{font_color}}};">
-                          {{title}}
-                          <a class = "bookmark" >
-                            <i class="fa fa-star" aria-hidden="true" >
-                            </i>
-                          </a>
-                          </div>
-                          {{#if ../../../mode}}
-                            <h4 id="event-upper-block" style="background-color:{{{color}}}; color: {{{font_color}}};"
-                            class="sizeevent event">
-                          {{else}}
-                            <h4 id="event-upper-block" style="background-color:{{{color}}}; color: {{{font_color}}};"
-                              class="sizeevent event" data-toggle="collapse"
-                              data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
-                              aria-expanded="false"
-                              aria-controls="desc-{{session_id}}">
-                          {{/if}}
-                            {{#if audio}}
-                               <i class="fa fa-music" aria-hidden="true"></i>
-                            {{/if}}
-			   <div id="desc2-{{session_id}}"
-				class="collapse in margin-top-zero"
-                style="background-color:{{{color}}}; color: {{{font_color}}};">
+        <div class="middle col-sm-12">
+            <h2 class="filter-heading track-heading text-center">
+              <span>
+                Venue
+              </span>
+            </h2>
+        </div>
+      </div>
+      <!-- --------------------------------------------------------------
+      search-filter, search-filter-speaker and fossasia-filter
+      These classes are designed for search tab.
+
+      room-filter and date-filter classes are intended for searching
+      text across the page.
+      --------------------------------------------------------------- -->
+      <div class="date-list container">
+          {{> subnavbar flag = 0}}
+          <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
+            <div class="search-filter search-filter-room filter-margin">
+             <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+             <input class="fossasia-filter" type="text" placeholder="Search">
+            </div>
+            <div class="show-button-filter">
+              <button class="btn btn-primary" id="starred">Starred</button>
+            </div>
+          </div>
+      </div>
+      <div id="session-list" class="container">
         <div class="row">
-        <div class="col-md-6 col-xs-12 speakers-list">
-				{{#speakers_list}}
-          <p class="session-speakers session-speakers-item">
-              {{#if photo}}
-                  <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small" />
-                {{else}}
-                  <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
-              {{/if}}
-                      </p>
-		             	{{/speakers_list}}
+          <div id="content-block" class="col-md-9">
+            <div id="track-list">
+              {{#roomsinfo}}
+                <div class="{{slug}} date-filter" id="rooms-list">
+                  <div class="row paddingzero">
+                    <div class="col-md-12 paddingzero">
+                      <h5 class="text">{{date}}</h4>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-		             	<ul class="speaker-name-list">
-		             	  {{#speakers_list}}
-		             	    {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
-		             	 {{/speakers_list}}
-		             	</ul>
-		             	<ul class="speaker-name-list">
-                    {{#if type}}
-                      {{type}}
-                    {{else}}
-                      <br>
-                    {{/if}}
-		             	</ul>
-		             </div>
-                          </h4>
-                          <div id="desc-{{session_id}}">
-                            <div class="collapse">
-                              {{{description}}}
-                              {{#if audio}}
-                                <audio controls="" preload="none" id= "audio-block">
-                                <source src="{{ audio }}">
-                                </audio>
+                  {{#venue}}
+                    <div class="venue-filter row">
+                      <div class="row">
+                        <div class="clear-both col-md-12">
+                          <a class="anchor" id="venue-{{../slug}}-{{slug}}"></a>
+                          {{#if venue }}
+                            <h5 class="text">{{venue}}</h5>
+                          {{/if}}
+                        </div>
+                      </div>
+                      {{#sessions}}
+                        <div class="room-filter" id="{{session_id}}">
+                          <a class="anchor" id="venue-{{session_id}}"></a>
+                          <div class="eventtime col-xs-2 col-sm-2 col-md-2">
+                            <span class="time-track">{{start}} - {{end}}</span>
+                          </div>
+                          <div class="room-container">
+                            <div class="left-border col-xs-10 col-sm-10 col-md-10">
+                              <div class = "sizeevent event" id="event-title" style = "background-color: {{{color}}};
+                                color: {{{font_color}}};">
+                                {{title}}
+                                <a class = "bookmark" >
+                                  <i class="fa fa-star" aria-hidden="true" ></i>
+                                </a>
+                              </div>
+                              {{#if ../../../mode}}
+                              <h4 id="event-upper-block" style="background-color:{{{color}}}; color: {{{font_color}}};"
+                                class="sizeevent event">
+                              {{else}}
+                              <h4 id="event-upper-block" style="background-color:{{{color}}}; color: {{{font_color}}};"
+                                class="sizeevent event" data-toggle="collapse"
+                                data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
+                                aria-expanded="false"
+                                aria-controls="desc-{{session_id}}">
                               {{/if}}
-                            </div>
-                          <hr class="clear-both collapse">
-                            <div class="session-speakers-list collapse"
-                            aria-expanded="false"
-                            aria-controls="desc-{{session_id}}">
-                            {{#speakers_list}}
-                              <a href="speakers.html#{{nameIdSlug}}">
-                                <div class="session-speakers-less">
-                                  <p class="session-speakers">
-                                  {{#if photo}}
-                                    <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
-                                  {{else}}
-                                    <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
-                                  {{/if}}
-                                  </p>
-                                  <span class="graytext">{{name}}</span>
-                                </div>
-                              </a>
-                              {{#if organisation}}
-                                <p class="session-speakers-more">
-                                {{organisation}}
-                                </p>
-                              {{/if}}
-                              {{#if biography}}
-                                <div class="session-speakers-more">
-                                  {{{biography}}}
-                                </div>
-                              {{/if}}
-                              <div class="blacktext session-speaker-social">
-                                <div class="session-speakers-more">
-                                  {{#if website}}
-                                  <a class="blacktext social speaker-social" href="{{{website}}}"}>
-                                    <i class="fa fa-home"></i> Web
-                                  </a>&nbsp;
-                                  {{/if}}
-                                  {{#if github}}
-                                  <a class="blacktext social speaker-social" href="{{{github}}}"}>
-                                    <i class="fa fa-github"></i> Github
-                                  </a>&nbsp;
-                                  {{/if}}
-                                  {{#if twitter}}
-                                  <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
-                                    <i class="fa fa-twitter"></i> Twitter
-                                  </a>&nbsp;
-                                  {{/if}}
-                                  {{#if linkedin}}
-                                  <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
-                                    <i class="fa fa-linkedin"></i> LinkedIn
-                                  </a>&nbsp;
-                                  {{/if}}
-                                  <a class="session-lin blacktext social speaker-social clickable-link">
-                                    <i class="fa fa-share"></i> Share
-                                  </a>
-                                  <div class="social-buttons row">
-                                   {{> social}}
-                                   <div class="row social-link">
-                                     <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" readonly>
-                                   </div>
+                                {{#if audio}}
+                                  <i class="fa fa-music" aria-hidden="true"></i>
+                                {{/if}}
+                                <div id="desc2-{{session_id}}"
+                                  class="collapse in margin-top-zero"
+                                  style="background-color:{{{color}}}; color: {{{font_color}}};">
+                                  <div class="row">
+                                    {{#if speakers_list.length}}
+                                      <div class="speakers-list">
+                                        {{#speakers_list}}
+                                          <p class="session-speakers session-speakers-item">
+                                            {{#if photo}}
+                                              <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small" />
+                                            {{else}}
+                                              <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                            {{/if}}
+                                          </p>
+                                        {{/speakers_list}}
+                                      </div>
+                                    {{/if}}
+                                    <div class="speaker-short-info">
+                                      <ul class="speaker-name-list">
+                                        {{#speakers_list}}
+                                          {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                          {{/speakers_list}}
+                                      </ul>
+                                      <ul class="speaker-name-list">
+                                        {{#if type}}
+                                          {{type}}
+                                        {{else}}
+                                          <br>
+                                        {{/if}}
+                                      </ul>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              <hr class="clear-both">
-                              {{/speakers_list}}
-                              <div class="blacktext">
-                                {{#if roomname}}
-                                <p><i>{{roomname}}</i></p>
-                                {{/if}}
-                                {{#if sessiondate}}
-                                <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
-                                {{/if}}
-                                <p>
-                                  <ul class="title-inline">
-                                    <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
-                                    <li class="blacktext">{{tracktitle}}</li>
-                                  </ul>
-                                </p><br>
+                              </h4>
+                              <div id="desc-{{session_id}}">
+                                <div class="collapse">
+                                  {{{description}}}
+                                  {{#if audio}}
+                                    <audio controls="" preload="none" id= "audio-block">
+                                      <source src="{{ audio }}">
+                                    </audio>
+                                  {{/if}}
+                                </div>
+                                <hr class="clear-both collapse">
+                                <div class="session-speakers-list collapse"
+                                  aria-expanded="false"
+                                  aria-controls="desc-{{session_id}}">
+                                  {{#speakers_list}}
+                                    <a href="speakers.html#{{nameIdSlug}}">
+                                      <div class="session-speakers-less">
+                                        <p class="session-speakers">
+                                          {{#if photo}}
+                                            <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
+                                          {{else}}
+                                            <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
+                                          {{/if}}
+                                        </p>
+                                        <span class="graytext">{{name}}</span>
+                                      </div>
+                                    </a>
+                                    {{#if organisation}}
+                                      <p class="session-speakers-more">
+                                        {{position}} {{organisation}}
+                                      </p>
+                                    {{/if}}
+                                    {{#if biography}}
+                                      <div class="session-speakers-more">
+                                        {{{biography}}}
+                                      </div>
+                                    {{/if}}
+                                    <div class="blacktext session-speaker-social">
+                                      <div class="session-speakers-more">
+                                        {{#if website}}
+                                          <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                            <i class="fa fa-home"></i> Web
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if github}}
+                                          <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                                            <i class="fa fa-github"></i> Github
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if twitter}}
+                                          <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                                            <i class="fa fa-twitter"></i> Twitter
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if linkedin}}
+                                          <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                                            <i class="fa fa-linkedin"></i> LinkedIn
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        <a class="session-lin blacktext social speaker-social clickable-link">
+                                          <i class="fa fa-share"></i> Share
+                                        </a>
+                                        <div class="social-buttons row">
+                                          {{> social}}
+                                          <div class="row social-link">
+                                            <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" readonly>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <hr class="clear-both">
+                                  {{/speakers_list}}
+                                  <div class="blacktext">
+                                    {{#if roomname}}
+                                      <p><i>{{roomname}}</i></p>
+                                    {{/if}}
+                                    {{#if sessiondate}}
+                                      <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
+                                    {{/if}}
+                                    <p>
+                                      <ul class="title-inline">
+                                        <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
+                                        <li class="blacktext">{{tracktitle}}</li>
+                                      </ul>
+                                    </p><br>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                  </div>
-                  {{/sessions}}
+                      {{/sessions}}
+                    </div>
+                  {{/venue}}
                 </div>
-                {{/venue}}
+              {{/roomsinfo}}
             </div>
-            {{/roomsinfo}}
           </div>
-        </div>
-        <div class="track-names">
-        {{#tracknames}}
-        {{#if title}}
-          <ul class="title-inline title-legend">
-            <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
-            <li>{{title}}</li>
-          </ul>
-        {{/if}}
-        {{/tracknames}}
+          <div class="track-names">
+            {{#tracknames}}
+              {{#if title}}
+                <ul class="title-inline title-legend">
+                  <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
+                  <li>{{title}}</li>
+                </ul>
+              {{/if}}
+            {{/tracknames}}
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     {{> footer}}
     <script src="./js/jquery.min.js"></script>
