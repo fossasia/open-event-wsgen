@@ -1,0 +1,363 @@
+[{
+      "id": 1,
+      "name": "Ads & Monetization",
+      "color": "#BF532E",
+      "sessions": [{
+            "id": 34,
+            "title": "Create Fullscreen experiences on mobile with canvas"
+         },
+         {
+            "id": 56,
+            "title": "The future of monetizing with audience network"
+         },
+         {
+            "id": 57,
+            "title": "Thinking beyond the install"
+         },
+         {
+            "id": 58,
+            "title": "Marketing API's: The automation advantage, for all"
+         },
+         {
+            "id": 59,
+            "title": "Discover new facebook advertising tools"
+         },
+         {
+            "id": 60,
+            "title": "Explore the power of the pages API"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 2,
+      "name": "Camera",
+      "color": "#FF3046",
+      "sessions": [{
+            "id": 5,
+            "title": "Introduction to the Camera Effects Platform"
+         },
+         {
+            "id": 18,
+            "title": "Intro to Building Camera Effects with the AR Studio: Live Demo"
+         },
+         {
+            "id": 26,
+            "title": "Making Great Camera Effects"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 3,
+      "name": "Engineering & Open source",
+      "color": "#E8782C",
+      "sessions": [{
+            "id": 7,
+            "title": "litho - a - declarative - framework -for -efficient - UIs"
+         },
+         {
+            "id": 13,
+            "title": "The Evolution of React and GraphQL at Facebook and Beyond"
+         },
+         {
+            "id": 31,
+            "title": "Hack: Compilations @ Scale"
+         },
+         {
+            "id": 32,
+            "title": "Moving Faster: Optimizing Developer Experiences of Facebook Engineers"
+         },
+         {
+            "id": 62,
+            "title": "Improving Android Acessibility with Stetho"
+         },
+         {
+            "id": 63,
+            "title": "360 Capture SDK: Making VR social through immersive media capture"
+         },
+         {
+            "id": 64,
+            "title": "Building for a billion people: behind the scenes with facebook's product engineers"
+         },
+         {
+            "id": 65,
+            "title": "Delivering real-time AI in the palm of your hand"
+         },
+         {
+            "id": 66,
+            "title": "The evolution of dynamic streaming"
+         },
+         {
+            "id": 67,
+            "title": "How we shipped reactions"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 4,
+      "name": "Games",
+      "color": "#9EFF56",
+      "sessions": [{
+            "id": 15,
+            "title": "Building Native Games for Facebook Gameroom"
+         },
+         {
+            "id": 29,
+            "title": "Understanding Gaming Video on Facebook"
+         },
+         {
+            "id": 22,
+            "title": "What’s new for instant games ?"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#OOOOOO"
+   },
+   {
+      "id": 5,
+      "name": "Virtual Reality",
+      "color": "#B21212",
+      "sessions": [{
+            "id": 36,
+            "title": "Early Lessons in Social VR from Oculus Rooms"
+         },
+         {
+            "id": 24,
+            "title": "React VR: Build amazing VR experiences using React"
+         },
+         {
+            "id": 27,
+            "title": "The making of Facebook spaces"
+         },
+         {
+            "id": 8,
+            "title": "WebVR: Enabling Developers to Build Engaging Cross-Platform VR Content"
+         },
+         {
+            "id": 38,
+            "title": "VR Together: adding social components to your VR apps"
+         },
+         {
+            "id": 39,
+            "title": "VR 201: Lessons from the frontline"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 6,
+      "name": "Research",
+      "color": "#1485CC",
+      "sessions": [{
+            "id": 35,
+            "title": "International Research: Gaining Cultural Context for Scalable Solutions."
+         },
+         {
+            "id": 61,
+            "title": "Creative ways to conduct research"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 7,
+      "name": "Facebook Platform",
+      "color": "#3DC8C3",
+      "sessions": [{
+            "id": 33,
+            "title": "Explore the Power of the Places Graph"
+         },
+         {
+            "id": 68,
+            "title": "Powering mobile commerce on facebook"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 8,
+      "name": "Messenger",
+      "color": "#3DC8C3",
+      "sessions": [{
+            "id": 9,
+            "title": "Boost your business with Messenger"
+         },
+         {
+            "id": 12,
+            "title": "How to build a great bot"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 9,
+      "name": "General",
+      "color": "#B21212",
+      "sessions": [{
+            "id": 17,
+            "title": "weapons of mass destruction"
+         },
+         {
+            "id": 25,
+            "title": "What can be Learned from China 's Mobile Economy Boom in Past 5 Years?"
+         },
+         {
+            "id": 20,
+            "title": "A startup journey from an emerging market"
+         },
+         {
+            "id": 69,
+            "title": "Account recovery: beyond email"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 10,
+      "name": "Workplace",
+      "color": "#FF3030",
+      "sessions": [{
+            "id": 19,
+            "title": "What’ s next for workplace by Facebook ? "
+         },
+         {
+            "id": 28,
+            "title": "Building custom integrations for workplace by Facebook"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 11,
+      "name": "Analytics",
+      "color": "#BF532E",
+      "sessions": [{
+            "id": 41,
+            "title": "Facebook Analytics: introducing Automated Insights"
+         },
+         {
+            "id": 40,
+            "title": "Measure the complete customer journey with Facebook Analytics"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 12,
+      "name": "Artifical Intelligence",
+      "color": "#1C86EE",
+      "sessions": [{
+            "id": 45,
+            "title": "Casual 3D capture"
+         },
+         {
+            "id": 44,
+            "title": "Making the facebook social graph semantice"
+         },
+         {
+            "id": 43,
+            "title": "Natural language understanding @facebook"
+         },
+         {
+            "id": 42,
+            "title": "Use machine translations to remove language barriers on Facebook"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 13,
+      "name": "Growth",
+      "color": "#7A378B",
+      "sessions": [{
+            "id": 48,
+            "title": "Build Meaningful customer connections with facebook"
+         },
+         {
+            "id": 47,
+            "title": "Facebook login and account kit: sign up landscape, trends, and product updates"
+         },
+         {
+            "id": 46,
+            "title": "Growth marketing: best practices for getting and keeping an audience"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 14,
+      "name": "Instagram",
+      "color": "#FF7F00",
+      "sessions": [{
+            "id": 49,
+            "title": "Building offline experiences for instagram"
+         },
+         {
+            "id": 50,
+            "title": "Visually connecting people and businesses"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 15,
+      "name": "Media & Publishers",
+      "color": "#3CB371",
+      "sessions": [{
+            "id": 54,
+            "title": "Fireside chat: the future of media"
+         },
+         {
+            "id": 53,
+            "title": "Monetizing in a video-first environment"
+         },
+         {
+            "id": 105,
+            "title": "Video content that connects"
+         },
+         {
+            "id": 102,
+            "title": "The future of video on facebook"
+         }
+      ],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 16,
+      "name": "WhatsApp",
+      "color": "#00868B",
+      "sessions": [{
+         "id": 55,
+         "title": "How WhatsApp reduced spam for over 1 billion people"
+      }],
+      "track_image_url": "",
+      "font_color": "#FFFFFF"
+   },
+   {
+      "id": 17,
+      "name": "Keynotes",
+      "color": "#E6E6FA",
+      "sessions": [{
+         "id": 71,
+         "title": "Keynote day 1"
+      }],
+      "track_image_url": "",
+      "font_color": "#OOOOOO"
+   }
+]

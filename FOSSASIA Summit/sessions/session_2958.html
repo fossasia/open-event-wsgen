@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <link rel=preload as=script href=../js/jquery.min.js>
+    <link rel=preload as=script href=../js/bootstrap.min.js>
+    <link rel=preload as=script href=../js/tracks.min.js>
+    <link rel=preload as=style href=../css/schedule.css>
+    <link rel=preload as=style href=../css/font-awesome.min.css>
+    <link rel=preload as=style href=../css/bootstrap.min.css>
+    <link rel=preload as=font href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+
+
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name=description content=" Schedule">
+    <meta name=author content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="" type=image/x-icon>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel=stylesheet>
+    <link rel=stylesheet href=../css/font-awesome.min.css>
+    <link rel=stylesheet href=../css/bootstrap.min.css>
+    <link rel=stylesheet href=../css/schedule.css>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <a href=#track-list class=skip>Skip to content</a>
+    <a class=scroll href=# id=down-button data-scroll-direction=0>
+      <i class="fa fa-chevron-up" aria-hidden=true></i>
+    </a>
+    <a id=top></a>
+    
+    <!-- Fixed navbar -->
+    <header role=banner class="navbar-fixed-top navbar-default">
+      <div class=container>
+        <div class="navbar-header navbar-left pull-left">
+           <a class=navbar-brand href=../ >
+              <img alt="../FOSSASIA Summit" class="logo logo-dark" src=../images/de0938ef-4786-44f8-9794-08200f9ccc37.png>
+          </a>
+        </div>
+    
+        <div class="navbar-header navbar-right pull-right">
+            <button data-toggle=collapse-side data-target=.side-collapse type=button class="navbar-toggle pull-right">
+            <span class=sr-only>Toggle navigation</span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+          </button>
+        </div>
+    
+        <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
+        <div class="side-collapse in">
+          <nav role=navigation class=navbar-collapse>
+          <ul class="nav navbar-nav navbar-right">
+              <li class=navlink><a id=homelink href=../index.html>Home</a></li>
+              <li class=navlink><a id=schedulelink href=../schedule.html>Schedule</a></li>
+              <li class=navlink><a id=trackslink href=../tracks.html>Tracks</a></li>
+              <li class=navlink><a id=roomslink href=../rooms.html>Rooms</a></li>
+              <li class=navlink><a id=speakerslink href=../speakers.html>Speakers</a></li>
+    
+                <li class="pull-left social-icons"><a href=http://twitter.com/fossasia id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=http://facebook.com/fossasia id=social-icons><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ id=social-icons><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.flickr.com/photos/fossasia/ id=social-icons><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/fossasia id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 id=social-icons><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
+    
+          </ul>
+        </nav>
+        </div>
+      </div>
+    </header>
+      <div class="container session-container">
+        <div class="row single-session" id=2958>
+          <h3> Saturday, 18th Mar </h3>
+          <div class=eventtime><span class=time-track>15:35 - 16:00</span></div>
+          <div class=session-content>
+            <div class="sizeevent event" id=event-title style=background-color:#c45b1f;color:#fff;margin-right:0;cursor:unset>
+              Unified Programming Model For Multiple Devices(An OpenCL Approach)  (Talk)  | Hardware &amp; Making
+              <a class=bookmark>
+                <i class="fa fa-star" aria-hidden=true>
+                </i>
+              </a>
+            </div>
+            <div>
+              <div>
+                <p><span style="">The Moore's law has almost come to an end and not much performance up gradation can be achieved just by upgrading hardware generations. </span><span style="">The methods of frequency scaling and core multiplication have reached their maximum limits of exploitation and cannot be explored further. This gives rise to the need for heterogeneous computing.Heterogeneous computing refers to systems that use more than one kind of processor or cores. </span><span style="">These systems gain performance or energy efficiency not just by adding the same type of processors, but by adding dissimilar co-processors, usually incorporating specialized processing capabilities to handle particular tasks.</span><span style="">There are a number of heterogeneous devices that are readily available off the shelf, some of them as commercially available system on chips (SoCs) and can be easily accessible to the average embedded software programmer. These heterogeneous devices incorporate hardware accelerators, such as GPUs and FPGAs. The advantages of having multiple types of hardware accelerators within a system on chip are many, such as high-performance gains and specificity of tasks performed. One of the major issues is the exotic programming model that each hardware accelerator brings along with it. </span><span style="">FPGAs bring along the requirement to write accelerators using hardware description language (HDL) at a very low level of abstraction (register transfer level) which has a really steep learning curve, extremely long compilation/place and route timings and are relatively difficult to debug. GPUs have their own programming languages and until a few years ago GPUs were used predominantly for graphics processing as the name suggests. However off late, with computing problems of large sizes and datasets, a lot of computations are being off-loaded to the GPU due to its benefit in parallel execution. </span><span style="">Even with a great number of devices available, the difference in programming models makes it difficult to truly use all these devices in unison. </span><span style="">Even with these multitudes of methods available for hardware acceleration, it is still not possible for software developers to adopt and use these devices as part of their daily routine for hardware acceleration. In order to achieve the full potential of hardware acceleration, multiple heterogeneous devices within the same SoC must be programmable using a single programming model and also the programming model must be portable across devices without loss of functionality. The aim of this talk is to throw light on the OpenCL(Open Computing Language API) and its potential for being the one single language that can be used to program multiple devices.</span></p>
+              </div>
+              <hr class=clear-both>
+              <div class=session-speakers-list aria-expanded=false aria-controls=desc-2958>
+                  <a href=../speakers.html#prashant-ravi2305>
+                    <div class=session-speakers-less>
+                      <p class=session-speakers>
+                          <img onerror='this.onerror=null,this.src="../images/avatar.png"' src=../images/speakers/thumbnails/5d3b4bd2-d598-4173-9f81-3d5352990b71.jpg class="lazy card-img-top speaker-image-large">
+                      </p>
+                      <span class=graytext>Prashant Ravi</span>
+                    </div>
+                  </a>
+                    <p class=session-speakers-more>Nanyang Technological University</p>
+                    <div class=session-speakers-more>
+                      <p><span style="">Masters Student, Software Engineer with specialization in embedded systems. Have worked with multiple hardware systems with applications in the automotive industry and IOT. With a strong academic background have written a thesis based on OpenCL and its performance characteristics on various embedded systems. An ardent maker with a combination of hardware as well as software skills which help me bring about the fine tuned performance from embedded systems.</span></p>
+                    </div>
+                  <div class="blacktext session-speaker-social">
+                    <div class=session-speakers-more>
+                        <a class="blacktext social speaker-social" href=https://github.com/prashantrar><i class="fa fa-github"></i> Github</a>&nbsp;
+                        <a class="blacktext social speaker-social" href=https://twitter.com/prashantrar><i class="fa fa-twitter"></i> Twitter</a>&nbsp;
+                        <a class="blacktext social speaker-social" href=https://sg.linkedin.com/in/prashantrar><i class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
+                      <a class="session-lin social speaker-social clickable-link">
+                        <i class="fa fa-share"></i> Share
+                      </a>&nbsp;
+                      <div class="social-buttons row">
+                        <div class="fb-share facebook social-button">
+                          <i class="fa fa-facebook fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="tw-share twitter social-button">
+                          <i class="fa fa-twitter fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="go-share google social-button">
+                          <i class="fa fa-google-plus fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="li-share facebook social-button">
+                          <i class="fa fa-linkedin fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="row social-link">
+                          <input class=speakers-inputbox type=text onclick=this.select() value=base#2958 readonly=readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class=clear-both>
+                <div class=blacktext>
+                  <p> <a href=../rooms.html#venue-2017-03-18-Fermi_(Floor_3)>Fermi (Floor 3)</a></p>
+                  <p>Saturday, 18th Mar, <span>15:35 - 16:00</span></p>
+                  <p>
+                    <ul class=session-ul>
+                      <li style=background-color:#c45b1f;color:#fff class=titlecolor></li>
+                      &nbsp;
+                      <li><a href=../tracks.html#2017-03-18-Hardware_&amp;_Making> Hardware &amp; Making </a> </li>
+                    </ul>
+                  </p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class=footer-container>
+      <footer class=classic>
+        <div class=container>
+          <div class="row ui-sortable">
+            <div id=menuItem class="col-sm-2 col-md-2 col-xs-12">
+              <ul class=menu>
+                <li><a target=_self href=index.html#description>About</a></li>
+                <li><a target=_self href=index.html#ticket-button>Tickets</a></li>
+                <li><a target=_self href=schedule.html>Schedule</a></li>
+                <li><a target=_self href=tracks.html>Tracks</a></li>
+                <li><a target=_self href=rooms.html>Rooms</a></li>
+                <li><a target=_self href=speakers.html>Speakers</a></li>
+                <li><a class="inner-link back-to-top" href=#top>Back To Top</a></li>
+              </ul>
+            </div>
+            <div id=copyright class="col-sm-7 col-md-7 col-xs-12">
+             <p>
+            <a href=https://creativecommons.org/licenses/by/4.0><img src=https://licensebuttons.net/l/by/3.0/80x15.png></a>
+             &nbsp; &copy; 2017
+             FOSSASIA and Science Centre Singapore.
+             The website and its contents are licensed under
+              <a href=https://creativecommons.org/licenses/by/4.0> Creative Commons Attribution 4.0 International License. </a>
+             The site was generated using the Open Event format on the <a href=https://eventyay.com/ >eventyay</a> <a href=https://webgen.eventyay.com/ >site generator</a>. Please submit issues <a href=https://github.com/fossasia/open-event-webapp/issues>here</a>.
+             </p>
+            </div>
+        <div class="contact-details col-sm-3 col-md-3 col-xs-12">
+          <ul class=contact-methods>
+            <li class=address>
+            <i class="fa fa-map-marker"></i>
+              <span>FOSSASIA and Science Centre Singapore&#44;&nbsp;Science Centre Singapore, 15 Science Centre Road Singapore   609081 </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row ui-sortable">
+        <div class="col-sm-12 text-center">
+          <ul class=social-profiles>
+                <li class="pull-left social-icons"><a href=http://twitter.com/fossasia id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=http://facebook.com/fossasia id=social-icons><i class="fa fa-lg fa-facebook" aria-hidden=true title=facebook></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ id=social-icons><i class="fa fa-lg fa-youtube-play" aria-hidden=true title=youtube-play></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.flickr.com/photos/fossasia/ id=social-icons><i class="fa fa-lg fa-flickr" aria-hidden=true title=flickr></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/fossasia id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+                <li class="pull-left social-icons"><a href=https://www.linkedin.com/groups/FOSSASIA-3762811 id=social-icons><i class="fa fa-lg fa-linkedin" aria-hidden=true title=linkedin></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+    </div>
+    <script src=../js/jquery.min.js></script>
+    <script src=../js/bootstrap.min.js></script>
+    <script src=../js/session.min.js></script>
+  </body>
+</html>
