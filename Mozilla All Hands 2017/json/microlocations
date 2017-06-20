@@ -1,0 +1,490 @@
+[
+	{
+        "id": 1, 
+        "name": "Yosemite Room", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 2, 
+        "name": "Continental Ballroom", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 3, 
+        "name": "Nob Hill 7", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 4, 
+        "name": "Golden Gate 2", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 5, 
+        "name": "Golden Gate 8", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 6, 
+        "name": "Union Square 17", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 7, 
+        "name": "Plaza Room B", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 8, 
+        "name": "Union Square 14", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 9, 
+        "name": "Continental Ballroom 1", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 10, 
+        "name": "Union Square 19", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 11, 
+        "name": "Golden Gate 3", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 12, 
+        "name": "Davidson Parc 55", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 13, 
+        "name": "Union Square 18", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 14, 
+        "name": "Golden Gate 4", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 15, 
+        "name": "Franciscan C", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 16, 
+        "name": "Imperial B", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 17, 
+        "name": "Nob Hill 8", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 18, 
+        "name": "Cyril Magnin Ballroom 1 and 2", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 19, 
+        "name": "Mason", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 20, 
+        "name": "Hearst", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 21, 
+        "name": "Mission 3 Parc 55", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 22, 
+        "name": "Union Square 16", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 23, 
+        "name": "Mission 1", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 24, 
+        "name": "Cyril Magnin Ballroom 3", 
+        "floor": 2, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 25, 
+        "name": "Balboa", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 26, 
+        "name": "Mission 2", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 27, 
+        "name": "Offsite", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 28, 
+        "name": "Plaza Room A", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 29, 
+        "name": "Union Square 11", 
+        "floor": 1, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 30, 
+        "name": "California Academy of Sciences", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 31, 
+        "name": "Nob Hill 3", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 32, 
+        "name": "Nob Hill 4", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 33, 
+        "name": "Nob Hill 2", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 34, 
+        "name": "Nob Hill 1", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 35, 
+        "name": "Imperial A", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 36, 
+        "name": "Union Square 3", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 37, 
+        "name": "Union Square 2", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 38, 
+        "name": "Franciscan B", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 39, 
+        "name": "Union Square 5", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 40, 
+        "name": "Union Square 7", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 41, 
+        "name": "Union Square 12", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 42, 
+        "name": "Union Square 21", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 43, 
+        "name": "Golden Gate 1", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 44, 
+        "name": "Nob Hill 10", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 45, 
+        "name": "Union Square 24", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 46, 
+        "name": "Lombard", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 47, 
+        "name": "Market Street", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 48, 
+        "name": "Franciscan D", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 49, 
+        "name": "Union Square 10", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 50, 
+        "name": "Embarcadero", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 51, 
+        "name": "Powell", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 52, 
+        "name": "Fillmore", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 53, 
+        "name": "Golden Gate 6 & 7", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 54, 
+        "name": "Golden Gate 5", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 55, 
+        "name": "Union Square 20", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 56, 
+        "name": "Union Square 22", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 57, 
+        "name": "Franciscan A", 
+        "floor": 0, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 58, 
+        "name": "Union Square 9", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 59, 
+        "name": "Union Square 8", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 60, 
+        "name": "Offsite", 
+        "floor": 4, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    },
+	{
+        "id": 61, 
+        "name": "Nob Hill 9", 
+        "floor": 6, 
+        "latitude": 37.784878, 
+        "longitude": -122.408965, 
+        "room": ""
+    }
+]

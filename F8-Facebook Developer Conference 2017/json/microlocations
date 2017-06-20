@@ -1,0 +1,65 @@
+[{
+		"id": 2,
+		"name": "Hall LL",
+		"floor": 1,
+		"latitude": 37.329780,
+		"longitude": -121.889613,
+		"room": ""
+	},
+	{
+		"id": 4,
+		"name": "Festival Hall",
+		"floor": 0,
+		"latitude": 37.329008,
+		"longitude": -121.888794,
+		"room": ""
+	},
+	{
+		"id": 5,
+		"name": "Hall G",
+		"floor": 1,
+		"latitude": 37.329412,
+		"longitude": -121.887457,
+		"room": ""
+	},
+	{
+		"id": 6,
+		"name": "Hall F",
+		"floor": 1,
+		"latitude": 37.329663,
+		"longitude": -121.887677,
+		"room": ""
+	},
+	{
+		"id": 7,
+		"name": "Hall B",
+		"floor": 1,
+		"latitude": 37.329596,
+		"longitude": -121.889714,
+		"room": ""
+	},
+	{
+		"id": 8,
+		"name": "Hall A",
+		"floor": 1,
+		"latitude": 37.329888,
+		"longitude": -121.889772,
+		"room": ""
+	},
+	{
+		"id": 9,
+		"name": "Hall C",
+		"floor": 1,
+		"latitude": 37.329730,
+		"longitude": -121.889383,
+		"room": ""
+	},
+	{
+		"id": 10,
+		"name": "City National Civic",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	}
+]

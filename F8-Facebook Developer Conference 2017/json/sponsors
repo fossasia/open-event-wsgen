@@ -1,0 +1,77 @@
+[{
+		"id": 1,
+		"name": "Facebook",
+		"logo": "/images/sponsors/logo.png",
+		"level": "2",
+		"sponsor_type": "Diamond Sponsor",
+		"url": "www.facebook.com",
+		"description": ""
+	},
+	{
+		"id": 2,
+		"name": "Onavo",
+		"logo": "/images/sponsors/onavo.png",
+		"level": "2",
+		"sponsor_type": "Partners",
+		"url": "http://www.onavo.com/",
+		"description": ""
+	}, {
+		"id": 3,
+		"name": "Atlas",
+		"logo": "/images/sponsors/atlas.jpg",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "http://atlassolutions.com/",
+		"description": ""
+	}, {
+		"id": 4,
+		"name": "Instagram LLC",
+		"logo": "/images/sponsors/insta.png",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "http://instagram.com",
+		"description": ""
+	}, {
+		"id": 5,
+		"name": "Moves",
+		"logo": "/images/sponsors/move.png",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "http://moves-app.com/",
+		"description": ""
+	}, {
+		"id": 6,
+		"name": "Oculus",
+		"logo": "/images/sponsors/oculus.png",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "http://www.oculus.com/",
+		"description": "The Oculus Rift is a virtual reality headset developed and manufactured by Oculus VR, a division of Facebook Inc., released on March 28, 2016. Oculus initiated a Kickstarter campaign in 2012 to fund the Rift's development, after being founded as an independent company two months prior."
+	}, {
+		"id": 6,
+		"name": "WhatsApp Inc.",
+		"logo": "/images/sponsors/whatsapp.png",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "http://www.whatsapp.com/",
+		"description": ""
+	},
+
+	{
+		"id": 7,
+		"name": "Masquerade",
+		"logo": "/images/sponsors/ms.jpg",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "https://www.facebook.com/",
+		"description": ""
+	}, {
+		"id": 7,
+		"name": "CrowdTriangle",
+		"logo": "/images/sponsors/ct.jpg",
+		"level": "1",
+		"sponsor_type": "Partners",
+		"url": "https://www.crowdtangle.com/",
+		"description": ""
+	}
+]
