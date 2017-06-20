@@ -141,7 +141,7 @@
                   <div class="col-md-6">
 		             	<ul class="speaker-name-list">
 		             	  {{#speakers_list}}
-		             	    {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                            {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
 		             	 {{/speakers_list}}
 		             	</ul>
 		             	<ul class="speaker-name-list">
@@ -181,7 +181,7 @@
                               </a>
                               {{#if organisation}}
                                 <p class="session-speakers-more">
-                                {{organisation}}
+                                  {{position}} {{organisation}}
                                 </p>
                               {{/if}}
                               {{#if biography}}

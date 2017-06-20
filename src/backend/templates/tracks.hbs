@@ -126,7 +126,7 @@
                               <div id="desc2-{{session_id}}" class="margin-top-zero collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
                                 <div class="row">
-                                  <div class="col-md-6 col-xs-12 speakers-list">
+                                  <div class="speakers-list">
                                     {{#speakers_list}}
                                       <p class="session-speakers session-speakers-item">
                                         {{#if photo}}
@@ -138,10 +138,10 @@
                                       </p>
                                     {{/speakers_list}}
                                   </div>
-                                  <div class="col-md-6">
+                                  <div class="speaker-short-info">
                                     <ul class="speaker-name-list">
                                       {{#speakers_list}}
-                                        {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                        {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
                                       {{/speakers_list}}
                                     </ul>
                                     <ul class="speaker-name-list">{{type}}</ul>
@@ -176,7 +176,7 @@
                                     </div>
                                   </a>
                                   {{#if organisation}}
-                                    <p class="session-speakers-more">{{organisation}}</p>
+                                    <p class="session-speakers-more">{{position}} {{organisation}}</p>
                                   {{/if}}
                                   {{#if biography}}
                                     <div class="session-speakers-more">
