@@ -96,7 +96,11 @@
                       <div class="speaker-with-bio">
                         <div class="speaker">
                           <div class="image-holder">
-                            <img  onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}">
+                            {{#if photo}}
+                              <img  onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}">
+                            {{else}}
+                              <img class="background-image" alt="{{{name}}}" src="images/avatar.png"/>
+                            {{/if}}
                             <div class="responsive-overlay">
                               <div class="hover-state text-center preserve3d">
                                 <div class="social-links vertical-align">
