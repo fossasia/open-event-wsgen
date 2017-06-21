@@ -1,0 +1,77 @@
+{
+	"id": 3,
+	"name": "OSCON open source convention",
+	"latitude": 30.263569,
+	"longitude": -97.739606,
+	"location_name": "Austin Convention Center, Austin, TX ",
+	"start_time": "2017-05-08T13:00:00-05:00",
+	"end_time": "2017-05-11T13:00:00-05:00",
+	"timezone": "America/Chicago",
+	"description": "Open source is everywhere—from the bottom of the programming stack to the top. OSCON brings the software engineering and developer community together to explore what's new and useful in open source languages, tools, and techniques. It's the best place to sharpen your skills and discover important trends, making you better at what you do and igniting your love of code.",
+	"background_image": "/images/background.png",
+	"logo": "/images/log.png",
+	"organizer_name": "O'Reilly",
+	"organizer_description": "Open source is everywhere—from the bottom of the programming stack to the top. OSCON brings the software engineering and developer community together to explore what's new and useful in open source languages, tools, and techniques. It's the best place to sharpen your skills and discover important trends, making you better at what you do and igniting your love of code.",
+	"social_links": [{
+			"id": 1,
+			"link": "https://twitter.com/oscon",
+			"name": "Twitter"
+		}, {
+			"id": 2,
+			"link": "https://www.facebook.com/OReilly",
+			"name": "Facebook"
+		},
+		{
+			"id": 3,
+			"link": "https://plus.google.com/oreillymedia/posts",
+			"name": "Google Plus"
+		},
+		{
+			"id": 4,
+			"link": "https://www.youtube.com/user/OreillyMedia",
+			"name": "YouTube"
+		},
+		{
+			"id": 5,
+			"link": "https://www.linkedin.com/company/8459",
+			"name": "LinkedIn"
+		},
+		{
+			"id": 6,
+			"link": "https://conferences.oreilly.com/oscon/oscon-tx",
+			"name": "External Event URL"
+		}
+	],
+	"ticket_url": "",
+	"privacy": "public",
+	"type": "",
+	"topic": "Science & Technology",
+	"sub_topic": "High Tech",
+	"code_of_conduct": "",
+	"copyright": {
+		"holder": "O'Reilly",
+		"holder_url": null,
+		"licence": "Public Domain Dedication (CC0)",
+		"licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+		"logo": "http://i.creativecommons.org/p/zero/1.0/88x31.png",
+		"year": 2017
+	},
+	"call_for_papers": null,
+	"email": null,
+	"has_session_speakers": false,
+	"identifier": "7d16c124",
+	"large": null,
+	"licence_details": null,
+	"placeholder_url": null,
+	"schedule_published_on": null,
+	"searchable_location_name": null,
+	"state": "Published",
+	"version": {
+		"event_ver": 0,
+		"microlocations_ver": 0,
+		"sessions_ver": 0,
+		"speakers_ver": 0,
+		"sponsors_ver": 0,
+		"tracks_ver": 0
+	}
+}

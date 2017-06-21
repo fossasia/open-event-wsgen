@@ -1,0 +1,66 @@
+[
+   {
+      "id":1,
+      "name":"Meeting Room 9 A/B",
+      "floor":3,
+      "latitude":30.263586,
+      "longitude":97.740080,
+      "room": ""
+   },
+   {
+      "id":2,
+      "name":"Meeting Room 10 A/B",
+      "floor":3,
+      "latitude":30.263960,
+      "longitude":-97.740158,
+      "room": ""
+   },
+   {
+      "id":3,
+      "name":"Meeting Room 12",
+      "floor":3,
+      "latitude":30.263569,
+      "longitude":-97.739606,
+      "room": ""
+   },
+   {
+      "id":4,
+      "name":"Meeting Room 17 A",
+      "floor":3,
+      "latitude":30.263990,
+      "longitude":-97.738458,
+      "room": ""
+   },
+   {
+      "id":7,
+      "name":"Ballroom E",
+      "floor":0,
+      "latitude":30.264330,
+      "longitude":-97.739887,
+      "room": ""
+   },
+   {
+      "id":10,
+      "name":"Meeting Room 14",
+      "floor":3,
+      "latitude":30.264400,
+      "longitude":-97.738642,
+      "room": ""
+   },
+   {
+      "id":11,
+      "name":"Ballroom D",
+      "floor":0,
+      "latitude":30.264400,
+      "longitude":-97.739633,
+      "room": ""
+   },
+   {
+      "id":12,
+      "name":"Meeting room 9C",
+      "floor":3,
+      "latitude":30.263865,
+      "longitude":-97.739967,
+      "room": ""
+   }
+]

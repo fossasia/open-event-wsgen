@@ -1,0 +1,77 @@
+{
+	"id": 180,
+	"name": "F8-Facebook Developer Conference 2017",
+	"latitude": 37.329008,
+	"longitude": -121.888794,
+	"location_name": "San Jose Convention Center, 150 W San Carlos St  San Jose  CA USA 95113 ",
+	"start_time": "2017-04-18T10:00:00-07:00",
+	"end_time": "2017-04-19T10:00:00-07:00",
+	"timezone": "US / Pacific",
+	"description": "Join us for our annual 2-day event, where developers and businesses come together to explore the future of technology. Learn how Facebook connects the world through new products and innovation. This year’s event is bigger than ever – with more than 50 sessions, interactive experiences, and the opportunity to meet one-on-one with members of the Facebook team.",
+	"background_image": "/images/background.jpg",
+	"logo": "/images/fbf8.png",
+	"organizer_name": "Facebook",
+	"organizer_description": "Join us for our annual 2-day event, where developers and businesses come together to explore the future of technology. Learn how Facebook connects the world through new products and innovation. This year’s event is bigger than ever – with more than 50 sessions, interactive experiences, and the opportunity to meet one-on-one with members of the Facebook team.",
+	"event_url": "https://www.fbf8.com",
+	"social_links": [
+	{
+            "id": 1, 
+            "link": "https://www.facebook.com/FacebookForDevelopers", 
+            "name": "Facebook"
+    },
+    {
+            "id": 2, 
+            "link": "https://twitter.com/fbplatform", 
+            "name": "Twitter"
+    },
+    {
+            "id": 3, 
+            "link": "https://www.instagram.com/explore/tags/fbf8/", 
+            "name": "Instagram"
+    },
+    {
+            "id": 4, 
+            "link": "https://github.com/Facebook", 
+            "name": "GitHub"
+    }
+    ],
+	"ticket_url": null,
+	"privacy": "public",
+	"type": "",
+	"topic": "Science & Technology",
+	"sub_topic": "High Tech",
+	"code_of_conduct": "",
+	"copyright": {
+		"logo": "",
+		"licence_url": "https://en.wikipedia.org/wiki/All_rights_reserved",
+		"holder": "Facebook",
+		"licence": "All rights reserved",
+		"holder_url": null,
+		"year": 2017
+	},
+	"call_for_papers": null,
+	"email": null,
+	"has_session_speakers": false,
+	"identifier": "7d16c124",
+	"large": null,
+	"licence_details": {
+		"logo": "",
+		"compact_logo": "",
+		"name": "All rights reserved",
+		"url": "https://en.wikipedia.org/wiki/All_rights_reserved",
+		"long_name": "All rights reserved",
+		"description": "The copyright holder reserves, or holds for their own use, all the rights provided by copyright law under one specific copyright treaty."
+	},
+	"placeholder_url": null,
+	"schedule_published_on": null,
+	"searchable_location_name": null,
+	"state": "Published",
+	"version": {
+		"event_ver": 0,
+		"microlocations_ver": 0,
+		"sessions_ver": 0,
+		"speakers_ver": 0,
+		"sponsors_ver": 0,
+		"tracks_ver": 0
+	}
+}

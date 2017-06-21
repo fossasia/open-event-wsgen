@@ -1,0 +1,2058 @@
+[
+    {
+        "id": 1, 
+        "name": "Gregory Arndt", 
+        "email": "garndt@mozilla.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/gregory_arndt.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Platform Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Platform Engineering Manager at Mozilla, father of two, brewer of beer, baker of cupcakes.</p>",
+		"long_biography": "<p>Platform Engineering Manager at Mozilla, father of two, brewer of beer, baker of cupcakes.</p>",	
+        "website": "", 
+        "twitter": "https://twitter.com/gregarndt", 
+        "facebook": "", 
+        "github": "https://github.com/gregarndt", 
+        "linkedin": "", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1011,
+				"title": "Taskcluster 2nd Half 2017 Planning Meeting"
+			},
+			{
+				"id": 1012,
+				"title": "Taskcluster Migration and Support"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/gregory_arndt.jpg"
+    },
+	{
+        "id": 2, 
+        "name": "Chris Atlee", 
+        "email": "chris@atlee.ca", 
+        "mobile": "", 
+        "photo": "/images/speakers/chris_atlee.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Manager", 
+        "country": "", 
+        "short_biography": "<p>Senior Manager at Mozilla. My specialties: Python, Linux, Buildbot, Release Engineering, AWS.</p>",
+		"long_biography": "<p>Senior Manager at Mozilla. My specialties: Python, Linux, Buildbot, Release Engineering, AWS.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/chrisatlee", 
+        "facebook": "", 
+        "github": "https://github.com/catlee", 
+        "linkedin": "https://www.linkedin.com/in/chris-atlee-1765996/", 
+        "featured": true, 
+        "sessions": [
+			{
+				"id": 1013,
+				"title": "Release Engineering Retrospective"
+			},
+			{
+				"id": 1353,
+				"title": "Async Python"
+			},
+			{
+				"id": 1355,
+				"title": "Serverless Dev Signing"
+			},
+			{
+				"id": 1356,
+				"title": "RelEng Looking Forward"
+			},
+			{
+				"id": 1357,
+				"title": "How to trust CoT"
+			},
+			{
+				"id": 1358,
+				"title": "Automating Funnelcakes"
+			},
+			{
+				"id": 1359,
+				"title": "Release Engineering Services"
+			},
+			{
+				"id": 1360,
+				"title": "How to build a bridge to buildbot"
+			}
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/chris_atlee.jpg"
+    },
+	{
+        "id": 3, 
+        "name": "Sharon Bautista", 
+        "email": "sbautista@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/sharon_bautista.jpg", 
+        "organisation": "Mozilla", 
+        "position": "User Experience Researcher", 
+        "country": "", 
+        "short_biography": "<p>My passion is for learning about people and designing experiences on and offline that move heart and mind. I believe that every design project is a change project, and so I bring to my teams and my clients a desire to: listen actively, challenge meaningfully, and create solutions that elevate performance.</p>",
+		"long_biography": "<p>My passion is for learning about people and designing experiences on and offline that move heart and mind. I believe that every design project is a change project, and so I bring to my teams and my clients a desire to: listen actively, challenge meaningfully, and create solutions that elevate performance.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/sharonbautista/", 
+        "featured": false,
+        "sessions": [
+			{
+				"id": 1014,
+				"title": "Test Pilot Field Research Findings and Recommendations"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/sharon_bautista.jpg"
+    },
+	{
+        "id": 4, 
+        "name": "Barbara Bermes", 
+        "email": "bbermes@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/barbara_bermes.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Product Manager at Mozilla. I love the (mobile) web.</p>",
+		"long_biography": "<p>Product Manager at Mozilla. I love the (mobile) web.</p>",
+        "website": "https://blog.mozilla.org/mobile/author/bbermesmozilla-com/", 
+        "twitter": "https://twitter.com/bbinto", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/barbarabermes", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1015,
+				"title": "Q&A Session with Nick Nguyen and NMX Team"
+			},
+			{
+                "id": 1350, 
+                "title": "NMX Plannings - Part 1"
+            },
+			{
+                "id": 1351, 
+                "title": "NMX Plannings - Part 2"
+            },
+			{
+                "id": 1352, 
+                "title": "NMX Plannings - Part 3"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/barbara_bermes.jpg"
+    },
+	{
+        "id": 5, 
+        "name": "Nick Nguyen", 
+        "email": "nnguyen@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/nick_nguyen.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Product Manager", 
+        "country": "", 
+        "short_biography": "<p>As a product strategist for Mozilla, Nick is responsible for leading strategic product initiatives to advance our mission by building great products that help people take control of and explore the full potential of their online lives, while empowering them with technology, know-how and opportunity to advance the Open Web.</p>",
+		"long_biography": "<p>As a product strategist for Mozilla, Nick is responsible for leading strategic product initiatives to advance our mission by building great products that help people take control of and explore the full potential of their online lives, while empowering them with technology, know-how and opportunity to advance the Open Web.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/osunick", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/osunick/", 
+        "featured": true, 
+        "sessions": [
+			{
+				"id": 1015,
+				"title": "Q&A Session with Nick Nguyen and NMX Team"
+			},
+			{
+				"id": 1016,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1017,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1018,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1019,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/nick_nguyen.jpg"
+    },
+	{
+        "id": 70, 
+        "name": "Sheila Mooney", 
+        "email": "smooney@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/sheila_mooney.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director, Engineering Project Management", 
+        "country": "", 
+        "short_biography": "<p>I am an experienced Program Manager passionate about working on innovative software products. I am capable of stepping into any project, large or small, and adapting my role to fit the needs of the organization whether it be writing specs, putting together a detailed project roapmap, helping prioritize bugs for the next release or jumping in and tackling the latest roadblock.</p>",
+		"long_biography": "<p>I am an experienced Program Manager passionate about working on innovative software products. I am capable of stepping into any project, large or small, and adapting my role to fit the needs of the organization whether it be writing specs, putting together a detailed project roapmap, helping prioritize bugs for the next release or jumping in and tackling the latest roadblock.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/sjmooney/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1016,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1017,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1018,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			},
+			{
+				"id": 1019,
+				"title": "Firefox Product & Program/Project Management Homeroom"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/sheila_mooney.jpg"
+    },
+	{
+        "id": 6, 
+        "name": "Josh Howard", 
+        "email": "jhoward@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/josh_howard.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Enterprise Architect", 
+        "country": "", 
+        "short_biography": "<p>Enterprise architect specializing in large scale web and enterprise systems deployment, standardization, and process development. Experience with cloud computing, both public and private. Proven track record working with product management and development teams in the implementation and deployment of products at scale. Strong ability to translate business requirements and match technical capabilities to product needs. Hands-on technical knowledge of all facets of application architecture and infrastructure operations.</p>",
+		"long_biography": "<p>Enterprise architect specializing in large scale web and enterprise systems deployment, standardization, and process development. Experience with cloud computing, both public and private. Proven track record working with product management and development teams in the implementation and deployment of products at scale. Strong ability to translate business requirements and match technical capabilities to product needs. Hands-on technical knowledge of all facets of application architecture and infrastructure operations.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/jrharch/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1021,
+				"title": "Infra Training Net Ops/MOC EUS"
+			},
+			{
+				"id": 1038,
+				"title": "Berlin Design Prep Work"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/josh_howard.jpg"
+    },
+	{
+        "id": 7, 
+        "name": "Chris Beard", 
+        "email": "cbeard@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/chris_beard.jpg", 
+        "organisation": "Mozilla", 
+        "position": "CEO", 
+        "country": "", 
+        "short_biography": "<p>Chris Beard is the CEO of Mozilla Corporation and a member of the Board of Directors. He is a passionate advocate for open source and has been leading open source projects in engineering, product and marketing roles for the past 20 years.</p>",
+		"long_biography": "<p>Chris Beard is the CEO of Mozilla Corporation and a member of the Board of Directors. He is a passionate advocate for open source and has been leading open source projects in engineering, product and marketing roles for the past 20 years.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/cbeard", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/cbeard/", 
+        "featured": true, 
+        "sessions": [
+			{
+				"id": 1022,
+				"title": "Fireside Chat with Chris Beard"
+			},
+			{
+				"id": 1023,
+				"title": "Fireside Chat with Chris Beard"
+			},
+			{
+                "id": 1249, 
+                "title": "Emerging Technologies and Chris Beard - Ask Me Anything!"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/chris_beard.jpg"
+    },
+	{
+        "id": 8, 
+        "name": "Alex Fridman", 
+        "email": "afridman@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/alexander_fridman.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Acting VP, Head of Enterprise Information Technology", 
+        "country": "", 
+        "short_biography": "<p>Senior IT business leader with 20 years of broad based management and Infra Ops / Corp IT experience gained through working across varied geographies with global teams and across industries, including Tech, Healthcare, and Financial Services.</p>",
+		"long_biography": "<p>Senior IT business leader with 20 years of broad based management and Infra Ops / Corp IT experience gained through working across varied geographies with global teams and across industries, including Tech, Healthcare, and Financial Services.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/alexanderfridman/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1022,
+				"title": "Fireside Chat with Chris Beard"
+			},
+			{
+				"id": 1090,
+				"title": "IT All Hands"
+			}
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/alexander_fridman.jpg"
+    },
+	{
+        "id": 9, 
+        "name": "Jim Cook", 
+        "email": "jcook@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jim_cook.jpg", 
+        "organisation": "Mozilla", 
+        "position": "CFO", 
+        "country": "", 
+        "short_biography": "<p>Jim has been the Chief Financial Officer of the Mozilla Corporation since 2005. In that time he has led the worldwide effort to grow the Mozilla team and operational infrastructure from less than 25 employees in Mountain View to a worldwide operation of more than 750 employees in 11 offices on 4 different continents.</p>",
+		"long_biography": "<p>Jim has been the Chief Financial Officer of the Mozilla Corporation since 2005. In that time he has led the worldwide effort to grow the Mozilla team and operational infrastructure from less than 25 employees in Mountain View to a worldwide operation of more than 750 employees in 11 offices on 4 different continents.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/cookflix", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/cookflix/", 
+        "featured": true, 
+        "sessions": [
+			{
+				"id": 1023,
+				"title": "Fireside Chat with Chris Beard"
+			}
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jim_cook.jpg"
+    },
+	{
+        "id": 10, 
+        "name": "Mitchell Baker", 
+        "email": "mbaker@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/mitchell_baker.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Executive Chairwoman", 
+        "country": "", 
+        "short_biography": "<p>Mitchell Baker co-founded the Mozilla Project to support the open, innovative web and ensure it continues offering opportunities for everyone. As Executive Chairwoman of Mozilla, Mitchell Baker is responsible for organizing and motivating a massive, worldwide, collective of employees and volunteers around the world who are building the Internet as a global public resource, open and accessible to all. Mitchell is deeply engaged in developing product offerings that promote the mission of empowering individuals. She also guides the overall scope and direction of Mozilla’s mission.</p>",
+		"long_biography": "<p>Mitchell Baker co-founded the Mozilla Project to support the open, innovative web and ensure it continues offering opportunities for everyone. As Executive Chairwoman of Mozilla, Mitchell Baker is responsible for organizing and motivating a massive, worldwide, collective of employees and volunteers around the world who are building the Internet as a global public resource, open and accessible to all. Mitchell is deeply engaged in developing product offerings that promote the mission of empowering individuals. She also guides the overall scope and direction of Mozilla’s mission.</p>",
+        "website": "https://blog.mozilla.org/press/media-library/bios/", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/bakermitchell/", 
+        "featured": true, 
+        "sessions": [
+			{
+				"id": 1024,
+				"title": "Worldview Project with Mitchell"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/mitchell_baker.jpg"
+    },
+	{
+        "id": 11, 
+        "name": "Richard Whitmarsh", 
+        "email": "rwhitmarsh@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/richard_whitemarsh.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Client-focused collaborator who enjoys getting the desired result for those at all levels</p>",
+		"long_biography": "<p>Client-focused collaborator who enjoys getting the desired result for those at all levels</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/richard-whitmarsh-70/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1025,
+				"title": "KB US Transition to Service Now"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/richard_whitemarsh.jpg"
+    },
+	{
+        "id": 12, 
+        "name": "Madhava Enros", 
+        "email": "menros@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/madhava_enros.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director, Firefox User Experience", 
+        "country": "", 
+        "short_biography": "<p>Director of Firefox User Experience at Mozilla. I am interested in product design / interaction design; design management; user-centered design process.</p>",
+		"long_biography": "<p>Director of Firefox User Experience at Mozilla. I am interested in product design / interaction design; design management; user-centered design process.</p>",
+        "website": "https://blog.mozilla.org/ux/author/menrosmozillacom/", 
+        "twitter": "https://twitter.com/madhava", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/madhavaenros/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1026,
+				"title": "Firefox UX Homeroom"
+			},
+			{
+				"id": 1027,
+				"title": "Firefox UX Homeroom"
+			},
+			{
+				"id": 1028,
+				"title": "Firefox UX Homeroom"
+			},
+			{
+				"id": 1029,
+				"title": "Firefox UX Homeroom"
+			},
+			{
+				"id": 1368,
+				"title": "Firefox UX Open House"
+			},
+			{
+				"id": 1369,
+				"title": "UX Team Time - Process, Tools, and Skills"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/madhava_enros.jpg"
+    },
+	{
+        "id": 13, 
+        "name": "Andy McKay", 
+        "email": "amckay@mozilla.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/andy_mckay.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Developer of large web applications for over 10 years. Project and development manager. Focusing on open source languages and tools.</p>",
+		"long_biography": "<p>Developer of large web applications for over 10 years. Project and development manager. Focusing on open source languages and tools.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "https://github.com/andymckay", 
+        "linkedin": "https://www.linkedin.com/in/anmckay/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1030,
+				"title": "Firefox Add-Ons Engineering Homeroom"
+			},
+			{
+				"id": 1031,
+				"title": "Firefox Add-Ons Engineering Homeroom"
+			},
+			{
+				"id": 1032,
+				"title": "Firefox Add-Ons Engineering Homeroom"
+			},
+			{
+				"id": 1033,
+				"title": "Firefox Add-Ons Engineering Homeroom"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/andy_mckay.jpg"
+    },
+	{
+        "id": 14, 
+        "name": "Mark Edwards", 
+        "email": "medwards@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/mark_edwards.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Manager at Mozilla. Love reading books and passionate about technology.</p>",
+		"long_biography": "<p>Manager at Mozilla. Love reading books and passionate about technology.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1034,
+				"title": "Agile Project Management"
+			},
+			{
+				"id": 1256,
+				"title": "Review and Prep for IT All Hands"
+			},
+			{
+				"id": 1257,
+				"title": "Q3 Planning Portfolio/Priorities"
+			}
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/mark_edwards.jpg"
+    },
+	{
+        "id": 15, 
+        "name": "Jim Mathies", 
+        "email": "jmathies@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jim_mathies.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Software Engineer", 
+        "country": "", 
+        "short_biography": "<p>Senior Software Engineer at Mozilla. My interest lies in Windows desktop software development.</p>",
+		"long_biography": "<p>Senior Software Engineer at Mozilla. My interest lies in Windows desktop software development.</p>",
+        "website": "http://www.mathies.com", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "https://github.com/jmathies", 
+        "linkedin": "https://www.linkedin.com/in/jim-mathies-b23889/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1035,
+				"title": "e10s Planning"
+			}
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jim_mathies.jpg"
+    },
+	{
+        "id": 16, 
+        "name": "Erin Lancaster", 
+        "email": "elancaster@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/erin_lancaster.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Program Manager", 
+        "country": "", 
+        "short_biography": "<p>I have joined Mozilla following 9 years at Apple, Inc. where I helped drive the development of several products including Final Cut Pro, Cinema Tools, Apple Remote Desktop, and Mac OS X Server. Prior to my career at Apple, I worked in Media Production for companies such as CNN, MTV, and PBS.</p>",
+		"long_biography": "<p>I have joined Mozilla following 9 years at Apple, Inc. where I helped drive the development of several products including Final Cut Pro, Cinema Tools, Apple Remote Desktop, and Mac OS X Server. Prior to my career at Apple, I worked in Media Production for companies such as CNN, MTV, and PBS.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/erinlancaster/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1035,
+				"title": "e10s Planning"
+			},
+			{
+				"id": 1363,
+				"title": "Firefox Product Cross-Functional"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/erin_lancaster.jpg"
+    },
+	{
+        "id": 17, 
+        "name": "Sean Rich", 
+        "email": "srich@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/sean_rich.jpg", 
+        "organisation": "Mozilla", 
+        "position": "IT Leader", 
+        "country": "", 
+        "short_biography": "<p>I specialize in the business of running an IT organization. I develop and leverage creative frameworks to steer multiple dimensions of the organization including cultural, technical, practice and process maturity. </p>",
+		"long_biography": "<p>I specialize in the business of running an IT organization. I develop and leverage creative frameworks to steer multiple dimensions of the organization including cultural, technical, practice and process maturity. </p>",
+        "website": "", 
+        "twitter": "https://twitter.com/s3anrich", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/seanrich/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1036,
+				"title": "Lithium Platform Discussion"
+			},
+			{
+				"id": 1258,
+				"title": "App Services Workforce Planning"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/sean_rich.jpg"
+    },
+	{
+        "id": 18, 
+        "name": "Amy Tsay", 
+        "email": "atsay@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/amy_tsay.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Senior Product Manager at Mozilla. More about me at: http://mozamy.wordpress.com/</p>",
+		"long_biography": "<p>http://mozamy.wordpress.com/</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/catchingamy", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/amytsay/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1037,
+				"title": "Add-on Review Operations"
+			},
+			{
+				"id": 1354,
+				"title": "Add-ons AMO Q3 and Q4 Plans"
+			},
+			{
+				"id": 1361,
+				"title": "Add-on Post-review and Linter"
+			},
+			{
+				"id": 1372,
+				"title": "Add-ons State of 57 Migration and Goal Alignment"
+			}
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/amy_tsay.jpg"
+    },
+	{
+        "id": 20, 
+        "name": "Jet Villegas", 
+        "email": "jvillegas@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jethro_villegas.jpeg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>I've been a professional in the interactive media industry since 1994 and have worked on a lot of commercial products. I've made games, tools, runtimes, compilers, debuggers, servers, mobile and web applications. I may even have code running on your computer right now.</p>",
+		"long_biography": "<p>I've been a professional in the interactive media industry since 1994 and have worked on a lot of commercial products. I've made games, tools, runtimes, compilers, debuggers, servers, mobile and web applications. I may even have code running on your computer right now.</p>",
+        "website": "http://www.junglecode.net", 
+        "twitter": "https://twitter.com/junglecode", 
+        "facebook": "", 
+        "github": "https://github.com/jetvillegas", 
+        "linkedin": "https://www.linkedin.com/in/jethrovillegas/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1039,
+				"title": "Firefox Layout Team All-Hands"
+			}
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jethro_villegas.jpeg"
+    },
+	{
+        "id": 21, 
+        "name": "Jascha Kaykas-Wolff", 
+        "email": "jwolff@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jascha_kayakas.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Chief Marketing Officer", 
+        "country": "", 
+        "short_biography": "<p>I believe in two key principles: Find opportunities where no one else is looking; And, never fail the same way twice. It’s a methodology centered around Agile marketing practices and marketing technology. Coupled with a B.A. in Psychology from Whittier College, it’s one that’s served me well professionally and personally.</p>",
+		"long_biography": "<p>I believe in two key principles: Find opportunities where no one else is looking; And, never fail the same way twice. It’s a methodology centered around Agile marketing practices and marketing technology. Coupled with a B.A. in Psychology from Whittier College, it’s one that’s served me well professionally and personally.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/kaykas", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/kaykas/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1040, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1041, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1042, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1043, 
+                "title": "Marketing Year in Review and Looking Ahead"
+            },
+			{
+                "id": 1044, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1045, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1316, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1317, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1318, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1319, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1320, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1321, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1322, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1323, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1324, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1325, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1326, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1327, 
+                "title": "Durable Team Time"
+            },
+			{
+                "id": 1328, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1329, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1330, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1331, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1332, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1333, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1334, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1335, 
+                "title": "Functional Team Time"
+            },
+			{
+                "id": 1336, 
+                "title": "Functional Team Reflect Team Norms"
+            },
+			{
+                "id": 1337, 
+                "title": "Functional Team Reflect Team Norms"
+            },
+			{
+                "id": 1338, 
+                "title": "Functional Team Reflect Team Norms"
+            },
+			{
+                "id": 1339, 
+                "title": "Functional Team Reflect Team Norms"
+            },
+			{
+                "id": 1340, 
+                "title": "Functional Team Reflect Team Norms"
+            },
+			{
+                "id": 1341, 
+                "title": "Best of Show and Tell Marketing Demos"
+            },
+			{
+                "id": 1342, 
+                "title": "AMA with CBeard and Marketing"
+            },
+			{
+                "id": 1343, 
+                "title": "Marketing End of Week Wrap Up"
+            },
+			{
+                "id": 1344, 
+                "title": "Team Norms Workshop"
+            },
+			{
+                "id": 1345, 
+                "title": "Team Norms Workshop"
+            },
+			{
+                "id": 1346, 
+                "title": "Team Norms Workshop"
+            }
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jascha_kayakas.jpg"
+    },
+	{
+        "id": 22, 
+        "name": "Joe Hildebrand", 
+        "email": "jhildebrand@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/joe_hildebrand.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director of Engineering", 
+        "country": "", 
+        "short_biography": "<p>Director of engineering at Mozilla. Passionate about technology and how it can change the world.</p>",
+		"long_biography": "<p>Director of engineering at Mozilla. Passionate about technology and how it can change the world.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/hildjj", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/hildjj/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1050, 
+                "title": "Firefox Visuals Homeroom"
+            },
+			{
+                "id": 1051, 
+                "title": "Firefox Visuals Homeroom"
+            },
+			{
+                "id": 1052, 
+                "title": "Firefox Visuals Homeroom"
+            },
+			{
+                "id": 1053, 
+                "title": "Firefox Visuals Homeroom"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/joe_hildebrand.jpg"
+    },
+	{
+        "id": 23, 
+        "name": "Justin Dolske", 
+        "email": "jdolske@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/justin_dolske.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Engineering Manager at Mozilla. Passionate aboout technology.</p>",
+		"long_biography": "<p>Engineering Manager at Mozilla. Passionate aboout technology.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/dolske", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/dolske/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1054, 
+                "title": "Firefox Photon Homeroom"
+            },
+			{
+                "id": 1055, 
+                "title": "Firefox Photon Homeroom"
+            },
+			{
+                "id": 1056, 
+                "title": "Firefox Photon Homeroom"
+            },
+			{
+                "id": 1057, 
+                "title": "Firefox Photon Homeroom"
+            }
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/justin_dolske.jpg"
+    },
+	{
+        "id": 24, 
+        "name": "Naveed Ihsanullah", 
+        "email": "nihsanullah@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/naveen_ihsanullah.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Highly experienced senior technology leader with a record of developing and supporting successful high-technology projects and solutions incorporating a wide range of applications and platforms.</p>",
+		"long_biography": "<p>Highly experienced senior technology leader with a record of developing and supporting successful high-technology projects and solutions incorporating a wide range of applications and platforms.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/naveedi", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/naveedihsanullah/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1058, 
+                "title": "Firefox Quantum Flow Homeroom"
+            },
+			{
+                "id": 1059, 
+                "title": "Firefox Quantum Flow Homeroom"
+            },
+			{
+                "id": 1060, 
+                "title": "Firefox Quantum Flow Homeroom"
+            },
+			{
+                "id": 1061, 
+                "title": "Firefox Quantum Flow Homeroom"
+            }
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/naveen_ihsanullah.jpg"
+    },
+	{
+        "id": 25, 
+        "name": "Andrew Overholt", 
+        "email": "aoverholt@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/andrew_overholt.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Engineering Manager at Mozilla. Passionate aboout technology.</p>",
+		"long_biography": "<p>Engineering Manager at Mozilla. Passionate aboout technology.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/overholt", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/andrew-overholt-36a75b35/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1062, 
+                "title": "Firefox Quantum DOM Homeroom"
+            },
+			{
+                "id": 1063, 
+                "title": "Firefox Quantum DOM Homeroom"
+            },
+			{
+                "id": 1064, 
+                "title": "Firefox Quantum DOM Homeroom"
+            },
+			{
+                "id": 1065, 
+                "title": "Firefox Quantum DOM Homeroom"
+            },
+			{
+				"id": 1362,
+				"title": "DOM Team Meeting"
+			}
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/andrew_overholt.jpg"
+    },
+	{
+        "id": 26, 
+        "name": "Devin Reams", 
+        "email": "devin@reams.me", 
+        "mobile": "", 
+        "photo": "/images/speakers/devin_reams.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Manager", 
+        "country": "", 
+        "short_biography": "<p>I'm passionate about technology and business. I enjoy working where I can negotiate, work with a smart team, and help build interesting things.</p>",
+		"long_biography": "<p>I'm passionate about technology and business. I enjoy working where I can negotiate, work with a smart team, and help build interesting things.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/devinreams", 
+        "facebook": "", 
+        "github": "https://github.com/devinreams", 
+        "linkedin": "https://www.linkedin.com/in/devinreams/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1066, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1067, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1068, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1069, 
+                "title": "Firefox Password Manager Homeroom"
+            }
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/devin_reams.jpg"
+    },
+	{
+        "id": 27, 
+        "name": "Sandy Sage", 
+        "email": "ssage@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/sandy_sage.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Manager", 
+        "country": "", 
+        "short_biography": "<p>Manager at Mozilla. Passionate about Technology.</p>",
+		"long_biography": "<p>Manager at Mozilla. Passionate about Technology.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1066, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1067, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1068, 
+                "title": "Firefox Password Manager Homeroom"
+            },
+			{
+                "id": 1069, 
+                "title": "Firefox Password Manager Homeroom"
+            }
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/sandy_sage.jpg"
+    },
+	{
+        "id": 28, 
+        "name": "Milan Sreckovic", 
+        "email": "msreckovic@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/milan_sreckovic.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Software development manager with more 15 years experience in the position, 20 years in the industry. I managed senior and junior developers, co-located and remote, within medium sized (100 developers) and small (four developers) projects. I've managed a few version one products, but also followed through multiple annual releases</p>",
+		"long_biography": "<p>Software development manager with more 15 years experience in the position, 20 years in the industry. I managed senior and junior developers, co-located and remote, within medium sized (100 developers) and small (four developers) projects. I've managed a few version one products, but also followed through multiple annual releases</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/milan-sreckovic-1923964/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1070, 
+                "title": "Firefox Quantum Render Homeroom"
+            },
+			{
+                "id": 1071, 
+                "title": "Firefox Quantum Render Homeroom"
+            },
+			{
+                "id": 1072, 
+                "title": "Firefox Quantum Render Homeroom"
+            },
+			{
+                "id": 1073, 
+                "title": "Firefox Quantum Render Homeroom"
+            },
+			{
+                "id": 1214, 
+                "title": "Graphics Security Vulnerabilities from Static Analysis"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/milan_sreckovic.jpg"
+    },
+	{
+        "id": 29, 
+        "name": "Selena Deckelmann", 
+        "email": "sdeckelmann@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/selena_deckelmann.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director of Engineering", 
+        "country": "", 
+        "short_biography": "<p>Selena is a software developer and engineering manager, and specializes in open source software and product management. She's an internationally recognized speaker on open source, PostgreSQL and developer community.</p>",
+		"long_biography": "<p>Selena is a software developer and engineering manager, and specializes in open source software and product management. She's an internationally recognized speaker on open source, PostgreSQL and developer community.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/selenamarie", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/selenadeckelmann/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1074, 
+                "title": "Firefox Runtime Homeroom"
+            },
+			{
+                "id": 1075, 
+                "title": "Firefox Runtime Homeroom"
+            },
+			{
+                "id": 1076, 
+                "title": "Firefox Runtime Homeroom"
+            },
+			{
+                "id": 1077, 
+                "title": "Firefox Runtime Homeroom"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/selena_deckelmann.jpg"
+    },
+	{
+        "id": 30, 
+        "name": "Jason Duell", 
+        "email": "jduell@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jason_duell.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Engineering Manager at Mozilla. Love reading books.</p>",
+		"long_biography": "<p>Engineering Manager at Mozilla. Love reading books.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/jason-duell-992a9277/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1082, 
+                "title": "Firefox Quantum Network Homeroom"
+            },
+			{
+                "id": 1083, 
+                "title": "Firefox Quantum Network Homeroom"
+            },
+			{
+                "id": 1084, 
+                "title": "Firefox Quantum Network Homeroom"
+            },
+			{
+                "id": 1085, 
+                "title": "Firefox Quantum Network Homeroom"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/jason_duell.jpg"
+    },
+	{
+        "id": 31, 
+        "name": "Corey Shields", 
+        "email": "cshields@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/corey_shields.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Manager, Systems Administration", 
+        "country": "", 
+        "short_biography": "<p>I have a passion for Linux systems administration, IT management, and open source software. My involvement with open source development and distribution began in 2002, and over the years I have contributed to many OSS projects on both a professional and volunteer basis.</p>",
+		"long_biography": "<p>I have a passion for Linux systems administration, IT management, and open source software. My involvement with open source development and distribution began in 2002, and over the years I have contributed to many OSS projects on both a professional and volunteer basis.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/cshields", 
+        "facebook": "", 
+        "github": "https://github.com/cshields", 
+        "linkedin": "https://www.linkedin.com/in/cshields/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1086, 
+                "title": "Nubis Web Ops Sprints"
+            },
+			{
+                "id": 1087, 
+                "title": "IAM"
+            },
+			{
+                "id": 1088, 
+                "title": "IT Data Center Tour"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/corey_shields.jpg"
+    },
+	{
+        "id": 32, 
+        "name": "Jeff Bryner", 
+        "email": "jbryner@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jeff_bryner.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director of Enterprise Information Security", 
+        "country": "", 
+        "short_biography": "<p>Director at Mozilla. passionate about technology.</p>",
+		"long_biography": "<p>Director at Mozilla. passionate about technology.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/0x7eff", 
+        "facebook": "", 
+        "github": "https://github.com/jeffbryner", 
+        "linkedin": "https://www.linkedin.com/in/jeff-bryner-9b591b5/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1089, 
+                "title": "AWS Security Training"
+            }
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jeff_bryner.jpg"
+    },
+	{
+        "id": 33, 
+        "name": "Sean White", 
+        "email": "swhite@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/sean_white.jpg", 
+        "organisation": "Mozilla", 
+        "position": "SVP, Emerging Technologies", 
+        "country": "", 
+        "short_biography": "<p>Sean is an executive, entrepreneur, inventor, and musician who has spent his career leading innovative development of the experiences, systems, and technologies that enable creative expression, connect us to each other, and enhance our understanding of the world around us.</p>",
+		"long_biography": "<p>Sean is an executive, entrepreneur, inventor, and musician who has spent his career leading innovative development of the experiences, systems, and technologies that enable creative expression, connect us to each other, and enhance our understanding of the world around us.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/seanwhite", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/seanwhite/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1093, 
+                "title": "Emerging Technologies All Hands"
+            }
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/sean_white.jpg"
+    },
+	{
+        "id": 34, 
+        "name": "Havi Hoffman", 
+        "email": "hhoffman@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/havi_hoffman.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Content Wrangler", 
+        "country": "", 
+        "short_biography": "<p>Smart, playful web writer/editor, communicator, event designer, marketing manager, content strategist and curator with 20(!) years experience on the internets. Empathic people manager skilled at removing obstacles, cultivating talent, getting stuff done, and making things happen. </p>",
+		"long_biography": "<p>Smart, playful web writer/editor, communicator, event designer, marketing manager, content strategist and curator with 20(!) years experience on the internets. Empathic people manager skilled at removing obstacles, cultivating talent, getting stuff done, and making things happen. </p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/havihoffman/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1098, 
+                "title": "Tech Speaker/Community A-Frame School"
+            }
+        ],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/havi_hoffman.jpg"
+    },
+	{
+        "id": 35, 
+        "name": "Jofish Kaye", 
+        "email": "jkaye@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jofish_kaye.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Principal Research Scientist", 
+        "country": "", 
+        "short_biography": "<p>I use quantitative and qualitative data and design to direct innovation and strategic decisions by understanding user needs and practices.</p>",
+		"long_biography": "<p>I use quantitative and qualitative data and design to direct innovation and strategic decisions by understanding user needs and practices.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/jofish", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/jofish/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1100, 
+                "title": "Router Design Fiction Workshop"
+            },
+			{
+                "id": 1254, 
+                "title": "Mozilla Best Router Discussion"
+            }
+        ], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/jofish_kaye.jpg"
+    },
+	{
+        "id": 37, 
+        "name": "Susan Chen", 
+        "email": "schen@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/susan_chen.jpeg", 
+        "organisation": "Mozilla", 
+        "position": "VP, Strategic Business Development", 
+        "country": "", 
+        "short_biography": "<p>VP of Strategic Business Development at Mozilla. Enjoy travelling and reading books.</p>",
+		"long_biography": "<p>VP of Strategic Business Development at Mozilla. Enjoy travelling and reading books.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/susan-chen-6167/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1199, 
+                "title": "Corp. Dev. Presentations Class"
+            },
+			{
+                "id": 1200, 
+                "title": "Cross Functional Mobile Product Review"
+            }
+        ], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/susan_chen.jpeg"
+    },
+	{
+        "id": 38, 
+        "name": "Chris Cooper", 
+        "email": "ccooper@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/chris_cooper.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Manager, Developer Workflow", 
+        "country": "", 
+        "short_biography": "<p>Manager at Mozilla. I make large, complex processes manageable.</p>",
+		"long_biography": "<p>Manager at Mozilla. I make large, complex processes manageable.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "https://github.com/ccooper", 
+        "linkedin": "https://www.linkedin.com/in/ccooper/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1371,
+				"title": "Future of Servo/Github-Sync"
+			}
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/chris_cooper.jpg"
+    },
+	{
+        "id": 39, 
+        "name": "Wil Clouser", 
+        "email": "wclouser@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/wil_clouser.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Manager at Mozilla. Travel a lot with friends.</p>",
+		"long_biography": "<p>Manager at Mozilla. Travel a lot with friends.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/clouserw/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1201, 
+                "title": "Test Pilot Q2 Review and Q3 Planning"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/wil_clouser.jpg"
+    },
+	{
+        "id": 40, 
+        "name": "Mark Cote", 
+        "email": "mcote@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/mark_cote.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Manager, Engineering Productivity", 
+        "country": "", 
+        "short_biography": "<p>I manage the part of Mozilla's Engineering Productivity team responsible for the development of web tools, particularly MozReview and bugzilla.mozilla.org.</p>",
+		"long_biography": "<p>I manage the part of Mozilla's Engineering Productivity team responsible for the development of web tools, particularly MozReview and bugzilla.mozilla.org.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/markrcote", 
+        "facebook": "", 
+        "github": "https://github.com/markrcote", 
+        "linkedin": "https://www.linkedin.com/in/mrcote/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1371,
+				"title": "Future of Servo/Github-Sync"
+			}
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/mark_cote.jpg"
+    },
+	{
+        "id": 41, 
+        "name": "Bobby Holley", 
+        "email": "bholley@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/bobby_holley.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Negative Entropy", 
+        "country": "", 
+        "short_biography": "<p>I started hacking on Mozilla code in 2008, and have been working on it ever since. I know a lot about the Web Platform and care deeply about its future. </p>",
+		"long_biography": "<p>I started hacking on Mozilla code in 2008, and have been working on it ever since. I know a lot about the Web Platform and care deeply about its future. </p>",
+        "website": "", 
+        "twitter": "https://twitter.com/bhology", 
+        "facebook": "", 
+        "github": "https://github.com/bholley", 
+        "linkedin": "https://www.linkedin.com/in/bobbyholley/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1202, 
+                "title": "Firefox Quantum Stylo Homeroom"
+            },
+			{
+                "id": 1203, 
+                "title": "Firefox Quantum Stylo Homeroom"
+            },
+			{
+                "id": 1204, 
+                "title": "Firefox Quantum Stylo Homeroom"
+            },
+			{
+                "id": 1205, 
+                "title": "Firefox Quantum Stylo Homeroom"
+            }
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/bobby_holley.jpg"
+    },
+	{
+        "id": 42, 
+        "name": "Mark Mayo", 
+        "email": "mmayo@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/mark_mayo.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Technologist", 
+        "country": "", 
+        "short_biography": "<p>Mark Mayo is the head of all things Firefox, leading the combined Cloud, Desktop and Mobile groups at Mozilla. Mark’s responsibilities include overseeing strategic direction for Firefox, and the associated services that allow Mozilla to be a major force in the world building a safer, better, open Web. Mark came to Mozilla in 2011 to build Mozilla’s cloud offerings, including the Identity, Sync and Location platforms.</p>",
+		"long_biography": "<p>Mark Mayo is the head of all things Firefox, leading the combined Cloud, Desktop and Mobile groups at Mozilla. Mark’s responsibilities include overseeing strategic direction for Firefox, and the associated services that allow Mozilla to be a major force in the world building a safer, better, open Web. Mark came to Mozilla in 2011 to build Mozilla’s cloud offerings, including the Identity, Sync and Location platforms.</p>",
+        "website": "https://blog.mozilla.org/press/bios/mark-mayo/", 
+        "twitter": "https://twitter.com/mmayo", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/markmayo/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1206, 
+                "title": "Firefox Team All Hands"
+            }
+		],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/mark_mayo.jpg"
+    },
+	{
+        "id": 43, 
+        "name": "Tim Spurway", 
+        "email": "tspurway@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/tim_spurway.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Software Engineer / Architect with a specialty in large scale data processing, machine learning, distributed computing, scalability, and data visualization. </p>",
+		"long_biography": "<p>Software Engineer / Architect with a specialty in large scale data processing, machine learning, distributed computing, scalability, and data visualization. </p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "https://github.com/tspurway", 
+        "linkedin": "https://www.linkedin.com/in/timspurway/", 
+        "featured": false, 
+        "sessions": [
+			{
+				"id": 1370,
+				"title": "PlacesDB Evolution"
+			}
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/tim_spurway.jpg"
+    },
+	{
+        "id": 44, 
+        "name": "Laura Thomson", 
+        "email": "lthomson@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/laura_thomson.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Director of Engineering, Firefox Engineering Operations", 
+        "country": "", 
+        "short_biography": "<p>Leading large scale development projects; building resilient teams and systems; driving success</p>",
+		"long_biography": "<p>Leading large scale development projects; building resilient teams and systems; driving success</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/lxt", 
+        "facebook": "", 
+        "github": "https://github.com/lauraxt", 
+        "linkedin": "https://www.linkedin.com/in/laurathomson/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1207, 
+                "title": "Firefox Engineering Operations"
+            },
+			{
+                "id": 1208, 
+                "title": "Firefox Engineering Operations"
+            },
+			{
+                "id": 1209, 
+                "title": "Firefox Engineering Operations"
+            },
+			{
+                "id": 1210, 
+                "title": "Firefox Engineering Operations"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/laura_thomson.jpg"
+    },
+	{
+        "id": 45, 
+        "name": "Steven Potter", 
+        "email": "spotter@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/steven_potter.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Program Coordinator, Strategic Planning and Management", 
+        "country": "", 
+        "short_biography": "<p>I make things easier, more efficient, and more fun. I'm proud to spend my days among the brilliant minds of Mozilla's Portland office. You can often find me dancing in my chair, as I share my know-how on all things OKRs and project and program management. </p>",
+		"long_biography": "<p>I make things easier, more efficient, and more fun. I'm proud to spend my days among the brilliant minds of Mozilla's Portland office. You can often find me dancing in my chair, as I share my know-how on all things OKRs and project and program management. </p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/steven-potter-7232b788/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1211, 
+                "title": "Need help with your Q3 OKRs?"
+            },
+			{
+                "id": 1212, 
+                "title": "Need help with your Q3 OKRs?"
+            },
+			{
+                "id": 1213, 
+                "title": "Need help with your Q3 OKRs?"
+            },
+			{
+                "id": 1267, 
+                "title": "How are teams using OKRs? How are they using them differently?"
+            }
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/steven_potter.jpg"
+    },
+	{
+        "id": 46, 
+        "name": "Paul Thierault", 
+        "email": "pthierault@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/paul_thierault.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Security Manager", 
+        "country": "", 
+        "short_biography": "<p>Security Manager at Mozilla. Love reading books.</p>",
+		"long_biography": "<p>Security Manager at Mozilla. Love reading books.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/creativemisuse", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/paul-theriault-a093702/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1214, 
+                "title": "Graphics Security Vulnerabilities from Static Analysis"
+            }
+		],  
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/paul_thierault.jpg"
+    },
+	{
+        "id": 47, 
+        "name": "Alex Costello", 
+        "email": "acostello@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/alex_costello.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Manager, Marketing Operations", 
+        "country": "", 
+        "short_biography": "<p>Fantastic customer experience comes from happy, healthy and talented creative teams. Designers, developers, IA, QA, editors… they all need to be involved in the process. There can’t be any silos in successful design, I believe.</p>",
+		"long_biography": "<p>Fantastic customer experience comes from happy, healthy and talented creative teams. Designers, developers, IA, QA, editors… they all need to be involved in the process. There can’t be any silos in successful design, I believe.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/alex-costello-4b3881/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1215, 
+                "title": "Marketing Team Norms Workshop"
+            },
+			{
+                "id": 1216, 
+                "title": "Marketing Team Norms Workshop"
+            },
+			{
+                "id": 1217, 
+                "title": "Marketing Team Norms Workshop"
+            }
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/alex_costello.jpg"
+    },
+	{
+        "id": 48, 
+        "name": "Caitlin Galimidi", 
+        "email": "cgalimidi@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/caitlin_galimidi.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Program Management, Strategic Planning, Operations", 
+        "country": "", 
+        "short_biography": "<p>18+ years, accomplished senior program and management experience</p>",
+		"long_biography": "<p>18+ years, accomplished senior program and management experience</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/pmpcat", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/caitlingalimidi/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1218, 
+                "title": "Strategic Ops Insights"
+            }
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/caitlin_galimidi.jpg"
+    },
+	{
+        "id": 49, 
+        "name": "Natalie Haywood", 
+        "email": "nhaywood@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/natalie_haywood.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Manager, Application and Data Services", 
+        "country": "", 
+        "short_biography": "<p>Leading technical teams to provide high quality, effective solutions for our customers. Ensuring that all members of the team understand the customer's journey and how they can add value along the way.</p>",
+		"long_biography": "<p>Leading technical teams to provide high quality, effective solutions for our customers. Ensuring that all members of the team understand the customer's journey and how they can add value along the way.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/natalie-haywood/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1219, 
+                "title": "Change 2.0 User Group"
+            }
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/natalie_haywood.jpg"
+    },
+	{
+        "id": 50, 
+        "name": "Kadir Topal", 
+        "email": "ktopal@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/kadir_topal.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Senior Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Creating products that delight and make a positive contribution to the world.</p>",
+		"long_biography": "<p>Creating products that delight and make a positive contribution to the world.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/atopal", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/kadirtopal/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1220, 
+                "title": "MDN unconference"
+            },
+			{
+                "id": 1221, 
+                "title": "MDN Team Q3 Planning"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/kadir_topal.jpg"
+    },
+	{
+        "id": 51, 
+        "name": "Azita Rashed", 
+        "email": "arashed@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/azita_rashed.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director of Engineering", 
+        "country": "", 
+        "short_biography": "<p>I have over 15 years of experience in field application sales and hardware engineering with proven track record of winning designs over $150MMs per year and launching multiple products in high speed networking market.</p>",
+		"long_biography": "<p>I have over 15 years of experience in field application sales and hardware engineering with proven track record of winning designs over $150MMs per year and launching multiple products in high speed networking market.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/azita-rashed-251649/", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1222, 
+                "title": "ET Demo-focused Open House"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/azita_rashed.jpg"
+    },
+	{
+        "id": 52, 
+        "name": "Martin Lopatka", 
+        "email": "mlopatka@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/martin_lopatka.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Data Scientist", 
+        "country": "", 
+        "short_biography": "<p>I am interested in applying machine learning techniques to extract interesting and actionable patterns from complex multivariate data. My doctoral research has been in forensic chemometric applications to making quantitative assertions regarding the evidential value of forensic traces. </p>",
+		"long_biography": "<p>I am interested in applying machine learning techniques to extract interesting and actionable patterns from complex multivariate data. My doctoral research has been in forensic chemometric applications to making quantitative assertions regarding the evidential value of forensic traces. </p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/martin-lopatka-00061954/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1223, 
+                "title": "Firefox Pioneer - Initial Experiments Strategy Session"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/martin_lopatka.jpg"
+    },
+	{
+        "id": 53, 
+        "name": "Chris Karlof", 
+        "email": "ckarlof@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/chris_karlof.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Director of Engineering", 
+        "country": "", 
+        "short_biography": "<p>Director of Engineering at Mozilla. Passioante about technology.</p>",
+		"long_biography": "<p>Director of Engineering at Mozilla. Passioante about technology.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/chriskarlof", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/karlof/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1224, 
+                "title": "Firefox Applications Homeroom"
+            },
+			{
+                "id": 1225, 
+                "title": "Firefox Applications Homeroom"
+            },
+			{
+                "id": 1226, 
+                "title": "Firefox Applications Homeroom"
+            },
+			{
+                "id": 1227, 
+                "title": "Firefox Applications Homeroom"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/chris_karlof.jpg"
+    },
+	{
+        "id": 54, 
+        "name": "Katie Parlante", 
+        "email": "kparlante@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/katie_parlante.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Engineering Manager", 
+        "country": "", 
+        "short_biography": "<p>Engineering Manager at Mozilla. Passionate about Technology.</p>",
+		"long_biography": "<p>Engineering Manager at Mozilla. Passionate about Technology.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/capps", 
+        "facebook": "", 
+        "github": "https://github.com/kparlante", 
+        "linkedin": "https://www.linkedin.com/in/katieparlante/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1228, 
+                "title": "Firefox Data Homeroom"
+            },
+			{
+                "id": 1229, 
+                "title": "Firefox Data Homeroom"
+            },
+			{
+                "id": 1230, 
+                "title": "Firefox Data Homeroom"
+            },
+			{
+                "id": 1231, 
+                "title": "Firefox Data Homeroom"
+            },
+			{
+                "id": 1232, 
+                "title": "Data Platform Managers Meeting"
+            }
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/katie_parlante.jpg"
+    },
+	{
+        "id": 55, 
+        "name": "Eric Rescorla", 
+        "email": "erescorla@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/eric_rescorla.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Fellow", 
+        "country": "", 
+        "short_biography": "<p>Eric is a Fellow working on Firefox, focused on developing the next generation of internet technologies for networking, security and real-time media.</p>",
+		"long_biography": "<p>Eric is a Fellow working on Firefox, focused on developing the next generation of internet technologies for networking, security and real-time media.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "", 
+        "featured": true, 
+        "sessions": [
+			{
+                "id": 1233, 
+                "title": "Firefox Advanced Technology Lab Homeroom"
+            },
+			{
+                "id": 1234, 
+                "title": "Firefox Advanced Technology Lab Homeroom"
+            },
+			{
+                "id": 1235, 
+                "title": "Firefox Advanced Technology Lab Homeroom"
+            },
+			{
+                "id": 1236, 
+                "title": "Firefox Advanced Technology Lab Homeroom"
+            }
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/eric_rescorla.jpg"
+    },
+	{
+        "id": 56, 
+        "name": "Travis Blow", 
+        "email": "tblow@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/travis_blow.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Manager at Mozilla. Interested in making smart decisions in life</p>",
+		"long_biography": "<p>Manager at Mozilla. Interested in making smart decisions in life</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1237, 
+                "title": "Firefox Engineering/Services Operations Homeroom"
+            },
+			{
+                "id": 1238, 
+                "title": "Firefox Engineering/Services Operations Homeroom"
+            },
+			{
+                "id": 1239, 
+                "title": "Firefox Engineering/Services Operations Homeroom"
+            },
+			{
+                "id": 1240, 
+                "title": "Firefox Engineering/Services Operations Homeroom"
+            }
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/travis_blow.jpg"
+    },
+	{
+        "id": 57, 
+        "name": "JP Rosevear", 
+        "email": "jrosevear@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/jp_rosevear.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Product Manager", 
+        "country": "", 
+        "short_biography": "<p>Keen on making an impact in this company through my business knowledge and making Mozilla a better company.</p>",
+		"long_biography": "<p>Keen on making an impact in this company through my business knowledge and making Mozilla a better company.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1241, 
+                "title": "Firefox Product Integrity Homeroom"
+            },
+			{
+                "id": 1242, 
+                "title": "Firefox Product Integrity Homeroom"
+            },
+			{
+                "id": 1243, 
+                "title": "Firefox Product Integrity Homeroom"
+            },
+			{
+                "id": 1244, 
+                "title": "Firefox Product Integrity Homeroom"
+            },
+			{
+                "id": 1245, 
+                "title": "PI All Hands Kickoff"
+            },
+			{
+                "id": 1246, 
+                "title": "Firefox Product Integrity All Hands"
+            }
+		], 
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/jp_rosevear.jpg"
+    },
+	{
+        "id": 58, 
+        "name": "Michael Ellis", 
+        "email": "mellis@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/m_ellis.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Program Manager", 
+        "country": "", 
+        "short_biography": "<p>Experienced Program Manager with a demonstrated history of working in the computer software industry. Skilled in Search Engine Optimization (SEO), Partner Management, Mobile Applications, Market Research, and Leadership.</p>",
+		"long_biography": "<p>Experienced Program Manager with a demonstrated history of working in the computer software industry. Skilled in Search Engine Optimization (SEO), Partner Management, Mobile Applications, Market Research, and Leadership.</p>",
+        "website": "", 
+        "twitter": "", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/michael-ellis-718b083a/", 
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1247, 
+                "title": "Tech Speakers Wiki Updates"
+            },
+			{
+                "id": 1248, 
+                "title": "Tech Speakers Github Repo"
+            }
+		], 
+        "speaking_experience": "",  
+        "thumbnail": "/images/speakers/m_ellis.jpg"
+    },
+	{
+        "id": 60, 
+        "name": "Konstantina Papadea", 
+        "email": "kpapadea@gmail.com", 
+        "mobile": "", 
+        "photo": "/images/speakers/k_papadea.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Reps Dealer", 
+        "country": "", 
+        "short_biography": "<p>Reps Dealer at Mozilla.</p>",
+		"long_biography": "<p>Reps Dealer at Mozilla.</p>",
+        "website": "", 
+        "twitter": "https://twitter.com/konstantina_p", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/konstantina-papadea-a93a8024/",  
+        "featured": false, 
+        "sessions": [
+			{
+                "id": 1315, 
+                "title": "Reps Council"
+            }
+		],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/k_papadea.jpg"
+    }
+]
