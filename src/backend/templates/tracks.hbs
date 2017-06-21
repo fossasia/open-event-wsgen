@@ -126,22 +126,24 @@
                               <div id="desc2-{{session_id}}" class="margin-top-zero collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
                                 <div class="row">
-                                  <div class="col-md-6 col-xs-12 speakers-list">
-                                    {{#speakers_list}}
-                                      <p class="session-speakers session-speakers-item">
-                                        {{#if photo}}
-                                          <img onError="this.onerror=null;this.src='./images/avatar.png';"
-                                          data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
-                                        {{else}}
-                                          <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
-                                        {{/if}}
-                                      </p>
-                                    {{/speakers_list}}
-                                  </div>
-                                  <div class="col-md-6">
+                                  {{#if speakers_list.length}}
+                                    <div class="speakers-list">
+                                      {{#speakers_list}}
+                                        <p class="session-speakers session-speakers-item">
+                                          {{#if photo}}
+                                            <img onError="this.onerror=null;this.src='./images/avatar.png';"
+                                            data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
+                                          {{else}}
+                                            <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                          {{/if}}
+                                        </p>
+                                      {{/speakers_list}}
+                                    </div>
+                                  {{/if}}
+                                  <div class="speaker-short-info">
                                     <ul class="speaker-name-list">
                                       {{#speakers_list}}
-                                        {{name}}{{#if organisation}}&nbsp;({{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                        {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
                                       {{/speakers_list}}
                                     </ul>
                                     <ul class="speaker-name-list">{{type}}</ul>
@@ -176,7 +178,7 @@
                                     </div>
                                   </a>
                                   {{#if organisation}}
-                                    <p class="session-speakers-more">{{organisation}}</p>
+                                    <p class="session-speakers-more">{{position}} {{organisation}}</p>
                                   {{/if}}
                                   {{#if biography}}
                                     <div class="session-speakers-more">

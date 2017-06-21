@@ -716,8 +716,21 @@ a {
 }
 
 .speakers-list {
+  max-width: 50%;
+  float: left;
+  padding-left: 15px;
+
+  // On smaller screens, make width less between the picture and the description of speaker
+  @media only screen and (max-width: 400px) {
+    max-width: 35%;
+  }
+}
+
+.speaker-short-info {
   width: auto;
-  max-width:50%;
+  overflow: hidden;
+  padding-left: 15px;
+
 }
 
 .track-heading {
@@ -1071,8 +1084,9 @@ a {
 
 .speaker-name {
   color: $light-black;
-  height: 22px;
+  height: 30px;
   text-align: center;
+  line-height: 1em;
 }
 
 @media only screen and (max-width: 692px) {

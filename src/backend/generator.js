@@ -297,7 +297,7 @@ exports.createDistDir = function(req, socket, callback) {
 
         const jsonData = data;
 
-        eventName = jsonData.eventurls.name;
+        eventName = fold.removeSpace(jsonData.eventurls.name);
         if(req.body.datasource == 'eventapi') {
           var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
           var basePath = distHelper.distPath + '/' + appFolder + '/images';

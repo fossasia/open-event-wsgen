@@ -185,13 +185,13 @@ describe('generate', function() {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/mahikaw/open-event/fbf8/sample/F8",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "a@a.com/F8-Facebook Developer Conference 2017");
+        assert.equal(appFolder, "a@a.com/F8-FacebookDeveloperConference2017");
         done();
       });
 
@@ -206,11 +206,10 @@ describe('generate', function() {
         "apiendpoint": "http://eventyay.com/api/v1/events/6",
         "datasource": "eventapi",
         "assetmode" : "download",
-        "sessionMode" : "single"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIA Summit");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
         done();
       });
 
@@ -222,13 +221,50 @@ describe('generate', function() {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/arp95/open-event/allhands/sample/MozillaAllHands_17",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
+        "sessionMode": "single",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "a@a.com/Mozilla All Hands 2017");
+        assert.equal(appFolder, "a@a.com/MozillaAllHands2017");
+        done();
+      });
+
+    });
+
+    it('should generate the OSCON 2017', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCON17",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/OSCONopensourceconvention");
+        done();
+      });
+
+    });
+
+    it('should generate the FOSSASIA 16 event', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2016");
         done();
       });
 
@@ -236,7 +272,7 @@ describe('generate', function() {
 
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 4;
+      var totalFiles = 7;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -260,7 +296,9 @@ describe('generate', function() {
       copyStatic('fasmall.jpg');
       copyStatic('otssmall.jpg');
       copyStatic('fbsmall.jpg');
-      copyStatic('mozilla_banner.png');
+      copyStatic('mozilla_banner.jpg');
+      copyStatic('oscon.png');
+      copyStatic('fa16small.jpg');
 
     });
 
@@ -297,7 +335,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
 
     before(function() {
       eventPage.init(driver);
-      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIA%20Summit');
+      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit');
     });
 
     it('Checking the title of the page', function(done) {
