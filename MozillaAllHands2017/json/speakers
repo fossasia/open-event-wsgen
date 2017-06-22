@@ -1334,7 +1334,7 @@
         "name": "Susan Chen", 
         "email": "schen@gmail.com", 
         "mobile": "", 
-        "photo": "/images/speakers/susan_chen.jpeg", 
+        "photo": "/images/speakers/susan_chen.jpg", 
         "organisation": "Mozilla", 
         "position": "VP, Strategic Business Development", 
         "country": "", 
@@ -1357,7 +1357,7 @@
             }
         ], 
         "speaking_experience": "", 
-        "thumbnail": "/images/speakers/susan_chen.jpeg"
+        "thumbnail": "/images/speakers/susan_chen.jpg"
     },
 	{
         "id": 38, 
