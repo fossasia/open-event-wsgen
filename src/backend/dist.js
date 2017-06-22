@@ -132,6 +132,44 @@ var optimizeBackground = function(image, socket, done) {
   done();
 };
 
+var optimizeLogo = function(image, socket, done) {
+  sharp(image).metadata(function(err, metaData) {
+    if(err) {
+      return done(err);
+    }
+    var width = metaData.width;
+    var height = metaData.height;
+    var ratio = width/height;
+    var padding = 5;
+    var diffHeight = 0;
+    height = 45;
+    width = Math.floor(45 * ratio);
+    if (width > 110) {
+      width = 110;
+      height = Math.floor(width/ratio);
+      diffHeight = 45 - height;
+      padding = padding + (diffHeight)/2;
+    }
+
+    sharp(image).resize(width, height).toFile(image + '.new', function(err, info) {
+      if(err) {
+        return done(err);
+      }
+      fs.unlink(image, function(err) {
+        if(err) {
+          return done(err);
+        }
+        fs.rename(image + '.new', image, function(err) {
+          if(err) {
+            return done(err);
+          }
+          return done(null, padding);
+        });
+      });
+    });
+  });
+};
+
 var resizeSponsors = function(dir, socket, done) {
   fs.readdir(dir + '/sponsors/', function(err, list){
     if(err) {
@@ -211,6 +249,7 @@ module.exports = {
   resizeSponsors,
   resizeSpeakers,
   extensionChange,
+  optimizeLogo,
   moveZip: function(dlPath, id) {
     fs.move(dlPath, path.join(__dirname, "../../uploads/connection-" + id.toString() + "/upload.zip"), () => {
 
@@ -343,18 +382,6 @@ module.exports = {
 
       async.series([
 
-        // Resizing sponsors images to 150X80
-        function(callback) {
-          resizeSponsors(appPath + '/zip/images', socket, function(){
-            callback();
-          });
-        },
-        // Resizing speakers images to 300X300
-        function(callback) {
-          resizeSpeakers(appPath + '/zip/images', socket, function() {
-            callback();
-          });
-        },
         function(callback){
           fs.readdir(appPath + '/zip' , function(err, list){
             if(err) {
