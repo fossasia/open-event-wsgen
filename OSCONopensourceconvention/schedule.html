@@ -148,44 +148,78 @@
             display();
           });
 
-          $('.date-button').click(function() {
-              let className = $(this).attr('class').split(' ')[0];
-              $(this).addClass('is-active');
-              $(this).siblings().removeClass('is-active');
+          function getCurrentDate() {
+            var className = '';
 
-              if(isCalendarView) {
-                $('.calendar').each(function () {
-                  if($(this).attr('class').split(' ')[0] === className) {
-                    $(this).removeClass('hide');
-                  } else {
-                    $(this).addClass('hide');
-                  }
-                });
-              } else {
-                $('.day-filter').each(function () {
-                  if($(this).attr('class').split(' ')[0] === className) {
-                    $(this).removeClass('hide');
-                  } else {
-                    $(this).addClass('hide');
-                  }
-                });
+            $('.date-button').each(function() {
+              if($(this).hasClass('is-active')) {
+                className = $(this).attr('class').split(' ')[0];
               }
             });
+            return className;
+          }
+
+          function viewsFilter(curView, date) {
+            if(curView === 'list') {
+              $('.day-filter').each(function () {
+                if($(this).attr('class').split(' ')[0] === date) {
+                  $(this).removeClass('hide');
+                } else {
+                  $(this).addClass('hide');
+                }
+              });
+            }
+            else if(curView === 'calendar') {
+              $('.calendar').each(function () {
+                if($(this).attr('class').split(' ')[0] === date) {
+                  $(this).removeClass('hide');
+                } else {
+                  $(this).addClass('hide');
+                }
+              });
+            }
+          }
+
+          $('.date-button').click(function() {
+            let className = $(this).attr('class').split(' ')[0];
+
+            $(this).addClass('is-active');
+            $(this).siblings().removeClass('is-active');
+
+            if(isCalendarView) {
+              viewsFilter('calendar', className);
+            } else {
+              viewsFilter('list', className);
+            }
+
+          });
 
           $('#calendar').click(function() {
+            var curDate = getCurrentDate();
+
             isCalendarView = true;
             $('#list').addClass('unselect').removeClass('view-active');
             $('#calendar').removeClass('unselect').addClass('view-active');
             $('.list-view').addClass('hide');
             $('.calendar-view').removeClass('hide');
+
+            if(curDate !== '') {
+              viewsFilter('calendar', curDate);
+            };
           });
 
           $('#list').click(function() {
+            var curDate = getCurrentDate();
+
             isCalendarView = false;
             $('#list').removeClass('unselect').addClass('view-active');
             $('#calendar').addClass('unselect').removeClass('view-active');
             $('.list-view').removeClass('hide');
             $('.calendar-view').addClass('hide');
+
+            if (curDate !== '') {
+              viewsFilter('list', curDate);
+            }
           });
 
           $(".export-png").click(function() {
