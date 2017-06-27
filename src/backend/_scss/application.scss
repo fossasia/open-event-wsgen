@@ -902,9 +902,13 @@ a {
 }
 
 .track-inline {
-  margin : 1%;
+  margin-right: 10px;
   display: inline-block;
   vertical-align: text-top;
+}
+
+.margin-down-10 {
+  margin-bottom: 10px;
 }
 
 //event page
@@ -1833,6 +1837,11 @@ a.skip:hover {
 
 .margin-right-zero {
   margin-right: 0;
+}
+
+.schedule-margin {
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 
 .list-view {

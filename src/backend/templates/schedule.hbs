@@ -113,11 +113,11 @@
                     <div class="padding-right-zero">
                       {{#if ../../../mode}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
-                          class="margin-right-zero sizeevent event"  data-toggle="collapse">
+                          class="schedule-margin sizeevent event"  data-toggle="collapse">
                       {{else}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
-                          class="margin-right-zero sizeevent event"  data-toggle="collapse"
-                          data-target="#desc-{{session_id}} .collapse"
+                          class="schedule-margin sizeevent event"  data-toggle="collapse"
+                          data-target="#desc-{{session_id}}"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                       {{/if}}
@@ -130,39 +130,37 @@
                           </i>
                         </a>
                       </h4>
-                      <div id="desc-{{session_id}}">
-                        <div class="collapse">
-                          {{{description}}}
-                          {{#if audio}}
-                            <audio controls="" preload="none" id="audio-block">
+                      <div id="desc-{{session_id}}" class="collapse">
+                        {{{description}}}
+                        {{#if audio}}
+                          <audio controls="" preload="none" id="audio-block">
                             <source src="{{ audio }}">
-                            </audio>
-                          {{/if}}
-                        </div>
-                        <hr class="clear-both collapse">
-                        <div class="session-speakers-list collapse"
+                          </audio>
+                        {{/if}}
+                        {{#ifvalue description notequals=""}}
+                          <hr class="clear-both">
+                        {{/ifvalue}}
+                        <div class="session-speakers-list"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                           {{#each speakers_list}}
                           <a href="speakers.html#{{nameIdSlug}}">
-                            <p class="session-speakers-less">
-                              <p class="session-speakers">
+                              <div class="margin-down-10">
                               {{#if photo}}
                                 <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="card-img-top speaker-image-large lazy" width="10" height="10"/>
                               {{else}}
                                 <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                               {{/if}}
-                              </p>
-                              <span class="graytext speaker-name">{{name}}</span>
-                            </p>
+                              </div>
+                              <div class="margin-down-10">{{name}}</div>
                           </a>
                           {{#if organisation}}
-                          <p class="session-speakers-more">
+                          <div class="session-speakers-more margin-down-10">
                             {{position}} {{organisation}}
-                          </p>
+                          </div>
                           {{/if}}
                           {{#if biography}}
-                            <div class="session-speakers-more">
+                            <div class="session-speakers-more margin-down-10">
                               {{{biography}}}
                             </div>
                           {{/if}}
