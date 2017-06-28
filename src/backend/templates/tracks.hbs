@@ -263,7 +263,7 @@
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/tracks.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var maxNoOfSessions = 1000;
+      var eventName = "{{eventurls.name}}";
       var flag = 0;
       var isAdded = 0;
       var mode = 0;
@@ -368,8 +368,8 @@
         });
 
         $('.room-filter').click(function () {
-          var temp = JSON.parse(localStorage['sessions']);
-          var id =  Number($(this).attr('id'));;
+          var temp = JSON.parse(localStorage[eventName]);
+          var id =  $(this).attr('id');
           var sessionMode = "{{mode}}";
 
           if (flag) {
@@ -383,7 +383,7 @@
               }
             }
             flag = isAdded = 0;
-            localStorage['sessions'] = JSON.stringify(temp);
+            localStorage[eventName] = JSON.stringify(temp);
           }
           else if(sessionMode == 'single') {
             var curUrl = window.location.href;
@@ -409,10 +409,7 @@
         });
 
         function display() {
-          if (localStorage.hasOwnProperty('sessions') === false) {
-            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
-          }
-          var temp = JSON.parse(localStorage['sessions']);
+          var temp = JSON.parse(localStorage[eventName]);
 
           $('.date-filter').each(function () {
             var dateFlag = 0;
@@ -452,17 +449,16 @@
         }
 
         function initPage() {
-          console.log("inside initPage");
-          if(localStorage.hasOwnProperty('sessions') === false) {
-            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty(eventName) === false) {
+            localStorage[eventName] = '{}';
           }
-          var temp = JSON.parse(localStorage['sessions']);
+          var temp = JSON.parse(localStorage[eventName]);
           var elemId;
-          for (var i = 0; i < temp.length; i++) {
-            if(temp[i] === 1) {
-              elemId = $('#' + i).find('.bookmark').css("color", "black");;
+          Object.keys(temp).forEach(function(key) {
+            if (temp[key] == 1) {
+              elemId = $('#' + key).find('.bookmark').css("color", "black");;
             }
-          }
+          });
         }
         initPage();
       });
