@@ -176,11 +176,12 @@
               <div class="row">
                 {{#each sponsorpics}}
                   {{#each this}}
-                    <div class=" {{{divclass}}}">
+                    <div class="{{{divclass}}}">
                       <div class=" {{{sponsorimg}}} text-center">
                         <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
                           <img class="lazy centre {{{imgsize}}}" alt="{{{name}}}" data-original="{{{logo}}}">
                         </a>
+                        {{{name}}}
                       </div>
                     </div>
                   {{/each}}
