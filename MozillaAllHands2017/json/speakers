@@ -2054,5 +2054,49 @@
 		],  
         "speaking_experience": "", 
         "thumbnail": "/images/speakers/k_papadea.jpg"
-    }
+    },
+
+    {
+        "id": 61, 
+        "name": "Denelle Dixon", 
+        "email": "", 
+        "mobile": "", 
+        "photo": "/images/speakers/denelle.jpg", 
+        "organisation": "Mozilla", 
+        "position": "Chief Business and Legal Officer ", 
+        "country": "", 
+        "short_biography": "<p>Chief Business and Legal Officer at Mozilla.</p>",
+        "long_biography": "I spearhead Mozilla’s business, policy and legal activities in defense of an open, transparent and commercially sustainable Web. I lead Mozilla’s team responsible for negotiating partnerships and revenue relationships that ensure Mozilla’s sustainability. I have been a vocal advocate for encryption, the disclosure of vulnerabilities by governments and greater user choice and control.",
+        "website": "", 
+        "twitter": "https://twitter.com/denelledixon", 
+        "facebook": "", 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/denelle-dixon-967a236/",  
+        "featured": false, 
+        "sessions": [
+            {
+                "id": 1259, 
+                "title": "Denelle's All Org Team Session"
+            },
+            {
+                "id": 1260, 
+                "title": "Denelle's All Org Team Session"
+            },
+            {
+                "id": 1261, 
+                "title": "Denelle's All Org Team Session"
+            },
+            {
+                "id": 1262, 
+                "title": "Denelle's All Org Team Session"
+            },
+            {
+                "id": 1263, 
+                "title": "Denelle's All Org Team Session/Closing"
+            }
+        ],  
+        "speaking_experience": "", 
+        "thumbnail": "/images/speakers/denelle.jpg"
+      }
+  
 ]

@@ -10671,7 +10671,23 @@
 			"name": "Union Square 22"
 		}, 
         "signup_url": "", 
-        "speakers": [], 
+        "speakers": [
+            {
+                "city": null, 
+                "heard_from": null, 
+                "icon": "", 
+                "id": 17, 
+                "long_biography": "", 
+                "name": "Denlle Dixon", 
+                "organisation": "Mozilla", 
+                "photo": "/images/speakers/denelle.jpg", 
+                "short_biography": "", 
+                "small": "", 
+                "speaking_experience": "", 
+                "sponsorship_required": "", 
+                "thumbnail": "/images/speakers/denelle.jpg"
+            }
+        ], 
         "state": "accepted"
     },
 	{
@@ -10704,7 +10720,23 @@
 			"name": "Union Square 22"
 		}, 
         "signup_url": "", 
-        "speakers": [], 
+        "speakers": [
+            {
+                "city": null, 
+                "heard_from": null, 
+                "icon": "", 
+                "id": 17, 
+                "long_biography": "", 
+                "name": "Denlle Dixon", 
+                "organisation": "Mozilla", 
+                "photo": "/images/speakers/denelle.jpg", 
+                "short_biography": "", 
+                "small": "", 
+                "speaking_experience": "", 
+                "sponsorship_required": "", 
+                "thumbnail": "/images/speakers/denelle.jpg"
+            }
+        ], 
         "state": "accepted"
     },
 	{
@@ -10737,7 +10769,23 @@
 			"name": "Union Square 22"
 		}, 
         "signup_url": "", 
-        "speakers": [], 
+        "speakers": [
+            {
+                "city": null, 
+                "heard_from": null, 
+                "icon": "", 
+                "id": 17, 
+                "long_biography": "", 
+                "name": "Denlle Dixon", 
+                "organisation": "Mozilla", 
+                "photo": "/images/speakers/denelle.jpg", 
+                "short_biography": "", 
+                "small": "", 
+                "speaking_experience": "", 
+                "sponsorship_required": "", 
+                "thumbnail": "/images/speakers/denelle.jpg"
+            }
+        ],  
         "state": "accepted"
     },
 	{
@@ -10770,7 +10818,23 @@
 			"name": "Union Square 22"
 		}, 
         "signup_url": "", 
-        "speakers": [], 
+        "speakers": [
+            {
+                "city": null, 
+                "heard_from": null, 
+                "icon": "", 
+                "id": 17, 
+                "long_biography": "", 
+                "name": "Denlle Dixon", 
+                "organisation": "Mozilla", 
+                "photo": "/images/speakers/denelle.jpg", 
+                "short_biography": "", 
+                "small": "", 
+                "speaking_experience": "", 
+                "sponsorship_required": "", 
+                "thumbnail": "/images/speakers/denelle.jpg"
+            }
+        ],  
         "state": "accepted"
     },
 	{
@@ -10803,7 +10867,23 @@
 			"name": "Union Square 22"
 		}, 
         "signup_url": "", 
-        "speakers": [], 
+        "speakers": [
+            {
+                "city": null, 
+                "heard_from": null, 
+                "icon": "", 
+                "id": 17, 
+                "long_biography": "", 
+                "name": "Denlle Dixon", 
+                "organisation": "Mozilla", 
+                "photo": "/images/speakers/denelle.jpg", 
+                "short_biography": "", 
+                "small": "", 
+                "speaking_experience": "", 
+                "sponsorship_required": "", 
+                "thumbnail": "/images/speakers/denelle.jpg"
+            }
+        ],  
         "state": "accepted"
     },
 	{
