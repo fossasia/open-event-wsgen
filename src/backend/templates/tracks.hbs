@@ -106,26 +106,20 @@
                         </div>
                         <div class="room-container">
                           <div class="left-border col-xs-10 col-sm-10 col-md-10">
+                            {{#if ../../../mode}}
                             <div class="sizeevent event" id="event-title" style="background-color: {{../color}}; color:{{../font_color}};">
-                              {{title}}
-                              <a class="bookmark">
+                            {{else}}
+                            <div class="sizeevent event" id="event-title" style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
+                            {{/if}}
+                              <div class="margin-down-15">{{title}}</div>
+                              <a class="bookmark" id="b{{session_id}}">
                                 <i class="fa fa-star" aria-hidden="true">
                                 </i>
                               </a>
-                            </div>
-                            {{#if ../../../mode}}
-                            <h4 id="event-upper-block" style="background-color: {{../color}}; color:{{../font_color}};"
-                                class="sizeevent event">
-                            {{else}}
-                            <h4 id="event-upper-block" style="background-color: {{../color}}; color:{{../font_color}};"
-                                class="sizeevent event"
-                              data-toggle="collapse" data-target="#desc-{{session_id}} .collapse, #desc2-{{session_id}}"
-                              aria-expanded="false" aria-controls="desc-{{session_id}}">
-                            {{/if}}
                               {{#if audio}}
                                 <i class="fa fa-music" aria-hidden="true"></i>
                               {{/if}}
-                              <div id="desc2-{{session_id}}" class="margin-top-zero collapse in"
+                              <div id="desc2-{{session_id}}" class="collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
                                 <div class="row">
                                   {{#if speakers_list.length}}
@@ -152,18 +146,16 @@
                                   </div>
                                 </div>
                               </div>
-                            </h4>
-                            <div id="desc-{{session_id}}">
-                              <div class="collapse">
-                                {{{description}}}
-                                {{#if audio}}
-                                  <audio controls="" id="audio-block" preload="none">
-                                    <source src="{{ audio }}">
-                                  </audio>
-                                {{/if}}
-                              </div>
-                              <hr class="clear-both collapse">
-                              <div class="session-speakers-list collapse" aria-expanded="false"
+                            </div>
+                            <div id="desc-{{session_id}}" class="collapse">
+                              {{{description}}}
+                              {{#if audio}}
+                                <audio controls="" id="audio-block" preload="none">
+                                  <source src="{{ audio }}">
+                                </audio>
+                              {{/if}}
+                              <hr class="clear-both">
+                              <div class="session-speakers-list" aria-expanded="false"
                                 aria-controls="desc-{{session_id}}">
                                 {{#speakers_list}}
                                   <a href="speakers.html#{{nameIdSlug}}">
@@ -263,10 +255,11 @@
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/tracks.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-      var maxNoOfSessions = 1000;
+      var eventName = "{{eventurls.name}}";
       var flag = 0;
       var isAdded = 0;
       var mode = 0;
+      // Mode is true if the page is in starred view.
 
       $(function () {
         $("img.lazy").lazyload({
@@ -354,43 +347,23 @@
           $(this).change();
         });
 
-        $('.bookmark').click(function () {
-          flag = 1;
+        $('.bookmark').click(function (event) {
+          var temp = JSON.parse(localStorage[eventName]);
           var curColor = $(this).css("color");
+          var id = $(this).attr('id').substring(1);
+          flag = 1;
+
           if (curColor == "rgb(0, 0, 0)") {
+            temp[id] = 0;
             $(this).css("color", "");
-            isAdded = 0;
-          }
-          else {
+            if(mode) $('#' + id).hide();
+          } else {
             $(this).css("color", "black");
-            isAdded = 1;
-          }
-        });
-
-        $('.room-filter').click(function () {
-          var temp = JSON.parse(localStorage['sessions']);
-          var id =  Number($(this).attr('id'));;
-          var sessionMode = "{{mode}}";
-
-          if (flag) {
-            if (isAdded) {
-              temp[id] = 1;
-            }
-            else {
-              temp[id] = 0;
-              if (mode) {
-                $(this).hide();
-              }
-            }
-            flag = isAdded = 0;
-            localStorage['sessions'] = JSON.stringify(temp);
-          }
-          else if(sessionMode == 'single') {
-            var curUrl = window.location.href;
-            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
-            window.location.href = newUrl;
+            temp[id] = 1;
           }
 
+          localStorage[eventName] = JSON.stringify(temp);
+          event.stopPropagation();
         });
 
         $('#starred').click(function () {
@@ -402,17 +375,18 @@
           display();
         });
 
-        $('div.sizeevent').click(function () {
-          if (flag) return;
-          var $par = $(this).parent();
-          $par.children('h4')[0].click();
+        $('.room-filter').click(function () {
+          var sessionMode = "{{mode}}";
+          var id =  $(this).attr('id');
+          if(sessionMode == 'single') {
+            var curUrl = window.location.href;
+            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
+            window.location.href = newUrl;
+          }
         });
 
         function display() {
-          if (localStorage.hasOwnProperty('sessions') === false) {
-            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
-          }
-          var temp = JSON.parse(localStorage['sessions']);
+          var temp = JSON.parse(localStorage[eventName]);
 
           $('.date-filter').each(function () {
             var dateFlag = 0;
@@ -452,17 +426,16 @@
         }
 
         function initPage() {
-          console.log("inside initPage");
-          if(localStorage.hasOwnProperty('sessions') === false) {
-            localStorage['sessions'] = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+          if(localStorage.hasOwnProperty(eventName) === false) {
+            localStorage[eventName] = '{}';
           }
-          var temp = JSON.parse(localStorage['sessions']);
+          var temp = JSON.parse(localStorage[eventName]);
           var elemId;
-          for (var i = 0; i < temp.length; i++) {
-            if(temp[i] === 1) {
-              elemId = $('#' + i).find('.bookmark').css("color", "black");;
+          Object.keys(temp).forEach(function(key) {
+            if (temp[key] == 1) {
+              elemId = $('#' + key).find('.bookmark').css("color", "black");;
             }
-          }
+          });
         }
         initPage();
       });
