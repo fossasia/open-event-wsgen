@@ -140,8 +140,9 @@
     {{/session}}
     {{> footer}}
     <script>
-      var name = "{{eventurls.name}}";
-      name = name.substring(name.lastIndexOf('/') + 1);
+      var eventInfo = {};
+      eventInfo.name = "{{eventurls.name}}";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
     </script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
