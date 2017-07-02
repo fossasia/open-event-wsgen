@@ -1,20 +1,21 @@
 $(document).ready(function() {
+  // eventInfo is an object defined in the script section inside the session template file
+  var eventName = eventInfo.name;
   var sideslider = $('[data-toggle=collapse-side]');
   var sel = sideslider.attr('data-target');
   var top = $('header[role=banner]').outerHeight();
   var downButton = $('#down-button');
   var sessionElem = $('.single-session');
-  var sessionId = Number(sessionElem.attr('id'));
-  var maxNoOfSessions = 1000;
+  var sessionId = sessionElem.attr('id');
 
   function init() {
     var temp;
 
-    if (localStorage.hasOwnProperty('sessions') === false) {
-      localStorage.sessions = JSON.stringify(new Array(maxNoOfSessions).fill(0));
+    if (localStorage.hasOwnProperty(eventName) === false) {
+      localStorage[eventName] = '{}';
     }
 
-    temp = JSON.parse(localStorage.sessions);
+    temp = JSON.parse(localStorage[eventName]);
 
     if (temp[sessionId] === 1) {
       sessionElem.find('.bookmark').css('color', 'black');
@@ -42,7 +43,7 @@ $(document).ready(function() {
   });
 
   $('.bookmark').click(function() {
-    var temp = JSON.parse(localStorage.sessions);
+    var temp = JSON.parse(localStorage[eventName]);
     var curColor = $(this).css('color');
 
     if (curColor === 'rgb(0, 0, 0)') {
@@ -53,7 +54,7 @@ $(document).ready(function() {
       temp[sessionId] = 1;
     }
 
-    localStorage.sessions = JSON.stringify(temp);
+    localStorage[eventName] = JSON.stringify(temp);
   });
 
   $('.session-lin').click(function(e) {
