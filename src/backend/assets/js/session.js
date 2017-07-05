@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  // name is variable defined in the script in the session template file
-  var eventName = name;
+  // eventInfo is an object defined in the script section inside the session template file
+  var eventName = eventInfo.name;
   var sideslider = $('[data-toggle=collapse-side]');
   var sel = sideslider.attr('data-target');
   var top = $('header[role=banner]').outerHeight();
