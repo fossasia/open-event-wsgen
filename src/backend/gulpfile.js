@@ -17,9 +17,9 @@ exports.minifyJs = function (path, cb) {
       .pipe(iife({ useStrict : false}))
       .pipe(concat('schedule.min.js'))
       .pipe(babel({ presets: ['es2015'] }))
-      //.pipe(uglify().on('error', function(e) {
-        //console.log("Error while compiling schedule.js");
-      //}))
+      .pipe(uglify().on('error', function(e) {
+        console.log("Error while compiling schedule.js");
+      }))
       .pipe(gulp.dest(path + '/js/'));
   });
 
