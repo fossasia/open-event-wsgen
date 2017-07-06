@@ -1409,14 +1409,6 @@ a {
   color: $gray-dark;
 }
 
-.search-filter {
-
-  .fossasia-filter {
-    background-color: $white;
-    border: 1px solid $gray-dim;
-    color: $black;
-  }
-}
 
 .search-filter-speaker {
   margin-bottom: 3.5rem;
@@ -1463,17 +1455,27 @@ a {
 .fossasia-filter {
   height: 33px;
   width: 180px;
-  padding: 10px;
   padding-left: 25px;
   font-size: small;
   border-radius: 5px;
 }
 
-.search-filter > label > .fa {
-  position: absolute;
-  padding-left: 12px;
-  padding-right: 3px;
-  margin: -6px;
+.search-filter {
+
+  .fossasia-filter {
+    background-color: $white;
+    border: 1px solid $gray-dim;
+    color: $black;
+  }
+
+  label {
+    .fa {
+      margin: -6px;
+      padding-left: 12px;
+      padding-right: 3px;
+      position: absolute;
+    }
+  }
 }
 
 .search-filter input:focus {
