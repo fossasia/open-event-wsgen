@@ -440,13 +440,13 @@ a {
 }
 
 .list-filter {
-    flex-grow: 1;
-    padding-top: 8px;
+  flex-grow: 1;
+  padding-top: 8px;
 }
 
 .calendar-filter {
-    flex-grow: 1;
-    padding-top: 8px;
+  flex-grow: 1;
+  padding-top: 8px;
 }
 
 #event {
@@ -1070,7 +1070,7 @@ a {
 
 
         &:hover {
-            .hover-state {
+          .hover-state {
             opacity: 1;
 
             .social-links {
@@ -1288,7 +1288,7 @@ a {
 @media screen and (max-width : 600px) {
   .tweets-feed {
     font-size : 1em;
-      #dateTweeted {
+    #dateTweeted {
       display: block;
       font-size: .9em;
     }
@@ -1409,14 +1409,6 @@ a {
   color: $gray-dark;
 }
 
-.search-filter {
-
-  .fossasia-filter {
-    background-color: $white;
-    border: 1px solid $gray-dim;
-    color: $black;
-  }
-}
 
 .search-filter-speaker {
   margin-bottom: 3.5rem;
@@ -1427,6 +1419,7 @@ a {
     height: 28px;
     margin: 0 auto;
     width: 186px;
+    padding-left: 25px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -1441,53 +1434,64 @@ a {
 }
 
 .tweets-row{
-    background: $white-classic-background;
-    margin-right: 0px;
-    margin-left: 0px;
-    height: 600px;
+  background: $white-classic-background;
+  margin-right: 0px;
+  margin-left: 0px;
+  height: 600px;
 
-    section {
-      padding : 72px;
-    }
+  section {
+    padding : 72px;
+  }
 }
 
 
- .search-filter-schedule {
+.search-filter-schedule {
   padding: 10px;
   padding-left: 0px;
   font-size: small;
   border-radius: 5px;
-  }
+}
+
+.fossasia-filter {
+  height: 33px;
+  width: 180px;
+  padding-left: 25px;
+  font-size: small;
+  border-radius: 5px;
+}
+
+.search-filter {
+
   .fossasia-filter {
-    height: 33px;
-    width: 180px;
-    padding: 10px;
-    padding-left: 25px;
-    font-size: small;
-    border-radius: 5px;
+    background-color: $white;
+    border: 1px solid $gray-dim;
+    color: $black;
   }
 
-  .search-filter > label > .fa {
-         position: absolute;
-         padding-left: 12px;
-         padding-right: 3px;
-         margin: -6px;
+  label {
+    .fa {
+      margin: -6px;
+      padding-left: 12px;
+      padding-right: 3px;
+      position: absolute;
+    }
   }
+}
 
-  .search-filter input:focus {
-         outline: none;
-         box-shadow: 0px 0px 3px #0076f9;
+.search-filter input:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px #0076f9;
 }
 
 
-  @media only screen and (max-width: 450px) {
-    margin-right: 5px;
+@media only screen and (max-width: 450px) {
+  margin-right: 5px;
 
-    .fossasia-filter {
-      border-radius: 5px;
-      width: 100%;
-    }
+  .fossasia-filter {
+    border-radius: 5px;
+    width: 100%;
   }
+}
 
 
 .search-filter-room {
@@ -1718,7 +1722,7 @@ a.skip:hover {
 }
 
 .day-filter {
-         background-color: $white;
+  background-color: $white;
 }
 
 
