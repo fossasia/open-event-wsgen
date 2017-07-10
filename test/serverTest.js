@@ -345,6 +345,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
         done();
       });
     });
+
+    it('Check whether the down button is working or not', function(done) {
+      eventPage.checkDownButton().then(function(offset) {
+        assert.equal(offset, 0);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing tracks page', function() {

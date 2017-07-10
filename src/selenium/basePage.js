@@ -62,6 +62,25 @@ var BasePage = {
       promiseArr.push(elem.isDisplayed());
     });
     return Promise.all(promiseArr);
+  },
+
+  checkDownButton: function() {
+
+    function scrollToEndOfPage() {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function getVerticalOffset() {
+      return window.scrollY;
+    }
+
+    var self = this;
+
+    return self.driver.executeScript(scrollToEndOfPage).then(self.find.bind(self, By.id('down-button'))).then(function(el) {
+      return el.click().then(self.driver.sleep(1000)).then(function() {
+        return self.driver.executeScript(getVerticalOffset);
+      });
+    });
   }
 
 };
