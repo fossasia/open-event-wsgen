@@ -18,7 +18,7 @@ Our chat channel is on gitter here: https://gitter.im/fossasia/open-event-webapp
 
 ## 1. Event Website Output
 
-The component that is generated from the web app are the event websites. A sample event site using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) was generated and added to this repo as a Github Pages site. You can see the live site at http://fossasia.github.io/open-event-webapp/
+The component that is generated from the web app is the event website. Several sample event sites using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) were generated, showcased on the main index page and added to this repo as a Github Pages site. You can have a look at showcase page on http://fossasia.github.io/open-event-webapp/ We also have a custom domain at http://sched.eventyay.com to which the former link is redirected.
 
 ## 2. Web App Generator
 
@@ -33,6 +33,7 @@ The webapp generator uses the following technologies -
  4. [Express.js](http://expressjs.com) - Server framework
  5. [Handelbars](http://handlebarsjs.com) - Template for rendering
  6. [Socket.io](http://socket.io) - For handling multi-user client, with progress of upload/generation
+ 6. [WebdriverJs](https://www.npmjs.com/package/selenium-webdriver) - Official Javascript Implementation of Selenium for testing generated event websites
 
 #### Components of the Generator
 
@@ -68,6 +69,20 @@ The webapp generator uses the following technologies -
   - **rooms.hbs** : rooms.html - Venues page
   - **schedule.hbs** : tracks.html - Tracks page
   - **speakers.hbs** : speakers.html - Speakers page
+  - **session.hbs** : session_id.html - Individual Session page having a particular id
+
+5. Selenium
+
+  Contains scripts related to testing different pages of the generated website.
+
+ - [basePage.js](/src/selenium/basePage.js) - Contains methods common to all the pages of the event site
+ - [eventPage.js](/src/selenium/eventPage.js) - Contains methods for testing of the index page of the event
+ - [trackPage.js](/src/selenium/trackPage.js) - Contains methods for testing of the tracks page of the event
+
+
+6. Overview Site
+
+  Contains thumbnail images of sample events and main index.html file required for the [showcase site](http://sched.eventyay.com)
 
 ### Web App Generator Test Installation
 
@@ -110,13 +125,13 @@ Or use the 1-click deployment button
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this  
 
-![Generator Screencast](docs/screenshots/screencast.gif)
+![Generator Screencast](docs/screenshots/project.gif)
 
- - Add your **email id**, **name of app** (name of event),
+ - Add your **email id**, select **session style** (single page for each session or expandable sessions),
 
  - Then upload the zip file that contains all JSON files for *speakers*, *sessions*, *sponsors*, *event*, *tracks* and *locations* (These you should get from an orga-server or through the API after you have created your event there).
 
- - Now when you click on **GENERATE APP and DOWNLOAD** button, you'll get to download a zip of the event website.
+ - Now, when you click on **GENERATE APP and DOWNLOAD** button, you'll get to download a zip of the event website. You can also deploy the web site to your Github Pages by clicking on **DEPLOY** button.
 
 
 ## Accessing the Generator via REST API
