@@ -19,6 +19,8 @@ var app = require('../src/app');
 var webdriver = require('selenium-webdriver');
 var eventPage = require('../src/selenium/eventPage.js');
 var trackPage = require('../src/selenium/trackPage.js');
+var schedulePage = require('../src/selenium/schedulePage.js');
+var roomPage = require('../src/selenium/roomPage.js');
 var By = webdriver.By;
 var fs = require('fs');
 
@@ -367,6 +369,42 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Checking the bookmark toggle', function(done) {
       trackPage.checkIsolatedBookmark().then(function(num) {
         assert.equal(num, 2);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+  });
+
+  describe('Testing schedule page', function() {
+
+    before(function() {
+      schedulePage.init(driver);
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+    });
+
+    it('Checking the bookmark toggle', function(done) {
+      schedulePage.checkIsolatedBookmark().then(function(val) {
+        assert.equal(val, 1);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+  });
+
+  describe('Testing rooms page', function() {
+
+    before(function() {
+      roomPage.init(driver);
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+    });
+
+    it('Checking the bookmark toggle', function(done) {
+      roomPage.checkIsolatedBookmark().then(function(val) {
+        assert.equal(val, 1);
         done();
       }).catch(function(err) {
         done(err);
