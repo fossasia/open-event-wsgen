@@ -348,6 +348,14 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the presence of tweet section', function(done) {
+      eventPage.checkTweetSection().then(function() {
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Check whether the down button is working or not', function(done) {
       eventPage.checkDownButton().then(function(offset) {
         assert.equal(offset, 0);

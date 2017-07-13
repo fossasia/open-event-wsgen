@@ -10,4 +10,9 @@ EventPage.getEventName = function() {
   });
 };
 
+EventPage.checkTweetSection = function() {
+  //This will return an error if the tweet section is not there
+  return this.find(By.id('tweet'));
+};
+
 module.exports = EventPage;
