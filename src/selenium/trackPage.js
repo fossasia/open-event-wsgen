@@ -25,6 +25,7 @@ TrackPage.checkIsolatedBookmark = function() {
 TrackPage.toggleSessionElem = function() {
   var self = this;
 
+  // Checking the toggle behaviour of session having id 3014
   var promise = new Promise(function(resolve) {
     self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
       var promiseArr = [];

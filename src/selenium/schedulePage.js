@@ -26,4 +26,18 @@ SchedulePage.checkIsolatedBookmark = function() {
   });
 };
 
+SchedulePage.toggleSessionElem = function() {
+  var self = this;
+
+  // Checking the toggle behaviour of session having id 3014
+  var promise = new Promise(function(resolve) {
+    self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
+      resolve(self.find(By.id('desc-3014')).isDisplayed());
+    });
+  });
+
+  return promise;
+};
+
 module.exports = SchedulePage;
+
