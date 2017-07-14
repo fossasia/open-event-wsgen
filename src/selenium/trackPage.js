@@ -21,4 +21,20 @@ TrackPage.checkIsolatedBookmark = function() {
   });
 };
 
+
+TrackPage.toggleSessionElem = function() {
+  var self = this;
+
+  var promise = new Promise(function(resolve) {
+    self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
+      var promiseArr = [];
+      promiseArr.push(self.find(By.id('desc-3014')).isDisplayed());
+      promiseArr.push(self.find(By.id('desc2-3014')).isDisplayed());
+      resolve(Promise.all(promiseArr));
+    });
+  });
+
+  return promise;
+};
+
 module.exports = TrackPage;

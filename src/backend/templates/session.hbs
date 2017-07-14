@@ -47,7 +47,7 @@
           <h3> {{startDay}} </h3>
           <div class = "eventtime"><span class="time-track">{{start}} - {{end}}</span></div>
           <div class="session-content">
-            <div class="sizeevent event" id="event-title" style="background-color:{{color}}; color:{{font_color}}; margin-right:0px; cursor:unset;">
+            <div class="sizeevent event event-title" id="title-{{session_id}}" style="background-color:{{color}}; color:{{font_color}}; margin-right:0px; cursor:unset;">
               {{title}} {{#if type}} ({{type}}) {{/if}} | {{track_title}}
               <a class="bookmark">
                 <i class="fa fa-star" aria-hidden="true">
