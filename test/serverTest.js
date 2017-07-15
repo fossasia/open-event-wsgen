@@ -413,6 +413,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking Jump to Speaker functionality', function(done) {
+      trackPage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       trackPage.checkIsolatedBookmark().then(function(num) {
         assert.equal(num, 2);
@@ -515,6 +525,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking Jump to Speaker functionality', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function(val) {
@@ -557,6 +577,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Checking search functionality', function(done) {
       roomPage.commonSearchTest().then(function(boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking Jump to Speaker functionality', function(done) {
+      roomPage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
         done();
       }).catch(function(err) {
         done(err);
