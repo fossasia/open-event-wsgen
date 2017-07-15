@@ -107,9 +107,9 @@
                         <div class="room-container">
                           <div class="left-border col-xs-10 col-sm-10 col-md-10">
                             {{#if ../../../mode}}
-                            <div class="sizeevent event" id="event-title" style="background-color: {{../color}}; color:{{../font_color}};">
+                              <div class="sizeevent event event-title" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};">
                             {{else}}
-                            <div class="sizeevent event" id="event-title" style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
+                              <div class="sizeevent event event-title" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
                             {{/if}}
                               <div class="margin-down-15">{{title}}</div>
                               <a class="bookmark" id="b{{session_id}}">
