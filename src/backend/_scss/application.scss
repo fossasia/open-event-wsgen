@@ -352,11 +352,13 @@ a {
 }
 
 .sponsor-row {
-  margin: 0;
   font-weight: bold;
   color: black;
-  margin-top: 100px;
-  margin-bottom: 100px;
+}
+
+.sponsor-row-text {
+  margin-bottom: 60px;
+  margin-top: 10px;
 }
 
 .sponsors {
@@ -371,6 +373,11 @@ a {
 
 .location {
   background-color: $white-classic-background;
+}
+
+.location-map {
+  margin-left: 0;
+  margin-right: 0
 }
 
 .address {
@@ -1823,11 +1830,6 @@ a.skip:hover {
   border-color:$light-black;
   margin: 0;
   width: 100%;
-}
-
-
-#content-block {
-  margin: 15px 0 0 15px;
 }
 
 #track-list {

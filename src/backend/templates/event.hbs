@@ -176,7 +176,7 @@
               <div class="row">
                 {{#each sponsorpics}}
                   {{#each this}}
-                    <div class="{{{divclass}}}">
+                    <div class="sponsor-row-text {{{divclass}}}">
                       <div class=" {{{sponsorimg}}} text-center">
                         <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
                           <img class="lazy centre {{{imgsize}}}" alt="{{{name}}}" data-original="{{{logo}}}">
@@ -196,7 +196,7 @@
     {{#if eventurls.latitude }}
       {{#if eventurls.longitude}}
         <div class="location">
-          <div class="sponsor-row row">
+          <div class="location-map row">
             <div class="col-md-8" id="map">
             </div>
             <div class="address col-md-4">
