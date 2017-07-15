@@ -21,6 +21,7 @@ var eventPage = require('../src/selenium/eventPage.js');
 var trackPage = require('../src/selenium/trackPage.js');
 var schedulePage = require('../src/selenium/schedulePage.js');
 var roomPage = require('../src/selenium/roomPage.js');
+var speakerPage = require('../src/selenium/speakerPage.js');
 var By = webdriver.By;
 var fs = require('fs');
 
@@ -366,6 +367,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
     });
 
+    it('Checking search functionality', function(done) {
+      trackPage.commonSearchTest().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       trackPage.checkIsolatedBookmark().then(function(num) {
         assert.equal(num, 2);
@@ -382,6 +392,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+    });
+
+    it('Checking search functionality', function(done) {
+      schedulePage.commonSearchTest().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Checking the bookmark toggle', function(done) {
@@ -402,9 +421,36 @@ describe("Running Selenium tests on Chrome Driver", function() {
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
     });
 
+    it('Checking search functionality', function(done) {
+      roomPage.commonSearchTest().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       roomPage.checkIsolatedBookmark().then(function(val) {
         assert.equal(val, 1);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+  });
+
+  describe('Testing Speakers page', function() {
+
+    before(function() {
+      speakerPage.init(driver);
+      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/speakers.html');
+    });
+
+    it('Checking search functionality', function(done) {
+      speakerPage.searchTest().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, false]);
         done();
       }).catch(function(err) {
         done(err);

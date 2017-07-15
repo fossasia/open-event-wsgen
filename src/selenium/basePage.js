@@ -72,6 +72,36 @@ var BasePage = {
         return self.driver.executeScript('return window.scrollY');
       });
     });
+  },
+
+  search: function(text) {
+    return this.find(By.className('fossasia-filter')).sendKeys(text);
+  },
+
+  commonSearchTest: function(text, idList) {
+    var self = this;
+    var searchText = text || 'Mario';
+
+    // First 4 session ids should show up on default search text and the last two not
+    var arrId = idList || ['3017', '3029', '3013', '3031', '3014', '3015'];
+
+    var promise = new Promise(function(resolve) {
+      self.search(searchText).then(function() {
+        var promiseArr = arrId.map(function(curElem) {
+          return self.find(By.id(curElem)).isDisplayed();
+        });
+
+        self.resetSearchBar().then(function() {
+          resolve(Promise.all(promiseArr));
+        });
+      });
+    });
+
+    return promise;
+  },
+
+  resetSearchBar: function() {
+    return this.find(By.className('fossasia-filter')).clear();
   }
 
 };
