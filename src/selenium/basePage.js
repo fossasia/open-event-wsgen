@@ -1,5 +1,6 @@
 var until = require('selenium-webdriver').until;
 var By = require('selenium-webdriver').By;
+var request = require('request');
 
 var BasePage = {
 
@@ -106,6 +107,33 @@ var BasePage = {
 
   countOnesInArray: function(arr) {
     return arr.reduce(function(counter, value) { return value == 1 ? counter + 1 : counter; }, 0);
+  },
+
+  getAllLinks: function(locator) {
+
+    function linksFromAnchorTags(anchorTags) {
+      var promiseArr = anchorTags.map(function(anchor) { return anchor.getAttribute('href'); });
+      return Promise.all(promiseArr);
+    }
+
+    return this.find(locator).then(function(el) {
+      return el.findElements(By.tagName('a')).then(linksFromAnchorTags);
+    });
+  },
+
+  countBrokenLinks: function(links) {
+    return new Promise(function(resolve) {
+      var brokenLinks = 0, counter = 0;
+
+      links.forEach(function(link) {
+        request(link, function(error, response) {
+          counter += 1;
+          if (error || response.statusCode == 404) { brokenLinks++; }
+          if (counter == links.length) { resolve(brokenLinks); }
+        });
+      });
+
+    });
   }
 
 };
