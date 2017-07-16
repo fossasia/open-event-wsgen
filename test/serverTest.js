@@ -423,6 +423,26 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    // Click on the session Elem to collapse
+    it('Expanding the session', function(done) {
+      schedulePage.toggleSessionElem().then(function(val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+     //Click again to bring it back to default view
+    it('Bring back the session to default view', function(done) {
+      schedulePage.toggleSessionElem().then(function(val) {
+        assert.deepEqual(val, false);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       schedulePage.checkIsolatedBookmark().then(function(val) {
         assert.equal(val, 1);
@@ -439,6 +459,26 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       roomPage.init(driver);
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+    });
+
+    // Click on the session Elem to collapse
+    it('Expanding the session', function(done) {
+      roomPage.toggleSessionElem().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+     //Click again to bring it back to default view
+    it('Bring back the session to default view', function(done) {
+      roomPage.toggleSessionElem().then(function(boolArr) {
+        assert.deepEqual(boolArr, [false, true]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Checking search functionality', function(done) {
