@@ -363,7 +363,7 @@ function returnTracknames(sessions, trackInfo) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
-        sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
+        sortKey: session.track.name,
         slug: slug
       };
       trackData.set(slug, track);
