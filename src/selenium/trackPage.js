@@ -5,8 +5,9 @@ var until = require('selenium-webdriver').until;
 var TrackPage = Object.create(BasePage);
 
 TrackPage.getNoOfVisibleSessionElems = function() {
-  return this.findAll(By.className('room-filter')).then(this.getElemsDisplayStatus).then(function(displayArr) {
-    return displayArr.reduce(function(counter, value) { return value == 1 ? counter + 1 : counter; }, 0);
+  var self = this;
+  return self.findAll(By.className('room-filter')).then(self.getElemsDisplayStatus).then(function(displayArr) {
+    return self.countOnesInArray(displayArr);
   });
 };
 

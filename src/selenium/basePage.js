@@ -102,6 +102,10 @@ var BasePage = {
 
   resetSearchBar: function() {
     return this.find(By.className('fossasia-filter')).clear();
+  },
+
+  countOnesInArray: function(arr) {
+    return arr.reduce(function(counter, value) { return value == 1 ? counter + 1 : counter; }, 0);
   }
 
 };
