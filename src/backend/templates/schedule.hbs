@@ -113,10 +113,10 @@
                     <div class="padding-right-zero">
                       {{#if ../../../mode}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
-                          class="schedule-margin sizeevent event"  data-toggle="collapse">
+                          class="schedule-margin sizeevent event"  id="title-{{session_id}} "data-toggle="collapse">
                       {{else}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
-                          class="schedule-margin sizeevent event"  data-toggle="collapse"
+                          class="schedule-margin sizeevent event" id="title-{{session_id}}" data-toggle="collapse"
                           data-target="#desc-{{session_id}}"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
