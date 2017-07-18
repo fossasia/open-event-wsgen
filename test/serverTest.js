@@ -384,7 +384,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    // Click on the session Elem to collapse
+    //Click on the session Elem to collapse
     it('Expanding the session', function(done) {
       trackPage.toggleSessionElem().then(function(boolArr) {
         assert.deepEqual(boolArr, [true, false]);
@@ -394,7 +394,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-     //Click again to bring it back to default view
+    //Click again to bring it back to default view
     it('Bring back the session to default view', function(done) {
       trackPage.toggleSessionElem().then(function(boolArr) {
         assert.deepEqual(boolArr, [false, true]);
@@ -441,7 +441,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-     //Click again to bring it back to default view
+    // Click again to bring it back to default view
     it('Bring back the session to default view', function(done) {
       schedulePage.toggleSessionElem().then(function(val) {
         assert.deepEqual(val, false);
@@ -451,7 +451,63 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    //Now, we will do a series of tests to check the behaviour of the date divs when the date and mode is changed
+    //First array gives the visibility of the date divs inside the list view container
+    //Second array gives the visibility of the date divs inside the calendar view container
+
+    //In default view, all the dates inside the list view must be visible. The calendar view container should not be shown
+    it('Checking the default view of the page', function(done) {
+      schedulePage.getCurrentView().then(function(arr) {
+        assert.deepEqual(arr[0], [true, true, true]);
+        assert.deepEqual(arr[1], [false, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Changing the date to Sunday', function(done) {
+      schedulePage.changeDay(3).then(function(arr) {
+        assert.deepEqual(arr[0], [false, false, true]);
+        assert.deepEqual(arr[1], [false, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Changing the mode to Calendar', function(done) {
+      schedulePage.changeMode('calendar').then(function(arr) {
+        assert.deepEqual(arr[0], [false, false, false]);
+        assert.deepEqual(arr[1], [false, false, true]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Changing the date to Saturday in calendar mode itself', function(done) {
+      schedulePage.changeDay(2).then(function(arr) {
+        assert.deepEqual(arr[0], [false, false, false]);
+        assert.deepEqual(arr[1], [false, true, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Changing the mode back to list', function(done) {
+      schedulePage.changeMode('list').then(function(arr) {
+        assert.deepEqual(arr[0], [false, true, false]);
+        assert.deepEqual(arr[1], [false, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function(val) {
         assert.equal(val, 1);
         done();
@@ -479,7 +535,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-     //Click again to bring it back to default view
+    // Click again to bring it back to default view
     it('Bring back the session to default view', function(done) {
       roomPage.toggleSessionElem().then(function(boolArr) {
         assert.deepEqual(boolArr, [false, true]);
