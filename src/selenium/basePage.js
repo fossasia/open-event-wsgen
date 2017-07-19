@@ -134,6 +134,28 @@ var BasePage = {
       });
 
     });
+  },
+
+  getPageUrl: function() {
+    return this.driver.getCurrentUrl();
+  },
+
+  jumpToSpeaker: function() {
+    var self = this;
+    var sessionTitleId = 'title-3014';
+    var sessionDetailId = 'desc-3014';
+    var pageVertScrollOffset = 'return window.scrollY';
+
+    return new Promise(function(resolve) {
+      self.find(By.id(sessionTitleId)).then(self.click).then(function() {
+        self.find(By.id(sessionDetailId)).findElement(By.css('a')).click().then(self.getPageUrl.bind(self)).then(function(url) {
+          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
+            resolve(height > 0 && (url.search('speakers') != -1));
+          });
+        });
+      });
+    });
+
   }
 
 };
