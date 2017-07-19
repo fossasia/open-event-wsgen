@@ -342,6 +342,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit');
     });
 
+    it('Checking the broken links in navbar and footer', function(done) {
+      eventPage.getNavbarFooterBrokenLinks().then(function(numBrokenLinks) {
+        assert.equal(numBrokenLinks, 0);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the title of the page', function(done) {
       eventPage.getEventName().then(function(eventName) {
         assert.equal(eventName, "FOSSASIA Summit");
@@ -398,6 +407,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Bring back the session to default view', function(done) {
       trackPage.toggleSessionElem().then(function(boolArr) {
         assert.deepEqual(boolArr, [false, true]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking Jump to Speaker functionality', function(done) {
+      trackPage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
         done();
       }).catch(function(err) {
         done(err);
@@ -506,6 +525,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking Jump to Speaker functionality', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function(val) {
@@ -548,6 +577,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Checking search functionality', function(done) {
       roomPage.commonSearchTest().then(function(boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking Jump to Speaker functionality', function(done) {
+      roomPage.jumpToSpeaker().then(function(val) {
+        assert.equal(val, true);
+        roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
         done();
       }).catch(function(err) {
         done(err);

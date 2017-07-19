@@ -1,5 +1,6 @@
 var until = require('selenium-webdriver').until;
 var By = require('selenium-webdriver').By;
+var request = require('request');
 
 var BasePage = {
 
@@ -106,6 +107,55 @@ var BasePage = {
 
   countOnesInArray: function(arr) {
     return arr.reduce(function(counter, value) { return value == 1 ? counter + 1 : counter; }, 0);
+  },
+
+  getAllLinks: function(locator) {
+
+    function linksFromAnchorTags(anchorTags) {
+      var promiseArr = anchorTags.map(function(anchor) { return anchor.getAttribute('href'); });
+      return Promise.all(promiseArr);
+    }
+
+    return this.find(locator).then(function(el) {
+      return el.findElements(By.tagName('a')).then(linksFromAnchorTags);
+    });
+  },
+
+  countBrokenLinks: function(links) {
+    return new Promise(function(resolve) {
+      var brokenLinks = 0, counter = 0;
+
+      links.forEach(function(link) {
+        request(link, function(error, response) {
+          counter += 1;
+          if (error || response.statusCode == 404) { brokenLinks++; }
+          if (counter == links.length) { resolve(brokenLinks); }
+        });
+      });
+
+    });
+  },
+
+  getPageUrl: function() {
+    return this.driver.getCurrentUrl();
+  },
+
+  jumpToSpeaker: function() {
+    var self = this;
+    var sessionTitleId = 'title-3014';
+    var sessionDetailId = 'desc-3014';
+    var pageVertScrollOffset = 'return window.scrollY';
+
+    return new Promise(function(resolve) {
+      self.find(By.id(sessionTitleId)).then(self.click).then(function() {
+        self.find(By.id(sessionDetailId)).findElement(By.css('a')).click().then(self.getPageUrl.bind(self)).then(function(url) {
+          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
+            resolve(height > 0 && (url.search('speakers') != -1));
+          });
+        });
+      });
+    });
+
   }
 
 };
