@@ -107,7 +107,7 @@
 
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="track-inline" id="{{session_id}}">
+                <div class="schedule-track" id="{{session_id}}">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
@@ -419,7 +419,7 @@
                   var temp = 1;
                   $(this).find('.time-filter').each(function() {
                       var flag = 1;
-                      $(this).find('.track-inline').each(function() {
+                      $(this).find('.schedule-track').each(function() {
                             if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
@@ -457,7 +457,7 @@
                 } else {
                   $('.day-filter').each(function() {
                     $(this).find('.time-filter').each(function() {
-                        $(this).find('.track-inline').each(function() {
+                        $(this).find('.schedule-track').each(function() {
                             $(this).show();
                         });
                         $(this).show();
@@ -498,7 +498,7 @@
             localStorage[eventName] = JSON.stringify(temp);
           });
 
-          $('.track-inline').click(function(event){
+          $('.schedule-track').click(function(event){
             if(flag) {
               event.stopPropagation();
               if(mode && !isAdded) {
@@ -639,7 +639,7 @@
               var dayFlag = 0;
               $(this).find('.time-filter').each(function() {
                 var timeFlag = 0;
-                $(this).find('.track-inline').each(function() {
+                $(this).find('.schedule-track').each(function() {
                   var elemId = $(this).attr('id');
                   var elemFlag = 0;
                   if(temp[elemId] == 1) {
