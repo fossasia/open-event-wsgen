@@ -292,26 +292,30 @@
 
         $('.fossasia-filter').change(function() {
           var filterVal = $(this).val();
+          var temp = JSON.parse(localStorage[eventName]);
           if (filterVal) {
             $('.date-filter').each(function() {
               var flag = 1;
               $(this).find('.venue-filter').each(function() {
                 var flagVenue = 1;
                 $(this).find('.room-filter').each(function() {
-                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
-                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
-                    $(this).hide();
-                  } else {
-                    if($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                        $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                        $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                        $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                      flag = 0;
-                      flagVenue = 0;
-                      $(this).show();
+                  var id = $(this).attr('id');
+                  var elemFlag = 1;
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                    elemFlag = 0;
+                    if(mode && temp[id] != 1) {
+                      elemFlag = 1;
                     }
+                  }
+                  if(elemFlag == 0) {
+                    flagVenue = flag = 0;
+                    $(this).show();
+                  }
+                  else {
+                    $(this).hide();
                   }
                 });
                 if (flagVenue == 1) {
@@ -401,14 +405,33 @@
               var venueFlag = 0;
               $(this).find('.room-filter').each(function() {
                 var elemId = $(this).attr('id');
-                var elemFlag = 0;
-                if(temp[elemId] == 1) {
-                  elemFlag = venueFlag = dateFlag = 1;
-                  $(this).find('.bookmark').each(function() {
-                    $(this).css("color", "black");
-                  });
+                var bookFlag = 0, searchFlag = 0, elemFlag = 0;
+                var filterVal;
+
+                $('.fossasia-filter').each(function() {
+                  if($(this).is(':visible')) {
+                    filterVal = $(this).val();
+                  }
+                });
+
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  searchFlag = 1;
+                  if (temp[elemId] == 1) {
+                    bookFlag = 1;
+                    $(this).find('.bookmark').each(function () {
+                      $(this).css("color", "black");
+                    });
+                  }
                 }
-                if (elemFlag || !mode) {
+
+                if((mode && searchFlag && bookFlag) || (!mode && searchFlag)) {
+                  elemFlag = venueFlag = dateFlag = 1;
+                }
+
+                if (elemFlag) {
                   $(this).show();
                 }
                 else {
