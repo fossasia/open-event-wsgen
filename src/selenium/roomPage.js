@@ -42,4 +42,24 @@ RoomPage.toggleSessionElem = function() {
   return promise;
 };
 
+RoomPage.searchThenStarredMode = function() {
+  var self = this;
+  var idArr = ['3014', '2861', '3015'];
+  var promiseArr = idArr.map(function(elem) {
+    return self.find(By.id(elem));
+  });
+
+  return self.search('wel').then(self.toggleStarredButton.bind(self)).then(self.getElemsDisplayStatus.bind(null, promiseArr));
+};
+
+RoomPage.starredModeThenSearch = function() {
+  var self = this;
+  var idArr = ['3014', '2861', '3015'];
+  var promiseArr = idArr.map(function(elem) {
+    return self.find(By.id(elem));
+  });
+
+  return self.toggleStarredButton().then(self.search.bind(self, 'wel')).then(self.getElemsDisplayStatus.bind(null, promiseArr));
+};
+
 module.exports = RoomPage;
