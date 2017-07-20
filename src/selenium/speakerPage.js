@@ -9,5 +9,24 @@ SpeakerPage.searchTest = function() {
   return this.commonSearchTest('Mario', idList);
 };
 
+SpeakerPage.jumpToTrack = function() {
+  var self = this;
+  var speakerId = '2330';
+  var pageVertScrollOffset = 'return window.scrollY';
+
+  var trackPromise =  new Promise(function(resolve) {
+    self.find(By.id(speakerId)).then(function(elem) {
+      self.driver.actions().mouseMove(elem).perform();
+      elem.findElement(By.className('sessions')).findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
+        .then(function(url) {
+          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
+            resolve(height > 0 && (url.search('tracks') != -1));
+        });
+      });
+    });
+  });
+
+  return trackPromise;
+};
 
 module.exports = SpeakerPage;
