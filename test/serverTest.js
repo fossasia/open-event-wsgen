@@ -432,6 +432,26 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the starred mode after search', function(done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+      trackPage.searchThenStarredMode().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking search in starred mode', function(done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+      trackPage.starredModeThenSearch().then(function(boolArr) {
+        assert.deepEqual(boolArr, [true, false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing schedule page', function() {
