@@ -640,5 +640,14 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Jump to track page on clicking session of a speaker', function(done) {
+      speakerPage.jumpToTrack().then(function(val) {
+        assert.equal(val, 1);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 });
