@@ -159,7 +159,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
-        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
         sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
         slug: slug,
         sessions: []
@@ -173,7 +173,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       return;
     }
     track.sessions.push({
-      startDay: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+      startDay: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
       startDate: moment.parseZone(session.start_time).format('YYYY-MM-DD'),
       start: moment.parseZone(session.start_time).format('HH:mm'),
       end : moment.parseZone(session.end_time).format('HH:mm'),
@@ -267,7 +267,7 @@ function foldByTime(sessions, speakers, trackInfo) {
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
-        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
         times: new Map()
       });
     }
@@ -301,7 +301,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       video: session.video,
       slides: session.slides,
       audio: session.audio,
-      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
       tracktitle: tracktitle,
       speakers: speakersNum
     });
@@ -458,9 +458,9 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     logo_url: event.logo,
     background_url: event.background_image,
     background_path: event.background_image,
-    date: moment.parseZone(event.start_time).format('dddd, Do MMM'),
+    date: moment.parseZone(event.start_time).format('dddd, Do MMMM'),
     time: moment.parseZone(event.start_time).format('HH:mm'),
-    end_date: moment.parseZone(event.end_time).format('dddd, Do MMM'),
+    end_date: moment.parseZone(event.end_time).format('dddd, Do MMMM'),
     end_time: moment.parseZone(event.end_time).format('HH:mm'),
     name: event.name,
     description: event.description,
@@ -711,7 +711,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        date: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+        date: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
         sortKey: moment.parseZone(session.start_time).format('YY-MM-DD'),
         slug: slug,
         start_time: start,
@@ -771,7 +771,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         return spkr;
       }),
       tracktitle: tracktitle,
-      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMM'),
+      sessiondate: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
       roomname: roomName,
       sortKey: venue + moment.parseZone(session.start_time).format('HH:mm')
     });
@@ -935,7 +935,7 @@ function getAllSessions(speakerid , session, trackInfo){
         start: moment.parseZone(session.detail.start_time).format('HH:mm'),
         end:   moment.parseZone(session.detail.end_time).format('HH:mm'),
         title: session.detail.title,
-        date: moment.parseZone(session.detail.start_time).format('ddd, Do MMM'),
+        date: moment.parseZone(session.detail.start_time).format('ddd, Do MMMM'),
         color: returnTrackColor(trackDetails, (session.detail.track === null) ? null : session.detail.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, (session.detail.track === null) ? null : session.detail.track.id),
         microlocation: roomname,
