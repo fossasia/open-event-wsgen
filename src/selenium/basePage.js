@@ -156,6 +156,63 @@ var BasePage = {
       });
     });
 
+  },
+
+  justSleep: function(duration) {
+    return this.driver.sleep(duration);
+  },
+
+  getVerticalOffset: function() {
+    var pageVertScrollOffset = 'return window.scrollY';
+    return this.driver.executeScript(pageVertScrollOffset);
+  },
+
+  goToTop: function() {
+    var self = this;
+    var sleepDuration = 1000;
+
+    return self.find(By.id('down-button')).click().then(function() {
+      return self.driver.sleep(sleepDuration);
+    });
+  },
+
+  subnavbarStatus: function(day) {
+    var self = this;
+    var tabSelectClass = 'tabs-nav-link';
+    var tabLinkContainerClass = 'tab-content';
+    var sleepDuration = 1000;
+
+    var subnavbarPromise = new Promise(function(resolve) {
+      self.findAll(By.className(tabSelectClass)).then(function(dayElems) {
+        dayElems[day - 1].click().then(function() {
+          self.findAll(By.className(tabLinkContainerClass)).then(function(linkContainer) {
+            linkContainer[day - 1].findElements(By.css('a')).then(function(linksArr) {
+              linksArr[linksArr.length - 1].click().then(self.justSleep.bind(self, sleepDuration))
+                .then(self.getVerticalOffset.bind(self)).then(function(height) {
+                  self.goToTop().then(function() {
+                    resolve(height > 0);
+                });
+              });
+            });
+          });
+        });
+      });
+    });
+    return subnavbarPromise;
+  },
+
+  checkAllSubnav: function() {
+    var self = this;
+    var promiseArr = [];
+    var counter = 1;
+    var days = 3;
+
+    while(counter <= days) {
+      promiseArr.push(self.subnavbarStatus(counter));
+      counter += 1;
+    }
+
+    return Promise.all(promiseArr);
   }
 
 };
