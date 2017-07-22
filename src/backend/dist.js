@@ -142,6 +142,7 @@ var optimizeLogo = function(image, socket, done) {
     var ratio = width/height;
     var padding = 5;
     var diffHeight = 0;
+
     height = 45;
     width = Math.floor(45 * ratio);
     if (width > 110) {
@@ -150,6 +151,10 @@ var optimizeLogo = function(image, socket, done) {
       diffHeight = 45 - height;
       padding = padding + (diffHeight)/2;
     }
+    var qualityMultiplier = 4;
+
+    width = width * qualityMultiplier;
+    height = height * qualityMultiplier;
 
     sharp(image).resize(width, height).toFile(image + '.new', function(err, info) {
       if(err) {
