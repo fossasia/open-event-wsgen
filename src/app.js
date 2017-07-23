@@ -20,13 +20,19 @@ const clientId = process.env.GITHUB_CLIENT_ID || config.GITHUB_CLIENT_ID;
 const clientSecret = process.env.GITHUB_CLIENT_SECRET || config.GITHUB_CLIENT_SECRET;
 const sessionSecret = process.env.SESSION_SECRET || config.SESSION_SECRET;
 const callbackUrl = process.env.CALLBACK_URL || config.CALLBACK_URL;
+const sentryUrl = process.env.SENTRY_DSN;
 const ss = require('socket.io-stream');
+const Raven = require('raven');
 
 var errorHandler;
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var id = 0;
+
+if (sentryUrl) {
+  Raven.config(sentryUrl).install();
+}
 
 app.use(compression());
 app.use(require('cookie-parser')());

@@ -57,6 +57,7 @@
     "passport-github": "^1.1.0",
     "path": "^0.12.7",
     "progress-stream": "^2.0.0",
+    "raven": "^2.1.0",
     "recursive-readdir": "^2.1.0",
     "request": "^2.74.0",
     "selenium-webdriver": "^3.4.0",
