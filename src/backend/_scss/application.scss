@@ -1788,6 +1788,8 @@ a.skip:hover {
   position: absolute;
   border: 1px solid $gray-extra-dark;
   width: 100%;
+  line-height: 120%;
+  font-weight: bold;
   word-wrap: break-word;
 }
 
@@ -1831,6 +1833,10 @@ a.skip:hover {
   margin: 0;
   width: 100%;
 }
+
+#content-block {
+   margin: 15px 0 0 15px;
+ }
 
 #track-list {
   margin-top:4%;
