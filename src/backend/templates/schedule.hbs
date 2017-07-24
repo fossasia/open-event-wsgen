@@ -412,7 +412,7 @@
          var val = $(this).parent().parent().find('.speakers-inputbox').val();
          $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
-      $('.fossasia-filter:first').change(function() {
+      $('.fossasia-filter').change(function() {
               var filterVal = $(this).val();
               if (filterVal) {
                 $('.day-filter').each(function() {
