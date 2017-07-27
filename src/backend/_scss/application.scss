@@ -1469,6 +1469,10 @@ a {
 
 .search-filter {
 
+  @media only screen and (max-width: 350px) {
+    display: none;
+  }
+
   .fossasia-filter {
     background-color: $white;
     border: 1px solid $gray-dim;
@@ -1999,5 +2003,48 @@ a.skip:hover {
   li {
     display: inline-block;
   }
+}
+
+
+.search-box {
+  $tl: .3s; // transition length
+  border: 0;
+  height: 40px;
+  outline: 0;
+  transition: width $tl;
+  width: 40px;
+
+  label {
+    .search-icon {
+      color: $black;
+    }
+  }
+
+  &:focus {
+    border: 1px solid $black;
+    border-radius: 20px;
+    box-shadow: none;
+    cursor: text;
+    padding-left: 15px;
+    transition: width $tl;
+    width: 90%;
+  }
+
+  &:not(:focus) {
+    text-indent: -5000px;
+  }
+}
+
+.search-icon {
+  left: -30px;
+  position: relative;
+}
+
+.search-container {
+  @media only screen and (min-width: 350px) {
+    display: none;
+  }
+
+  margin: 7.5px -15px;
 }
 
