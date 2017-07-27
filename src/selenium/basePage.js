@@ -76,7 +76,16 @@ var BasePage = {
   },
 
   search: function(text) {
-    return this.find(By.className('fossasia-filter')).sendKeys(text);
+    var self = this;
+    var searchClass = 'fossasia-filter';
+
+    // There are two search input box with the class fossasia-filter. One of them is for mobile view and other is for bigger
+    // screens. We are doing this test on bigger screen so we have to select that input element and enter text in it. The second
+    // input element is for the bigger screens so working with it
+
+    return self.findAll(By.className(searchClass)).then(function(inputArr) {
+      return inputArr[1].sendKeys(text);
+    });
   },
 
   commonSearchTest: function(text, idList) {
@@ -102,7 +111,12 @@ var BasePage = {
   },
 
   resetSearchBar: function() {
-    return this.find(By.className('fossasia-filter')).clear();
+    var self = this;
+    var searchClass = 'fossasia-filter';
+
+    return self.findAll(By.className(searchClass)).then(function(inputArr) {
+      return inputArr[1].clear();
+    });
   },
 
   countOnesInArray: function(arr) {
