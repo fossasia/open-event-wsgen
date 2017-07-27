@@ -1790,7 +1790,8 @@ a.skip:hover {
   @include cursorpointer;
   color: $white;
   position: absolute;
-  border: 1px solid $gray-extra-dark;
+  outline: 1px solid $gray-extra-dark;
+  padding: 5px;
   width: 100%;
   line-height: 120%;
   font-weight: bold;
