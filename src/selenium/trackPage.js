@@ -13,13 +13,11 @@ TrackPage.getNoOfVisibleSessionElems = function() {
 
 TrackPage.checkIsolatedBookmark = function() {
   // Sample sessions having ids of 3014 and 3015 being checked for the bookmark feature
-  var sessionIdsArr = ['3014', '3015'];
   var self = this;
+  var bookmarkSessionsIdsArr = ['3014', '3015'];
+  var visibleCheckSessionsIdsArr = ['3014', '3015', '2918'];
 
-  // Bookmark the sessions, scrolls down the page and then count the number of visible session elements
-  return self.toggleSessionBookmark(sessionIdsArr).then(self.toggleStarredButton.bind(self)).then(function() {
-    return self.driver.executeScript('window.scrollTo(0, 400)').then(self.getNoOfVisibleSessionElems.bind(self));
-  });
+  return self.bookmarkCheck(bookmarkSessionsIdsArr, visibleCheckSessionsIdsArr);
 };
 
 

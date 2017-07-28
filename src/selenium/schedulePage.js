@@ -6,25 +6,11 @@ var SchedulePage = Object.create(BasePage);
 var datesId = ['2017-03-17', '2017-03-18', '2017-03-19'];
 
 SchedulePage.checkIsolatedBookmark = function() {
-
-  // We go into starred mode and unmark sessions having id 3014 which was marked previously on tracks pages. If the bookmark feature works, then length of the web page would decrease.
-
   var self = this;
-  var getPageHeight = 'return document.body.scrollHeight';
-  var sessionIdsArr = ['3014'];
-  var oldHeight, newHeight;
+  var bookmarkSessionsIdsArr = ['3015'];
+  var visibleCheckSessionsIdsArr = ['3014', '3015', '2918'];
 
-  return self.toggleStarredButton().then(function() {
-    return self.driver.executeScript(getPageHeight).then(function(height) {
-      oldHeight = height;
-      return self.toggleSessionBookmark(sessionIdsArr).then(function() {
-        return self.driver.executeScript(getPageHeight).then(function(height) {
-          newHeight = height;
-          return oldHeight > newHeight;
-        });
-      });
-    });
-  });
+  return self.bookmarkCheck(bookmarkSessionsIdsArr, visibleCheckSessionsIdsArr);
 };
 
 SchedulePage.toggleSessionElem = function() {

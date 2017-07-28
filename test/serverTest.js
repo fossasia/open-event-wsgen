@@ -406,6 +406,24 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking track name list appear near the top of page', function(done) {
+      trackPage.checkTrackNamePos().then(function(boolval) {
+        assert.equal(boolval, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking horizontal alignment of date tab and session content below it', function(done) {
+      trackPage.checkAlignment().then(function(val) {
+        assert.equal(val, 0);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking subnavbar functionality', function(done) {
       trackPage.checkAllSubnav().then(function(boolArr) {
         trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
@@ -456,8 +474,8 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
-      trackPage.checkIsolatedBookmark().then(function(num) {
-        assert.equal(num, 2);
+      trackPage.checkIsolatedBookmark().then(function(visArr) {
+        assert.deepEqual(visArr, [true, true, false]);
         done();
       }).catch(function(err) {
         done(err);
@@ -498,6 +516,24 @@ describe("Running Selenium tests on Chrome Driver", function() {
       schedulePage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
         schedulePage.driver.manage().window().maximize();
         assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking track name list appear near the top of page', function(done) {
+      trackPage.checkTrackNamePos().then(function(boolval) {
+        assert.equal(boolval, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking alignment of date tab and session content', function(done) {
+      trackPage.checkAlignment().then(function(val) {
+        assert.equal(val, 0);
         done();
       }).catch(function(err) {
         done(err);
@@ -600,8 +636,8 @@ describe("Running Selenium tests on Chrome Driver", function() {
 
     it('Checking the bookmark toggle', function(done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
-      schedulePage.checkIsolatedBookmark().then(function(val) {
-        assert.equal(val, 1);
+      schedulePage.checkIsolatedBookmark().then(function(visArr) {
+        assert.deepEqual(visArr, [true, false, false]);
         done();
       }).catch(function(err) {
         done(err);
@@ -622,6 +658,24 @@ describe("Running Selenium tests on Chrome Driver", function() {
       roomPage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
         roomPage.driver.manage().window().maximize();
         assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking track name list appear near the top of page', function(done) {
+      trackPage.checkTrackNamePos().then(function(boolval) {
+        assert.equal(boolval, true);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking alignment of date tab and session content', function(done) {
+      trackPage.checkAlignment().then(function(val) {
+        assert.equal(val, 0);
         done();
       }).catch(function(err) {
         done(err);
@@ -678,8 +732,8 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
-      roomPage.checkIsolatedBookmark().then(function(val) {
-        assert.equal(val, 1);
+      roomPage.checkIsolatedBookmark().then(function(visArr) {
+        assert.deepEqual(visArr, [false, false, false]);
         done();
       }).catch(function(err) {
         done(err);

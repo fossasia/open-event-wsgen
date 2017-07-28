@@ -1844,8 +1844,8 @@ a.skip:hover {
 }
 
 #content-block {
-   margin: 15px 0 0 15px;
- }
+  padding-left: 30px;
+}
 
 #track-list {
   margin-top:4%;
@@ -1870,16 +1870,6 @@ a.skip:hover {
 .schedule-margin {
   margin-right: 0;
   margin-bottom: 20px;
-}
-
-.list-view {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.calendar-view {
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .left-border {

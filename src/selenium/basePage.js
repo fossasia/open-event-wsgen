@@ -245,6 +245,43 @@ var BasePage = {
       promiseArr.push(self.resizeWindow(size[0], size[1]).then(self.checkScrollbar.bind(self)));
     });
     return Promise.all(promiseArr);
+  },
+
+  getPos: function(el) {
+    return el.getLocation();
+  },
+
+  checkTrackNamePos: function() {
+    var self = this;
+
+    return self.find(By.className('track-names')).then(self.getPos).then(function(posObj) {
+      return posObj.y < 2000;
+    });
+  },
+
+  checkAlignment: function() {
+    var self = this;
+    var posPromArr = [];
+
+    posPromArr.push(self.find(By.id('tabs')).then(self.getPos));
+    posPromArr.push(self.find(By.className('text')).then(self.getPos));
+
+    var checkAlign = new Promise(function(resolve) {
+      Promise.all(posPromArr).then(function(posArr) {
+        resolve(Math.abs(posArr[0].x - posArr[1].x));
+      });
+    });
+
+  return checkAlign;
+  },
+
+  bookmarkCheck: function(sessionToggleArr, visCheckSessionArr) {
+    var self = this;
+    var sessionElemArr = visCheckSessionArr.map(function(id) {
+      return self.find(By.id(id));
+    });
+
+  return self.toggleSessionBookmark(sessionToggleArr).then(self.toggleStarredButton.bind(self)).then(self.getElemsDisplayStatus.bind(null, sessionElemArr));
   }
 
 };
