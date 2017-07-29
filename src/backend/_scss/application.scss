@@ -912,7 +912,11 @@ a {
   //cursor:pointer;
 }
 
-.track-inline {
+.schedule-track {
+  @media (max-width: 600px) {
+    display: block;
+  }
+
   margin-right: 10px;
   display: inline-block;
   vertical-align: text-top;

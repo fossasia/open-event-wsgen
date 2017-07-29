@@ -342,6 +342,17 @@ describe("Running Selenium tests on Chrome Driver", function() {
       eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit');
     });
 
+    it('Check for Scrollbars', function(done) {
+      var sizesArr = [[300, 600], [720, 600]];
+      eventPage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
+        eventPage.driver.manage().window().maximize();
+        assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    })
+
     it('Checking the broken links in navbar and footer', function(done) {
       eventPage.getNavbarFooterBrokenLinks().then(function(numBrokenLinks) {
         assert.equal(numBrokenLinks, 0);
@@ -382,6 +393,17 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       trackPage.init(driver);
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+    });
+
+    it('Check for Scrollbars', function(done) {
+      var sizesArr = [[300, 600], [720, 600]];
+      trackPage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
+        trackPage.driver.manage().window().maximize();
+        assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Checking subnavbar functionality', function(done) {
@@ -469,6 +491,17 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+    });
+
+    it('Check for Scrollbars', function(done) {
+      var sizesArr = [[300, 600], [720, 600]];
+      schedulePage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
+        schedulePage.driver.manage().window().maximize();
+        assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Checking search functionality', function(done) {
@@ -582,6 +615,17 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       roomPage.init(driver);
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+    });
+
+    it('Check for Scrollbars', function(done) {
+      var sizesArr = [[300, 600], [720, 600]];
+      roomPage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
+        roomPage.driver.manage().window().maximize();
+        assert.deepEqual(statusArr, [false, false]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Checking subnavbar functionality', function(done) {

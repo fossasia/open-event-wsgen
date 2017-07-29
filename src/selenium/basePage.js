@@ -169,7 +169,16 @@ var BasePage = {
         });
       });
     });
+  },
 
+  resizeWindow: function(width, height) {
+    return this.driver.manage().window().setSize(width, height);
+  },
+
+  checkScrollbar: function() {
+    var scrollVisible =  'return document.documentElement.scrollWidth > document.documentElement.clientWidth';
+
+    return this.driver.executeScript(scrollVisible);
   },
 
   justSleep: function(duration) {
@@ -225,7 +234,16 @@ var BasePage = {
       promiseArr.push(self.subnavbarStatus(counter));
       counter += 1;
     }
+    return Promise.all(promiseArr);
+  },
 
+  getScrollbarVisibility: function(sizeList) {
+    var promiseArr = [];
+    var self = this;
+
+    sizeList.forEach(function(size) {
+      promiseArr.push(self.resizeWindow(size[0], size[1]).then(self.checkScrollbar.bind(self)));
+    });
     return Promise.all(promiseArr);
   }
 
