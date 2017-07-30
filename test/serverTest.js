@@ -424,16 +424,6 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    it('Checking subnavbar functionality', function(done) {
-      trackPage.checkAllSubnav().then(function(boolArr) {
-        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
-        assert.deepEqual(boolArr, [true, true, true]);
-        done();
-      }).catch(function(err) {
-        done(err);
-      });
-    });
-
     it('Checking search functionality', function(done) {
       trackPage.commonSearchTest().then(function(boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);

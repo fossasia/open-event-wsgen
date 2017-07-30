@@ -25,7 +25,7 @@ exports.minifyJs = function (path, cb) {
 
   gulp.task('tracksJs', function() {
 
-    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'tabs.js', dir + 'jquery.lazyload.js'])
+    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'jquery.lazyload.js'])
       .pipe(iife({ useStrict : false}))
       .pipe(concat('tracks.min.js'))
       .pipe(babel({ presets: ['es2015'] }))
