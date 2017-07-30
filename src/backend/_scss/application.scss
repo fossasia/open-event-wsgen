@@ -802,6 +802,15 @@ a {
   border-radius: 50%;
   height: 12px;
   width: 12px;
+  display: inline-block;
+}
+
+.track-name {
+  cursor: pointer;
+}
+
+.track-info {
+  margin-bottom: 5px;
 }
 
 .title-inline {
@@ -826,6 +835,11 @@ a {
 .track-names {
   color: $black;
   margin-top: 16%;
+  padding-left: 30px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 .social-buttons {
@@ -889,10 +903,6 @@ a {
   .title-legend {
     float: left;
     width: 40%;
-  }
-
-  .track-names {
-    margin-top: 0;
   }
 }
 
@@ -2043,3 +2053,14 @@ a.skip:hover {
   margin: 7.5px -15px;
 }
 
+#filterInfo {
+  display: none;
+  font-size: 18px;
+  margin-top:20px;
+  border: 1px dotted black;
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}

@@ -57,7 +57,13 @@
       text across the page.
       --------------------------------------------------------------- -->
       <div class="date-list container">
-        {{> subnavbar flag = 1}}
+        <div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs no-js">
+          <span class="tabs-nav">
+            {{#days}}
+              <a href="./tracks.html#{{firstSlug}}" class="tabs-nav-link">{{caption}}</a>
+            {{/days}}
+          </span>
+        </div>
         <div class = "col-md-4 col-sm-12 col-xs-12 navbar-flex">
           <div class="search-filter search-filter-room filter-margin">
                <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
@@ -69,12 +75,16 @@
           </div>
         </div>
       </div>
+      <div id="filterInfo" class="container">
+        TYPE: <span id="curFilter" style="font-weight:bold;"> </span> <a href="#" id="clearFilter">  [Clear Filter]</a>
+      </div>
       <div id="session-list" class="container">
         <div class="row">
-          <div id="content-block" class="col-md-9">
+          <div id="content-block" class="col-md-9 col-sm-9">
             <div id="track-list">
               {{#days}}
-               <div class="{{firstSlug}} date-filter">
+               <a class="anchor" id="{{firstSlug}}"></a>
+               <div class="date-filter">
                 <div class="row paddingzero">
                   <div class="col-md-12 paddingzero">
                     <h5 class="text">{{caption}}</h4>
@@ -235,13 +245,13 @@
               {{/days}}
             </div>
           </div>
-          <div class="track-names col-md-3" >
+          <div class="track-names col-md-3 col-sm-3">
             {{#tracknames}}
               {{#if title}}
-                <ul class="title-inline title-legend">
-                  <li style="background-color: {{color}}; color:{{../font_color}};" class="titlecolor"></li>
-                  <li>{{title}}</li>
-                </ul>
+                <div class="track-info">
+                  <span style="background-color: {{color}};" class="titlecolor"></span>
+                  <span class="track-name">{{title}}</li>
+                </div>
               {{/if}}
             {{/tracknames}}
           </div>
@@ -277,6 +287,36 @@
           $(this).parent().parent().find("div.social-buttons").toggle();
           var val = $(this).parent().parent().find('.speakers-inputbox').val();
           $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
+        });
+
+        $('#clearFilter').click(function() {
+          display();
+          $('#filterInfo').hide();
+        });
+
+        $('.track-name').click(function() {
+          var trackName = $(this).text();
+          $('#filterInfo').show();
+          $('#curFilter').text(trackName);
+          $('.date-filter').each(function () {
+            var flag = 0;
+            $(this).find('.track-filter').each(function () {
+              var name = $(this).find('.text').text();
+              if(name != trackName) {
+                $(this).hide();
+                return;
+              }
+              flag = 1;
+              $(this).show();
+              $(this).children('.row').hide();
+            });
+            if(!flag) {
+              $(this).hide();
+            } else {
+              $(this).show();
+            }
+          });
+          $('html, body').animate({scrollTop: 0}, 500);
         });
 
         $('.speakers-inputbox').click(function (e) {
