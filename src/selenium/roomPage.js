@@ -5,25 +5,11 @@ var until = require('selenium-webdriver').until;
 var RoomPage = Object.create(BasePage);
 
 RoomPage.checkIsolatedBookmark = function() {
-
-  // We go into starred mode and unmark sessions having id 3015 which was marked previously on tracks pages. If the bookmark feature works, then length of the web page would decrease.
-
-  var getPageHeight = 'return document.body.scrollHeight';
-  var sessionIdsArr = ['3015'];
   var self = this;
-  var oldHeight, newHeight;
+  var bookmarkSessionsIdsArr = ['3014'];
+  var visibleCheckSessionsIdsArr = ['3014', '3015', '2918'];
 
-  return self.toggleStarredButton().then(function() {
-    return self.driver.executeScript(getPageHeight).then(function(height) {
-      oldHeight = height;
-      return self.toggleSessionBookmark(sessionIdsArr).then(function() {
-        return self.driver.executeScript(getPageHeight).then(function(height) {
-          newHeight = height;
-          return oldHeight > newHeight;
-        });
-      });
-    });
-  });
+  return self.bookmarkCheck(bookmarkSessionsIdsArr, visibleCheckSessionsIdsArr);
 };
 
 RoomPage.toggleSessionElem = function() {
