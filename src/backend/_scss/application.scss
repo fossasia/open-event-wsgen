@@ -839,6 +839,7 @@ a {
 
   @media screen and (max-width: 768px) {
     margin-top: 0;
+    display: none;
   }
 }
 
@@ -1974,7 +1975,7 @@ a.skip:hover {
     background-color: $white;
     bottom: 0;
     opacity: .9;
-    overflow: hidden;
+    overflow: auto;
     position: fixed;
     right: 0;
     top: 50px;
@@ -2063,4 +2064,15 @@ a.skip:hover {
   padding-bottom: 5px;
   margin-left: 15px;
   margin-right: 15px;
+}
+
+#mobile-track {
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-track-info {
+  margin-bottom: 5px;
+  margin-left: 5px;
 }

@@ -20,12 +20,14 @@ const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partia
 const scroll = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/scroll.hbs').toString('utf-8'));
 const subnavbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/subnavbar.hbs').toString('utf-8'));
 const social = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/social.hbs').toString('utf-8'));
+const tracklist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/tracklist.hbs').toString('utf-8'));
 
 handlebars.registerPartial('navbar', navbar);
 handlebars.registerPartial('footer', footer);
 handlebars.registerPartial('scroll', scroll);
 handlebars.registerPartial('subnavbar', subnavbar);
 handlebars.registerPartial('social', social);
+handlebars.registerPartial('tracklist', tracklist);
 
 const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
 const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
@@ -374,10 +376,41 @@ exports.createDistDir = function(req, socket, callback) {
               }
               logger.addLog('Success', 'Generated single page for each session', socket);
             }
+
+            function setPageFlag(page) {
+              jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+              switch(page) {
+                case 'track':
+                  jsonData.trackFlag = 1;
+                  break;
+                case 'schedule':
+                  jsonData.scheduleFlag = 1;
+                  break;
+                case 'room':
+                  jsonData.roomFlag = 1;
+                  break;
+                case 'index':
+                  jsonData.indexFlag = 1;
+                  break;
+                case 'speaker':
+                  jsonData.speakerFlag = 1;
+                  break;
+              }
+            }
+
+            setPageFlag('track');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
+
+            setPageFlag('schedule');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
+
+            setPageFlag('room');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
+
+            setPageFlag('speaker');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
+
+            setPageFlag('index');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
           } catch (err) {
             console.log(err);
