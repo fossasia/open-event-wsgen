@@ -269,6 +269,8 @@
       var flag = 0;
       var isAdded = 0;
       var mode = 0;
+      var trackFilterMode = 0;
+      var trackName;
       // Mode is true if the page is in starred view.
 
       $(function () {
@@ -290,30 +292,65 @@
         });
 
         $('#clearFilter').click(function() {
+          trackFilterMode = 0;
           display();
           $('#filterInfo').hide();
         });
 
         $('.track-name').click(function() {
-          var trackName = $(this).text();
+          var filterVal;
+          var temp = JSON.parse(localStorage[eventName]);
+
+          trackName = $(this).text();
+          trackFilterMode = 1;
+
+          $('.fossasia-filter').each(function() {
+            if($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
           $('#filterInfo').show();
           $('#curFilter').text(trackName);
-          $('.date-filter').each(function () {
+          $('.date-filter').each(function() {
             var flag = 0;
-            $(this).find('.track-filter').each(function () {
+            $(this).find('.track-filter').each(function() {
               var name = $(this).find('.text').text();
               if(name != trackName) {
                 $(this).hide();
                 return;
               }
-              flag = 1;
-              $(this).show();
-              $(this).children('.row').hide();
+              $(this).find('.room-filter').each(function() {
+                var id = $(this).attr('id');
+                var elemFlag = 0;
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  elemFlag = 1;
+                  if(mode && temp[id] != 1) {
+                    elemFlag = 0;
+                  }
+                }
+                if(elemFlag == 1) {
+                  flag = 1;
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(flag) {
+                $(this).show();
+                $(this).children('.row').hide();
+              } else {
+                $(this).hide();
+              }
             });
-            if(!flag) {
-              $(this).hide();
-            } else {
+            if(flag) {
               $(this).show();
+            } else {
+              $(this).hide();
             }
           });
           $('html, body').animate({scrollTop: 0}, 500);
@@ -326,59 +363,54 @@
         $('.fossasia-filter').change(function () {
           var filterVal = $(this).val();
           var temp = JSON.parse(localStorage[eventName]);
-          if (filterVal) {
-            $('.date-filter').each(function () {
-              var flag = 1;
-              $(this).find('.track-filter').each(function () {
-                var flagTrack = 1;
-                $(this).find('.room-filter').each(function () {
-                  var id = $(this).attr('id');
-                  var elemFlag = 1;
-                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                    elemFlag = 0;
-                    if(mode && temp[id] != 1) {
-                      elemFlag = 1;
-                    }
+          $('.date-filter').each(function () {
+            var flag = 1;
+            $(this).find('.track-filter').each(function () {
+              var flagTrack = 1;
+              var name = $(this).find('.text').text();
+              if(trackFilterMode && (name != trackName)) {
+                $(this).hide();
+                return;
+              }
+              $(this).find('.room-filter').each(function () {
+                var id = $(this).attr('id');
+                var elemFlag = 1;
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  elemFlag = 0;
+                  if(mode && temp[id] != 1) {
+                    elemFlag = 1;
                   }
-                  if(elemFlag == 0) {
-                    flagTrack = flag = 0;
-                    $(this).show();
-                  }
-                  else {
-                    $(this).hide();
-                  }
-                });
-                if (flagTrack == 1) {
-                  $(this).hide();
-                } else {
+                }
+                if(elemFlag == 0) {
+                  flagTrack = flag = 0;
                   $(this).show();
                 }
+                else {
+                  $(this).hide();
+                }
               });
-              if (flag == 1) {
+              if (flagTrack == 1) {
                 $(this).hide();
               } else {
                 $(this).show();
+                var trackHeading = $(this).children('.text');
+
+                if(trackFilterMode) {
+                  trackHeading.hide();
+                } else {
+                  trackHeading.show();
+                }
               }
             });
-          } else {
-            if (mode) {
-              display();
+            if (flag == 1) {
+              $(this).hide();
             } else {
-              $('.date-filter').each(function () {
-                $(this).find('.track-filter').each(function () {
-                  $(this).find('.room-filter').each(function () {
-                    $(this).show();
-                  });
-                  $(this).show();
-                });
-                $(this).show();
-              });
+              $(this).show();
             }
-          }
-
+          });
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
@@ -436,6 +468,11 @@
             var dateFlag = 0;
             $(this).find('.track-filter').each(function () {
               var trackFlag = 0;
+              var name = $(this).find('.text').text();
+              if(trackFilterMode && name != trackName) {
+                $(this).hide();
+                return;
+              }
               $(this).find('.room-filter').each(function () {
                 var elemId = $(this).attr('id');
                 var bookFlag = 0, searchFlag = 0, elemFlag = 0;
@@ -473,6 +510,12 @@
               });
               if (trackFlag) {
                 $(this).show();
+                var trackHeading = $(this).children('.text');
+                if(trackFilterMode) {
+                  trackHeading.hide();
+                } else {
+                  trackHeading.show();
+                }
               }
               else {
                 $(this).hide();
