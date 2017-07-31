@@ -120,7 +120,9 @@ var BasePage = {
   },
 
   countOnesInArray: function(arr) {
-    return arr.reduce(function(counter, value) { return value == 1 ? counter + 1 : counter; }, 0);
+    return arr.reduce(function(counter, value) {
+      return (value === 1 || value === 'true') ? counter + 1 : counter;
+    }, 0);
   },
 
   getAllLinks: function(locator) {
@@ -281,7 +283,9 @@ var BasePage = {
       return self.find(By.id(id));
     });
 
-  return self.toggleSessionBookmark(sessionToggleArr).then(self.toggleStarredButton.bind(self)).then(self.getElemsDisplayStatus.bind(null, sessionElemArr));
+    return self.toggleSessionBookmark(sessionToggleArr).then(function() {
+      return self.driver.executeScript('window.scrollTo(0, 0)').then(self.toggleStarredButton.bind(self)).then(self.getElemsDisplayStatus.bind(null, sessionElemArr));
+    });
   }
 
 };
