@@ -1,0 +1,7 @@
+metadata:
+  author: FOSSASIA
+  projectname: Open Event Webapp
+  version: development
+build:
+  theme: sphinx_fossasia_theme
+  source: docs

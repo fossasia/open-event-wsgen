@@ -1,19 +1,20 @@
+# How to install the Open Event Web App Generator on Heroku
 To setup the open-event-webapp on heroku follow the following steps:
 
-# Automatic Deploy
+## Automatic Deploy
 You can use the one click deployment:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)
 
-# Manual Deploy
+## Manual Deploy
 
 You can also setup your app on heroku manually:
 
-# Requirements:
+## Requirements:
 - **heroku toolbelt** installed on your system
-For more info on heroku toolbelt: [here](https://devcenter.heroku.com/articles/heroku-cli) 
+For more info on heroku toolbelt: [here](https://devcenter.heroku.com/articles/heroku-cli)
 - **git** installed on your system
-# Installation with Heroku
+## Installation with Heroku
 
 **Note**: Our app has an [app.json](../app.json), so it can be directly forked and setup on Heroku.
 
