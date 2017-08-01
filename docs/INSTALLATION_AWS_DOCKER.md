@@ -1,4 +1,4 @@
-# How to install the Open Event Web App Generator on AWS
+# How to install the Open Event Web App Generator on AWS Docker
 
 ## Phase 1
 
@@ -36,10 +36,10 @@ ssh -i "mykey.pem" ubuntu@ec2-52-41-207-116.us-west-2.compute.amazonaws.com
 sudo apt-get install language-pack-en
 ```
 
-## Phase 2 
-Now we need to install the requirements needed to run it on the server. 
+## Phase 2
+Now we need to install the requirements needed to run it on the server.
 
-First, update and upgrade all packages to ensure we are up-to-date on everything 
+First, update and upgrade all packages to ensure we are up-to-date on everything
 
 ```shell
 sudo apt-get update
@@ -53,14 +53,14 @@ sudo apt-get install docker.io
 ```
 
 
-## Phase 3 
+## Phase 3
 
-Now you should clone this repository to a folder 
+Now you should clone this repository to a folder
 
 ```shell
 git clone https://github.com/fossasia/open-event-webapp -b development
 ```
-(Leave use branch master for stable release, development for latest source) 
+(Leave use branch master for stable release, development for latest source)
 
 After cloning change the directory to the project root folder
 
