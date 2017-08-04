@@ -300,6 +300,9 @@
         $('.track-name').click(function() {
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          if (!sidebarDiv.hasClass('in'))
+            sidebarDiv.addClass('in');
 
           trackName = $(this).text();
           trackFilterMode = 1;
