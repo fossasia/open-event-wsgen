@@ -46,6 +46,7 @@
     <a id="top"></a>
     {{> navbar}}
 
+
     <div class="main container">
       <div class="row">
         <div class="middle col-sm-12">
@@ -64,7 +65,13 @@
       text across the page.
       --------------------------------------------------------------- -->
       <div class="date-list container">
-          {{> subnavbar flag = 0}}
+          <div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs">
+            <span class="tabs-nav">
+              {{#days}}
+                <a href="./rooms.html#{{firstSlug}}" class="tabs-nav-link">{{caption}}</a>
+              {{/days}}
+            </span>
+          </div>
           <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
             <div class="search-filter search-filter-room filter-margin">
              <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
@@ -75,11 +82,15 @@
             </div>
           </div>
       </div>
+      <div id="filterInfo" class="container">
+        ROOM: <span id="curFilter" style="font-weight:bold;"> </span> <a href="#" id="clearFilter">  [Clear Filter]</a>
+      </div>
       <div id="session-list" class="container">
         <div class="row">
           <div id="content-block" class="col-md-9">
             <div id="track-list">
               {{#roomsinfo}}
+                <a class='anchor' id='{{slug}}'> </a>
                 <div class="{{slug}} date-filter" id="rooms-list">
                   <div class="row paddingzero">
                     <div class="col-md-12 paddingzero">
@@ -90,7 +101,6 @@
                     <div class="venue-filter row">
                       <div class="row">
                         <div class="clear-both col-md-12">
-                          <a class="anchor" id="venue-{{../slug}}-{{slug}}"></a>
                           {{#if venue }}
                             <h5 class="text">{{venue}}</h5>
                           {{/if}}
@@ -245,14 +255,28 @@
             </div>
           </div>
           <div class="track-names col-md-3">
-            {{#tracknames}}
-              {{#if title}}
-                <ul class="title-inline title-legend">
-                  <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
-                  <li>{{title}}</li>
-                </ul>
-              {{/if}}
-            {{/tracknames}}
+            <div class="row">
+              <div class="col-md-12 room-name-list">
+                <h4 class='list-title'> Rooms List </h4>
+                {{#each roomsnames}}
+                  <div class="room-info">
+                    <span style="background-color: #777;" class="titlecolor"></span>
+                    <span class="room-name">{{this}}</span>
+                  </div>
+                {{/each}}
+              </div>
+              <div class="col-md-12">
+                <h4 class='list-title'> Tracks List </h4>
+                {{#tracknames}}
+                {{#if title}}
+                <div class="track-info">
+                  <span style="background-color: {{color}};" class="titlecolor"></span>
+                  <span>{{title}}</span>
+                </div>
+                {{/if}}
+                {{/tracknames}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -269,6 +293,8 @@
         var flag = 0;
         var isAdded = 0;
         var mode = 0;
+        var roomName = 0;
+        var roomFilterMode = 0;
 
         $(function() {
           $("img.lazy").lazyload({
@@ -397,6 +423,49 @@
           display();
         });
 
+        $('.room-name').click(function() {
+          var filterVal;
+          var temp = JSON.parse(localStorage[eventName]);
+
+          roomName = $(this).text();
+          roomFilterMode = 1;
+
+          $('.fossasia-filter').each(function() {
+            if($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
+          $('#filterInfo').show();
+          $('#curFilter').text(roomName);
+
+          $('.date-filter').each(function() {
+            var flag = 0;
+            $(this).find('.venue-filter').each(function() {
+              var name = $(this).find('.text').text();
+              if(name != roomName) {
+                $(this).hide();
+                return;
+              }
+              flag = 1;
+              $(this).show();
+              $(this).children('.row').hide();
+            });
+            if(flag) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+          $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('#clearFilter').click(function() {
+          roomFilterMode = 0;
+          display();
+          $('#filterInfo').hide();
+        });
+
         function display() {
           var temp = JSON.parse(localStorage[eventName]);
           $('.date-filter').each(function() {
@@ -438,14 +507,20 @@
                   $(this).hide();
                 }
               });
-              if(venueFlag || !mode) {
+              if(venueFlag) {
                 $(this).show();
+                var roomName = $(this).find('.text');
+                if (roomFilterMode) {
+                  $(this).hide();
+                } else {
+                  $(this).show();
+                }
               }
               else {
                 $(this).hide();
               }
             });
-            if(dateFlag || !mode) {
+            if(dateFlag) {
               $(this).show();
             }
             else {
