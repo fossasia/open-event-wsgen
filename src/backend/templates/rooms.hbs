@@ -319,58 +319,54 @@
         $('.fossasia-filter').change(function() {
           var filterVal = $(this).val();
           var temp = JSON.parse(localStorage[eventName]);
-          if (filterVal) {
-            $('.date-filter').each(function() {
-              var flag = 1;
-              $(this).find('.venue-filter').each(function() {
-                var flagVenue = 1;
-                $(this).find('.room-filter').each(function() {
-                  var id = $(this).attr('id');
-                  var elemFlag = 1;
-                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                    elemFlag = 0;
-                    if(mode && temp[id] != 1) {
-                      elemFlag = 1;
-                    }
+          $('.date-filter').each(function() {
+            var flag = 1;
+            $(this).find('.venue-filter').each(function() {
+              var name = $(this).find('.text').text();
+              var flagVenue = 1;
+              if(roomFilterMode && (name !== roomName)) {
+                $(this).hide();
+                return;
+              }
+              $(this).find('.room-filter').each(function() {
+                var id = $(this).attr('id');
+                var elemFlag = 1;
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  elemFlag = 0;
+                  if(mode && temp[id] !== 1) {
+                    elemFlag = 1;
                   }
-                  if(elemFlag == 0) {
-                    flagVenue = flag = 0;
-                    $(this).show();
-                  }
-                  else {
-                    $(this).hide();
-                  }
-                });
-                if (flagVenue == 1) {
-                  $(this).hide();
-                } else {
+                }
+                if(elemFlag === 0) {
+                  flagVenue = flag = 0;
                   $(this).show();
                 }
+                else {
+                  $(this).hide();
+                }
               });
-              if (flag == 1) {
+              if (flagVenue === 1) {
                 $(this).hide();
               } else {
                 $(this).show();
+                var roomHeading = $(this).children('.text');
+
+                if(roomFilterMode) {
+                  roomHeading.hide();
+                } else {
+                  roomHeading.show();
+                }
               }
             });
-          } else {
-            if(mode) {
-              display();
+            if (flag === 1) {
+              $(this).hide();
             } else {
-              $('.date-filter').each(function() {
-                $(this).find('.venue-filter').each(function() {
-                  $(this).find('.room-filter').each(function() {
-                    $(this).show();
-                  });
-                  $(this).show();
-                });
-                $(this).show();
-              });
+              $(this).show();
             }
-          }
+          });
 
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
@@ -452,9 +448,32 @@
                 $(this).hide();
                 return;
               }
-              flag = 1;
-              $(this).show();
-              $(this).children('.row').hide();
+              $(this).find('.room-filter').each(function() {
+                var id = $(this).attr('id');
+                var elemFlag = 0;
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  elemFlag = 1;
+                  if(mode && temp[id] != 1) {
+                    elemFlag = 0;
+                  }
+                }
+                if(elemFlag == 1) {
+                  flag = 1;
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(flag) {
+                $(this).show();
+                $(this).children('.row').hide();
+              } else {
+                $(this).hide();
+              }
             });
             if(flag) {
               $(this).show();
@@ -477,6 +496,11 @@
             var dateFlag = 0;
             $(this).find('.venue-filter').each(function() {
               var venueFlag = 0;
+              var name = $(this).find('.text').text();
+              if(roomFilterMode && name != roomName) {
+                $(this).hide();
+                return;
+              }
               $(this).find('.room-filter').each(function() {
                 var elemId = $(this).attr('id');
                 var bookFlag = 0, searchFlag = 0, elemFlag = 0;
@@ -514,11 +538,12 @@
               });
               if(venueFlag) {
                 $(this).show();
-                var roomName = $(this).find('.text');
-                if (roomFilterMode) {
-                  $(this).hide();
+                var roomHeading = $(this).children('.row');
+
+                if(roomFilterMode) {
+                  roomHeading.hide();
                 } else {
-                  $(this).show();
+                  roomHeading.show();
                 }
               }
               else {
