@@ -78,13 +78,16 @@
           </span>
         <span class = "calendar-filter view-button">
           <button  title="Download as png" type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
-          </span>
+        </span>
         <span class="search-filter search-filter-schedule">
          <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
          <input class="fossasia-filter" type="text" placeholder="Search">
         </span>
         <span class = "show-button-filter">
           <button class = "btn btn-primary" id = "starred" >Starred</button>
+        </span>
+        <span class="schedule-download">
+          <button title="Download calendar ics" type="button" class="btn btn-default export-schedule"><i class="fa fa-calendar" aria-hidden="true"></i></button>
         </span>
       </div>
     </div>
@@ -405,6 +408,50 @@
          $("img.lazy").lazyload({
            threshold: 2000
          });
+       });
+
+       var cal = ics();
+
+       function exportICS() {
+         var scheduleArr = {{{json timeList}}};
+
+         function removeDashFromDate(date) {
+           return date.replace(/-/g, '');
+         }
+         function removeColonFromTime(time) {
+           return time.replace(/:/g, '');
+         }
+
+         function uuidv4() {
+           return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+             (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+           )
+         }
+
+         scheduleArr.forEach(function(scheduleDay) {
+           var date = removeDashFromDate(scheduleDay.slug);
+
+           scheduleDay.times.forEach(function(time) {
+             time.sessions.forEach(function(session) {
+               var sessObj = {};
+
+               sessObj.begin = date + 'T' + removeColonFromTime(session.start) + '00';
+               sessObj.stop = date + 'T' + removeColonFromTime(session.end) + '00';
+               sessObj.subject = session.title;
+               sessObj.description = session.description;
+               sessObj.location = session.location;
+               sessObj.uid = uuidv4();
+
+               cal.addEvent(sessObj);
+             });
+           });
+         });
+
+         cal.download('calendar', 'ics', false);
+       }
+
+       $('.export-schedule').click(function() {
+         exportICS();
        });
 
       $('.session-lin').click(function() {
