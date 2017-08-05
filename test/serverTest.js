@@ -406,6 +406,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+
     it('Checking track name list appear near the top of page', function(done) {
       trackPage.checkTrackNamePos().then(function(boolval) {
         assert.equal(boolval, true);
@@ -464,28 +465,34 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
       trackPage.checkIsolatedBookmark().then(function(visArr) {
-        assert.deepEqual(visArr, [true, true, false]);
+        assert.deepEqual(visArr, [true, true, false, true]);
         done();
       }).catch(function(err) {
         done(err);
       });
     });
 
-    it('Checking the starred mode after search', function(done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
-      trackPage.searchThenStarredMode().then(function(boolArr) {
-        assert.deepEqual(boolArr, [true, false, false]);
+    it('Checking the Track Filter', function(done) {
+      trackPage.checkIsolatedTrackFilter().then(function(numTrack) {
+        assert.equal(numTrack, 1);
+        driver.sleep(1000);
         done();
       }).catch(function(err) {
         done(err);
       });
     });
 
-    it('Checking search in starred mode', function(done) {
+    it('Track filter followed by search and starred filter and reversing them', function(done) {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
-      trackPage.starredModeThenSearch().then(function(boolArr) {
-        assert.deepEqual(boolArr, [true, false, false]);
+      trackPage.filterCombination(['trackselect', 'search', 'starred', 'unstarred', 'unsearch', 'trackunselect']).then(function(val) {
+        assert.deepEqual(val[0], [ true, true, true, true, false, false ]);
+        assert.deepEqual(val[1], [ true, false, true, false, false, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
         done();
       }).catch(function(err) {
         done(err);
