@@ -89,10 +89,11 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
           const timeList = fold.foldByTime(sessions, speakers, tracksData);
           const metaauthor = fold.getOrganizerName(event);
           const tracknames = fold.returnTracknames(sessions, tracksData);
+          const roomsnames = fold.returnRoomnames(roomsinfo);
           next({
             tracks, days, sociallinks,
             eventurls, copyright, sponsorpics,
-            roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames
+            roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames, roomsnames
           });
         });
 

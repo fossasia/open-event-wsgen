@@ -679,16 +679,6 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    it('Checking subnavbar functionality', function(done) {
-      roomPage.checkAllSubnav().then(function(boolArr) {
-        roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
-        assert.deepEqual(boolArr, [true, true, true]);
-        done();
-      }).catch(function(err) {
-        done(err);
-      });
-    });
-
     // Click on the session Elem to collapse
     it('Expanding the session', function(done) {
       roomPage.toggleSessionElem().then(function(boolArr) {

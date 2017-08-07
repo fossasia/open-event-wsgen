@@ -379,6 +379,18 @@ function returnTracknames(sessions, trackInfo) {
   return tracks;
 }
 
+function returnRoomnames(roomsInfo) {
+  var allRoomsList = [];
+  roomsInfo.forEach(function(dayRooms) {
+    var roomsVenue = dayRooms.venue;
+    roomsVenue.forEach(function(tempVenue) {
+      allRoomsList.push(tempVenue.venue);
+    });
+  });
+  var uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
+  return uniqueRoomList;
+}
+
 function createSocialLinks(event) {
 
   const sociallinks = Array.from(event.social_links);
@@ -964,3 +976,4 @@ module.exports.returnTracknames = returnTracknames;
 module.exports.checkNullHtml = checkNullHtml;
 module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
 module.exports.removeSpace = removeSpace;
+module.exports.returnRoomnames = returnRoomnames;
