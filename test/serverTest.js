@@ -499,6 +499,76 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+     it('Search filter followed by track and starred filter and reversing them', function(done) {
+      trackPage.filterCombination(['search', 'trackselect', 'starred', 'unstarred', 'trackunselect', 'unsearch']).then(function(val) {
+        assert.deepEqual(val[0], [ true, false, true, false, true, false ]);
+        assert.deepEqual(val[1], [ true, false, true, false, false, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Track filter followed by starred and search filter and reversing them', function(done) {
+      trackPage.filterCombination(['trackselect', 'starred', 'search', 'unsearch', 'unstarred', 'trackunselect']).then(function(val) {
+        assert.deepEqual(val[0], [ true, true, true, true, false, false ]);
+        assert.deepEqual(val[1], [ true, true, false, false, false, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Search filter followed by starred and track filter and reversing them', function(done) {
+      trackPage.filterCombination(['search', 'starred', 'trackselect', 'trackunselect', 'unstarred', 'unsearch']).then(function(val) {
+        assert.deepEqual(val[0], [ true, false, true, false, true, false ]);
+        assert.deepEqual(val[1], [ true, false, false, false, true, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Starred filter followed by search and track filter and reversing them', function(done) {
+      trackPage.filterCombination(['starred', 'search', 'trackselect', 'trackunselect', 'unsearch', 'unstarred']).then(function(val) {
+        assert.deepEqual(val[0], [ true, true, false, false, true, false ]);
+        assert.deepEqual(val[1], [ true, false, false, false, true, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Starred filter followed by track And search filter and reversing them', function(done) {
+      trackPage.filterCombination(['starred', 'trackselect', 'search', 'unsearch', 'trackunselect', 'unstarred']).then(function(val) {
+        assert.deepEqual(val[0], [ true, true, false, false, true, false ]);
+        assert.deepEqual(val[1], [ true, true, false, false, false, false ]);
+        assert.deepEqual(val[2], [ true, false, false, false, false, false ]);
+        assert.deepEqual(val[3], val[1]);
+        assert.deepEqual(val[4], val[0]);
+        assert.deepEqual(val[5], [ true, true, true, true, true, true ]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing schedule page', function() {
