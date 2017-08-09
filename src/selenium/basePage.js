@@ -256,7 +256,7 @@ var BasePage = {
   checkTrackNamePos: function() {
     var self = this;
 
-    return self.find(By.className('track-names')).then(self.getPos).then(function(posObj) {
+    return self.find(By.className('track-room-names')).then(self.getPos).then(function(posObj) {
       return posObj.y < 2000;
     });
   },

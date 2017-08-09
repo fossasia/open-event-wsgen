@@ -848,13 +848,12 @@ a {
   line-height : 13px;
 }
 
-.track-names {
+.track-room-names {
   color: $black;
   margin-top: 16%;
   padding-left: 30px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 0;
     display: none;
   }
 }
@@ -2082,13 +2081,13 @@ a.skip:hover {
   margin-right: 15px;
 }
 
-#mobile-track {
+.mobile-track-room-list {
   @media only screen and (min-width: 768px) {
     display: none;
   }
 }
 
-.mobile-track-info {
+.mobile-track-room-info {
   margin-bottom: 5px;
   margin-left: 5px;
 }

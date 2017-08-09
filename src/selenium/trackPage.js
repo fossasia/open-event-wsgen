@@ -44,7 +44,7 @@ TrackPage.checkIsolatedBookmark = function() {
 TrackPage.checkIsolatedTrackFilter = function() {
   var self = this;
 
-  return self.find(By.className('track-names')).findElements(By.className('track-name')).then(function(elems) {
+  return self.find(By.className('track-room-names')).findElements(By.className('track-name')).then(function(elems) {
     // Clicking on the Open Tech Track
     return elems[16].click().then(self.getNumTracksVisible.bind(self));
   });
@@ -82,7 +82,7 @@ TrackPage.filterThenSessionStatus = function(choice) {
   var statusPromise = new Promise(function(resolve) {
     if (choice === 'true') {
       // Applying track filter
-      self.find(By.className('track-names')).findElements(By.className('track-name')).then(function(elems) {
+      self.find(By.className('track-room-names')).findElements(By.className('track-name')).then(function(elems) {
         // Clicking on the Open Tech Track
         elems[16].click().then(self.getElemsDisplayStatus.bind(null, promiseArr)).then(function(ans) {
           self.driver.sleep(1000).then(function() {
