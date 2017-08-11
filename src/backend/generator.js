@@ -64,6 +64,10 @@ handlebars.registerHelper('ifvalue', function (conditional, options) {
   }
 });
 
+handlebars.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
+
 function minifyHtml(file) {
   var result = minify(file, {
     removeAttributeQuotes: true,

@@ -438,12 +438,8 @@ a {
 /* Track SCSS */
 
 .show-button-filter {
-  flex-grow: 1;
   padding-top: 10px;
-
-  @media only screen and (min-width: 990px) and (max-width: 1190px) {
-    flex-grow: 0;
-  }
+  flex-grow: 1;
 }
 
 .list-filter {
@@ -454,6 +450,16 @@ a {
 .calendar-filter {
   flex-grow: 1;
   padding-top: 8px;
+}
+
+.schedule-download {
+  flex-grow: 1;
+  padding-top: 10px;
+  margin-left: 0;
+
+  @media (max-width: 1200px) {
+    margin-left: 10px;
+  }
 }
 
 #event {
