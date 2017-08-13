@@ -123,7 +123,8 @@ var icsGen = function () {
             var calendar = [calendarStart, calendarTimezone, calendarEvents.join(SEPARATOR), calendarEnd].join(SEPARATOR);
 
             if (!dlh) {
-                window.open("data:text/calendar;charset=utf8," + encodeURIComponent(calendar));
+                var blob = new Blob([calendar], {type: "data:text/calendar;charset=utf8"});
+                saveAs(blob, filename + ext);
             } else {
                 window.location = encodeURI(dlh) + "?f=" + encodeURIComponent(filename + "." + ext) + "&t=" + encodeURIComponent(calendar);
             }
