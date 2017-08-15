@@ -3,6 +3,7 @@
 var exports = module.exports = {};
 var logger = require('./buildlogger.js');
 var gulp = require('./gulpfile.js');
+var hasher = require('folder-hash');
 const fs = require('fs-extra');
 const handlebars = require('handlebars');
 const async = require('async');
@@ -471,6 +472,28 @@ exports.createDistDir = function(req, socket, callback) {
       });
 
     },
+    (done) => {
+      logger.addLog('Info', 'Calculating the hash of the event folder and copying the service worker file', socket);
+      console.log( 'Calculating the hash of the event folder and copying the service worker file');
+      if (emit) socket.emit('live.process', {donePercent: 85, status: "Copying Service Worker File" });
+
+      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function(err, hashObj) {
+        if (err) {
+          console.log(err);
+          logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
+          return done(err);
+        }
+        distHelper.copyServiceWorker(appFolder, hashObj['hash'], function(err) {
+          if (err) {
+            console.log(err);
+            logger.addLog('Error', 'Error occured while copying service worker file', socket, err);
+            return done(err);
+          }
+          return done(null);
+        });
+      });
+    },
+
     (done) => {
       logger.addLog('Info', 'Creating zip file of the event', socket);
       console.log("==================================Creating zip file");
