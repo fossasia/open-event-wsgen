@@ -70,14 +70,15 @@
          </span>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
-        <span class = "list-filter view-button">
-          <button class = "btn view-active" id = "list" >List View</button>
+        <span class="filter">
+          <button id = "page-mode" class="btn btn-default" type="button"><i class="fa fa-calendar" aria-hidden="true"></i></button>
         </span>
-        <span class = "calendar-filter view-button">
-          <button class = "btn unselect" id = "calendar" >Calendar View</button>
-          </span>
-        <span class = "calendar-filter view-button">
-          <button  title="Download as png" type="button" class="btn btn-default export-png"><i class="fa fa-download"></i></button>
+        <span class="dropdown filter">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span> </button>
+          <ul class="dropdown-menu list-menu">
+            <li> <a href="#" class="export-png"> Download as png </a> </li>
+            <li> <a href="#" class="export-schedule"> Download as ics </a> </li>
+          </ul>
         </span>
         <span class="search-filter search-filter-schedule">
          <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
@@ -85,9 +86,6 @@
         </span>
         <span class = "show-button-filter">
           <button class = "btn btn-primary" id = "starred" >Starred</button>
-        </span>
-        <span class="schedule-download">
-          <button title="Download calendar ics" type="button" class="btn btn-default export-schedule"><i class="fa fa-calendar" aria-hidden="true"></i></button>
         </span>
       </div>
     </div>
@@ -606,31 +604,27 @@
 
       });
 
-      $('#calendar').click(function() {
+      $('#page-mode').click(function() {
         var curDate = getCurrentDate();
 
-        isCalendarView = true;
-        $('#list').addClass('unselect').removeClass('view-active');
-        $('#calendar').removeClass('unselect').addClass('view-active');
-        $('.list-view').addClass('hide');
-        $('.calendar-view').removeClass('hide');
-
-        if(curDate !== '') {
-          viewsFilter('calendar', curDate);
-        };
-      });
-
-      $('#list').click(function() {
-        var curDate = getCurrentDate();
-
-        isCalendarView = false;
-        $('#list').removeClass('unselect').addClass('view-active');
-        $('#calendar').addClass('unselect').removeClass('view-active');
-        $('.list-view').removeClass('hide');
-        $('.calendar-view').addClass('hide');
-
-        if (curDate !== '') {
-          viewsFilter('list', curDate);
+        if (isCalendarView == false) {
+          isCalendarView = true;
+          $('#page-mode i').addClass('fa-list-alt');
+          $('#page-mode i').removeClass('fa-calendar');
+          $('.list-view').addClass('hide');
+          $('.calendar-view').removeClass('hide');
+          if (curDate !== '') {
+            viewsFilter('calendar', curDate);
+          }
+        } else {
+          isCalendarView = false;
+          $('#page-mode i').removeClass('fa-list-alt');
+          $('#page-mode i').addClass('fa-calendar');
+          $('.list-view').removeClass('hide');
+          $('.calendar-view').addClass('hide');
+          if (curDate !== '') {
+            viewsFilter('list', curDate);
+          }
         }
       });
 
