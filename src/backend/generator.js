@@ -244,6 +244,7 @@ exports.createDistDir = function(req, socket, callback) {
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
             if(err !== null) {
               console.log(err);
+              return done(err);
             }
             logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
             done(null, 'fetchApiJsons');
