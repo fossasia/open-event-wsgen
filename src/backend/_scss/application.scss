@@ -439,12 +439,17 @@ a {
 
 .show-button-filter {
   padding-top: 10px;
+  padding-right: 10px;
   flex-grow: 1;
 }
 
-.list-filter {
-  flex-grow: 1;
+.filter {
+  margin-right: 10px;
   padding-top: 8px;
+}
+
+.list-menu {
+  top: 90%;
 }
 
 .calendar-filter {
@@ -453,13 +458,8 @@ a {
 }
 
 .schedule-download {
-  flex-grow: 1;
   padding-top: 10px;
   margin-left: 0;
-
-  @media (max-width: 1200px) {
-    margin-left: 10px;
-  }
 }
 
 #event {
@@ -513,7 +513,6 @@ a {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    margin: 0 auto;
     padding-bottom: 0;
   }
 
@@ -1489,6 +1488,7 @@ a {
 
 
 .search-filter-schedule {
+  flex-grow: 2;
   padding: 10px;
   padding-left: 0px;
   font-size: small;
@@ -1497,7 +1497,7 @@ a {
 
 .fossasia-filter {
   height: 33px;
-  width: 180px;
+  width: 100%;
   padding-left: 25px;
   font-size: small;
   border-radius: 5px;

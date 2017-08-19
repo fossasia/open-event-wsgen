@@ -662,7 +662,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Changing the mode to Calendar', function(done) {
-      schedulePage.changeMode('calendar').then(function(arr) {
+      schedulePage.toggleMode().then(function(arr) {
         assert.deepEqual(arr[0], [false, false, false]);
         assert.deepEqual(arr[1], [false, false, true]);
         done();
@@ -682,7 +682,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Changing the mode back to list', function(done) {
-      schedulePage.changeMode('list').then(function(arr) {
+      schedulePage.toggleMode().then(function(arr) {
         assert.deepEqual(arr[0], [false, true, false]);
         assert.deepEqual(arr[1], [false, false, false]);
         done();

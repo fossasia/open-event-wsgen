@@ -51,9 +51,11 @@ SchedulePage.changeDay = function(dayNo) {
   return self.find(By.id(dateId)).then(self.click).then(self.getCurrentView.bind(self));
 };
 
-SchedulePage.changeMode = function(mode) {
+SchedulePage.toggleMode = function() {
   var self = this;
-  return self.find(By.id(mode)).then(self.click).then(self.getCurrentView.bind(self));
+  var toggleButtonId = 'page-mode';
+
+  return self.find(By.id(toggleButtonId)).then(self.click).then(self.getCurrentView.bind(self));
 };
 
 module.exports = SchedulePage;
