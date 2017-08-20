@@ -525,7 +525,10 @@ exports.createDistDir = function(req, socket, callback) {
       }
 
       mailer.uploadAndsendMail(req.body.email, eventName, socket, (url) => {
-        logger.addLog('Success', 'Mail sent succesfully', socket);
+        if(url)
+          logger.addLog('Success', 'Mail sent succesfully', socket);
+        else
+          logger.addLog('Error', 'Error sending mail', socket);
         callback(appFolder, url);
         done(null, 'write');
       });
