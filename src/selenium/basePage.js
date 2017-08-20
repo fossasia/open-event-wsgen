@@ -286,8 +286,74 @@ var BasePage = {
     return self.toggleSessionBookmark(sessionToggleArr).then(function() {
       return self.driver.executeScript('window.scrollTo(0, 0)').then(self.toggleStarredButton.bind(self)).then(self.getElemsDisplayStatus.bind(null, sessionElemArr));
     });
-  }
+  },
 
+  getAllWindows: function() {
+    return this.driver.getAllWindowHandles();
+  },
+
+  closeOtherWindows: function(windowArr, baseWindow) {
+    // Close all other windows and switch to the base window
+    var self = this;
+    var closeWindowProm = windowArr.map(function(windowElem) {
+      return self.driver.switchTo().window(windowElem).then(function() {
+        return self.driver.close();
+      });
+    });
+
+    return Promise.all(closeWindowProm).then(function() {
+      return self.driver.switchTo().window(baseWindow);
+    });
+  },
+
+  getSocialButtonElems: function() {
+    // Returns social button elements of a particular session
+    var sessionId = '3014';
+    var socialToggleClass = 'session-lin';
+    var socialButtonClass = 'social-button';
+    var self = this;
+
+    var socialButtonProm = new Promise(function(resolve) {
+      self.find(By.id(sessionId)).then(function(el) {
+        self.click(el).then(function() {
+          el.findElement(By.className(socialToggleClass)).click().then(function() {
+            resolve(el.findElements(By.className(socialButtonClass)));
+          });
+        });
+      });
+    });
+
+    return socialButtonProm;
+  },
+
+  checkSocialLinks: function() {
+    // Returns the number of social button links of a session which are working properly
+    var self = this;
+    var baseWindow;
+
+    self.driver.getWindowHandle().then(function(windowElem) {
+      baseWindow = windowElem;
+    });
+
+    var socialPromise = new Promise(function(resolve) {
+      self.getSocialButtonElems().then(function(socialArr) {
+        var windowPromArr = socialArr.map(function(linkElem) {
+          return linkElem.click();
+        });
+
+        Promise.all(windowPromArr).then(self.getAllWindows.bind(self)).then(function(windowArr) {
+          var len = windowArr.length;
+
+          windowArr.splice(windowArr.indexOf(baseWindow), 1);
+          self.closeOtherWindows(windowArr, baseWindow).then(function() {
+            resolve(len);
+          });
+        });
+      });
+    });
+
+    return socialPromise;
+  }
 };
 
 module.exports = BasePage;

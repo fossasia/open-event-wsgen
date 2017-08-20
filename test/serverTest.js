@@ -464,6 +464,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the working of social buttons', function(done) {
+      trackPage.checkSocialLinks().then(function(num) {
+        assert.equal(num, 5);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
       trackPage.checkIsolatedBookmark().then(function(visArr) {
@@ -590,7 +599,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking track name list appear near the top of page', function(done) {
-      trackPage.checkTrackNamePos().then(function(boolval) {
+      schedulePage.checkTrackNamePos().then(function(boolval) {
         assert.equal(boolval, true);
         done();
       }).catch(function(err) {
@@ -599,7 +608,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking alignment of date tab and session content', function(done) {
-      trackPage.checkAlignment().then(function(val) {
+      schedulePage.checkAlignment().then(function(val) {
         assert.equal(val, 0);
         done();
       }).catch(function(err) {
@@ -701,6 +710,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the working of social buttons', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.checkSocialLinks().then(function(num) {
+        assert.equal(num, 5);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking the bookmark toggle', function(done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function(visArr) {
@@ -778,10 +797,19 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the working of social buttons', function(done) {
+      roomPage.checkSocialLinks().then(function(num) {
+        assert.equal(num, 5);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Checking Jump to Speaker functionality', function(done) {
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.jumpToSpeaker().then(function(val) {
         assert.equal(val, true);
-        roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
         done();
       }).catch(function(err) {
         done(err);
@@ -789,6 +817,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.checkIsolatedBookmark().then(function(visArr) {
         assert.deepEqual(visArr, [false, false, false]);
         done();
