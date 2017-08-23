@@ -395,6 +395,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
     });
 
+    it('Test for font color of sessions', function(done) {
+      trackPage.getSessionElemsColor().then(function(colorArr) {
+        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Check for Scrollbars', function(done) {
       var sizesArr = [[300, 600], [720, 600]];
       trackPage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
@@ -587,6 +596,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
     });
 
+    it('Test for font color of sessions', function(done) {
+      schedulePage.getSessionElemsColor().then(function(colorArr) {
+        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
     it('Check for Scrollbars', function(done) {
       var sizesArr = [[300, 600], [720, 600]];
       schedulePage.getScrollbarVisibility(sizesArr).then(function(statusArr) {
@@ -737,6 +755,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
     before(function() {
       roomPage.init(driver);
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+    });
+
+    it('Test for font color of sessions', function(done) {
+      roomPage.getSessionElemsColor().then(function(colorArr) {
+        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
     });
 
     it('Check for Scrollbars', function(done) {

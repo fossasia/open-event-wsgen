@@ -65,6 +65,16 @@ var BasePage = {
     return Promise.all(promiseArr);
   },
 
+  getSessionElemsColor: function() {
+    var self = this;
+    var sessionElemIdArr = ['title-3014', 'title-2941'];
+    var colorPromArr = sessionElemIdArr.map(function(sessionElemId) {
+      return self.find(By.id(sessionElemId)).getCssValue('color');
+    });
+
+    return Promise.all(colorPromArr);
+  },
+
   checkDownButton: function() {
     var self = this;
 
