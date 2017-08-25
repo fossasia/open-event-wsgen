@@ -274,9 +274,27 @@ describe('generate', function() {
 
     });
 
+    it('should generate the NextCloud Conference 2017', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://eventyay.com/api/v1/events/181",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/NextcloudConference2017");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 7;
+      var totalFiles = 8;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -302,6 +320,7 @@ describe('generate', function() {
       copyStatic('fbsmall.jpg');
       copyStatic('mozilla_banner.jpg');
       copyStatic('oscon.png');
+      copyStatic('nextcloud2017.jpg');
       copyStatic('fa16small.jpg');
 
     });
