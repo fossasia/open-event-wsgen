@@ -265,6 +265,8 @@ $(document).ready(function () {
       updateGenerateProgress(0);
       updateStatusAnimate(data.smallMessage, 200, 'red');
       $('#btnGenerate').prop('disabled', false);
+      $('input[ type = "radio" ]').attr('disabled', false);
+      $('#email').prop('disabled', false);
     }
     $('#buildLog').append(paragraph);
     $("#buildLog").scrollTop($("#buildLog")[0].scrollHeight);
