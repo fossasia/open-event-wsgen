@@ -1878,6 +1878,16 @@
       "resolved": "https://registry.npmjs.org/flagged-respawn/-/flagged-respawn-0.3.2.tgz",
       "integrity": "sha1-/xke3c1wiKZ1smEP/8l2vpuAdLU="
     },
+    "folder-hash": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/folder-hash/-/folder-hash-1.1.1.tgz",
+      "integrity": "sha1-KjhFVBuC1G/NLOAU8oMG6plzhIU=",
+      "requires": {
+        "graceful-fs": "4.1.11",
+        "minimatch": "3.0.4",
+        "when": "3.7.8"
+      }
+    },
     "follow-redirects": {
       "version": "0.0.7",
       "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-0.0.7.tgz",
