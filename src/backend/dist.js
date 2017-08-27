@@ -78,7 +78,11 @@ const downloadJson = function(appPath, endpoint, jsonFile, cb) {
   try {
     console.log('Downloading ' + endpoint + '/' + jsonFile);
     request
-      .get(endpoint + '/' + jsonFile)
+      .get({url:endpoint + '/' + jsonFile,timeout:30000})
+      .on('error', function (error) {
+        cb(new Error(error.code));
+        console.log('Could not connect to server');
+      })
       .on('response', function(response) {
         if (response.statusCode != 200) {
           cb(new Error('Response = ' + response.statusCode + 'received'));
