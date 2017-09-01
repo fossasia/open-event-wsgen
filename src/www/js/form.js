@@ -6,6 +6,7 @@ var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressV
 var uploadFinished = false;
 
 var isCancelling = false;
+var menuDisplay = false;
 
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
@@ -92,6 +93,21 @@ $(document).ready(function () {
       statusText.text('Upload zip extension');
     }
 
+  });
+
+  var customMenuButton = $('.custom-menubutton').first();
+
+  customMenuButton.click(function() {
+    var menuContent = $('.custom-menu-cont')[0];
+
+    if (menuDisplay) {
+      $(menuContent).removeClass('shown');
+      $(menuContent).addClass('hidden');
+    } else {
+      $(menuContent).removeClass('hidden');
+      $(menuContent).addClass('shown');
+    }
+    menuDisplay = !menuDisplay;
   });
 
   $('#cancelUpload').click(function(e){
@@ -226,6 +242,19 @@ $(document).ready(function () {
     updateStatusAnimate(err.status);
 
   });
+
+  function deployStatus() {
+    var apiUrl = "https://api.github.com/repos/fossasia/open-event-webapp/git/refs/heads/development";
+    $.ajax({url: apiUrl, success: function(result){
+      var version = result['object']['sha'];
+      var versionLink = 'https://github.com/fossasia/open-event-webapp/tree/' + version;
+      var deployLink = $('#deploy-link');
+      deployLink.attr('href', versionLink);
+      deployLink.html(version);
+    }});
+  }
+
+  deployStatus();
 
   var errorno = 0; // stores the id of an error needed for its div element
   socket.on('buildLog', function(data) {
