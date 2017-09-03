@@ -1,0 +1,1016 @@
+[
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 1,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Rachel Roumeliotis",
+                "long-biography": "Rachel Roumeliotis is a strategic content director at O\u2019Reilly Media, where she leads an editorial team that covers a wide variety of programming topics ranging from full stack to open source in the enterprise to emerging programming languages. Rachel is a programming chair of OSCON and O\u2019Reilly\u2019s Software Architecture Conference. She has been working in technical publishing for 10 years, acquiring content in many areas including mobile programming, UX, computer security, and AI.",
+                "sponsorship-required": "",
+                "photo-url": "",
+                "organisation": "O\u2019Reilly Media",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 1,
+                "icon-image-url": ""
+            },
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Kelsey Hightower",
+                "long-biography": "Kelsey Hightower has worn every hat possible throughout his career in tech but most enjoys leadership roles focused on making things happen and shipping software. Kelsey is a strong open source advocate focused on building simple tools that make people smile. When he is not slinging Go code, you can catch him giving technical workshops covering everything from programming and system administration, to his favorite Linux distro of the month.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/kelsey.jpg",
+                "organisation": "Google",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 2,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Wednesday opening welcome",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.05",
+            "id": 4,
+            "name": "5 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#1485CC",
+            "id": 2,
+            "name": "Performance sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Program chairs Rachel Roumeliotis and Kelsey Hightower open the first day of keynotes.",
+        "language": "",
+        "ends-at": "2017-05-10T09:05:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 2,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Evan Booth",
+                "long-biography": "Evan Booth is a builder, architect, developer, and challenge designer at Counter Hack, a company devoted to building fun and engaging challenges that educate and evaluate information security professionals. When Evan isn\u2019t struggling to get his job title to fit in most HTML forms, he loves building stuff out of other stuff, spending time with his family, and fighting the temptation to write garden path sentences in important documents",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/evanbooth.jpg",
+                "organisation": "Counter Hack",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 3,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Step 1:Punch a tree",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.15",
+            "id": 5,
+            "name": "15 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:05:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#3DC8C3",
+            "id": 1,
+            "name": "Open source: From consumer to contributor"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Fans of the comic strip Calvin and Hobbes will undoubtedly remember when Calvin invented the transmogrifier, an ingenious device that could turn one thing into another with a quick ZAP Fans of the comic strip Calvin and Hobbes will undoubtedly remember when Calvin invented the transmogrifier, an ingenious device that could turn one thing into another with a quick ZAP. Evan Booth explains how his adventures in real-world transmogrification have shaped his perspective on open source hardware, manufacturing, and finding potential in the unremarkable.",
+        "language": "",
+        "ends-at": "2017-05-10T09:20:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 3,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Christopher Aedo",
+                "long-biography": "Christopher Aedo is a developer advocacy program manager at IBM, where he leads an amazing team of upstream developers. Christopher has been working with and contributing to open source software since his college days. When he\u2019s not at work or speaking at a conference, he\u2019s probably using a Raspberry Pi to brew and ferment a tasty home brew in Portland, OR.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/christopher.jpg",
+                "organisation": "IBM",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 4,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Why choose open infrastructure?",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.10",
+            "id": 6,
+            "name": "10 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:20:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#3DC8C3",
+            "id": 1,
+            "name": "Open source: From consumer to contributor"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Open source isn\u2019t winning; it\u2019s won. In the last decade, there's been an incredible explosion in open source software. Massive projects have been developed in the open, on open operating systems, using open languages and compilers. But, Christopher Aedo asks, was all the infrastructure open as well?",
+        "language": "",
+        "ends-at": "2017-05-10T09:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 4,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Dianne Marsh",
+                "long-biography": "Dianne Marsh is a director of engineering at Netflix, where she leads a team responsible for tools and systems used for continuous integration, delivery, and deployment to the AWS cloud by nearly all engineers in the company\u2014which are often released as open source tools to the broad community. Dianne coauthored Atomic Scala with Bruce Eckel. She holds a master of science degree in computer science from Michigan Technological University.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/dianne.jpg",
+                "organisation": "Netflix",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 5,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "How and why Netflix drives industry engagement",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.15",
+            "id": 5,
+            "name": "15 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:30:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#9EFF56",
+            "id": 4,
+            "name": "In Real Life (IRL) sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Netflix has become well known for its contributions to open source, creating and contributing to over 50 active projects. Dianne Marsh tells the story of Spinnaker to demonstrate how open source contributes to Netflix's success and vice versa.",
+        "language": "",
+        "ends-at": "2017-05-10T09:45:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 5,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Ying Xiong",
+                "long-biography": "Ying Xiong is chief architect of the cloud platform at Huawei Technologies, where his current responsibilities include the architecture vision, strategy, and design of the cloud platform as a service (PaaS). Ying brings 20+ years of experience in architecture and design of cloud, ecommerce, and enterprise IT systems. Previously, Ying was a principal architect and development manager for Microsoft\u2019s Azure and SQL Azure cloud platforms and a principal enterprise technical architect and development manager at AT&T. He holds a PhD and a BS in computer science.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/ying.jpg",
+                "organisation": "Huawei",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 6,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "The power of the open source ecosystem",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.10",
+            "id": 6,
+            "name": "10 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:45:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#FF3046",
+            "id": 7,
+            "name": "Random"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Ying Xiong discusses the fast-growing open source market in China, exploring the role Huawei plays in China\u2019s open source software industry, developer community engagement, and Huawei\u2019s continuous commitment to open source strategy and growing contribution to various open source technologies. Along the way, Ying shares use cases on how Huawei uses innovated open source technologies to solve problems for its customers and partners.",
+        "language": "",
+        "ends-at": "2017-05-10T09:55:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 6,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Brian Behlendorf",
+                "long-biography": "Brian Behlendorf is the executive director of the Hyperledger Project at the Linux Foundation and senior technology advisor at Mithril Capital Management in San Francisco. Over his career, Brian has held a mix of technology startup, public policy, and nonprofit tech leadership positions. He serves on the boards of the Mozilla Foundation, the Electronic Frontier Foundation, and Benetech\u2014three organizations using technology to fight for civil liberties, open technologies, and social impact in the digital domain. Previously, Brian was chief technology officer at the World Economic Forum, served for two years at the White House as advisor to the Open Government project within the Office of Science and Technology Policy, was an advisor to Health and Human Services on open software approaches to health information sharing, and founded two tech companies, CollabNet and Organic, and several open source software projects, including Apache and Subversion.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/brian.jpg",
+                "organisation": "The Linux Foundation",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 7,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Rebuilding trust through blockchains and open source",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 11,
+            "name": "Ballroom D"
+        },
+        "session-type": {
+            "length": "0.05",
+            "id": 4,
+            "name": "5 minute sessions"
+        },
+        "starts-at": "2017-05-10T09:55:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#FF3046",
+            "id": 7,
+            "name": "Random"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Global confidence in institutions is in steep decline worldwide. Technology frequently lets us down too. Brian Behlendorf explains why trust is essential to building a functioning society and how it's under serious threat. Brian argues that open source software offers a model for how we can work together, even when we have no reason to trust each other.",
+        "language": "",
+        "ends-at": "2017-05-10T10:00:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 7,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Alvin Salehi",
+                "long-biography": "Alvin Salehi is a senior technology advisor in the White House Office of the Federal CIO. Alvin led the development of the country\u2019s federal source code policy and Code.gov platform, both of which improve nationwide access to the federal government\u2019s custom-developed software. Prior to joining the White House in 2015, Alvin helped lead the State Department\u2019s efforts to expand Internet access to Africa and improve global market access for US technology companies. He also served at the Advanced Research Projects Agency, which invests in transformative, cutting-edge technologies on behalf of the federal government. Before flying out to DC, Alvin was general counsel to a data analytics company in California\u2014and a frequent patron of In-N-Out Burger.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/alvin.jpg",
+                "organisation": "The White House",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 8,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Sharing America's code",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 1,
+            "name": "Meeting Room 9 A/B"
+        },
+        "session-type": {
+            "length": "0.15",
+            "id": 5,
+            "name": "15 minute sessions"
+        },
+        "starts-at": "2017-05-10T10:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#FF3046",
+            "id": 7,
+            "name": "Random"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Last August, the White House released the Federal Source Code Policy to improve nationwide access to the government\u2019s custom-developed software. Alvin Salehi walks you through some of the government's coolest open source projects available on the newly launched Code.gov.",
+        "language": "",
+        "ends-at": "2017-05-10T10:15:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 8,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Guru Chahal",
+                "long-biography": "A member of Avi Networks\u2019s founding team, Guru Chahal serves as vice president of products, where he helps define the product and drives initial customer development, product messaging, and technical partnerships. Previously, Guru was an investor at Lightspeed Venture Partners, where he focused on networking, security, cloud, data analytics, and infrastructure management; served as the director of product management at Cisco Systems for the Unified Computing System product line (a multibillion dollar business), where he helped define the product strategy and roadmaps and was instrumental in ramping UCS traction; and held operational roles at Nuova Systems (acquired by Cisco Systems) and Tropos Networks (acquired by ABB). An alumnus of Harvard Business School and Purdue University, Guru holds several patents in networking.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/guru.jpg",
+                "organisation": "Avi Networks",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 9,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "How to achieve just-in-time scaling without compromising performance",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 1,
+            "name": "Meeting Room 9 A/B"
+        },
+        "session-type": {
+            "length": "0.40",
+            "id": 3,
+            "name": "Sessions"
+        },
+        "starts-at": "2017-05-10T11:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#1485CC",
+            "id": 2,
+            "name": "Performance sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Guru Chahal and Ranga Rajagopalan share techniques to intelligently scale application and load-balancing resources automatically and on-demand to achieve just-in-time-scaling across clouds without compromising an application's performance.",
+        "language": "",
+        "ends-at": "2017-05-10T11:40:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 9,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Lucy Wyman",
+                "long-biography": "Lucy Wyman is a software engineer in test for Puppet Labs, where she automates tests and develops testing infrastructure for Puppet orchestrator, PCP, and PE core. Lucy holds a BS in computer science from Oregon State University, where she worked as a frontend engineer for the OSU Open Source Lab. She spends her free time hanging out with friends, hiking, experiencing new things, and enjoying a wide variety of podcasts, TV shows, blogs, books, and other media.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/lucy.jpg",
+                "organisation": "Puppet labs",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 10,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "How can I contibute? A guide to making your first open source contribution",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 12,
+            "name": "Meeting Room 9 C"
+        },
+        "session-type": {
+            "length": "0.40",
+            "id": 3,
+            "name": "Sessions"
+        },
+        "starts-at": "2017-05-10T11:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#3DC8C3",
+            "id": 1,
+            "name": "Open source: From consumer to contributor"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "This talk is for you\u2014the documentarians, developers, students, or community members wondering what you can contribute to open source and how to get started. Lucy Wyman discusses several ways open source projects need your help, what to look for in a project you're contributing to, and some first steps to making your first pull request.",
+        "language": "",
+        "ends-at": "2017-05-10T11:40:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 10,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Jeremy Anderson",
+                "long-biography": "Jeremy Anderson has 16 years\u2019 experience developing software solutions for numerous Fortune 500 companies. Jeremy is currently a secure software architect and CSSLP at Cambia Health Solutions, where he is charged with bootstrapping and scaling an application security program from the ground up for dozens of applications produced by hundreds of developers. He\u2019s been successful at making it happen\u2014in a timeline measured in months instead of years.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/jeremy.jpg",
+                "organisation": "Cambia Health solutions",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 11,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Application security: from zero to hero",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 2,
+            "name": "Meeting Room 10 A/B"
+        },
+        "session-type": {
+            "length": "0.40",
+            "id": 3,
+            "name": "Sessions"
+        },
+        "starts-at": "2017-05-10T11:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#FF3046",
+            "id": 6,
+            "name": "Security sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "While the rest of the world tries to solve the problems of insecure software with firewalls and intrusion detection, Jeremy Anderson explains how to solve the problem where it starts: at the code that defines it. Join Jeremy to learn how to fix code security defects when they\u2019re created instead of during production when it\u2019s already too late.",
+        "language": "",
+        "ends-at": "2017-05-10T11:40:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 11,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Edward Thomson",
+                "long-biography": "Edward Thomson is a senior program manager at Microsoft, where he focuses on Git and the version control tools in Visual Studio Team Services and ensures that customers are successful while using them. Previously, he was a software engineer building version control tools at Microsoft, GitHub, and SourceGear. He remains the maintainer of the libgit2 project. Edward is the author of the Git for Visual Studio training course from O\u2019Reilly and a contributor to Professional Team Foundation Server 2013.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/edward.jpg",
+                "organisation": "Microsoft",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 12,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Adopting open source in your organisation",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 3,
+            "name": "Meeting Room 12"
+        },
+        "session-type": {
+            "length": "0.40",
+            "id": 3,
+            "name": "Sessions"
+        },
+        "starts-at": "2017-05-10T11:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#9EFF56",
+            "id": 4,
+            "name": "In Real Life (IRL) sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Recently, Microsoft went from calling open source, a cancer to being the biggest contributor on GitHub. Edward Thomson explains how Microsoft, one of the unlikeliest software vendors, began to embrace and even extend (but not extinguish) open source software and how you can begin using and contributing to open source software in your organization.",
+        "language": "",
+        "ends-at": "2017-05-10T11:40:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 12,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Bart Miller",
+                "long-biography": "Barton Miller is the Vilas Distinguished Achievement Professor and the Amar and Belinder Sohi Professor in Computer Sciences at the University of Wisconsin-Madison, the chief scientist for the DHS Software Assurance Marketplace research facility, and software assurance lead on the NSF Cybersecurity Center of Excellence. Milleralso codirects the MIST software vulnerability assessment project in collaboration with his colleagues at the Autonomous University of Barcelona and leads the Paradyn Parallel Performance Tool project, which is investigating performance and binary code instrumentation and analysis technologies. In 1988, Miller founded the field of fuzz random software testing\u2014the foundation of many security and software engineering disciplines. In 1992, Miller (working with his then-student Jeffrey Hollingsworth), founded the field of dynamic binary code instrumentation and coined the term \u201cdynamic instrumentation,\u201d which forms the basis for his current efforts in malware analysis and instrumentation. His research interests include systems security, binary and malicious code analysis and instrumentation of extreme-scale systems, parallel and distributed program measurement and debugging, and mobile computing. Barton\u2019s research is supported by the US Department of Homeland Security, the Department of Energy, the National Science Foundation, NATO, and various corporations. Miller is a Fellow of the ACM",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/bart.jpg",
+                "organisation": "University of Wisconsin-Madison",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 13,
+                "icon-image-url": ""
+            },
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Elisa Heymann",
+                "long-biography": "Elisa Heymann is a senior scientist within the NSF Cybersecurity Center of Excellence at the University of Wisconsin and an associate professor at the Autonomous University of Barcelona, where she codirects the MIST software vulnerability assessment. Elisa was also in charge of the Grid/Cloud security group at the UAB and participated in two major European grid projects: EGI-InSPIRE and the European Middleware Initiative (EMI). Elisa\u2019s research interests include security and resource management for grid and cloud environments. Her research is supported by the NSF, the Spanish government, the European Commission, and NATO.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/elisa.jpg",
+                "organisation": "University of Wisconsin-Madison",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 14,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Securing coding practices and automated assessment tools",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 1,
+            "name": "Meeting Room 9 A/B"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 2,
+            "name": "Keynotes"
+        },
+        "starts-at": "2017-05-08T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#FF3046",
+            "id": 6,
+            "name": "Security sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Securing your network is not enough. Every service that you deploy is a window into your data center from the outside world\u2014a window that could be exploited by an attacker. Bart Miller and Elisa Heymann explain how to minimize the security flaws in the software you develop or manage.",
+        "language": "",
+        "ends-at": "2017-05-08T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 13,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "Jean Joswig is a site reliability engineer at Google working on data center automation.",
+                "name": "Jean Joswig",
+                "long-biography": "",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/jean.jpg",
+                "organisation": "Google",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 15,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Site reliability engineering",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 2,
+            "name": "Meeting Room 10 A/B"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-08T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#B21212",
+            "id": 3,
+            "name": "Architecture sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Members of Google\u2019s Site Reliability Engineering (SRE) team guide you through the principles of systems engineering. You'll work in small groups to solve a systems problem, using ideas from distributed computing to build a sample system and gain practical experience with the issues surrounding large-scale system design.",
+        "language": "",
+        "ends-at": "2017-05-08T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 14,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Daniel Hinojosa",
+                "long-biography": "Daniel Hinojosa has been a self-employed developer, teacher, and speaker for private business, education, and government since 1999. Daniel also currently teaches programming at the University of New Mexico Continuing Education. His business revolves around the Java ecosystem, encompassing multiple languages and frameworks. Daniel is a Pomodoro Technique practitioner and is cofounder of the Albuquerque Java User\u2019s Group in New Mexico.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/daniele.jpg",
+                "organisation": "Evolutionnext.com",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 16,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Beginning RxJava",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 3,
+            "name": "Meeting Room 12"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-08T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#B21212",
+            "id": 3,
+            "name": "Architecture sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "RxJava is a relatively new way of expressing and composing streams of data as well as asynchronous computations. Daniel Hinojosa demonstrates how to use RxJava safely and effectively in both greenfield and legacy projects, allowing you to write expressive, thread-safe, and well-performing code on both the server and mobile devices..",
+        "language": "",
+        "ends-at": "2017-05-08T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 15,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Hadi Hariri",
+                "long-biography": "Hadi Hariri leads the Developer Advocacy team at JetBrains. His passions include software architecture and web development. He has authored a couple of books and is a frequent contributor to developer publications. Hadi has been speaking at industry events for for nearly 15 years. He is the developer and creator of many things OSS, and he spends as much time as he can writing code. He is also an ASP.NET MVP and ASP.NET Insider. Hadi is based in Spain, where he lives with his wife and three sons.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/hadi.jpg",
+                "organisation": "JetBrains",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 17,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Functional programming with Kotlin",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 4,
+            "name": "Meeting Room 17 A"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-08T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#B21212",
+            "id": 3,
+            "name": "Architecture sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Hadi Hariri explains the basics of functional programming using Kotlin\u2014where it fits in with the object orientation paradigm and how to use it in your everyday work. Along the way, Hadi covers important functional programming concepts and demonstrates how and where to apply functional patterns to cut down boilerplate code and keep it maintainable.",
+        "language": "",
+        "ends-at": "2017-05-08T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 16,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Aaron Maxwell",
+                "long-biography": "Aaron Maxwell trains working engineers in advanced Python development and DevOps.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/aaron.jpg",
+                "organisation": "Powerful Python",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 18,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Mastering Python decorators",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 7,
+            "name": "Ballroom E"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-08T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#E8782C",
+            "id": 5,
+            "name": " Adopt This Now sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Python decorators are key to many popular Python frameworks, including Flask, Django, pytest, and SQLAlchemy. While using decorators is easy, writing them requires a sophisticated understanding of Python's memory model, function abstractions, and generic programming. Aaron Maxwell helps you attain fluent mastery in writing and leveraging Python decorators.",
+        "language": "",
+        "ends-at": "2017-05-08T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 17,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Joshua Long",
+                "long-biography": "Josh Long is the Spring developer advocate at Pivotal.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/joshua.jpg",
+                "organisation": "Pivotal",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 18,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Cloud native Java",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 2,
+            "name": "Meeting Room 10 A/B"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-09T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#3DC8C3",
+            "id": 1,
+            "name": " Open source: From consumer to contributor"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Microservices invite architectural complexity that few are prepared to address. Joshua Long explores how high-performance organizations like Ticketmaster, Alibaba, and Netflix make short work of that complexity with Spring Boot and Spring Cloud, moving beyond mere theory to implement real code to support a microservices system, live.",
+        "language": "",
+        "ends-at": "2017-05-09T12:30:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 18,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Kelsey Hightower",
+                "long-biography": "Kelsey Hightower has worn every hat possible throughout his career in tech but most enjoys leadership roles focused on making things happen and shipping software. Kelsey is a strong open source advocate focused on building simple tools that make people smile. When he is not slinging Go code, you can catch him giving technical workshops covering everything from programming and system administration, to his favorite Linux distro of the month.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/kelsey.jp",
+                "organisation": "Pivotal",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 1,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Measure all the things and other memes that you haven't implemented",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 10,
+            "name": "Meeting Room 14"
+        },
+        "session-type": {
+            "length": "3.30",
+            "id": 1,
+            "name": "Tutorials"
+        },
+        "starts-at": "2017-05-09T13:30:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#E8782C",
+            "id": 5,
+            "name": "Adopt This Now sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Measure all the things. It\u2019s a great mantra for any organization that wants the benefits of cloud computing while maintaining solid operational stability. But how? With what tooling? Kelsey Hightower guides you through hands-on tutorials using open source software that empowers you to continue down the journey of measuring the right things using open source tools.",
+        "language": "",
+        "ends-at": "2017-05-09T17:00:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    },
+    {
+        "submitted-at": "",
+        "subtitle": "",
+        "short-abstract": "",
+        "id": 19,
+        "is-mail-sent": false,
+        "speakers": [
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Rachel Roumeliotis",
+                "long-biography": "Rachel Roumeliotis is a strategic content director at O\u2019Reilly Media, where she leads an editorial team that covers a wide variety of programming topics ranging from full stack to open source in the enterprise to emerging programming languages. Rachel is a programming chair of OSCON and O\u2019Reilly\u2019s Software Architecture Conference. She has been working in technical publishing for 10 years, acquiring content in many areas including mobile programming, UX, computer security, and AI.",
+                "sponsorship-required": "",
+                "photo-url": "",
+                "organisation": "O\u2019Reilly Media",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 1,
+                "icon-image-url": ""
+            },
+            {
+                "city": "",
+                "short-biography": "",
+                "name": "Kelsey Hightower",
+                "long-biography": "Kelsey Hightower has worn every hat possible throughout his career in tech but most enjoys leadership roles focused on making things happen and shipping software. Kelsey is a strong open source advocate focused on building simple tools that make people smile. When he is not slinging Go code, you can catch him giving technical workshops covering everything from programming and system administration, to his favorite Linux distro of the month.",
+                "sponsorship-required": "",
+                "photo-url": "/images/speakers/kelsey.jpg",
+                "organisation": "Google",
+                "speaking-experience": "",
+                "thumbnail-image-url": "",
+                "heard-from": "",
+                "small-image-url": "",
+                "id": 2,
+                "icon-image-url": ""
+            }
+        ],
+        "title": "Thursday openeing welcome",
+        "comments": "",
+        "deleted-at": "",
+        "state": "accepted",
+        "microlocation": {
+            "id": 10,
+            "name": "Meeting Room 14"
+        },
+        "session-type": {
+            "length": "0.05",
+            "id": 4,
+            "name": "5 minute sessions"
+        },
+        "starts-at": "2017-05-11T09:00:00-05:00",
+        "audio-url": "",
+        "track": {
+            "color": "#1485CC",
+            "id": 2,
+            "name": "Performance sessions"
+        },
+        "video-url": "",
+        "signup-url": "",
+        "long-abstract": "Program chairs Rachel Roumeliotis and Kelsey Hightower open the second day of keynotes.",
+        "language": "",
+        "ends-at": "2017-05-11T09:05:00-05:00",
+        "slides-url": "",
+        "created-at": ""
+    }
+]

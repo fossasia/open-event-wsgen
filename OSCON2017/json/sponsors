@@ -1,0 +1,362 @@
+[
+    {
+        "name": "IBM",
+        "level": "9",
+        "url": "https://www.ibm.com/developerworks/",
+        "logo-url": "/images/sponsors/ibm.jpg",
+        "type": "Premium Diamond Sponsor",
+        "id": 1,
+        "description": ""
+    },
+    {
+        "name": "Amazon Web Services",
+        "level": "8",
+        "url": "http://aws.amazon.com/big-data",
+        "logo-url": "/images/sponsors/amazonwebservices.jpg",
+        "type": "Diamond",
+        "id": 5,
+        "description": ""
+    },
+    {
+        "name": "Huawei",
+        "level": "8",
+        "url": "http://www.huawei.com/en/",
+        "logo-url": "/images/sponsors/huawei.jpg",
+        "type": "Diamond",
+        "id": 2,
+        "description": ""
+    },
+    {
+        "name": "GitHub",
+        "level": "7",
+        "url": "https://github.com/",
+        "logo-url": "/images/sponsors/github.png",
+        "type": "Platinum",
+        "id": 3,
+        "description": ""
+    },
+    {
+        "name": "Google",
+        "level": "7",
+        "url": "https://opensource.google.com/",
+        "logo-url": "/images/sponsors/google.png",
+        "type": "Platinum",
+        "id": 4,
+        "description": ""
+    },
+    {
+        "name": "CDK Global",
+        "level": "7",
+        "url": "http://www.cdk.com/",
+        "logo-url": "/images/sponsors/cdkglobal.png",
+        "type": "Platinum",
+        "id": 6,
+        "description": ""
+    },
+    {
+        "name": "PayPal",
+        "level": "6",
+        "url": "https://paypal.github.io/",
+        "logo-url": "/images/sponsors/paypal-1.gif",
+        "type": "Rhodium",
+        "id": 7,
+        "description": ""
+    },
+    {
+        "name": "Akamai Developer",
+        "level": "6",
+        "url": "http://developer.akamai.com/",
+        "logo-url": "/images/sponsors/akamai-1.png",
+        "type": "Rhodium",
+        "id": 8,
+        "description": ""
+    },
+    {
+        "name": "Capital one",
+        "level": "5",
+        "url": "http://www.capitalone.com/",
+        "logo-url": "/images/sponsors/capitalone-1.png",
+        "type": "Gold",
+        "id": 9,
+        "description": ""
+    },
+    {
+        "name": "Intel",
+        "level": "5",
+        "url": "http://www.intel.com/opensource",
+        "logo-url": "/images/sponsors/intel.gif",
+        "type": "Gold",
+        "id": 10,
+        "description": ""
+    },
+    {
+        "name": "Microsoft",
+        "level": "5",
+        "url": "https://conferences.oreilly.com/oscon/opensource.microsoft.com",
+        "logo-url": "/images/sponsors/microsoft.gif",
+        "type": "Gold",
+        "id": 11,
+        "description": ""
+    },
+    {
+        "name": "Pivotal",
+        "level": "5",
+        "url": "http://pivotal.io/",
+        "logo-url": "/images/sponsors/pivotal-1.png",
+        "type": "Gold",
+        "id": 12,
+        "description": ""
+    },
+    {
+        "name": "RedHat",
+        "level": "5",
+        "url": "http://www.redhat.com/",
+        "logo-url": "/images/sponsors/red_hat.gif",
+        "type": "Gold",
+        "id": 13,
+        "description": ""
+    },
+    {
+        "name": "salesforce",
+        "level": "5",
+        "url": "http://www.salesforce.com/tech",
+        "logo-url": "/images/sponsors/salesforce.png",
+        "type": "Gold",
+        "id": 14,
+        "description": ""
+    },
+    {
+        "name": "CloudFoundry",
+        "level": "4",
+        "url": "http://www.cloudfoundry.org/",
+        "logo-url": "/images/sponsors/cloud-foundary-2.png",
+        "type": "Silver",
+        "id": 15,
+        "description": ""
+    },
+    {
+        "name": "Conde Nast",
+        "level": "4",
+        "url": "http://www.condenast.com/",
+        "logo-url": "/images/sponsors/condenast-1.png",
+        "type": "Silver",
+        "id": 16,
+        "description": ""
+    },
+    {
+        "name": "Docker",
+        "level": "4",
+        "url": "https://www.docker.com/",
+        "logo-url": "/images/sponsors/docker.png",
+        "type": "Silver",
+        "id": 17,
+        "description": ""
+    },
+    {
+        "name": "GitLab",
+        "level": "4",
+        "url": "https://about.gitlab.com/",
+        "logo-url": "/images/sponsors/gitlab.png",
+        "type": "Silver",
+        "id": 18,
+        "description": ""
+    },
+    {
+        "name": "Indeed",
+        "level": "4",
+        "url": "http://opensource.indeedeng.io/",
+        "logo-url": "/images/sponsors/indeed.png",
+        "type": "Silver",
+        "id": 19,
+        "description": ""
+    },
+    {
+        "name": "SAP",
+        "level": "4",
+        "url": "http://www.sap.com/",
+        "logo-url": "/images/sponsors/SAP.jpg",
+        "type": "Silver",
+        "id": 20,
+        "description": ""
+    },
+    {
+        "name": "ActiveState",
+        "level": "3",
+        "url": "http://www.activestate.com/",
+        "logo-url": "/images/sponsors/activestate.png",
+        "type": "Premier Exhibitors",
+        "id": 21,
+        "description": ""
+    },
+    {
+        "name": "Cloud Native computing foundation",
+        "level": "3",
+        "url": "http://cncf.io/",
+        "logo-url": "/images/sponsors/cncf.png",
+        "type": "Premier Exhibitors",
+        "id": 22,
+        "description": ""
+    },
+    {
+        "name": "Cloudera",
+        "level": "3",
+        "url": "http://www.cloudera.com/",
+        "logo-url": "/images/sponsors/cloudera_2015.png",
+        "type": "Premier Exhibitors",
+        "id": 23,
+        "description": ""
+    },
+    {
+        "name": "Couchbase",
+        "level": "3",
+        "url": "http://www.couchbase.com/",
+        "logo-url": "/images/sponsors/couchbase-1.png",
+        "type": "Premier Exhibitors",
+        "id": 24,
+        "description": ""
+    },
+    {
+        "name": "Create.IO",
+        "level": "3",
+        "url": "https://crate.io/",
+        "logo-url": "/images/sponsors/cratedataio.png",
+        "type": "Premier Exhibitors",
+        "id": 25,
+        "description": ""
+    },
+    {
+        "name": "Elastic",
+        "level": "3",
+        "url": "https://www.elastic.co/",
+        "logo-url": "/images/sponsors/elastic-1.png",
+        "type": "Premier Exhibitors",
+        "id": 26,
+        "description": ""
+    },
+    {
+        "name": "Expero",
+        "level": "3",
+        "url": "http://www.experoinc.com/",
+        "logo-url": "/images/sponsors/expero.png",
+        "type": "Premier Exhibitors",
+        "id": 28,
+        "description": ""
+    },
+    {
+        "name": "HyperLedger",
+        "level": "3",
+        "url": "http://www.hyperledger.org/",
+        "logo-url": "/images/sponsors/hyperledger.png",
+        "type": "Premier Exhibitors",
+        "id": 29,
+        "description": ""
+    },
+    {
+        "name": "Pilosa",
+        "level": "3",
+        "url": "http://www.pilosa.com/",
+        "logo-url": "/images/sponsors/pilosa.png",
+        "type": "Premier Exhibitors",
+        "id": 30,
+        "description": ""
+    },
+    {
+        "name": "PluralSight",
+        "level": "3",
+        "url": "http://www.pluralsight.com/training",
+        "logo-url": "/images/sponsors/pluralsight.png",
+        "type": "Premier Exhibitors",
+        "id": 31,
+        "description": ""
+    },
+    {
+        "name": "Praecipio Consulting",
+        "level": "3",
+        "url": "http://www.praecipio.com/",
+        "logo-url": "/images/sponsors/praecipioconsulting.png",
+        "type": "Premier Exhibitors",
+        "id": 32,
+        "description": ""
+    },
+    {
+        "name": "RedisLabs",
+        "level": "3",
+        "url": "https://redislabs.com/",
+        "logo-url": "/images/sponsors/redis-labs.png",
+        "type": "Premier Exhibitors",
+        "id": 33,
+        "description": ""
+    },
+    {
+        "name": "RogueWave",
+        "level": "3",
+        "url": "http://www.roguewave.com/",
+        "logo-url": "/images/sponsors/rougewave.png",
+        "type": "Premier Exhibitors",
+        "id": 34,
+        "description": ""
+    },
+    {
+        "name": "Sauce Labs",
+        "level": "3",
+        "url": "http://saucelabs.com/",
+        "logo-url": "/images/sponsors/sauce-labs.png",
+        "type": "Premier Exhibitors",
+        "id": 35,
+        "description": ""
+    },
+    {
+        "name": "SendGrid",
+        "level": "3",
+        "url": "http://www.sendgrid.com/",
+        "logo-url": "/images/sponsors/sendgrid-1.png",
+        "type": "Premier Exhibitors",
+        "id": 36,
+        "description": ""
+    },
+    {
+        "name": "Stack Overflow",
+        "level": "3",
+        "url": "http://www.stackoverflow.com/",
+        "logo-url": "/images/sponsors/stackoverflow.png",
+        "type": "Premier Exhibitors",
+        "id": 37,
+        "description": ""
+    },
+    {
+        "name": "USAA",
+        "level": "3",
+        "url": "http://www.usaa.com/",
+        "logo-url": "/images/sponsors/usaa.png",
+        "type": "Premier Exhibitors",
+        "id": 38,
+        "description": ""
+    },
+    {
+        "name": "vmware",
+        "level": "2",
+        "url": "http://www.vmware.com/",
+        "logo-url": "/images/sponsors/vmware.png",
+        "type": "Supporting sponsor",
+        "id": 39,
+        "description": ""
+    },
+    {
+        "name": "AoI.",
+        "level": "1",
+        "url": "http://engineering.aol.com/",
+        "logo-url": "/images/sponsors/aoi.png",
+        "type": "Diversity & Inclusion Scholarship sponsor",
+        "id": 40,
+        "description": ""
+    },
+    {
+        "name": "Comcast",
+        "level": "1",
+        "url": "http://www.comcast.com/",
+        "logo-url": "/images/sponsors/comcast.gif",
+        "type": "Diversity & Inclusion Scholarship sponsor",
+        "id": 41,
+        "description": ""
+    }
+]

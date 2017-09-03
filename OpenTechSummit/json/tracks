@@ -1,1 +1,246 @@
-[{"name": "Zertifizierung", "location": null, "color": "#65ed10", "font_color": "#000000", "track_image_url": null, "sessions": [{"id": 3291, "title": "LPI Zertifikat Exam 2"}, {"id": 3290, "title": "LPI Zertifikat Exam 1"}], "id": 494, "description": null}, {"name": "Internet und Gesellschaft", "location": null, "color": "#4e8fa3", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3342, "title": "Der Digital-o-Mat oder wie wir Freie Software zum Wahlkampfthema machen"}, {"id": 3354, "title": "Stand: FSFE Booth (ganzt\u00e4gig)"}, {"id": 3300, "title": "EU ePrivacy Richtlinie"}, {"id": 3617, "title": "Why do I have to pay and don't get a say? - Democratize public broadcasting"}, {"id": 3640, "title": "Gender Diversity in Free Software and the small steps we can take to fix it"}, {"id": 3636, "title": "Stand: Jetzt Frag ich doch mal den Staat (ganzt\u00e4gig)"}, {"id": 3091, "title": "Workshop: Realit\u00e4tscheck auf der gr\u00fcnen Wiese : Neue Ideen f\u00fcr das Community-Building f\u00fcr Offenes Wissen und Teilhabe im l\u00e4ndlichen Raum"}, {"id": 3705, "title": "edulabs: freie Bildung und making in der Schule"}], "id": 493, "description": null}, {"name": "Media", "location": null, "color": "#23949c", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3289, "title": "In einer Stunde zum eigenen Podcast oder zur eigenen Radioshow"}, {"id": 3348, "title": "Fireside"}, {"id": 3694, "title": "Podcasters Magic Tool - Von A wie Aufnahme bis Z wie Zuh\u00f6ren"}, {"id": 3710, "title": "Radio machen in Potsdam mit Frrapo"}], "id": 491, "description": null}, {"name": "Open Knowledge/Open Data", "location": null, "color": "#7a6767", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3635, "title": "IFG - Wir fragen nach Daten"}, {"id": 3674, "title": "Data Literacy & NGOs "}, {"id": 3633, "title": "Offene Technik in der Verwaltung? Wir fragen mit dem IFG nach!"}, {"id": 3707, "title": "Open Data in Potsdam"}, {"id": 3709, "title": "Vom OK Lab zum Prototypefund"}, {"id": 3717, "title": "Prototypesession"}, {"id": 3716, "title": "Open Data Potsdam"}], "id": 492, "description": null}, {"name": "TecKids", "location": null, "color": "#d14bac", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3296, "title": "Coderdojo"}, {"id": 3701, "title": "Bau Dir einen Bibberich!  - Erfinde Dein eigenes, elektrisch angetriebenes Zitterinsekt "}, {"id": 3718, "title": "Von Jungen T\u00fcftlern und kleinen Controllern"}], "id": 490, "description": null}, {"name": "Open Source Design", "location": null, "color": "#e31414", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3059, "title": "GitHub for Designers"}, {"id": 3058, "title": "moz://a - The new identity of Mozilla"}, {"id": 3616, "title": "Contextual groups in LibreOffice' Notebookbar"}, {"id": 3629, "title": "Scenarios: A tool to communicate, research and specify use of your software"}, {"id": 3639, "title": "Open Source Design \u2013 the community & existing projects"}, {"id": 3292, "title": "Paper-Prototyp-Workshop"}, {"id": 3686, "title": "MADE FOR MY WHEELCHAIR - CO-Designed open source products"}, {"id": 3689, "title": "Blender-Workshop "}, {"id": 3711, "title": "Blender-Workshop "}], "id": 241, "description": null}, {"name": "Business", "location": null, "color": "#f5dc02", "font_color": "#000000", "track_image_url": null, "sessions": [{"id": 3632, "title": "F\u00f6rderprogramme und F\u00f6rdermittel f\u00fcr innovative digitale Startups. "}, {"id": 2955, "title": "Bringing Academia to the Internet era - a Revolution in Knowledge Sharing"}], "id": 237, "description": null}, {"name": "Science", "location": null, "color": "#0047ff", "font_color": "#ffffff", "track_image_url": null, "sessions": [{"id": 3353, "title": "OSHW Survey TU-Berlin"}, {"id": 3677, "title": "DIY Home Biolab"}, {"id": 3682, "title": "Biohacking"}, {"id": 3089, "title": "Feinstaub selber messen"}, {"id": 3630, "title": "Research Software Engineers: The people behind research software"}, {"id": 3299, "title": "Feinstaub selber messen"}], "id": 240, "description": null}]
+[
+  {
+    "name": "Zertifizierung",
+    "sessions": [
+      {
+        "id": 3291,
+        "title": "LPI Zertifikat Exam 2"
+      },
+      {
+        "id": 3290,
+        "title": "LPI Zertifikat Exam 1"
+      }
+    ],
+    "color": "#65ed10",
+    "location": null,
+    "font-color": "#000000",
+    "id": 494,
+    "description": null
+  },
+  {
+    "name": "Internet und Gesellschaft",
+    "sessions": [
+      {
+        "id": 3342,
+        "title": "Der Digital-o-Mat oder wie wir Freie Software zum Wahlkampfthema machen"
+      },
+      {
+        "id": 3354,
+        "title": "Stand: FSFE Booth (ganztägig)"
+      },
+      {
+        "id": 3300,
+        "title": "EU ePrivacy Richtlinie"
+      },
+      {
+        "id": 3617,
+        "title": "Why do I have to pay and don't get a say? - Democratize public broadcasting"
+      },
+      {
+        "id": 3640,
+        "title": "Gender Diversity in Free Software and the small steps we can take to fix it"
+      },
+      {
+        "id": 3636,
+        "title": "Stand: Jetzt Frag ich doch mal den Staat (ganztägig)"
+      },
+      {
+        "id": 3091,
+        "title": "Workshop: Realitätscheck auf der grünen Wiese : Neue Ideen für das Community-Building für Offenes Wissen und Teilhabe im ländlichen Raum"
+      },
+      {
+        "id": 3705,
+        "title": "edulabs: freie Bildung und making in der Schule"
+      }
+    ],
+    "color": "#4e8fa3",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 493,
+    "description": null
+  },
+  {
+    "name": "Media",
+    "sessions": [
+      {
+        "id": 3289,
+        "title": "In einer Stunde zum eigenen Podcast oder zur eigenen Radioshow"
+      },
+      {
+        "id": 3348,
+        "title": "Fireside"
+      },
+      {
+        "id": 3694,
+        "title": "Podcasters Magic Tool - Von A wie Aufnahme bis Z wie Zuhören"
+      },
+      {
+        "id": 3710,
+        "title": "Radio machen in Potsdam mit Frrapo"
+      }
+    ],
+    "color": "#23949c",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 491,
+    "description": null
+  },
+  {
+    "name": "Open Knowledge/Open Data",
+    "sessions": [
+      {
+        "id": 3635,
+        "title": "IFG - Wir fragen nach Daten"
+      },
+      {
+        "id": 3674,
+        "title": "Data Literacy & NGOs "
+      },
+      {
+        "id": 3633,
+        "title": "Offene Technik in der Verwaltung? Wir fragen mit dem IFG nach!"
+      },
+      {
+        "id": 3707,
+        "title": "Open Data in Potsdam"
+      },
+      {
+        "id": 3709,
+        "title": "Vom OK Lab zum Prototypefund"
+      },
+      {
+        "id": 3717,
+        "title": "Prototypesession"
+      },
+      {
+        "id": 3716,
+        "title": "Open Data Potsdam"
+      }
+    ],
+    "color": "#7a6767",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 492,
+    "description": null
+  },
+  {
+    "name": "TecKids",
+    "sessions": [
+      {
+        "id": 3296,
+        "title": "Coderdojo"
+      },
+      {
+        "id": 3701,
+        "title": "Bau Dir einen Bibberich!  - Erfinde Dein eigenes, elektrisch angetriebenes Zitterinsekt "
+      },
+      {
+        "id": 3718,
+        "title": "Von Jungen Tüftlern und kleinen Controllern"
+      }
+    ],
+    "color": "#d14bac",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 490,
+    "description": null
+  },
+  {
+    "name": "Open Source Design",
+    "sessions": [
+      {
+        "id": 3059,
+        "title": "GitHub for Designers"
+      },
+      {
+        "id": 3058,
+        "title": "moz://a - The new identity of Mozilla"
+      },
+      {
+        "id": 3616,
+        "title": "Contextual groups in LibreOffice' Notebookbar"
+      },
+      {
+        "id": 3629,
+        "title": "Scenarios: A tool to communicate, research and specify use of your software"
+      },
+      {
+        "id": 3639,
+        "title": "Open Source Design – the community & existing projects"
+      },
+      {
+        "id": 3292,
+        "title": "Paper-Prototyp-Workshop"
+      },
+      {
+        "id": 3686,
+        "title": "MADE FOR MY WHEELCHAIR - CO-Designed open source products"
+      },
+      {
+        "id": 3689,
+        "title": "Blender-Workshop "
+      },
+      {
+        "id": 3711,
+        "title": "Blender-Workshop "
+      }
+    ],
+    "color": "#e31414",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 241,
+    "description": null
+  },
+  {
+    "name": "Business",
+    "sessions": [
+      {
+        "id": 3632,
+        "title": "Förderprogramme und Fördermittel für innovative digitale Startups. "
+      },
+      {
+        "id": 2955,
+        "title": "Bringing Academia to the Internet era - a Revolution in Knowledge Sharing"
+      }
+    ],
+    "color": "#f5dc02",
+    "location": null,
+    "font-color": "#000000",
+    "id": 237,
+    "description": null
+  },
+  {
+    "name": "Science",
+    "sessions": [
+      {
+        "id": 3353,
+        "title": "OSHW Survey TU-Berlin"
+      },
+      {
+        "id": 3677,
+        "title": "DIY Home Biolab"
+      },
+      {
+        "id": 3682,
+        "title": "Biohacking"
+      },
+      {
+        "id": 3089,
+        "title": "Feinstaub selber messen"
+      },
+      {
+        "id": 3630,
+        "title": "Research Software Engineers: The people behind research software"
+      },
+      {
+        "id": 3299,
+        "title": "Feinstaub selber messen"
+      }
+    ],
+    "color": "#0047ff",
+    "location": null,
+    "font-color": "#ffffff",
+    "id": 240,
+    "description": null
+  }
+]

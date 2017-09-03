@@ -1,1 +1,1402 @@
-[{"photo": "", "twitter": "https://twitter.com/probonopd/", "linkedin": null, "featured": false, "id": 2613, "city": null, "long_biography": "", "organisation": "AppImage.org", "heard_from": null, "thumbnail": "", "website": "http://appimage.org/", "short_biography": "<p>Simon Peter is the founder and lead developer of the AppImage project, \nand has been a desktop Linux user since over a decade. He thinks that \ndownloading and using applications on the Linux desktop should be at \nleast as hassle-free as on other desktop operating systems.\n</p>", "sessions": [], "facebook": null, "sponsorship_required": "", "icon": "", "github": null, "name": "Simon Peter", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/photo/a0kySkxKdW/552fedd9-df87-47eb-b052-4ed085cce922.png", "twitter": "https://www.twitter.com/xh3n1", "linkedin": null, "featured": false, "id": 2627, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/thumbnail/cXNlQXFyeX/683a3982-7acc-4b97-9a09-6b01ad3452c7.jpg", "website": "https://www.xeni.al", "short_biography": "<p>Xheni is a Business \nInformatics graduate\u00a0 and currently studying Msc in Information \nSecurity. She is a student of Rails Girls Summer of Code. Also member of Open Labs Albania, the local community\n which promotes free and open source technologies, open data, open \ntechnological standards, online privacy etc.</p><p>                </p>", "sessions": [{"state": "confirmed", "id": 3736, "title": "RGSoC experience with Nextcloud Project"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/icon/cWhQWFJuen/b844a150-dca9-4f91-aace-84b236208a09.jpg", "github": "https://www.github.com/xh3n1", "name": "Xheni Myrtaj", "speaking_experience": "", "country": "Albania", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/small/WjFxekN6VT/8ad2f3a7-0510-4893-be61-f7ea6ea1add8.jpg", "position": "Contributor"}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2630, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3739, "title": "Party at Biergarten!"}, {"state": "confirmed", "id": 3774, "title": "Coding sprint"}, {"state": "confirmed", "id": 3775, "title": "Coding sprint"}, {"state": "pending", "id": 3776, "title": "Coding sprint"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Nextcloud Conference", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2628, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3742, "title": "Client-side Encryption with Cryptomator"}, {"state": "confirmed", "id": 3743, "title": "Client-side Encryption with Cryptomator"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Tobias Hagemann", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2629, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Ayush", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/photo/bkZFc1Vud3/89940bdf-d473-4421-a423-4d098ad53bdf.png", "twitter": "", "linkedin": null, "featured": false, "id": 2617, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/thumbnail/WGNub3lheU/d61f81b0-604e-4b7b-bb45-c7462c74c8e3.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3723, "title": "(Push) Notifications in Nextcloud"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/icon/Z3dwakdWd0/182e58a3-229e-4450-a04b-6beec280eb19.jpg", "github": "", "name": "Joas Schilling", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/small/czRwSVJQMV/3ce09528-4e62-4c1c-91ec-db976e32eea2.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/photo/YWg2RndEVV/9db089b2-f7dd-49d7-b42e-8e386f9d146f.png", "twitter": "", "linkedin": null, "featured": false, "id": 2633, "city": null, "long_biography": "", "organisation": "On My Disk", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/thumbnail/b2hjM1R2UU/f40cda00-70c6-4d84-800e-06523766e21a.jpg", "website": "https://onmydisk.com", "short_biography": "Embedded systems engineer, free software enthusiast, startuper.", "sessions": [{"state": "confirmed", "id": 3741, "title": "Introducing On My Disk Connector: easy way to connect your external drive to Nextcloud"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/icon/czZ1R29Kek/2787ab95-01c0-4d36-b6e4-5d029974e3d9.jpg", "github": "", "name": "Alexey Volkov", "speaking_experience": "", "country": "Slovenia", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/small/UWpiOFRPcV/d2b89fe7-e644-4679-9712-cdd3e07ea7a0.jpg", "position": "CEO"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/photo/WWZ5Skx3cn/c9d602db-ce16-40de-ac45-ae1ab828b759.png", "twitter": "", "linkedin": null, "featured": false, "id": 2618, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/thumbnail/OHRBTmdFd0/c4ba2bbb-fe33-49e1-ba5f-fefad03f9b3e.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3724, "title": "Video calls in Nextcloud"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3755, "title": "Secure Communication: Nextcloud videochat and calls"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/icon/VUxKOURZbm/a1ff49ed-0e27-497e-84e2-c4acc81dd272.jpg", "github": "", "name": "Ivan Sein", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/small/TmxhWERsei/dd40ff68-96c1-49aa-ba69-c97b05697263.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/photo/bnIvcTBYbU/db494bd7-8c8b-4829-8eba-54163f41a24c.png", "twitter": "", "linkedin": null, "featured": false, "id": 2616, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/thumbnail/dTMvYkxPSF/8f3a7036-8af7-4afd-b893-c0600f301fc3.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3721, "title": "What is new in the desktop client"}, {"state": "confirmed", "id": 3722, "title": "What is new in the desktop client"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/icon/WGk0dVM4Nm/ceff41d5-b47f-42fb-ae65-a035b5c28f2f.jpg", "github": "", "name": "Roeland Douma", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/small/Z2VVN09UNU/9e81557a-7cdc-47ff-96dd-94a64ea50396.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/photo/UC9wMmlaRX/4322ed04-5075-4d1e-b53b-a588b0552092.png", "twitter": "https://twitter.com/jsxc_org", "linkedin": null, "featured": false, "id": 2634, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/thumbnail/cWhkUWFSQX/5c73d1b1-91f7-4f56-a8b3-9e0421cd03ac.jpg", "website": "https://www.herberth.eu", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3744, "title": "Making communication easier: The Nextcloud Chat"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/icon/RS96dURIT0/d0d04284-a9f7-48c0-bbe6-620728e1a514.jpg", "github": "https://github.com/sualko/", "name": "Klaus Herberth", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/small/RXFEOWhLZT/e4ebaeeb-063d-43f2-b663-c3242eb65a3c.jpg", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2619, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3725, "title": "My summer with GNOME and Nextcloud"}, {"state": "confirmed", "id": 3726, "title": "State of the Deck app"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Julius H\u00e4rtl", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2615, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3728, "title": "Announcing ..."}, {"state": "confirmed", "id": 3720, "title": "So you want to contribute? Building a user-centric UX by example"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Mario Danic", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/photo/TklLY01yZV/def34f85-ebab-433d-9175-c9e553b57968.png", "twitter": "https://twitter.com/jancborchardt", "linkedin": null, "featured": false, "id": 2635, "city": null, "long_biography": "", "organisation": "Nextcloud & Open Source Design", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/thumbnail/MXJJSTl6MV/2ff3413b-063a-44de-aa2b-eb3be59a3e43.jpg", "website": "http://jancborchardt.net", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3745, "title": "\ud83c\udfa8 Join the Nextcloud design team!"}, {"state": "confirmed", "id": 3747, "title": "\ud83d\ude03\ud83d\ude36\ud83d\ude43\ud83e\udd13 Fostering a diverse & welcoming community"}, {"state": "confirmed", "id": 3746, "title": "\ud83c\udfa8 Nextcloud design team discussion"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/icon/Rk5yb0ZqbV/6c90ed70-3335-4ea8-a945-0510a09e9782.jpg", "github": "https://github.com/jancborchardt", "name": "Jan-Christoph Borchardt", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/small/aUJUZi9GUT/712205b0-aec7-40ca-bb6f-6e03869283c6.jpg", "position": "Design Lead"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/photo/ZjNtdEtwaU/1e6482d6-9a2a-4490-af32-3bb38952a7f1.png", "twitter": "https://twitter.com/elioqoshi", "linkedin": null, "featured": false, "id": 2621, "city": null, "long_biography": "", "organisation": "Mozilla", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/thumbnail/V2hDaCtCVn/4082695a-aadd-4546-8e8d-b6833217bb25.jpg", "website": "https://elioqoshi.me", "short_biography": "<p></p><p>Elio Qoshi is founder of Open Source Design startup Ura which helps \nopen source projects improve their visual design and User Experience. He\n is a Mozilla Tech Speaker &amp; Designer, Fedora Ambassador, Tor \nUX Designer and Board Member at Open Labs Albania. He writes for \nSitePoint\n about topics he cares about, usually Free Open Source, Design &amp;\u00a0 \nCommunity. Elio is one of the organizers behind Open Source Conference \nAlbania (OSCAL) which started back in 2014. He also contributes to the \nFree Software Foundation Europe, Wikimedia, Glucosio and GalliumOS. He \nloves cycling and playing video games in his free time.</p><p></p>", "sessions": [], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/icon/RSsrZWZob3/89a254b9-042a-4dec-977a-606ade3c2951.jpg", "github": "https://github.com/elioqoshi", "name": "Elio Qoshi", "speaking_experience": "", "country": "Albania", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/small/SzFvUEtjcW/a615997b-664b-493f-9702-a0593c20f509.jpg", "position": "Designer"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/photo/QzlWckp5NX/98e8f859-2d5e-4914-86df-36cdc9071537.png", "twitter": "", "linkedin": null, "featured": false, "id": 2620, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/thumbnail/MHh6ZXhHQT/5d1b3fb3-55af-4bd1-93fd-4bbf5f871add.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3727, "title": "Android App: The journey of the 1st year in the wild"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/icon/QWxaR0dKeD/33f7fe54-4e46-4e99-891e-5dd2f683a5d7.jpg", "github": "", "name": "Andy Scherzinger", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/small/R2ZyNk5kWj/b20e5311-5c7f-4012-b61b-c632726e17eb.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/photo/K002a0lIdn/869dce13-139c-485b-8fbd-42fde0f21f86.png", "twitter": "", "linkedin": null, "featured": false, "id": 2622, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/thumbnail/UG9ER200ND/32f55653-8231-4bbd-ad1a-5a4e9e14e353.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3729, "title": "Android - current state and outlook"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/icon/OFU5QlE4N0/07ad38a5-3c23-4ffa-a065-f879d27d3c8d.jpg", "github": "", "name": "Tobias Kaminsky", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/small/K2ZiTjhiTV/486e2545-bb7e-4c5e-ab24-2c8f8f6118b0.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/photo/cDFTa01zRH/2505d48a-9d73-4fa7-84b6-c3ca0c444535.png", "twitter": "https://twitter.com/jonatoni", "linkedin": null, "featured": false, "id": 2636, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/thumbnail/NkphcDVnQ0/2b110a2c-34ae-42b6-a983-01204466df20.jpg", "website": "https://jona.azizaj.com", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3736, "title": "RGSoC experience with Nextcloud Project"}, {"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/icon/RGtXK3FYb3/4cac5e78-3e42-44f4-a519-a50d3fe68d70.jpg", "github": "https://github.com/jonatoni", "name": "Jona Azizaj", "speaking_experience": "", "country": "Albania", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/small/TFJYc1JxQW/dcea9ed4-9316-4189-8408-7a2b049329a6.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/photo/Njd6UmtsRW/d90f228b-b3d2-4df8-b9af-0b2fecb8208a.png", "twitter": "", "linkedin": null, "featured": false, "id": 2642, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/thumbnail/RkVEbnhMZ1/c49056a8-ecd9-44cc-9215-b38a36352a29.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3754, "title": "User Management and Authentication (LDAP/SAML/OTP/etc)"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/icon/U1ZCRzRWaD/d60e63d1-7899-4301-8a2d-1cdd581e43f2.jpg", "github": "", "name": "Arthur Schiwon", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/small/cnhiYmRQU2/8618ccde-3faf-4ee9-918e-6d365c220150.jpg", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2638, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3749, "title": "Greetings"}, {"state": "confirmed", "id": 3753, "title": "TU Berlin: migration from ownCloud to Nextcloud"}, {"state": "confirmed", "id": 3756, "title": "Real-time Secure Collaboration"}, {"state": "confirmed", "id": 3758, "title": "Closing Plenary"}, {"state": "confirmed", "id": 3757, "title": "Improve your productivity with Nextcloud"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Nextcloud Conference", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/photo/Z05xbmU5Sy/6321f1fa-72d5-4ef4-b037-4c651e12db0e.png", "twitter": "", "linkedin": null, "featured": false, "id": 2640, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/thumbnail/NEVEOFdsYk/0f57d15f-c881-44d2-97a2-bf9bd2b89579.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3751, "title": "Next Generation Security Technology"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/icon/RU8zUStnSG/0456449e-c797-4c81-b203-6b679f413fd0.jpg", "github": "", "name": "Lukas Reschke", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/small/aWM1by9HeD/2639464c-ed8f-449d-98e2-bd4ecf879004.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/photo/d0w0Qkw0L3/e5cd3f1f-6ca3-43f4-90a2-14f34a616d3e.png", "twitter": "", "linkedin": null, "featured": false, "id": 2637, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/thumbnail/eEV2RzZYOW/7e424078-f5c2-4b77-9378-532e1665cb04.jpg", "website": "", "short_biography": "<p>bla!</p>", "sessions": [{"state": "pending", "id": 3748, "title": "test"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/icon/N096ZW1jb3/181e5ef5-3171-457b-af38-15b62536838a.jpg", "github": "", "name": "Jos Poortvliet", "speaking_experience": "", "country": "Germany", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/small/cGl2TnIwMz/58c0a521-3a34-4d24-b106-847e1447f67f.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/photo/clhoYWJRYz/56e1f279-75a0-419e-b858-57e7d8b14487.png", "twitter": "", "linkedin": null, "featured": false, "id": 2641, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/thumbnail/L2xmUVE1bW/0099e36c-7d88-4520-8f84-282bd40362cf.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3752, "title": "Scalability recommendations: large scale deployments with Nextcloud"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/icon/NXF5WTUzb3/295635c4-ae3d-4f02-a7f2-e7b3c59724d5.jpg", "github": "", "name": "Morris Jobke", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/small/d1BSZ3p4dn/002ae0a8-4969-4214-98f2-ffdcd1440ece.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/photo/d3NFcC9mbG/7d901453-ed6d-4375-b337-3c3f8a488c15.png", "twitter": "https://twitter.com/schiessle", "linkedin": null, "featured": false, "id": 2624, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/thumbnail/TVBwRml1OD/b8aa58d3-cadf-49c3-a3a7-c5438f0498ac.jpg", "website": "https://www.schiessle.org", "short_biography": "<p>Bj\u00f6rn Schie\u00dfle has been developing federated technology for ownCloud and now Nextcloud since 2012. He is a graduated computer scientist and conducted research in the area of cloud robotics before he joined ownCloud and later on Nextcloud. He is active in the Free Software community for more than 20 years. As a long-time Free Software activist he has a deep understanding about the political, legal and social aspects of software freedom.                 </p>", "sessions": [{"state": "confirmed", "id": 3734, "title": "Global Scale - A new way to scale large installations"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3735, "title": "Free Software Licensing in a Nutshell - What every developer should know"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/icon/NjhJWGczMG/724b7926-53c6-4267-bd33-339f1d8cbf36.jpg", "github": "https://github.com/schiessle", "name": "Bj\u00f6rn Schie\u00dfle", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/small/dDYwUzErSW/a49ce0c0-f75e-4963-98a9-1b2a0764392e.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/photo/UklnNWZYd2/18bd9eac-5006-4b98-90ee-525efa840f85.png", "twitter": "https://twitter.com/ArapiSilva", "linkedin": null, "featured": false, "id": 2625, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/thumbnail/Q0N3RmNqdU/56968fa9-40ae-4627-886c-5e2ca55d48e1.jpg", "website": "https://silva.arapi.tech", "short_biography": "<p>I'm currently a student, getting a masters degree in Information Security. I have been a member of the Open Labs Hackerspace for the last two years where I have helped with organizing different events about open source software projects. I'm one of the co-organizers of Open Source Conference Albania, one of the biggest conferences in our region dedicated to open source software. I have been leading the Nextcloud project in the hackerspace for the last months and I have contributed mostly by advocating it. I am very passionate about the topics of privacy, espionage, massive surveillance etc. Also a bit new to public speaking but getting better with time :)                </p>", "sessions": [{"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3732, "title": "Introducing the Tirana Nextcloud Community"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/icon/NDk5Q2VhMy/76d99861-a169-462c-94b0-868b0dd36490.jpg", "github": "https://github.com/silvaarapi", "name": "Silva Arapi", "speaking_experience": "", "country": "Albania", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/small/TFlySWs1Y2/f9ad4309-08cc-4846-a27c-06070c7d91e5.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/photo/Sjl5Y09uQ0/644f853e-20e2-4344-a0cd-1a48a2c1fba1.png", "twitter": "", "linkedin": null, "featured": true, "id": 2639, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/thumbnail/ZWRnWDVESW/ab65debf-a9da-47f9-9365-c4a93d1a364b.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3750, "title": "The future of file sync&share: collaboration and communication"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/icon/VmhoT2dCUV/de780307-3ccd-4059-8a9e-572039005cdf.jpg", "github": "", "name": "Frank Karlitschek", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/small/K2lub2hMNm/7dccf951-1eed-4962-8cf1-8c2353843af1.jpg", "position": "CEO"}, {"photo": "", "twitter": null, "linkedin": null, "featured": false, "id": 2643, "city": null, "long_biography": "", "organisation": null, "heard_from": null, "thumbnail": "", "website": null, "short_biography": "", "sessions": [{"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3760, "title": "p\u2261p \u2261 pretty Easy privacy - Privacy by Default."}], "facebook": null, "sponsorship_required": "", "icon": "", "github": null, "name": "sva", "speaking_experience": "", "country": null, "gender": null, "small": "", "position": null}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2644, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3761, "title": "Nextcloud Mobile Deployment in Enterprises"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Mario Danic", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/photo/RTVLQjcwUF/c1e816e5-97a0-4715-8de0-dcfce3083e02.png", "twitter": "", "linkedin": null, "featured": false, "id": 2646, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/thumbnail/MkxpSURYa2/09a0b122-9e90-45a2-9e1a-5c88e6150930.jpg", "website": "", "short_biography": "Master of the Audio Player", "sessions": [{"state": "confirmed", "id": 3763, "title": "Audio Player: our lessons learned and outlook"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/icon/WjM5NnhwQl/560baebc-59ae-47d7-88bb-7265275f43eb.jpg", "github": "", "name": "Marcel Scherello", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/small/SzU1Ty9nNk/523f72b7-baf9-4d69-a898-b37a8f92673a.jpg", "position": ""}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2647, "city": null, "long_biography": "", "organisation": "BVPMOSC", "heard_from": null, "thumbnail": "", "website": "http://ipiyush.com", "short_biography": "", "sessions": [], "facebook": null, "sponsorship_required": "", "icon": "", "github": "http://github.com/poush", "name": "Piyush Agrawal", "speaking_experience": "", "country": "India", "gender": null, "small": "", "position": "Captain"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/photo/cGJkK0loNT/d123cea1-6491-4a2e-9762-6fe5d16531fa.png", "twitter": "", "linkedin": null, "featured": false, "id": 2648, "city": null, "long_biography": "", "organisation": "bitfire.at", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/thumbnail/T2pxbVNpYk/2592d813-6615-4c8f-9669-61f6c25bc79b.jpg", "website": "https://www.bitfire.at", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3764, "title": "DAVdroid / Nextcloud Integration"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/icon/Skg5UzZ6eD/ea42fc14-42df-483f-b6a6-68bda267ede6.jpg", "github": "", "name": "Ricki Hirner", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/small/SnMyQlJIMD/af1c2de2-f201-40be-ba3c-5773d0c5ba68.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/photo/WnNCMkJTaF/3ade7930-86ab-455b-b458-601ea49d9ae1.png", "twitter": "", "linkedin": null, "featured": false, "id": 2649, "city": null, "long_biography": "", "organisation": "bitfire.at", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/thumbnail/QyttcVgrM0/c02e4c2f-c7f5-4d1f-886d-a6558db53134.jpg", "website": "https://www.bitfire.at", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3764, "title": "DAVdroid / Nextcloud Integration"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/icon/ZEd5L0EwQ1/a7497c0b-fcf8-4411-80ed-7789b3d21ea4.jpg", "github": "", "name": "Bernhard Stockmann", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/small/VDZCV0lqcH/61f4c321-a4fc-422c-9ee8-926c154f3e46.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/photo/WUhXV0p5Ul/c132e926-3458-45e9-979c-bb7601b6609c.png", "twitter": "https://twitter.com/AlizeNero", "linkedin": null, "featured": false, "id": 2651, "city": null, "long_biography": "", "organisation": "Rails Girls Summer of Code - Discourse", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/thumbnail/QUlseE8waG/3e121629-5cb3-4c48-b8a1-fb3bcfd32f77.jpg", "website": "https://github.com/berlindiamonds", "short_biography": "We are the Team Berlin Diamonds from the Rails Girls Summer of Code. Our project this summer is building backup plugins for the Discourse app to different providers.\u00a0", "sessions": [{"state": "confirmed", "id": 3767, "title": "Building a Nextcloud Plugin for Discourse"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/icon/eDAxbnhQRE/73467a8b-3fc6-4b9d-8f0a-f45435fa8efa.jpg", "github": "https://github.com/kajatiger", "name": "Kaja Santro", "speaking_experience": "", "country": "Germany", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/small/WGVnQkhDaX/b420e364-5835-48e0-9707-69178e053108.jpg", "position": "Ruby on Rails Web Developer"}, {"photo": "", "twitter": null, "linkedin": null, "featured": false, "id": 2652, "city": null, "long_biography": "", "organisation": null, "heard_from": null, "thumbnail": "", "website": null, "short_biography": "", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3768, "title": "Streamlining the Nextcloud Docker Experience"}, {"state": "confirmed", "id": 3769, "title": "Nextcloud Docker Image Enrichment"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": null, "name": "Paul Adams", "speaking_experience": "", "country": null, "gender": null, "small": "", "position": null}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/photo/aVlWVUtIL0/fbb83fc3-4483-4fc6-bf9f-343832ca235c.png", "twitter": "https://twitter.com/hildi_berlin", "linkedin": null, "featured": false, "id": 2654, "city": null, "long_biography": "", "organisation": "tubIT - IT Service Center, Technische Universit\u00e4t Berlin", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/thumbnail/UkZOR1dpMm/c4469998-34ab-44b8-adf4-3efbf4b28409.jpg", "website": "http://www.user.tu-berlin.de/hildcatf/", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3777, "title": "TU Berlin: migration from ownCloud to Nextcloud"}, {"state": "confirmed", "id": 3772, "title": "Welcome to TU Berlin - we're now Nextclouders"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/icon/bzMzWEpFRG/e492b2dd-2171-4759-aac3-848e632abeb1.jpg", "github": "", "name": "Thomas Hildmann", "speaking_experience": "", "country": "Germany", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/small/UUx2U3ZJaH/87ba251c-629b-4602-9853-e112581f1a7c.jpg", "position": "Head of Department Infrastructure"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/photo/NEwxUEgxen/417d2db7-98c1-469c-b1e6-77ccc035a878.png", "twitter": "https://twitter.com/Oscar_VNC", "linkedin": null, "featured": false, "id": 2655, "city": null, "long_biography": "", "organisation": "VNC - Virtual Network Consult AG", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/thumbnail/MEtwcndWTk/a1aff60e-172d-4ca2-9978-c2714d5216c7.jpg", "website": "https://www.vnclagoon.com", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3737, "title": "Saturday Lightning talks"}, {"state": "confirmed", "id": 3770, "title": "VNCsafe Zimlet -  Nextcloud & Zimbra Integration"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/icon/cTJkcWtndk/92955a4d-84d9-4f65-9e14-ec6b758e72f3.jpg", "github": "", "name": "Oscar Arias Farrera", "speaking_experience": "", "country": "Germany", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/small/WXFPMEJoU2/d698290f-a293-4033-9abd-daf12992458f.jpg", "position": "International Sales"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/photo/dG1XbjVXMk/d59ef86f-c937-410e-93b2-36995c5ef68e.png", "twitter": "", "linkedin": null, "featured": false, "id": 2653, "city": null, "long_biography": "", "organisation": "Nextcloud GmbH", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/thumbnail/SnRoUzVvYm/27f7c416-4f5b-45ee-af94-e0cc14c759b0.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3773, "title": "Coding sprint"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/icon/MzQxWGVNSm/f9f0712a-2273-44ba-bbae-a8fb6e1c4a7f.jpg", "github": "", "name": "Jos Poortvliet", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/small/R3VWQU1OMn/c5b657e5-df67-4449-9183-a5614b4ddd58.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/photo/U2dMenVWQW/8c41523d-8066-4d8d-9790-e74a274d132c.png", "twitter": "", "linkedin": null, "featured": true, "id": 2631, "city": null, "long_biography": "", "organisation": "", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/thumbnail/NGJNYlVJZW/fe432d2a-6cc8-4907-aac1-f129ca57fa10.jpg", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3738, "title": "Keynote - Come build the future of private Clouds"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/icon/d3JUVm5NV0/769fb413-8a09-4e0f-8fe5-876b5ff8cfe6.jpg", "github": "", "name": "Tristan Nitot", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/small/ZlJWRDNYSm/f5fd9393-263a-4352-bbb1-2ca125f02404.jpg", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/photo/Y0JDYnQ3UW/c9aae242-0cec-4eec-8ea1-ea8b7ba3180f.png", "twitter": "", "linkedin": null, "featured": false, "id": 2632, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/thumbnail/QVM4Skhpel/e6deae11-aee1-44d1-b9f0-5c8b3e90d7ce.jpg", "website": "http://camila.codes", "short_biography": "I am software engineer living in Berlin<span><span style=\"\"> since 2012. Besides being just another Brazilian with a long name living in Germany, I'm a curious person experimenting with life and computers while married to a Dutch person and living with a dog named Popcorn.</span></span>", "sessions": [{"state": "confirmed", "id": 3740, "title": "How many lines of code do you need to build your first Nextcloud app?"}, {"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3759, "title": "How many lines of code do you need to build your first Nextcloud app?"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/icon/ZHNVRnlMY3/4f27aefa-0931-4e3c-aecd-cdb233b3f824.jpg", "github": "http://github.com/camilasan", "name": "Camila San Martin Ayres", "speaking_experience": "", "country": "Germany", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/small/aEFqbkR6K2/8cb19e81-bf81-48a0-b940-dfb225fda3ba.jpg", "position": "Software Engineer"}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/photo/dU4ydmlZMF/8657b0d5-71e0-44d5-ba0e-dabaf7be49ba.png", "twitter": "", "linkedin": null, "featured": false, "id": 2656, "city": null, "long_biography": "", "organisation": "Own Your Bits - NextCloudPi", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/thumbnail/bm1tU2RmOX/8c9d5723-a927-4af4-ad24-c31ded164311.jpg", "website": "https://ownyourbits.com", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3771, "title": "NextCloudPi, easy self-hosting for everyone"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/icon/U3V0OFZpNn/88606b43-554b-4457-98a8-3ca185c18ec6.jpg", "github": "https://github.com/nachoparker", "name": "Ignacio N\u00fa\u00f1ez Hernanz", "speaking_experience": "", "country": "", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/small/Z3JoWExOSF/2b810c4a-05c0-4aee-add4-e416cd2814dd.jpg", "position": "NextCloudPi developer"}, {"photo": "", "twitter": "", "linkedin": null, "featured": false, "id": 2658, "city": null, "long_biography": "", "organisation": "Nextcloud", "heard_from": null, "thumbnail": "", "website": "", "short_biography": "", "sessions": [{"state": "confirmed", "id": 3779, "title": "Nextcloud Proof of concept"}], "facebook": null, "sponsorship_required": "", "icon": "", "github": "", "name": "Olivier Paroz and Matthias Wobben", "speaking_experience": "", "country": "", "gender": null, "small": "", "position": ""}, {"photo": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/photo/S2RJUnRiTG/c371c0c1-a0b9-4b3c-93e1-c3d5cef16e68.png", "twitter": "https://twitter.com/rskikuli", "linkedin": null, "featured": false, "id": 2623, "city": null, "long_biography": "", "organisation": "Contributor", "heard_from": null, "thumbnail": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/thumbnail/SzUzeERQT1/7855d965-54a2-44fe-a5c7-ce569355cce6.jpg", "website": "https://redon.skikuli.com/", "short_biography": "Redon is a Nextcloud community member from Tirana, Albania. He has been involved since the early days of the local community organizing events and localization sprints and also facilitating Nextcloud presence at Open Source Conference. ", "sessions": [{"state": "confirmed", "id": 3780, "title": "Sunday Lightning Talks"}, {"state": "confirmed", "id": 3730, "title": "How to jump start a local floss community"}, {"state": "confirmed", "id": 3731, "title": "Nextcloud in the public administration & the importance of the community in the process"}], "facebook": null, "sponsorship_required": "", "icon": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/icon/T1RxM1JESm/298c9876-2289-49b3-9d66-777634bd49ef.jpg", "github": "https://github.com/rskikuli", "name": "Redon Skikuli", "speaking_experience": "", "country": "Albania", "gender": null, "small": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/small/alZDcUpTd2/0623e952-5ba2-43c1-a50d-91023ff23bd0.jpg", "position": ""}]
+[
+  {
+    "twitter": "https://twitter.com/probonopd/",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2613,
+    "city": null,
+    "organisation": "AppImage.org",
+    "website": "http://appimage.org/",
+    "sessions": [],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": null,
+    "name": "Simon Peter",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "<p>Simon Peter is the founder and lead developer of the AppImage project, \nand has been a desktop Linux user since over a decade. He thinks that \ndownloading and using applications on the Linux desktop should be at \nleast as hassle-free as on other desktop operating systems.\n<\/p>",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://www.twitter.com/xh3n1",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/photo/a0kySkxKdW/552fedd9-df87-47eb-b052-4ed085cce922.png",
+    "linkedin": null,
+    "id": 2627,
+    "city": null,
+    "organisation": "",
+    "website": "https://www.xeni.al",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3736,
+        "title": "RGSoC experience with Nextcloud Project"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/icon/cWhQWFJuen/b844a150-dca9-4f91-aace-84b236208a09.jpg",
+    "facebook": null,
+    "github": "https://www.github.com/xh3n1",
+    "name": "Xheni Myrtaj",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/thumbnail/cXNlQXFyeX/683a3982-7acc-4b97-9a09-6b01ad3452c7.jpg",
+    "short-biography": "<p>Xheni is a Business \nInformatics graduate  and currently studying Msc in Information \nSecurity. She is a student of Rails Girls Summer of Code. Also member of Open Labs Albania, the local community\n which promotes free and open source technologies, open data, open \ntechnological standards, online privacy etc.<\/p><p>                <\/p>",
+    "long-biography": "",
+    "country": "Albania",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2627/small/WjFxekN6VT/8ad2f3a7-0510-4893-be61-f7ea6ea1add8.jpg",
+    "position": "Contributor",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2630,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3739,
+        "title": "Party at Biergarten!"
+      },
+      {
+        "state": "confirmed",
+        "id": 3774,
+        "title": "Coding sprint"
+      },
+      {
+        "state": "confirmed",
+        "id": 3775,
+        "title": "Coding sprint"
+      },
+      {
+        "state": "pending",
+        "id": 3776,
+        "title": "Coding sprint"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Nextcloud Conference",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2628,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3742,
+        "title": "Client-side Encryption with Cryptomator"
+      },
+      {
+        "state": "confirmed",
+        "id": 3743,
+        "title": "Client-side Encryption with Cryptomator"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Tobias Hagemann",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2629,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "",
+    "sessions": [],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Ayush",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/photo/bkZFc1Vud3/89940bdf-d473-4421-a423-4d098ad53bdf.png",
+    "linkedin": null,
+    "id": 2617,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3723,
+        "title": "(Push) Notifications in Nextcloud"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/icon/Z3dwakdWd0/182e58a3-229e-4450-a04b-6beec280eb19.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Joas Schilling",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/thumbnail/WGNub3lheU/d61f81b0-604e-4b7b-bb45-c7462c74c8e3.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2617/small/czRwSVJQMV/3ce09528-4e62-4c1c-91ec-db976e32eea2.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/photo/YWg2RndEVV/9db089b2-f7dd-49d7-b42e-8e386f9d146f.png",
+    "linkedin": null,
+    "id": 2633,
+    "city": null,
+    "organisation": "On My Disk",
+    "website": "https://onmydisk.com",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3741,
+        "title": "Introducing On My Disk Connector: easy way to connect your external drive to Nextcloud"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/icon/czZ1R29Kek/2787ab95-01c0-4d36-b6e4-5d029974e3d9.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Alexey Volkov",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/thumbnail/b2hjM1R2UU/f40cda00-70c6-4d84-800e-06523766e21a.jpg",
+    "short-biography": "Embedded systems engineer, free software enthusiast, startuper.",
+    "long-biography": "",
+    "country": "Slovenia",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2633/small/UWpiOFRPcV/d2b89fe7-e644-4679-9712-cdd3e07ea7a0.jpg",
+    "position": "CEO",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/photo/WWZ5Skx3cn/c9d602db-ce16-40de-ac45-ae1ab828b759.png",
+    "linkedin": null,
+    "id": 2618,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3724,
+        "title": "Video calls in Nextcloud"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3755,
+        "title": "Secure Communication: Nextcloud videochat and calls"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/icon/VUxKOURZbm/a1ff49ed-0e27-497e-84e2-c4acc81dd272.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Ivan Sein",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/thumbnail/OHRBTmdFd0/c4ba2bbb-fe33-49e1-ba5f-fefad03f9b3e.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2618/small/TmxhWERsei/dd40ff68-96c1-49aa-ba69-c97b05697263.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/photo/bnIvcTBYbU/db494bd7-8c8b-4829-8eba-54163f41a24c.png",
+    "linkedin": null,
+    "id": 2616,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3721,
+        "title": "What is new in the desktop client"
+      },
+      {
+        "state": "confirmed",
+        "id": 3722,
+        "title": "What is new in the desktop client"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/icon/WGk0dVM4Nm/ceff41d5-b47f-42fb-ae65-a035b5c28f2f.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Roeland Douma",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/thumbnail/dTMvYkxPSF/8f3a7036-8af7-4afd-b893-c0600f301fc3.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2616/small/Z2VVN09UNU/9e81557a-7cdc-47ff-96dd-94a64ea50396.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/jsxc_org",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/photo/UC9wMmlaRX/4322ed04-5075-4d1e-b53b-a588b0552092.png",
+    "linkedin": null,
+    "id": 2634,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "https://www.herberth.eu",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3744,
+        "title": "Making communication easier: The Nextcloud Chat"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/icon/RS96dURIT0/d0d04284-a9f7-48c0-bbe6-620728e1a514.jpg",
+    "facebook": null,
+    "github": "https://github.com/sualko/",
+    "name": "Klaus Herberth",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/thumbnail/cWhkUWFSQX/5c73d1b1-91f7-4f56-a8b3-9e0421cd03ac.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2634/small/RXFEOWhLZT/e4ebaeeb-063d-43f2-b663-c3242eb65a3c.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2619,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3725,
+        "title": "My summer with GNOME and Nextcloud"
+      },
+      {
+        "state": "confirmed",
+        "id": 3726,
+        "title": "State of the Deck app"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Julius Härtl",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2615,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3728,
+        "title": "Announcing ..."
+      },
+      {
+        "state": "confirmed",
+        "id": 3720,
+        "title": "So you want to contribute? Building a user-centric UX by example"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Mario Danic",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/jancborchardt",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/photo/TklLY01yZV/def34f85-ebab-433d-9175-c9e553b57968.png",
+    "linkedin": null,
+    "id": 2635,
+    "city": null,
+    "organisation": "Nextcloud & Open Source Design",
+    "website": "http://jancborchardt.net",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3745,
+        "title": "🎨 Join the Nextcloud design team!"
+      },
+      {
+        "state": "confirmed",
+        "id": 3747,
+        "title": "😃😶🙃🤓 Fostering a diverse & welcoming community"
+      },
+      {
+        "state": "confirmed",
+        "id": 3746,
+        "title": "🎨 Nextcloud design team discussion"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/icon/Rk5yb0ZqbV/6c90ed70-3335-4ea8-a945-0510a09e9782.jpg",
+    "facebook": null,
+    "github": "https://github.com/jancborchardt",
+    "name": "Jan-Christoph Borchardt",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/thumbnail/MXJJSTl6MV/2ff3413b-063a-44de-aa2b-eb3be59a3e43.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2635/small/aUJUZi9GUT/712205b0-aec7-40ca-bb6f-6e03869283c6.jpg",
+    "position": "Design Lead",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/elioqoshi",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/photo/ZjNtdEtwaU/1e6482d6-9a2a-4490-af32-3bb38952a7f1.png",
+    "linkedin": null,
+    "id": 2621,
+    "city": null,
+    "organisation": "Mozilla",
+    "website": "https://elioqoshi.me",
+    "sessions": [],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/icon/RSsrZWZob3/89a254b9-042a-4dec-977a-606ade3c2951.jpg",
+    "facebook": null,
+    "github": "https://github.com/elioqoshi",
+    "name": "Elio Qoshi",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/thumbnail/V2hDaCtCVn/4082695a-aadd-4546-8e8d-b6833217bb25.jpg",
+    "short-biography": "<p><\/p><p>Elio Qoshi is founder of Open Source Design startup Ura which helps \nopen source projects improve their visual design and User Experience. He\n is a Mozilla Tech Speaker &amp; Designer, Fedora Ambassador, Tor \nUX Designer and Board Member at Open Labs Albania. He writes for \nSitePoint\n about topics he cares about, usually Free Open Source, Design &amp;  \nCommunity. Elio is one of the organizers behind Open Source Conference \nAlbania (OSCAL) which started back in 2014. He also contributes to the \nFree Software Foundation Europe, Wikimedia, Glucosio and GalliumOS. He \nloves cycling and playing video games in his free time.<\/p><p><\/p>",
+    "long-biography": "",
+    "country": "Albania",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2621/small/SzFvUEtjcW/a615997b-664b-493f-9702-a0593c20f509.jpg",
+    "position": "Designer",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/photo/QzlWckp5NX/98e8f859-2d5e-4914-86df-36cdc9071537.png",
+    "linkedin": null,
+    "id": 2620,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3727,
+        "title": "Android App: The journey of the 1st year in the wild"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/icon/QWxaR0dKeD/33f7fe54-4e46-4e99-891e-5dd2f683a5d7.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Andy Scherzinger",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/thumbnail/MHh6ZXhHQT/5d1b3fb3-55af-4bd1-93fd-4bbf5f871add.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2620/small/R2ZyNk5kWj/b20e5311-5c7f-4012-b61b-c632726e17eb.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/photo/K002a0lIdn/869dce13-139c-485b-8fbd-42fde0f21f86.png",
+    "linkedin": null,
+    "id": 2622,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3729,
+        "title": "Android - current state and outlook"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/icon/OFU5QlE4N0/07ad38a5-3c23-4ffa-a065-f879d27d3c8d.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Tobias Kaminsky",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/thumbnail/UG9ER200ND/32f55653-8231-4bbd-ad1a-5a4e9e14e353.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2622/small/K2ZiTjhiTV/486e2545-bb7e-4c5e-ab24-2c8f8f6118b0.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/jonatoni",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/photo/cDFTa01zRH/2505d48a-9d73-4fa7-84b6-c3ca0c444535.png",
+    "linkedin": null,
+    "id": 2636,
+    "city": null,
+    "organisation": "",
+    "website": "https://jona.azizaj.com",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3736,
+        "title": "RGSoC experience with Nextcloud Project"
+      },
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/icon/RGtXK3FYb3/4cac5e78-3e42-44f4-a519-a50d3fe68d70.jpg",
+    "facebook": null,
+    "github": "https://github.com/jonatoni",
+    "name": "Jona Azizaj",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/thumbnail/NkphcDVnQ0/2b110a2c-34ae-42b6-a983-01204466df20.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "Albania",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2636/small/TFJYc1JxQW/dcea9ed4-9316-4189-8408-7a2b049329a6.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/photo/Njd6UmtsRW/d90f228b-b3d2-4df8-b9af-0b2fecb8208a.png",
+    "linkedin": null,
+    "id": 2642,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3754,
+        "title": "User Management and Authentication (LDAP/SAML/OTP/etc)"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/icon/U1ZCRzRWaD/d60e63d1-7899-4301-8a2d-1cdd581e43f2.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Arthur Schiwon",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/thumbnail/RkVEbnhMZ1/c49056a8-ecd9-44cc-9215-b38a36352a29.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2642/small/cnhiYmRQU2/8618ccde-3faf-4ee9-918e-6d365c220150.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2638,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3749,
+        "title": "Greetings"
+      },
+      {
+        "state": "confirmed",
+        "id": 3753,
+        "title": "TU Berlin: migration from ownCloud to Nextcloud"
+      },
+      {
+        "state": "confirmed",
+        "id": 3756,
+        "title": "Real-time Secure Collaboration"
+      },
+      {
+        "state": "confirmed",
+        "id": 3758,
+        "title": "Closing Plenary"
+      },
+      {
+        "state": "confirmed",
+        "id": 3757,
+        "title": "Improve your productivity with Nextcloud"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Nextcloud Conference",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/photo/Z05xbmU5Sy/6321f1fa-72d5-4ef4-b037-4c651e12db0e.png",
+    "linkedin": null,
+    "id": 2640,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3751,
+        "title": "Next Generation Security Technology"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/icon/RU8zUStnSG/0456449e-c797-4c81-b203-6b679f413fd0.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Lukas Reschke",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/thumbnail/NEVEOFdsYk/0f57d15f-c881-44d2-97a2-bf9bd2b89579.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2640/small/aWM1by9HeD/2639464c-ed8f-449d-98e2-bd4ecf879004.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/photo/d0w0Qkw0L3/e5cd3f1f-6ca3-43f4-90a2-14f34a616d3e.png",
+    "linkedin": null,
+    "id": 2637,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "pending",
+        "id": 3748,
+        "title": "test"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/icon/N096ZW1jb3/181e5ef5-3171-457b-af38-15b62536838a.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Jos Poortvliet",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/thumbnail/eEV2RzZYOW/7e424078-f5c2-4b77-9378-532e1665cb04.jpg",
+    "short-biography": "<p>bla!<\/p>",
+    "long-biography": "",
+    "country": "Germany",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2637/small/cGl2TnIwMz/58c0a521-3a34-4d24-b106-847e1447f67f.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/photo/clhoYWJRYz/56e1f279-75a0-419e-b858-57e7d8b14487.png",
+    "linkedin": null,
+    "id": 2641,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3752,
+        "title": "Scalability recommendations: large scale deployments with Nextcloud"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/icon/NXF5WTUzb3/295635c4-ae3d-4f02-a7f2-e7b3c59724d5.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Morris Jobke",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/thumbnail/L2xmUVE1bW/0099e36c-7d88-4520-8f84-282bd40362cf.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2641/small/d1BSZ3p4dn/002ae0a8-4969-4214-98f2-ffdcd1440ece.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/schiessle",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/photo/d3NFcC9mbG/7d901453-ed6d-4375-b337-3c3f8a488c15.png",
+    "linkedin": null,
+    "id": 2624,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "https://www.schiessle.org",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3734,
+        "title": "Global Scale - A new way to scale large installations"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3735,
+        "title": "Free Software Licensing in a Nutshell - What every developer should know"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/icon/NjhJWGczMG/724b7926-53c6-4267-bd33-339f1d8cbf36.jpg",
+    "facebook": null,
+    "github": "https://github.com/schiessle",
+    "name": "Björn Schießle",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/thumbnail/TVBwRml1OD/b8aa58d3-cadf-49c3-a3a7-c5438f0498ac.jpg",
+    "short-biography": "<p>Björn Schießle has been developing federated technology for ownCloud and now Nextcloud since 2012. He is a graduated computer scientist and conducted research in the area of cloud robotics before he joined ownCloud and later on Nextcloud. He is active in the Free Software community for more than 20 years. As a long-time Free Software activist he has a deep understanding about the political, legal and social aspects of software freedom.                 <\/p>",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2624/small/dDYwUzErSW/a49ce0c0-f75e-4963-98a9-1b2a0764392e.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/ArapiSilva",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/photo/UklnNWZYd2/18bd9eac-5006-4b98-90ee-525efa840f85.png",
+    "linkedin": null,
+    "id": 2625,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "https://silva.arapi.tech",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3732,
+        "title": "Introducing the Tirana Nextcloud Community"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/icon/NDk5Q2VhMy/76d99861-a169-462c-94b0-868b0dd36490.jpg",
+    "facebook": null,
+    "github": "https://github.com/silvaarapi",
+    "name": "Silva Arapi",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/thumbnail/Q0N3RmNqdU/56968fa9-40ae-4627-886c-5e2ca55d48e1.jpg",
+    "short-biography": "<p>I'm currently a student, getting a masters degree in Information Security. I have been a member of the Open Labs Hackerspace for the last two years where I have helped with organizing different events about open source software projects. I'm one of the co-organizers of Open Source Conference Albania, one of the biggest conferences in our region dedicated to open source software. I have been leading the Nextcloud project in the hackerspace for the last months and I have contributed mostly by advocating it. I am very passionate about the topics of privacy, espionage, massive surveillance etc. Also a bit new to public speaking but getting better with time :)                <\/p>",
+    "long-biography": "",
+    "country": "Albania",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2625/small/TFlySWs1Y2/f9ad4309-08cc-4846-a27c-06070c7d91e5.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": true,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/photo/Sjl5Y09uQ0/644f853e-20e2-4344-a0cd-1a48a2c1fba1.png",
+    "linkedin": null,
+    "id": 2639,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3750,
+        "title": "The future of file sync&share: collaboration and communication"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/icon/VmhoT2dCUV/de780307-3ccd-4059-8a9e-572039005cdf.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Frank Karlitschek",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/thumbnail/ZWRnWDVESW/ab65debf-a9da-47f9-9365-c4a93d1a364b.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2639/small/K2lub2hMNm/7dccf951-1eed-4962-8cf1-8c2353843af1.jpg",
+    "position": "CEO",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": null,
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2643,
+    "city": null,
+    "organisation": null,
+    "website": null,
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3760,
+        "title": "p≡p ≡ pretty Easy privacy - Privacy by Default."
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": null,
+    "name": "sva",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": null,
+    "small-image-url": "",
+    "position": null,
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2644,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3761,
+        "title": "Nextcloud Mobile Deployment in Enterprises"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Mario Danic",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/photo/RTVLQjcwUF/c1e816e5-97a0-4715-8de0-dcfce3083e02.png",
+    "linkedin": null,
+    "id": 2646,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3763,
+        "title": "Audio Player: our lessons learned and outlook"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/icon/WjM5NnhwQl/560baebc-59ae-47d7-88bb-7265275f43eb.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Marcel Scherello",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/thumbnail/MkxpSURYa2/09a0b122-9e90-45a2-9e1a-5c88e6150930.jpg",
+    "short-biography": "Master of the Audio Player",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2646/small/SzU1Ty9nNk/523f72b7-baf9-4d69-a898-b37a8f92673a.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2647,
+    "city": null,
+    "organisation": "BVPMOSC",
+    "website": "http://ipiyush.com",
+    "sessions": [],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "http://github.com/poush",
+    "name": "Piyush Agrawal",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "India",
+    "small-image-url": "",
+    "position": "Captain",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/photo/cGJkK0loNT/d123cea1-6491-4a2e-9762-6fe5d16531fa.png",
+    "linkedin": null,
+    "id": 2648,
+    "city": null,
+    "organisation": "bitfire.at",
+    "website": "https://www.bitfire.at",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3764,
+        "title": "DAVdroid / Nextcloud Integration"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/icon/Skg5UzZ6eD/ea42fc14-42df-483f-b6a6-68bda267ede6.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Ricki Hirner",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/thumbnail/T2pxbVNpYk/2592d813-6615-4c8f-9669-61f6c25bc79b.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2648/small/SnMyQlJIMD/af1c2de2-f201-40be-ba3c-5773d0c5ba68.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/photo/WnNCMkJTaF/3ade7930-86ab-455b-b458-601ea49d9ae1.png",
+    "linkedin": null,
+    "id": 2649,
+    "city": null,
+    "organisation": "bitfire.at",
+    "website": "https://www.bitfire.at",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3764,
+        "title": "DAVdroid / Nextcloud Integration"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/icon/ZEd5L0EwQ1/a7497c0b-fcf8-4411-80ed-7789b3d21ea4.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Bernhard Stockmann",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/thumbnail/QyttcVgrM0/c02e4c2f-c7f5-4d1f-886d-a6558db53134.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2649/small/VDZCV0lqcH/61f4c321-a4fc-422c-9ee8-926c154f3e46.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/AlizeNero",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/photo/WUhXV0p5Ul/c132e926-3458-45e9-979c-bb7601b6609c.png",
+    "linkedin": null,
+    "id": 2651,
+    "city": null,
+    "organisation": "Rails Girls Summer of Code - Discourse",
+    "website": "https://github.com/berlindiamonds",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3767,
+        "title": "Building a Nextcloud Plugin for Discourse"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/icon/eDAxbnhQRE/73467a8b-3fc6-4b9d-8f0a-f45435fa8efa.jpg",
+    "facebook": null,
+    "github": "https://github.com/kajatiger",
+    "name": "Kaja Santro",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/thumbnail/QUlseE8waG/3e121629-5cb3-4c48-b8a1-fb3bcfd32f77.jpg",
+    "short-biography": "We are the Team Berlin Diamonds from the Rails Girls Summer of Code. Our project this summer is building backup plugins for the Discourse app to different providers. ",
+    "long-biography": "",
+    "country": "Germany",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2651/small/WGVnQkhDaX/b420e364-5835-48e0-9707-69178e053108.jpg",
+    "position": "Ruby on Rails Web Developer",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": null,
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2652,
+    "city": null,
+    "organisation": null,
+    "website": null,
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3768,
+        "title": "Streamlining the Nextcloud Docker Experience"
+      },
+      {
+        "state": "confirmed",
+        "id": 3769,
+        "title": "Nextcloud Docker Image Enrichment"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": null,
+    "name": "Paul Adams",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": null,
+    "small-image-url": "",
+    "position": null,
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/hildi_berlin",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/photo/aVlWVUtIL0/fbb83fc3-4483-4fc6-bf9f-343832ca235c.png",
+    "linkedin": null,
+    "id": 2654,
+    "city": null,
+    "organisation": "tubIT - IT Service Center, Technische Universität Berlin",
+    "website": "http://www.user.tu-berlin.de/hildcatf/",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3777,
+        "title": "TU Berlin: migration from ownCloud to Nextcloud"
+      },
+      {
+        "state": "confirmed",
+        "id": 3772,
+        "title": "Welcome to TU Berlin - we're now Nextclouders"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/icon/bzMzWEpFRG/e492b2dd-2171-4759-aac3-848e632abeb1.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Thomas Hildmann",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/thumbnail/UkZOR1dpMm/c4469998-34ab-44b8-adf4-3efbf4b28409.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "Germany",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2654/small/UUx2U3ZJaH/87ba251c-629b-4602-9853-e112581f1a7c.jpg",
+    "position": "Head of Department Infrastructure",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/Oscar_VNC",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/photo/NEwxUEgxen/417d2db7-98c1-469c-b1e6-77ccc035a878.png",
+    "linkedin": null,
+    "id": 2655,
+    "city": null,
+    "organisation": "VNC - Virtual Network Consult AG",
+    "website": "https://www.vnclagoon.com",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3737,
+        "title": "Saturday Lightning talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3770,
+        "title": "VNCsafe Zimlet -  Nextcloud & Zimbra Integration"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/icon/cTJkcWtndk/92955a4d-84d9-4f65-9e14-ec6b758e72f3.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Oscar Arias Farrera",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/thumbnail/MEtwcndWTk/a1aff60e-172d-4ca2-9978-c2714d5216c7.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "Germany",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2655/small/WXFPMEJoU2/d698290f-a293-4033-9abd-daf12992458f.jpg",
+    "position": "International Sales",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/photo/dG1XbjVXMk/d59ef86f-c937-410e-93b2-36995c5ef68e.png",
+    "linkedin": null,
+    "id": 2653,
+    "city": null,
+    "organisation": "Nextcloud GmbH",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3773,
+        "title": "Coding sprint"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/icon/MzQxWGVNSm/f9f0712a-2273-44ba-bbae-a8fb6e1c4a7f.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Jos Poortvliet",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/thumbnail/SnRoUzVvYm/27f7c416-4f5b-45ee-af94-e0cc14c759b0.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2653/small/R3VWQU1OMn/c5b657e5-df67-4449-9183-a5614b4ddd58.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": true,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/photo/U2dMenVWQW/8c41523d-8066-4d8d-9790-e74a274d132c.png",
+    "linkedin": null,
+    "id": 2631,
+    "city": null,
+    "organisation": "",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3738,
+        "title": "Keynote - Come build the future of private Clouds"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/icon/d3JUVm5NV0/769fb413-8a09-4e0f-8fe5-876b5ff8cfe6.jpg",
+    "facebook": null,
+    "github": "",
+    "name": "Tristan Nitot",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/thumbnail/NGJNYlVJZW/fe432d2a-6cc8-4907-aac1-f129ca57fa10.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2631/small/ZlJWRDNYSm/f5fd9393-263a-4352-bbb1-2ca125f02404.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/photo/Y0JDYnQ3UW/c9aae242-0cec-4eec-8ea1-ea8b7ba3180f.png",
+    "linkedin": null,
+    "id": 2632,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "http://camila.codes",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3740,
+        "title": "How many lines of code do you need to build your first Nextcloud app?"
+      },
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3759,
+        "title": "How many lines of code do you need to build your first Nextcloud app?"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/icon/ZHNVRnlMY3/4f27aefa-0931-4e3c-aecd-cdb233b3f824.jpg",
+    "facebook": null,
+    "github": "http://github.com/camilasan",
+    "name": "Camila San Martin Ayres",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/thumbnail/QVM4Skhpel/e6deae11-aee1-44d1-b9f0-5c8b3e90d7ce.jpg",
+    "short-biography": "I am software engineer living in Berlin<span><span style=\"\"> since 2012. Besides being just another Brazilian with a long name living in Germany, I'm a curious person experimenting with life and computers while married to a Dutch person and living with a dog named Popcorn.<\/span><\/span>",
+    "long-biography": "",
+    "country": "Germany",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2632/small/aEFqbkR6K2/8cb19e81-bf81-48a0-b940-dfb225fda3ba.jpg",
+    "position": "Software Engineer",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/photo/dU4ydmlZMF/8657b0d5-71e0-44d5-ba0e-dabaf7be49ba.png",
+    "linkedin": null,
+    "id": 2656,
+    "city": null,
+    "organisation": "Own Your Bits - NextCloudPi",
+    "website": "https://ownyourbits.com",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3771,
+        "title": "NextCloudPi, easy self-hosting for everyone"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/icon/U3V0OFZpNn/88606b43-554b-4457-98a8-3ca185c18ec6.jpg",
+    "facebook": null,
+    "github": "https://github.com/nachoparker",
+    "name": "Ignacio Núñez Hernanz",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/thumbnail/bm1tU2RmOX/8c9d5723-a927-4af4-ad24-c31ded164311.jpg",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2656/small/Z3JoWExOSF/2b810c4a-05c0-4aee-add4-e416cd2814dd.jpg",
+    "position": "NextCloudPi developer",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "",
+    "is-featured": false,
+    "photo-url": "",
+    "linkedin": null,
+    "id": 2658,
+    "city": null,
+    "organisation": "Nextcloud",
+    "website": "",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3779,
+        "title": "Nextcloud Proof of concept"
+      }
+    ],
+    "icon-image-url": "",
+    "facebook": null,
+    "github": "",
+    "name": "Olivier Paroz and Matthias Wobben",
+    "gender": null,
+    "thumbnail-image-url": "",
+    "short-biography": "",
+    "long-biography": "",
+    "country": "",
+    "small-image-url": "",
+    "position": "",
+    "sponsorship-required": ""
+  },
+  {
+    "twitter": "https://twitter.com/rskikuli",
+    "is-featured": false,
+    "photo-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/photo/S2RJUnRiTG/c371c0c1-a0b9-4b3c-93e1-c3d5cef16e68.png",
+    "linkedin": null,
+    "id": 2623,
+    "city": null,
+    "organisation": "Contributor",
+    "website": "https://redon.skikuli.com/",
+    "sessions": [
+      {
+        "state": "confirmed",
+        "id": 3780,
+        "title": "Sunday Lightning Talks"
+      },
+      {
+        "state": "confirmed",
+        "id": 3730,
+        "title": "How to jump start a local floss community"
+      },
+      {
+        "state": "confirmed",
+        "id": 3731,
+        "title": "Nextcloud in the public administration & the importance of the community in the process"
+      }
+    ],
+    "icon-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/icon/T1RxM1JESm/298c9876-2289-49b3-9d66-777634bd49ef.jpg",
+    "facebook": null,
+    "github": "https://github.com/rskikuli",
+    "name": "Redon Skikuli",
+    "gender": null,
+    "thumbnail-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/thumbnail/SzUzeERQT1/7855d965-54a2-44fe-a5c7-ce569355cce6.jpg",
+    "short-biography": "Redon is a Nextcloud community member from Tirana, Albania. He has been involved since the early days of the local community organizing events and localization sprints and also facilitating Nextcloud presence at Open Source Conference. ",
+    "long-biography": "",
+    "country": "Albania",
+    "small-image-url": "https://storage.googleapis.com/eventyay.com/events/181/speakers/2623/small/alZDcUpTd2/0623e952-5ba2-43c1-a50d-91023ff23bd0.jpg",
+    "position": "",
+    "sponsorship-required": ""
+  }
+]

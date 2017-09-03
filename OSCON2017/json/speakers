@@ -1,0 +1,584 @@
+[
+    {
+        "twitter": "https://twitter.com/rroumeliotis",
+        "is-featured": true,
+        "photo-url": "/images/speakers/rach.jpg",
+        "linkedin": "",
+        "id": 1,
+        "city": "",
+        "organisation": "O'Reilly Media",
+        "email": "",
+        "website": "http://www.oreilly.com/",
+        "sessions": [
+            {
+                "id": 1,
+                "title": "Wednesday opening welcome"
+            },
+            {
+                "id": 19,
+                "title": "Thursday opening welcome"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Rachel Roumeliotis",
+        "mobile": "",
+        "gender": "female",
+        "thumbnail-image-url": "",
+        "long-biography": "Rachel Roumeliotis is a strategic content director at O\u2019Reilly Media, where she leads an editorial team that covers a wide variety of programming topics ranging from full stack to open source in the enterprise to emerging programming languages. Rachel is a programming chair of OSCON and O\u2019Reilly\u2019s Software Architecture Conference. She has been working in technical publishing for 10 years, acquiring content in many areas including mobile programming, UX, computer security, and AI.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/kelseyhightower",
+        "is-featured": true,
+        "photo-url": "/images/speakers/kelsey.jpg",
+        "linkedin": "",
+        "id": 2,
+        "city": "",
+        "organisation": "Google",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 1,
+                "title": "Wednesday opening welcome"
+            },
+            {
+                "id": 18,
+                "title": "Measure all the things and other memes that you haven't implemented"
+            },
+            {
+                "id": 19,
+                "title": "Thursday opening welcome"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Kelsey Hightower",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Kelsey Hightower has worn every hat possible throughout his career in tech but most enjoys leadership roles focused on making things happen and shipping software. Kelsey is a strong open source advocate focused on building simple tools that make people smile. When he is not slinging Go code, you can catch him giving technical workshops covering everything from programming and system administration, to his favorite Linux distro of the month.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/evanbooth",
+        "is-featured": false,
+        "photo-url": "/images/speakers/evanbooth.jpg",
+        "linkedin": "",
+        "id": 3,
+        "city": "",
+        "organisation": "Counter Hack",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 2,
+                "title": "Step 1:Punch a tree"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Evan Booth",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Evan Booth is a builder, architect, developer, and challenge designer at Counter Hack, a company devoted to building fun and engaging challenges that educate and evaluate information security professionals. When Evan isn\u2019t struggling to get his job title to fit in most HTML forms, he loves building stuff out of other stuff, spending time with his family, and fighting the temptation to write garden path sentences in important documents",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/docaedo",
+        "is-featured": false,
+        "photo-url": "/images/speakers/christopher.png",
+        "linkedin": "",
+        "id": 4,
+        "city": "",
+        "organisation": "IBM",
+        "email": "",
+        "website": "http://ibm.com/",
+        "sessions": [
+            {
+                "id": 3,
+                "title": "Why choose open infrastructure?"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Christopher Aedo",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Christopher Aedo is a developer advocacy program manager at IBM, where he leads an amazing team of upstream developers. Christopher has been working with and contributing to open source software since his college days. When he\u2019s not at work or speaking at a conference, he\u2019s probably using a Raspberry Pi to brew and ferment a tasty home brew in Portland, OR.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/dmarsh",
+        "is-featured": false,
+        "photo-url": "/images/speakers/dianne.png",
+        "linkedin": "",
+        "id": 5,
+        "city": "",
+        "organisation": "Netflix",
+        "email": "",
+        "website": "http://netflix.com/",
+        "sessions": [
+            {
+                "id": 4,
+                "title": "How and why Netflix drives industry engagement"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Dianne Marsh",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Dianne Marsh is a director of engineering at Netflix, where she leads a team responsible for tools and systems used for continuous integration, delivery, and deployment to the AWS cloud by nearly all engineers in the company\u2014which are often released as open source tools to the broad community. Dianne coauthored Atomic Scala with Bruce Eckel. She holds a master of science degree in computer science from Michigan Technological University.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/ying.png",
+        "linkedin": "",
+        "id": 6,
+        "city": "",
+        "organisation": "Huawei",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 5,
+                "title": "The power of the open source ecosystem"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Ying Xiong",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Ying Xiong is chief architect of the cloud platform at Huawei Technologies, where his current responsibilities include the architecture vision, strategy, and design of the cloud platform as a service (PaaS). Ying brings 20+ years of experience in architecture and design of cloud, ecommerce, and enterprise IT systems. Previously, Ying was a principal architect and development manager for Microsoft\u2019s Azure and SQL Azure cloud platforms and a principal enterprise technical architect and development manager at AT&T. He holds a PhD and a BS in computer science.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/brianbehlendorf",
+        "is-featured": false,
+        "photo-url": "/images/speakers/brian.jpg",
+        "linkedin": "",
+        "id": 7,
+        "city": "",
+        "organisation": "Linux Foundation",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 6,
+                "title": "Rebuilding trust through blockchains and open source"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Brian Behlendorf",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Brian Behlendorf is the executive director of the Hyperledger Project at the Linux Foundation and senior technology advisor at Mithril Capital Management in San Francisco. Over his career, Brian has held a mix of technology startup, public policy, and nonprofit tech leadership positions. He serves on the boards of the Mozilla Foundation, the Electronic Frontier Foundation, and Benetech\u2014three organizations using technology to fight for civil liberties, open technologies, and social impact in the digital domain. Previously, Brian was chief technology officer at the World Economic Forum, served for two years at the White House as advisor to the Open Government project within the Office of Science and Technology Policy, was an advisor to Health and Human Services on open software approaches to health information sharing, and founded two tech companies, CollabNet and Organic, and several open source software projects, including Apache and Subversion.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/AlvandSalehi",
+        "is-featured": true,
+        "photo-url": "/images/speakers/alvin.jpg",
+        "linkedin": "",
+        "id": 8,
+        "city": "",
+        "organisation": "The White House",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 7,
+                "title": "Sharing America's code"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Alvin Salehi",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Alvin Salehi is a senior technology advisor in the White House Office of the Federal CIO. Alvin led the development of the country\u2019s federal source code policy and Code.gov platform, both of which improve nationwide access to the federal government\u2019s custom-developed software. Prior to joining the White House in 2015, Alvin helped lead the State Department\u2019s efforts to expand Internet access to Africa and improve global market access for US technology companies. He also served at the Advanced Research Projects Agency, which invests in transformative, cutting-edge technologies on behalf of the federal government. Before flying out to DC, Alvin was general counsel to a data analytics company in California\u2014and a frequent patron of In-N-Out Burger.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/guru.jpg",
+        "linkedin": "",
+        "id": 9,
+        "city": "",
+        "organisation": "Avi Networks",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 8,
+                "title": "How to achieve just-in-time scaling without compromising performance"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Guru Chahal",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "A member of Avi Networks\u2019s founding team, Guru Chahal serves as vice president of products, where he helps define the product and drives initial customer development, product messaging, and technical partnerships. Previously, Guru was an investor at Lightspeed Venture Partners, where he focused on networking, security, cloud, data analytics, and infrastructure management; served as the director of product management at Cisco Systems for the Unified Computing System product line (a multibillion dollar business), where he helped define the product strategy and roadmaps and was instrumental in ramping UCS traction; and held operational roles at Nuova Systems (acquired by Cisco Systems) and Tropos Networks (acquired by ABB). An alumnus of Harvard Business School and Purdue University, Guru holds several patents in networking.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/lucy.jpg",
+        "linkedin": "",
+        "id": 10,
+        "city": "",
+        "organisation": "Puppet Labs",
+        "email": "",
+        "website": "http://lucywyman.me/",
+        "sessions": [
+            {
+                "id": 9,
+                "title": "How can I contibute? A guide to making your first open source contribution"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Lucy Wyman",
+        "mobile": "",
+        "gender": "female",
+        "thumbnail-image-url": "",
+        "long-biography": "Lucy Wyman is a software engineer in test for Puppet Labs, where she automates tests and develops testing infrastructure for Puppet orchestrator, PCP, and PE core. Lucy holds a BS in computer science from Oregon State University, where she worked as a frontend engineer for the OSU Open Source Lab. She spends her free time hanging out with friends, hiking, experiencing new things, and enjoying a wide variety of podcasts, TV shows, blogs, books, and other media.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/thatsjet",
+        "is-featured": false,
+        "photo-url": "/images/speakers/jeremy.jpg",
+        "linkedin": "",
+        "id": 11,
+        "city": "",
+        "organisation": "Cambia Health solutions",
+        "email": "",
+        "website": "http://thatsjet.com/",
+        "sessions": [
+            {
+                "id": 10,
+                "title": "Application security: from zero to hero"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Jeremy Anderson",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Jeremy Anderson has 16 years\u2019 experience developing software solutions for numerous Fortune 500 companies. Jeremy is currently a secure software architect and CSSLP at Cambia Health Solutions, where he is charged with bootstrapping and scaling an application security program from the ground up for dozens of applications produced by hundreds of developers. He\u2019s been successful at making it happen\u2014in a timeline measured in months instead of years.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/ethomson",
+        "is-featured": true,
+        "photo-url": "/images/speakers/edward.jpg",
+        "linkedin": "",
+        "id": 12,
+        "city": "",
+        "organisation": "Microsoft",
+        "email": "",
+        "website": "http://www.edwardthomson.com/",
+        "sessions": [
+            {
+                "id": 12,
+                "title": "Adopting open source in your organisation"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Edward Thomson",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Edward Thomson is a senior program manager at Microsoft, where he focuses on Git and the version control tools in Visual Studio Team Services and ensures that customers are successful while using them. Previously, he was a software engineer building version control tools at Microsoft, GitHub, and SourceGear. He remains the maintainer of the libgit2 project. Edward is the author of the Git for Visual Studio training course from O\u2019Reilly and a contributor to Professional Team Foundation Server 2013.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/bart.jpg",
+        "linkedin": "",
+        "id": 13,
+        "city": "",
+        "organisation": "University of Wisconsin-Madison",
+        "email": "",
+        "website": "http://www.cs.wisc.edu/~bart",
+        "sessions": [
+            {
+                "id": 12,
+                "title": "Securing coding practices and automated assessment tools"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Bart Miller",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Barton Miller is the Vilas Distinguished Achievement Professor and the Amar and Belinder Sohi Professor in Computer Sciences at the University of Wisconsin-Madison, the chief scientist for the DHS Software Assurance Marketplace research facility, and software assurance lead on the NSF Cybersecurity Center of Excellence. Milleralso codirects the MIST software vulnerability assessment project in collaboration with his colleagues at the Autonomous University of Barcelona and leads the Paradyn Parallel Performance Tool project, which is investigating performance and binary code instrumentation and analysis technologies. In 1988, Miller founded the field of fuzz random software testing\u2014the foundation of many security and software engineering disciplines. In 1992, Miller (working with his then-student Jeffrey Hollingsworth), founded the field of dynamic binary code instrumentation and coined the term \u201cdynamic instrumentation,\u201d which forms the basis for his current efforts in malware analysis and instrumentation. His research interests include systems security, binary and malicious code analysis and instrumentation of extreme-scale systems, parallel and distributed program measurement and debugging, and mobile computing. Barton\u2019s research is supported by the US Department of Homeland Security, the Department of Energy, the National Science Foundation, NATO, and various corporations. Miller is a Fellow of the ACM",
+        "country": "",
+        "small-image-url": "",
+        "position": " Chief Scientist, University of Wisconsin-Madison",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": true,
+        "photo-url": "/images/speakers/elisa.png",
+        "linkedin": "",
+        "id": 14,
+        "city": "",
+        "organisation": "University of Wisconsin-Madison",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 12,
+                "title": "Securing coding practices and automated assessment tools"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Elisa Heymann",
+        "mobile": "",
+        "gender": "female",
+        "thumbnail-image-url": "",
+        "long-biography": "Elisa Heymann is a senior scientist within the NSF Cybersecurity Center of Excellence at the University of Wisconsin and an associate professor at the Autonomous University of Barcelona, where she codirects the MIST software vulnerability assessment. Elisa was also in charge of the Grid/Cloud security group at the UAB and participated in two major European grid projects: EGI-InSPIRE and the European Middleware Initiative (EMI). Elisa\u2019s research interests include security and resource management for grid and cloud environments. Her research is supported by the NSF, the Spanish government, the European Commission, and NATO.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/jean.jpg",
+        "linkedin": "",
+        "id": 15,
+        "city": "",
+        "organisation": "Google",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 13,
+                "title": "Site reliability engineering"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Jean Joswig",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Jean Joswig is a site reliability engineer at Google working on data center automation.",
+        "country": "",
+        "small-image-url": "",
+        "position": "Site Reliability Engineer, Google",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/dhinojosa",
+        "is-featured": false,
+        "photo-url": "/images/speakers/daniele.jpg",
+        "linkedin": "",
+        "id": 16,
+        "city": "",
+        "organisation": "Evolutionnext.com",
+        "email": "",
+        "website": "http://www.evolutionnext.com/",
+        "sessions": [
+            {
+                "id": 14,
+                "title": "Beginning RxJava"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Daniel Hinojosa",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Daniel Hinojosa has been a self-employed developer, teacher, and speaker for private business, education, and government since 1999. Daniel also currently teaches programming at the University of New Mexico Continuing Education. His business revolves around the Java ecosystem, encompassing multiple languages and frameworks. Daniel is a Pomodoro Technique practitioner and is cofounder of the Albuquerque Java User\u2019s Group in New Mexico.",
+        "country": "",
+        "small-image-url": "",
+        "position": "",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/hadi.png",
+        "linkedin": "",
+        "id": 17,
+        "city": "",
+        "organisation": "JetBrains",
+        "email": "",
+        "website": "",
+        "sessions": [
+            {
+                "id": 15,
+                "title": "Functional programming with Kotlin"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Hadi Hariri",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Hadi Hariri leads the Developer Advocacy team at JetBrains. His passions include software architecture and web development. He has authored a couple of books and is a frequent contributor to developer publications. Hadi has been speaking at industry events for for nearly 15 years. He is the developer and creator of many things OSS, and he spends as much time as he can writing code. He is also an ASP.NET MVP and ASP.NET Insider. Hadi is based in Spain, where he lives with his wife and three sons.",
+        "country": "",
+        "small-image-url": "",
+        "position": "TE, JetBrains",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "",
+        "is-featured": false,
+        "photo-url": "/images/speakers/aaron.jpg",
+        "linkedin": "",
+        "id": 18,
+        "city": "",
+        "organisation": "Powerful Python",
+        "email": "",
+        "website": "http://powerfulpython.com/",
+        "sessions": [
+            {
+                "id": 16,
+                "title": "Matering Python decorators"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Aaron Maxwell",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Aaron Maxwell trains working engineers in advanced Python development and DevOps.",
+        "country": "",
+        "small-image-url": "",
+        "position": "Author and Trainer, Powerful Python",
+        "sponsorship-required": ""
+    },
+    {
+        "twitter": "https://twitter.com/starbuxman",
+        "is-featured": false,
+        "photo-url": "/images/speakers/joshua.jpg",
+        "linkedin": "",
+        "id": 18,
+        "city": "",
+        "organisation": "Pivotal",
+        "email": "",
+        "website": "http://spring.io/",
+        "sessions": [
+            {
+                "id": 17,
+                "title": "Cloud native Java"
+            }
+        ],
+        "icon-image-url": "",
+        "facebook": "",
+        "short-biography": "",
+        "github": "",
+        "name": "Joshua Long",
+        "mobile": "",
+        "gender": "male",
+        "thumbnail-image-url": "",
+        "long-biography": "Josh Long is the Spring developer advocate at Pivotal.",
+        "country": "",
+        "small-image-url": "",
+        "position": "Spring Developer Advocate, Pivotal",
+        "sponsorship-required": ""
+    }
+]

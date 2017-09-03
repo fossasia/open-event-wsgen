@@ -1,1 +1,82 @@
-[{"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 181, "name": "Atelier, Haus 1"}, {"room": null, "floor": 1, "longitude": null, "latitude": null, "id": 183, "name": "Seminarraum 2, Haus 1, Floor 1"}, {"room": null, "floor": 1, "longitude": null, "latitude": null, "id": 182, "name": "Seminarraum 1, Haus 1, Floor 1"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 180, "name": "*Spartacus, Haus 3"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 401, "name": "Cafe, Haus 2"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 402, "name": "Fablab, Haus 5"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 403, "name": "Zelt, Haus 1"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 405, "name": "Zelt vorne, Haus 1"}, {"room": null, "floor": 0, "longitude": null, "latitude": null, "id": 404, "name": "Cafe/Radiostudio, Haus 2"}, {"room": null, "floor": 1, "longitude": null, "latitude": null, "id": 411, "name": "Seminarraum 3, Haus 1, Floor 1"}]
+[
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 181,
+    "name": "Atelier, Haus 1"
+  },
+  {
+    "room": null,
+    "floor": 1,
+    "longitude": null,
+    "latitude": null,
+    "id": 183,
+    "name": "Seminarraum 2, Haus 1, Floor 1"
+  },
+  {
+    "room": null,
+    "floor": 1,
+    "longitude": null,
+    "latitude": null,
+    "id": 182,
+    "name": "Seminarraum 1, Haus 1, Floor 1"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 180,
+    "name": "*Spartacus, Haus 3"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 401,
+    "name": "Cafe, Haus 2"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 402,
+    "name": "Fablab, Haus 5"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 403,
+    "name": "Zelt, Haus 1"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 405,
+    "name": "Zelt vorne, Haus 1"
+  },
+  {
+    "room": null,
+    "floor": 0,
+    "longitude": null,
+    "latitude": null,
+    "id": 404,
+    "name": "Cafe/Radiostudio, Haus 2"
+  },
+  {
+    "room": null,
+    "floor": 1,
+    "longitude": null,
+    "latitude": null,
+    "id": 411,
+    "name": "Seminarraum 3, Haus 1, Floor 1"
+  }
+]

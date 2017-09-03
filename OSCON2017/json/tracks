@@ -1,0 +1,134 @@
+[
+    {
+        "name": "Open source: From consumer to contributor",
+        "sessions": [
+            {
+                "id": 9,
+                "title": "How can I contibute? A guide to making your first open source contribution"
+            },
+            {
+                "id": 2,
+                "title": "Step 1: Punch a tree"
+            },
+            {
+                "id": 3,
+                "title": "Why choose open infrastructure?"
+            },
+            {
+                "id": 17,
+                "title": "Cloud native Java"
+            }
+        ],
+        "color": "#3DC8C3",
+        "font-color": "#000000",
+        "id": 1
+    },
+    {
+        "name": "Performance sessions",
+        "sessions": [
+            {
+                "id": 8,
+                "title": "How to achieve just-in-time scaling without compromising performance"
+            },
+            {
+                "id": 1,
+                "title": "Wednesday opening welcome"
+            },
+            {
+                "id": 19,
+                "title": "Thursday opening welcome"
+            }
+        ],
+        "color": "#1485CC",
+        "font-color": "#FFFFFF",
+        "id": 2
+    },
+    {
+        "name": "Architecture sessions",
+        "sessions": [
+            {
+                "id": 13,
+                "title": "Site reliability engineering"
+            },
+            {
+                "id": 14,
+                "title": "Beginning RxJava"
+            },
+            {
+                "id": 15,
+                "title": "Functional programming with Kotlin"
+            }
+        ],
+        "color": "#B21212",
+        "font-color": "#FFFFFF",
+        "id": 3
+    },
+    {
+        "name": "In Real Life (IRL) sessions",
+        "sessions": [
+            {
+                "id": 11,
+                "title": "Adopting open source in your organisation"
+            },
+            {
+                "id": 4,
+                "title": "How and why Netflix drives industry engagement"
+            }
+        ],
+        "color": "#9EFF56",
+        "font-color": "#000000",
+        "id": 4
+    },
+    {
+        "name": "Adopt This Now sessions",
+        "sessions": [
+            {
+                "id": 16,
+                "title": "Mastering Python decorators"
+            },
+            {
+                "id": 18,
+                "title": "Measure all the things and other memes that you haven't implemented"
+            }
+        ],
+        "color": "#E8782C",
+        "font-color": "#FFFFFF",
+        "id": 5
+    },
+    {
+        "name": "Security sessions",
+        "sessions": [
+            {
+                "id": 12,
+                "title": "Securing coding practices and automated assessment tools"
+            },
+            {
+                "id": 10,
+                "title": "Application security: from zero to hero"
+            }
+        ],
+        "color": "#FF3046",
+        "font-color": "#FFFFFF",
+        "id": 6
+    },
+    {
+        "name": "Random",
+        "sessions": [
+            {
+                "id": 5,
+                "title": "The power of the open source ecosystem"
+            },
+            {
+                "id": 6,
+                "title": "Rebuilding trust through blockchains and open source"
+            },
+            {
+                "id": 7,
+                "title": "Sharing America's code"
+            }
+        ],
+        "color": "#FF3046",
+        "font-color": "#FFFFFF",
+        "id": 7
+    }
+]
