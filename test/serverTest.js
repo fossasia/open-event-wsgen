@@ -292,9 +292,27 @@ describe('generate', function() {
 
     });
 
+    it('should generate the GoogleIO 17 event', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/GoogleIO17",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/GoogleIO2017");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 8;
+      var totalFiles = 9;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -322,6 +340,7 @@ describe('generate', function() {
       copyStatic('oscon.png');
       copyStatic('fa16small.jpg');
       copyStatic('nextcloud2017.jpg');
+      copyStatic('googleIO.jpg');
 
     });
 
