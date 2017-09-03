@@ -1,0 +1,4554 @@
+[
+  {
+    "id": 1,
+    "name": "Patrick Clary",
+    "email": "pclary@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/p_clary.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Patrick is a product manager on the central Accessibility Engineering team at Google where he works to develop services and technology that benefit users with disabilities. Prior to Google, Patrick was a software engineer at Lockheed Martin working on NASA related projects. </p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/patrick-clary-83a32415/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/p_clary.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Maya Ben Ari",
+    "email": "mari@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_ben.jpg",
+    "organisation": "Google",
+    "position": "Lead Android Accessibility",
+    "country": "",
+    "short-biography": "<p>Maya is leading Android Accessibility efforts to make technology usable for everyone. Previously, she led the next generation of the Android Lock Screen and Fingerprint to give users better security without the hassle of entering passwords. Prior to Google, Maya worked for Microsoft as an on-campus representative and helped design their university strategy. </p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mayaben/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_ben.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Astrid Weber",
+    "email": "aweber@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_weber.jpg",
+    "organisation": "Google",
+    "position": "Senior User Experience Research Lead",
+    "country": "",
+    "short-biography": "<p>Astrid Weber is working as Senior User Experience Research Lead at Google in California. She works on accessibility and usability with a focus on hands and eyes free interfaces. Astrid teaches at Stanford's d.school. She graduated from the University of the Arts in Berlin with a Master in Design and Communication Research and studied in the bachelor design program of the Art Institute of Chicago.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/astrid-weber-ab417415/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      },
+      {
+        "id": 1004,
+        "title": "Designing for the Next Billion Users: Accessibility UX Insights from the Developing World"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_weber.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Melissa Barnhart",
+    "email": "mbarnhart@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_benhart.jpg",
+    "organisation": "Google",
+    "position": "UX Researcher",
+    "country": "",
+    "short-biography": "<p>Melissa is a UX Researcher on the Android team, with a focus on Accessibility. Prior to Google, she worked at a London-based start-up, State.com. Melissa earned a master's degree in Urbanization and Development from the London School of Economics.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/melissa-barnhart-8110b125/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_benhart.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Victor Tsaran",
+    "email": "vtsaran@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/v_tsaran.jpg",
+    "organisation": "Google",
+    "position": "Tehnical Program Manager",
+    "country": "",
+    "short-biography": "<p>Victor works on the Android Accessibility Services team as a Technical Program Manager, focusing on the TalkBack screen reader and other accessibility features in the Android ecosystem. He previously contributed to accessibility efforts for Google+, Photos, Hangouts and other social initiatives at Google. </p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/victortsaran/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/v_tsaran.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Nithya Sambasivan",
+    "email": "nithya@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/nithya.jpg",
+    "organisation": "Google",
+    "position": "Senior User Experience Researcher",
+    "country": "",
+    "short-biography": "<p>Product research for emerging markets, with a focus on strategy for new markets and marginalized groups such as women.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/nithya-sambasivan-59b3b740/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1004,
+        "title": "Designing for the Next Billion Users: Accessibility UX Insights from the Developing World"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/nithya.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Rob Dodson",
+    "email": "rdodson@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_dodson.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>I specialize in Front-End development (HTML/CSS/JavaScript) with a touch of Node and Ruby sprinkled in. I’m also a writer and occasional daily blogger. Though I’m originally from the South, these days I live and work in beautiful San Francisco, California.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mrdodson/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1005,
+        "title": "Pragmatic Accessibility: A How-To Guide for Teams"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_dodson.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Sridhar Ramaswamy",
+    "email": "sramaswamy@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/sridhar.png",
+    "organisation": "Google",
+    "position": "Senior Vice President of SVP, Ads & Commerce",
+    "country": "",
+    "short-biography": "<p>Sridhar Ramaswamy, born in 1967, is the Senior Vice President of Ads & Commerce at Google. He joined Google in 2003. He previously worked at E.piphany and Lucent Technologies, Bell Communications Research, and Bell Labs.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sridhar-ramaswamy-9722202/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1008,
+        "title": "3 Keys to App Success: User Acquisition, Monetization & Payments"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/sridhar.png"
+  },
+  {
+    "id": 9,
+    "name": "Sissie Hsiao",
+    "email": "shsiao@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_hsiao.jpg",
+    "organisation": "Google",
+    "position": "Global Head of Mobile App Ads",
+    "country": "",
+    "short-biography": "<p>Director of Product Management leading mobile app advertising, in charge of mobile in-app monetization, app-install advertising, and cross-device.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sissie-hsiao-b24243/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1008,
+        "title": "3 Keys to App Success: User Acquisition, Monetization & Payments"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_hsiao.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Pali Bhat",
+    "email": "pbhat@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/p_bhat.jpg",
+    "organisation": "Google",
+    "position": "Global Head of Payment Products",
+    "country": "",
+    "short-biography": "<p>Pali Bhat is the Global Head of Payments products for Google. Prior to Google, Pali was a Vice President of Product Management at SAP Labs. He has also been a consultant for McKinsey & Co.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1008,
+        "title": "3 Keys to App Success: User Acquisition, Monetization & Payments"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/p_bhat.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Vamsee Jasti",
+    "email": "vjasti@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/v_jasti.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Product Manager at Google. Work on Accelerated Mobile Pages (AMP).</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/vamsee-jasti-b580728/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1009,
+        "title": "AMP Ads: Better Advertising on a Faster Web"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/v_jasti.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Michael Kleber",
+    "email": "mkleber@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_kleber.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Mathematician and programmer with extensive experience in efficient algorithms.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/michael-kleber-0444a8/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1009,
+        "title": "AMP Ads: Better Advertising on a Faster Web"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_kleber.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Duke Dukellis",
+    "email": "ddukellis@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_dukellis.png",
+    "organisation": "Google",
+    "position": "Group Product Manager, AdMob",
+    "country": "",
+    "short-biography": "<p>John 'Duke' Dukellis is a Group Product Manager at Google, where he leads mobile app advertising products for developers and publishers. Prior to Google, Duke led the Consumer Wallet and Consumer Financial Services teams at PayPal. Earlier was CEO at StepNexus, a global chip security company acquired by Gemalto.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1011,
+        "title": "Build great monetization experience with the all new AdMob"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_dukellis.png"
+  },
+  {
+    "id": 14,
+    "name": "Rob Aikins",
+    "email": "raikins@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_aikins.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Rob Aikins is a Product Manager on the App Ads team focused on app re-engagement. Before Google, Rob was a co-founder at Wynston, an online workforce training platform, where he did product and engineering work. Rob received his MBA from Stanford and a B.S. in Mechanical Engineering from University of Maryland College Park.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/robaikins/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1015,
+        "title": "Find your apps best users with Google's machine learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_aikins.jpg"
+  },
+  {
+    "id": 15,
+    "name": "David Mitby",
+    "email": "dmitby@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_mitby.jpg",
+    "organisation": "Google",
+    "position": "Group Product Manager",
+    "country": "",
+    "short-biography": "<p>David Mitby leads Google's mobile app advertising and measurement solutions for Google Search, Display, and Google Play. Previously at Google, he was responsible for Google's Display Optimization products, focused on products and tools that help advertisers get the best performance out of the GDN, through automated bidding (Conversion Optimizer, Enhanced CPC), automated targeting (Display Campaign Optimizer), and tools to guide advertiser optimization. </p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mitby/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1015,
+        "title": "Find your apps best users with Google's machine learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_mitby.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Belinda Langner",
+    "email": "blangner@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_langner.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Belinda Langner is a Product Manager at Google working on mobile app ads. She is currently focused on improving app install ads as the lead PM on Google's Universal App Campaigns. Previously at Google, Belinda played a key role in launching Search Ads on Play to help users discover apps within the Google Play Store. Prior to Google, she worked as an engineer at IBM. Belinda holds a BS in Computer Science from Carnegie Mellon University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/belindalangner/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1015,
+        "title": "Find your apps best users with Google's machine learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_langner.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Ed Weng",
+    "email": "eweng@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/e_weng.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Edward is a Product Manager of Google's AdMob mobile advertising platform, leading initiatives to bring best-in-class reporting tools to AdMob publishers. Prior to Google, Edward was a full-stack developer at LivingSocial, where he was responsible for the mobile web platform. He holds an MBA from Harvard Business School and a bachelor's degree in Electrical Engineering from Princeton University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/edweng/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1016,
+        "title": "AdMob and Firebase -- better together"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/e_weng.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Mai Lowe",
+    "email": "mlowe@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_lowe.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Mai is a Product Manager focusing on app analytics. She has worked on features ranging from install attribution to remarketing, to integrating our app analytics solution with other products at Google. Prior to her current work, she was immersed in business analytics, having driven growth strategy at places like Teach For America. Mai earned her BA from Cornell University and an MPP with an emphasis in Statistics and Quantitative Analysis from UCLA.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mai-lowe-3a898112/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1016,
+        "title": "AdMob and Firebase -- better together"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_lowe.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Brad Adams",
+    "email": "badams@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_adams.jpg",
+    "organisation": "Google",
+    "position": "Group Product Manager",
+    "country": "",
+    "short-biography": "<p>Brad Abrams is Group Product Manager on Actions on Google -- the platform for the Google Assistant where he is responsible for the developer experiences on the platform. Brad has been at Google since 2011 and has led platform efforts in Google Cloud and Chrome and now on the Cloud Assistant team. Prior to Google, Brad lead many developer efforts at Microsoft on products including the .NET Framework, ASP.NET, Silverlight and Visual Studio. Brad published several books including the bestselling Framework Design Guidelines. Brad has spoken at developer conferences around the world including nearly every major Microsoft developer event during his tenure and many Google IO and GCP Live events since he joined.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1018,
+        "title": "Building apps for the Google Assistant"
+      },
+      {
+        "id": 1029,
+        "title": "PullString: Storytelling in the Age of Conversational Interfaces"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_adams.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Adam Coimba",
+    "email": "acoimba@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_coimba.jpg",
+    "organisation": "Google",
+    "position": "Partner Technology Manager",
+    "country": "",
+    "short-biography": "<p>Adam is a Partner Technology Manager for Actions on Google. He supports developers to create great experiences by integrating with the Google Assistant. Adam believes that Actions on Google will be a key ecosystem enabling developers to engage users in new and highly compelling ways. He is focused on creating a great developer experience for Actions on Google with powerful tools like API.AI, to make it fun and rewarding to build for the Assistant.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1018,
+        "title": "Building apps for the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_coimba.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Vera Tzoneva",
+    "email": "vtzoneva@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/v_tzoneva.jpg",
+    "organisation": "Google",
+    "position": "Global Product Manager",
+    "country": "",
+    "short-biography": "<p>Vera works on Global Product Partnerships for the Google Assistant, and is focused on the platform, Actions on Google. Her team at Google helps developers with integrations on the Assistant, reaching users across Home, Android, Pixel, Wear, and in the future, everywhere the Assistant is. Actions on Google is how developers can launch services like ordering a ride or turning on the lights in the home, and fun things, like finding a new recipe or playing a game.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1018,
+        "title": "Building apps for the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/v_tzoneva.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Glen Shires",
+    "email": "gshires@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/g_shires.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Glen Shires is a speech software engineer who led the development of the Google Assistant SDK, the Cloud Speech API and the Chrome Web Speech API. He also chaired the W3C Speech API group and has been granted over a dozen patents. Prior to joining Google in 2010, he led development teams for voice and speech products at Intel, General Magic and Picazo Communications. Glen received his bachelor's and master's degrees in electrical and computer engineering from the University of Wisconsin - Madison, where he developed a speech-recognition engine for his master's thesis.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/glenshires/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1019,
+        "title": "Bringing the Google Assistant to any device"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/g_shires.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Chris Ramsdale",
+    "email": "cramsdale@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_ramsdale.jpg",
+    "organisation": "Google",
+    "position": "Lead Product Manager",
+    "country": "",
+    "short-biography": "<p>Chris Ramsdale is the lead Product Manager for the Google Assistant SDK where he is focused on bringing the Google Assistant experience to the broad ecosystem of third party devices. Prior to the Google Assistant gig he led product efforts for Google App Engine. While over 20+ years building developer tools and platforms, one thing remains the same for him: great developer experiences are absolutely key to success.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/cramsdale/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1019,
+        "title": "Bringing the Google Assistant to any device"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_ramsdale.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Ilya Gelfenbeyn",
+    "email": "illya@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/i_gelfenbeyn.jpg",
+    "organisation": "Google",
+    "position": "Lead Product Manager",
+    "country": "",
+    "short-biography": "<p>Ilya leads API.AI product development and strategy as its product manager. Ilya co-founded API.AI and served as its CEO before Google acquired the company in September 2016. Prior to API.AI, Ilya co-founded and led several startups and also worked on research projects in natural language understanding and conversational UX areas, where he holds several patents. Ilya earned a bachelor's degree in mathematics from Novosibirsk State University in Russia and an MBA from the University of Brighton in the UK.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/gelfenbeyn/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1020,
+        "title": "Building rich cross-platform conversational UX with API.AI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/i_gelfenbeyn.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Ofer Ronen",
+    "email": "oronen@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/o_ronen.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Product Manager at Google.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/oferronen",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1020,
+        "title": "Building rich cross-platform conversational UX with API.AI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/o_ronen.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Jared Strawderman",
+    "email": "jared@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_strawderman.jpg",
+    "organisation": "Google",
+    "position": "Multimodal Design Lead",
+    "country": "",
+    "short-biography": "<p>Jared Strawderman is a Multimodal Design Lead on Google's conversation design team. He comes from electric car start-up, Lucid Motors, where he was Head of User Experience. And previously, he led the team who designed the conversational interface for Alexa at Amazon. Jared has unique experience in shipping multimodal solutions on a broad range of products, including enterprise customer care, medical, automotive, TV, desktop, mobile, and other consumer electronic devices.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jaredstrawderman/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1021,
+        "title": "Defining Multimodal Interactions: One Size Does Not Fit All"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_strawderman.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Adriana Olmos Antillon",
+    "email": "olmos@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/ao_antillon.jpg",
+    "organisation": "Google",
+    "position": "Product Designer",
+    "country": "",
+    "short-biography": "<p>Adriana Olmos is a product designer on The Google Assistant Team, she leads the design effort for third party multimodal interactions. She worked in award winning projects like the '100 Years of the Canadiens'. She was also a design research fellow at the Shared Reality Lab, and the Centre for Interdisciplinary Research in Music Media and Technology (CIRMMT) at McGill University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/adrianaolmos/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1021,
+        "title": "Defining Multimodal Interactions: One Size Does Not Fit All"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/ao_antillon.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Daniel Padgett",
+    "email": "daniel@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_padgett.jpg",
+    "organisation": "Google",
+    "position": "Conversation Design Lead",
+    "country": "",
+    "short-biography": "<p>Daniel is a Conversation Design Lead for Google Assistant, creating engaging and effortless user experiences for Home, Pixel, Wear, and more. For the past 15 years, he has been leveraging language technologies to develop user-centered solutions for major brands like Allstate, Nike, Target, and Cisco. Just prior to Google, he led service design efforts as Director of Customer Service Experience at Walgreens, deploying connected and personalized contact solutions for roughly 100 million customers at more than 8200 stores. Daniel earned a Bachelor of Arts in English and Creative Writing from North Central College in Illinois.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/danpadgett/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1023,
+        "title": "Finding the Right Voice Interactions for your App"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_padgett.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Mark Spates",
+    "email": "mspates@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_spates.jpg",
+    "organisation": "Google",
+    "position": "Product Lead",
+    "country": "",
+    "short-biography": "<p>Mark is the product lead for Home Automation and IoT capabilities across Google Assistant and Google Home. Mark is also the founder of iotlist.co, a platform for discovering IoT products. Prior to joining Google, Mark was Head of Connected Home Platform at Logitech.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1024,
+        "title": "Home Automation with the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_spates.jpg"
+  },
+  {
+    "id": 30,
+    "name": "David Schairer",
+    "email": "david@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_schairer.jpg",
+    "organisation": "Google",
+    "position": "Technology Leader",
+    "country": "",
+    "short-biography": "<p>David is responsible for the Home Automation/IoT features in the Google Assistant. Before joining Google two years ago, David founded or advised multiple startups in the AI, NLU, and productivity spaces, including Trapit and Magneto. He began his career in the ISP and telco business, building Internet infrastructure at Concentric and XO. David has a BA in Latin, Greek, and Classical Archaeology from the University of Michigan, and collects obscure dead languages.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/dschairer/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1024,
+        "title": "Home Automation with the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_schairer.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Valerie Nygaard",
+    "email": "valerie@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/v_nygaard.jpg",
+    "organisation": "Google",
+    "position": "Senior Product Manager",
+    "country": "",
+    "short-biography": "<p>Valerie leads the consumer experience product team for Actions on Google. She's worked on search and NLP in Silicon Valley for over 15 years, with stints in research, engineering, business and product. She's been employee #2 and employee #44,674 (or so). Big company or small, her product philosophy is the same -- she tries hard to make things easy.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/valerienygaard/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1025,
+        "title": "Getting your Assistant App Discovered"
+      },
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/v_nygaard.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Rob Stets",
+    "email": "stets@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_stets.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Mainly experience with Java and C++.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/robstets/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1025,
+        "title": "Getting your Assistant App Discovered"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_stets.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Nandini Stocker",
+    "email": "nandini@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/n_stocker.jpg",
+    "organisation": "Google",
+    "position": "Conversation Design Advocacy",
+    "country": "",
+    "short-biography": "<p>Accomplished speech application designer offering over 17 years experience in voice interaction design, requirements engineering, development, performance analysis, and tuning.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/nandinistocker/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1026,
+        "title": "In Conversation, There Are No Errors"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/n_stocker.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Leon Nicholls",
+    "email": "leos@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/l_nicholls.jpg",
+    "organisation": "Google",
+    "position": "Staff Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Leon is a Staff Developer Programs Engineer on the Google Developer Relations team, working on assistant and IoT technologies. He is the developer of samples, codelabs, client libraries, documentation and tools for various Google SDK's and API's including Actions on Google, Google Cast, Android Wear, Android TV, Android Auto and Chrome.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "https://github.com/entertailion",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1026,
+        "title": "In Conversation, There Are No Errors"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/l_nicholls.jpg"
+  },
+  {
+    "id": 35,
+    "name": "David Wang",
+    "email": "wang@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_wang.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>David is a product manager for transactions on Google Assistant. Prior to Google, he was a vice president of tech infrastructure at Goldman Sachs. David earned an MBA and a dual bachelor's degree in computer science and economics from New York University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mrdavidwang/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1028,
+        "title": "Transactions with the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_wang.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Jeff Caesar",
+    "email": "caesar@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_caesar.jpg",
+    "organisation": "Google",
+    "position": "Technical Lead Manager",
+    "country": "",
+    "short-biography": "<p>Jeff is a Technical Lead Manager on the Google Assistant team. His team is responsible for transaction APIs and Services, including payments, order lifecycle and user identity. Jeff joined Google in 2005, and prior to his involvement with Assistant he worked on Adwords, Glass and Search.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jcaesar/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1028,
+        "title": "Transactions with the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_caesar.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Archita Vadali",
+    "email": "caesar@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_vadali.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Archita Vadali is a software engineer working on Google Assistant. She has worked at Google for over 6 years, covering a variety of internal and external products. Archita earned a Master's degree in Computer Science from University of Texas at Dallas.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/raja-rajarchita-vadali-3884029/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1028,
+        "title": "Transactions with the Google Assistant"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_vadali.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Oren Jacob",
+    "email": "oren@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/o_jacob.jpg",
+    "organisation": "PullString",
+    "position": "Cofounder, CEO",
+    "country": "",
+    "short-biography": "<p>Before co-founding PullString as CEO, Oren was an Entrepreneur in Residence at August Capital. A filmmaker and technologist, he spent more than 20 years at Pixar, most recently as Chief Technical Officer and Director of the Studio Tools group. His feature film credits include Toy Story and Toy Story 2, A Bug's Life, and Supervising Technical Director for Finding Nemo. Oren also helped found Pixar University and taught animation at the Academy of Art College for seven years. Oren currently teaches Lean Launchpad courses with Steve Blank at Stanford, Berkeley, Columbia, and for the NSF.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/oren",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1029,
+        "title": "PullString: Storytelling in the Age of Conversational Interfaces"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/o_jacob.jpg"
+  },
+  {
+    "id": 39,
+    "name": "James Giangola",
+    "email": "james@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_giangola.jpg",
+    "organisation": "Google",
+    "position": "Creative Lead, Conversation Design & Voice Direction",
+    "country": "",
+    "short-biography": "<p>A simple and beautiful idea: everyday conversation exhibits systematic design features essential for the creation of successful Voice UIs. This is James Giangola's disruptive contribution to the VUI industry, a concept he's researched rigorously and promoted globally. His approach has led to a paradigm shift with significant implications for dialog architecture, prompt design, prosody, who we work with and how, corporate branding, and the design process itself. James is co-inventor and linguist on the patent 'VUIs with Personality' and co-author of Voice User Interface Design.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/james-giangola-32606451/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1030,
+        "title": "Applying Built-in Hacks of Conversation to Your Voice UI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_giangola.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Andrew Lee",
+    "email": "lee@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_lee.jpg",
+    "organisation": "Google",
+    "position": "Director of Engineering, Firebase",
+    "country": "",
+    "short-biography": "<p>Andrew cofounded Firebase in 2011 and served as CTO until Firebase joined Google. He is now an engineering lead for Firebase, focusing on infrastructure products including the Realtime Database, Hosting, Cloud Functions, and Cloud Storage. Andrew lives and works in San Francisco.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/startupandrew/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1036,
+        "title": "Build modern apps with Firebase and Google Cloud Platform"
+      },
+      {
+        "id": 1054,
+        "title": "Fabric + Firebase: Building Momentum at Google"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_lee.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Michael Bleigh",
+    "email": "michael@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_bleigh.jpg",
+    "organisation": "Google",
+    "position": "Firebase Engineer",
+    "country": "",
+    "short-biography": "<p>Michael is an engineer on the Firebase team focused on Hosting, the CLI, and the web. Michael has been building open source and developer tools since 2008, and has presented at events including Google I/O, the Chrome Developers Summit, OSCON, and RailsConf.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mbleigh/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1036,
+        "title": "Build modern apps with Firebase and Google Cloud Platform"
+      },
+      {
+        "id": 1041,
+        "title": "What's possible with Cloud Functions for Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_bleigh.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Thomas Bouldin",
+    "email": "thomas@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/t_bouldin.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Thomas is the Tech Lead of Cloud Functions for Firebase. Before Cloud Functions, Thomas contributed to the Firebase Realtime Database, backend reliability, and Firebase SDKs. Before Firebase, Thomas was an early engineer at Parse. He had a hand in many Parse products and is best known as the lead developer for Parse Push. Previously Thomas was an engineer on Google's Image Search infrastructure and Microsoft Windows. Thomas Earned his bachelor's degree in software engineering at Cal Poly San Luis Obispo with a focus on computer graphics and operating systems & security.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/thomasbouldin/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1041,
+        "title": "What's possible with Cloud Functions for Firebase"
+      },
+      {
+        "id": 1050,
+        "title": "Cloud Functions, Testability, and Open Source"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/t_bouldin.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Indranil Chakraborty",
+    "email": "indranil@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/i_chakraborty.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Indranil is a Product Manager on the Google Cloud Platform team. Most recently, he held product management roles at Google Fiber where he led the pricing and launches of the Fiber TV packages, and the development of the cloud infrastructure for their TV product. Prior to Fiber, Indranil was a Senior Manager of SMB sales for Google AdWords, and ran revenue programs which grew to generate $300M+ in incremental annual revenue. Indranil holds an MBA from UCLA Anderson, and a Bachelor of Engineering from VJTI, Mumbai.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/indrachak/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1042,
+        "title": "Building for enterprise IoT using Android Things and Google Cloud Platform"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/i_chakraborty.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Sam Beder",
+    "email": "sam@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_beder.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Sam Beder is a product manager on Android Things. Prior to Android Things, Sam worked on Google Image Search. Sam earned a bachelor's degree in mathematics and a master's degree in computer science from Stanford University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sam-beder-a4194176/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1043,
+        "title": "Using Google Cloud, TensorFlow, and the Google Assistant on Android Things"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_beder.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Sara Robinson",
+    "email": "sara@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_robinson.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Sara is a Developer Advocate on Google's Cloud Platform team, focusing on big data and machine learning. She helps developers build awesome apps through demos, online content, and events. Sara has a bachelor's degree in Business and International Studies from Brandeis University. When she's not programming she can be found on a spin bike, listening to the Hamilton soundtrack, or finding the best ice cream in New York.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sara-robinson-40377924/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1045,
+        "title": "Machine Learning APIs by Example"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_robinson.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Lauren Long",
+    "email": "long@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/l_long.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Lauren is a Software Engineer at Google, working on Cloud Functions for Firebase. Prior to joining Google, Lauren co-founded the storage-on-demand startup Boxit, and was the first Product Manager at wearable tech company Nymi. Lauren has spoken at conferences in US, Canada, and China about entrepreneurship and technology. In her spare time, she enjoys swing dancing and rock climbing.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sara-robinson-40377924/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1046,
+        "title": "Supercharging Firebase Apps with Machine Learning and Cloud Functions"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/l_long.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Brendan Lim",
+    "email": "lim@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_lim.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Brendan is a Product Manager at Google working on Cloud Functions for Firebase, Firebase Hosting, and the Firebase CLI. Before joining Google, he was Product Manager responsible for passenger growth and the passenger experience for both iOS and Android at Lyft. Brendan was also one of the co-founders of Kicksend and is author of two books.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/brendanlim/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1046,
+        "title": "Supercharging Firebase Apps with Machine Learning and Cloud Functions"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_lim.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Robert-Jan Huijsman",
+    "email": "robert@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/rj_huijsman.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Robert-Jan Huijsman is a Software Engineer working on Google Cloud Functions and Firebase, Google's 'serverless' cloud offerings. Previously he worked on Spanner, Google's state-of-the-art planet-scale database. He joined Google in 2012, after getting a Master's degree in Parallel and Distributed Computer Systems at the VU University in Amsterdam, the Netherlands.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/robert-jan-huijsman-8a428b60/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1046,
+        "title": "Supercharging Firebase Apps with Machine Learning and Cloud Functions"
+      },
+      {
+        "id": 1050,
+        "title": "Cloud Functions, Testability, and Open Source"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/rj_huijsman.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Terrence Ryan",
+    "email": "terrence@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/t_ryan.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Terry Ryan is a Developer Advocate for the Google Cloud Platform team. He has 15 years of experience working with the web - both front end and back. Before working for technology shops like Google and Adobe he worked in roles that combined development with system administration at the Wharton School of Business. He also wrote Driving Technical Change for Pragmatic Bookshelf, a book that arms technology professionals with the tools to convince reluctant co-workers to adopt new tools and technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/terrencepryan/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1048,
+        "title": "Navigating Google Cloud Platform: a guide for new GCP users"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/t_ryan.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Michael Winser",
+    "email": "winser@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_winser.png",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer for Google Ads Team at Google.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1049,
+        "title": "Build powerful custom apps fast with App Maker on G Suite"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_winser.png"
+  },
+  {
+    "id": 51,
+    "name": "Geva Rechav",
+    "email": "geva@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/g_rechav.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Creator of visual media and communication products. Founded startups, built teams with designers and engineers.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/geva-rechav-080611/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1049,
+        "title": "Build powerful custom apps fast with App Maker on G Suite"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/g_rechav.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Dominic Preuss",
+    "email": "preuss@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_preuss.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Dominic is a Product Geek on @GoogleCloud.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/deesix/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1052,
+        "title": "Cloud Spanner 101: Google's mission-critical relational database"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_preuss.jpg"
+  },
+  {
+    "id": 53,
+    "name": "Chris Raynor",
+    "email": "chris@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_raynor.jpg",
+    "organisation": "Google",
+    "position": "Senior Software Engineer",
+    "country": "",
+    "short-biography": "<p>Chris joined Firebase in 2013 as employee 11. He is the author of Firebase Queue and currently leads infrastructure for Firebase Hosting. Chris cut his teeth at startups, where he managed large-scale data processing pipelines. He holds a bachelor's in Mechanical Engineering and a master's in Advanced Engineering from the University of Warwick in the United Kingdom.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/drtriumph/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1053,
+        "title": "Data Pipelines with Firebase and Google Cloud"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_raynor.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Alex Memering",
+    "email": "alex@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_memering.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Alex is an engineer on the Firebase Hosting team and previously worked on Auth. He earned his degree in Computer Science and Software Engineering at Rose-Hulman Institute of Technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1053,
+        "title": "Data Pipelines with Firebase and Google Cloud"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_memering.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Timothy Jordan",
+    "email": "timothy@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/t_jordan.jpg",
+    "organisation": "Google",
+    "position": "Head of Google Platform DevRel",
+    "country": "",
+    "short-biography": "<p>Timothy's expertise is in bridging gap between engineering and storytelling to keep technologists around the globe informed and inspired. He enjoys solving complex technical problems, and believes in improving life through both science and art.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/captaintimothy/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1054,
+        "title": "Fabric + Firebase: Building Momentum at Google"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/t_jordan.jpg"
+  },
+  {
+    "id": 56,
+    "name": "Rich Paret",
+    "email": "rich@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_paret.jpg",
+    "organisation": "Google",
+    "position": "Director, Software Engineering",
+    "country": "",
+    "short-biography": "<p>Build teams. Build products. Delight customers. Learn at every step. Create joy. Rinse & repeat forever.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/richparet/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1054,
+        "title": "Fabric + Firebase: Building Momentum at Google"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_paret.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Jason Titus",
+    "email": "jason@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_titus.jpg",
+    "organisation": "Google",
+    "position": "VP, Developer Products Group",
+    "country": "",
+    "short-biography": "<p>Web search, large scale mail system infrastructure, business information systems. Enjoy building teams and system.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jatitus/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1054,
+        "title": "Fabric + Firebase: Building Momentum at Google"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_titus.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Ben Galbraith",
+    "email": "ben@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_galbraith.jpg",
+    "organisation": "Google",
+    "position": "Senior Director",
+    "country": "",
+    "short-biography": "<p>Pioneering technology executive with strong product development and communications skills. Diverse experience from founding and successfully exiting several small start-ups to managing large corporate cross-functional teams up to 450 people. Very hands-on and detail-oriented, especially with product development activities.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/bgalbs/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1055,
+        "title": "What's new in Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_galbraith.jpg"
+  },
+  {
+    "id": 59,
+    "name": "Francis Ma",
+    "email": "ma@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/f_ma.jpg",
+    "organisation": "Google",
+    "position": "Group Product Manager",
+    "country": "",
+    "short-biography": "<p>Entrepreneurial, technical and creative. A natural leader with strong technical aptitude, business acumen and product sense. Deep passion for building teams and creating innovative products.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/francisma/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1055,
+        "title": "What's new in Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/f_ma.jpg"
+  },
+  {
+    "id": 60,
+    "name": "Nalin Mittal",
+    "email": "nalin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/n_mittal.jpg",
+    "organisation": "Google",
+    "position": "Product Manager, Firebase",
+    "country": "",
+    "short-biography": "<p>As a technologist and successful entrepreneur, I can add value to an organization in numerous ways including product development, engineering, business development, sales and marketing. I have experience creating and growing a company from ideation to acquisition.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/nalinmittal/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1056,
+        "title": "Building high quality apps and games with Firebase"
+      },
+      {
+        "id": 1068,
+        "title": "Great app performance with Firebase Performance Monitoring"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/n_mittal.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Justin Broughton",
+    "email": "justin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_broughton.jpg",
+    "organisation": "Google",
+    "position": "VP Engineering/CTO",
+    "country": "",
+    "short-biography": "<p>VP Engineering at Google. Interested in technology and how it affects day to day lives.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jubroughton/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1056,
+        "title": "Building high quality apps and games with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_broughton.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Johannes Kuhlmann",
+    "email": "johannes@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_kuhlmann.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Interested in technology and how it affects day to day lives.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/j66k",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1056,
+        "title": "Building high quality apps and games with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_kuhlmann.jpg"
+  },
+  {
+    "id": 63,
+    "name": "Andreas Stecher",
+    "email": "andreas@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_stecher.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Interested in technology and how it affects day to day lives.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/astecher",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1056,
+        "title": "Building high quality apps and games with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_stecher.jpg"
+  },
+  {
+    "id": 64,
+    "name": "Steve Ganem",
+    "email": "steve@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_ganem.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Product Manager of Google Analytics for Firebase</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/steve-ganem-7215b4/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1057,
+        "title": "Firebase Analytics: Overview and Updates"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_ganem.jpg"
+  },
+  {
+    "id": 65,
+    "name": "Russ Ketchum",
+    "email": "russ@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_ketchum.jpg",
+    "organisation": "Google",
+    "position": "Head of Google Analytics for Apps and Google Tag Manager",
+    "country": "",
+    "short-biography": "<p>Head of Google Analytics for Apps at Google. Interested in technology and how it affects the day to ay life of a human.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/russell-ketchum-4a7bb21/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1057,
+        "title": "Firebase Analytics: Overview and Updates"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_ketchum.jpg"
+  },
+  {
+    "id": 66,
+    "name": "Krista Seiden",
+    "email": "krista@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_seiden.jpg",
+    "organisation": "Google",
+    "position": "Analytics Advocate",
+    "country": "",
+    "short-biography": "<p>Krista Seiden is a proven leader in the digital analytics industry with nearly a decade of experience specifically in digital marketing, analytics, and product management. She has led analytics & optimization at companies such as Adobe, The Apollo Group, and most recently at Google. During this time she has also had the opportunity to design and build product. Krista is a frequent speaker at digital marketing and analytics conferences. </p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/kristaseiden/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1057,
+        "title": "Firebase Analytics: Overview and Updates"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_seiden.jpg"
+  },
+  {
+    "id": 67,
+    "name": "Dan Schlosser",
+    "email": "dan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_schlosser.jpg",
+    "organisation": "Google",
+    "position": "Associate Product Manager",
+    "country": "",
+    "short-biography": "<p>I'm an APM at Google, working on Firebase, with a background in web development and human centered design.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/danrschlosser/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1061,
+        "title": "Shipping Santa Tracker: Carefully roll out a feature to a million users"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_schlosser.jpg"
+  },
+  {
+    "id": 68,
+    "name": "Sam Stern",
+    "email": "sam@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_stern.jpg",
+    "organisation": "Google",
+    "position": "Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Developer Programs Engineer at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1061,
+        "title": "Shipping Santa Tracker: Carefully roll out a feature to a million users"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_stern.jpg"
+  },
+  {
+    "id": 69,
+    "name": "Jumana Al Hashal",
+    "email": "hashal@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/ja_hashal.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Taking everything I have learned building and leading mobile products for the past 8 years to help all developers build better apps and grow them into successful businesses using Google Firebase.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/objectivejay/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1062,
+        "title": "Using Firebase to accelerate app growth: overview & updates"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/ja_hashal.jpg"
+  },
+  {
+    "id": 70,
+    "name": "Jon Mensing",
+    "email": "jon@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_mensing.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Taking everything I have learned building and leading mobile products for the past 8 years to help all developers build better apps and grow them into successful businesses using Google Firebase.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jon-mensing-b41a4a/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1062,
+        "title": "Using Firebase to accelerate app growth: overview & updates"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_mensing.jpg"
+  },
+  {
+    "id": 71,
+    "name": "Frank van Puffelen",
+    "email": "frank@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/fv_puffelen.jpg",
+    "organisation": "Google",
+    "position": "Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Experienced energetic pragmatic problem solver with an affinity for building technical teams, nurturing developer communities and speaking at public events. A proven track record of quickly adopting new technologies, kickstarting new projects and driving problematic projects to successful completion.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/frankvanpuffelen/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1064,
+        "title": "Zero to App: Develop with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/fv_puffelen.jpg"
+  },
+  {
+    "id": 72,
+    "name": "Kat Fang",
+    "email": "kat@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_fang.jpg",
+    "organisation": "Google",
+    "position": "Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Experienced energetic pragmatic problem solver with an affinity for building technical teams, nurturing developer communities and speaking at public events. A proven track record of quickly adopting new technologies, kickstarting new projects and driving problematic projects to successful completion.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1064,
+        "title": "Zero to App: Develop with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_fang.jpg"
+  },
+  {
+    "id": 73,
+    "name": "Mike McDonald",
+    "email": "mike@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_donald.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>I work at Firebase, an awesome startup and Google acquisition that is the best way to build a web or mobile app and grow a successful business.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/asciimike/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1064,
+        "title": "Zero to App: Develop with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_donald.jpg"
+  },
+  {
+    "id": 74,
+    "name": "Jen Tong",
+    "email": "jen@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_tong.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Jenny is a Developer Advocate at Firebase. In this role she helps people cause trouble with code. Before Firebase, she worked in a variety of software engineering roles from developer advocacy on Google Glass to robotics at NASA. When she's away from her laptop, you'll find her playing roller derby or practicing aerial silks.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1064,
+        "title": "Zero to App: Develop with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_tong.jpg"
+  },
+  {
+    "id": 75,
+    "name": "Laurence Moroney",
+    "email": "laurence@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/l_moroney.jpg",
+    "organisation": "Google",
+    "position": "Staff Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Author of dozens of technology books (see my Amazon page for what's in print), hundreds of articles, and several sci-fi novels. Accomplished Developer Advocate for Google, Microsoft and Mainsoft/IBM.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/laurence-moroney/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1065,
+        "title": "Using Pirate Metrics to grow your user base"
+      },
+      {
+        "id": 1066,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      },
+      {
+        "id": 1147,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/l_moroney.jpg"
+  },
+  {
+    "id": 76,
+    "name": "Parul Soi",
+    "email": "soi@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/p_soi.jpg",
+    "organisation": "Google",
+    "position": "Program Manager, Developer Relations",
+    "country": "",
+    "short-biography": "<p>Program Manager in the Developer Relation team at Google helping mobile app developers and developer agencies be successful on Google platform.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/parulsoi/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1065,
+        "title": "Using Pirate Metrics to grow your user base"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/p_soi.jpg"
+  },
+  {
+    "id": 77,
+    "name": "Alex Geboff",
+    "email": "alex@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_geboff.jpg",
+    "organisation": "Google",
+    "position": "Writer of Technical Things",
+    "country": "",
+    "short-biography": "<p>Experience in: technical writing, UI writing, copywriting; managing teams and fostering individual professional growth; project management given tight deadlines; media, both print and broadcast; internship for a non-profit; internship with the editorial and production departments of a publishing-house; fluent in Spanish and Italian.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/alsogeboff/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1066,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      },
+      {
+        "id": 1147,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_geboff.jpg"
+  },
+  {
+    "id": 78,
+    "name": "Sarah Allen",
+    "email": "sarah@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_allen.jpeg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>I write code, connect pixels and speak truth to make change.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/ultrasaurus",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1067,
+        "title": "How to build robust mobile applications for the distributed cloud"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_allen.jpeg"
+  },
+  {
+    "id": 79,
+    "name": "Jen-Mei Wu",
+    "email": "wu@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/jm_wu.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1067,
+        "title": "How to build robust mobile applications for the distributed cloud"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/jm_wu.jpg"
+  },
+  {
+    "id": 80,
+    "name": "Jody Tuan",
+    "email": "tuan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_tuan.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1067,
+        "title": "How to build robust mobile applications for the distributed cloud"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_tuan.jpg"
+  },
+  {
+    "id": 81,
+    "name": "Ali Abdelhadi",
+    "email": "ali@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_abdelhadi.jpg",
+    "organisation": "Google",
+    "position": "Account Manager, Strategic Partnerships",
+    "country": "",
+    "short-biography": "<p>Managing a number of Google's strategic advertising partnerships, including one of the 3 highest-grossing partnerships worldwide. Partners managed are located in North America, Europe and APAC with an overall accounts value of $0.4B.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/aliabdelhadi/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1068,
+        "title": "Great app performance with Firebase Performance Monitoring"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_abdelhadi.jpg"
+  },
+  {
+    "id": 82,
+    "name": "David East",
+    "email": "ali@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_east.jpg",
+    "organisation": "Google",
+    "position": "Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Specialties: ASP.NET (WebForms, MVC, & Web API), C#, SQL Server, JavaScript, AngularJS, jQuery, Knockout.js, Responsive Design, Customizing Twitter Bootstrap, LESS, and CSS.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/david-east-4ba6492b/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1069,
+        "title": "Building Fast Web Experiences with Cloud Functions on Firebase Hosting"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_east.jpg"
+  },
+  {
+    "id": 83,
+    "name": "Luiz Gustavo Martins",
+    "email": "martins@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/lg_martins.jpg",
+    "organisation": "Google",
+    "position": "Develper Advocate",
+    "country": "",
+    "short-biography": "<p>I like getting things done! Love to learn and to understand how things work.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/luiz-gustavo-martins-64ab5891/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1072,
+        "title": "Rewarding for engagement with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/lg_martins.jpg"
+  },
+  {
+    "id": 84,
+    "name": "Damien Mabin",
+    "email": "damien@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_mabin.jpg",
+    "organisation": "Google",
+    "position": "Senior Develper Advocate",
+    "country": "",
+    "short-biography": "<p>I'm helping game developers to get the best out of their mobile game, and resolve any difficulty they have during Android development or publishing.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sistr/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1072,
+        "title": "Rewarding for engagement with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_mabin.jpg"
+  },
+  {
+    "id": 85,
+    "name": "Emily Shack",
+    "email": "emily@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/e_shack.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Software Engineer at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/emily-shack-a1769aaa/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1073,
+        "title": "Single Codebase, Two Apps with Flutter and Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/e_shack.jpg"
+  },
+  {
+    "id": 86,
+    "name": "Emily Fortuna",
+    "email": "emily@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/e_fortuna.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Interested in using computers to create beauty, elegance, fun, and save people time. I like creating tools to make development teams productive, natural language processing, machine learning, and image processing.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/emily-fortuna-30a201b9/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1073,
+        "title": "Single Codebase, Two Apps with Flutter and Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/e_fortuna.jpg"
+  },
+  {
+    "id": 87,
+    "name": "Doug Stevenson",
+    "email": "doug@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_stevenson.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>I'm an industry veteran full-stack software engineer with finely honed development and leadership skills. Currently I'm working as a Developer Advocate at Google for Firebase Test Lab, Firebase Crash Reporting, Firebase Performance Monitoring, Firebase Storage, and Cloud Functions for Firebase.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/codingdoug/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1074,
+        "title": "Architecting for data contention in a realtime world with Firebase"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_stevenson.jpg"
+  },
+  {
+    "id": 88,
+    "name": "Khanh LeViet",
+    "email": "leviet@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_leviet.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>A motivated self-taught developer, with experiences in multiple languages such as Java, Objective-C, .NET, and different kinds of system from ERP to web service and native mobile apps. Have experience leading a team of 20 developers. Possess a balanced mindset of IT and business.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/gia-khanh-le-viet-97860322/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1075,
+        "title": "Firebase recipes to bootstrap your app"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_leviet.jpg"
+  },
+  {
+    "id": 89,
+    "name": "Arun Venkatesan",
+    "email": "arun@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_venkatesan.png",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Developer Advocate at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/arun-venkatesan-9317796/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1075,
+        "title": "Firebase recipes to bootstrap your app"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_venkatesan.png"
+  },
+  {
+    "id": 90,
+    "name": "Fiona Yeung",
+    "email": "fiona@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/f_yeung.jpg",
+    "organisation": "Google",
+    "position": "UX Designer",
+    "country": "",
+    "short-biography": "<p>I'm Fiona, a creator, artist, & interaction designer. After graduating from design school in Toronto, I packed up my bags and moved my life to San Francisco where I'm currently designing at Google on the Material Design team.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/yeungfiona/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1104,
+        "title": "Prototyping to Production: Bridging the Gap with a Common Tool"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/f_yeung.jpg"
+  },
+  {
+    "id": 91,
+    "name": "David Yang",
+    "email": "david@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_yang.jpg",
+    "organisation": "Google",
+    "position": "Design & Code for #Fuchsia OS",
+    "country": "",
+    "short-biography": "<p>Turning design dreams into reality for the Fuchsia Operating System.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/david-yang-b4134311/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1104,
+        "title": "Prototyping to Production: Bridging the Gap with a Common Tool"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_yang.jpg"
+  },
+  {
+    "id": 92,
+    "name": "Maggie Stanphill",
+    "email": "maggie@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_stanphill.jpg",
+    "organisation": "Google",
+    "position": "UX Director - Content Strategy, Google Ads & Commerce",
+    "country": "",
+    "short-biography": "<p>Define content strategy for Google products and emerging interfaces (voice, chat, and virtual reality). Manage user experience content strategists and develop content strategy for Google's Ads & Commerce products (Ads, Travel, Shopping, Payments). Establish Google-wide writing and voice guidelines in partnership with all product areas.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/maggie-stanphill-3017032/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1105,
+        "title": "How words can make your product stand out"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_stanphill.jpg"
+  },
+  {
+    "id": 93,
+    "name": "Allison Rung",
+    "email": "rung@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_rung.jpg",
+    "organisation": "Google",
+    "position": "Content Strategist",
+    "country": "",
+    "short-biography": "<p>I write things and fix other people's written things at Google.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/aprung/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1105,
+        "title": "How words can make your product stand out"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_rung.jpg"
+  },
+  {
+    "id": 94,
+    "name": "Juliana Appenrodt",
+    "email": "julia@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_appenrodt.jpg",
+    "organisation": "Google",
+    "position": "UX Writer",
+    "country": "",
+    "short-biography": "<p>UX Writer at Google. Apart from writing I love travelling a lot to different places.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/julianaappenrodt/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1105,
+        "title": "How words can make your product stand out"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_appenrodt.jpg"
+  },
+  {
+    "id": 95,
+    "name": "Julie Aranda",
+    "email": "julia@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_aranda.jpg",
+    "organisation": "Google",
+    "position": "Staff UX Researcher",
+    "country": "",
+    "short-biography": "<p>Staff UX Researcher at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jularanda/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1106,
+        "title": "Notifications UX: What's New for Android O"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_aranda.jpg"
+  },
+  {
+    "id": 96,
+    "name": "Justin Barber",
+    "email": "justin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_barbar.jpg",
+    "organisation": "Google",
+    "position": "Visual Designer",
+    "country": "",
+    "short-biography": "<p>Born and raised in Tokyo, Japan – but now splitting time between Atlanta and San Francisco – Justin works at Google as a Visual Designer.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jstnbrbr/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1106,
+        "title": "Notifications UX: What's New for Android O"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_barbar.jpg"
+  },
+  {
+    "id": 97,
+    "name": "Garen Checkley",
+    "email": "garen@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/g_checkley.jpg",
+    "organisation": "Google",
+    "position": "Emerging Markets UX Lead",
+    "country": "",
+    "short-biography": "<p>I lead UX / product design for YouTube in our high growth emerging markets.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/garen-checkley-4ab65612/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1107,
+        "title": "Designing Great Apps for New Internet Users"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/g_checkley.jpg"
+  },
+  {
+    "id": 98,
+    "name": "Tracey Chan",
+    "email": "tracey@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/t_chan.jpg",
+    "organisation": "Google",
+    "position": "UX Researcher, YouTube Emerging Markets",
+    "country": "",
+    "short-biography": "<p>Understanding users and making products for them is my jam. 4+ years experience in user insights, research, and marketing. A focused, thoughtful, reliable team player driven by delighted customers, efficiency and informed design. Recently completed a Master's in Human Factors in Information Design at Bentley University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/tracey-lindsay-chan-ba10458/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1107,
+        "title": "Designing Great Apps for New Internet Users"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/t_chan.jpg"
+  },
+  {
+    "id": 99,
+    "name": "Owen Campbell-Moore",
+    "email": "owen@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/oc_moore.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Product Manager at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/owencampbellmoore/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1111,
+        "title": "Creating UX that 'just feels right' with Progressive Web Apps"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/oc_moore.jpg"
+  },
+  {
+    "id": 100,
+    "name": "Chris McKenzie",
+    "email": "chris@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_mckenzie.jpg",
+    "organisation": "Google",
+    "position": "UX Designer",
+    "country": "",
+    "short-biography": "<p>Product Manager at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/matchingponies/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1143,
+        "title": "Designing screen interfaces for VR"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_mckenzie.jpg"
+  },
+  {
+    "id": 101,
+    "name": "Adam Glazier",
+    "email": "adam@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_glazier.jpg",
+    "organisation": "Google",
+    "position": "UX Lead",
+    "country": "",
+    "short-biography": "<p>I am a UX Designer at Google with passion and point of view for elegant & inspiring experiences in virtual reality. At Google, I lead UX across VR apps and previously helped bring Chromecast from concept to launch.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/adamglazier/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1143,
+        "title": "Designing screen interfaces for VR"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_glazier.jpg"
+  },
+  {
+    "id": 102,
+    "name": "Ben Schrom",
+    "email": "ben@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_schrom.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Product Manager at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/ben-schrom-25b2063/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1144,
+        "title": "Daydream in the classroom: immersive learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_schrom.jpg"
+  },
+  {
+    "id": 103,
+    "name": "Brandon Wuest",
+    "email": "wuest@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_wuest.jpg",
+    "organisation": "Google",
+    "position": "Staff Software Engineer",
+    "country": "",
+    "short-biography": "<p>Specialties: Android application development, Rich user interface development, Java SE, Advanced Swing and Java2D, Real-time data visualization</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/bwuest/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1144,
+        "title": "Daydream in the classroom: immersive learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_wuest.jpg"
+  },
+  {
+    "id": 104,
+    "name": "Jennifer Holland",
+    "email": "jennifer@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_holland.jpg",
+    "organisation": "Google",
+    "position": "Program Manager, Google Apps for Education",
+    "country": "",
+    "short-biography": "<p>I've worked at Google for 7 years and have had the privilege of working in Finance and Sales before making the jump to Product where I am currently the Program Manager for Google Apps for Education at Google in New York.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jennifer-holland-1564247/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1144,
+        "title": "Daydream in the classroom: immersive learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_holland.jpg"
+  },
+  {
+    "id": 105,
+    "name": "Brahim Elbouchikhi",
+    "email": "brahim@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_elbouchikhi.jpg",
+    "organisation": "Google",
+    "position": "Group Product Manager, Virtual Reality",
+    "country": "",
+    "short-biography": "<p>Specialties: Product management, guerrilla marketing, 2-sided marketplace launch and expansion, engineering management, technology design and architecture (in particular, business and tech alignment), business development (licensing, revenue sharing, third party integration, app placement), software development lifecycle (worked on the entire cycle from feature design, development, deployment and training).</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/elbouchikhi/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1145,
+        "title": "What's new on Daydream"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_elbouchikhi.jpg"
+  },
+  {
+    "id": 106,
+    "name": "Darren Delaye",
+    "email": "darren@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_delaye.jpg",
+    "organisation": "Google",
+    "position": "User Experience Designer",
+    "country": "",
+    "short-biography": "<p>UX Designer at Google. Interested in technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/darren-delaye-130612a/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1145,
+        "title": "What's new on Daydream"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_delaye.jpg"
+  },
+  {
+    "id": 107,
+    "name": "Johnny Lee",
+    "email": "lee@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_lee.jpg",
+    "organisation": "Google",
+    "position": "Technical Program Lead",
+    "country": "",
+    "short-biography": "<p>Working in a special projects team - Google X, and Motorola Advance Technology and Projects</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/johnnychunglee/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1146,
+        "title": "What's new on Tango"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_lee.jpg"
+  },
+  {
+    "id": 108,
+    "name": "Justin Quimby",
+    "email": "justin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_quimby.jpg",
+    "organisation": "Google",
+    "position": "Senior Product Manager",
+    "country": "",
+    "short-biography": "<p>Began my career as an engineer in the video game industry. During the process of building and shipping several several multi-million dollar games (Spore, Dungeons and Dragons Online, Asheron’s Call), I evolved from an individual contributor to a team lead to a senior executive.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/justinquimby/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1146,
+        "title": "What's new on Tango"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_quimby.jpg"
+  },
+  {
+    "id": 110,
+    "name": "Fontaine Foxworth",
+    "email": "fontaine@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/f_foxworth.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Mobile Product manager with experience developing, launching, and optimizing native and web products in agile environments. Fairly technical with a penchant for analytics. Experience leading projects from concept to launch, including: competitive analysis, product strategy, interaction design, user testing, functional requirements, product marketing, and post launch optimization.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/fontainefoxworth/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1182,
+        "title": "A Sense of Place in your apps"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/f_foxworth.jpg"
+  },
+  {
+    "id": 111,
+    "name": "Ankur Kotwal",
+    "email": "ankur@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_kotwal.jpg",
+    "organisation": "Google",
+    "position": "Developer Relations Lead - Geo & Next Billion Users",
+    "country": "",
+    "short-biography": "<p>Head of Google Maps APIs Developer Relations at Google.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/ankurkotwal/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1183,
+        "title": "Exploring Google Maps Solutions"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_kotwal.jpg"
+  },
+  {
+    "id": 112,
+    "name": "Joël Kalmanowicz",
+    "email": "joel@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_kalmanowicz.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>My passion lies in utilising technology and innovation to improve the world. I particularly enjoy designing new products, combining extant technologies to create new ideas, and improving systems.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jkalmanowicz/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1184,
+        "title": "Making the world your own with Google Maps APIs"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_kalmanowicz.jpg"
+  },
+  {
+    "id": 113,
+    "name": "Venkat Rapaka",
+    "email": "venkat@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/v_rapaka.png",
+    "organisation": "Google",
+    "position": "Director, Product Management, Nexus Program",
+    "country": "",
+    "short-biography": "<p>My passion lies in utilising technology and innovation to improve the world. I particularly enjoy designing new products, combining extant technologies to create new ideas, and improving systems.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/venkat-rapaka-13a1a5/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1191,
+        "title": "Bringing Device Production to Everyone With Android Things"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/v_rapaka.png"
+  },
+  {
+    "id": 114,
+    "name": "Wayne Piekarski",
+    "email": "wayne@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/w_piekarski.jpg",
+    "organisation": "Google",
+    "position": "Senior Developer Advocate at Google - IoT, Living Room, Android, and Wearables",
+    "country": "",
+    "short-biography": "<p>Wayne Piekarski is a Senior Developer Advocate at Google, focusing on Android, Wear, and Glass. He has worked for 15 years in academia and industry in the areas of wearable computing, outdoor augmented reality, 3D user interfaces, and mobile devices. His current position at Google involves getting developers excited about new mobile and wearable technologies, reaching out developers via conferences, social media, and tutorial materials.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/wayne-piekarski-8975b61b/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1192,
+        "title": "What's new in Google's IoT platform? Ubiquitous computing at Google"
+      },
+      {
+        "id": 1193,
+        "title": "From Prototype to Production Devices with Android Things"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/w_piekarski.jpg"
+  },
+  {
+    "id": 115,
+    "name": "Dave Smith",
+    "email": "dave@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_smith.jpg",
+    "organisation": "Google",
+    "position": "Software Developer",
+    "country": "",
+    "short-biography": "<p>Dave Smith is a Developer Advocate for IoT at Google, focused on providing the best developer experience possible on the Android Things platform. He has worked with the Android stack at all levels, developing custom applications for consumers and system components to run Android on embedded platforms. He loves deep dives, whether through source code or the nearest coral reef.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/dave-smith-85a0598/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1193,
+        "title": "From Prototype to Production Devices with Android Things"
+      },
+      {
+        "id": 1194,
+        "title": "Developing for Android Things using Android Studio"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_smith.jpg"
+  },
+  {
+    "id": 116,
+    "name": "Renato Mangini Dias",
+    "email": "dias@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/rm_dias.jpg",
+    "organisation": "Google",
+    "position": "Senior Developer Platform Engineer",
+    "country": "",
+    "short-biography": "<p>Android senior software engineer working on Developer Platform. Previously worked on Google Chrome, specifically on Chrome Apps. Owned a social commerce startup before joining Google. Software engineer on artificial intelligence, algorithms and real-time solutions. Specialist in Java and Java Enterprise. Broad experience as developer and system architect for web and mobile (Android) software.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mangini/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1194,
+        "title": "Developing for Android Things using Android Studio"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/rm_dias.jpg"
+  },
+  {
+    "id": 117,
+    "name": "Kevin Nilson",
+    "email": "nilson@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_nilson.jpg",
+    "organisation": "Google",
+    "position": "Tech Lead & Manager, Chromecast Technical Solutions Engineer",
+    "country": "",
+    "short-biography": "<p>Vast experience managing teams and managing large projects. Kevin is a three time JavaOne Rock Star, Java Champion and VP of Engineering at just.me. just.me is a startup in the mobile and social space that started as part of Google Ventures Startup Lab. Kevin has spoken at conferences such as JavaOne, Devoxx, JAX, Silicon Valley Code Camp, JAX, HTML5DevConf, NFJS SpringOne and AjaxWorld. Kevin is the co-author of Web 2.0 Fundamentals.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/kevinnilson/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1195,
+        "title": "What's new in the Google Cast SDK"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_nilson.jpg"
+  },
+  {
+    "id": 118,
+    "name": "Sammy Wegent",
+    "email": "sammy@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_wegent.jpg",
+    "organisation": "Speechless, Inc.",
+    "position": "EmCEO",
+    "country": "",
+    "short-biography": "<p>Sammy is the creator, co-founder, and EmCEO of Speechless, a startup based in San Francisco that produces live comedy shows and learning experiences that use improvisation techniques to make public speaking more fun and less scary. He has a BFA and MFA in Acting and over 15 years as a professional actor, comedian, and instructor. He has performed at comedy clubs, colleges, and corporate events all over the world and has been seen in dozens of TV and web commercials. He has taught acting, writing, improvisation, and stand up comedy at several colleges and companies and has done narrative design and copywriting at various Silicon Valley firms.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sammywegent/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1196,
+        "title": "Speechless Live"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_wegent.jpg"
+  },
+  {
+    "id": 119,
+    "name": "Yulong Liu",
+    "email": "liu@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/y_liu.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Yulong develops Mobile Vision API as a software engineer at Google Research. Yulong has a Master's degree from Tsinghua University, where he published 7 papers in computer vision field and graduated with honors.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/yulong-liu-b4b96b16/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1197,
+        "title": "Getting Started with Machine Perception using the Mobile Vision API"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/y_liu.jpg"
+  },
+  {
+    "id": 120,
+    "name": "Hsiu Wang",
+    "email": "wang@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/h_wang.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Hsiu is a software engineer in the Mobile Vision team, which focuses on bringing the latest computer vision research to developers. Prior to joining the MV team, Hsiu worked at Niantic Labs. Hsiu helped develop Pokemon Go, Ingress, and Field Trip.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/hsiu-wang-84b386a/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1197,
+        "title": "Getting Started with Machine Perception using the Mobile Vision API"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/h_wang.jpg"
+  },
+  {
+    "id": 121,
+    "name": "Zak Stone",
+    "email": "stone@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/z_stone.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Zak Stone is the Product Manager for TensorFlow on the Google Brain team. He contributes to product strategy, collaborates with other teams across Google, and enjoys interacting with TensorFlow's vibrant open-source community. Prior to joining Google, Zak founded a mobile-focused deep learning startup that was acquired by Apple. While at Apple, Zak contributed to the on-device face identification technology in iOS 10 and macOS Sierra that was announced at WWDC 2016.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/zstone/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1199,
+        "title": "TensorFlow Frontiers"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/z_stone.jpg"
+  },
+  {
+    "id": 122,
+    "name": "Wolff Dobson",
+    "email": "wolff@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/w_dobson.jpg",
+    "organisation": "Google",
+    "position": "Developer Programs Engineer",
+    "country": "",
+    "short-biography": "<p>Developer Relations for Machine Learning at Google, including TensorFlow. Specialties: Artificial intelligence, game development, software engineering, writing</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/wolffdobson/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1199,
+        "title": "TensorFlow Frontiers"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/w_dobson.jpg"
+  },
+  {
+    "id": 123,
+    "name": "Brennan Saeta",
+    "email": "brennan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_saeta.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>I'm an engineer on the TensorFlow team working on distributed TensorFlow, an open source machine learning platform.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/brennan-saeta-94a79561/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1199,
+        "title": "TensorFlow Frontiers"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_saeta.jpg"
+  },
+  {
+    "id": 124,
+    "name": "Francois Chollet",
+    "email": "francois@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/f_chollet.jpg",
+    "organisation": "Google",
+    "position": "Deep Learning Research",
+    "country": "",
+    "short-biography": "<p>Francois Chollet works on deep learning research and infrastructure at Google Brain and on the Machine Perception team. He is the author of Keras, the deep learning framework.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/fchollet",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1200,
+        "title": "Effective TensorFlow for Non-Experts"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/f_chollet.jpg"
+  },
+  {
+    "id": 125,
+    "name": "Martin Wicke",
+    "email": "wicke@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_wicke.jpg",
+    "organisation": "Google",
+    "position": "Scientist & Engineer",
+    "country": "",
+    "short-biography": "<p>Martin Wicke works on TensorFlow's high-level APIs. He joined Google before the TensorFlow launch, after founding a startup doing machine learning for code synthesis. In a former life he was an academic and worked on physics simulation and computer graphics.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/martin-wicke-a7b70514/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1200,
+        "title": "Effective TensorFlow for Non-Experts"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_wicke.jpg"
+  },
+  {
+    "id": 126,
+    "name": "Josh Gordon",
+    "email": "josh@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_gordon.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>I have > 10 years of Machine Learning experience, including teaching & engineering. Feel free to contact me directly for a CV.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/joshuabendergordon/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1201,
+        "title": "Open Source TensorFlow Models"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_gordon.jpg"
+  },
+  {
+    "id": 127,
+    "name": "Kaz Sato",
+    "email": "ksato@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_sato.jpg",
+    "organisation": "Google",
+    "position": "Staff Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Kaz Sato is Staff Developer Advocate at Cloud Platform team, Google Inc. Focusing on Machine Learning and Data Analytics products, such as TensorFlow, Cloud ML and BigQuery. Spoke at major events including Google Cloud Next SF, Google I/O, Strata London/San Jose/NYC and etc. Kaz also has been leading and supporting developer communities for Google Cloud for over 8 years.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/kazunori279/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1202,
+        "title": "Android meets TensorFlow: how to accelerate your app with AI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_sato.jpg"
+  },
+  {
+    "id": 128,
+    "name": "Hak Matsuda",
+    "email": "hak@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/h_matsuda.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Leaded designing and developing software components for embedded devices such as mobile, gaming consoles. Performance tunings of more than 30 professional game titles for CPU, GPU and Network programming. Developed several core components of embedded devices such as SSL, image processing, audio processing, real time virtual machine.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/hakuro/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1202,
+        "title": "Android meets TensorFlow: how to accelerate your app with AI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/h_matsuda.jpg"
+  },
+  {
+    "id": 129,
+    "name": "Noah Fiedel",
+    "email": "noah@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/n_fiedel.jpg",
+    "organisation": "Google",
+    "position": "Senior Staff Software Engineer",
+    "country": "",
+    "short-biography": "<p>Uber Technical Lead on large scale (high traffic, availability, data size) systems scaling to millions of QPS and billions of users. Leadership and management of large teams with 30+ engineers and cross-functional collaborators. Grower of talent including TLs, Managers, PMs and more.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/noahfiedel/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1203,
+        "title": "From Research to Production with TensorFlow Serving"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/n_fiedel.jpg"
+  },
+  {
+    "id": 130,
+    "name": "Douglas Eck",
+    "email": "eck@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_eck.jpg",
+    "organisation": "Google",
+    "position": "Senior Staff Research Scientist on Google Brain team",
+    "country": "",
+    "short-biography": "<p>I'm a research scientist at Google working on generative models for music, video, text and art using deep neural networks. Our work is done in TensorFlow (www.tensorflow.org).</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/douglaseck/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1204,
+        "title": "Project Magenta: Music and Art with Machine Learning"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_eck.jpg"
+  },
+  {
+    "id": 131,
+    "name": "Monica Dinculescu",
+    "email": "monica@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/m_dinculescu.jpg",
+    "organisation": "Google",
+    "position": "Senior Staff Research Scientist on Google Brain team",
+    "country": "",
+    "short-biography": "<p>I've been a developer at Google for over three years. I work on Polymer, and have probably at least once broken the Internet for you. Before this, I used to work on Chrome.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/mdinculescu/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1209,
+        "title": "Polymer: Billions Served; Lessons Learned"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/m_dinculescu.jpg"
+  },
+  {
+    "id": 132,
+    "name": "Zach Koch",
+    "email": "koch@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/z_koch.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>I'm excited about designing and developing great products, and I've had the opportunity to shape my skills in a variety of roles across three different continents. My blend of skills in both design and development means that I can quickly design, implement, and test new products and features quickly.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/zachkoch/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1210,
+        "title": "The future of web payments"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/z_koch.jpg"
+  },
+  {
+    "id": 133,
+    "name": "Paul Bakaus",
+    "email": "paul@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/p_bakaus.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>I'm a storyteller. I tell stories in a multitude of ways: On big and small stages, in videos, in tutorials, guides, blogs or articles or through apps and sites. All stories I tell serve one of two needs: To make people better or happier. I'm also a very experienced web developer turned into a game developer and later manager, then into an advocate, manager and designer. I tried many things but specialize for my current role. Whatever gets the job done.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/paulbakaus/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1211,
+        "title": "From AMP to PWA: Progressive Web AMPs"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/p_bakaus.jpg"
+  },
+  {
+    "id": 134,
+    "name": "Alex Rickabaugh",
+    "email": "alex@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_rickabaugh.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Alex is a member of the Angular core team, working to optimize the platform for the next generation of applications. He works on the Angular service worker as well as server-side rendering and other performance-related features.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/alex-rickabaugh-1ab7b84/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1212,
+        "title": "Great Progressive Web App Experiences with Angular"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_rickabaugh.jpg"
+  },
+  {
+    "id": 135,
+    "name": "Stephen Fluin",
+    "email": "fluin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_fluin.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Stephen is a Developer Advocate on the Angular Team at Google. Stephen works to solve real world problems faced by developers and businesses, and to represent the needs of the community within the Angular team.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/stephenfluin/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1212,
+        "title": "Great Progressive Web App Experiences with Angular"
+      },
+      {
+        "id": 1216,
+        "title": "Using Web Components with Angular"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_fluin.jpg"
+  },
+  {
+    "id": 136,
+    "name": "Surma",
+    "email": "surma@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/surma.jpg",
+    "organisation": "Google",
+    "position": "Senior Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Surma is an engineer working with the Chrome team. He likes to cut himself on the bleeding edge, goes full-stack every once in a while and prefers good code over functional one.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/surma-a30b4950/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1213,
+        "title": "Supercharged Live"
+      },
+      {
+        "id": 1221,
+        "title": "How well do you know the web?"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/surma.jpg"
+  },
+  {
+    "id": 137,
+    "name": "Seth Thompson",
+    "email": "seth@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_thompson.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>American designer and developer interested in the intersection of art, architecture, literature, and technology.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sethcolburnthompson/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1214,
+        "title": "V8, Advanced JavaScript, & the next performance frontier"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_thompson.jpg"
+  },
+  {
+    "id": 138,
+    "name": "Justin Fagnani",
+    "email": "justin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_fagnani.jpg",
+    "organisation": "Google",
+    "position": "Senior Software Engineer",
+    "country": "",
+    "short-biography": "<p>Justin is the Technical Lead for Tools on the Polymer project. He has worked on developer tooling since joining Google in 2008, founding the Google App Maker project, and working on Dart tooling before joining Polymer. Prior to Google, Justin was a musician and consultant, helping small and medium businesses build custom customer, fulfillment and warehouse management systems. Justin earned his bachelor's degree in computer science from the University of California, Santa Cruz.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/justinfagnani/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1215,
+        "title": "Developer Tooling for Web Components"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_fagnani.jpg"
+  },
+  {
+    "id": 139,
+    "name": "William Chou",
+    "email": "chou@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/w_chou.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>William is a software engineer working on new dynamic content in the open-source AMP Project. Prior to joining Google, William studied Computer Science at Cornell University and worked in the games industry.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/williamchou/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1217,
+        "title": "Building beautiful, interactive AMP pages for e-commerce & beyond"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/w_chou.jpg"
+  },
+  {
+    "id": 140,
+    "name": "Chiara Chiappini",
+    "email": "chiara@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_chiappini.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Chiara is a Developer Advocate at Google in the Developer Relations Team. She helps partners be more successful on the web, on Android and iOS. Prior to Google, she was a full stack engineer at eBay. Chiara has a MSC in Computer Engineering from Alma Mater University of Bologna, where she graduated with honors.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/chiarachiappini/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1217,
+        "title": "Building beautiful, interactive AMP pages for e-commerce & beyond"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_chiappini.jpg"
+  },
+  {
+    "id": 141,
+    "name": "Justin Novosad",
+    "email": "justin@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_novosad.jpg",
+    "organisation": "Google",
+    "position": "Technical Lead",
+    "country": "",
+    "short-biography": "<p>Justin Novosad has been a member of the Chrome GPU team since joining Google in 2011. He is the technical lead for canvas APIs in Chrome. Prior to Google, he was a software developer at Autodesk where he has worked on the Maya rendering team, and the image science team. He holds a bachelor's degree in computer engineering and a master's in biomedical engineering from Polytechnique Montréal.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/justin-novosad-50a730/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1218,
+        "title": "Cranking up performance in graphics intensive Web apps and games"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_novosad.jpg"
+  },
+  {
+    "id": 142,
+    "name": "Eric Bidelman",
+    "email": "eric@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/e_bidelman.jpg",
+    "organisation": "Google",
+    "position": "Senior Staff Engineer",
+    "country": "",
+    "short-biography": "<p>Eric is a Senior Staff Engineer at Google working with the Chrome team on web projects like Lighthouse, Polymer, web components. He's the author of 'Using the HTML5 Filesystem API' and has led frontend projects like the Google I/O web app (2015-16), Google's Santa tracker, chromestatus.com, and html5rocks.com. Prior to Google, Eric worked as a software engineer at the University of Michigan where he designed rich web applications and APIs for the university's 19 libraries.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/ericbidelman/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1219,
+        "title": "Staying off the rocks: using Lighthouse to build seaworthy progressive web apps"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/e_bidelman.jpg"
+  },
+  {
+    "id": 143,
+    "name": "Brendan Kenny",
+    "email": "kenny@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_kenny.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Brendan is an engineer on the Geo Developer Relations team. Prior to joining Google, he split his career between teaching math and helping advance the state of the web. Now he gets to do both.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/bckenny/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1219,
+        "title": "Staying off the rocks: using Lighthouse to build seaworthy progressive web apps"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_kenny.jpg"
+  },
+  {
+    "id": 144,
+    "name": "Addy Osmani",
+    "email": "addy@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_osmani.jpg",
+    "organisation": "Google",
+    "position": "Engineering Manager",
+    "country": "",
+    "short-biography": "<p>Addy is a Staff Engineer at Google working with the Chrome team on Polymer, with a focus on developer tooling & Web Component polyfills. He is also the engineering lead for several open-source projects including Yeoman, Google Web Starter Kit, TodoMVC and upcoming Material Design libraries.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/osmani/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1220,
+        "title": "Production Progressive Web Apps With JavaScript Frameworks"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_osmani.jpg"
+  },
+  {
+    "id": 145,
+    "name": "Jake Archibald",
+    "email": "jake@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_archibald.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>I’m a developer advocate for Google Chrome.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/jaffathecake",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1221,
+        "title": "How well do you know the web?"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_archibald.jpg"
+  },
+  {
+    "id": 146,
+    "name": "Sam Birch",
+    "email": "sam@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_birch.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Sam is a product manager on the Chrome for Android team, focused on improving Chrome as a platform for web and app developers. He earned a ScB in computer science from Brown University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sam-birch-18549924/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1222,
+        "title": "Progressive Web Apps: Great Experiences Everywhere"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_birch.jpg"
+  },
+  {
+    "id": 147,
+    "name": "Alex Danilo",
+    "email": "alex@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_danilo.jpg",
+    "organisation": "Google",
+    "position": "Developer Advocate",
+    "country": "",
+    "short-biography": "<p>Alex works with the Chrome team as a Developer Advocate at Google and is co-editor of the HTML5.2 specification at W3C. Prior to Google he worked on W3C web standards for over a decade and developed embedded system software for graphics, text layout and IPTV applications.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/alex-danilo-7296052/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1223,
+        "title": "Compiling for the Web with WebAssembly"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_danilo.jpg"
+  },
+  {
+    "id": 148,
+    "name": "Andre Valente",
+    "email": "andre@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_valente.jpg",
+    "organisation": "Google",
+    "position": "Technical Program Manager, Search",
+    "country": "",
+    "short-biography": "<p>Andre manages a number of development programs in Google Search, particularly focused on structured data. Prior to Google, Andre founded software start-up companies, and managed software engineering for businesses in the software, manufacturing and aerospace. He also worked as a research scientist at the University of Southern California. Andre received a Ph.D. in Computer Science from the University of Amsterdam and an MBA from the University of Southern California. He has published more than 70 technical articles on areas such as AI and e-learning.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/andrevalente1/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1224,
+        "title": "Stand out on Google Search using structured data and search analytics"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_valente.jpg"
+  },
+  {
+    "id": 149,
+    "name": "Duncan Osborn",
+    "email": "duncan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_osborn.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Duncan is a product manager on the Google Search team in New York. He was previously based in Paris as product manager for Google Arts & Culture. Prior to Google, he was on the mobile app product team at LinkedIn. Duncan has a bachelor's degree in computer engineering from the Georgia Institute of Technology and a master's degree in business and entrepreneurship at HEC Paris.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/duncanosborn/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1224,
+        "title": "Stand out on Google Search using structured data and search analytics"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_osborn.jpg"
+  },
+  {
+    "id": 150,
+    "name": "Oli Lan",
+    "email": "oli@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/o_lan.jpg",
+    "organisation": "Google",
+    "position": "Senior Software Engineer",
+    "country": "",
+    "short-biography": "<p>Oli is a senior engineer on the Android Wear team. He leads work on system UI and watch faces, and built the emoji recogniser for Wear. Before joining the Wear team, he worked on G+ Year In Review, Auto Awesome Movies, and Chrome for Android.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/oligonoid",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1259,
+        "title": "Android Wear UI development best practice"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/o_lan.jpg"
+  },
+  {
+    "id": 151,
+    "name": "Aga Madurska",
+    "email": "aga@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_madurska.jpg",
+    "organisation": "Google",
+    "position": "Senior Software Engineer",
+    "country": "",
+    "short-biography": "<p>Aga works on the Android Wear System UI team in London, where she leads the Wearable Support Library components effort. She has previously worked on the Android mobile client for Google Maps and is one of the founding engineers of the Cultural Institute mobile platform. Aga holds a first-class MEng degree in Computer Science from Imperial College, London.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/agamadurska/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1259,
+        "title": "Android Wear UI development best practice"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_madurska.jpg"
+  },
+  {
+    "id": 152,
+    "name": "Christina Lee",
+    "email": "lee@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_lee.jpg",
+    "organisation": "Pinterest",
+    "position": "Android Engineer",
+    "country": "",
+    "short-biography": "<p>Christina is an Android engineer at Pinterest, where she works on the Core Product team. She spends most of her time evaluating how tools, languages, and architectures can be leveraged to enhance code quality and developer velocity.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/clehrlee/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1260,
+        "title": "Life is great and everything will be ok, Kotlin is here"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_lee.jpg"
+  },
+  {
+    "id": 153,
+    "name": "Jake Wharton",
+    "email": "jake@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/j_wharton.jpg",
+    "organisation": "Square",
+    "position": "Android Engineer",
+    "country": "",
+    "short-biography": "<p>Jake is an Android engineer at Square working on the Square Cash app. He works with a small team to build focused open source libraries like Retrofit, OkHttp, and others which are the foundations on which Square's Android apps are built.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/jakewharton/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1260,
+        "title": "Life is great and everything will be ok, Kotlin is here"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/j_wharton.jpg"
+  },
+  {
+    "id": 154,
+    "name": "Chet Haase",
+    "email": "chet@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_haase.jpg",
+    "organisation": "Google",
+    "position": "Lead, Android UI Toolkit",
+    "country": "",
+    "short-biography": "<p>Chet leads the Android UI Toolkit team and works on animation, graphics, performance, and UI widgets. He also manages and goes to a lot of meetings.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/chethaase/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1261,
+        "title": "Android Animations Spring to Life"
+      },
+      {
+        "id": 1262,
+        "title": "Android Performance: UI"
+      },
+      {
+        "id": 1263,
+        "title": "What's New in Android"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_haase.jpg"
+  },
+  {
+    "id": 155,
+    "name": "Doris Liu",
+    "email": "doris@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_liu.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Doris is an engineer working on the Android UI ToolKit team. Her primary focus is improving and expanding animation on Android, with the intention to reduce jank. She is responsible for physics-based animation library, Animator Framework, and AnimatedVectorDrawable.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/doris-liu-36bb9824/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1261,
+        "title": "Android Animations Spring to Life"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_liu.jpg"
+  },
+  {
+    "id": 156,
+    "name": "Chris Craik",
+    "email": "chris@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_craik.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Chris Craik works on graphics and UI performance in the Android UI toolkit team. He works to help apps achieve smooth scrolling and animations with optimizations and performance tools.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/chriscraik",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1262,
+        "title": "Android Performance: UI"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_craik.jpg"
+  },
+  {
+    "id": 157,
+    "name": "Romain Guy",
+    "email": "guy@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_guy.jpg",
+    "organisation": "Google",
+    "position": "Senior Staff Software Engineer",
+    "country": "",
+    "short-biography": "<p>Romain leads the Android Graphics team at Google, which delivers the surface compositor, OpenGL ES, Vulkan and other low-level graphics layers to Android devices. Romain was previously on the Android framework team where he spent years working on the UI toolkit and hardware accelerated rendering pipeline.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/romainguy/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1263,
+        "title": "What's New in Android"
+      },
+      {
+        "id": 1264,
+        "title": "Understanding Color"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_guy.jpg"
+  },
+  {
+    "id": 158,
+    "name": "Dan Sandler",
+    "email": "dan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_sandler.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Dan leads the Android System UI engineering team, which is responsible for pretty much everything you see on the Android screen that isn't an app. Before Google he was a grad student researching distributed systems and security. And even before that, he worked at Palm and Be on the UI of their respective operating systems. Dan has a Ph.D in computer science from Rice University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/daniel-sandler-a08b/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1263,
+        "title": "What's New in Android"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_sandler.jpg"
+  },
+  {
+    "id": 159,
+    "name": "Yigit Boyar",
+    "email": "yigit@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/y_boyar.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Yigit is a software engineer on the Android Framework team focusing on app architecture and developer productivity. He also works on Data Binding and RecyclerView. Prior to joining Google, he was the Android Engineering Manager at Path. He received his bachelor's degree in computer engineering from Middle East Technical University, Turkey.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/yigitboyar/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1265,
+        "title": "Architecture Components - Introduction"
+      },
+      {
+        "id": 1266,
+        "title": "Architecture Components - Solving the Lifecycle Problem"
+      },
+      {
+        "id": 1267,
+        "title": "Architecture Components - Persistence and Offline"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/y_boyar.jpg"
+  },
+  {
+    "id": 160,
+    "name": "Lukas Bergstrom",
+    "email": "lukas@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/l_bergstrom.jpg",
+    "organisation": "Google",
+    "position": "Product Manager",
+    "country": "",
+    "short-biography": "<p>Lukas is a product manager for Android developer frameworks. He was previously product manager for Google Tag Manager, and before Google at CrowdFlower. He has held roles as a software engineer, management consultant and program manager for organizations including Monitor Group (now Monitor Deloitte) and One Acre Fund.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/lukasbergstrom/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1265,
+        "title": "Architecture Components - Introduction"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/l_bergstrom.jpg"
+  },
+  {
+    "id": 161,
+    "name": "Sergei Vasilinetc",
+    "email": "sergei@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_vasilinetc.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Sergei is a software engineer working on the Android UI Toolkit team. His work focuses on applications architecture and graphics. Prior to Google he worked at SPB Software. He earned his degree from Saint Petersburg State University.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sergey-vasilinets-1225912a/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1266,
+        "title": "Architecture Components - Solving the Lifecycle Problem"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_vasilinetc.jpg"
+  },
+  {
+    "id": 162,
+    "name": "Kirill Grouchnikov",
+    "email": "kirill@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/k_grouchnikov.jpg",
+    "organisation": "Google",
+    "position": "Software Engineer",
+    "country": "",
+    "short-biography": "<p>Kirill is an engineer on the Android UI toolkit team at Google. Before joining the Android team in 2009, he has worked with a variety of UI toolkits and libraries that spanned Motif, MFC, VB, Ada, Delphi, Swing and SWT.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/kirillg/",
+    "is-featured": false,
+    "sessions": [
+      {
+        "id": 1267,
+        "title": "Architecture Components - Persistence and Offline"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/k_grouchnikov.jpg"
+  },
+  {
+    "id": 163,
+    "name": "Sundar Pichai",
+    "email": "sundar@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_pichai.jpg",
+    "organisation": "Google",
+    "position": "CEO",
+    "country": "",
+    "short-biography": "<p>Pichai is the chief executive officer (CEO) of Google Inc. Formerly the Product Chief of Google, Pichai's current role was announced on 10 August 2015, as part of the restructuring process that made Alphabet Inc. into Google's parent company, and he assumed the position on 2 October 2015.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "https://twitter.com/sundarpichai",
+    "facebook": "",
+    "github": "",
+    "linkedin": "",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_pichai.jpg"
+  },
+  {
+    "id": 164,
+    "name": "Scott Huffman",
+    "email": "shuffman@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_huffman.jpg",
+    "organisation": "Google",
+    "position": "VP, Engineering, Google Assistant",
+    "country": "",
+    "short-biography": "<p>VP of Engineering at Google. Interested in technology and how it affects day to day lives of people.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/huffmansbh/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_huffman.jpg"
+  },
+  {
+    "id": 165,
+    "name": "Rishi Chandra",
+    "email": "rchandra@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/r_chandra.jpg",
+    "organisation": "Google",
+    "position": "Vice President",
+    "country": "",
+    "short-biography": "<p>Rishi Chandra is Vice President of Product Management and General Manager of Home Products responsible for Google’s home hardware products, including Google Home, Chromecast, and Google Wifi. Rishi joined Google in 2006 and helped launch Google Apps, Google's online suite of communication and collaboration tools for businesses and schools. In 2010, he launched Google TV (now Android TV) to bring new streaming experiences to the television, and in 2013 launched Chromecast, the first hardware product designed and built by Google.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/rishic1/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/r_chandra.jpg"
+  },
+  {
+    "id": 166,
+    "name": "Anil Sabharwal",
+    "email": "anil@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/a_sabharwal.jpg",
+    "organisation": "Google",
+    "position": "Vice President, Product",
+    "country": "",
+    "short-biography": "<p>Currently Vice President for Photos at Google. Responsible for product, design, engineering, QA and strategic partnerships across the company's portfolio of consumer photos products including Google Photos and Snapseed. Led and launched Google Photos at IO 2015.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/anilsabharwal/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/a_sabharwal.jpg"
+  },
+  {
+    "id": 167,
+    "name": "Susan Wojcicki",
+    "email": "susan@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_wojcicki.jpg",
+    "organisation": "Google",
+    "position": "CEO of Youtube",
+    "country": "",
+    "short-biography": "<p>Susan Diane Wojcicki is an American technology executive. She is the current CEO of YouTube. She is the daughter of Esther Wojcicki, an educator of Russian Jewish descent, and Stanley Wojcicki, a Polish American physics professor at Stanford University. She has 2 sisters: Janet Wojcicki, (PhD, anthropologist and epidemiologist) and Anne Wojcicki, founder of 23andMe.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/susan-wojcicki-b136a99/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_wojcicki.jpg"
+  },
+  {
+    "id": 168,
+    "name": "Sarah Ali",
+    "email": "ali@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_ali.jpg",
+    "organisation": "Google",
+    "position": "Youtube Product Management",
+    "country": "",
+    "short-biography": "<p>Head of Product for YouTube in the Living Room: including YouTube apps on Chromecast, Game Consoles, Smart TVs, and Roku.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sarahali/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_ali.jpg"
+  },
+  {
+    "id": 169,
+    "name": "Barbara McDonald",
+    "email": "barbara@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/b_mcd.jpg",
+    "organisation": "Google",
+    "position": "Product Manager, YouTube Live and YouTube Gaming",
+    "country": "",
+    "short-biography": "<p>Head of Product for YouTube in the Living Room: including YouTube apps on Chromecast, Game Consoles, Smart TVs, and Roku.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/barbaraemac/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/b_mcd.jpg"
+  },
+  {
+    "id": 170,
+    "name": "Dave Burke",
+    "email": "barbara@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/d_burke.jpg",
+    "organisation": "Google",
+    "position": "VP Engineering, Android",
+    "country": "",
+    "short-biography": "<p>VP Engineering, Android. A Dubliner in the Valley. Likes inventing the future.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/daveburke5/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/d_burke.jpg"
+  },
+  {
+    "id": 171,
+    "name": "Sameer Samat",
+    "email": "samat@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_samat.jpg",
+    "organisation": "Google",
+    "position": "Vice President",
+    "country": "",
+    "short-biography": "<p>VP at Google responsible for the Google Play product, eng and experience teams.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/sameersamat/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_samat.jpg"
+  },
+  {
+    "id": 172,
+    "name": "Clay Bavor",
+    "email": "bavor@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/c_bavor.jpg",
+    "organisation": "Google",
+    "position": "VP, Virtual Reality",
+    "country": "",
+    "short-biography": "<p>I lead the virtual reality team at Google. Previously, led the product management and design teams for many of Google's consumer and enterprise apps, including Gmail, Google Drive, Google Docs, and Google Apps for Work.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/claybavor/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/c_bavor.jpg"
+  },
+  {
+    "id": 173,
+    "name": "Stephanie Saad Cuthberston",
+    "email": "saad@gmail.com",
+    "mobile": "",
+    "photo-url": "/images/speakers/s_saad.jpg",
+    "organisation": "Google",
+    "position": "PM Director, Android",
+    "country": "",
+    "short-biography": "<p>Accomplished product management leader with experience building industry-leading products at startup successes like Acquantive and blue-chip companies like Google, Amazon Web Services, and Microsoft. Track record of setting vision and building teams on a wide range of early-stage products which have launched/grown to success.</p>",
+    "long-biography": "",
+    "website": "",
+    "twitter": "",
+    "facebook": "",
+    "github": "",
+    "linkedin": "https://www.linkedin.com/in/stephaniesaad/",
+    "is-featured": true,
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ],
+    "speaking-experience": "",
+    "thumbnail-image-url": "/images/speakers/s_saad.jpg"
+  }
+]

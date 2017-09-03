@@ -1,0 +1,70 @@
+{
+  "id": 173,
+  "name": "Google IO 2017",
+  "latitude": 37.426851,
+  "longitude": -122.080768,
+  "location-name": "Shoreline Amphitheatre, Mountain View, CA",
+  "starts-at": "2017-05-17T10:00:00-07:00",
+  "ends-at": "2017-05-19T17:00:00-07:00",
+  "timezone": "US/Pacific",
+  "description": "<p>Google I/O (simply I/O) is an annual developer conference held by Google in San Francisco, California. I/O showcases technical in-depth sessions focused on building web, mobile, and enterprise applications with Google and open sources such as Android, Chrome and Chrome OS, APIs, Google Web Toolkit, App Engine, and more.</p>",
+  "original-image-url": "/images/io_banner.jpg",
+  "logo-url": "/images/io_logo.png",
+  "organizer-name": "Google",
+  "organizer-description": "<p>Google I/O (simply I/O) is an annual developer conference held by Google in San Francisco, California. I/O showcases technical in-depth sessions focused on building web, mobile, and enterprise applications with Google and open sources such as Android, Chrome and Chrome OS, APIs, Google Web Toolkit, App Engine, and more.</p>",
+  "external-event-url": "https://events.google.com/io/",
+  "social-links": [
+    {
+      "id": 121,
+      "link": "https://www.facebook.com/events/392883717752291/",
+      "name": "Facebook"
+    },
+    {
+      "id": 122,
+      "link": "https://twitter.com/ioextendedgr",
+      "name": "Twitter"
+    },
+    {
+      "id": 123,
+      "link": "https://plus.google.com/communities/105113874753230740413",
+      "name": "Google Plus"
+    },
+    {
+      "id": 124,
+      "link": "https://www.youtube.com/user/GoogleDevelopers",
+      "name": "Youtube"
+    }
+  ],
+  "ticket-url": "",
+  "privacy": "public",
+  "type": "Conference",
+  "topic": "Community & Culture",
+  "sub-topic": "Other",
+  "code-of-conduct": "",
+  "event-copyright": {
+    "holder": "Google",
+    "holder-url": "https://www-archive.mozilla.org/contact/",
+    "licence": "Creative Commons Attribution License",
+    "licence-url": "https://creativecommons.org/licenses/by/4.0/",
+    "logo-url": "http://i.creativecommons.org/l/by/4.0/80x15.png",
+    "year": 2017
+  },
+  "speakers-call": null,
+  "email": "support@gmail.com",
+  "is-sessions-speakers-enabled": true,
+  "identifier": "559ebc12",
+  "large": "",
+  "placeholder-url": "",
+  "schedule-published-on": "",
+  "searchable-location-name": "",
+  "state": "Published",
+  "thumbnail-image-url": "",
+  "version": {
+    "event_ver": 0,
+    "microlocations_ver": 1,
+    "sessions_ver": 2,
+    "speakers_ver": 1,
+    "sponsors_ver": 1,
+    "tracks_ver": 1
+  }
+}

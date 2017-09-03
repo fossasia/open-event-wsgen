@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Stage 3",
+    "floor": 0,
+    "latitude": 37.425113,
+    "longitude": -122.079768,
+    "room": null
+  },
+  {
+    "id": 2,
+    "name": "Office Hours Table 13 & 14",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 3,
+    "name": "Office Hours Table 19 & 20",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 4,
+    "name": "Stage 5",
+    "floor": 0,
+    "latitude": 37.423807,
+    "longitude": -122.078502,
+    "room": null
+  },
+  {
+    "id": 5,
+    "name": "Office Hours Table 17 & 18",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 6,
+    "name": "Amphitheatre",
+    "floor": 0,
+    "latitude": 37.426851,
+    "longitude": -122.080768,
+    "room": null
+  },
+  {
+    "id": 7,
+    "name": "Stage 4",
+    "floor": 0,
+    "latitude": 37.424165,
+    "longitude": -122.079659,
+    "room": null
+  },
+  {
+    "id": 8,
+    "name": "Stage 1",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 9,
+    "name": "Stage 7",
+    "floor": 0,
+    "latitude": 37.425596,
+    "longitude": -122.078512,
+    "room": null
+  },
+  {
+    "id": 10,
+    "name": "Office Hours Table 11 & 12",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 11,
+    "name": "Stage 2",
+    "floor": 0,
+    "latitude": 37.425109,
+    "longitude": -122.080285,
+    "room": null
+  },
+  {
+    "id": 12,
+    "name": "Sandbox Dome E",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 13,
+    "name": "Stage 6",
+    "floor": 0,
+    "latitude": 37.424565,
+    "longitude": -122.078631,
+    "room": null
+  },
+  {
+    "id": 14,
+    "name": "Sandbox Dome F",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  },
+  {
+    "id": 15,
+    "name": "Sandbox Dome C",
+    "floor": 0,
+    "latitude": 37.425420,
+    "longitude": -122.080291,
+    "room": null
+  }
+]

@@ -1,0 +1,1222 @@
+[
+  {
+    "id": 1,
+    "name": "Accessibility",
+    "description": "Accessibility",
+    "color": "#C39BD3",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1001,
+        "title": "What's New in Android Accessibility"
+      },
+      {
+        "id": 1002,
+        "title": "Office Hours with Google's Accessibility Experts"
+      },
+      {
+        "id": 1003,
+        "title": "Office Hours with Google's Accessibility Experts"
+      },
+      {
+        "id": 1004,
+        "title": "Designing for the Next Billion Users: Accessibility UX Insights from the Developing World"
+      },
+      {
+        "id": 1005,
+        "title": "Pragmatic Accessibility: A How-To Guide for Teams"
+      },
+      {
+        "id": 1006,
+        "title": "Office Hours with Google's Accessibility Experts"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ads",
+    "description": "Ads",
+    "color": "#A6ACAF",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1007,
+        "title": "Office Hours: Mobile App Growth, Monetization and Measurement Office Hours"
+      },
+      {
+        "id": 1008,
+        "title": "3 Keys to App Success: User Acquisition, Monetization & Payments"
+      },
+      {
+        "id": 1009,
+        "title": "AMP Ads: Better Advertising on a Faster Web"
+      },
+      {
+        "id": 1010,
+        "title": "Office Hours: Payments - Meet the team who are powering mobile payments across platforms"
+      },
+      {
+        "id": 1011,
+        "title": "Build great monetization experience with the all new AdMob"
+      },
+      {
+        "id": 1012,
+        "title": "Office Hours: Mobile App Growth, Monetization and Measurement Office Hours"
+      },
+      {
+        "id": 1013,
+        "title": "Office Hours: Mobile App Growth, Monetization and Measurement Office Hours"
+      },
+      {
+        "id": 1014,
+        "title": "Office Hours: Payments - Meet the team who are powering mobile payments across platforms"
+      },
+      {
+        "id": 1015,
+        "title": "Find your apps best users with Google's machine learning"
+      },
+      {
+        "id": 1016,
+        "title": "AdMob and Firebase -- better together"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Assistant",
+    "description": "Assistant",
+    "color": "#76D7C4",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1017,
+        "title": "Office Hours: Actions on Google: 1:1 Consultations with our VUI Team"
+      },
+      {
+        "id": 1018,
+        "title": "Building apps for the Google Assistant"
+      },
+      {
+        "id": 1019,
+        "title": "Bringing the Google Assistant to any device"
+      },
+      {
+        "id": 1020,
+        "title": "Building rich cross-platform conversational UX with API.AI"
+      },
+      {
+        "id": 1021,
+        "title": "Defining Multimodal Interactions: One Size Does Not Fit All"
+      },
+      {
+        "id": 1022,
+        "title": "Office Hours: Actions on Google: 1:1 Consultations with our VUI Team"
+      },
+      {
+        "id": 1023,
+        "title": "Finding the Right Voice Interactions for your App"
+      },
+      {
+        "id": 1024,
+        "title": "Home Automation with the Google Assistant"
+      },
+      {
+        "id": 1025,
+        "title": "Getting your Assistant App Discovered"
+      },
+      {
+        "id": 1026,
+        "title": "In Conversation, There Are No Errors"
+      },
+      {
+        "id": 1027,
+        "title": "Office Hours: Actions on Google: Meet the Review Team"
+      },
+      {
+        "id": 1028,
+        "title": "Transactions with the Google Assistant"
+      },
+      {
+        "id": 1029,
+        "title": "PullString: Storytelling in the Age of Conversational Interfaces"
+      },
+      {
+        "id": 1030,
+        "title": "Applying Built-in Hacks of Conversation to Your Voice UI"
+      },
+      {
+        "id": 1031,
+        "title": "Office Hours: Actions on Google: Meet the Review Team"
+      },
+      {
+        "id": 1032,
+        "title": "Office Hours: Actions on Google: 1:1 Consultations with our VUI Team"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Cloud",
+    "description": "Cloud",
+    "color": "#73C6B6",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1033,
+        "title": "Office Hours: Cloud Big Data, Analytics, and Machine Learning"
+      },
+      {
+        "id": 1034,
+        "title": "Office Hours: Cloud Infrastructure and Operations"
+      },
+      {
+        "id": 1035,
+        "title": "Office Hours: Cloud Application Development"
+      },
+      {
+        "id": 1036,
+        "title": "Build modern apps with Firebase and Google Cloud Platform"
+      },
+      {
+        "id": 1037,
+        "title": "Office Hours: Cloud Big Data, Analytics, and Machine Learning"
+      },
+      {
+        "id": 1038,
+        "title": "Office Hours: Cloud Infrastructure and Operations"
+      },
+      {
+        "id": 1039,
+        "title": "Office Hours: Cloud Application Development"
+      },
+      {
+        "id": 1040,
+        "title": "Office Hours with the Gsuite team"
+      },
+      {
+        "id": 1041,
+        "title": "What's possible with Cloud Functions for Firebase"
+      },
+      {
+        "id": 1042,
+        "title": "Building for enterprise IoT using Android Things and Google Cloud Platform"
+      },
+      {
+        "id": 1043,
+        "title": "Using Google Cloud, TensorFlow, and the Google Assistant on Android Things"
+      },
+      {
+        "id": 1044,
+        "title": "Cloud Big Data, Analytics, and Machine Learning"
+      },
+      {
+        "id": 1045,
+        "title": "Machine Learning APIs by Example"
+      },
+      {
+        "id": 1046,
+        "title": "Supercharging Firebase Apps with Machine Learning and Cloud Functions"
+      },
+      {
+        "id": 1047,
+        "title": "Office Hours: Cloud Application Development"
+      },
+      {
+        "id": 1048,
+        "title": "Navigating Google Cloud Platform: a guide for new GCP users"
+      },
+      {
+        "id": 1049,
+        "title": "Build powerful custom apps fast with App Maker on G Suite"
+      },
+      {
+        "id": 1050,
+        "title": "Cloud Functions, Testability, and Open Source"
+      },
+      {
+        "id": 1051,
+        "title": "Office Hours with the Gsuite team"
+      },
+      {
+        "id": 1052,
+        "title": "Cloud Spanner 101: Google's mission-critical relational database"
+      },
+      {
+        "id": 1053,
+        "title": "Data Pipelines with Firebase and Google Cloud"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Firebase",
+    "description": "Firebase",
+    "color": "#F1C40F",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1054,
+        "title": "Fabric + Firebase: Building Momentum at Google"
+      },
+      {
+        "id": 1055,
+        "title": "What's new in Firebase"
+      },
+      {
+        "id": 1056,
+        "title": "Building high quality apps and games with Firebase"
+      },
+      {
+        "id": 1057,
+        "title": "Firebase Analytics: Overview and Updates"
+      },
+      {
+        "id": 1058,
+        "title": "Office Hours: Come meet the Flutter team"
+      },
+      {
+        "id": 1059,
+        "title": "Office Hours: Firebase Analytics Office Hours"
+      },
+      {
+        "id": 1060,
+        "title": "Office Hours: Firebase App Quality Office Hours"
+      },
+      {
+        "id": 1061,
+        "title": "Shipping Santa Tracker: Carefully roll out a feature to a million users"
+      },
+      {
+        "id": 1062,
+        "title": "Using Firebase to accelerate app growth: overview & updates"
+      },
+      {
+        "id": 1063,
+        "title": "Office Hours: Firebase Grow Office Hours"
+      },
+      {
+        "id": 1064,
+        "title": "Zero to App: Develop with Firebase"
+      },
+      {
+        "id": 1065,
+        "title": "Using Pirate Metrics to grow your user base"
+      },
+      {
+        "id": 1066,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      },
+      {
+        "id": 1067,
+        "title": "How to build robust mobile applications for the distributed cloud"
+      },
+      {
+        "id": 1068,
+        "title": "Great app performance with Firebase Performance Monitoring"
+      },
+      {
+        "id": 1069,
+        "title": "Building Fast Web Experiences with Cloud Functions on Firebase Hosting"
+      },
+      {
+        "id": 1070,
+        "title": "Office Hours: Firebase Develop/Backend-as-a-Service Office Hours"
+      },
+      {
+        "id": 1071,
+        "title": "Office Hours: Come meet the Fabric team"
+      },
+      {
+        "id": 1072,
+        "title": "Rewarding for engagement with Firebase"
+      },
+      {
+        "id": 1073,
+        "title": "Single Codebase, Two Apps with Flutter and Firebase"
+      },
+      {
+        "id": 1074,
+        "title": "Architecting for data contention in a realtime world with Firebase"
+      },
+      {
+        "id": 1075,
+        "title": "Firebase recipes to bootstrap your app"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Design",
+    "description": "Design",
+    "color": "#FFB6C1",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1076,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1077,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1078,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1079,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1080,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1081,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1082,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1083,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1084,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1085,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1086,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1087,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1088,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1089,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1090,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1091,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1092,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1093,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1094,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1095,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1096,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1097,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1098,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1099,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1100,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1101,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1102,
+        "title": "App Reviews: Design reviews"
+      },
+      {
+        "id": 1103,
+        "title": "Design guidance on enabling your app for Android Wear, VR, TV and Auto"
+      },
+      {
+        "id": 1104,
+        "title": "Prototyping to Production: Bridging the Gap with a Common Tool"
+      },
+      {
+        "id": 1105,
+        "title": "How words can make your product stand out"
+      },
+      {
+        "id": 1106,
+        "title": "Notifications UX: What's New for Android O"
+      },
+      {
+        "id": 1107,
+        "title": "Designing Great Apps for New Internet Users"
+      },
+      {
+        "id": 1108,
+        "title": "Design guidance on enabling your app for Android Wear, VR, TV and Auto"
+      },
+      {
+        "id": 1109,
+        "title": "Office hours: Design guidance on enabling your app for Android Wear, VR, TV and Auto"
+      },
+      {
+        "id": 1110,
+        "title": "Office Hours with the Material Components (MDC) for Android, Web and iOS team"
+      },
+      {
+        "id": 1111,
+        "title": "Creating UX that 'just feels right' with Progressive Web Apps"
+      },
+      {
+        "id": 1112,
+        "title": "Office Hours: Design guidance on enabling your app for Android Wear, VR, TV and Auto"
+      },
+      {
+        "id": 1113,
+        "title": "Office Hours with the Material Components (MDC) for Android, Web and iOS team"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "VR",
+    "description": "VR",
+    "color": "#EC7063",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1114,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1115,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1116,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1117,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1118,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1119,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1120,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1121,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1122,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1123,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1124,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1125,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1126,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1127,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1128,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1129,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1130,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1131,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1132,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1133,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1134,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1135,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1136,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1137,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1138,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1139,
+        "title": "Sandbox Demo: Daydream and Tango"
+      },
+      {
+        "id": 1140,
+        "title": "Office Hours with the Daydream and Tango Developer teams"
+      },
+      {
+        "id": 1141,
+        "title": "Office Hours with the Daydream and Tango Developer teams"
+      },
+      {
+        "id": 1142,
+        "title": "Office Hours with the Daydream and Tango Developer teams"
+      },
+      {
+        "id": 1143,
+        "title": "Designing screen interfaces for VR"
+      },
+      {
+        "id": 1144,
+        "title": "Daydream in the classroom: immersive learning"
+      },
+      {
+        "id": 1145,
+        "title": "What's new on Daydream"
+      },
+      {
+        "id": 1146,
+        "title": "What's new on Tango"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Search",
+    "description": "Search",
+    "color": "#5DADE2",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1147,
+        "title": "Hands-on advice in using growth technologies to build and retain your user base"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Play",
+    "description": "Play",
+    "color": "#A569BD",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1148,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1149,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1150,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1151,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1152,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1153,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1154,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1155,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1156,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1157,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1158,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1159,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1160,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1161,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1162,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1163,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1164,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1165,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1166,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1167,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1168,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1169,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1170,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1171,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1172,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1173,
+        "title": "App Reviews: App Consultations"
+      },
+      {
+        "id": 1174,
+        "title": "Office hours: Finding success with your apps and games in the US"
+      },
+      {
+        "id": 1175,
+        "title": "Office Hours: Finding success with your apps and games in Taiwan and Hong Kong"
+      },
+      {
+        "id": 1176,
+        "title": "Office Hours: Finding success with your apps and games in Western Europe"
+      },
+      {
+        "id": 1177,
+        "title": "Office Hours: Finding success with your apps and games in Central and Eastern Europe"
+      },
+      {
+        "id": 1178,
+        "title": "Office Hours: Finding success with your apps and games in LATAM"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Location & Maps",
+    "description": "Location & Maps",
+    "color": "#FF1493",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1179,
+        "title": "Office Hours: Building amazing maps with the Google Maps APIs"
+      },
+      {
+        "id": 1180,
+        "title": "Office Hours: Location, Places & Address Understanding"
+      },
+      {
+        "id": 1181,
+        "title": "Office Hours: Exploring Maps Solutions"
+      },
+      {
+        "id": 1182,
+        "title": "A Sense of Place in your apps"
+      },
+      {
+        "id": 1183,
+        "title": "Exploring Google Maps Solutions"
+      },
+      {
+        "id": 1184,
+        "title": "Making the world your own with Google Maps APIs"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "IoT",
+    "description": "IoT",
+    "color": "#E59866",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1185,
+        "title": "Office Hours for Google Home and Google Cast"
+      },
+      {
+        "id": 1186,
+        "title": "Office Hours with the Android Things team"
+      },
+      {
+        "id": 1187,
+        "title": "Office Hours for Android Things, IoT, and Assistant Smart Home"
+      },
+      {
+        "id": 1188,
+        "title": "Office Hours for Google Home and Google Cast"
+      },
+      {
+        "id": 1189,
+        "title": "Office Hours for Google Home and Google Cast"
+      },
+      {
+        "id": 1190,
+        "title": "Office Hours for Android Things, IoT, and Assistant Smart Home"
+      },
+      {
+        "id": 1191,
+        "title": "Bringing Device Production to Everyone With Android Things"
+      },
+      {
+        "id": 1192,
+        "title": "What's new in Google's IoT platform? Ubiquitous computing at Google"
+      },
+      {
+        "id": 1193,
+        "title": "From Prototype to Production Devices with Android Things"
+      },
+      {
+        "id": 1194,
+        "title": "Developing for Android Things using Android Studio"
+      },
+      {
+        "id": 1195,
+        "title": "What's new in the Google Cast SDK"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Misc",
+    "description": "Misc",
+    "color": "#A9CCE3",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1196,
+        "title": "Speechless Live"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Machine Leaning & AI",
+    "description": "Machine Leaning & AI",
+    "color": "#5499C7",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1197,
+        "title": "Getting Started with Machine Perception using the Mobile Vision API"
+      },
+      {
+        "id": 1198,
+        "title": "Office Hours: Machine Learning Office Hours with Google Brain"
+      },
+      {
+        "id": 1199,
+        "title": "TensorFlow Frontiers"
+      },
+      {
+        "id": 1200,
+        "title": "Effective TensorFlow for Non-Experts"
+      },
+      {
+        "id": 1201,
+        "title": "Open Source TensorFlow Models"
+      },
+      {
+        "id": 1202,
+        "title": "Android meets TensorFlow: how to accelerate your app with AI"
+      },
+      {
+        "id": 1203,
+        "title": "From Research to Production with TensorFlow Serving"
+      },
+      {
+        "id": 1204,
+        "title": "Project Magenta: Music and Art with Machine Learning"
+      },
+      {
+        "id": 1205,
+        "title": "Office Hours with Google reCAPTCHA team"
+      },
+      {
+        "id": 1206,
+        "title": "Office Hours: Machine Learning Office Hours with Google Brain"
+      },
+      {
+        "id": 1207,
+        "title": "Office Hours: Machine Learning Office Hours with Google Brain"
+      },
+      {
+        "id": 1208,
+        "title": "Office Hours with Google reCAPTCHA team"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Mobile Web",
+    "description": "Mobile Web",
+    "color": "#F9E79F",
+    "font-color": "#000000",
+    "sessions": [
+      {
+        "id": 1209,
+        "title": "Polymer: Billions Served; Lessons Learned"
+      },
+      {
+        "id": 1210,
+        "title": "The future of web payments"
+      },
+      {
+        "id": 1211,
+        "title": "From AMP to PWA: Progressive Web AMPs"
+      },
+      {
+        "id": 1212,
+        "title": "Great Progressive Web App Experiences with Angular"
+      },
+      {
+        "id": 1213,
+        "title": "Supercharged Live"
+      },
+      {
+        "id": 1214,
+        "title": "V8, Advanced JavaScript, & the next performance frontier"
+      },
+      {
+        "id": 1215,
+        "title": "Developer Tooling for Web Components"
+      },
+      {
+        "id": 1216,
+        "title": "Using Web Components with Angular"
+      },
+      {
+        "id": 1217,
+        "title": "Building beautiful, interactive AMP pages for e-commerce & beyond"
+      },
+      {
+        "id": 1218,
+        "title": "Cranking up performance in graphics intensive Web apps and games"
+      },
+      {
+        "id": 1219,
+        "title": "Staying off the rocks: using Lighthouse to build seaworthy progressive web apps"
+      },
+      {
+        "id": 1220,
+        "title": "Production Progressive Web Apps With JavaScript Frameworks"
+      },
+      {
+        "id": 1221,
+        "title": "How well do you know the web?"
+      },
+      {
+        "id": 1222,
+        "title": "Progressive Web Apps: Great Experiences Everywhere"
+      },
+      {
+        "id": 1223,
+        "title": "Compiling for the Web with WebAssembly"
+      },
+      {
+        "id": 1224,
+        "title": "Stand out on Google Search using structured data and search analytics"
+      },
+      {
+        "id": 1225,
+        "title": "Office Hours with AMP and Search Teams"
+      },
+      {
+        "id": 1226,
+        "title": "Office Hours with the Chrome, Polymer and Web team"
+      },
+      {
+        "id": 1227,
+        "title": "Office Hours with the Dart and AngularDart teams"
+      },
+      {
+        "id": 1228,
+        "title": "Office Hours with the Chrome, Polymer and Web team"
+      },
+      {
+        "id": 1229,
+        "title": "Office Hours with AMP and Search Teams"
+      },
+      {
+        "id": 1230,
+        "title": "Office Hours with AMP and Search Teams"
+      },
+      {
+        "id": 1231,
+        "title": "Office Hours with the Dart and AngularDart teams"
+      },
+      {
+        "id": 1232,
+        "title": "Office Hours with the Chrome, Polymer and Web team"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Android",
+    "description": "Android",
+    "color": "#27AE60",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1233,
+        "title": "Office Hours with Android Windows & Activities team"
+      },
+      {
+        "id": 1234,
+        "title": "Office Hours with Android core libraries"
+      },
+      {
+        "id": 1235,
+        "title": "Office Hours with the Android Instant Apps team"
+      },
+      {
+        "id": 1236,
+        "title": "Office Hours with the Android NDK & C++ teams"
+      },
+      {
+        "id": 1237,
+        "title": "Office Hours: Android battery performance office hours"
+      },
+      {
+        "id": 1238,
+        "title": "Office Hours with the Android Studio team"
+      },
+      {
+        "id": 1239,
+        "title": "Office Hours with the Android Location & Context team"
+      },
+      {
+        "id": 1240,
+        "title": "Office Hours with the Android Studio team"
+      },
+      {
+        "id": 1241,
+        "title": "Office hours with Games Developer Advocates"
+      },
+      {
+        "id": 1242,
+        "title": "Office Hours with the Android Exoplayer team"
+      },
+      {
+        "id": 1243,
+        "title": "Office Hours: Android battery performance office hours"
+      },
+      {
+        "id": 1244,
+        "title": "Office Hours with the Android Studio Build System team"
+      },
+      {
+        "id": 1245,
+        "title": "Office Hours with Android Runtime (ART)"
+      },
+      {
+        "id": 1246,
+        "title": "Office Hours with Android Windows & Activities team"
+      },
+      {
+        "id": 1247,
+        "title": "Office Hours with the Android Location & Context team"
+      },
+      {
+        "id": 1248,
+        "title": "Office Hours with the Conscrypt team"
+      },
+      {
+        "id": 1249,
+        "title": "Office Hours with the Android Auto team"
+      },
+      {
+        "id": 1250,
+        "title": "Office Hours with Android Runtime (ART)"
+      },
+      {
+        "id": 1251,
+        "title": "Office Hours: Android TV Office Hours"
+      },
+      {
+        "id": 1252,
+        "title": "Office Hours with the Android Location & Context team"
+      },
+      {
+        "id": 1253,
+        "title": "Office Hours with Android Runtime (ART)"
+      },
+      {
+        "id": 1254,
+        "title": "Office Hours with the Android Studio team"
+      },
+      {
+        "id": 1255,
+        "title": "Office Hours with the Android Instant Apps team"
+      },
+      {
+        "id": 1256,
+        "title": "Office Hours: Android battery performance office hours"
+      },
+      {
+        "id": 1257,
+        "title": "Office Hours with Android Windows & Activities team"
+      },
+      {
+        "id": 1258,
+        "title": "Office Hours: Android TV Office Hours"
+      },
+      {
+        "id": 1259,
+        "title": "Android Wear UI development best practice"
+      },
+      {
+        "id": 1260,
+        "title": "Life is great and everything will be ok, Kotlin is here"
+      },
+      {
+        "id": 1261,
+        "title": "Android Animations Spring to Life"
+      },
+      {
+        "id": 1262,
+        "title": "Android Performance: UI"
+      },
+      {
+        "id": 1263,
+        "title": "What's New in Android"
+      },
+      {
+        "id": 1264,
+        "title": "Understanding Color"
+      },
+      {
+        "id": 1265,
+        "title": "Architecture Components - Introduction"
+      },
+      {
+        "id": 1266,
+        "title": "Architecture Components - Solving the Lifecycle Problem"
+      },
+      {
+        "id": 1267,
+        "title": "Architecture Components - Persistence and Offline"
+      },
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Keynote",
+    "description": "Keynote",
+    "color": "#DC7633",
+    "font-color": "#FFFFFF",
+    "sessions": [
+      {
+        "id": 1268,
+        "title": "Google Keynote"
+      }
+    ]
+  }
+]
