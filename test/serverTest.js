@@ -104,7 +104,7 @@ describe('fold', function() {
   describe('getCopyrightData()', () => {
     it('should get copyright data from event', () => {
       const copyright = fold.getCopyrightData(data.event.json);
-      assert.equal(copyright.holder_url, 'http://fossasia.org/contact/');
+      assert.equal(copyright['holder-url'], 'http://fossasia.org/contact/');
     });
   });
   describe('.foldByLevel()', () => {
@@ -165,31 +165,13 @@ describe('generate', function() {
   describe('.create different event sites and copy assets of overview site', function() {
     this.timeout(800000);
 
-    it('should generate the Open Tech Summit site', function(done) {
-      var data = {};
-
-      data.body = {
-        "email": "a@a.com",
-        "name": "Open Event",
-        "apiendpoint": "https://eventyay.com/api/v1/events/69",
-        "datasource": "eventapi",
-        "assetmode" : "download"
-      };
-
-      generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "a@a.com/OpenTechSummit");
-        done();
-      });
-
-    });
-
     it('should generate the Facebook Developer Conference Hands', function(done) {
       var data = {};
 
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817",
+        "apiendpoint":  "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817/",
         "datasource": "eventapi",
         "assetmode" : "download"
       };
@@ -207,7 +189,7 @@ describe('generate', function() {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "http://eventyay.com/api/v1/events/6",
+        "apiendpoint":  "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit/",
         "datasource": "eventapi",
         "assetmode" : "download",
       };
@@ -250,7 +232,7 @@ describe('generate', function() {
       };
 
       generator.createDistDir(data, 'Socket', function(appFolder) {
-        assert.equal(appFolder, "a@a.com/OSCONopensourceconvention");
+        assert.equal(appFolder, "a@a.com/OSCON2017");
         done();
       });
 
@@ -274,9 +256,45 @@ describe('generate', function() {
 
     });
 
+    it('should generate the Open Tech Summit site', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint":  "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OpenTechSummit2017/",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/OpenTechSummit");
+        done();
+      });
+
+    });
+
+    it('should generate the Open Tech Summit site', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint":  "https://raw.githubusercontent.com/fossasia/open-event/master/sample/NextcloudConference2017/",
+        "datasource": "eventapi",
+        "assetmode" : "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/NextcloudConference2017");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 7;
+      var totalFiles = 8;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -303,6 +321,7 @@ describe('generate', function() {
       copyStatic('mozilla_banner.jpg');
       copyStatic('oscon.png');
       copyStatic('fa16small.jpg');
+      copyStatic('nextcloud2017.jpg');
 
     });
 
