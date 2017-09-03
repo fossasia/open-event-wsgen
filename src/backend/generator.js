@@ -524,12 +524,12 @@ exports.createDistDir = function(req, socket, callback) {
         }, 30000);
       }
 
-      mailer.uploadAndsendMail(req.body.email, eventName, socket, (url) => {
-        if(url)
+      mailer.uploadAndsendMail(req.body.email, eventName, socket, (obj) => {
+        if(obj.mail)
           logger.addLog('Success', 'Mail sent succesfully', socket);
         else
           logger.addLog('Error', 'Error sending mail', socket);
-        callback(appFolder, url);
+        callback(appFolder, obj.url);
         done(null, 'write');
       });
 

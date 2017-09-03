@@ -48,6 +48,7 @@
     "gulp-uglify": "^3.0.0",
     "handlebars": "^4.0.5",
     "html-minifier": "^3.0.2",
+    "jsonapi-serializer": "^3.5.3",
     "jsonfile": "^3.0.0",
     "moment": "^2.13.0",
     "node-sass": "^4.5.3",

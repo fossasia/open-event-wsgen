@@ -15,6 +15,7 @@ const sharp = require('sharp');
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
+var JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 
 const downloadFile = function(url, filePath, next) {
   const fileStream = fs.createWriteStream(filePath);
@@ -67,36 +68,64 @@ const downloadAudioFile = function(url, filePath, next) {
 
 };
 
-const downloadJson = function(appPath, endpoint, jsonFile, cb) {
+const downloadJsonFromGithub = function(appPath, endpoint, jsonFile, cb) {
   const fileStream = fs.createWriteStream(appPath + '/json/' + jsonFile);
+  var statusCode;
 
   fileStream.on('error', function(err) {
     console.log(err);
+    return cb(err);
   });
 
+  fileStream.on('finish', function () {
+    if(statusCode != 200) {
+      return cb(new Error('Response = ' + statusCode + ' received'));
+    }
+    return cb();
+  });
 
   try {
-    console.log('Downloading ' + endpoint + '/' + jsonFile);
+    console.log('Downloading ' + endpoint);
     request
-      .get(endpoint + '/' + jsonFile)
+      .get({url:endpoint, timeout:30000})
+      .on('error', function (error) {
+        console.log('Could not connect to server');
+        return cb(new Error(error.code));
+      })
       .on('response', function(response) {
-        if (response.statusCode != 200) {
-          cb(new Error('Response = ' + response.statusCode + 'received'));
-        }
-        else{
-            console.log("fetched "+jsonFile);
-            fileStream.on('finish', function () {
-                cb();
-            });
-        }
+        statusCode = response.statusCode;
       })
       .pipe(fileStream);
   }
 
   catch (err) {
     console.log(err);
+    return cb(err);
   }
 
+};
+
+const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
+  var fileName = appPath + '/json/' + jsonFile;
+
+  request.get({url: endpoint}, function(err, response, body) {
+    if(err) {
+      console.log(err);
+      return cb(err);
+    }
+    var json = JSON.parse(body);
+
+    new JSONAPIDeserializer().deserialize(json, function(err, data) {
+      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(err) {
+        if(err) {
+          console.log(err);
+          return cb(err);
+        }
+        cb();
+      });
+    });
+
+  });
 };
 
 var extensionChange = function(image) {
@@ -518,15 +547,48 @@ module.exports = {
   fetchApiJsons: function(appFolder, apiEndpoint, socket, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
     const appPath = distPath + '/' + appFolder;
+    var endpointType = 'github';
 
-    const jsons = [
-      'speakers',
-      'sponsors',
-      'sessions',
-      'tracks',
-      'microlocations',
-      'event'
-    ];
+    var jsonsUrl = {
+      'speakers': '',
+      'sponsors': '',
+      'sessions': '',
+      'tracks': '',
+      'microlocations': '',
+      'event': '',
+    };
+
+    Object.keys(jsonsUrl).forEach(function(key) {
+      jsonsUrl[key] = endpoint + '/' + key;
+    });
+
+    if(endpoint.search('eventyay') != -1) {
+      endpointType = 'eventyay';
+
+      Object.keys(jsonsUrl).forEach(function(key) {
+
+        if (key === 'sessions') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=track,microlocation,session-type,speakers' +
+            '&fields[track]=id,name' +
+            '&fields[speaker]=id,name' +
+            '&fields[microlocation]=id,name' +
+            '&page[size]=0';
+        }
+
+        else if (key === 'tracks') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+        }
+
+        else if (key === 'event') {
+          jsonsUrl[key] = endpoint + '?include=social-links,event-copyright';
+        }
+
+        else if (key === 'speakers') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+        }
+
+      });
+    }
 
     try {
       fs.mkdirpSync(appPath + '/json');
@@ -537,8 +599,13 @@ module.exports = {
       done(err);
     }
 
-    async.eachSeries(jsons, (json, callback) => {
-      downloadJson(appPath, endpoint, json, callback);
+    async.forEachOf(jsonsUrl, (endpoint, fileName, callback) => {
+
+      if (endpointType == 'github') {
+        downloadJsonFromGithub(appPath, endpoint, fileName, callback);
+      } else if (endpointType == 'eventyay') {
+        downloadJsonFromEventyay(appPath, endpoint, fileName, callback);
+      }
     }, (err) => {
       if (err) {
         logger.addLog('Error', 'Error occured while downloading jsons from the internet', socket, err);
@@ -550,6 +617,7 @@ module.exports = {
       }
     });
   },
+
   copyMockJsons: function(appFolder) {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
