@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <link rel=preload as=script href=../js/jquery.min.js>
+    <link rel=preload as=script href=../js/bootstrap.min.js>
+    <link rel=preload as=script href=../js/tracks.min.js>
+    <link rel=preload as=style href=../css/schedule.css>
+    <link rel=preload as=style href=../css/font-awesome.min.css>
+    <link rel=preload as=style href=../css/bootstrap.min.css>
+    <link rel=preload as=font href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+
+
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name=description content=" Schedule">
+    <meta name=author content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="" type=image/x-icon>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel=stylesheet>
+    <link rel=stylesheet href=../css/font-awesome.min.css>
+    <link rel=stylesheet href=../css/bootstrap.min.css>
+    <link rel=stylesheet href=../css/schedule.css>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <a href=#track-list class=skip>Skip to content</a>
+    <a class=scroll href=# id=down-button data-scroll-direction=0>
+      <i class="fa fa-chevron-up" aria-hidden=true></i>
+    </a>
+    <a id=top></a>
+    
+    <!-- Fixed navbar -->
+    <header role=banner class="navbar-fixed-top navbar-default">
+      <div class=container>
+        <div class="navbar-header navbar-left pull-left">
+            <a class=navbar-brand style=padding:px href=../ >
+              <img alt="../PyCon 2017" class="logo logo-dark" src=../images/logo.png>
+          </a>
+        </div>
+    
+        <div class="navbar-header navbar-right pull-right">
+            <button data-toggle=collapse-side data-target=.side-collapse type=button class="navbar-toggle pull-right">
+            <span class=sr-only>Toggle navigation</span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+          </button>
+        </div>
+    
+        <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
+        <div class="side-collapse in">
+          <nav role=navigation class=navbar-collapse>
+            <div class=search-container>
+              <input id=search-box type=text class="search-box fossasia-filter">
+              <label for=search-box><span class=search-icon><i class="fa fa-search" aria-hidden=true></i></span></label>
+            </div>
+          <ul class="nav navbar-nav navbar-right">
+              <li class=navlink><a id=homelink href=../index.html>Home</a></li>
+              <li class=navlink><a id=schedulelink href=../schedule.html>Schedule</a></li>
+              <li class=navlink><a id=trackslink href=../tracks.html>Tracks</a></li>
+              <li class=navlink><a id=roomslink href=../rooms.html>Rooms</a></li>
+              <li class=navlink><a id=speakerslink href=../speakers.html>Speakers</a></li>
+    
+                <li class="pull-left social-icons"><a href=https://twitter.com/thepsf id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/python id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+    
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </header>
+      <div class="container session-container">
+        <div class="row single-session" id=67>
+          <h3> Sunday, 21st May </h3>
+          <div class=eventtime><span class=time-track>14:30 - 15:00</span></div>
+          <div class=session-content>
+            <div class="sizeevent event event-title" id=title-67 style=background-color:#f0b27a;color:#fff;margin-right:0;cursor:unset>
+              Hacking Cars with Python  | Talks
+              <a class=bookmark>
+                <i class="fa fa-star" aria-hidden=true>
+                </i>
+              </a>
+            </div>
+            <div>
+              <div>
+                Modern cars are networks of computers, and a high end vehicle could have nearly 100 different computers inside. These devices control everything from the engine to the airbags. By understanding how these systems work, we can interface with vehicles to read data, perform diagnostics, and even modify operation. In this talk, we'll discuss pyvit, the Python Vehicle Interface Toolkit. This library, combined with some open source hardware, allows developers to talk to automotive controllers from Python. We will begin with an introduction to automotive networks, to provide a basis for understanding the tools. Next, we will look at the tools and show the basics of using them. Finally, we'll discuss real world applications of these tools, and how they're being used in the automotive world today.
+              </div>
+              <hr class=clear-both>
+              <div class=session-speakers-list aria-expanded=false aria-controls=desc-67>
+                  <a href=../speakers.html#eric-evenchick81>
+                    <div class=session-speakers-less>
+                      <p class=session-speakers>
+                          <img onerror='this.onerror=null,this.src="../images/avatar.png"' src=../images/speakers/thumbnails/even.jpg class="lazy card-img-top speaker-image-large">
+                      </p>
+                      <span class=graytext>Eric Evenchick</span>
+                    </div>
+                  </a>
+                    <div class=session-speakers-more>
+                      Eric Evenchick runs Linklayer Labs, a Canadian company focused on building open source hardware tools for security analysis of embedded systems. Eric's experience with cars began at the University of Waterloo, where he was part of a team developing alternative fuel vehicles. He was also an intern at Tesla Motors, and was one of the first people to find vulnerabilities at the company. His work on automotive security and open source hardware has been featured by several publications, including Wired and Forbes. He has spoken at a a variety of conferences, including Blackhat, Toorcon, PyCon Canada and SecTor.
+                    </div>
+                  <div class="blacktext session-speaker-social">
+                    <div class=session-speakers-more>
+                        <a class="blacktext social speaker-social" href=https://twitter.com/ericevenchick><i class="fa fa-twitter"></i> Twitter</a>&nbsp;
+                        <a class="blacktext social speaker-social" href=https://www.linkedin.com/in/ericevenchick/ ><i class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
+                      <a class="session-lin social speaker-social clickable-link">
+                        <i class="fa fa-share"></i> Share
+                      </a>&nbsp;
+                      <div class="social-buttons row">
+                        <div class="fb-share facebook social-button">
+                          <i class="fa fa-facebook fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="tw-share twitter social-button">
+                          <i class="fa fa-twitter fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="go-share google social-button">
+                          <i class="fa fa-google-plus fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="li-share facebook social-button">
+                          <i class="fa fa-linkedin fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="row social-link">
+                          <input class=speakers-inputbox type=text onclick=this.select() value=base#67 readonly=readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class=clear-both>
+                <div class=blacktext>
+                  <p> <a href=../rooms.html#venue-2017-05-21-Portland_Ballroom_252-253______>Portland Ballroom 252-253      </a></p>
+                  <p>Sunday, 21st May, <span>14:30 - 15:00</span></p>
+                  <p>
+                    <ul class=session-ul>
+                      <li style=background-color:#f0b27a;color:#fff class=titlecolor></li>
+                      &nbsp;
+                      <li><a href=../tracks.html#2017-05-21-Talks> Talks </a> </li>
+                    </ul>
+                  </p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class=footer-container>
+      <footer class=classic>
+        <div class=container>
+          <div class="row ui-sortable">
+            <div id=menuItem class="col-sm-2 col-md-2 col-xs-12">
+              <ul class=menu>
+                <li><a target=_self href=index.html#description>About</a></li>
+                <li><a target=_self href=schedule.html>Schedule</a></li>
+                <li><a target=_self href=tracks.html>Tracks</a></li>
+                <li><a target=_self href=rooms.html>Rooms</a></li>
+                <li><a target=_self href=speakers.html>Speakers</a></li>
+                <li><a class="inner-link back-to-top" href=#top>Back To Top</a></li>
+              </ul>
+            </div>
+            <div id=copyright class="col-sm-7 col-md-7 col-xs-12">
+             <p>
+            <a href=""><img src=http://i.creativecommons.org/p/zero/1.0/88x31.png></a>
+             &nbsp; &copy; 2017
+             .
+             The website and its contents are licensed under
+              <a href=""> Public Domain Dedication (CC0). </a>
+             The site was generated using the Open Event format on the <a href=https://eventyay.com/ >eventyay</a> <a href=https://webgen.eventyay.com/ >site generator</a>. Please submit issues <a href=https://github.com/fossasia/open-event-webapp/issues>here</a>.
+             </p>
+            </div>
+        <div class="contact-details col-sm-3 col-md-3 col-xs-12">
+          <ul class=contact-methods>
+            <li class=address>
+            <i class="fa fa-map-marker"></i>
+              <div>Python software Foundation&#44;&nbsp;Oregon Convention Center, 777 NE Martin Luther King, Jr. Blvd Portland, OR 97232</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row ui-sortable">
+        <div class="col-sm-12 text-center">
+          <ul class=social-profiles>
+                <li class="pull-left social-icons"><a href=https://twitter.com/thepsf id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/python id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+    </div>
+    <script>var eventInfo={};eventInfo.name="../PyCon 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
+    <script src=../js/jquery.min.js></script>
+    <script src=../js/bootstrap.min.js></script>
+    <script src=../js/session.min.js></script>
+  </body>
+</html>

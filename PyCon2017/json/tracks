@@ -1,0 +1,622 @@
+[
+  {
+    "id": 1,
+    "name": "Tutorials",
+    "color": "#E74C3C",
+    "sessions": [
+      {
+        "id": 0,
+        "title": ""
+      },
+      {
+        "id": 1,
+        "title": " An introduction to secure web development with Django and Python\n"
+      },
+      {
+        "id": 2,
+        "title": "Applied Modern Cryptography in Python\n"
+      },
+      {
+        "id": 3,
+        "title": "Beginning Python Bootcamp\n "
+      },
+      {
+        "id": 4,
+        "title": "Best Testing Practices for Data Science\n"
+      },
+      {
+        "id": 5,
+        "title": " bokeh: Data Visualization in Python\n "
+      },
+      {
+        "id": 6,
+        "title": "Build a data pipeline with Luigi\n"
+      },
+      {
+        "id": 7,
+        "title": "Complexity Science\n "
+      },
+      {
+        "id": 8,
+        "title": " ContainerOrchestration.py: The tutorial session\n"
+      },
+      {
+        "id": 9,
+        "title": "Contract-First API Development Using The OpenAPI Specification (Swagger)\n"
+      },
+      {
+        "id": 10,
+        "title": "Creating And Consuming Modern Web Services with Twisted \n "
+      },
+      {
+        "id": 11,
+        "title": "Cross-platform Native GUI development with BeeWare\n "
+      },
+      {
+        "id": 12,
+        "title": " Decorators and descriptors decoded\n "
+      },
+      {
+        "id": 13,
+        "title": "Deploy and scale containers with Docker native, open source orchestration\n"
+      },
+      {
+        "id": 14,
+        "title": " Django Admin: Basics and Beyond\n  "
+      },
+      {
+        "id": 15,
+        "title": "Effectively running python applications in Kubernetes/OpenShift\n"
+      },
+      {
+        "id": 16,
+        "title": "Exploratory data analysis in python\n "
+      },
+      {
+        "id": 17,
+        "title": " Fantastic Data and Where To Find Them: An introduction to APIs, RSS, and Scraping\n"
+      },
+      {
+        "id": 18,
+        "title": "  Faster Python Programs - Measure, don't Guess\n"
+      },
+      {
+        "id": 19,
+        "title": " Hands-On Intro to Python for New Programmers\n"
+      },
+      {
+        "id": 20,
+        "title": " How to Write and Debug C Extension Modules\n "
+      },
+      {
+        "id": 21,
+        "title": "Intermediate Python Bootcamp\n"
+      },
+      {
+        "id": 22,
+        "title": " Introduction to Digital Signal Processing\n"
+      },
+      {
+        "id": 23,
+        "title": "Introduction to Statistical Modeling with Python\n "
+      },
+      {
+        "id": 24,
+        "title": "Intro to Bayesian Machine Learning with PyMC3 and Edward\n"
+      },
+      {
+        "id": 25,
+        "title": "IoT Lab with Micropython and Friends\n"
+      },
+      {
+        "id": 26,
+        "title": "IPython and Jupyter in Depth: High productivity, interactive Python\n"
+      },
+      {
+        "id": 27,
+        "title": "Let's build a web framework!\n"
+      },
+      {
+        "id": 28,
+        "title": " Mastering scipy.spatial\n "
+      },
+      {
+        "id": 29,
+        "title": "Microservices with Python and Flask\n"
+      },
+      {
+        "id": 30,
+        "title": "Network Analysis Made Simple\n"
+      },
+      {
+        "id": 31,
+        "title": "Parallel Data Analysis\n"
+      },
+      {
+        "id": 32,
+        "title": "Python Epiphanies\n"
+      },
+      {
+        "id": 33,
+        "title": "Readable Regular Expressions\n"
+      },
+      {
+        "id": 34,
+        "title": "Time Series Analysis\n "
+      },
+      {
+        "id": 35,
+        "title": " Using Functional Programming for efficient Data Processing and Analysis\n"
+      },
+      {
+        "id": 36,
+        "title": "Web programming from the beginning\n"
+      }
+    ],
+    "font-color": "#FFFFFF"
+  },
+  {
+    "id": 2,
+    "name": "Talks",
+    "color": "#F0B27A",
+    "sessions": [
+      {
+        "id": 37,
+        "title": "5 ways to deploy your Python web app in 2017\n"
+      },
+      {
+        "id": 38,
+        "title": "A gentle introduction to deep learning with TensorFlow\n"
+      },
+      {
+        "id": 39,
+        "title": "aiosmtpd - A better asyncio based SMTP server\n"
+      },
+      {
+        "id": 40,
+        "title": "Algorithmic Music Generation\n"
+      },
+      {
+        "id": 41,
+        "title": "An Introduction to Reinforcement Learning\n"
+      },
+      {
+        "id": 42,
+        "title": " async/await and asyncio in Python 3.6 and beyond\n  "
+      },
+      {
+        "id": 43,
+        "title": "Asynchronous Python for the Complete Beginner\n "
+      },
+      {
+        "id": 44,
+        "title": " Automate AWS With Python\n "
+      },
+      {
+        "id": 45,
+        "title": " Awesome Command Line Tools\n"
+      },
+      {
+        "id": 46,
+        "title": "Bayesian Statistical Analysis with Python\n"
+      },
+      {
+        "id": 47,
+        "title": "Big picture software testing: unit testing, Lean Startup, and everything in-between\n"
+      },
+      {
+        "id": 48,
+        "title": "Building A Gigaword Corpus: Lessons on Data Ingestion, Management, and Processing for NLP\n"
+      },
+      {
+        "id": 49,
+        "title": "Building Stream Processing Applications\n"
+      },
+      {
+        "id": 50,
+        "title": "Community powered packaging: conda-forge\n"
+      },
+      {
+        "id": 51,
+        "title": "Constructive Code Review\n"
+      },
+      {
+        "id": 52,
+        "title": "Cython as a Game Changer for Efficiency\n "
+      },
+      {
+        "id": 53,
+        "title": " Dask: A Pythonic Distributed Data Science Framework\n"
+      },
+      {
+        "id": 54,
+        "title": "Debugging in Python 3.6: Better, Faster, Stronger\n "
+      },
+      {
+        "id": 55,
+        "title": "Decorators, unwrapped: How do they work?\n"
+      },
+      {
+        "id": 56,
+        "title": "Designing secure APIs with state machines \n"
+      },
+      {
+        "id": 57,
+        "title": "Dial M For Mentor\n"
+      },
+      {
+        "id": 58,
+        "title": "Dr. Microservices, Or How I Learned to Stop Worrying and Love the API\n"
+      },
+      {
+        "id": 59,
+        "title": "Ending Py2/Py3 compatibility in a user friendly manner\n"
+      },
+      {
+        "id": 60,
+        "title": "Executing python functions in the linux kernel by transpiling to bpf\n"
+      },
+      {
+        "id": 61,
+        "title": "Experiment Assignment on the Web\n"
+      },
+      {
+        "id": 62,
+        "title": "Exploring Network Programmability with Python and YANG\n"
+      },
+      {
+        "id": 63,
+        "title": "Factory Automation with Python - Stories about Robots, Serial Ports, and Barcode Readers\n"
+      },
+      {
+        "id": 64,
+        "title": "Fuzzy Search Algorithms: How and When to Use Them\n"
+      },
+      {
+        "id": 65,
+        "title": "Gothic Colors: Using Python to understand color in nineteenth-century literature\n"
+      },
+      {
+        "id": 66,
+        "title": "Grok the GIL: Write Fast And Thread-Safe Python\n"
+      },
+      {
+        "id": 67,
+        "title": "Hacking Cars with Python\n"
+      },
+      {
+        "id": 68,
+        "title": "Hacking Classic Nintendo Games with Python\n"
+      },
+      {
+        "id": 69,
+        "title": "How documentation works, and how to make it work for your project\n"
+      },
+      {
+        "id": 70,
+        "title": "How to make a good library API\n"
+      },
+      {
+        "id": 71,
+        "title": "How to write a Python transpiler\n"
+      },
+      {
+        "id": 72,
+        "title": "Human-Machine Collaboration for Improved Analytical Processes\n"
+      },
+      {
+        "id": 73,
+        "title": " I Installed Python 3.6 on Windows and I Liked It\n"
+      },
+      {
+        "id": 74,
+        "title": "Immutable Programming - Writing Functional Python\n"
+      },
+      {
+        "id": 75,
+        "title": "Implementing Concurrency and Parallelism From The Ground Up\n"
+      },
+      {
+        "id": 76,
+        "title": "In-Memory Event Resequencing: Realistic Testing For Impossible Bugs\n"
+      },
+      {
+        "id": 77,
+        "title": "Instagram Filters in 15 Lines of Python\n"
+      },
+      {
+        "id": 78,
+        "title": " Introduction to Threat Modeling\n"
+      },
+      {
+        "id": 79,
+        "title": "It's time for datetime\n"
+      },
+      {
+        "id": 80,
+        "title": "Know thy self: Methods and method binding\n"
+      },
+      {
+        "id": 81,
+        "title": "Level up! Rethinking the Web API framework.\n"
+      },
+      {
+        "id": 82,
+        "title": "Leveraging Serverless Architecture for Powerful Data Pipelines\n"
+      },
+      {
+        "id": 83,
+        "title": "Library UX: Using abstraction towards friendlier APIs\n  "
+      },
+      {
+        "id": 84,
+        "title": "Lights, camera, action! Scraping a great dataset to predict Oscar winners\n"
+      },
+      {
+        "id": 85,
+        "title": "Look mum no hands! From blinking LEDs to a bike speedometer with MicroPython\n "
+      },
+      {
+        "id": 86,
+        "title": "Looping Like a Pro in Python\n "
+      },
+      {
+        "id": 87,
+        "title": "Magic Method, on the wall, who, now, is the `__fairest__` one of all?\n"
+      },
+      {
+        "id": 88,
+        "title": "Modern Python Dictionaries -- A confluence of a dozen great ideas\n"
+      },
+      {
+        "id": 89,
+        "title": "Next Level Testing\n"
+      },
+      {
+        "id": 90,
+        "title": "No More Sad Pandas: Optimizing Pandas Code for Speed and Efficiency\n"
+      },
+      {
+        "id": 91,
+        "title": "One Data Pipeline to Rule Them All\n"
+      },
+      {
+        "id": 92,
+        "title": "Optimizations which made Python 3.6 faster than Python 3.5\n"
+      },
+      {
+        "id": 93,
+        "title": "Packaging Let’s Encrypt: Lessons learned shipping Python code to hundreds of thousands of users\n"
+      },
+      {
+        "id": 94,
+        "title": " Passing Exceptions 101: Paradigms in Error Handling\n"
+      },
+      {
+        "id": 95,
+        "title": "Piecing it Together: A beginner's guide to application configuration\n"
+      },
+      {
+        "id": 96,
+        "title": " Prehistoric Patterns in Python\n "
+      },
+      {
+        "id": 97,
+        "title": "Probabilistic Programming with PyMC3\n"
+      },
+      {
+        "id": 98,
+        "title": "Python for mathematical visualization: a four-dimensional case study\n"
+      },
+      {
+        "id": 99,
+        "title": "Python from Space: Analyzing Open Satellite Imagery Using the Python Ecosystem\n"
+      },
+      {
+        "id": 100,
+        "title": " Python in The Serverless Era\n"
+      },
+      {
+        "id": 101,
+        "title": " Rants and Ruminations From A Job Applicant After 💯 CS Job Interviews in Silicon Valley\n"
+      },
+      {
+        "id": 102,
+        "title": "Readability Counts\n"
+      },
+      {
+        "id": 103,
+        "title": " Re-Programming the Human Genome with Python\n"
+      },
+      {
+        "id": 104,
+        "title": "Requests Under The Hood\n"
+      },
+      {
+        "id": 105,
+        "title": "Share Your Code! Python Packaging Without Complication\n"
+      },
+      {
+        "id": 106,
+        "title": "Slot or not: higher performance custom objects in pure Python\n"
+      },
+      {
+        "id": 107,
+        "title": "Snakes on a Hyperplane: Python Machine Learning in Production\n"
+      },
+      {
+        "id": 108,
+        "title": "Snek in the Browser\n"
+      },
+      {
+        "id": 109,
+        "title": "Solid Snakes or: How to Take 5 Weeks of Vacation\n"
+      },
+      {
+        "id": 110,
+        "title": "Static Types for Python\n"
+      },
+      {
+        "id": 111,
+        "title": "Temporal Data Structures with SQLAlchemy and Postgres\n"
+      },
+      {
+        "id": 112,
+        "title": "Text is More Complicated Than You Think: Comparing and Sorting Unicode\n"
+      },
+      {
+        "id": 113,
+        "title": "The Dictionary Even Mightier\n"
+      },
+      {
+        "id": 114,
+        "title": "The Fastest FizzBuzz in the West: Make Your Own Language with RPLY and RPython\n"
+      },
+      {
+        "id": 115,
+        "title": "The Gilectomy: How's It Going?\n "
+      },
+      {
+        "id": 116,
+        "title": "The Glory of pdb's set_trace\n"
+      },
+      {
+        "id": 117,
+        "title": "The Memory Chronicles: A Tale of Two Pythons\n"
+      },
+      {
+        "id": 118,
+        "title": "The Next Step: Finding Model Parameters With Random Walks \n"
+      },
+      {
+        "id": 119,
+        "title": "The Python Visualization Landscape\n"
+      },
+      {
+        "id": 120,
+        "title": "The trends in choosing licenses in Python ecosystem\n"
+      },
+      {
+        "id": 121,
+        "title": "The Wild West of Data Wrangling\n"
+      },
+      {
+        "id": 122,
+        "title": "Title Available On Request: An Introduction to Lazy Evaluation\n"
+      },
+      {
+        "id": 123,
+        "title": "Tracing, Fast and Slow: Digging into and improving your web service’s performance\n "
+      },
+      {
+        "id": 124,
+        "title": "Type uWSGI; press enter; what happens?\n "
+      },
+      {
+        "id": 125,
+        "title": "Unicode: what is the big deal?\n "
+      },
+      {
+        "id": 126,
+        "title": "Web identity: OAuth2 and OpenIDConnect\n"
+      },
+      {
+        "id": 127,
+        "title": "What's in your pip toolbox?\n"
+      },
+      {
+        "id": 128,
+        "title": "What's new in Python 3.6\n"
+      },
+      {
+        "id": 129,
+        "title": "When the abyss gazes back: staring down Python's surprising internals\n"
+      },
+      {
+        "id": 130,
+        "title": "Writing a C Python extension in 2017\n"
+      },
+      {
+        "id": 131,
+        "title": "Yes, It's Time to Learn Regular Expressions\n"
+      }
+    ],
+    "font-color": "#FFFFFF"
+  },
+  {
+    "id": 3,
+    "name": "Sponsor tutorials",
+    "color": "#F39C12",
+    "sessions": [
+      {
+        "id": 132,
+        "title": "Anaconda: Accelerating your Python Data Science code with Dask and Numba\n"
+      },
+      {
+        "id": 133,
+        "title": "Anaconda: Data Science Apps with Anaconda\n"
+      },
+      {
+        "id": 134,
+        "title": "Clover Health: Transforming and Analyzing Healthcare Data with Python\n"
+      },
+      {
+        "id": 136,
+        "title": "Datadog: Distributed Tracing for Python\n"
+      },
+      {
+        "id": 137,
+        "title": "Google: How I Learned to Stop Worrying and Love Python at Google | Tech Talk Series\n"
+      },
+      {
+        "id": 138,
+        "title": "Intel: Accelerating Python across the range of applications: the right tools for the job\n "
+      },
+      {
+        "id": 139,
+        "title": "Intel: Bring deep learning to the fingertips of data scientists with Python & BigDL on Apache Spark\n "
+      },
+      {
+        "id": 140,
+        "title": "Intel: Scalable, distributed deep learning with Python and Pachyderm\n"
+      },
+      {
+        "id": 141,
+        "title": "Metis: Natural Language Processing and Text Mining in Python\n"
+      },
+      {
+        "id": 142,
+        "title": "Red Hat: Deploying Python web applications to OpenShift/Kubernetes\n"
+      },
+      {
+        "id": 143,
+        "title": "Twist Bioscience: Using Python in Synthetic DNA Manufacturing\n"
+      }
+    ],
+    "font-color": "#000000"
+  },
+  {
+    "id": 4,
+    "name": "Keynote session",
+    "color": "#F5B041",
+    "sessions": [
+      {
+        "id": 400,
+        "title": "Keynote"
+      }
+    ],
+    "font-color": "#FFFFFF"
+  },
+  {
+    "id": 5,
+    "name": "Python Language Summit",
+    "color": "#E6E6FA",
+    "sessions": [
+      {
+        "id": 401,
+        "title": "Summit"
+      }
+    ],
+    "font-color": "#000000"
+  }
+]

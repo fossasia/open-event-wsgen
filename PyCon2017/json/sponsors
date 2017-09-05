@@ -1,0 +1,929 @@
+[
+  {
+    "description": "Harnessing the capability of the cloud, ubiquity of the Internet of Things, and the promise of always-on 5G connectivity, Intel Corporation expands the boundaries of technology to make the most amazing experiences possible. Intel provides proprietary and open source software and services for applications across the spectrum of computing. We help advance the computing ecosystem by providing development tools enabling developers and collaborating with companies to innovate for the future. ",
+    "level": 9,
+    "url": "https://software.intel.com",
+    "type": "Keystone Level",
+    "id": 1,
+    "name": "Intel Software",
+    "logo-url": "/images/sponsors/is.png"
+  },
+  {
+    "description": "Google's mission is to organize the world's information and make it universally accessible and useful. Our company has packed a lot into a relatively young life. Since Google was founded in 1998, we've grown to serve millions of people around the world.",
+    "level": 8,
+    "url": "https://www.google.com/about/careers/",
+    "type": "Diamond Level",
+    "id": 2,
+    "name": "Google",
+    "logo-url": "/images/sponsors/google.png"
+  },
+  {
+    "description": "Microsoft is proud to support the Python community through sponsored development of Python Tools for Visual Studio, Jupyter, CPython, Azure Machine Learning and organizations such as the PSF and NumFocus. ",
+    "level": 7,
+    "url": "http://aka.ms/python",
+    "type": "Platinum Level",
+    "id": 3,
+    "name": "Microsoft Python",
+    "logo-url": "/images/sponsors/ms.png"
+  },
+  {
+    "description": "",
+    "level": 7,
+    "url": "https://www.continuum.io/",
+    "type": "Platinum Level",
+    "id": 4,
+    "name": "Anaconda",
+    "logo-url": "/images/sponsors/ana.png"
+  },
+  {
+    "description": "SurveyMonkey is the world's leading provider of web-based survey solutions, and we’re looking to transform the way people make decisions. We're a smart, passionate group of people who work hard to deliver the best survey experiences on the planet, period. We believe everyone deserves easy access to the information and insights they need to make better, more informed decisions.",
+    "level": 7,
+    "url": "https://www.surveymonkey.com/",
+    "type": "Platinum Level",
+    "id": 5,
+    "name": "SurveyMonkey",
+    "logo-url": "/images/sponsors/sm.png"
+  },
+  {
+    "description": "Heroku, a Salesforce company and industry pioneer in platform as a service (PaaS), enables developers to build and run applications entirely in the cloud, without the need to purchase or maintain any servers or software. With Heroku you can focus on your app, not your infrastructure.",
+    "level": 7,
+    "url": "https://www.heroku.com/",
+    "type": "Platinum Level",
+    "id": 6,
+    "name": "Heroku",
+    "logo-url": "/images/sponsors/heroku.png"
+  },
+  {
+    "description": "Connecting the world's professionals to make them more productive and successful.",
+    "level": 7,
+    "url": "https://www.linkedin.com",
+    "type": "Platinum Level",
+    "id": 7,
+    "name": "LinkedIn",
+    "logo-url": "/images/sponsors/in.png"
+  },
+  {
+    "description": "",
+    "level": 7,
+    "url": "http://careers.jpmorgan.com/careers/divisions/technology",
+    "type": "Platinum Level",
+    "id": 8,
+    "name": "JP Morgan carriers",
+    "logo-url": "/images/sponsors/jpm.png"
+  },
+  {
+    "description": "HouseCanary is the authority for residential real estate data, analyzed and visualized to enable better, faster decisions.",
+    "level": 7,
+    "url": "https://www.housecanary.com/",
+    "type": "Platinum Level",
+    "id": 9,
+    "name": "House Canary",
+    "logo-url": "/images/sponsors/pyd.png"
+  },
+  {
+    "description": "Fusionbox is a Denver-based software consultancy developing exclusively in Python and Django. We focus on complex software projects, application security and data modeling.  Fusionbox makes extensive open source contributions, including many to Django itself.",
+    "level": 6,
+    "url": "https://www.fusionbox.com",
+    "type": "Gold Level",
+    "id": 10,
+    "name": "Fusionbox",
+    "logo-url": "/images/sponsors/fb.jpg"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "http://americangreetings.com",
+    "type": "Gold Level",
+    "id": 11,
+    "name": "American Greetings",
+    "logo-url": "/images/sponsors/ag.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "http://www.okta.com",
+    "type": "Gold Level",
+    "id": 12,
+    "name": "Okta",
+    "logo-url": "/images/sponsors/okta.png"
+  },
+  {
+    "description": "Nylas is building a new platform for email-powered apps, starting with simple REST APIs and infrastructure for developers. Say goodbye to IMAP, MIME, and Exchange ActiveSync, and connect your app to email in minutes with our hosted API solution. Signup is free for developers.",
+    "level": 6,
+    "url": "https://nylas.com/",
+    "type": "Gold Level",
+    "id": 13,
+    "name": "Nylas",
+    "logo-url": "/images/sponsors/ny.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://wingware.com/",
+    "type": "Gold Level",
+    "id": 14,
+    "name": "Wingware",
+    "logo-url": "/images/sponsors/ww.png"
+  },
+  {
+    "description": "Lincoln Loop is a full-service software development agency specializing in Python and Django development for web and mobile systems. Since 2007 our emphasis on quality in an agile environment has helped numerous startups and high-traffic sites grow their businesses. In addition to rock solid Python powered backends, we provide user experience, deployment, and real-time application development with JavaScript.",
+    "level": 6,
+    "url": "https://lincolnloop.com",
+    "type": "Gold Level",
+    "id": 15,
+    "name": "Lincolnloop",
+    "logo-url": "/images/sponsors/ll.png"
+  },
+  {
+    "description": "At Leadpages, we create elegant software that helps businesses grow by collecting more leads and driving more sales. Our platform offers more ways to engage potential customers than anyone in the industry, and it’s the only one that enables sign-ups via landing pages, websites, social media, email, and text messaging. To do all this, we use the Aurelia framework for frontend development, and run a Python stack on top of Google App Engine with a wide variety of other technologies, from Cassandra to Kubernetes.",
+    "level": 6,
+    "url": "http://www.leadpages.net/",
+    "type": "Gold Level",
+    "id": 16,
+    "name": "Leadpages",
+    "logo-url": "/images/sponsors/lp.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.caktusgroup.com",
+    "type": "Gold Level",
+    "id": 17,
+    "name": "Caktus group",
+    "logo-url": "/images/sponsors/cak.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.demonware.net/",
+    "type": "Gold Level",
+    "id": 18,
+    "name": "Demonware",
+    "logo-url": "/images/sponsors/dw.png"
+  },
+  {
+    "description": "Stop hoping your users will report bugs. Sentry provides real-time error tracking for your web apps, mobile apps, and games, which gives you insight while you deploy live code and the information you need to reproduce and fix crashes—before your users contact you. ",
+    "level": 6,
+    "url": "https://sentry.io/welcome/",
+    "type": "Gold Level",
+    "id": 19,
+    "name": "Sentry",
+    "logo-url": "/images/sponsors/sen.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "http://jobs.capitalone.com",
+    "type": "Gold Level",
+    "id": 20,
+    "name": "Capitalone",
+    "logo-url": "/images/sponsors/c1.png"
+  },
+  {
+    "description": "Rides in Minutes: Wherever you’re headed, count on Lyft for rides in minutes. The Lyft app matches you with local drivers at the tap of a button. Just request and go.",
+    "level": 6,
+    "url": "https://www.lyft.com/",
+    "type": "Gold Level",
+    "id": 21,
+    "name": "Lyft",
+    "logo-url": "/images/sponsors/lyft.png"
+  },
+  {
+    "description": "JetBrains delivers intelligent software solutions that make developers more productive by simplifying their challenging tasks, automating the routine, and helping them adopt the best development practices. PyCharm is the Python IDE for Professional Developers by JetBrains providing a complete set of tools for productive Python, Web and scientific development, available in three editions. The free and open-source PyCharm Community Edition is perfect for pure Python coding. PyCharm Professional Edition is designed for professional Python and Web developers. PyCharm Educational Edition helps novice programmers learn programming with Python easily and effectively.",
+    "level": 6,
+    "url": "http://www.jetbrains.com/",
+    "type": "Gold Level",
+    "id": 22,
+    "name": "Jetbrains",
+    "logo-url": "/images/sponsors/jet.png"
+  },
+  {
+    "description": "Walt Disney Animation Studios brings imagination to life through traditional and computer animated films. Our crew is filled with diverse talent from all around the globe whose passion is to create beautiful and timeless films through the art of storytelling, the magic of animation and the science of cutting edge technology. Walt Disney Animation Studios is located in Burbank, California.",
+    "level": 6,
+    "url": "https://www.disneyanimation.com/",
+    "type": "Gold Level",
+    "id": 23,
+    "name": "Disney Animation",
+    "logo-url": "/images/sponsors/disney.png"
+  },
+  {
+    "description": "Yelp sees 89 million mobile users and 79 million desktop users every month. Keeping everything running smoothly requires the best and brightest in the industry. Our engineers come from diverse technical backgrounds and value digital craftsmanship, open-source, and creative problem solving. We write tests, review code, and push multiple times a day.",
+    "level": 6,
+    "url": "https://www.yelp.com/careers",
+    "type": "Gold Level",
+    "id": 24,
+    "name": "Yelp",
+    "logo-url": "/images/sponsors/yelp.jpg"
+  },
+  {
+    "description": "Jump Trading combines sophisticated data analysis, best-in-class technology and an entrepreneurial culture to create a leading global quantitative trading firm. Jump has more than 550 employees across offices around the globe. We leverage our petaflops of computing power and petabytes of data to carefully analyze and identify trends in the global markets across all asset classes. ",
+    "level": 6,
+    "url": "http://www.jumptrading.com",
+    "type": "Gold Level",
+    "id": 25,
+    "name": "Jump Trading",
+    "logo-url": "/images/sponsors/jump.png"
+  },
+  {
+    "description": "Founded in 2004, Facebook¹s mission is to make the world more open and connected. As an employer, Facebook strives to hire the best people who want to move fast and make an impact. The company empowers people in every way it can to allow our employees to focus on what they love to do. People around the world use Facebook everyday to stay connected with friends and family, to discover what's going on, and to share and express what matters to them.",
+    "level": 6,
+    "url": "https://www.facebook.com/",
+    "type": "Gold Level",
+    "id": 26,
+    "name": "Facebook",
+    "logo-url": "/images/sponsors/fb.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://saucelabs.com/",
+    "type": "Gold Level",
+    "id": 27,
+    "name": "Saucelabs.com/",
+    "logo-url": "/images/sponsors/sl.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.instagram.com",
+    "type": "Gold Level",
+    "id": 28,
+    "name": "Instagram",
+    "logo-url": "/images/sponsors/insta.png"
+  },
+  {
+    "description": "Ansible, an open source community project sponsored by Red Hat, is the simplest way to automate IT. Ansible is the only automation language that can be used across entire IT teams – from systems and network administrators to developers and managers.",
+    "level": 6,
+    "url": "https://www.ansible.com/",
+    "type": "Gold Level",
+    "id": 29,
+    "name": "Ansible",
+    "logo-url": "/images/sponsors/ans.png"
+  },
+  {
+    "description": "ActiveState, the Open Source Languages Company, believes that enterprises gain a competitive advantage when they are able to quickly create, deploy, and efficiently manage software solutions that immediately create business value.",
+    "level": 6,
+    "url": "http://www.activestate.com/python",
+    "type": "Gold Level",
+    "id": 30,
+    "name": "ActiveState Software - Founding Sponsor of the PSF",
+    "logo-url": "/images/sponsors/as.png"
+  },
+  {
+    "description": "Bonsai is an AI platform that empowers every developer to build, teach and use intelligence models. The platform greatly simplifies the programming of control and optimization to create more intelligent systems and business processes. Bonsai's fundamentally different approach results in far more accessible, efficient and explainable models compared to alternatives. Bonsai is headquartered in Berkeley, CA and backed by NEA. For more information, visit: https:/bons.ai/ or follow Bonsai on Twitter @BonsaiAI.",
+    "level": 6,
+    "url": "https://bons.ai/",
+    "type": "Gold Level",
+    "id": 31,
+    "name": "bonsai",
+    "logo-url": "/images/sponsors/bonsai.png"
+  },
+  {
+    "description": "Shippo is a shipping API and dashboard for all your shipping needs. Connect with multiple carriers, get real time rates, buy shipping labels, track packages, and more with just one integration.",
+    "level": 6,
+    "url": "https://goshippo.com",
+    "type": "Gold Level",
+    "id": 32,
+    "name": "Shippo",
+    "logo-url": "/images/sponsors/ship.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.linode.com/",
+    "type": "Gold Level",
+    "id": 33,
+    "name": "Linode",
+    "logo-url": "/images/sponsors/lin.png"
+  },
+  {
+    "description": "OpenShift is Red Hat's Platform-as-a-Service (PaaS) that allows developers to quickly develop, host, and scale applications in a cloud environment. With OpenShift you have a choice of offerings, including online, on-premise, and open source project options.",
+    "level": 6,
+    "url": "https://www.openshift.com/",
+    "type": "Gold Level",
+    "id": 34,
+    "name": "Openshift",
+    "logo-url": "/images/sponsors/rh.png"
+  },
+  {
+    "description": "Patreon is a way for artists and creators of all kinds to get ongoing, sustainable income directly from their fans. Thousands of musicians, podcasters, video game developers, comic creators, and more are engaging and nurturing their fan-base in an intimate, immediate, and interactive way.",
+    "level": 6,
+    "url": "https://www.patreon.com/careers",
+    "type": "Gold Level",
+    "id": 35,
+    "name": "Patreon",
+    "logo-url": "/images/sponsors/pat.png"
+  },
+  {
+    "description": "Sqreen helps developers get full visibility and protection against security threats. Cyberattacks are blocked at runtime without traffic redirection or code modification. Suspicious and fraudulent activities from/targeting user accounts are identified to detect attackers early. ",
+    "level": 6,
+    "url": "https://www.sqreen.io/",
+    "type": "Gold Level",
+    "id": 36,
+    "name": "Sqreen",
+    "logo-url": "/images/sponsors/sq.png"
+  },
+  {
+    "description": "Citus is a distributed database that combines the low-latency requests that power real-time applications with high throughput, interactive analytics on billions of events.",
+    "level": 6,
+    "url": "https://www.citusdata.com/",
+    "type": "Gold Level",
+    "id": 37,
+    "name": "Citusdata",
+    "logo-url": "/images/sponsors/cd.png"
+  },
+  {
+    "description": "OfferUp is on a mission to build the simplest, most trustworthy way to buy and sell locally. That ambition entails innovation and problem-solving in every aspect of the business, and we're building world-class teams to help us reimagine commerce on the local scale. Now the largest mobile marketplace for local buyers and sellers, our free app for iOS and Android brings millions of people together to discover the value right where they are.",
+    "level": 6,
+    "url": "https://offerupnow.com/",
+    "type": "Gold Level",
+    "id": 38,
+    "name": "Offerupnow",
+    "logo-url": "/images/sponsors/offer.png"
+  },
+  {
+    "description": "Robinhood is making the best financial tools available and accessible to everyone. Since our public launch in 2015, we’ve cemented our position as the fastest-growing brokerage ever — our one million customers have transacted over $12B and saved over $100M in commission fees. Robinhood has been recognized with the Apple Design Award, the Google Material Design Award, and named Fast Company’s 11th Most Innovative Company in the World.",
+    "level": 6,
+    "url": "https://robinhood.com/",
+    "type": "Gold Level",
+    "id": 39,
+    "name": "Robinhood",
+    "logo-url": "/images/sponsors/rhood.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.nag.com",
+    "type": "Gold Level",
+    "id": 40,
+    "name": "Numerical Algorithms Group",
+    "logo-url": "/images/sponsors/nag.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.datadoghq.com/",
+    "type": "Gold Level",
+    "id": 41,
+    "name": "Datadog.com",
+    "logo-url": "/images/sponsors/dd.png"
+  },
+  {
+    "description": "Build and publish mobile apps for Android and iOS. Our app maker provides a simple way to develop your own app for events, schools, places and companies. What will you create?",
+    "level": 6,
+    "url": "https://guidebook.com/",
+    "type": "Gold Level",
+    "id": 42,
+    "name": "Guidebook",
+    "logo-url": "/images/sponsors/gb.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://venmo.com/",
+    "type": "Gold Level",
+    "id": 43,
+    "name": "Venmo",
+    "logo-url": "/images/sponsors/ven.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://pluralsight.com",
+    "type": "Gold Level",
+    "id": 44,
+    "name": "Pluralsight.com",
+    "logo-url": "/images/sponsors/ps.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.eyesopen.com",
+    "type": "Gold Level",
+    "id": 45,
+    "name": "Eyesopen",
+    "logo-url": "/images/sponsors/open.png"
+  },
+  {
+    "description": "Nexmo is a global cloud communications platform, providing APIs and SDKs for SMS, voice, phone verification, messaging and advanced multi-channel conversations. We have officially supported open source libraries for Python, Node.JS, Ruby, PHP, Java and C# .NET enabling you to build scalable communications features such as two-factor authentication, notifications, two-way and group messaging, one to one or multi person calls, all with the technologies that you are already using.",
+    "level": 6,
+    "url": "https://www.nexmo.com/",
+    "type": "Gold Level",
+    "id": 46,
+    "name": "Nexmo",
+    "logo-url": "/images/sponsors/nex.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.twilio.com/",
+    "type": "Gold Level",
+    "id": 47,
+    "name": "Twilio",
+    "logo-url": "/images/sponsors/tw.png"
+  },
+  {
+    "description": "Our goal is to create software powered services, to empower the people of retail and we accomplish that by listening to our Partner's needs and responding.",
+    "level": 6,
+    "url": "https://phobio.com/",
+    "type": "Gold Level",
+    "id": 48,
+    "name": "Phobio",
+    "logo-url": "/images/sponsors/pho.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "http://www.northeastern.edu/seattle/",
+    "type": "Gold Level",
+    "id": 49,
+    "name": "North eastern university",
+    "logo-url": "/images/sponsors/nu.png"
+  },
+  {
+    "description": "Booz Allen Hamilton has been at the forefront of strategy and technology consulting for nearly a century. Today, the firm is a major provider of professional services primarily to US government agencies in the defense, security, and civil sectors, as well as to corporations, institutions, and not-for-profit organizations. Booz Allen offers clients deep functional knowledge spanning strategy and organization, technology, operations, and analytics—which it combines with specialized expertise in clients’ mission and domain areas to help solve their toughest problems.",
+    "level": 6,
+    "url": "http://www.boozallen.com",
+    "type": "Gold Level",
+    "id": 50,
+    "name": "boozallen",
+    "logo-url": "/images/sponsors/ba.png"
+  },
+  {
+    "description": "Founded in 2012, Peloton has transformed the at-home fitness experience by creating fitness equipment that merges high-design with modern technology to provide access to live streaming and on demand indoor fitness classes led by elite instructors. With a state of the art studio, the best instructors and content distribution, Peloton delivers an intense high-energy workout that motivates, while positively changing the mind and body.  ",
+    "level": 6,
+    "url": "https://www.pelotoncycle.com/company/",
+    "type": "Gold Level",
+    "id": 51,
+    "name": "Pelotoncycle",
+    "logo-url": "/images/sponsors/pel.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.bugsnag.com/?utm_source=pycon&utm_medium=referral&utm_content=blurb&utm_campaign=pycon-2017",
+    "type": "Gold Level",
+    "id": 52,
+    "name": "Bugsnag",
+    "logo-url": "/images/sponsors/bug.png"
+  },
+  {
+    "description": "Docker, Inc. is the company behind the Docker open source platform and the chief sponsor of the Docker ecosystem. Docker is an open platform for developers and system administrators to build, ship and run distributed applications. With Docker, IT organizations shrink application delivery from months to minutes, frictionlessly move workloads between data centers and the cloud and achieve up to 20X greater efficiency in their use of computing resources. Docker containers have been downloaded more than 10B times and are used across thousands of the world’s most innovative organizations, including ADP, the BBC, GE, Groupon, ING, Yelp, and Spotify.",
+    "level": 6,
+    "url": "https://www.docker.com/",
+    "type": "Gold Level",
+    "id": 53,
+    "name": "Docker, Inc",
+    "logo-url": "/images/sponsors/docker.png"
+  },
+  {
+    "description": "At Hired we believe we are entering a new era of work, where people are not looking for jobs – they are seeking opportunities. Hired is The Opportunity Network. Starting with in-demand technology, we intelligently match outstanding people to fulltime and freelance opportunities at the world's most innovative companies. By taking the pain out of the job search, we help people build purpose-driven careers and businesses find the talent to fulfill their missions. Ultimately, we want to empower everyone to find and do their best work, from one opportunity to the next.",
+    "level": 6,
+    "url": "https://hired.com/",
+    "type": "Gold Level",
+    "id": 54,
+    "name": "Hired",
+    "logo-url": "/images/sponsors/hi.png"
+  },
+  {
+    "description": "nVisium is your partner in building secure applications. Expertise in web and mobile application security and AWS security. nVisium offers manual security assessments, code remediation, secure development consulting, as well as both on-demand and instructor led security training. nVisium's staff of security engineers and developers are industry leaders in the application and AWS security space and work closely with our clients to implement security across the SDLC.",
+    "level": 6,
+    "url": "https://nvisium.com/",
+    "type": "Gold Level",
+    "id": 55,
+    "name": "Nvisium",
+    "logo-url": "/images/sponsors/nv.png"
+  },
+  {
+    "description": "DataCamp teaches Python for Data Science in the comfort of your browser with video lessons and fun coding challenges from expert teachers such as Bryan Van de Ven (Bokeh), Eric Ma and Dhavide Aruliah (Continuum Analytics).  ",
+    "level": 6,
+    "url": "https://www.datacamp.com/home",
+    "type": "Gold Level",
+    "id": 56,
+    "name": "DataCamp - Learn Python For Data Science Interactively",
+    "logo-url": "/images/sponsors/data.png"
+  },
+  {
+    "description": "Six Foot was founded in 2000 as an interactive agency, building digital experiences designed to make connections between people, brands, and technology more human and meaningful. ",
+    "level": 6,
+    "url": "https://www.6ft.com",
+    "type": "Gold Level",
+    "id": 57,
+    "name": "6 ft ",
+    "logo-url": "/images/sponsors/6f.png"
+  },
+  {
+    "description": "Rollbar error monitoring helps tens of thousands of web and mobile developers keep their software healthy and users happy. Get the context, control and insights to find and fix errors faster, by consolidating errors, exceptions and logs into a single, powerful interface. Rollbar is used by some of the best engineering teams in the world, including Twilio, Heroku, Zendesk, Instacart, Kayak and Twitch.",
+    "level": 6,
+    "url": "https://rollbar.com/",
+    "type": "Gold Level",
+    "id": 58,
+    "name": "Rollbar",
+    "logo-url": "/images/sponsors/roll.png"
+  },
+  {
+    "description": "BuzzFeed is the leading independent digital media company delivering news and entertainment to hundreds of millions of people around the world.",
+    "level": 6,
+    "url": "https://www.buzzfeed.com",
+    "type": "Gold Level",
+    "id": 59,
+    "name": "Buzzfeed",
+    "logo-url": "/images/sponsors/bf.png"
+  },
+  {
+    "description": "Metis accelerates careers in data science by providing immersive bootcamps, professional development courses, online resources, and corporate training. Campuses in New York, Chicago, San Francisco and Seattle.",
+    "level": 6,
+    "url": "https://thisismetis.com/",
+    "type": "Gold Level",
+    "id": 60,
+    "name": "Metis Data Science",
+    "logo-url": "/images/sponsors/metis.jpg"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://www.elastic.co/",
+    "type": "Gold Level",
+    "id": 61,
+    "name": "elastic.co",
+    "logo-url": "/images/sponsors/elastic.jpg"
+  },
+  {
+    "description": "Indeed Prime helps software engineers simplify their job search and land their dream job. Candidates get immediate exposure to the best tech companies with just one simple application to Indeed Prime.",
+    "level": 6,
+    "url": "https://www.indeed.com/prime",
+    "type": "Gold Level",
+    "id": 62,
+    "name": "Indeed Prime ",
+    "logo-url": "/images/sponsors/ip.png"
+  },
+  {
+    "description": "Double Negative is one of the world’s largest providers of visual effects for Film with studios in London, Mumbai and Vancouver. The studio has been recognised for it’s outstanding work winning Academy Awards, BAFTAs and Visual Effects Society Awards for films including Ex Machina, Interstellar, Inception and Harry Potter and the Deathly Hallows: Part 2.",
+    "level": 6,
+    "url": "http://dneg.com/",
+    "type": "Gold Level",
+    "id": 63,
+    "name": "Dneg",
+    "logo-url": "/images/sponsors/dneg.jpg"
+  },
+  {
+    "description": "Our expertise is synthetic DNA. We have developed a proprietary semiconductor-based synthetic DNA manufacturing process featuring a 10,000-well silicon platform capable of producing synthetic biology tools, such as oligonucleotides, genes, pathways, chassis and genomes. By synthesizing DNA on silicon instead of on traditional 96-well plastic plates, our platform overcomes the current inefficiencies of synthetic DNA production, and enables cost-effective, rapid, high-quality and high throughput synthetic gene production. Our platform has the potential to greatly accelerate development of personalized medicine, sustainable chemical production, improved agriculture production as well as new applications such as in vivo diagnostics, biodetection and data storage. ",
+    "level": 6,
+    "url": "https://www.twistbioscience.com/",
+    "type": "Gold Level",
+    "id": 64,
+    "name": "Twist Bioscience",
+    "logo-url": "/images/sponsors/twist.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "https://micropyramid.com",
+    "type": "Gold Level",
+    "id": 65,
+    "name": "MicroPyramid",
+    "logo-url": "/images/sponsors/mp.png"
+  },
+  {
+    "description": "SaltStack intelligent orchestration software helps enterprise IT organizations more efficiently secure and automate all aspects of the software-defined data center. SaltStack event-driven automation delivers efficient control and configuration of compute, storage and network complexity and scale inherent to the modern enterprise. As the Python-based systems management platform, SaltStack specializes in addressing ubiquitous, constantly evolving infrastructure and software environments including support for any cloud, virtualization, OS, container, system or connected device.",
+    "level": 6,
+    "url": "https://saltstack.com/",
+    "type": "Gold Level",
+    "id": 66,
+    "name": "SaltStack intelligent orchestration",
+    "logo-url": "/images/sponsors/salt.jpg"
+  },
+  {
+    "description": "Hudson River Trading is a New York City based algorithmic trading firm. We have built one of the world's most sophisticated computing environments for research and development.  At HRT we are mathematicians, computer scientists, statisticians, physicists and engineers. We research and develop automated trading algorithms using advanced mathematical techniques. We have a fun and casual office atmosphere, but everyone works diligently to get the job done. No politics or red tape impede the generation or implementation of ideas.",
+    "level": 6,
+    "url": "http://www.hudson-trading.com/",
+    "type": "Gold Level",
+    "id": 67,
+    "name": "Hudson Trading",
+    "logo-url": "/images/sponsors/hrt.png"
+  },
+  {
+    "description": "",
+    "level": 6,
+    "url": "http://www.newrelic.com",
+    "type": "Gold Level",
+    "id": 68,
+    "name": "New Relic",
+    "logo-url": "/images/sponsors/nr.png"
+  },
+  {
+    "description": "O'Reilly spreads the knowledge of innovators through its technology books, online services, magazines, research, and tech conferences. An active participant in the technology community, O'Reilly has a long history of advocacy, meme-making, and evangelism.",
+    "level": 5,
+    "url": "http://www.oreilly.com/",
+    "type": "Silver Level",
+    "id": 69,
+    "name": "Oreilly",
+    "logo-url": "/images/sponsors/orielly.png"
+  },
+  {
+    "description": "AQR is a global investment management firm built at the intersection of financial theory and practical application. We strive to deliver superior, long-term results for our clients by looking past market noise to identify and isolate what matters most, and by developing ideas that stand up to rigorous testing. Our focus on practical insights and analysis has made us leaders in alternative and traditional strategies since 1998. As of September 30, 2016, we managed approximately $172.4 billion for institutional investors and investment professionals.",
+    "level": 5,
+    "url": "https://www.aqr.com/",
+    "type": "Silver Level",
+    "id": 70,
+    "name": "Aqr",
+    "logo-url": "/images/sponsors/aqr.png"
+  },
+  {
+    "description": "Leapfrog is a Performance Marketing Agency that has helped leading brands grow digital market share, acquire new customers, and deliver profitable sales for over 20 years. Our easy-to-integrate LFX Conversion Platform connects the consumer journey unlocking marketing intelligence that fuels omni-channel media buying strategies and the targeting of real-time, relevant consumer experiences that compel consumers to convert to customers. Leapfrog analyzes performance and consumer behavior to plan and predict with the purpose of driving continuous optimization.",
+    "level": 5,
+    "url": "https://www.leapfrogonline.com/",
+    "type": "Silver Level",
+    "id": 71,
+    "name": "Leapfrog Online",
+    "logo-url": "/images/sponsors/lf.png"
+  },
+  {
+    "description": "Python Academy is a specialized Python training company. We offer open courses for individuals as well as customized on-site courses for companies and institutes. We cover a wide range of Python topics from introductory to advanced, Python for scientists and engineers, big data, web development, code optimization and many more.",
+    "level": 5,
+    "url": "http://www.python-academy.com",
+    "type": "Silver Level",
+    "id": 72,
+    "name": "Python Academy",
+    "logo-url": "/images/sponsors/pya.png"
+  },
+  {
+    "description": "Hackbright Academy is the leading software engineering school for women founded in San Francisco. Since 2012, we have educated and graduated 500+ women engineers - who work at top tech companies like New Relic, Eventbrite, Uber and many more. Hackbright Academy also works directly with employers to help recruit, hire, onboard and retain women. Partner with Hackbright Academy to change the ratio in your engineering team!",
+    "level": 5,
+    "url": "http://www.hackbrightacademy.com",
+    "type": "Silver Level",
+    "id": 73,
+    "name": "Hackbright Academy, the leading women's engineering school in San Francisco",
+    "logo-url": "/images/sponsors/ha.png"
+  },
+  {
+    "description": "Hulu is a premium streaming TV destination that offers hundreds of thousands of hours of the best of current season programming, premium original content, films and full seasons of hit series to subscribers with limited commercials for $7.99 per month or commercial free for $11.99 per month. Hulu is the only streaming subscription service that offers current season programming from top U.S. broadcast networks the day after new episodes air, as well as acclaimed Hulu Originals including The Mindy Project, The Path, 11.22.63, Difficult People and the Golden Globe® nominated comedy series, Casual. Since its launch in 2008, Hulu has been at the forefront of entertainment and technology and continues to redefine TV by connecting viewers with the stories they love.",
+    "level": 5,
+    "url": "https://www.hulu.com",
+    "type": "Silver Level",
+    "id": 74,
+    "name": "Hulu",
+    "logo-url": "/images/sponsors/hulu.gif"
+  },
+  {
+    "description": "Doctor On Demand’s mission is to improve the world’s health through compassionate care and innovation.  Through live video visits, our hand-picked, US-trained doctors and psychologists take patient history, perform an exam, and recommend a treatment plan. Prescriptions, if needed, go directly to the pharmacy of choice. While insurance isn’t required, tens of millions of Americans enjoy covered medical and mental health visits through employer and health plan partnerships. ",
+    "level": 5,
+    "url": "http://www.doctorondemand.com/",
+    "type": "Silver Level",
+    "id": 75,
+    "name": "Doctor on demand",
+    "logo-url": "/images/sponsors/dod.png"
+  },
+  {
+    "description": "Nooro is a small Canadian software team that has evolved with our clients' ever-changing needs and following our interests since 1995.",
+    "level": 5,
+    "url": "https://nooro.com/pycon2017",
+    "type": "Silver Level",
+    "id": 76,
+    "name": "Nooro",
+    "logo-url": "/images/sponsors/nooro.png"
+  },
+  {
+    "description": "We are Two Sigma. We imagine breakthroughs in investment management, insurance and related fields by pushing the boundaries of what open source and proprietary technology can do. ",
+    "level": 5,
+    "url": "https://www.twosigma.com/",
+    "type": "Silver Level",
+    "id": 77,
+    "name": "Twosigma",
+    "logo-url": "/images/sponsors/2s.png"
+  },
+  {
+    "description": "",
+    "level": 5,
+    "url": "https://www.adafruit.com",
+    "type": "Silver Level",
+    "id": 78,
+    "name": "Adafruit",
+    "logo-url": "/images/sponsors/black.png"
+  },
+  {
+    "description": "",
+    "level": 4,
+    "url": "http://jambonsw.com",
+    "type": "Patron Level",
+    "id": 79,
+    "name": "Jambonsw",
+    "logo-url": "/images/sponsors/jam.png"
+  },
+  {
+    "description": "",
+    "level": 3,
+    "url": "https://aws.amazon.com/",
+    "type": "Job Fair Participation",
+    "id": 80,
+    "name": "AWS",
+    "logo-url": "/images/sponsors/aws.png"
+  },
+  {
+    "description": "Research Affiliates, LLC, is a global leader in smart beta and asset allocation. Dedicated to creating value for investors, we seek to have a profound impact on the global investment community through our insights and products. We deliver solutions in partnership with some of the world’s leading financial institutions, through their offerings of mutual funds, ETFs, separately managed accounts, and/or commingled accounts.",
+    "level": 3,
+    "url": "https://www.researchaffiliates.com",
+    "type": "Job Fair Participation",
+    "id": 81,
+    "name": "Research Affiliates",
+    "logo-url": "/images/sponsors/raffiliates.jpg"
+  },
+  {
+    "description": "Car Stickers Inc. is a leading sticker manufacturer founded in 2000 located in Bend, Oregon.  ",
+    "level": 3,
+    "url": "http://www.carstickers.com",
+    "type": "Job Fair Participation",
+    "id": 82,
+    "name": "Carstickers",
+    "logo-url": "/images/sponsors/cs.jpg"
+  },
+  {
+    "description": "The Python Software Foundation (PSF) is a 501(c)(3) non-profit corporation that holds the intellectual property rights behind the Python programming language. We manage the open source licensing for Python version 2.1 and later and own and protect the trademarks associated with Python. We also run the North American PyCon conference annually, support other Python conferences around the world, and fund Python related development with our grants program and by funding special projects.",
+    "level": 2,
+    "url": "https://www.python.org/psf/",
+    "type": "Open Source Project/Community",
+    "id": 83,
+    "name": "PSF",
+    "logo-url": "/images/sponsors/psf.png"
+  },
+  {
+    "description": "Founded in 2003, Chicago Python User Group is one of the world's most active programming language special interest groups with over 1,000 active members and many more prestigious alumni. ChiPy's main focus is promoting Python Programming Language and everything that surrounds it: open source, business, education, entrepreneurship, science, and every python programmer seasoned or emerging. Every month ChiPy hosts over four events with an average of 80-120 attendees which include tech talks, domain specific talks and hands on Python workshops. ChiPy has been organizing a one on one Mentorship program for the last 3 years that has helped over 100 junior developers gain expertise on the python language, Data Science, Web Development. We have dedicated events to showcase Python powered businesses and over 25 Python shops in Chicago have used the ChiPy connection to hire Python developers. We collaborate with other language groups to organize \"Chicago Polyglot\" events. ",
+    "level": 2,
+    "url": "http://www.chipy.org/",
+    "type": "Open Source Project/Community",
+    "id": 84,
+    "name": "ChiPy",
+    "logo-url": "/images/sponsors/chip.png"
+  },
+  {
+    "description": "The Recurse Center is a free, three-month programming retreat for people who want to become better programmers, regardless of if they've been coding for six months or twenty years. We have a supportive, diverse, energizing, and intellectually curious community, and we bring in phenomenal programmers in residence (past residents include Peter Norvig, Jessica McKellar, and Jacob Kaplan-Moss). We are free for everyone and provide need-based grants for living expenses up to $7,000 for people from groups traditionally underrepresented in programming.",
+    "level": 2,
+    "url": "https://www.recurse.com",
+    "type": "Open Source Project/Community",
+    "id": 85,
+    "name": "Recurse",
+    "logo-url": "/images/sponsors/logo.jpg"
+  },
+  {
+    "description": "Zulip is a powerful, open source group chat application, known for its unique threading experience. Written in Python and using the Django framework, Zulip supports both private messaging and group chats via conversation streams.",
+    "level": 2,
+    "url": "https://zulip.org",
+    "type": "Open Source Project/Community",
+    "id": 86,
+    "name": "Zulip",
+    "logo-url": "/images/sponsors/zulip.png"
+  },
+  {
+    "description": "",
+    "level": 2,
+    "url": "https://talkpython.fm/",
+    "type": "Open Source Project/Community",
+    "id": 87,
+    "name": "talkpython.fm",
+    "logo-url": "/images/sponsors/pod.jpg"
+  },
+  {
+    "description": "Python's most popular Web API framework.",
+    "level": 2,
+    "url": "http://www.django-rest-framework.org/",
+    "type": "Open Source Project/Community",
+    "id": 88,
+    "name": "Django REST framework",
+    "logo-url": "/images/sponsors/rest.png"
+  },
+  {
+    "description": "PyLadies is an international mentorship group with a focus on helping more women become active participants and leaders in the Python open-source community. Our mission is to promote, educate and advance a diverse Python community through outreach, education, conferences, events and social gatherings. PyLadies aims to provide a friendly support network for women and a bridge to the larger Python world. Anyone with an interest in Python is encouraged to participate!",
+    "level": 2,
+    "url": "http://www.pyladies.com",
+    "type": "Open Source Project/Community",
+    "id": 89,
+    "name": "Pyladies",
+    "logo-url": "/images/sponsors/pyl.png"
+  },
+  {
+    "description": "The XMPP Standards Foundation is an independent, nonprofit standards development organisation whose primary mission is to define open protocols for presence, instant messaging, and real-time communication and collaboration on top of the IETF’s Extensible Messaging and Presence Protocol (XMPP).",
+    "level": 2,
+    "url": "https://xmpp.org/",
+    "type": "Open Source Project/Community",
+    "id": 90,
+    "name": "https://xmpp.org/",
+    "logo-url": "/images/sponsors/xmp.png"
+  },
+  {
+    "description": "BeeWare is a collection of tools and Python libraries for building native user interfaces for all your devices. Want to write an app in Python for your laptop, iPhone, Android, tablet, set top box, or watch? BeeWare has all the tools you'll need.",
+    "level": 2,
+    "url": "http://pybee.org",
+    "type": "Open Source Project/Community",
+    "id": 91,
+    "name": "BeeWare Project",
+    "logo-url": "/images/sponsors/bw.png"
+  },
+  {
+    "description": "Software Freedom Conservancy is a not-for-profit charity that helps promote, improve, develop, and defend Free, Libre, and Open Source Software (FLOSS) projects. Conservancy provides a non-profit home and infrastructure for FLOSS projects. This allows FLOSS developers to focus on what they do best — writing and improving FLOSS for the general public — while Conservancy takes care of the projects' needs that do not relate directly to software development and documentation.  Many Python-related projects are already members of Conservancy, and Conservancy runs an bi-annual internship program called Outreachy available to underrepresented groups in FLOSS.",
+    "level": 2,
+    "url": "https://sfconservancy.org",
+    "type": "Open Source Project/Community",
+    "id": 92,
+    "name": "Software Freedom Conservancy",
+    "logo-url": "/images/sponsors/cons.png"
+  },
+  {
+    "description": "",
+    "level": 2,
+    "url": "https://www.postgresql.org/",
+    "type": "Open Source Project/Community",
+    "id": 93,
+    "name": "Postgresql",
+    "logo-url": "/images/sponsors/post.png"
+  },
+  {
+    "description": "Launched August 2014, we are a fun and friendly user group dedicated to proliferating a diverse and talented Python community in the Puget Sound region. We are devoted to exploring Python-based programming knowledge, embracing those new to Python and experienced Pythonistas from all walks of life, and helping our members to achieve their professional goals.",
+    "level": 2,
+    "url": "https://www.meetup.com/PSPPython/",
+    "type": "Open Source Project/Community",
+    "id": 94,
+    "name": "PSPPython",
+    "logo-url": "/images/sponsors/psp.jpg"
+  },
+  {
+    "description": "The premier opensource Python-based CMS.",
+    "level": 2,
+    "url": "https://plone.com",
+    "type": "Open Source Project/Community",
+    "id": 95,
+    "name": "Plone",
+    "logo-url": "/images/sponsors/plone.png"
+  },
+  {
+    "description": "Django Girls organize free Python and Django workshops, create open sourced online tutorials and curate amazing first experiences with technology.",
+    "level": 2,
+    "url": "https://djangogirls.org/",
+    "type": "Open Source Project/Community",
+    "id": 96,
+    "name": "Djangogirls",
+    "logo-url": "/images/sponsors/dg.png"
+  },
+  {
+    "description": "",
+    "level": 2,
+    "url": "http://www.numfocus.org/",
+    "type": "Open Source Project/Community",
+    "id": 97,
+    "name": "Numfocus",
+    "logo-url": "/images/sponsors/num.png"
+  },
+  {
+    "description": "San Francisco–based No Starch Press has published the finest in geek entertainment since 1994, covering topics like hacking, open source/Linux, LEGO,​ science, math, and programming for all ages. Our best-selling Python books include Python for Kids, Python Crash Course, Automate the Boring Stuff with Python, and Python Playground. Our titles have personality, our authors are passionate about their subjects, and we read and edit every book that bears our name. Our goal is to make computing accessible to technophile and novice alike, and our readers appreciate our straightforward presentation and fearless approach to the complex world of technology.",
+    "level": 1,
+    "url": "https://www.nostarch.com/",
+    "type": "Media Level",
+    "id": 98,
+    "name": "No Starch Press",
+    "logo-url": "/images/sponsors/nsp.jpg"
+  },
+  {
+    "description": "Sticker Mule aims to be the Open Source Communities favorite custom sticker printer. We ship for free, provide free online proofs with every order and offer extremely fast turnaround.",
+    "level": 1,
+    "url": "https://www.stickermule.com/",
+    "type": "Media Level",
+    "id": 99,
+    "name": "Stickermule",
+    "logo-url": "/images/sponsors/smule.png"
+  },
+  {
+    "description": "",
+    "level": 1,
+    "url": "https://www.opensource.com",
+    "type": "Media Level",
+    "id": 100,
+    "name": "Opensource.com",
+    "logo-url": "/images/sponsors/os.png"
+  },
+  {
+    "description": "",
+    "level": 1,
+    "url": "https://lwn.net",
+    "type": "Media Level",
+    "id": 101,
+    "name": "Lwn",
+    "logo-url": "/images/sponsors/lwn.png"
+  },
+  {
+    "description": "Pycoder's Weekly is a weekly newsletter by members of the Python community for the Python community. Pycoder's delivers the latest and best Python news, projects, articles and discussions to your inbox every week.",
+    "level": 1,
+    "url": "http://pycoders.com/",
+    "type": "Media Level",
+    "id": 102,
+    "name": "Pycoders",
+    "logo-url": "/images/sponsors/pyweekly.jpg"
+  },
+  {
+    "description": "Bryan Lunduke writing for Network World",
+    "level": 1,
+    "url": "http://www.networkworld.com/author/Bryan-Lunduke/",
+    "type": "Media Level",
+    "id": 103,
+    "name": "Bryan Lunduke writing for Network World",
+    "logo-url": "/images/sponsors/nw.png"
+  }
+]

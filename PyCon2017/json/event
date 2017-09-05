@@ -1,0 +1,68 @@
+{
+  "id": 20,
+  "name": "PyCon 2017",
+  "latitude": 45.5280879,
+  "longitude": -122.6652073,
+  "location-name": "Oregon Convention Center, 777 NE Martin Luther King, Jr. Blvd Portland, OR 97232",
+  "starts-at": "2017-05-17T10:00:00-07:00",
+  "ends-at": "2017-05-25T10:00:00-07:00",
+  "timezone": "US/Pacific",
+  "description": "PyCon is the largest annual gathering for the community that uses and develops the open-source Python programming language. PyCon is organized by the Python community for the community. We try to keep registration far cheaper than most comparable technology conferences to make PyCon accessible to the widest group possible. PyCon is a diverse conference dedicated to providing an enjoyable experience to everyone. Our code of conduct is intended to help everyone maintain the PyCon spirit. We thank all attendees and staff for observing it.",
+  "original-image-url": "/images/background.jpg",
+  "logo-url": "/images/logo.png",
+  "organizer-name": "Python software Foundation",
+  "organizer-description": "Jhe Python Software Foundation is a 501(c)(3) nonprofit dedicated to advancing and promoting Python. The PSF supports and encourages Python events world-wide to advance its mission of growing the international community of Python programmers, and hosts the North American PyCon conference as its flagship annual event. As stated on the PSF’s web site: The mission of the Python Software Foundation is to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers.",
+  "external-event-url": "https://us.pycon.org/2017/",
+  "social-links": [
+    {
+      "id": 1,
+      "link": "https://www.python.org/psf-landing/",
+      "name": "Website"
+    },
+    {
+      "id": 2,
+      "link": "https://twitter.com/thepsf",
+      "name": "Twitter"
+    },
+    {
+      "id": 3,
+      "link": "http://pyfound.blogspot.com/",
+      "name": "Blogpost"
+    },
+    {
+      "id": 4,
+      "link": "https://github.com/python",
+      "name": "GitHub"
+    }
+  ],
+  "ticket-url": null,
+  "privacy": "public",
+  "type": "Conference",
+  "topic": "Science & Technology",
+  "sub-topic": "High Tech",
+  "code-of-conduct": "",
+  "event-copyright": {
+    "holder": "",
+    "holder-url": null,
+    "licence": "Public Domain Dedication (CC0)",
+    "licence-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "logo-url": "http://i.creativecommons.org/p/zero/1.0/88x31.png",
+    "year": 2017
+  },
+  "speakers-call": null,
+  "email": null,
+  "is-sessions-speakers-enabled": false,
+  "identifier": "7d16c124",
+  "large-image-url": null,
+  "schedule-published-on": null,
+  "searchable-location-name": null,
+  "state": "Published",
+  "version": {
+    "event_ver": 0,
+    "microlocations_ver": 0,
+    "sessions_ver": 0,
+    "speakers_ver": 0,
+    "sponsors_ver": 0,
+    "tracks_ver": 0
+  }
+}

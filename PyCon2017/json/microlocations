@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Room 1",
+    "floor": 1,
+    "latitude": 37.32978,
+    "longitude": -121.889613,
+    "room": ""
+  },
+  {
+    "id": 2,
+    "name": "Room 2",
+    "floor": 1,
+    "latitude": 37.32978,
+    "longitude": -121.889613,
+    "room": ""
+  },
+  {
+    "id": 3,
+    "name": "Room 3",
+    "floor": 1,
+    "latitude": 37.32978,
+    "longitude": -121.889613,
+    "room": ""
+  },
+  {
+    "id": 4,
+    "name": "Room 4",
+    "floor": 0,
+    "latitude": 37.329008,
+    "longitude": -121.888794,
+    "room": ""
+  },
+  {
+    "id": 5,
+    "name": "Room 5",
+    "floor": 1,
+    "latitude": 37.329412,
+    "longitude": -121.887457,
+    "room": ""
+  },
+  {
+    "id": 6,
+    "name": "Room 6",
+    "floor": 1,
+    "latitude": 37.329663,
+    "longitude": -121.887677,
+    "room": ""
+  },
+  {
+    "id": 7,
+    "name": "Room 7",
+    "floor": 1,
+    "latitude": 37.329596,
+    "longitude": -121.889714,
+    "room": ""
+  },
+  {
+    "id": 8,
+    "name": "Room 8",
+    "floor": 1,
+    "latitude": 37.329888,
+    "longitude": -121.889772,
+    "room": ""
+  },
+  {
+    "id": 9,
+    "name": "Room 9",
+    "floor": 1,
+    "latitude": 37.32973,
+    "longitude": -121.889383,
+    "room": ""
+  },
+  {
+    "id": 10,
+    "name": " Room B110-111",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 11,
+    "name": "Room B118 - 119 ",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 12,
+    "name": "Oregon Ballroom 201–202",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 13,
+    "name": "Oregon Ballroom 203–204",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 14,
+    "name": "Portland Ballroom 251 & 258",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 15,
+    "name": "Portland Ballroom 252–253",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 16,
+    "name": "Portland Ballroom 254–255",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 17,
+    "name": "Keynotes venue",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  },
+  {
+    "id": 18,
+    "name": "Room A105-106",
+    "floor": 1,
+    "latitude": 37.32453,
+    "longitude": -121.859433,
+    "room": ""
+  }
+]

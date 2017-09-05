@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <link rel=preload as=script href=../js/jquery.min.js>
+    <link rel=preload as=script href=../js/bootstrap.min.js>
+    <link rel=preload as=script href=../js/tracks.min.js>
+    <link rel=preload as=style href=../css/schedule.css>
+    <link rel=preload as=style href=../css/font-awesome.min.css>
+    <link rel=preload as=style href=../css/bootstrap.min.css>
+    <link rel=preload as=font href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+
+
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name=description content=" Schedule">
+    <meta name=author content="">
+
+    <title></title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="" type=image/x-icon>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel=stylesheet>
+    <link rel=stylesheet href=../css/font-awesome.min.css>
+    <link rel=stylesheet href=../css/bootstrap.min.css>
+    <link rel=stylesheet href=../css/schedule.css>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <a href=#track-list class=skip>Skip to content</a>
+    <a class=scroll href=# id=down-button data-scroll-direction=0>
+      <i class="fa fa-chevron-up" aria-hidden=true></i>
+    </a>
+    <a id=top></a>
+    
+    <!-- Fixed navbar -->
+    <header role=banner class="navbar-fixed-top navbar-default">
+      <div class=container>
+        <div class="navbar-header navbar-left pull-left">
+            <a class=navbar-brand style=padding:px href=../ >
+              <img alt="../PyCon 2017" class="logo logo-dark" src=../images/logo.png>
+          </a>
+        </div>
+    
+        <div class="navbar-header navbar-right pull-right">
+            <button data-toggle=collapse-side data-target=.side-collapse type=button class="navbar-toggle pull-right">
+            <span class=sr-only>Toggle navigation</span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+            <span class=icon-bar></span>
+          </button>
+        </div>
+    
+        <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
+        <div class="side-collapse in">
+          <nav role=navigation class=navbar-collapse>
+            <div class=search-container>
+              <input id=search-box type=text class="search-box fossasia-filter">
+              <label for=search-box><span class=search-icon><i class="fa fa-search" aria-hidden=true></i></span></label>
+            </div>
+          <ul class="nav navbar-nav navbar-right">
+              <li class=navlink><a id=homelink href=../index.html>Home</a></li>
+              <li class=navlink><a id=schedulelink href=../schedule.html>Schedule</a></li>
+              <li class=navlink><a id=trackslink href=../tracks.html>Tracks</a></li>
+              <li class=navlink><a id=roomslink href=../rooms.html>Rooms</a></li>
+              <li class=navlink><a id=speakerslink href=../speakers.html>Speakers</a></li>
+    
+                <li class="pull-left social-icons"><a href=https://twitter.com/thepsf id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/python id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+    
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </header>
+      <div class="container session-container">
+        <div class="row single-session" id=48>
+          <h3> Friday, 19th May </h3>
+          <div class=eventtime><span class=time-track>16:30 - 17:00</span></div>
+          <div class=session-content>
+            <div class="sizeevent event event-title" id=title-48 style=background-color:#f0b27a;color:#fff;margin-right:0;cursor:unset>
+              Building A Gigaword Corpus: Lessons on Data Ingestion, Management, and Processing for NLP  | Talks
+              <a class=bookmark>
+                <i class="fa fa-star" aria-hidden=true>
+                </i>
+              </a>
+            </div>
+            <div>
+              <div>
+                As the applications we build are increasingly driven by text, doing data ingestion, management, loading, and preprocessing in a robust, organized, parallel, and memory-safe way can get tricky. This talk walks through the highs (a custom billion-word corpus!), the lows (segfaults, 400 errors, pesky mp3s), and the new Python libraries we built to ingest and preprocess text for machine learning. While applications like Siri, Cortana, and Alexa may still seem like novelties, language-aware applications are rapidly becoming the new norm. Under the hood, these applications take in text data as input, parse it into composite parts, compute upon those composites, and then recombine them to deliver a meaningful and tailored end result. The best applications use language models trained on domain-specific corpora (collections of related documents containing natural language) that reduce ambiguity and prediction space to make results more intelligible. Here's the catch: these corpora are huge, generally consisting of at least hundreds of gigabytes of data inside of thousands of documents, and often more! In this talk, we'll see how working with text data is substantially different from working with numeric data, and show that ingesting a raw text corpus in a form that will support the construction of a data product is no trivial task. For instance, when dealing with a text corpus, you have to consider not only how the data comes in (e.g. respecting rate limits, terms of use, etc.), but also where to store the data and how to keep it organized. Because the data comes from the web, it's often unpredictable, containing not only text but audio files, ads, videos, and other kinds of web detritus. Since the datasets are large, you need to anticipate potential performance problems and ensure memory safety through streaming data loading and multiprocessing. Finally, in anticipation of the machine learning components, you have to establish a standardized method of transforming your raw ingested text into a corpus that's ready for computation and modeling. In this talk, we'll explore many of the challenges we experienced along the way and introduce two Python packages that make this work a bit easier: Baleen and Minke. Baleen is a package for ingesting formal natural language data from the discourse of professional and amateur writers, like bloggers and news outlets, in a categorized fashion. Minke extends Baleen with a library that performs parallel data loading, preprocessing, normalization, and keyphrase extraction to support machine learning on a large-scale custom corpus.
+              </div>
+              <hr class=clear-both>
+              <div class=session-speakers-list aria-expanded=false aria-controls=desc-48>
+                  <a href=../speakers.html#rebecca-bilbro60>
+                    <div class=session-speakers-less>
+                      <p class=session-speakers>
+                          <img onerror='this.onerror=null,this.src="../images/avatar.png"' src=../images/speakers/thumbnails/bilbro.jpg class="lazy card-img-top speaker-image-large">
+                      </p>
+                      <span class=graytext>Rebecca Bilbro</span>
+                    </div>
+                  </a>
+                    <div class=session-speakers-more>
+                      Dr. Rebecca Bilbro is lead data scientist at Bytecubed, a small tech company in Washington, DC, where she and her team use supervised and unsupervised machine learning, programming in Python and R, and distributed computing with Spark and Hadoop. In her free time, Rebecca works with the open source collaborative District Data Labs (check out the Yellowbrick Project), writes for the DDL blog, practices ukulele, and rides her bicycle around DC. Rebecca earned her doctorate from the University of Illinois Urbana-Champaign, conducting research on communication practices in Engineering, and holds a Bachelor's degree in Mathematics and English from Skidmore College.
+                    </div>
+                  <div class="blacktext session-speaker-social">
+                    <div class=session-speakers-more>
+                        <a class="blacktext social speaker-social" href=https://twitter.com/rebeccabilbro><i class="fa fa-twitter"></i> Twitter</a>&nbsp;
+                        <a class="blacktext social speaker-social" href=https://www.linkedin.com/in/rebeccabilbro><i class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
+                      <a class="session-lin social speaker-social clickable-link">
+                        <i class="fa fa-share"></i> Share
+                      </a>&nbsp;
+                      <div class="social-buttons row">
+                        <div class="fb-share facebook social-button">
+                          <i class="fa fa-facebook fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="tw-share twitter social-button">
+                          <i class="fa fa-twitter fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="go-share google social-button">
+                          <i class="fa fa-google-plus fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="li-share facebook social-button">
+                          <i class="fa fa-linkedin fa s-button" aria-hidden=true></i>
+                        </div>
+                        <div class="row social-link">
+                          <input class=speakers-inputbox type=text onclick=this.select() value=base#48 readonly=readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr class=clear-both>
+                <div class=blacktext>
+                  <p> <a href=../rooms.html#venue-2017-05-19-Portland_Ballroom_251_&amp;_258______>Portland Ballroom 251 &amp; 258      </a></p>
+                  <p>Friday, 19th May, <span>16:30 - 17:00</span></p>
+                  <p>
+                    <ul class=session-ul>
+                      <li style=background-color:#f0b27a;color:#fff class=titlecolor></li>
+                      &nbsp;
+                      <li><a href=../tracks.html#2017-05-19-Talks> Talks </a> </li>
+                    </ul>
+                  </p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div class=footer-container>
+      <footer class=classic>
+        <div class=container>
+          <div class="row ui-sortable">
+            <div id=menuItem class="col-sm-2 col-md-2 col-xs-12">
+              <ul class=menu>
+                <li><a target=_self href=index.html#description>About</a></li>
+                <li><a target=_self href=schedule.html>Schedule</a></li>
+                <li><a target=_self href=tracks.html>Tracks</a></li>
+                <li><a target=_self href=rooms.html>Rooms</a></li>
+                <li><a target=_self href=speakers.html>Speakers</a></li>
+                <li><a class="inner-link back-to-top" href=#top>Back To Top</a></li>
+              </ul>
+            </div>
+            <div id=copyright class="col-sm-7 col-md-7 col-xs-12">
+             <p>
+            <a href=""><img src=http://i.creativecommons.org/p/zero/1.0/88x31.png></a>
+             &nbsp; &copy; 2017
+             .
+             The website and its contents are licensed under
+              <a href=""> Public Domain Dedication (CC0). </a>
+             The site was generated using the Open Event format on the <a href=https://eventyay.com/ >eventyay</a> <a href=https://webgen.eventyay.com/ >site generator</a>. Please submit issues <a href=https://github.com/fossasia/open-event-webapp/issues>here</a>.
+             </p>
+            </div>
+        <div class="contact-details col-sm-3 col-md-3 col-xs-12">
+          <ul class=contact-methods>
+            <li class=address>
+            <i class="fa fa-map-marker"></i>
+              <div>Python software Foundation&#44;&nbsp;Oregon Convention Center, 777 NE Martin Luther King, Jr. Blvd Portland, OR 97232</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row ui-sortable">
+        <div class="col-sm-12 text-center">
+          <ul class=social-profiles>
+                <li class="pull-left social-icons"><a href=https://twitter.com/thepsf id=social-icons><i class="fa fa-lg fa-twitter" aria-hidden=true title=twitter></i></a></li>
+                <li class="pull-left social-icons"><a href=https://github.com/python id=social-icons><i class="fa fa-lg fa-github" aria-hidden=true title=github></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </footer>
+    </div>
+    <script>var eventInfo={};eventInfo.name="../PyCon 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
+    <script src=../js/jquery.min.js></script>
+    <script src=../js/bootstrap.min.js></script>
+    <script src=../js/session.min.js></script>
+  </body>
+</html>
