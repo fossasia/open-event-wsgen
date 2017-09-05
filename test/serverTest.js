@@ -310,9 +310,28 @@ describe('generate', function() {
 
     });
 
+    it('should generate the GoogleIO 17 event', function(done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/PyCon17",
+        "datasource": "eventapi",
+        "assetmode" : "download",
+        "sessionMode": "single"
+      };
+
+      generator.createDistDir(data, 'Socket', function(appFolder) {
+        assert.equal(appFolder, "a@a.com/PyCon2017");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function(done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 9;
+      var totalFiles = 10;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -341,6 +360,7 @@ describe('generate', function() {
       copyStatic('fa16small.jpg');
       copyStatic('nextcloud2017.jpg');
       copyStatic('googleIO.jpg');
+      copyStatic('PyCon17.jpg');
 
     });
 
