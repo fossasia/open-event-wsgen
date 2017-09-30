@@ -68,9 +68,9 @@ function emailSend(toEmail, url, appName) {
   var emailContent = '';
 
   previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
-  previewExpiryDate = moment.utc(previewExpiryDate).local().format('dddd, h A');
+  previewExpiryDate = moment.utc(previewExpiryDate).format('dddd, h A')+' (UTC)';
   downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
-  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).local().format('dddd, MMMM Do YYYY');
+  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).format('dddd, MMMM Do YYYY')+' (UTC)';
 
   var successMesg = 'Hi ! <br>' +
     ' Your webapp has been generated <br>' +
