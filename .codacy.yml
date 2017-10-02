@@ -1,0 +1,6 @@
+---
+exclude_paths:
+  - src/backend/assets/js/**
+  - '*.min.js'
+  - '*.min.css'
+
