@@ -154,6 +154,9 @@ $(document).ready(function () {
         if ($(this).val() === 'jsonupload') {
           $('#jsonupload-input').show(100);
           $('#eventapi-input').hide(100);
+          $('#btnLive').hide();
+          $('#btnDownload').hide();
+          $('#deploy').hide();
           if (uploadFinished) {
             enableGenerateButton(true);
           } else {
@@ -164,6 +167,9 @@ $(document).ready(function () {
         if ($(this).val() === 'eventapi') {
           $('#eventapi-input').show(100);
           $('#jsonupload-input').hide(100);
+          $('#btnLive').hide();
+          $('#btnDownload').hide();
+          $('#deploy').hide();
           enableGenerateButton(true);
         }
       }
