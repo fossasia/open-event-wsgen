@@ -138,7 +138,85 @@
         </div>
       </div>
     {{/session}}
-    {{> footer}}
+
+    <div class="footer-container">
+        <footer class="classic">
+            <div class="container">
+                <div class="row ui-sortable">
+                    <div  id="menuItem" class="col-sm-2 col-md-2 col-xs-12">
+                        <ul class="menu">
+                            <li><a target="_self" href="../index.html#description">About</a></li>
+                            {{#if eventurls.register}}
+                                <li><a target="_self" href="../index.html#ticket-button">Tickets</a></li>
+                            {{/if}}
+                            {{#if timeList}}
+                                <li><a target="_self" href="../schedule.html">Schedule</a></li>
+                            {{/if}}
+                            {{#if tracks}}
+                                <li><a target="_self" href="../tracks.html">Tracks</a></li>
+                            {{/if}}
+                            {{#if roomsinfo}}
+                                <li><a target="_self" href="../rooms.html">Rooms</a></li>
+                            {{/if}}
+                            {{#if speakerslist}}
+                                <li><a target="_self" href="../speakers.html">Speakers</a></li>
+                            {{/if}}
+                            <li><a class="inner-link back-to-top" href="#top">Back To Top</a></li>
+                        </ul>
+                    </div>
+                    <div  id="copyright" class="col-sm-7 col-md-7 col-xs-12">
+                        {{#if copyright}}
+                            {{#if copyright.licence}}
+                                <p>
+                                    <a href="{{{copyright.licence_url}}}"><img src="{{{copyright.logo}}}"></a>
+                                    &nbsp; &copy; {{copyright.year}}
+                                    {{#if copyright.holder_url}}
+                                        <a href="{{{copyright.holder_url}}}">{{copyright.holder}}.</a>
+                                    {{else}}
+                                        {{copyright.holder}}.
+                                    {{/if}}
+                                    The website and its contents are licensed under
+                                    <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
+                                    The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.
+                                </p>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                    <div  class="contact-details col-sm-3 col-md-3 col-xs-12">
+                        <ul class="contact-methods">
+                            {{#if eventurls.email}}
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <div>
+                                        <a href="mailto:{{eventurls.email}}" target="_self" class="org-name">
+                                            {{eventurls.email}}
+                                        </a>
+                                    </div>
+                                </li>
+                            {{/if}}
+                            {{#if eventurls.location}}
+                                <li class="address">
+                                    <i class="fa fa-map-marker"></i>
+                                    <div>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</div>
+                                </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row ui-sortable">
+                    <div class="col-sm-12 text-center">
+                        <ul class="social-profiles">
+                            {{#sociallinks}}
+                                {{#if show}}
+                                    <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+                                {{/if}}
+                            {{/sociallinks}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script>
       var eventInfo = {};
       eventInfo.name = "{{eventurls.name}}";
