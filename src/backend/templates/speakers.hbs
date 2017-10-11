@@ -167,7 +167,11 @@
                     <span id="session-location" >{{microlocation}}</span>
                     </strong>
                   </h5>
-                  <a href="tracks.html#{{session_id}}">
+                    {{#if ../../mode}}
+                        <a href = "sessions/session_{{session_id}}.html">
+                    {{else}}
+                        <a href = "tracks.html#{{session_id}}">
+                    {{/if}}
                     <h4 style="background-color:{{{color}}}; color:{{{font_color}}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
                       <span>{{{title}}}</span>

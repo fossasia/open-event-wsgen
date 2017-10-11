@@ -29,4 +29,24 @@ SpeakerPage.jumpToTrack = function() {
   return trackPromise;
 };
 
+SpeakerPage.jumpToSession = function() {
+  var self = this;
+  var speakerId = '53';
+  var pageVertScrollOffset = 'return window.scrollY';
+  
+  var sessionPromise =  new Promise(function(resolve) {
+    self.find(By.id(speakerId)).then(function(elem) {
+      self.driver.actions().mouseMove(elem).perform();
+      elem.findElement(By.className('sessions')).findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
+        .then(function(url) {
+          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
+            resolve(url.search('session') != -1);
+          });
+        });
+    });
+  });
+  
+  return sessionPromise;
+};
+
 module.exports = SpeakerPage;
