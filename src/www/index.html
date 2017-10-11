@@ -143,6 +143,11 @@
       }
     }
 
+    #message {
+      display: none;
+      color: green;
+    }
+
     @media(max-width: 400px){
       .custom-menu {
           width: 250px;
@@ -227,6 +232,9 @@
         </section>
         <section id="jsonupload-input" style="display:none;">
           <label for="siofu_input">Zip file containing resources for the event</label> <input accept="application/zip" class="form-control" id="siofu_input" name="singlefileUpload" required="true" type="file">
+            <div id="message">
+              <p>File has been successfully uploaded</p>
+            </div>
           <div hidden="" id="upload-info">
             <div class="row">
               <div class="col-sm-6 col-xs-7">
