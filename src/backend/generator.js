@@ -464,7 +464,7 @@ exports.createDistDir = function(req, socket, callback) {
 
       fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
         if (moveerr !== null) {
-          logger.addLog('Error', 'Error in moving files to the event folders', socket, moverr);
+          logger.addLog('Error', 'Error in moving files to the event folders', socket, moveerr);
           console.log(moveerr);
           if (emit) socket.emit('live.error', {status: "Error in moving files to the event directory" });
         }
