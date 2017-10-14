@@ -64,6 +64,7 @@
     "request": "^2.74.0",
     "selenium-webdriver": "^3.4.0",
     "sendgrid": "^5.1.1",
+    "serve-favicon": "^2.4.5",
     "sharp": "^0.18.1",
     "socket.io": "^2.0.2",
     "socket.io-stream": "^0.9.1",
