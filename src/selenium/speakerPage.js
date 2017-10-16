@@ -1,11 +1,11 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var SpeakerPage = Object.create(BasePage);
 
 SpeakerPage.searchTest = function() {
   var idList = ['2330', '2240'];
+  
   return this.commonSearchTest('Mario', idList);
 };
 
@@ -20,7 +20,7 @@ SpeakerPage.jumpToTrack = function() {
       elem.findElement(By.className('sessions')).findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
         .then(function(url) {
           self.driver.executeScript(pageVertScrollOffset).then(function(height) {
-            resolve(height > 0 && (url.search('tracks') != -1));
+            resolve(height > 0 && (url.search('tracks') !== -1));
         });
       });
     });
@@ -39,8 +39,8 @@ SpeakerPage.jumpToSession = function() {
       self.driver.actions().mouseMove(elem).perform();
       elem.findElement(By.className('sessions')).findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
         .then(function(url) {
-          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
-            resolve(url.search('session') != -1);
+          self.driver.executeScript(pageVertScrollOffset).then(function() {
+            resolve(url.search('session') !== -1);
           });
         });
     });
