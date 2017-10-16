@@ -409,7 +409,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       }).catch(function(err) {
         done(err);
       });
-    })
+    });
 
     it('Checking the broken links in navbar and footer', function(done) {
       eventPage.getNavbarFooterBrokenLinks().then(function(numBrokenLinks) {
@@ -424,6 +424,8 @@ describe("Running Selenium tests on Chrome Driver", function() {
       eventPage.getEventName().then(function(eventName) {
         assert.equal(eventName, "FOSSASIA Summit");
         done();
+      }).catch(function(err) {
+        done(err);
       });
     });
 
