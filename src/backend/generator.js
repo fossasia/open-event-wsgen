@@ -311,16 +311,18 @@ exports.createDistDir = function(req, socket, callback) {
         var basePath = distHelper.distPath + '/' + appFolder + '/images';
         var logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
         distHelper.optimizeBackground(backPath, socket, function() {
-          distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
-            if(err) {
-              console.log(err);
-              return done(err);
-            }
-            jsonData.navpad = pad;
-            distHelper.resizeSponsors(basePath, socket, function() {
-              distHelper.resizeSpeakers(basePath, socket, function() {
-                templateGenerate();
-              });
+          if(jsonData.eventurls.logo_url) {
+            distHelper.optimizeLogo(logoPath, socket, function (err, pad) {
+              if (err) {
+                console.log(err);
+                return done(err);
+              }
+              jsonData.navpad = pad;
+            });
+          }
+          distHelper.resizeSponsors(basePath, socket, function() {
+            distHelper.resizeSpeakers(basePath, socket, function() {
+              templateGenerate();
             });
           });
         });
@@ -462,7 +464,7 @@ exports.createDistDir = function(req, socket, callback) {
 
       fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
         if (moveerr !== null) {
-          logger.addLog('Error', 'Error in moving files to the event folders', socket, moverr);
+          logger.addLog('Error', 'Error in moving files to the event folders', socket, moveerr);
           console.log(moveerr);
           if (emit) socket.emit('live.error', {status: "Error in moving files to the event directory" });
         }

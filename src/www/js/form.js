@@ -46,6 +46,7 @@ $(document).ready(function () {
 
     stream.on('end', function(data) {
       console.log('File upload has finished');
+      $('#message').show();
       socket.emit('finished', 'File upload has finished');
     });
 
@@ -118,6 +119,7 @@ $(document).ready(function () {
 
     $('#siofu_input').val('').show();
     $('#upload-info').hide();
+    $('#message').hide();
     $('#buildLog').empty();
 
     // Disable the generateProgressBar and hide the status bar as well
@@ -154,6 +156,9 @@ $(document).ready(function () {
         if ($(this).val() === 'jsonupload') {
           $('#jsonupload-input').show(100);
           $('#eventapi-input').hide(100);
+          $('#btnLive').hide();
+          $('#btnDownload').hide();
+          $('#deploy').hide();
           if (uploadFinished) {
             enableGenerateButton(true);
           } else {
@@ -164,6 +169,9 @@ $(document).ready(function () {
         if ($(this).val() === 'eventapi') {
           $('#eventapi-input').show(100);
           $('#jsonupload-input').hide(100);
+          $('#btnLive').hide();
+          $('#btnDownload').hide();
+          $('#deploy').hide();
           enableGenerateButton(true);
         }
       }
