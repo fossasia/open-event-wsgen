@@ -258,7 +258,6 @@ $(document).ready(function () {
       var versionLink = 'https://github.com/fossasia/open-event-webapp/tree/' + version;
       var deployLink = $('#deploy-link');
       deployLink.attr('href', versionLink);
-      deployLink.html(version);
     }});
   }
 
