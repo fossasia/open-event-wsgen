@@ -3,6 +3,7 @@
 ## Deploying Locally
 
 First install the dependencies.
+Note : Do not install the dependencies behind proxy network.
 
 ```shell
 npm install or npm install bcrypt
