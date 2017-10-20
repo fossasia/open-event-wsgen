@@ -1836,8 +1836,16 @@ a.skip:hover {
 
 .session-name {
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 3.6em;
+}
+
+.session-name:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  margin-top: 0.2em;
 }
 
 .time {
