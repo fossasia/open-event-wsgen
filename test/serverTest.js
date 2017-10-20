@@ -310,7 +310,7 @@ describe('generate', function() {
 
     });
 
-    it('should generate the GoogleIO 17 event', function(done) {
+    it('should generate the PyCon 17 event', function(done) {
       var data = {};
 
       data.body = {
