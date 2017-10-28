@@ -22,7 +22,7 @@ install:
   - npm install -g istanbul mocha
   - npm install
 script:
-  - istanbul cover _mocha
+  - travis_wait istanbul cover _mocha
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - bash gh_deploy.sh
