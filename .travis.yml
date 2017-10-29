@@ -37,3 +37,4 @@ deploy:
     branch:
       - master
       - development
+
