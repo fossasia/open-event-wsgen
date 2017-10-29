@@ -7,10 +7,10 @@ First install the dependencies.
 ```shell
 npm install or npm install bcrypt
 ```
-if getting error than, fix npm permissions globally.and start from step 1.
+if you get an error, then fix npm permissions globally. Then restart from step 1.
 refer this:"https://docs.npmjs.com/getting-started/fixing-npm-permissions"
 
-sometimes it may give an error of fetch failed
+Sometimes it may give an error of fetch failed
 then type
 
 ```shell
