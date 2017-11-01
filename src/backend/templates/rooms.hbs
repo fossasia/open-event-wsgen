@@ -78,7 +78,7 @@
              <input class="fossasia-filter" type="text" placeholder="Search">
             </div>
             <div class="show-button-filter">
-              <button class="btn btn-primary" id="starred">Starred</button>
+                <button class = "btn btn-primary" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
             </div>
           </div>
       </div>
@@ -412,10 +412,14 @@
 
         $('#starred').click(function() {
           mode = !mode;
-          if(mode)
-            $(this).text("All");
-          else
-            $(this).text("Starred");
+          if(!mode) {
+            $(this).css("color", "black");
+            $('#starred').css("background-color","#eee");
+          }
+          else {
+            $(this).css("color", "white");
+            $('#starred').css("background-color","#838282");
+          }
           display();
         });
 

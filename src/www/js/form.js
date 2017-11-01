@@ -46,6 +46,7 @@ $(document).ready(function () {
 
     stream.on('end', function(data) {
       console.log('File upload has finished');
+      $('#message').show();
       socket.emit('finished', 'File upload has finished');
     });
 
@@ -118,6 +119,7 @@ $(document).ready(function () {
 
     $('#siofu_input').val('').show();
     $('#upload-info').hide();
+    $('#message').hide();
     $('#buildLog').empty();
 
     // Disable the generateProgressBar and hide the status bar as well

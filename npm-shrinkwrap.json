@@ -1884,8 +1884,7 @@
       "integrity": "sha1-KjhFVBuC1G/NLOAU8oMG6plzhIU=",
       "requires": {
         "graceful-fs": "4.1.11",
-        "minimatch": "3.0.4",
-        "when": "3.7.8"
+        "minimatch": "3.0.4"
       }
     },
     "follow-redirects": {
@@ -2966,6 +2965,11 @@
       "resolved": "https://registry.npmjs.org/indexof/-/indexof-0.0.1.tgz",
       "integrity": "sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10="
     },
+    "inflected": {
+      "version": "1.1.7",
+      "resolved": "https://registry.npmjs.org/inflected/-/inflected-1.1.7.tgz",
+      "integrity": "sha1-w5PfbihHLQ13swguw6ogkfS8lvk="
+    },
     "inflight": {
       "version": "1.0.6",
       "resolved": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz",
@@ -3252,6 +3256,15 @@
       "version": "0.5.1",
       "resolved": "https://registry.npmjs.org/json5/-/json5-0.5.1.tgz",
       "integrity": "sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE="
+    },
+    "jsonapi-serializer": {
+      "version": "3.5.5",
+      "resolved": "https://registry.npmjs.org/jsonapi-serializer/-/jsonapi-serializer-3.5.5.tgz",
+      "integrity": "sha1-vDRbvW6U8BqQ9bLUlCr7tjchIiI=",
+      "requires": {
+        "inflected": "1.1.7",
+        "lodash": "4.17.4"
+      }
     },
     "jsonfile": {
       "version": "3.0.0",
@@ -5230,14 +5243,6 @@
       "resolved": "https://registry.npmjs.org/stream-consume/-/stream-consume-0.1.0.tgz",
       "integrity": "sha1-pB6tGm1ggc63n2WwYZAbbY89HQ8="
     },
-    "string_decoder": {
-      "version": "1.0.1",
-      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.0.1.tgz",
-      "integrity": "sha1-YuIA8DmVWmgQ2N8KM//A8BNmLZg=",
-      "requires": {
-        "safe-buffer": "5.0.1"
-      }
-    },
     "string-width": {
       "version": "1.0.2",
       "resolved": "https://registry.npmjs.org/string-width/-/string-width-1.0.2.tgz",
@@ -5246,6 +5251,14 @@
         "code-point-at": "1.1.0",
         "is-fullwidth-code-point": "1.0.0",
         "strip-ansi": "3.0.1"
+      }
+    },
+    "string_decoder": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.0.1.tgz",
+      "integrity": "sha1-YuIA8DmVWmgQ2N8KM//A8BNmLZg=",
+      "requires": {
+        "safe-buffer": "5.0.1"
       }
     },
     "stringstream": {
