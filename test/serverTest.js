@@ -184,6 +184,24 @@ describe('generate', function () {
       });
       
     });
+  
+    it('should generate the Droidcon 17 event', function (done) {
+      var data = {};
+    
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/Droidcon17",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+    
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/Droidcon2017");
+        done();
+      });
+    
+    });
     
     it('should generate the PyCon 17 event', function(done) {
       var data = {};
@@ -206,8 +224,6 @@ describe('generate', function () {
     
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 9;
-      var totalFiles = 10;
       var counter = 0;
       
       function copyStatic(fileName) {
@@ -239,6 +255,7 @@ describe('generate', function () {
       copyStatic('nextcloud2017.jpg');
       copyStatic('googleIO.jpg');
       copyStatic('PyCon17.jpg');
+      copyStatic('droidcon.jpg');
       
     });
     
