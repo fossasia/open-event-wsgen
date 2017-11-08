@@ -96,19 +96,19 @@ $(document).ready(function () {
 
   });
 
-  var customMenuButton = $('.custom-menubutton').first();
+  var customMenuButton = $('.glyphicon-th').first();
+  var menuContent = $('.custom-menu-cont');
 
   customMenuButton.click(function() {
-    var menuContent = $('.custom-menu-cont')[0];
+    menuContent.toggleClass("hidden");
+  });
 
-    if (menuDisplay) {
-      $(menuContent).removeClass('shown');
-      $(menuContent).addClass('hidden');
-    } else {
-      $(menuContent).removeClass('hidden');
-      $(menuContent).addClass('shown');
+  $(document).mouseup(function(e) {
+    // if the target of the click is not the button,
+    // the container, or descendants of the container
+    if (!customMenuButton.is(e.target) && !menuContent.is(e.target) && menuContent.has(e.target).length === 0) {
+      menuContent.addClass("hidden");
     }
-    menuDisplay = !menuDisplay;
   });
 
   $('#cancelUpload').click(function(e){
