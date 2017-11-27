@@ -199,7 +199,10 @@ We use **Sendgrid** to send mails, and you need a `Sendgrid API` to make it work
 `config.SMTP_PASSWORD` | (Falls back to config file)
 
 ### Upload
-We use **AWS S3 services** for storing the zip file of the generated event. These zip files are automatically deleted after 3 days from the store. Each uploaded file has a unique download link. `node-uuid` module is used for generating the cryptic download link of the file.
+
+- We use **AWS S3 services** for storing the zip file of the generated event. These zip files are automatically deleted after 3 days from the store. 
+
+- Each uploaded file has a unique download link. `node-uuid` module is used for generating the cryptic download link of the file.
 
 | Variable | Description |
 | ----     | ----        |
