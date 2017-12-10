@@ -41,4 +41,16 @@ Note : If you are running the app behind a proxy, set the proxy option in config
 | Node.js |  | v4.0 (or above) |
 | Browser | Firefox/Chrome/Safari | 21+/11+/9+
 
-Note: Computers running on Windows OS may encounter problems when installing the Webapp Generator on local machines. As Windows does not come bundled with a C++ compiler, which is needed in NodeJS, the command prompt may throw up a error which states that `node-gyp rebuild` fails on yor system. Hence it is advised a further prerequisite (for Windows users) is to download Visual Studio Community 2015 which contains a C++ compiler (link is https://www.visualstudio.com/downloads/)
+Note: Computers running on **Windows OS** may encounter problems when installing the Webapp Generator on local machines. As Windows does not come bundled with a C++ compiler, which is needed in NodeJS, the command prompt may throw up a error which states that `node-gyp rebuild` fails on your system. Hence it is advised a further prerequisite (for Windows users) is to download Visual Studio Community 2015 which contains a C++ compiler (link is https://www.visualstudio.com/downloads/).
+
+Note: If you are using **Windows OS** and getting errors like `gyp ERR! configure error` or `gyp ERR! stack Error: Can't find Python executable "python"` then you can now install all node-gyp dependencies with these commands:
+(Run As Admin in Windows PowerShell)
+
+```shell
+npm install --global --production windows-build-tools
+```
+and then install the package
+```shell
+npm install --global node-gyp
+```
+
