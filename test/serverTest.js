@@ -350,9 +350,27 @@ describe('generate', function () {
       
     });
     
+    it('should generate the RedHat Summit 2017 event', function(done) {
+      var data = {};
+    
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/RedHatSummit17",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+    
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/RedHatSummit");
+        done();
+      });
+    
+    });
+    
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 11;
+      var totalFiles = 12;
       var counter = 0;
       
       function copyStatic(fileName) {
@@ -384,6 +402,7 @@ describe('generate', function () {
       copyStatic('nextcloud2017.jpg');
       copyStatic('googleIO.jpg');
       copyStatic('PyCon17.jpg');
+      copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
       
     });
