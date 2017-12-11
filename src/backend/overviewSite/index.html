@@ -1,34 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Open-Event-Webapp</title>
+  <title>Open Event Webapp</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-
     .navbar {
       border-radius: 0;
       margin-bottom: 0;
+      background: #fff;
+      font-weight: 400;
+      border: 1px solid rgba(34,36,38,.15);
+      box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+      border-radius: 0;
+      font-family: Lato,'Helvetica Neue',sans-serif;
     }
-
+    .navbar li:hover {
+      background: whitesmoke;
+    }
+    .navbar .navbar-nav li {
+      border-left: .1px solid lightgray;
+    }
+    .navbar .navbar-nav li:nth-child(4) {
+      border-right: .1px solid lightgray;
+    }
+    .navbar .navbar-right li {
+      border: none;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .navbar li a,
+    .navbar-brand,
+    .navbar li a:hover {
+      color: rgba(0,0,0,.87) !important;
+    }
+    .navbar .navbar-right li a {
+      color: #2185d0 !important;
+    }
+    .navbar-header button {
+      background-color: #333;
+    }
+    .banner {
+      background: url('fasmall.jpg');
+      height: 500px;
+    }
+    .banner .tint {
+      height: inherit;
+      width: inherit;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .banner .container {
+      margin-top: -350px;
+      color: white;
+    }
+    .banner .container h1 {
+      font-size: 50px;
+      text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      font-weight: 300;
+      font-family: Lato,'Helvetica Neue',sans-serif;
+    }
+    .banner .container p {
+      font-size: 24px;
+    }
+    .bg-3 h2 {
+      font-size: 26px;
+      margin-left: 15px;
+      color: #2185d0;
+    }
     footer {
       padding: 20px;
-      background-color: #f2f2f2;
+      background: #1b1c1d;
+      color: rgba(255,255,255,.9);;
     }
-
+    footer p {
+      margin: 0px;
+    }
     img {
       height: 160px;
       width: 310px;
       max-width: 100%;
     }
-
     .margin {
       margin-bottom: 25px;
     }
-
   </style>
 </head>
 <body>
@@ -41,11 +101,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Apps</a>
+      <a class="navbar-brand" href="#">Eventyay</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="https://eventyay.com">Eventyay</a></li>
         <li><a href="https://webgen.eventyay.com">Web App Generator</a></li>
         <li><a href="https://droidgen.eventyay.com">Android App Generator</a></li>
         <li><a href="https://github.com/fossasia/open-event-orga-app/raw/apk/test-app-debug.apk">Organizer App</a></li>
@@ -58,7 +117,8 @@
   </div>
 </nav>
 
-<div class="jumbotron">
+<div class="banner">
+  <div class="tint"></div>
   <div class="container text-center">
     <h1>Open Event Web Apps</h1>
     <p>The <a href="https://webgen.eventyay.com"> Open Event Web App Generator </a>uses the <a href="https://github.com/fossasia/open-event"> Open Event format </a> to generate static websites of events. Feast your eyes on our beautiful example events.</p>
@@ -112,29 +172,64 @@
             <img src="./googleIO.jpg" class=""  alt="Image">
           </a>
         </div>
+        <div class="col-md-6 col-sm-3 col-xs-12 margin">
+          <p><strong>RedHat Summit 2017</strong></p>
+          <a href='./RedHatSummit/index.html' target='_blank'>
+            <img src="./redhat.jpg" class=""  alt="Image">
+          </a>
+        </div>  
+        <div class="col-md-6 col-sm-3 col-xs-12 margin">            
+          <p><strong>Droidcon 2017</strong></p>
+          <a href='./Droidcon2017/index.html' target='_blank'>
+            <img src="./droidcon.jpg" class=""  alt="Image">
+          </a>
+        </div>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="row">
-        <h2 class="margin"> Apps with single sessions page </h2>
-        <div class="col-md-6 col-sm-6 col-xs-12 margin">
-          <p><strong>Mozilla All Hands 2017</strong></p>
-          <a href='./MozillaAllHands2017/index.html' target='_blank'>
-            <img src="./mozilla_banner.jpg" class=""  alt="Image">
-          </a>
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 margin">
-          <p><strong>PyCon 2017</strong></p>
-          <a href='./PyCon2017/index.html' target='_blank'>
-            <img src="./PyCon17.jpg" class=""  alt="Image">
-          </a>
-        </div>
-      </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin">
+      <p><strong>FOSSASIA 2016</strong></p>
+      <a href='./FOSSASIA2016/index.html' target='_blank'>
+        <img src="./fa16small.jpg" class=""  alt="Image">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin">
+      <p><strong>Nextcloud Conference 2017</strong></p>
+      <a href='./NextcloudConference2017/index.html' target='_blank'>
+        <img src="./nextcloud2017.jpg" class=""  alt="Image">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-3 col-xs-12 margin">
+      <p><strong>GoogleIO 2017</strong></p>
+      <a href='./GoogleIO2017/index.html' target='_blank'>
+        <img src="./googleIO.jpg" class=""  alt="Image">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-3 col-xs-12 margin">
+      <p><strong>Droidcon 2017</strong></p>
+      <a href='./Droidcon2017/index.html' target='_blank'>
+        <img src="./droidcon.jpg" class=""  alt="Image">
+      </a>
     </div>
   </div>
 </div>
-<br>
 
+<div class="container bg-3">
+  <div class="row">
+    <h2 class="margin">Apps with single sessions page</h2>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin">
+      <p><strong>Mozilla All Hands 2017</strong></p>
+      <a href='./MozillaAllHands2017/index.html' target='_blank'>
+        <img src="./mozilla_banner.jpg" class=""  alt="Image">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin">
+      <p><strong>PyCon 2017</strong></p>
+      <a href='./PyCon2017/index.html' target='_blank'>
+        <img src="./PyCon17.jpg" class=""  alt="Image">
+      </a>
+    </div>
+  </div>
+</div>
 
 <footer class="container-fluid text-center">
   <p>All the web apps were generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.</p>
@@ -142,4 +237,3 @@
 
 </body>
 </html>
-
