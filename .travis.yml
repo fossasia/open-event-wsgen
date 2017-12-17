@@ -24,7 +24,7 @@ install:
 script:
   - istanbul cover _mocha
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - travis_wait 20 bash <(curl -s https://codecov.io/bash)
   - bash gh_deploy.sh
   - bash kubernetes/travis/deploy.sh
 deploy:
