@@ -362,7 +362,7 @@ describe('generate', function () {
       };
     
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/RedHatSummit");
+        assert.equal(appFolder, "a@a.com/RedHatSummit2017");
         done();
       });
     
