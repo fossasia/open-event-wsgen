@@ -359,12 +359,27 @@ module.exports = {
     }
   },
 
+  copyManifestFile: function(appFolder,eventName, done) {
+    const appPath = distPath + '/' + appFolder;
+    var filePath = __dirname + '/assets/dependencies/manifest.json';
+
+    try {
+      var fileData = fs.readFileSync(filePath).toString().split('\n');
+      fileData.unshift("{\n\"short_name\":\"" + eventName+"\",");
+      fs.writeFileSync(appPath + '/manifest.json', fileData.join('\n'));
+      return done(null);
+    } catch(err) {
+      return done(err);
+    }
+  },
+
   removeDependency: function(appFolder, socket, done) {
     const appPath = distPath + '/' + appFolder;
     const cssPath = appPath + '/css';
     const jsPath = appPath + '/js';
     const imagesPath = appPath + '/images';
     const dependencyPath = appPath + '/dependencies';
+
     logger.addLog('Info', 'Reading the contents of the dependenices directory', socket);
     fs.readdir(dependencyPath, function(err, list){
       if(err) {
@@ -401,6 +416,9 @@ module.exports = {
             fs.copy(filePath, jsPath + '/' + file, check);
             break;
           case '.html':
+            fs.copy(filePath, appPath + '/' + file, check);
+            break;
+          case '.json':
             fs.copy(filePath, appPath + '/' + file, check);
             break;
         }
