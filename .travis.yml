@@ -19,7 +19,7 @@ addons:
   code_climate:
     repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
 install:
-  - npm install -g istanbul mocha
+  - npm install -g istanbul mocha@3
   - npm install
 script:
   - istanbul cover _mocha
