@@ -223,13 +223,13 @@
                 -->
          <label>Choose Session Style</label>
         <ul style="list-style-type:none">
-          <li><input name="session" required="" type="radio" value="single"> Single</li>
-          <li><input name="session" type="radio" value="expand"> Expandable</li>
+          <li><label for = "single" ><input name="session" required="" type="radio" value="single" id="single"> Single</label></li>
+          <li><label for = "expand" ><input name="session" type="radio" value="expand" id="expand"> Expandable</label></li>
         </ul><label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li><input name="datasource" type="radio" value="jsonupload"> Upload your own JSON files</li>
-          <li><input name="datasource" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
+          <li><label for="upload"><input name="datasource" type="radio" value="jsonupload" id="upload"> Upload your own JSON files</label></li>
+          <li><label for="eventapi"><input name="datasource" type="radio" value="eventapi" id="eventapi"> API endpoint of event on OpenEvent</label></li>
         </ul>
         <section id="eventapi-input" style="display:none;">
           <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
