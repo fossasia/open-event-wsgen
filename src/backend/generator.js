@@ -535,6 +535,15 @@ exports.createDistDir = function(req, socket, callback) {
         done(null, 'write');
       });
 
+      process.on('uncaughtException',function(err){
+        if(err.code === 'ETIMEDOUT'){
+          console.log('Failed to connect to address '+err.address);
+          logger.addLog('Error','Failed to connect to address '+err.address,socket);
+        }
+        else{
+          console.log(err);
+        }
+      });
     }
   ]);
 };
@@ -553,3 +562,5 @@ exports.pipeZipToRes = function(email, appName, res) {
 
   zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
+
+
