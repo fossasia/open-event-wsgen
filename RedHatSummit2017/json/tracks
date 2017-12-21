@@ -1,0 +1,999 @@
+[{
+      "id": 1,
+      "name": "Birds of a feather",
+      "color": "#BF532E",
+      "sessions": [{
+            "id": 3,
+            "title": "Fedora Friends"
+         },
+         {
+            "id": 4,
+            "title": "Supporting IoT hardware in the community"
+         },
+         {
+            "id": 5,
+            "title": "Red Hat Satellite - BoF"
+         },
+         {
+            "id": 6,
+            "title": "Preview BPM Suite 7 And meet the brains behind it"
+         },
+         {
+            "id": 7,
+            "title": "Taking OpenStack to the next level with highly available instances"
+         },
+         {
+            "id": 8,
+            "title": "Creating a more open, collaborative, and inclusive culture at work"
+         },
+         {
+            "id": 9,
+            "title": "How to survive the Internet of Things: Security"
+         },
+         {
+            "id": 10,
+            "title": "Perfect Security: A dangerous myth? System security for open source"
+         },
+         {
+            "id": 11,
+            "title": "DirtyCow: A game changer?"
+         },
+         {
+            "id": 12,
+            "title": "An open discussion around Red Hat's OpenShift.io for software development"
+         },
+         {
+            "id": 13,
+            "title": "Containers and the enterprise2014how do we accelerate adoption"
+         },
+         {
+            "id": 14,
+            "title": "Distributed CI: A collaborative continuous integration platfor"
+         },
+         {
+            "id": 15,
+            "title": "Red Hat JBoss A-MQ performance and scalability"
+         },
+         {
+            "id": 16,
+            "title": "Writers Write! The Documentation BOF"
+         },
+         {
+            "id": 17,
+            "title": "Atomic BOF"
+         },
+         {
+            "id": 18,
+            "title": "High-performance computing in hybrid clouds"
+         },
+         {
+            "id": 19,
+            "title": "The age of uncertainty: how can we make security better"
+         },
+         {
+            "id": 20,
+            "title": "Women in IT"
+         },
+         {
+            "id": 21,
+            "title": "Telecommunications birds-of-a-feather gathering"
+         },
+         {
+            "id": 22,
+            "title": "Ansible BoF"
+         },
+         {
+            "id": 23,
+            "title": "Advanced Drools"
+         },
+         {
+            "id": 24,
+            "title": "Explore new AI frontiers with machine learning technologies"
+         },
+         {
+            "id": 25,
+            "title": "On the path to persistent memory"
+         },
+         {
+            "id": 26,
+            "title": "Agile software development--the Red Hat way"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 2,
+      "name": "Evening event",
+      "color": "#FF3046",
+      "sessions": [{
+            "id": 1,
+            "title": "IoT CodeStarter, sponsored by Eurotech and Eclipse Foundation"
+         },
+         {
+            "id": 2,
+            "title": "Red Hat 3scale API Masters contest"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 3,
+      "name": "Consulting discovery session",
+      "color": "#E8782C",
+      "sessions": [{
+            "id": 27,
+            "title": "Self-healing networks using Ansible"
+         },
+         {
+            "id": 28,
+            "title": "A design approach to bridge DevOps and Business Automation"
+         },
+         {
+            "id": 29,
+            "title": "Defining operational roles with containers and DevOps"
+         },
+         {
+            "id": 30,
+            "title": "Container-driven continuous delivery"
+         },
+         {
+            "id": 31,
+            "title": "A holistic approach to advanced cloud migration"
+         },
+         {
+            "id": 32,
+            "title": "Building mobile workforce-management solutions"
+         },
+         {
+            "id": 33,
+            "title": "Best practices for successfully deploying NFV (Network Functions Virtualization"
+         },
+         {
+            "id": 34,
+            "title": "Accelerate application development with Event Storming and Open Innovation Labs"
+         },
+         {
+            "id": 35,
+            "title": "Enable agility with infrastructure-as-code"
+         },
+         {
+            "id": 36,
+            "title": "Converting a Tibco BusinessWorks application to Apache Camel"
+         },
+         {
+            "id": 37,
+            "title": "Modernizing storage infrastructure with open scale-out storage"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 4,
+      "name": "Instructor-led lab",
+      "color": "#9EFF56",
+      "sessions": [{
+            "id": 38,
+            "title": "Practical SELinux: Writing custom application policy"
+         },
+         {
+            "id": 39,
+            "title": "OpenShift for operators"
+         },
+         {
+            "id": 40,
+            "title": "OpenShift for operators (replay)"
+         },
+         {
+            "id": 41,
+            "title": "Hands on HACEP: Highly available and horizontally scalable complex event processing"
+         },
+         {
+            "id": 42,
+            "title": "From source to RPM in 120 minutes"
+         },
+         {
+            "id": 43,
+            "title": "From source to RPM in 120 minutes (replay #1)"
+         },
+         {
+            "id": 44,
+            "title": "From source to RPM in 120 minutes (replay #2)"
+         },
+         {
+            "id": 45,
+            "title": "Continuous delivery with containers"
+         },
+         {
+            "id": 46,
+            "title": "How to build a containerized IoT solution on OpenShift"
+         },
+         {
+            "id": 47,
+            "title": "Building an edge-to-cloud IoT solution with commercial-grade OSS"
+         },
+         {
+            "id": 48,
+            "title": "Hands on with Red Hat Satellite 6.3"
+         },
+         {
+            "id": 49,
+            "title": "Hands on with Red Hat Satellite 6.3 (replay #1)"
+         },
+         {
+            "id": 50,
+            "title": "Hands on with Red Hat Satellite 6.3 (replay #2)"
+         },
+         {
+            "id": 51,
+            "title": "Practical OpenSCAP2014security standard compliance and reporting"
+         },
+         {
+            "id": 52,
+            "title": "Hands on with Red Hat OpenStack Platform director"
+         },
+         {
+            "id": 53,
+            "title": "Containerizing applications2014existing and new"
+         },
+         {
+            "id": 54,
+            "title": "Containerizing applications-existing and new (replay)"
+         },
+         {
+            "id": 55,
+            "title": "Getting started with Ansible (replay)"
+         },
+         {
+            "id": 56,
+            "title": "Linux container internals"
+         },
+         {
+            "id": 57,
+            "title": "Deploy Ceph Rados Gateway as a replacement for OpenStack Swift"
+         },
+         {
+            "id": 58,
+            "title": "Up and running with Red Hat identity management"
+         },
+         {
+            "id": 59,
+            "title": "Apps 1012014building mobile apps and microservices"
+         },
+         {
+            "id": 60,
+            "title": "Learn hands-on how to modernize legacy applications"
+         },
+         {
+            "id": 61,
+            "title": "Hands on with the pros and the latest Red Hat Enterprise Linux capabilities"
+         },
+         {
+            "id": 62,
+            "title": "Hands on with the pros and the latest Red Hat Enterprise Linux capabilities (replay #1)"
+         },
+         {
+            "id": 63,
+            "title": "Hands on with the pros and the latest Red Hat Enterprise Linux capabilities (replay #2)"
+         },
+         {
+            "id": 64,
+            "title": "Hands-on introduction to Red Hat CloudForms"
+         },
+         {
+            "id": 65,
+            "title": "Managing the life cycle of your OpenShift cluster from installation and beyond"
+         },
+         {
+            "id": 66,
+            "title": "Exposing data as services in a microservices architecture on OpenShift"
+         },
+         {
+            "id": 67,
+            "title": "Hands on for the first time with Red Hat OpenStack Platform"
+         },
+         {
+            "id": 68,
+            "title": "The Ceph power show: Hands on with Ceph"
+         },
+         {
+            "id": 69,
+            "title": "Cirque du application development2014containers, Kubernetes, and OpenShift"
+         },
+         {
+            "id": 70,
+            "title": "Automate Red Hat Virtualization infrastructure using Ansible"
+         },
+         {
+            "id": 71,
+            "title": "Advanced Ansible Tower by Red Hat"
+         },
+         {
+            "id": 72,
+            "title": "Insightful applications from scratch with Apache Spark on OpenShift"
+         },
+         {
+            "id": 73,
+            "title": "Proactive security compliance automation with CloudForms, Satellite, OpenSCAP, Insights, and Ansible Tower"
+         },
+         {
+            "id": 74,
+            "title": "Taste of Red Hat Training: Developing containerized application images"
+         },
+         {
+            "id": 75,
+            "title": "Taste of Red Hat Training: Getting started with Ansible playbooks"
+         },
+         {
+            "id": 76,
+            "title": "Taste of Red Hat Training: Red Hat Enterprise Linux network and firewall management"
+         },
+         {
+            "id": 77,
+            "title": "Creating and using source-to-image builders for OpenShift"
+         },
+         {
+            "id": 78,
+            "title": "A practical introduction to container security"
+         },
+         {
+            "id": 79,
+            "title": "A practical introduction to container security (replay)"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#OOOOOO"
+   },
+   {
+      "id": 5,
+      "name": "Lightning talk",
+      "color": "#B21212",
+      "sessions": [{
+            "id": 80,
+            "title": "Infrastructure security lightning talks"
+         },
+         {
+            "id": 81,
+            "title": "Teamwork and innovation lightning talks"
+         },
+         {
+            "id": 82,
+            "title": "Diversity and community lightning talks"
+         },
+         {
+            "id": 83,
+            "title": "Technological pivot points lightning talks"
+         },
+         {
+            "id": 84,
+            "title": "Integration lightning talks"
+         },
+         {
+            "id": 85,
+            "title": "Red Hat Satellite lightning talks"
+         },
+         {
+            "id": 86,
+            "title": "Modern Java and DevOps lightning talks"
+         },
+         {
+            "id": 87,
+            "title": "OpenStack lightning talks"
+         },
+         {
+            "id": 88,
+            "title": "Mobile lightning talks"
+         },
+         {
+            "id": 89,
+            "title": "Observability and automation lightning talks"
+         },
+         {
+            "id": 90,
+            "title": "Storage lightning talks"
+         },
+         {
+            "id": 91,
+            "title": "Containers lightning talks"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 6,
+      "name": "Panel",
+      "color": "#E6E6FA",
+      "sessions": [{
+            "id": 92,
+            "title": "Red Hat Cloud Suite roadmap"
+         },
+         {
+            "id": 93,
+            "title": "The Fury and the Sound: A mock disaster security vulnerability fable"
+         },
+         {
+            "id": 94,
+            "title": "How businesses are succeeding with OpenStack: A look at real-world OpenStack use cases"
+         },
+         {
+            "id": 95,
+            "title": "Why education needs the open source community"
+         },
+         {
+            "id": 96,
+            "title": "Open culture: A driving force for IT transformation"
+         },
+         {
+            "id": 97,
+            "title": "Changing the game: Learn how you can build diversity and personal success in tech"
+         },
+         {
+            "id": 98,
+            "title": "Digital transformation in utilities"
+         },
+         {
+            "id": 99,
+            "title": "Real-world perspectives: Red Hat Cloud Infrastructure"
+         },
+         {
+            "id": 100,
+            "title": "Business Rules in Healthcare: Good advice from the real world"
+         },
+         {
+            "id": 101,
+            "title": "Healthcare 2020 : How open source and disruptive tech are transforming the future of patient care"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 7,
+      "name": "Partner Theater Session",
+      "color": "#00868B",
+      "sessions": [{
+            "id": 102,
+            "title": "Codenvy: Cloud development with Eclipse Che and OpenShift"
+         },
+         {
+            "id": 103,
+            "title": "Dynatrace: Monitoring OpenStack? Piece of cake!"
+         },
+         {
+            "id": 104,
+            "title": "F5 Networks: Automate, secure, and scale with F5 & Red Hat"
+         },
+         {
+            "id": 105,
+            "title": "Juniper Networks: Multi-cloud networking and policy management with OpenContrail"
+         }, {
+            "id": 106,
+            "title": "Mellanox Technologies: Scalable and secure networking for NFV, machine learning, and big data"
+         },
+         {
+            "id": 107,
+            "title": "NetApp and Red Hat: Why storage isn't an obstacle for the next-generation datacenter"
+         },
+         {
+            "id": 108,
+            "title": "NuoDB: Database considerations for the hybrid cloud"
+         },
+         {
+            "id": 109,
+            "title": "Oracle: Maintain compliance and security and facilitate support for your Linux environment"
+         },
+         {
+            "id": 110,
+            "title": "Tintri: Managing data at DevOps speed"
+         },
+         {
+            "id": 111,
+            "title": "Veritas: Powering Red Hat-based enterprises with Veritas Storage"
+         },
+         {
+            "id": 112,
+            "title": "Wipro Limited: What does it mean to be an open source first company?"
+         },
+         {
+            "id": 113,
+            "title": "Women from Red Hat's partner ecosystem"
+         },
+         {
+            "id": 114,
+            "title": "Open source innovation for IoT"
+         },
+         {
+            "id": 116,
+            "title": "Cloudbees: The state of Jenkins and DevOps maturity"
+         },
+         {
+            "id": 117,
+            "title": "Partnering with Red Hat: Unplugged"
+         },
+         {
+            "id": 118,
+            "title": "Centrify: Achieving identity assurance: Access to Red Hat Enterprise Linux on IaaS platforms"
+         },
+         {
+            "id": 119,
+            "title": "CollabNet: Value streams for the enterprise"
+         },
+         {
+            "id": 120,
+            "title": "VMware: You may be surprised by what we've been working on"
+         },
+         {
+            "id": 115,
+            "title": "ARM-based datacenters: Myth or reality?"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   },
+   {
+      "id": 8,
+      "name": "Breakout session",
+      "color": "#3CB371",
+      "sessions": [{
+            "id": 121,
+            "title": "NVMe over Fabrics: High-performance SSDs networked over ethernet"
+         },
+         {
+            "id": 122,
+            "title": "High availability for Red Hat Virtualization Manager"
+         },
+         {
+            "id": 123,
+            "title": "Ansible2014all the things"
+         },
+         {
+            "id": 124,
+            "title": "Deploying Couchbase in Red Hat OpenShift with Kubernetes StatefulSets at Amadeus"
+         },
+         {
+            "id": 125,
+            "title": "Discover the foundations of digital transformation"
+         },
+         {
+            "id": 126,
+            "title": "Red Hat Unified Infrastructure - software defined remote office ops"
+         },
+         {
+            "id": 127,
+            "title": "Red Hat iPaaS2014integration made easy"
+         },
+         {
+            "id": 128,
+            "title": "From monolith to containers: How Verizon containerized legacy applications on OpenShift"
+         },
+         {
+            "id": 129,
+            "title": "Hybrid automation at Rabobank"
+         },
+         {
+            "id": 130,
+            "title": "Taking out the trash: The G1 Garbage Collector overview for everyone"
+         },
+         {
+            "id": 131,
+            "title": "The hardest part of microservices is your data"
+         },
+         {
+            "id": 132,
+            "title": "Demystifying the Costs of Enterprise Mobility"
+         },
+         {
+            "id": 133,
+            "title": "Choosing the right storage for your OpenStack cloud"
+         },
+         {
+            "id": 134,
+            "title": "DevSecOps the open source way"
+         },
+         {
+            "id": 135,
+            "title": "Red Hat Enterprise Linux roadmap"
+         },
+         {
+            "id": 136,
+            "title": "Red Hat security roadmap"
+         },
+         {
+            "id": 137,
+            "title": "Technical transformation in higher ed @ UNC Chapel Hill"
+         },
+         {
+            "id": 138,
+            "title": "Red Hat Ceph Storage Roadmap: Past, Present and Future"
+         },
+         {
+            "id": 139,
+            "title": "Love containers. Love DevOps. Love OpenShift. Need business case."
+         },
+         {
+            "id": 140,
+            "title": "Button push deployments with integrated Red Hat Management"
+         },
+         {
+            "id": 141,
+            "title": "Unleash innovation with Red Hat cloud management and modern app development"
+         },
+         {
+            "id": 142,
+            "title": "The future Red Hat Middleware portfolio: Stacks and services and solutions"
+         },
+         {
+            "id": 143,
+            "title": "Mastering Red Hat Enterprise Linux 7"
+         },
+         {
+            "id": 144,
+            "title": "Wicked fast PaaS: Performance tuning of OpenShift and Docker"
+         },
+         {
+            "id": 145,
+            "title": "Federal Agency Pursues Business Logic at the Speed of Big Data"
+         },
+         {
+            "id": 146,
+            "title": "Deploying OpenShift at scale in a regulated industry"
+         },
+         {
+            "id": 147,
+            "title": "OpenShift Roadmap: What's New & What's Next!"
+         },
+         {
+            "id": 148,
+            "title": "Customize and secure your enterprise mobile Salesforce integrations like Red Hat"
+         },
+         {
+            "id": 149,
+            "title": "Mobilizing and securing Red Hat JBoss BPM Suite and BRMS"
+         },
+         {
+            "id": 150,
+            "title": "Transparent, participative, inclusive: The open decision framework"
+         },
+         {
+            "id": 151,
+            "title": "Tuning Red Hat products for databases"
+         },
+         {
+            "id": 152,
+            "title": "How to craft a successful API strategy"
+         },
+         {
+            "id": 153,
+            "title": "Red Hat Gluster Storage roadmap: Past, present, & future"
+         },
+         {
+            "id": 154,
+            "title": "Shifting up: How BMW speeds up application delivery using a cloud-native application platform"
+         },
+         {
+            "id": 155,
+            "title": "The security of cryptography"
+         },
+         {
+            "id": 156,
+            "title": "Red Hat JBoss BPM Suite Primer: Capabilities, Vision and Roadmap"
+         },
+         {
+            "id": 157,
+            "title": "Red Hat OpenShift Dedicated + Google Cloud Platform: The leading enterprise container platform on the container-optimized cloud"
+         },
+         {
+            "id": 158,
+            "title": "Neurodiversity in the workforce"
+         },
+         {
+            "id": 159,
+            "title": "Reactive systems with Eclipse Vert.x and Red Hat OpenShift"
+         },
+         {
+            "id": 160,
+            "title": "An OpenShift DevOps platform in a highly regulated environment"
+         },
+         {
+            "id": 161,
+            "title": "Modernizing application deployments with OpenShift Container Platform"
+         },
+         {
+            "id": 162,
+            "title": "Latest and Greatest Red Hat Mobile Application Platform features"
+         },
+         {
+            "id": 163,
+            "title": "Performance analysis and tuning of Red Hat Enterprise Linux"
+         },
+         {
+            "id": 164,
+            "title": "OpenStack and Ceph at scale"
+         },
+         {
+            "id": 165,
+            "title": "Security practices in Red Hat OpenShift Container Platform at Amadeus"
+         },
+         {
+            "id": 166,
+            "title": "Introduction to SQL Server on RHEL and Open Shif"
+         },
+         {
+            "id": 167,
+            "title": "Using BPM Suite in a reactive architecture with microservices deployed in Docker containers and managed in Amazon ECS (EC2 Container Service)"
+         },
+         {
+            "id": 168,
+            "title": "Deploying Red Hat JBoss Fuse in healthcare2014notes from the field"
+         },
+         {
+            "id": 169,
+            "title": "Automating security compliance for physical, virtual, cloud, and container environments with Red Hat CloudForms, Red Hat Satellite, and Ansible Tower by Red Hat"
+         }, {
+            "id": 170,
+            "title": "Container-native storage for modern applications with OpenShift and Red Hat Gluster Storage"
+         },
+         {
+            "id": 171,
+            "title": "Thyssenkrupp: Workforce Optimization With Business Resource Planner and OpenShift"
+         },
+         {
+            "id": 172,
+            "title": "Show me the money! Optimize your business with JBoss BRMS Business Resource Planner"
+         },
+         {
+            "id": 173,
+            "title": "Run .NET and SQL Server natively on Linux with OpenShift"
+         },
+         {
+            "id": 174,
+            "title": "Private or public cloud: How you can have your cake and eat it too with Red Hat"
+         },
+         {
+            "id": 175,
+            "title": "The integrated clouds"
+         },
+         {
+            "id": 176,
+            "title": "Getting more from open source2014process and culture"
+         },
+         {
+            "id": 177,
+            "title": "Deterministic storage performance: 'The AWS way'  for capacity-based QoS with OpenStack and Ceph"
+         },
+         {
+            "id": 178,
+            "title": "The app is written2014I wonder what the users will think"
+         },
+         {
+            "id": 179,
+            "title": "Ten layers of container security"
+         },
+         {
+            "id": 180,
+            "title": "Demystifying systemd"
+         },
+         {
+            "id": 181,
+            "title": "Migrating TD Bank's monolithic Java EE application to a microservices architecture"
+         },
+         {
+            "id": 182,
+            "title": "Dive into RedHat OpenShift Container Platform on Microsoft Azure"
+         },
+         {
+            "id": 183,
+            "title": "A walk-through of Red Hat OpenShift Container Platform"
+         },
+         {
+            "id": 184,
+            "title": "Building secure IoT solutions with Red Hat Mobile Application Platform, Red Hat 3Scale API Management Platform, Red Hat JBoss Fuse and BRMS, and Red Hat Enterprise Linux"
+         },
+         {
+            "id": 185,
+            "title": "Automating, securing, and managing Cox Automotive's (Autotrader) big data infrastructure"
+         },
+         {
+            "id": 186,
+            "title": "The art of blameless retrospectives"
+         },
+         {
+            "id": 187,
+            "title": "Mastering deployments with Kubernetes & OpenShift: From basic to zero downtime, blue/green, A/B, and canary"
+         },
+         {
+            "id": 188,
+            "title": "12 factors to cloud success"
+         },
+         {
+            "id": 189,
+            "title": "Are you being served? Containers, microservices and the cloud-native telco"
+         },
+         {
+            "id": 190,
+            "title": "Red Hat OpenStack Platform2014leading OpenStack to success"
+         },
+         {
+            "id": 191,
+            "title": "Stepping off a cliff: Common sense approaches to cloud securit"
+         },
+         {
+            "id": 192,
+            "title": "The roadmap for a security-enhanced Red Hat OpenStack Platform"
+         },
+         {
+            "id": 193,
+            "title": "GPUs: Using HMM to blur the lines between CPU and GPU programming"
+         },
+         {
+            "id": 194,
+            "title": "t2019s all about the process: How Red Hat IT is using JBoss BPM Suite"
+         },
+         {
+            "id": 195,
+            "title": "The future of datacenters as seen from Red Hat's office of technology"
+         },
+         {
+            "id": 196,
+            "title": "Securing your container supply chain"
+         },
+         {
+            "id": 197,
+            "title": "An introduction to OpenShift.io, an end-to-end OpenShift development platform in the cloud"
+         },
+         {
+            "id": 198,
+            "title": "The Power of Cloud Workspaces in OpenShift.io"
+         },
+         {
+            "id": 199,
+            "title": "Increasing Developer Confidence and Reducing Development Risk with OpenShift.io Analytics"
+         },
+         {
+            "id": 200,
+            "title": "An overview and roadmap of Red Hat Development Suite"
+         },
+         {
+            "id": 201,
+            "title": "Achieving deployment excellence with OpenShift.io"
+         },
+         {
+            "id": 202,
+            "title": "An introduction to OpenShift.io, an end-to-end OpenShift development platform in the cloud (replay)"
+         },
+         {
+            "id": 203,
+            "title": "Find, fix, deploy and secure faster: Automate security with Ansible by Red Hat, Red Hat Insights, Red Hat Satellite, and proactive support"
+         },
+         {
+            "id": 204,
+            "title": "Schiphol Airport: Sharing the experience of running a multicloud OpenShift integration CPaaS with API management in production"
+         },
+         {
+            "id": 205,
+            "title": "What do home devices, your business processes, and chatbots have in common? Revenue!"
+         },
+         {
+            "id": 206,
+            "title": "Integration in a microservices architecture on OpenShift with Red Hat JBoss Fuse"
+         },
+         {
+            "id": 207,
+            "title": "Red Hat Storage Console 3: Unified Management of Ceph and Gluster storage"
+         },
+         {
+            "id": 208,
+            "title": "Identity and access management: Choosing the right tool for the right job"
+         },
+         {
+            "id": 209,
+            "title": "Red Hat JBoss A-MQ and Apache Kafka2014which to use?"
+         },
+         {
+            "id": 210,
+            "title": "How do you use a Linux distribution like Fedora/Red Hat Enterprise Linux to redefine IoT platforms?"
+         },
+         {
+            "id": 211,
+            "title": "Mobile API Management and Integration - A Reference Architecture and Demo"
+         },
+         {
+            "id": 212,
+            "title": "Ceph as Monash University's research data engine"
+         },
+         {
+            "id": 213,
+            "title": "Using real-time data to enable real-time analytics"
+         },
+         {
+            "id": 214,
+            "title": "Installing Red Hat OpenShift on Red Hat OpenStack Platform with Ansible by Red Hat"
+         },
+         {
+            "id": 215,
+            "title": "The Truth about Microservices"
+         },
+         {
+            "id": 216,
+            "title": "Case management applications with BPM"
+         },
+         {
+            "id": 217,
+            "title": "MicroProfile: Optimizing Java EE for a microservices architecture"
+         },
+         {
+            "id": 218,
+            "title": "Developing cloud-ready Camel microservices"
+         },
+         {
+            "id": 219,
+            "title": "Decision Modelling and Notation (DMN) 101"
+         },
+         {
+            "id": 220,
+            "title": "End to End BPM:  From process modeling to execution with Signavio and Red Hat"
+         },
+         {
+            "id": 221,
+            "title": "TDecisions at a fast pace: scaling to multi-million transactions/second at Amadeus"
+         },
+         {
+            "id": 222,
+            "title": "Changing the way we do IT at Best Buy: Using Ansible by Red Hat for automation"
+         },
+         {
+            "id": 223,
+            "title": "Architecting and performance-tuning efficient Gluster storage pools"
+         },
+         {
+            "id": 224,
+            "title": "Allianz: How we deployed 1,000 applications in a single Red Hat JBoss EAP domain"
+         },
+         {
+            "id": 225,
+            "title": "Building a fast and scalable architecture for SKY TV Video Encoding with Openshift Container Platform and Red Hat Gluster Storage"
+         },
+         {
+            "id": 226,
+            "title": "Red Hat Satellite 6 roadmap and demonstration"
+         },
+         {
+            "id": 227,
+            "title": "Community By The Numbers"
+         },
+         {
+            "id": 228,
+            "title": "From legacy to microservices: Lessons learned on the road to success by Miles & More"
+         },
+         {
+            "id": 229,
+            "title": "Hyper-converged OpenStack and Ceph"
+         },
+         {
+            "id": 230,
+            "title": "On the path to building an event-monitoring data pipeline for storage microservices"
+         },
+         {
+            "id": 231,
+            "title": "An open platform to support digital transformation"
+         },
+         {
+            "id": 232,
+            "title": "Deep dive on case management"
+         },
+         {
+            "id": 233,
+            "title": "Easily secure your front- and back-end applications with KeyCloak"
+         },
+         {
+            "id": 234,
+            "title": "Reproducible development to live applications with Java and Red Hat CDK"
+         }
+      ],
+      "track-image-url": "",
+      "font-color": "#FFFFFF"
+   }
+]

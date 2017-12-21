@@ -1,0 +1,166 @@
+[
+  {
+    "id": 1,
+    "name": "General",
+    "color": "#BF532E",
+    "sessions": [
+      {
+        "id": 20,
+        "title": "Practical RxJava with an Air Cannon "
+      },
+      {
+        "id": 38,
+        "title": "Rapid Integration of Third Party Features and Services Into Your Android App Using Button "
+      },
+      {
+        "id": 37,
+        "title": "Toothpick: a fresh approach to Dependency Injection on Android  "
+      },
+      {
+        "id": 4,
+        "title": "Understanding Your User: Deep Dive into Firebase Analytics  "
+      },
+      {
+        "id": 5,
+        "title": "Android Auto - Drive your car, use your phone and don't hurt anybody  "
+      },
+      {
+        "id": 6,
+        "title": "Lunch"
+      },
+      {
+        "id": 7,
+        "title": "Android Studio is Wicked Pissah "
+      },
+      {
+        "id": 8,
+        "title": "Impress your user's inner child!  "
+      },
+      {
+        "id": 9,
+        "title": "Bonjour, Monde: Optimizing Localization "
+      },
+      {
+        "id": 10,
+        "title": "The Web: Don't call this a comeback "
+      },
+      {
+        "id": 11,
+        "title": "Kotlin: Uncovered "
+      },
+      {
+        "id": 12,
+        "title": "App Shortcuts in Android 7.1  "
+      },
+      {
+        "id": 13,
+        "title": "Becoming a Better Battery Citizen "
+      },
+      {
+        "id": 14,
+        "title": "Building a Multi-User Todo App with React Native, Swagger, and Couchbase Mobile "
+      },
+      {
+        "id": 36,
+        "title": "Creating mobile, sensor-aware, and VR apps with Processing for Android  "
+      },
+      {
+        "id": 16,
+        "title": "Breakkfast"
+      },
+      {
+        "id": 35,
+        "title": "Don’t be ashamed of your gradle.build files anymore "
+      },
+      {
+        "id": 19,
+        "title": "Through the looking-glass eyes of an Android  "
+      },
+      {
+        "id": 2,
+        "title": "Registration"
+      },
+      {
+        "id": 21,
+        "title": "Stability, Analytics and Deployment with Fabric and fastlane  "
+      },
+      {
+        "id": 22,
+        "title": "What's new in Firebase  "
+      },
+      {
+        "id": 23,
+        "title": "Lunch "
+      },
+      {
+        "id": 24,
+        "title": "Cool ConstraintLayout "
+      },
+      {
+        "id": 25,
+        "title": "'It’s an Inside Job' - Building Debug Feature "
+      },
+      {
+        "id": 26,
+        "title": "Moving Mountains: The Art of Changing Large Software Systems in Place "
+      },
+      {
+        "id": 27,
+        "title": "Codelab: Build it with Firebase "
+      },
+      {
+        "id": 28,
+        "title": "Just Android Things…  "
+      },
+      {
+        "id": 29,
+        "title": "Getting Clean, Keeping Lean "
+      },
+      {
+        "id": 30,
+        "title": "`Rxify`— a simple spell for complex RxJava operators  "
+      },
+      {
+        "id": 31,
+        "title": "Roasting Google APIs on a Firebase to create Uberritos  "
+      },
+      {
+        "id": 32,
+        "title": "How TripAdvisor uses Android CI with cloud testing and automated Google Play deployment "
+      },
+      {
+        "id": 33,
+        "title": "Don't reset --hard: Strategies for Tackling Large Refactors "
+      },
+      {
+        "id": 34,
+        "title": "'Real World' not 'Hello World' Android native development "
+      }
+    ],
+    "font-color": "#FFFFFF"
+  },
+  {
+    "id": 2,
+    "name": "Keynote",
+    "color": "#E8782C",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Welcome: Community Addiction"
+      },
+      {
+        "id": 3,
+        "title": "First, Do No Harm"
+      },
+      {
+        "id": 15,
+        "title": "Why Android Will Get the Next Billion People Onlinee"
+      },
+      {
+        "id": 18,
+        "title": "How to be an Android Expert "
+      }
+    ],
+    "font-color": "#FFFFFF"
+  }
+]

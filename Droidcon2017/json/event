@@ -1,0 +1,69 @@
+{
+	"id": 182,
+	"name": "Droidcon 2017",
+	"latitude": "",
+	"longitude": "",
+	"location-name": "Calderwood Pavilion, 527 Tremont St, Boston, MA 02116",
+	"starts-at": "2017-04-10T10:00:00-07:00",
+	"ends-at": "2017-04-11T10:00:00-07:00",
+	"timezone": "US/Pacific",
+	"description": "Droidcon is a global developer conference series and a network focusing on the best of Android. The idea behind Droidcon is to support the Android platform and create a strong network for developers and companies. The 2nd edition of Droidcon Boston takes place from March 26-27 2018, 2017 at Calderwood Pavillion. Droidcon Boston 2017 had over 30 speakers speaking over 2 days, as well as birds of a feather session, panel, and a party! Droidcon Boston is part of the global Droidcon community with around 20 Droidcons worldwide in 2016.",
+	"original-image-url": "/images/background.jpg",
+	"logo-url": "/images/logo.jpg",
+	"organizer-name": "Double espresso",
+	"organizer-description": "Double Espresso is a company dedicated to producing outstanding mobile apps and live events with a focus on community-building. We are tapped into the tech scene in Boston and Rome, while leading projects across diverse and distributed teams around the globe. ",
+	"external-event-url": "http://www.droidcon-boston.com/dcbos17/",
+	"social-links": [
+	{
+            "id": 1, 
+            "link": "https://www.facebook.com/droidconbos/", 
+            "name": "Facebook"
+    },
+    {
+            "id": 2, 
+            "link": "https://twitter.com/droidconbos", 
+            "name": "Twitter"
+    },
+    {
+            "id": 3, 
+            "link": "https://www.instagram.com/droidconbos/", 
+            "name": "Instagram"
+    },
+    {
+            "id": 4, 
+            "link": "https://www.linkedin.com/groups/8586436/profile", 
+            "name": "LinkedIn"
+    }
+    ],
+	"ticket-url": null,
+	"privacy": "public",
+	"type": "",
+	"topic": "Science & Technology",
+	"sub-topic": "High Tech",
+	"code-of-conduct": "",
+	"event-copyright": {
+		"logo": "",
+		"licence-url": "https://en.wikipedia.org/wiki/All_rights_reserved",
+		"holder": "Facebook",
+		"licence": "All rights reserved",
+		"holder-url": null,
+		"year": 2017
+	},
+	"speakers-call": null,
+	"email": null,
+	"is-sessions-speakers-enabled": false,
+	"identifier": "7d16c124",
+	"large-image-url": null,
+	"placeholder-url": null,
+	"scheduled-published-on": null,
+	"searchable-location-name": null,
+	"state": "Published",
+	"version": {
+		"event_ver": 0,
+		"microlocations_ver": 0,
+		"sessions_ver": 0,
+		"speakers_ver": 0,
+		"sponsors_ver": 0,
+		"tracks_ver": 0
+	}
+}

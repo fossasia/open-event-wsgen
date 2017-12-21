@@ -13655,6 +13655,11 @@
         "id": 59,
         "name": "Nora Al-Badri",
         "organisation": "Artist of \"The Other Nefertiti\""
+      },
+      {
+        "id": 9,
+        "name": "Jan Nikolai Nelles",
+        "organisation": "Artist of \"The Other Nefertiti\""
       }
     ],
     "slides-url": null,
@@ -13671,42 +13676,6 @@
     },
     "ends-at": "2016-03-20T12:00:00+08:00",
     "long-abstract": "âThe Other Nefertitiâ is an artistic intervention by Jan Nikolai Nelles and Nora Al- Badri which went viral. âWith the data leak as a part of this counter narrative within our investigative practice we want to activate the artefact, to inspire a critical re-assessment of todayâs conditions and to overcome the colonial notion of possession in Germany's museumsâ. With regard to the notion of belonging and possession of material objects of other cultures, the artists intention is to make cultural objects publicly accessible and to promote a contemporary and critical approach on how the âGlobal Northâ deals with heritage and the representation of âthe Otherâ. âWe should tell stories of entanglement and Nefertiti is a great case to start with to tell stories from very different angles and to see how they intertwine.â At this link you will find a torrent to access the dataset under a public domain: <a href=\"http://nefertitihack.alloversky.com\" rel=\"nofollow\" target=\"_blank\">http://nefertitihack.alloversky.com</a>  Here is the video showing the scanning process: <a href=\"https://vimeo.com/148156899\" rel=\"nofollow\" target=\"_blank\">https://vimeo.com/148156899</a>  âThe Other Nefertitiâ  is a conceptual art piece questioning singularity and originality as well as ownership of material objects of other cultures. Nora Al-Badri and Jan Nikolai Nelles  went to the Neues Museum and scanned the iconic bust, but of course nobody knows if even this is the original bust. Through time and restoration there might not much genuine be left of the artifact itself. We give meaning to objects as well as we give meaning to data. Why worshipping the original, while we have all that beautiful remixes as of today? Maybe it was a server hack, a copy scan, an inside job, the cleaner, a hoax, but who cares, first of all it is an art piece. Of course a scan of the same thing looks the same, doesn't it? And tomorrow everybody with cameras or smartphones or Xbox will have the means and technique, where one can reclaim the interpretational sovereignty through scanning and sharing.   What the artists strived to achieve is a vivid discussion about the notion of possession and belonging of history in our museums and our minds. A discussion on the originality and truth of data as well as material objects is necessary, because in the end one concludes, that the institutional practice of todays museums and collections all around the Western world are corrupted. Museums are telling fictional stories, their stories, just because they control the artifacts and the way of representation. The fetishization of sacred staged artifacts and the Disneyfication is producing capital value for illicit trading and looting artifacts. One can't find a reflection about violent entanglement of the museums and their inherent colonial patina themselves. But isn't representing âThe Otherâ always violent? Art is about building new narratives, deconstructing power relations, not scanning techniques... .",
-    "subtitle": null,
-    "state": "accepted",
-    "short-abstract": "Short Abstract for the event",
-    "signup-url": null,
-    "video-url": null,
-    "comments": "",
-    "audio-url": null,
-    "language": null,
-    "starts-at": "2016-03-20T11:30:00+08:00",
-    "track": {
-      "id": 14,
-      "name": "Science Hack Day"
-    }
-  },
-  {
-    "speakers": [
-      {
-        "id": 9,
-        "name": "Jan Nikolai Nelles",
-        "organisation": "Artist of \"The Other Nefertiti\""
-      }
-    ],
-    "slides-url": null,
-    "title": "#NefertitiHack and Cultural Commons \"The Other Nefertiti\"",
-    "id": 407,
-    "session-type": {
-      "id": 28,
-      "name": "Workshops and Science Hacking",
-      "length": 0.3
-    },
-    "microlocation": {
-      "id": 14,
-      "name": "Tinkering Studio"
-    },
-    "ends-at": "2016-03-20T12:00:00+08:00",
-    "long-abstract": "âThe Other Nefertitiâ is an artistic intervention by Jan Nikolai Nelles and Nora Al- Badri which went viral. âWith the data leak as a part of this counter narrative within our investigative practice we want to activate the artefact, to inspire a critical re-assessment of todayâs conditions and to overcome the colonial notion of possession in Germany's museumsâ. With regard to the notion of belonging and possession of material objects of other cultures, the artists intention is to make cultural objects publicly accessible and to promote a contemporary and critical approach on how the âGlobal Northâ deals with heritage and the representation of âthe Otherâ. âWe should tell stories of entanglement and Nefertiti is a great case to start with to tell stories from very different angles and to see how they intertwine.â   At this link you will find a torrent to access the dataset under a public domain:  <a href=\"http://nefertitihack.alloversky.com\" rel=\"nofollow\" target=\"_blank\">http://nefertitihack.alloversky.com</a>   Here is the video showing the scanning process:  <a href=\"https://vimeo.com/148156899\" rel=\"nofollow\" target=\"_blank\">https://vimeo.com/148156899</a>  âThe Other Nefertitiâ  is a conceptual art piece questioning singularity and originality as well as ownership of material objects of other cultures. Nora Al-Badri and Jan Nikolai Nelles  went to the Neues Museum and scanned the iconic bust, but of course nobody knows if even this is the original bust. Through time and restoration there might not much genuine be left of the artifact itself. We give meaning to objects as well as we give meaning to data. Why worshipping the original, while we have all that beautiful remixes as of today? Maybe it was a server hack, a copy scan, an inside job, the cleaner, a hoax, but who cares, first of all it is an art piece. Of course a scan of the same thing looks the same, doesn't it? And tomorrow everybody with cameras or smartphones or Xbox will have the means and technique, where one can reclaim the interpretational sovereignty through scanning and sharing.   What the artists strived to achieve is a vivid discussion about the notion of possession and belonging of history in our museums and our minds. A discussion on the originality and truth of data as well as material objects is necessary, because in the end one concludes, that the institutional practice of todays museums and collections all around the Western world are corrupted. Museums are telling fictional stories, their stories, just because they control the artifacts and the way of representation. The fetishization of sacred staged artifacts and the Disneyfication is producing capital value for illicit trading and looting artifacts. One can't find a reflection about violent entanglement of the museums and their inherent colonial patina themselves. But isn't representing âThe Otherâ always violent? Art is about building new narratives, deconstructing power relations, not scanning techniques... .",
     "subtitle": null,
     "state": "accepted",
     "short-abstract": "Short Abstract for the event",
@@ -14645,38 +14614,7 @@
         "id": 15,
         "name": "William Hooi",
         "organisation": "ESPert"
-      }
-    ],
-    "slides-url": null,
-    "title": "ESPresso Lite",
-    "id": 439,
-    "session-type": {
-      "id": 31,
-      "name": "Exhibition Area",
-      "length": 0.3
-    },
-    "microlocation": {
-      "id": 17,
-      "name": "Ground Floor, Scientist For a day, Hall A"
-    },
-    "ends-at": "2016-03-18T09:30:00+08:00",
-    "long-abstract": "Implementing democratised Internet-of-Things services/solutions",
-    "subtitle": null,
-    "state": "accepted",
-    "short-abstract": "Short Abstract for the event",
-    "signup-url": null,
-    "video-url": null,
-    "comments": "",
-    "audio-url": null,
-    "language": null,
-    "starts-at": "2016-03-18T09:00:00+08:00",
-    "track": {
-      "id": 17,
-      "name": "Exhibition"
-    }
-  },
-  {
-    "speakers": [
+      },
       {
         "id": 64,
         "name": "Ulrich Norbisrath",
@@ -14685,7 +14623,7 @@
     ],
     "slides-url": null,
     "title": "ESPresso Lite",
-    "id": 440,
+    "id": 439,
     "session-type": {
       "id": 31,
       "name": "Exhibition Area",

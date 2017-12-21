@@ -1,0 +1,76 @@
+{
+	"id": 181,
+	"name": "Red Hat Summit 2017",
+	"latitude": 37.329008,
+	"longitude": -121.888794,
+	"location-name": "415 Summer Street Boston, MA 02210",
+	"starts-at": "2017-05-02T10:00:00-05:00",
+	"ends-at": "2017-05-19T04:00:00-05:00",
+	"timezone": "US / Eastern",
+	"description": "At Red Hat Summit 2017 we celebrated the individuals, the explorers, the builders. We celebrated the unsung hero of the server room, the doer who keeps the lights on and the enterprise running. We spotlighted the explorer, the dreamer who boldly offers a new solution to an old problem we just couldn’t seem to overcome. For open source innovation is only possible because of the people behind it. Don’t miss a thing as we prepare for next year’s event.",
+	"original-image-url": "/images/background.jpg",
+	"logo-url": "/images/logo.png",
+	"organizer-name": "RedHat",
+	"organizer-description": "We help more than 90% of Fortune 500* companies solve business challenges, align their IT and business strategies, and prepare for the future of technology. We do this by providing secure solutions through an open business model and an affordable, predictable subscription model.",
+	"external-event-url": "https: //www.redhat.com/en/summit/2017",
+	"social-links": [{
+			"id": 1,
+			"link": "https://www.facebook.com/redhatsummit",
+			"name": "Facebook"
+		},
+		{
+			"id": 2,
+			"link": "https://twitter.com/RedHatSummit",
+			"name": "Twitter"
+		},
+		{
+			"id": 3,
+			"link": "https://www.youtube.com/user/redhatsummit",
+			"name": "Youtube"
+		},
+		{
+			"id": 4,
+			"link": "http://summitblog.redhat.com/",
+			"name": "Blog"
+		}
+	],
+	"ticket-url": null,
+	"privacy": "public",
+	"type": "",
+	"topic": "Science & Technology",
+	"sub-topic": "High Tech",
+	"code-of-conduct": "",
+	"event-copyright": {
+		"logo": "",
+		"licence-url": "https://en.wikipedia.org/wiki/All_rights_reserved",
+		"holder": "Facebook",
+		"licence": "All rights reserved",
+		"holder-url": null,
+		"year": 2017
+	},
+	"speakers-call": null,
+	"email": null,
+	"is-sessions-speakers-enabled": false,
+	"identifier": "7d16c124",
+	"large": null,
+	"licence-details": {
+		"logo": "",
+		"compact_logo": "",
+		"name": "All rights reserved",
+		"url": "https://en.wikipedia.org/wiki/All_rights_reserved",
+		"long_name": "All rights reserved",
+		"description": "The copyright holder reserves, or holds for their own use, all the rights provided by copyright law under one specific copyright treaty."
+	},
+	"placeholder-url": null,
+	"schedule-published-on": null,
+	"searchable-location-name": null,
+	"state": "Published",
+	"version": {
+		"event_ver": 0,
+		"microlocations_ver": 0,
+		"sessions_ver": 0,
+		"speakers_ver": 0,
+		"sponsors_ver": 0,
+		"tracks_ver": 0
+	}
+}

@@ -1,0 +1,233 @@
+[{
+		"id": 1,
+		"name": "Room  205A",
+		"floor": 1,
+		"latitude": 37.329780,
+		"longitude": -121.889613,
+		"room": ""
+	},
+	{
+		"id": 2,
+		"name": " Room  210A",
+		"floor": 0,
+		"latitude": 37.329008,
+		"longitude": -121.888794,
+		"room": ""
+	},
+	{
+		"id": 3,
+		"name": " Room  155",
+		"floor": 1,
+		"latitude": 37.329412,
+		"longitude": -121.887457,
+		"room": ""
+	},
+	{
+		"id": 4,
+		"name": " Room  158",
+		"floor": 1,
+		"latitude": 37.329663,
+		"longitude": -121.887677,
+		"room": ""
+	},
+	{
+		"id": 5,
+		"name": "2013 Services showcase",
+		"floor": 1,
+		"latitude": 37.329596,
+		"longitude": -121.889714,
+		"room": ""
+	},
+	{
+		"id": 6,
+		"name": " Room  252B",
+		"floor": 1,
+		"latitude": 37.329888,
+		"longitude": -121.889772,
+		"room": ""
+	},
+	{
+		"id": 7,
+		"name": " Room  251",
+		"floor": 1,
+		"latitude": 37.329730,
+		"longitude": -121.889383,
+		"room": ""
+	},
+	{
+		"id": 8,
+		"name": " Room  252A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 9,
+		"name": " Room  254B",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 10,
+		"name": " Room  254A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 11,
+		"name": " Room  101",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 12,
+		"name": " Room  157B",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 13,
+		"name": " Room  156AB",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 14,
+		"name": " Room  209",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 15,
+		"name": " 2013 Partner theater",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 16,
+		"name": " Room  157A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 17,
+		"name": " Room  152",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 18,
+		"name": " Room  154",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 19,
+		"name": "  Room  104C",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 20,
+		"name": " Room  151B",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 21,
+		"name": " Room  153B",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 22,
+		"name": " Room  157C",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 23,
+		"name": " Room  102B",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 24,
+		"name": " Room  153C",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 25,
+		"name": " Room  153A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 26,
+		"name": " Room  104AB",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 27,
+		"name": " Room  156C",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 28,
+		"name": " Room  102A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	},
+	{
+		"id": 29,
+		"name": " Room  151A",
+		"floor": 1,
+		"latitude": 37.324530,
+		"longitude": -121.859433,
+		"room": ""
+	}
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Theatre 1",
+    "floor": 0,
+    "latitude": 37.329008,
+    "longitude": -121.888794,
+    "room": ""
+  },
+  {
+    "id": 2,
+    "name": "Theatre 2",
+    "floor": 0,
+    "latitude": 37.329008,
+    "longitude": -121.888794,
+    "room": ""
+  },
+  {
+    "id": 3,
+    "name": "Cyclorama",
+    "floor": 1,
+    "latitude": 37.329412,
+    "longitude": -121.887457,
+    "room": ""
+  }
+]

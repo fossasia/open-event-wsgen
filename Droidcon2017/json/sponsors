@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "name": "Trip Advisor",
+    "logo-url": "/images/sponsors/ta.png",
+    "level": "4",
+    "type": "Platinum Sponsor",
+    "url": "https://www.tripadvisor.com/",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "name": "Double espresso",
+    "logo-url": "/images/sponsors/de.png",
+    "level": "3",
+    "type": "Gold sponsors",
+    "url": "https://www.doubleespresso.co",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "name": "Spotify",
+    "logo-url": "/images/sponsors/sfy.jpg",
+    "level": "3",
+    "type": "Gold sponsors",
+    "url": "https://www.spotify.com/",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "Facebook",
+    "logo-url": "/images/sponsors/fb.png",
+    "level": "2",
+    "type": "Silver sponsors",
+    "url": "https://www.facebook.com/",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "Firebase",
+    "logo-url": "/images/sponsors/fireb.png",
+    "level": "2",
+    "type": "Silver sponsors",
+    "url": "https://firebase.google.com/",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "Zero turn around",
+    "logo-url": "/images/sponsors/z.png",
+    "level": "2",
+    "type": "Silver sponsors",
+    "url": "https://zeroturnaround.com/",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "name": "Lyft",
+    "logo-url": "/images/sponsors/l.png",
+    "level": "1",
+    "type": "Silver sponsors",
+    "url": "https://www.lyft.com/",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "Button",
+    "logo-url": "/images/sponsors/button.png",
+    "level": "1",
+    "type": "Bronze sponsors",
+    "url": "https://www.usebutton.com/",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "name": "Jana",
+    "logo-url": "/images/sponsors/jana.png",
+    "level": "1",
+    "type": "Bronze sponsors",
+    "url": "http://www.jana.com/home",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "name": "Run keeper",
+    "logo-url": "/images/sponsors/rk.png",
+    "level": "1",
+    "type": "Bronze sponsors",
+    "url": "https://runkeeper.com/",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "name": "Run keeper",
+    "logo-url": "/images/sponsors/sq.png",
+    "level": "1",
+    "type": "Bronze sponsors",
+    "url": "https://squareup.com/",
+    "description": ""
+  }
+]

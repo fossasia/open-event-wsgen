@@ -1,0 +1,816 @@
+[{
+		"logo-url":"/images/sponsors/dell.png",
+		"description": "Dell EMC serves a key role in providing the essential infrastructure for organizations to build their digital future, transform IT and protect their most important asset, information. Dell EMC enables our enterprise customers\u2019 IT and digital business transformation through trusted hybrid cloud and big-data solutions, built upon a modern data center infrastructure that incorporates industry-leading converged infrastructure, servers, storage, and cybersecurity technologies.",
+		"level": "7",
+		"url": "http://www.dell.com/redhat",
+		"type": "Platinum",
+		"id": 1,
+		"name": "Dell EMC"
+	}, {
+		"logo-url":"/images/sponsors/eric.png",
+		"description": "Ericsson is a world-leading provider of communications technology and services. We are enabling the Networked Society with efficient real-time solutions that allow us all to study, work and live our lives more freely, in sustainable societies around the world. Our offering comprises services, software and infrastructure within Information and Communications Technology for telecom operators and other industries. Today 40 percent of the world's mobile traffic goes through Ericsson networks and we support customers' networks servicing more than 2.5 billion subscriptions. Founded in 1876, Ericsson is headquartered in Sweden. www.ericsson.com",
+		"level": "7",
+		"url": "http://www.ericsson.com",
+		"type": "Platinum",
+		"id": 2,
+		"name": "Ericsson"
+	}, {
+		"logo-url":"/images/sponsors/google.png",
+		"description": "Companies come to Google Cloud to transform their businesses. Our comprehensive portfolio \u2014 from infrastructure to apps to devices \u2014 helps enterprises innovate faster, scale smarter, stay secure, and do more with data than ever before.",
+		"level": "7",
+		"url": "http://cloud.google.com",
+		"type": "Platinum",
+		"id": 3,
+		"name": "Google Cloud"
+	}, {
+		"logo-url":"/images/sponsors/hp.png",
+		"description": "Hewlett Packard Enterprise (HPE) is an industry leading technology company that enables customers to go further, faster. With the industry\u2019s most comprehensive portfolio, spanning the cloud to the data center to workplace applications, our technology and services help customers around the world make IT more efficient, more productive and more secure.",
+		"level": "7",
+		"url": "http://www.hpe.com",
+		"type": "Platinum",
+		"id": 4,
+		"name": "Hewlett Packard Enterprise"
+	}, {
+		"logo-url":"/images/sponsors/intel.png",
+		"description": "Intel is the world's leading computing hardware provider and is becoming the preeminent computing *solutions* company powering the worldwide digital economy. We deliver solutions including hardware, software platforms and support services.",
+		"level": "7",
+		"url": "http://www.intel.com",
+		"type": "Platinum",
+		"id": 5,
+		"name": "Intel Corporation"
+	}, {
+		"logo-url":"/images/sponsors/len.png",
+		"description": "Lenovo is a $46 billion global Fortune 500 company and a leader in providing innovative consumer, commercial, and data center technology. In the data center, Lenovo collaborates with customers to unleash new growth opportunities by delivering industry leading performance, reliability and security in virtualized and cloud environments for analytics, database, virtual desktop, infrastructure, and web workloads. Consistently ranked #1 in reliability and customer satisfaction and designed for easy integration into existing infrastructure, Lenovo is the trusted partner for your data center. Join us on YouTube, Facebook, Twitter or visit www.lenovo.com/servers .",
+		"level": "7",
+		"url": "http://www.lenovo.com/datacenter",
+		"type": "Platinum",
+		"id": 6,
+		"name": "Lenovo"
+	}, {
+		"logo-url":"/images/sponsors/ms.png",
+		"description": null,
+		"level": "7",
+		"url": "http://www.microsoft.com",
+		"type": "Platinum",
+		"id": 7,
+		"name": "Microsoft"
+	},
+	{
+		"logo-url":"/images/sponsors/acc.gif",
+		"description": "Accenture provides services and solutions in strategy, consulting, digital, technology and operations. Combining unmatched experience across 40 industries and all business functions, Accenture works at the intersection of business and technology to help clients improve their performance and create sustainable value for their stakeholders. With more than 394,000 people serving clients in more than 120 countries, Accenture drives innovation to improve the way the world works and lives. Visit us at www.accenture.com.",
+		"level": "6",
+		"url": "http://accenture.com",
+		"type": "Executive",
+		"id": 8,
+		"name": "Accenture"
+	}, {
+		"logo-url":"/images/sponsors/aws.png",
+		"description": "For 10 years, Amazon Web Services has been the world\u2019s most comprehensive and broadly adopted cloud platform. AWS offers over 50 fully featured services for compute, storage, databases, analytics, mobile, IoT and enterprise applications from 32 Availability Zones across 12 geographic regions. AWS services are trusted by more than a million active customers -- including startups, large enterprises, and leading government agencies -- to power their infrastructure, make them more agile, and lower costs.",
+		"level": "5",
+		"url": "http://",
+		"type": "Gold",
+		"id": 10,
+		"name": "AWS"
+	}, {
+		"logo-url":"/images/sponsors/cl.png",
+		"description": "CenturyLink (NYSE: CTL) is a global communications, hosting, cloud and IT services company enabling millions of customers to transform their businesses through innovative technology solutions. CenturyLink offers network and data systems management, big data analytics and IT consulting, and operates more than 55 data centers in North America, Europe and Asia. The company provides broadband, voice, video, data and managed services over a robust 250,000-route-mile U.S. fiber network and a 300,000-route-mile international transport network.",
+		"level": "5",
+		"url": "http://",
+		"type": "Gold",
+		"id": 11,
+		"name": "CenturyLink"
+	}, {
+		"logo-url":"/images/sponsors/cis.png",
+		"description": null,
+		"level": "5",
+		"url": "http://www.cisco.com",
+		"type": "Gold",
+		"id": 12,
+		"name": "Cisco Systems"
+	}, {
+		"logo-url":"/images/sponsors/dxc.png",
+		"description": "DXC Technology is the world\u2019s leading independent, end-to-end IT services company. We guide clients on their digital transformation journeys, multiply their capabilities, and help them harness the power of innovation to thrive on change.",
+		"level": "5",
+		"url": "http://dxc.technology",
+		"type": "Gold",
+		"id": 13,
+		"name": "DXC Technology"
+	}, {
+		"logo-url":"/images/sponsors/ibm.png",
+		"description": null,
+		"level": "5",
+		"url": "http://",
+		"type": "Gold",
+		"id": 14,
+		"name": "IBM"
+	}, {
+		"logo-url":"/images/sponsors/rs.jpg",
+		"description": null,
+		"level": "5",
+		"url": "http://www.rackspace.com",
+		"type": "Gold",
+		"id": 15,
+		"name": "Rackspace"
+	}, {
+		"logo-url":"/images/sponsors/sap.png",
+		"description": "As the market leader in enterprise application software, SAP (NYSE: SAP) helps companies of all sizes and industries run better. From back office to boardroom, warehouse to storefront, desktop to mobile device-SAP empowers people and organizations to work together more efficiently and use business insight more effectively to stay ahead of the competition. SAP applications and services enable more than 335,000 customers to operate profitably, adapt continuously, and grow sustainably. For more information, visit www.sap.com.",
+		"level": "5",
+		"url": "http://sap.com",
+		"type": "Gold",
+		"id": 16,
+		"name": "SAP SE"
+	}, {
+		"logo-url":"/images/sponsors/cy.png",
+		"description": "Centrify redefines security from a legacy static perimeter-based approach to protecting millions of scattered connections in a boundaryless hybrid enterprise. As the only industry recognized leader in both Privileged Identity Management and Identity-as-a-Service, Centrify provides a single platform to secure each user\u2019s access to apps and infrastructure through the power of identity services. This is Next Dimension Security in the Age of Access. The Breach Stops Here.",
+		"level": "4",
+		"url": "http://www.centrify.com",
+		"type": "Silver",
+		"id": 17,
+		"name": "Centrify"
+	}, {
+		"logo-url":"/images/sponsors/cnvy.png",
+		"description": "Codenvy workspaces automate developer bootstrapping and allow teams to collaborate before code is merged. Based on the open Eclipse Che project, Codenvy can be installed behind a corporate firewall, in a private cloud or as SaaS at Codenvy.io. Codenvy has strategic partnerships with Red Hat, Docker, Microsoft and SAP and has a seat on the Eclipse Foundation board.",
+		"level": "4",
+		"url": "http://www.codenvy.com",
+		"type": "Silver",
+		"id": 18,
+		"name": "Codenvy"
+	}, {
+		"logo-url":"/images/sponsors/dt.png",
+		"description": "Dynatrace has redefined how to monitor today\u2019s digital ecosystems. AI-powered, full stack and completely automated, it\u2019s the only solution that provides answers based on deep insight into every user, every transaction, across every application. Over 8,000 customers use Dynatrace to optimize customer experiences, innovate faster and modernize IT operations.",
+		"level": "4",
+		"url": "http://dynatrace.com",
+		"type": "Silver",
+		"id": 19,
+		"name": "Dynatrace"
+	}, {
+		"logo-url":"/images/sponsors/f5.png",
+		"description": "F5 makes apps go faster, smarter, safer for the world\u2019s largest businesses, service providers, governments, and consumer brands. F5 delivers cloud and security solutions that enable organizations to embrace the application infrastructure they choose without sacrificing speed and control.",
+		"level": "4",
+		"url": "http://F5.com",
+		"type": "Silver",
+		"id": 20,
+		"name": "F5 Networks"
+	}, {
+		"logo-url":"/images/sponsors/ju.png",
+		"description": "Juniper Networks challenges the status quo with innovative products, solutions and services critical to businesses by transforming the economics of networking in the connected world. We create the most automated, scalable and secure for unprecedented agility, efficiency and value.",
+		"level": "4",
+		"url": "http://www.juniper.net",
+		"type": "Silver",
+		"id": 21,
+		"name": "Juniper Networks"
+	}, {
+		"logo-url":"/images/sponsors/mel.png",
+		"description": "Mellanox Technologies (NASDAQ: MLNX) is a leading supplier of end-to-end InfiniBand and Ethernet smart interconnect solutions and services for servers and storage. Mellanox interconnect solutions increase data center efficiency with the highest throughput and lowest latency, delivering data faster to applications and unlocking system performance. Mellanox\u2019s adapters, switches, software and silicon accelerate application runtime and maximize business results for numerous markets including high performance computing, enterprise, Web 2.0, cloud, storage and financial services. www.mellanox.com.",
+		"level": "4",
+		"url": "http://www.mellanox.com",
+		"type": "Silver",
+		"id": 22,
+		"name": "Mellanox Technologies"
+	}, {
+		"logo-url":"/images/sponsors/na.dms",
+		"description": "Leading organizations worldwide count on NetApp for software, systems, and services to manage and store their data. NetApp is delivering a Data Fabric platform to help traditional infrastructure buyers realize their business objectives with modern data center and next-gen data center capabilities. NetApp was recently named the 2017 Red Hat ISV Partner of the Year and is the #1 Enterprise Storage Platform for OpenStack. To learn more, visit www.netapp.com.",
+		"level": "4",
+		"url": "http://netapp.com",
+		"type": "Silver",
+		"id": 23,
+		"name": "NetApp"
+	}, {
+		"logo-url":"/images/sponsors/ndb.jpg",
+		"description": null,
+		"level": "4",
+		"url": "http://www.nuodb.com",
+		"type": "Silver",
+		"id": 24,
+		"name": "NuoDB"
+	}, {
+		"logo-url":"/images/sponsors/oracle.gif",
+		"description": "With more than 420,000 customers, and with deployments across a wide variety of industries in more than 145 countries, Oracle offers a comprehensive and fully integrated stack of cloud applications, platform services, and engineered systems. For more information about Oracle (NYSE:ORCL), visit oracle.com.",
+		"level": "4",
+		"url": "http://www.oracle.com",
+		"type": "Silver",
+		"id": 25,
+		"name": "Oracle"
+	}, {
+		"logo-url":"/images/sponsors/t.png",
+		"description": "Tintri puts the agility of public cloud inside your data center. Tintri's all-flash architecture uses building blocks similar to public cloud - to simply manage enterprise and cloud native applications. Customers guarantee the performance of their applications, automate common IT tasks via Open APIs, troubleshoot across their infrastructure, and predict an organization's need to scale. Comcast, Chevron, NASA, and 20% of the Fortune 100 trust Tintri. Visit www.tintri.com and follow us on Twitter: @Tintri",
+		"level": "4",
+		"url": "http://www.tintri.com",
+		"type": "Silver",
+		"id": 26,
+		"name": "Tintri"
+	}, {
+		"logo-url":"/images/sponsors/veri.gif",
+		"description": "Veritas Technologies enables organizations to harness the power of their information, with information management solutions \u2013 from business continuity to backup and recovery to software defined storage and information governance, designed around the principle that information is more important than infrastructure \u2013 serving the world\u2019s largest and most complex environments. Veritas works with organizations of all sizes, including 86 percent of global Fortune 500 companies, improving data availability and revealing insights to drive competitive advantage.",
+		"level": "4",
+		"url": "http://www.veritas.com",
+		"type": "Silver",
+		"id": 27,
+		"name": "Veritas Technologies"
+	}, {
+		"logo-url":"/images/sponsors/vm.jpg",
+		"description": null,
+		"level": "4",
+		"url": "http://www.vmware.com",
+		"type": "Silver",
+		"id": 28,
+		"name": "VMware"
+	}, {
+		"logo-url":"/images/sponsors/wipro.jpg",
+		"description": "Wipro is a leading Information Technology, Consulting and Business Process Services Company that delivers solutions to enable its clients do business better. Wipro delivers winning business outcomes through deep industry experience and 360 degree view of  \"Business through Technology\"; helping clients create successful and adaptive businesses. A company recognized globally for comprehensive portfolio of services, a practitioner's approach to delivering innovation, and an organization wide commitment to sustainability,  Learn more at www.wipro.com",
+		"level": "4",
+		"url": "http://www.wipro.com",
+		"type": "Silver",
+		"id": 29,
+		"name": "Wipro Limited"
+	},
+	{
+		"logo-url":"/images/sponsors/anc.jpg",
+		"description": null,
+		"level": "3",
+		"url": "http://anchore.com",
+		"type": "Bronze",
+		"id": 30,
+		"name": "Anchore"
+	}, {
+		"logo-url":"/images/sponsors/arm.png",
+		"description": "ARM technology is at the heart of a computing and connectivity revolution that is transforming the way people live and businesses operate. Everyday, more than 40 million ARM-based chips are shipped by our partners into products that enhance the human experience; connecting people, improving lives and making the impossible possible.",
+		"level": "3",
+		"url": "http://www.arm.com",
+		"type": "Bronze",
+		"id": 31,
+		"name": "ARM"
+	}, {
+		"logo-url":"/images/sponsors/bt.png",
+		"description": null,
+		"level": "3",
+		"url": "http://www.beyondtrust.com",
+		"type": "Bronze",
+		"id": 32,
+		"name": "BeyondTrust"
+	}, {
+		"logo-url":"/images/sponsors/bs.png",
+		"description": "Big Switch Networks was founded in 2010, with roots in the original Stanford research team that invented software-defined Networking (SDN), and the company is widely considered one of the original pioneers of SDN.",
+		"level": "3",
+		"url": "http://www.bigswitch.com",
+		"type": "Bronze",
+		"id": 33,
+		"name": "Big Switch Networks"
+	}, {
+		"logo-url":"/images/sponsors/bd.png",
+		"description": "Organizations worldwide use Black Duck Software\u2019s industry-leading products to automate the processes of securing and managing open source software, eliminating the pain related to security vulnerabilities, open source license compliance and operational risk.",
+		"level": "3",
+		"url": "http://www.blackducksoftware.com",
+		"type": "Bronze",
+		"id": 34,
+		"name": "Black Duck Software"
+	}, {
+		"logo-url":"/images/sponsors/cs.png",
+		"description": "Carahsoft Technology Corp. is the trusted Government IT solutions provider. A top-ranked GSA Contract holder and master government aggregator, Carahsoft supports an ecosystem of the world\u2019s leading manufacturers, value-added resellers, system integrators, and consulting partners who help government agencies select and implement the best solution at the best value.",
+		"level": "3",
+		"url": "http://www.carahsoft.com",
+		"type": "Bronze",
+		"id": 35,
+		"name": "Carahsoft Technology"
+	}, {
+		"logo-url":"/images/sponsors/cp.jpg",
+		"description": "Catchpoint is a leading digital experience intelligence company that provides unparalleled insight into customer-critical services to help businesses consistently deliver amazing digital experiences. More than 350 customers in over 30 countries trust Catchpoint to strengthen their brands and grow their businesses.",
+		"level": "3",
+		"url": "http://www.catchpoint.com",
+		"type": "Bronze",
+		"id": 36,
+		"name": "Catchpoint"
+	}, {
+		"logo-url":"/images/sponsors/cdw.png",
+		"description": "CDW is a leading provider of integrated IT solutions. We help 250,000 business, government, education and healthcare customers by delivering critical solutions to their complex IT needs. For the trailing twelve months ended June 30, 2015, the company generated net sales of almost $12.4 billion. For more information, visit www.cdw.com.",
+		"level": "3",
+		"url": "http://www.cdw.com",
+		"type": "Bronze",
+		"id": 37,
+		"name": "CDW"
+	}, {
+		"logo-url":"/images/sponsors/ci.png",
+		"description": "CIARA is a global tech company who specialises in the design, development, integration, deployment, support and recycling of cutting-edge end-user and enterprise technology products and services.",
+		"level": "3",
+		"url": "http://ciaratech.com",
+		"type": "Bronze",
+		"id": 38,
+		"name": "CIARA"
+	}, {
+		"logo-url":"/images/sponsors/cb.jpg",
+		"description": "CloudBees is the hub of enterprise Jenkins and DevOps, providing companies with smarter solutions for accelerating software development and delivery. We\u2019ve taken Jenkins \u2013 the most trusted DevOps platform \u2013 and added enterprise-grade security, scalability, manageability and support, so companies have the fastest path from great ideas to impactful software.",
+		"level": "3",
+		"url": "http://",
+		"type": "Bronze",
+		"id": 39,
+		"name": "CloudBees"
+	}, {
+		"logo-url":"/images/sponsors/cn.jpg",
+		"description": "CollabNet is the leading partner for Secure DevOps of Enterprise and Federal Applications. Increase the speed and quality of software development and operations with CollabNet\u2019s connected solutions.",
+		"level": "3",
+		"url": "http://www.collab.net",
+		"type": "Bronze",
+		"id": 40,
+		"name": "CollabNet"
+	}, {
+		"logo-url":"/images/sponsors/ca.jpg",
+		"description": "CyberArk is the only security company that proactively stops the most advanced cyber threats \u2013 those that exploit insider privileges to attack the heart of the enterprise.  CyberArk pioneered a new category of targeted security solutions to protect against cyber threats before attacks escalate and cause irreparable business damage.",
+		"level": "3",
+		"url": "http://www.cyberark.com",
+		"type": "Bronze",
+		"id": 41,
+		"name": "CyberArk"
+	}, {
+		"logo-url":"/images/sponsors/db.jpg",
+		"description": "EnterpriseDB\u00ae (EDB\u2122), the database platform company for digital business, delivers the premier open source-based data platform for new applications, cloud re-platforming, application modernization, and legacy migration. EnterpriseDB integrates with enterprise technologies and infrastructures for hybrid cloud management, data integration, and data warehousing. For more information, visit www.EnterpriseDB.com.",
+		"level": "3",
+		"url": "http://enterprisedb.com",
+		"type": "Bronze",
+		"id": 42,
+		"name": "EnterpriseDB"
+	}, {
+		"logo-url":"/images/sponsors/fox.png",
+		"description": "Fox Technologies helps organizations centralize Linux and Unix identity and access management across hybrid IT environments. Trusted by top fortune 500 companies and protecting over $20 trillion in assets, enterprises worldwide rely on FoxT\u2019s solutions to enforce granular security controls, simplify compliance, and increase overall efficiencies.",
+		"level": "3",
+		"url": "http://www.foxt.com",
+		"type": "Bronze",
+		"id": 43,
+		"name": "Fox Technologies"
+	}, {
+		"logo-url":"/images/sponsors/fu.jpg",
+		"description": "Since its foundation in 2001, FUSIONDATA has grown into a cloud-based technology company with constant change and innovation. Based on its virtualization technology, it is expanding its business to the cloud market, from cloud services, hyper converged infrastructure and smart work.",
+		"level": "3",
+		"url": "http://www.fusiondata.co.kr",
+		"type": "Bronze",
+		"id": 44,
+		"name": "Fusion Data"
+	}, {
+		"logo-url":"/images/sponsors/jf.jpg",
+		"description": "JFrog provides the only Universal DevOps solution that allows software to be built, managed, and released faster.  JFrog Artifactory integrates with all major CI/CD tools for end-to-end automation and container management from development to production.  Ask us how the new Artifactory & Open Shift integration provides enterprise ready container management!",
+		"level": "3",
+		"url": "http://www.jfrog.com",
+		"type": "Bronze",
+		"id": 45,
+		"name": "JFrog"
+	}, {
+		"logo-url":"/images/sponsors/nec.jpg",
+		"description": "NEC Corporation of America is a technology leader providing solutions that improve the way people work and communicate. NEC will be featuring Red Hat Enterprise Linux for SAP HANA\u00ae and demonstrating how Red Hat and NEC together deliver a secure and reliable OpenStack platform on premises or in cloud environments.",
+		"level": "3",
+		"url": "http://www.necam.com",
+		"type": "Bronze",
+		"id": 46,
+		"name": "NEC Corporation of America"
+	}, {
+		"logo-url":"/images/sponsors/ng.jpg",
+		"description": "NGINX is the heart of the modern web \u2013 helping the world\u2019s most innovative companies deliver their sites and applications with performance, reliability, security, and scale. The company offers an industry award-winning, comprehensive application delivery solution in use on more than 200 million sites worldwide.",
+		"level": "3",
+		"url": "http://nginx.com",
+		"type": "Bronze",
+		"id": 47,
+		"name": "NGINX"
+	}, {
+		"logo-url":"/images/sponsors/nn.jpg",
+		"description": "Nuage Networks, (www.nuagenetworks.net) brings a combination of groundbreaking technologies and networking expertise to the enterprise and telecommunications industries. They have applied radically new thinking to the problem of delivering massively scalable and highly programmable SDN solutions within and across the datacenter and out to the wide area network.",
+		"level": "3",
+		"url": "http://www.nuagenetworks.net",
+		"type": "Bronze",
+		"id": 48,
+		"name": "Nuage Networks"
+	}, {
+		"logo-url":"/images/sponsors/p.jpg",
+		"description": "Puppet is driving the movement to a world of unconstrained software change. Its industry-standard platform automates delivery and operation of the software. More than 33,000 companies \u2014 including more than 75% of the Fortune 100 \u2014 use Puppet to achieve situational awareness and confidently drive software changes.",
+		"level": "3",
+		"url": "http://www.puppet.com",
+		"type": "Bronze",
+		"id": 49,
+		"name": "Puppet"
+	}, {
+		"logo-url":"/images/sponsors/qct.jpg",
+		"description": "QCT is a global datacenter solution provider. We combine the efficiency of hyperscale hardware with infrastructure software from a diversity of industry leaders to solve next-generation datacenter design and operation challenges. QCT serves cloud service providers, telecoms and enterprises running public, hybrid and private clouds.",
+		"level": "3",
+		"url": "http://www.qct.io",
+		"type": "Bronze",
+		"id": 50,
+		"name": "QCT"
+	}, {
+		"logo-url":"/images/sponsors/re.png",
+		"description": "Redis Labs, home of open source Redis, the world\u2019s most popular in-memory database platform, provides Redis Enterprise as a service in all major clouds, and as software.The high performance, true high availability and seamless scaling of Redis Enterprise power e-commerce, social, personalization, IoT, fraud detection, and other real-time applications.",
+		"level": "3",
+		"url": "http://redislabs.com",
+		"type": "Bronze",
+		"id": 51,
+		"name": "Redis Labs"
+	}, {
+		"logo-url":"/images/sponsors/st.png",
+		"description": "Nexus solutions empower AppSec to team with Dev & Ops to reduce risk without slowing down software delivery. Give Dev visibility to avoid software components with known vulnerabilities from the start. Provide Ops with an inventory of components deployed in your software with monitoring & alerts for new vulnerabilities.",
+		"level": "3",
+		"url": "http://www.sonatype.com",
+		"type": "Bronze",
+		"id": 52,
+		"name": "Sonatype"
+	}, {
+		"logo-url":"/images/sponsors/v.jpg",
+		"description": "Veeam\u00ae has pioneered a new market of Availability for the Always-On Enterprise\u2122 by helping enterprises meet recovery time and point objectives (RTPO\u2122) of less than 15 minutes for all applications and data. Veeam Availability Suite\u2122 leverages virtualization, storage, and cloud technologies that enable the modern data center. Visit https://www.veeam.com.",
+		"level": "3",
+		"url": "https://www.veeam.com",
+		"type": "Bronze",
+		"id": 53,
+		"name": "Veeam Software Corporation"
+	}, {
+		"logo-url":"/images/sponsors/viz.png",
+		"description": "Vizuri is a Premier Red Hat Partner with over 30 years of experience delivering IT solutions. Our work has been recognized with national government technology leadership awards and private sector awards like Red Hat Innovation Awards. We specialize in JBoss Middleware, Cloud Enablement, DevOps, and Business Rules and Process Management.",
+		"level": "3",
+		"url": "http://www.vizuri.com",
+		"type": "Bronze",
+		"id": 54,
+		"name": "Vizuri"
+	}, {
+		"logo-url":"/images/sponsors/za.jpg",
+		"description": "Zabbix is an enterprise-class open source distributed monitoring solution designed to monitor in real-time performance and availability of IT infrastructure, including network devices, servers, logs, services, applications, virtual and cloud resources. Zabbix company provides technical support services, remote and on-site consultancy, integration and implementation works, and professional training courses.",
+		"level": "3",
+		"url": "http://www.zabbix.com",
+		"type": "Bronze",
+		"id": 55,
+		"name": "Zabbix"
+	},
+	{
+		"logo-url":"/images/sponsors/a10.png",
+		"description": "A10 Networks (NYSE: ATEN) is a Secure Application Services\u2122 company, providing a range of high-performance application networking solutions that help organizations ensure that their data center applications and networks remain highly available, accelerated and secure. A10 serves customers globally with offices worldwide. For information, visit www.a10networks.com and @A10Networks.",
+		"level": "2",
+		"url": "https://www.a10networks.com",
+		"type": "General",
+		"id": 56,
+		"name": "A10 Networks"
+	}, {
+		"logo-url":"/images/sponsors/amd.jpg",
+		"description": "For more than 47 years, AMD has driven innovation in high-performance computing, graphics, and visualization technologies -- the building blocks for gaming, immersive platforms, and the datacenter.",
+		"level": "2",
+		"url": "http://www.amd.com",
+		"type": "General",
+		"id": 57,
+		"name": "AMD"
+	}, {
+		"logo-url":"/images/sponsors/ap.png",
+		"description": "Aporeto\u2019s comprehensive, simple, and scalable security solution for cloud-native applications is purpose-built for modern, agile distributed systems and microservices. The company\u2019s Trust Profile technology secures application by default and simplifies operations without impacting developer speed. Aporeto works at any scale, on any cloud, and with any infrastructure.",
+		"level": "2",
+		"url": "http://aporeto.com",
+		"type": "General",
+		"id": 58,
+		"name": "Aporeto"
+	}, {
+		"logo-url":"/images/sponsors/avi.jpg",
+		"description": "Avi Networks delivers elastic application services fabric, architected on software-defined, analytics-driven, infrastructure-independent principles.  The application services include load balancing, analytics, multi-cloud traffic management, autoscaling, security, and container services for bare-metal, VM, public cloud, containers, and PaaS environments. Fortune500 companies use Avi to automate application services, enable self-service, and lower TCO.",
+		"level": "2",
+		"url": "http://avinetworks.com",
+		"type": "General",
+		"id": 59,
+		"name": "Avi Networks"
+	}, {
+		"logo-url":"/images/sponsors/bm.png",
+		"description": "Founded in 2003, BlackMesh is a trusted leader in innovative cloud-based solutions, offering secure, compliant, and scalable application hosting platforms with unlimited support to the healthcare, government, and financial sectors. Delivering innovative solutions, BlackMesh system administrators are experienced at combining high-performance technologies with on-demand support.",
+		"level": "2",
+		"url": "https://www.blackmesh.com",
+		"type": "General",
+		"id": 60,
+		"name": "BlackMesh"
+	}, {
+		"logo-url":"/images/sponsors/bj.png",
+		"description": "At BlueJeans Network, we create video experiences that people love, and are trusted by the IT organizations of the world\u2019s leading brands. BlueJeans offers interactive, multi-directional visual communication services through a cloud-based platform that gives peace of mind to IT leaders and unleashes the workforce to be their best.",
+		"level": "2",
+		"url": "http://bluejeans.com",
+		"type": "General",
+		"id": 61,
+		"name": "BlueJeans Network"
+	}, {
+		"logo-url":"/images/sponsors/cav.jpg",
+		"description": "Cavium offers a broad portfolio of integrated, software compatible processors ranging in performance from 1Gbps to 100Gbps that enable secure, intelligent functionality in Enterprise, Data Center, Broadband/Consumer, Mobile and Service Provider Equipment, highly programmable switches which scale to 3.2Tbps and Ethernet and Fibre Channel adapters up to 100Gbps.",
+		"level": "2",
+		"url": "http://www.cavium.com",
+		"type": "General",
+		"id": 62,
+		"name": "Cavium"
+	}, {
+		"logo-url":"/images/sponsors/cis.png",
+		"description": null,
+		"level": "2",
+		"url": "http://www.cisco.com",
+		"type": "General",
+		"id": 63,
+		"name": "Cisco Systems"
+	}, {
+		"logo-url":"/images/sponsors/cl.jpg",
+		"description": "Cloudera delivers the modern platform for machine learning and advanced analytics The world\u2019s leading organizations trust Cloudera to help solve their most challenging business problems with Cloudera Enterprise, the fastest, easiest and most secure data platform built on Apache Hadoop and the latest open source technologies.",
+		"level": "2",
+		"url": "http://www.cloudera.com",
+		"type": "General",
+		"id": 64,
+		"name": "Cloudera"
+	}, {
+		"logo-url":"/images/sponsors/ch.jpg",
+		"description": "Unite and automate your cloud with a platform built to save serious time and money. With unparalleled visibility, intuitive optimization and rock-solid governance practices, CloudHealth is redefining cloud management. We enables enterprises and MSPs to maximize return on cloud investments and make confident decisions around cost,usage, performance and security.",
+		"level": "2",
+		"url": "http://www.cloudhealthtech.com",
+		"type": "General",
+		"id": 65,
+		"name": "CloudHealth Technologies"
+	}, {
+		"logo-url":"/images/sponsors/c.jpg",
+		"description": "Codenvy workspaces automate developer bootstrapping and allow teams to collaborate before code is merged. Based on the open Eclipse Che project, Codenvy can be installed behind a corporate firewall, in a private cloud or as SaaS at Codenvy.io. Codenvy has strategic partnerships with Red Hat, Docker, Microsoft and SAP and has a seat on the Eclipse Foundation board.",
+		"level": "2",
+		"url": "https://codenvy.com",
+		"type": "General",
+		"id": 66,
+		"name": "Codenvy"
+	}, {
+		"logo-url":"/images/sponsors/core.png",
+		"description": "CoreOS is a leader in the container movement and delivers technology that helps operationalize distributed applications in production. We provide ContainerLinux a purpose-built linux distribution, an image registry called Quay and Tectonic for Kubernetes, an open source platform that help orchestrate and run containerized apps at scale.",
+		"level": "2",
+		"url": "http://coreos.com",
+		"type": "General",
+		"id": 67,
+		"name": "CoreOS"
+	}, {
+		"logo-url":"/images/sponsors/cd.jpg",
+		"description": "Crunchy Data provides Trusted Open Source PostgreSQL and enterprise PostgreSQL Technology, Support and Training.  OpenShift Primed solution for Cloud Native PostgreSQL - Crunchy PostgreSQL Container Suite is an leading PostgreSQL-as-a-Service solution for OpenShift.",
+		"level": "2",
+		"url": "http://www.crunchydata.com",
+		"type": "General",
+		"id": 68,
+		"name": "Crunchy Data"
+	}, {
+		"logo-url":"/images/sponsors/dlt.jpg",
+		"description": "DLT is a leading technology partner to federal, state and local governments; education, utilities and healthcare markets. For more than 25 years, we have dedicated ourselves to developing best-fit solutions for our customers and simplify their technology procurement in areas including application lifecycle, devops, business applications, cybersecurity, cloud, and more.",
+		"level": "2",
+		"url": "http://www.dlt.com",
+		"type": "General",
+		"id": 69,
+		"name": "DLT Solutions"
+	}, {
+		"logo-url":"/images/sponsors/ec.jpg",
+		"description": "Eclipse IoT is an Internet of Things working group hosted at the Eclipse Foundation. It is a community of organisations and contributors that collaborate on open source projects that address different features of the IoT stacks and provide the technology needed to build IoT Devices, Gateways, and Cloud Platforms.",
+		"level": "2",
+		"url": "http://iot.eclipse.org",
+		"type": "General",
+		"id": 70,
+		"name": "Eclipse Foundation"
+	}, {
+		"logo-url":"/images/sponsors/em.jpg",
+		"description": "Emergent is an award-winning Value Added Reseller and Emerging Tech Channel Partner for Red Hat. Emergent has a fully accredited Red Hat consulting practice and is a Red Hat Services Elite certified partner. Emergent solves complex business and mission challenges on behalf of Government, Commercial, Education and Healthcare sectors.",
+		"level": "2",
+		"url": "http://www.emergent360.com",
+		"type": "General",
+		"id": 71,
+		"name": "Emergent"
+	}, {
+		"logo-url":"/images/sponsors/et.png",
+		"description": "Eurotech solutions combine hardware, firmware, operating systems, M2M middleware and device cloud services that drive business success. A global leader in connecting distributed devices that make up the Internet of Things, Eurotech collaborates with customers, partners, and integrators to bring rugged, reliable and cost effective data management solutions to market.",
+		"level": "2",
+		"url": "http://www.eurotech.com",
+		"type": "General",
+		"id": 72,
+		"name": "Eurotech"
+	}, {
+		"logo-url":"/images/sponsors/exc.jpg",
+		"description": "ExitCertified, a subsidiary of Tech Data Corporation, provides authorized vendor training to IT professionals. In business since 2001, we\u2019re an award-winning educator focused on innovative skills and training for today\u2019s modern technologies. As a Red Hat Premier Training Partner, we offer their complete curriculum in various class formats. Visit www.exitcertified.com/training/learn-redhat/.",
+		"level": "2",
+		"url": "http://www.exitcertified.com",
+		"type": "General",
+		"id": 73,
+		"name": "ExitCertified Powered by Avnet"
+	}, {
+		"logo-url":"/images/sponsors/gk.png",
+		"description": "Global Knowledge is the worldwide leader in IT training and a Red Hat Premier Training Partner. We empower professionals with skills and best practices necessary to leverage the technologies critical for sustained success. With over 15 corporate offices around the world, we help clients succeed in over 100 countries.",
+		"level": "2",
+		"url": "http://globalknowledge.com",
+		"type": "General",
+		"id": 74,
+		"name": "Global Knowledge"
+	}, {
+		"logo-url":"/images/sponsors/fap.jpg",
+		"description": "HAProxy empowers users with the flexibility and confidence to deliver websites and applications with high availability, performance and security at any scale and in any environment. The world's most widely used software load balancer and application delivery controller backed by expert support and services.",
+		"level": "2",
+		"url": "http://haproxy.com",
+		"type": "General",
+		"id": 75,
+		"name": "HAProxy Technologies"
+	}, {
+		"logo-url":"/images/sponsors/imm.jpg",
+		"description": "immixGroup, an Arrow company, is a value-added distributor that helps technology companies do business with the government. immixGroup enables IT manufacturers and solution providers to grow their public sector business while offering government agencies reliable access to enterprise software and hardware products.",
+		"level": "2",
+		"url": "http://www.immixgroup.com",
+		"type": "General",
+		"id": 76,
+		"name": "immixGroup"
+	}, {
+		"logo-url":"/images/sponsors/lin.jpg",
+		"description": "Linaro is leading collaboration on open source development in the ARM ecosystem with over 250 engineers working on developer tools, the Linux kernel, ARM power management, and other software projects agreed with its members. To find out more, please visit http://www.linaro.org and http://www.96Boards.org.",
+		"level": "2",
+		"url": "http://linaro.org",
+		"type": "General",
+		"id": 77,
+		"name": "Linaro"
+	}, {
+		"logo-url":"/images/sponsors/lb.png",
+		"description": "LINBIT, the DRBD company, has been the High Availability Clustering market leader for over 15 years, producing the fastest network based replication software on the market. LINBIT has now expanded the functionality of their synchronous storage replication software to provide geo clustering and extremely fast, open-source, software-defined storage.",
+		"level": "2",
+		"url": "http://www.linbit.com",
+		"type": "General",
+		"id": 78,
+		"name": "LINBIT"
+	}, {
+		"logo-url":"/images/sponsors/un.jpg",
+		"description": "Navops is a suite of products that enables enterprises to take full advantage of Kubernetes and provides the ability to quickly and run containers at scale. Navops utilizes workload placement and advanced policy management across on-premise, cloud, and hybrid infrastructures. With Navops, companies can automate microservice applications and respond to end-user demand.",
+		"level": "2",
+		"url": "http://www.navops.io",
+		"type": "General",
+		"id": 79,
+		"name": "Navops by Univa"
+	}, {
+		"logo-url":"/images/sponsors/net.jpg",
+		"description": "Netronome\u2019s Agilio platform provides hardware offload of CPU intensive networking tasks including OVS, virtual routing and Linux security rules for Red Hat Linux and Red Hat OpenStack deployments, enabling industry-leading performance and efficiency. Netronome\u2019s SmartNICs and software are available now for 10GbE, 25GbE and 40GbE clouds and data centers.",
+		"level": "2",
+		"url": "http://www.netronome.com",
+		"type": "General",
+		"id": 80,
+		"name": "Netronome"
+	}, {
+		"logo-url":"/images/sponsors/ngd.png",
+		"description": null,
+		"level": "2",
+		"url": "http://www.ngdsystems.com",
+		"type": "General",
+		"id": 81,
+		"name": "NGD Systems"
+	}, {
+		"logo-url":"/images/sponsors/on.jpg",
+		"description": "At Onyx Point, our engineers focus on Security, System Administration, Automation, Dataflow, and DevOps consulting for Government and commercial clients. We offer professional services for Puppet, RedHat, SIMP, and the solutions in place to keep your systems running securely and efficiently. We support the SIMP security and compliance framework.",
+		"level": "2",
+		"url": "http://www.onyxpoint.com",
+		"type": "General",
+		"id": 82,
+		"name": "Onyx Point"
+	}, {
+		"logo-url":"/images/sponsors/pack.jpg",
+		"description": "Packet is the leading bare metal cloud for developers, offering 8 minute deploys of physical infrastructure in four global locations.  Unlike other public clouds, Packet infrastructure is 100% single tenant, with no underlying hypervisor or forced multi-tenancy.  Packet's platform is fully automated and features both Intel x86 & ARMv8 configurations.",
+		"level": "2",
+		"url": "https://www.packet.net",
+		"type": "General",
+		"id": 83,
+		"name": "Packet"
+	}, {
+		"logo-url":"/images/sponsors/pc.jpg",
+		"description": "Penguin pioneers complete compute, storage and networking solutions that deliver the advantages of open technologies. We combine 16 years of Linux experience with system and software technology innovation to provide our customers with best of class and best value solutions.",
+		"level": "2",
+		"url": "http://www.penguincomputing.com",
+		"type": "General",
+		"id": 84,
+		"name": "Penguin Computing"
+	}, {
+		"logo-url":"/images/sponsors/pb.png",
+		"description": "Permabit pioneers data reduction software that increases storage efficiency and reduces costs. Permabit Virtual Data Optimizer (VDO) delivers the only production-ready, modular, inline data deduplication and HIOPS Compression\u00ae software available for Red Hat Enterprise Linux and Red Hat Storage.",
+		"level": "2",
+		"url": "http://permabit.com",
+		"type": "General",
+		"id": 85,
+		"name": "Permabit Technology Corporation"
+	}, {
+		"logo-url":"/images/sponsors/ph.jpg",
+		"description": "Phoenics Electronics is a US based, fully franchised, technically supportive, stocking Distributor of semiconductor, board level and server solutions.",
+		"level": "2",
+		"url": "http://www.phoenicselectronics.com",
+		"type": "General",
+		"id": 86,
+		"name": "Phoenics Electronics"
+	}, {
+		"logo-url":"/images/sponsors/qct.png",
+		"description": "QCT is a global datacenter solution provider. We combine the efficiency of hyperscale hardware with infrastructure software from a diversity of industry leaders to solve next-generation datacenter design and operation challenges. QCT serves cloud service providers, telecoms and enterprises running public, hybrid and private clouds.",
+		"level": "2",
+		"url": "http://www.qct.io",
+		"type": "General",
+		"id": 87,
+		"name": "QCT"
+	}, {
+		"logo-url":"/images/sponsors/qco.jpg",
+		"description": "Qualcomm Incorporated is a world leader in 3G, 4G and next-generation wireless technologies. Qualcomm Technologies, Inc., a subsidiary of Qualcomm Incorporated, operates substantially all of Qualcomm\u2019s engineering, research and development functions, and substantially all of its products and services businesses, including its semiconductor businesses, QCT and QDT.",
+		"level": "2",
+		"url": "http://www.qualcomm.com",
+		"type": "General",
+		"id": 88,
+		"name": "Qualcomm"
+	}, {
+		"logo-url":"/images/sponsors/sea.png",
+		"description": "Seagate creates space for the human experience by innovating how data is stored and accelerated. Stop by the Seagate booth to see how we are innovating Red Hat Ceph Storage. Learn more at www.seagate.com/Nytro.",
+		"level": "2",
+		"url": "http://www.seagate.com/nytro",
+		"type": "General",
+		"id": 89,
+		"name": "Seagate"
+	}, {
+		"logo-url":"/images/sponsors/sig.png",
+		"description": "Signavio gives your organization a means of significantly improving its internal processes.  From modeling through execution and continual improvement, Signavio supports all areas of the process lifecycle.  Only Signavio offers this unique set of features to solve problems troubling companies of all shapes and sizes.",
+		"level": "2",
+		"url": "http://www.signavio.com",
+		"type": "General",
+		"id": 90,
+		"name": "Signavio"
+	}, {
+		"logo-url":"/images/sponsors/si.jpg",
+		"description": "SIOS delivers innovative software solutions that provide high availability in the cloud for applications on Windows and Linux. SIOS DataKeeper, SAN and SANLess clustering software, provides the flexibility to protect any configuration of physical, virtual and cloud environment.",
+		"level": "2",
+		"url": "http://us.sios.com",
+		"type": "General",
+		"id": 91,
+		"name": "SIOS Technology"
+	}, {
+		"logo-url":"/images/sponsors/sf.png",
+		"description": "Solarflare is pioneering server connectivity for neural-class networks. From silicon to firmware to software, Solarflare provides a comprehensive, integrated set of technologies for distributed, ultra-scale, software-defined datacenters. Learn more at www.solarflare.com",
+		"level": "2",
+		"url": "http://www.solarflare.com",
+		"type": "General",
+		"id": 92,
+		"name": "Solarflare"
+	}, {
+		"logo-url":"/images/sponsors/siq.png",
+		"description": "StackIQ helps customers automate the provisioning and management of small to large bare metal environments for a variety of use cases including big data, container deployment, building appliances, data center automation, private cloud automation. StackIQ develops and supports the open source bare metal provisioning tool, Stacki.",
+		"level": "2",
+		"url": "http://stackiq.com",
+		"type": "General",
+		"id": 93,
+		"name": "StackIQ"
+	}, {
+		"logo-url":"/images/sponsors/sme.jpg",
+		"description": "Storage Made Easy (SME) provides an Enterprise File Fabric that focuses on two large and emerging markets. The first is data security, encompassing governance and compliance, and the second is the large and growing cloud market (public/private) for which SME has a large footprint and strong channel partners.",
+		"level": "2",
+		"url": "http://www.storagemadeeasy.com",
+		"type": "General",
+		"id": 94,
+		"name": "Storage Made Easy"
+	}, {
+		"logo-url":"/images/sponsors/st.jpg",
+		"description": null,
+		"level": "2",
+		"url": "http://www.storix.com",
+		"type": "General",
+		"id": 95,
+		"name": "Storix"
+	}, {
+		"logo-url":"/images/sponsors/sm.jpg",
+		"description": "Supermicro, the leading innovator in high-performance, high-efficiency server, storage, networking and management total solutions is a premier provider of advanced IT/hyper-converged infrastructure Building Block Solutions for Datacenter, Cloud, Enterprise, Hadoop/Big Data, HPC and Embedded Systems worldwide. Supermicro is committed to protecting the environment through its \u201cWe Keep IT Green\u00ae\u201d initiative.",
+		"level": "2",
+		"url": "http://",
+		"type": "General",
+		"id": 96,
+		"name": "Supermicro"
+	}, {
+		"logo-url":"/images/sponsors/sys.jpg",
+		"description": "What are your containers doing? Sysdig is the most powerful container-native monitoring and troubleshooting solution. Built on ContainerVision\u2122, Sysdig can see inside your containers without intrusive instrumentation. We natively integrate with the entire container ecosystem, giving you deep visibility into your applications and microservices. Free trial at www.sysdig.com.",
+		"level": "2",
+		"url": "http://www.sysdig.com",
+		"type": "General",
+		"id": 97,
+		"name": "Sysdig"
+	}, {
+		"logo-url":"/images/sponsors/tr.jpg",
+		"description": "Transformer from Trace Financial is the faster way to build message validations, enrichments and transformations \u2013 no matter how complex. Transformer is used by financial institutions, service providers and vendors and is supplied with all of SWIFT\u2019s latest integration products. Transformer requires no coding, and deploys into any technical infrastructure.",
+		"level": "2",
+		"url": "http://www.tracefinancial.com",
+		"type": "General",
+		"id": 98,
+		"name": "Trace Financial"
+	}, {
+		"logo-url":"/images/sponsors/trem.jpg",
+		"description": "Tremolo Security's open source identity management system provides a Red Hat certified solution for managing access to your Red Hat Linux servers, OpenShift & OpenStack deployments, and your applications augmenting KeyCloak and FreeIPA.  Add compliance, SSO, privileged access management and directory virtualization to your infrastructure quickly and easily.",
+		"level": "2",
+		"url": "https://www.tremolosecurity.com",
+		"type": "General",
+		"id": 99,
+		"name": "Tremolo Security"
+	}, {
+		"logo-url":"/images/sponsors/zim.png",
+		"description": "Zimbra Collaboration delivers your Mailbox, Contacts, Calendar, Tasks, Files and much more on any device: Smartphone, Tablet or iPad and Desktop or Laptop Computer running Windows, Linux or OS X, Now Zimbra powered by Zextras, your best Zimbra ever.",
+		"level": "2",
+		"url": "http://zextras.com",
+		"type": "General",
+		"id": 100,
+		"name": "Zimbra-Zextras"
+	},
+	{
+		"logo-url":"/images/sponsors/in.png",
+		"description": "LinkedIn connects the world's professionals to make them more productive and successful. With more than 467 million members worldwide, including executives from every Fortune 500 company, LinkedIn is the world's largest professional network. The company has a diversified business model with product lines covering Talent, Sales, Marketing and Learning Solutions.",
+		"level": "1",
+		"url": "http://www.linkedin.com",
+		"type": "Media",
+		"id": 101,
+		"name": "LinkedIn Corporation"
+	}, {
+		"logo-url":"/images/sponsors/tt.jpg",
+		"description": "TechTarget's network of technology-specific websites, such as SearchCloudComputing.com and SearchSoftwareQuality.com, offer hundreds of expert, objective tips, tutorials and news around the latest trends and technologies impacting today's modern IT environments, including cloud computing, DevOps, virtualization, software-defined strategies, enterprise mobility and much more.",
+		"level": "1",
+		"url": "http://www.techtarget.com",
+		"type": "Media",
+		"id": 102,
+		"name": "TechTarget"
+	}
+
+
+]
