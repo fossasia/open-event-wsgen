@@ -100,6 +100,31 @@ The HTML pages of the generated website are created using Handelbars templates.
  - **[eventPage.js](/src/selenium/eventPage.js)** - *Contains methods for testing of the index page of the event*
  - **[trackPage.js](/src/selenium/trackPage.js)** - *Contains methods for testing of the tracks page of the event*
 
+## Other Related Repositories
+
+### Open Event Format Definition
+
+> The **Open Event Project** enables the exchange of data between all components as well as with other services through a standardized Format. The Open Event repository provides a sample implementation of the format. It includes `JSON` files for all relevant event information and binary data for images and audio files.
+
+#### Repository: https://github.com/fossasia/open-event   
+
+#### Chat Channel: https://gitter.im/fossasia/open-event
+
+### Open Event Server
+
+> The **Open Event Server** enables organizers to manage events from concerts to conferences and meetups. It offers features for events with several tracks and venues. Event managers can create invitation forms for speakers and build schedules in a Drag & Drop interface. The event information is stored in a database, which can be a `sqlite-db` file or saved in `json` itself. The system provides API endpoints to fetch the data, and to modify and update it. Organizers can import and export event data in a standard compressed file format that includes the event data in `JSON` and binary media files like images and audio.
+
+#### Repository: https://github.com/fossasia/open-event-server   
+
+#### Chat Channel: https://gitter.im/fossasia/open-event-server
+
+### Open Event Android App
+ 
+> The **Open Event Android Project** consists of two components. The **App Generator** is hosted web application, that is hosted on a server and generates an event Android app from a zip with `JSON` and binary files ([examples here](http://github.com/fossasia/open-event)) or through an API. The second component we are developing in the project is generic **Android app** - the output of the app generator. The mobile app can be installed on any Android device for browsing information about the event. Updates can be made automatically through API endpoint connections from an online source *(e.g. server)*, which needs to defined in the provided event zip with the `JSON` files. The Android app has a standard configuration file, that sets the details of the app *(e.g. color scheme, logo of event, link to `JSON` app data).*   
+
+#### Repository: https://github.com/fossasia/open-event-android
+
+#### Chat Channel: https://gitter.im/fossasia/open-event-android
 
 **6. Overview Site**
 
