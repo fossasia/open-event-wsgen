@@ -11,7 +11,7 @@
 * For more information regarding .editorconfig file, see [editorconfig](http://editorconfig.org/#download)
 
 **Feature Requests and Bug Reports**
-* When you file a feature request or when you are submitting a bug report to the [issue tracker](https://github.com/fossasia/badgeyay/issues), make sure you add steps to reproduce it. Especially if that bug is some weird/rare one.
+* When you file a feature request or when you are submitting a bug report to the [issue tracker](https://github.com/fossasia/open-event-webapp/issues), make sure you add steps to reproduce it. Especially if that bug is some weird/rare one.
 
 **Join the development**
 * Before you join development, please set up the project on your local machine, run it and go through the application completely. Press on any button you can find and see where it leads to. Explore. (Don't worry ... Nothing will happen to the app or to you due to the exploring :wink: Only thing that will happen is, you'll be more familiar with what is where and might even get some cool ideas on how to improve various aspects of the app.)
