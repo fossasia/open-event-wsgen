@@ -143,6 +143,37 @@ $(document).ready(function () {
   uploadProgressVal = $('#upload-progress-val');
   statusText = $('#status');
 
+  $('#single').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+    function() {
+      $(this).find('input').prop('checked',true);
+  });
+
+  $('#expandable').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+  });
+
+  $('#uploadJSON').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+  });
+
+  $('#endpointAPI').mouseover(
+     function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+  });
 
   $('input:radio[name="datasource"]').change(
     function() {
