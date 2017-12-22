@@ -291,6 +291,7 @@ The web-app is able to automatically deploy the generated event sites to Github 
  * **master**   
    This contains shipped code. After significant features/bugfixes are accumulated on development, we make a version update, and make a release.
 
+Also read [CONTRIBUTING.md](https://github.com/fossasia/badgeyay/blob/development/CONTRIBUTING.md)
 
 ## LICENSE
 
