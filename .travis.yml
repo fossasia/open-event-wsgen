@@ -19,10 +19,10 @@ addons:
   code_climate:
     repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
 install:
-  - npm install -g istanbul mocha@3
+  - npm install -g istanbul mocha
   - npm install
 script:
-  - istanbul cover _mocha
+  - istanbul cover _mocha --exit
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - bash gh_deploy.sh
