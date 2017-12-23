@@ -51,7 +51,7 @@ describe('fold', function () {
       done();
     });
   });
-  
+
   describe('.foldByTrack()', () => {
     it('should sort sessions by track', () => {
       const reqOptsLink = {
@@ -60,7 +60,7 @@ describe('fold', function () {
       fold.foldByTrack(data.sessions.json, data.speakers.json, data.tracks.json, reqOptsLink, (trackListLink) => {
         assert.equal(trackListLink[0].title, 'OpenTech and IoT');
       });
-      
+
       const reqOptsDl = {
         assetmode: 'download',
         email: 'a@a.com',
@@ -94,7 +94,7 @@ describe('fold', function () {
         assert.equal(linkModeUrls.main_page_url, data.event.json.event_url);
         assert.equal(linkModeUrls.logo_url, data.event.json.logo);
       });
-      
+
       fold.extractEventUrls(data.event.json, data.speakers.json, data.sponsors.json, {
         assetmode: 'download',
         email: "a@b.com",
@@ -139,19 +139,19 @@ describe('fold', function () {
     });
   });
   describe('.checkNullHtml()', () => {
-    
+
     it('should return true when the html passed doesn\'t contain info', () => {
       assert.equal(fold.checkNullHtml('<p></p>'), true);
     });
-    
+
     it('should return true when the argument passed is undefined', () => {
       assert.equal(fold.checkNullHtml(), true);
     });
-    
+
     it('should return false when the html contains info', () => {
       assert.equal(fold.checkNullHtml('<p> I like writing tests </p>'), false);
     });
-    
+
   })
 });
 
@@ -167,9 +167,138 @@ describe('app', () => {
 describe('generate', function () {
   describe('.create different event sites and copy assets of overview site', function () {
     this.timeout(800000);
+
+    it('should generate the Facebook Developer Conference Hands', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817/",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/F8-FacebookDeveloperConference2017");
+        done();
+      });
+
+    });
+
+    it('should generate the FOSSASIA Summit 2017', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit/",
+        "datasource": "eventapi",
+        "assetmode": "download",
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        done();
+      });
+
+    });
+
+    it('should generate the Mozilla All Hands 2017', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
+        "sessionMode": "single",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/MozillaAllHands2017");
+        done();
+      });
+
+    });
+
+    it('should generate the OSCON 2017', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCON17",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/OSCON2017");
+        done();
+      });
+
+    });
+
+    it('should generate the FOSSASIA 16 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2016");
+        done();
+      });
+
+    });
+
+    it('should generate the Open Tech Summit site', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OpenTechSummit2017/",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/OpenTechSummit");
+        done();
+      });
+
+    });
+
+    it('should generate the Open Tech Summit site', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/NextcloudConference2017/",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/NextcloudConference2017");
+        done();
+      });
+
+    });
+
+>>>>>>> 5215c6b... Added Fossasia14 sample (#1545)
     it('should generate the GoogleIO 17 event', function (done) {
       var data = {};
-      
+
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
@@ -177,17 +306,17 @@ describe('generate', function () {
         "datasource": "eventapi",
         "assetmode": "download"
       };
-      
+
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/GoogleIO2017");
         done();
       });
-      
+
     });
-  
+
     it('should generate the Droidcon 17 event', function (done) {
       var data = {};
-    
+
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
@@ -195,17 +324,17 @@ describe('generate', function () {
         "datasource": "eventapi",
         "assetmode": "download"
       };
-    
+
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/Droidcon2017");
         done();
       });
-    
+
     });
-    
-    it('should generate the PyCon 17 event', function(done) {
+
+    it('should generate the PyCon 17 event', function (done) {
       var data = {};
-      
+
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
@@ -214,17 +343,17 @@ describe('generate', function () {
         "assetmode": "download",
         "sessionMode": "single"
       };
-      
+
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/PyCon2017");
         done();
       });
-      
+
     });
-    
-    it('should generate the RedHat Summit 2017 event', function(done) {
+
+    it('should generate the RedHat Summit 2017 event', function (done) {
       var data = {};
-    
+
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
@@ -232,14 +361,32 @@ describe('generate', function () {
         "datasource": "eventapi",
         "assetmode": "download"
       };
-    
+
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/RedHatSummit2017");
         done();
       });
-    
+
     });
-    
+
+    it('should generate the Fossasia 2014 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA14",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2014");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
 
@@ -261,7 +408,7 @@ describe('generate', function () {
           });
         });
       }
-      
+
       copyStatic('index.html');
       copyStatic('fasmall.jpg');
       copyStatic('otssmall.jpg');
@@ -274,9 +421,10 @@ describe('generate', function () {
       copyStatic('PyCon17.jpg');
       copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
-      
+      copyStatic('fossasia16.jpg')
+
     });
-    
+
   });
 });
 
@@ -301,18 +449,18 @@ describe("Running Selenium tests on Chrome Driver", function () {
         }).build();
     }
   });
-  
+
   after(function () {
     return driver.quit();
   });
-  
+
   describe('Testing event page', function () {
-    
+
     before(function () {
       eventPage.init(driver);
       eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit');
     });
-    
+
     it('Check for Scrollbars', function (done) {
       var sizesArr = [[300, 600], [720, 600]];
       eventPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
@@ -323,26 +471,26 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
 
-    it('Checking the broken links in navbar and footer', function(done) {
-      eventPage.getNavbarFooterBrokenLinks().then(function(numBrokenLinks) {
+
+    it('Checking the broken links in navbar and footer', function (done) {
+      eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
         assert.equal(numBrokenLinks, 0);
         done();
       }).catch(function (err) {
         done(err);
       });
     });
-    
+
     it('Checking the title of the page', function (done) {
       eventPage.getEventName().then(function (eventName) {
         assert.equal(eventName, "FOSSASIA Summit");
         done();
-      }).catch(function(err) {
+      }).catch(function (err) {
         done(err);
       });
     });
-    
+
     it('Checking the presence of tweet section', function (done) {
       eventPage.checkTweetSection().then(function () {
         done();
@@ -350,7 +498,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Check whether the down button is working or not', function (done) {
       eventPage.checkDownButton().then(function (offset) {
         assert.equal(offset, 0);
@@ -359,16 +507,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
   });
-  
+
   describe('Testing tracks page', function () {
-    
+
     before(function () {
       trackPage.init(driver);
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
     });
-    
+
     it('Test for font color of sessions', function (done) {
       trackPage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
@@ -377,7 +525,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Check for Scrollbars', function (done) {
       var sizesArr = [[300, 600], [720, 600]];
       trackPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
@@ -388,8 +536,8 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
-    
+
+
     it('Checking track name list appear near the top of page', function (done) {
       trackPage.checkTrackNamePos().then(function (boolval) {
         assert.equal(boolval, true);
@@ -398,7 +546,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking horizontal alignment of date tab and session content below it', function (done) {
       trackPage.checkAlignment().then(function (val) {
         assert.equal(val, 0);
@@ -407,7 +555,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking search functionality', function (done) {
       trackPage.commonSearchTest().then(function (boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);
@@ -416,7 +564,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     //Click on the session Elem to collapse
     it('Expanding the session', function (done) {
       trackPage.toggleSessionElem().then(function (boolArr) {
@@ -426,7 +574,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     //Click again to bring it back to default view
     it('Bring back the session to default view', function (done) {
       trackPage.toggleSessionElem().then(function (boolArr) {
@@ -436,7 +584,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking Jump to Speaker functionality', function (done) {
       trackPage.jumpToSpeaker().then(function (val) {
         assert.equal(val, true);
@@ -446,7 +594,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the working of social buttons', function (done) {
       trackPage.checkSocialLinks().then(function (num) {
         assert.equal(num, 5);
@@ -455,7 +603,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the bookmark toggle', function (done) {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
       trackPage.checkIsolatedBookmark().then(function (visArr) {
@@ -465,7 +613,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the Track Filter', function (done) {
       trackPage.checkIsolatedTrackFilter().then(function (numTrack) {
         assert.equal(numTrack, 1);
@@ -475,7 +623,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Track filter followed by search and starred filter and reversing them', function (done) {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
       trackPage.filterCombination(['trackselect', 'search', 'starred', 'unstarred', 'unsearch', 'trackunselect']).then(function (val) {
@@ -490,7 +638,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Search filter followed by track and starred filter and reversing them', function (done) {
       trackPage.filterCombination(['search', 'trackselect', 'starred', 'unstarred', 'trackunselect', 'unsearch']).then(function (val) {
         assert.deepEqual(val[0], [true, false, true, false, true, false]);
@@ -504,7 +652,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Track filter followed by starred and search filter and reversing them', function (done) {
       trackPage.filterCombination(['trackselect', 'starred', 'search', 'unsearch', 'unstarred', 'trackunselect']).then(function (val) {
         assert.deepEqual(val[0], [true, true, true, true, false, false]);
@@ -518,7 +666,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Search filter followed by starred and track filter and reversing them', function (done) {
       trackPage.filterCombination(['search', 'starred', 'trackselect', 'trackunselect', 'unstarred', 'unsearch']).then(function (val) {
         assert.deepEqual(val[0], [true, false, true, false, true, false]);
@@ -532,7 +680,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Starred filter followed by search and track filter and reversing them', function (done) {
       trackPage.filterCombination(['starred', 'search', 'trackselect', 'trackunselect', 'unsearch', 'unstarred']).then(function (val) {
         assert.deepEqual(val[0], [true, true, false, false, true, false]);
@@ -546,7 +694,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Starred filter followed by track And search filter and reversing them', function (done) {
       trackPage.filterCombination(['starred', 'trackselect', 'search', 'unsearch', 'trackunselect', 'unstarred']).then(function (val) {
         assert.deepEqual(val[0], [true, true, false, false, true, false]);
@@ -560,16 +708,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
   });
-  
+
   describe('Testing schedule page', function () {
-    
+
     before(function () {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
     });
-    
+
     it('Test for font color of sessions', function (done) {
       schedulePage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
@@ -578,7 +726,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Check for Scrollbars', function (done) {
       var sizesArr = [[300, 600], [720, 600]];
       schedulePage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
@@ -589,7 +737,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking track name list appear near the top of page', function (done) {
       schedulePage.checkTrackNamePos().then(function (boolval) {
         assert.equal(boolval, true);
@@ -598,7 +746,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking alignment of date tab and session content', function (done) {
       schedulePage.checkAlignment().then(function (val) {
         assert.equal(val, 0);
@@ -607,7 +755,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking search functionality', function (done) {
       schedulePage.commonSearchTest().then(function (boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);
@@ -616,7 +764,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     // Click on the session Elem to collapse
     it('Expanding the session', function (done) {
       schedulePage.toggleSessionElem().then(function (val) {
@@ -626,7 +774,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     // Click again to bring it back to default view
     it('Bring back the session to default view', function (done) {
       schedulePage.toggleSessionElem().then(function (val) {
@@ -636,11 +784,11 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     //Now, we will do a series of tests to check the behaviour of the date divs when the date and mode is changed
     //First array gives the visibility of the date divs inside the list view container
     //Second array gives the visibility of the date divs inside the calendar view container
-    
+
     //In default view, all the dates inside the list view must be visible. The calendar view container should not be shown
     it('Checking the default view of the page', function (done) {
       schedulePage.getCurrentView().then(function (arr) {
@@ -651,7 +799,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Changing the date to Sunday', function (done) {
       schedulePage.changeDay(3).then(function (arr) {
         assert.deepEqual(arr[0], [false, false, true]);
@@ -661,7 +809,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Changing the mode to Calendar', function (done) {
       schedulePage.toggleMode().then(function (arr) {
         assert.deepEqual(arr[0], [false, false, false]);
@@ -671,7 +819,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Changing the date to Saturday in calendar mode itself', function (done) {
       schedulePage.changeDay(2).then(function (arr) {
         assert.deepEqual(arr[0], [false, false, false]);
@@ -681,7 +829,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Changing the mode back to list', function (done) {
       schedulePage.toggleMode().then(function (arr) {
         assert.deepEqual(arr[0], [false, true, false]);
@@ -691,7 +839,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking Jump to Speaker functionality', function (done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.jumpToSpeaker().then(function (val) {
@@ -701,7 +849,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the working of social buttons', function (done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkSocialLinks().then(function (num) {
@@ -711,7 +859,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the bookmark toggle', function (done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function (visArr) {
@@ -721,16 +869,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
   });
-  
+
   describe('Testing rooms page', function () {
-    
+
     before(function () {
       roomPage.init(driver);
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
     });
-    
+
     it('Test for font color of sessions', function (done) {
       roomPage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
@@ -739,7 +887,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Check for Scrollbars', function (done) {
       var sizesArr = [[300, 600], [720, 600]];
       roomPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
@@ -750,7 +898,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking track name list appear near the top of page', function (done) {
       trackPage.checkTrackNamePos().then(function (boolval) {
         assert.equal(boolval, true);
@@ -759,7 +907,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking alignment of date tab and session content', function (done) {
       trackPage.checkAlignment().then(function (val) {
         assert.equal(val, 0);
@@ -768,7 +916,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     // Click on the session Elem to collapse
     it('Expanding the session', function (done) {
       roomPage.toggleSessionElem().then(function (boolArr) {
@@ -778,7 +926,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     // Click again to bring it back to default view
     it('Bring back the session to default view', function (done) {
       roomPage.toggleSessionElem().then(function (boolArr) {
@@ -788,7 +936,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking search functionality', function (done) {
       roomPage.commonSearchTest().then(function (boolArr) {
         assert.deepEqual(boolArr, [true, true, true, true, false, false]);
@@ -797,7 +945,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the working of social buttons', function (done) {
       roomPage.checkSocialLinks().then(function (num) {
         assert.equal(num, 5);
@@ -806,7 +954,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking Jump to Speaker functionality', function (done) {
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.jumpToSpeaker().then(function (val) {
@@ -816,7 +964,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the bookmark toggle', function (done) {
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.checkIsolatedBookmark().then(function (visArr) {
@@ -826,7 +974,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the starred mode after search', function (done) {
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.toggleSessionBookmark(['3014', '3015']).then(roomPage.searchThenStarredMode.bind(roomPage)).then(function (boolArr) {
@@ -836,7 +984,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking search in starred mode', function (done) {
       roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
       roomPage.starredModeThenSearch().then(function (boolArr) {
@@ -846,16 +994,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
   });
-  
+
   describe('Testing Speakers page', function () {
-    
+
     before(function () {
       speakerPage.init(driver);
       speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/speakers.html');
     });
-    
+
     it('Checking search functionality', function (done) {
       speakerPage.searchTest().then(function (boolArr) {
         assert.deepEqual(boolArr, [true, false]);
@@ -864,7 +1012,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Jump to track page on clicking session of a speaker', function (done) {
       speakerPage.jumpToTrack().then(function (val) {
         assert.equal(val, 1);
@@ -874,14 +1022,14 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
   });
-  
+
   describe('Testing Speakers page for single page type', function () {
-    
+
     before(function () {
       speakerPage.init(driver);
       speakerPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
     });
-    
+
     it('Jump to session page on clicking session of a speaker', function (done) {
       speakerPage.jumpToSession().then(function (val) {
         assert.equal(val, 1);
