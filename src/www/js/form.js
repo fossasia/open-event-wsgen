@@ -165,6 +165,26 @@ $(document).ready(function () {
   }).mousedown(
       function() {
           $(this).find('input').prop('checked',true);
+          if ($(this).find('input').is(':checked')) {
+
+              if ($(this).find('input').val() === 'mockjson') {
+                  $('#jsonupload-input').hide(100);
+                  $('#eventapi-input').hide(100);
+              }
+
+              if ($(this).find('input').val() === 'jsonupload') {
+                  $('#jsonupload-input').show(100);
+                  $('#eventapi-input').hide(100);
+                  $('#btnLive').hide();
+                  $('#btnDownload').hide();
+                  $('#deploy').hide();
+                  if (uploadFinished) {
+                      enableGenerateButton(true);
+                  } else {
+                      enableGenerateButton(false);
+                  }
+              }
+          }
   });
 
   $('#endpointAPI').mouseover(
@@ -173,6 +193,22 @@ $(document).ready(function () {
   }).mousedown(
       function() {
           $(this).find('input').prop('checked',true);
+          if ($(this).find('input').is(':checked')) {
+
+              if ($(this).find('input').val() === 'mockjson') {
+                  $('#jsonupload-input').hide(100);
+                  $('#eventapi-input').hide(100);
+              }
+
+              if ($(this).find('input').val() === 'eventapi') {
+                  $('#eventapi-input').show(100);
+                  $('#jsonupload-input').hide(100);
+                  $('#btnLive').hide();
+                  $('#btnDownload').hide();
+                  $('#deploy').hide();
+                  enableGenerateButton(true);
+              }
+          }
   });
 
   $('input:radio[name="datasource"]').change(
