@@ -1,0 +1,91 @@
+{
+	"social-links": [{
+			"id": 1,
+			"name": "Twitter",
+			"link": "https://twitter.com/fossasia"
+		},
+		{
+			"id": 2,
+			"name": "Github",
+			"link": "https://github.com/fossasia"
+		},
+		{
+			"id": 3,
+			"name": "Facebook",
+			"link": "https://www.facebook.com/fossasia"
+		},
+		{
+			"id": 4,
+			"name": "Flickr",
+			"link": "https://www.flickr.com/photos/fossasia"
+		},
+		{
+			"id": 5,
+			"name": "Google Plus",
+			"link": "https://plus.google.com/108920596016838318216"
+		},
+		{
+			"id": 6,
+			"name": "YouTube",
+			"link": "https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ"
+		},
+		{
+			"id": 7,
+			"name": "Linkedin",
+			"link": "https://www.linkedin.com/groups/FOSSASIA-3762811"
+		},
+		{
+			"id": 8,
+			"name": "External Event URL",
+			"link": "http://2016.fossasia.org/"
+		}
+	],
+	"organizer-description": "FOSSASIA is the premier Free and Open Source technology event in Asia for developers, start-ups, and contributors. Projects at FOSSASIA range from open hardware, to design, graphics and software. FOSSASIA was established in 2009. Previous event took place in Vietnam.",
+	"starts-at": "2014-02-28T09:00:00+07:00",
+	"id": 1,
+	"name": "FOSSASIA 2014",
+	"speakers-call": {
+		"announcement": "<p>Wanna speak at our prestigious event. Send us a proposal</p>",
+		"starts-at": "2014-02-14T19:30:00+07:00",
+		"timezone": "Asia/Phnom_Penh",
+		"privacy": "public",
+		"ends-at": "2014-02-27T20:30:00+07:00"
+
+	},
+	"logo-url": "/images/fossasia-dark.png",
+	"timezone": "Asia/Phnom_Penh",
+	"searchable-location-name": null,
+	"description": "3 Days of Pure Knowledge Sharing, 71 International Speakers, 15 Presenters from Cambodia, 121 Talks, Workshops and Panels, 8 tracks per day, Hands-on Labs and Hacking practice for everyone.",
+	"is-sessions-speakers-enabled": true,
+	"topic": "Science & Technology",
+	"schedule-published-on": "2014-02-11T00:00:00+07:00",
+	"state": "Completed",
+	"version": {
+		"sponsors_ver": 3,
+		"microlocations_ver": 2,
+		"event_ver": 1,
+		"speakers_ver": 2,
+		"sessions_ver": 3,
+		"tracks_ver": 4
+	},
+	"original-image-url": "/images/fossasia16.jpg",
+	"email": "contact@fossasia.org",
+	"sub-topic": null,
+	"type": "Conference",
+	"organizer-name": "FOSSASIA",
+	"latitude": 11.54487,
+	"longitude": 104.89216,
+	"ends-at": "2014-03-02T17:00:00+07:00",
+	"privacy": "public",
+	"code-of-conduct": "",
+	"event-copyright": {
+		"logo-url": "https://i.creativecommons.org/l/by/4.0/80x15.png",
+		"licence-url": "http://creativecommons.org/licenses/by/4.0/",
+		"holder": "FOSSASIA",
+		"licence": "Creative Commons Attribution License",
+		"holder-url": "http://fossasia.org/contact/",
+		"year": 2014
+	},
+	"location-name": "Phnom Penh, Cambodia",
+	"ticket-url": "http://2014.fossasia.org/"
+}

@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Hong Phuc Dang",
+        "email": "hong_phuc_dang@fossasia.org",
+        "mobile": null,
+        "photo-url": "/images/speakers/HongPhucDang_1.jpg",
+        "organisation": "FOSSASIA",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Hong Phuc, originally from Vietnam, has lived in the US, Singapore and Berlin. She was a speaker at the Chaos Communication Congress presenting the latest advances in Open Fashion and Technology. She is also the founder of FOSSASIA, the Asia organization bringing together an inspiring community across borders and ages to form a better future with Open Technologies and ICT. Hong Phuc organizes events like the annual FOSSASIA summit since 2009 and puts together Science Hackdays across the region in Vietnam, Dubai and China.",
+        "website": "http://hpdang.com",
+        "twitter": "http://twitter.com/hpdang",
+        "facebook": null,
+        "github": "http://github.com/hpdang",
+        "linkedin": "https://www.linkedin.com/in/hongphucdang",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 1,
+                "title": "Organizers Welcome"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Rector of Norton University",
+        "email": "",
+        "mobile": null,
+        "photo-url": "/images/speakers/reactor.png",
+        "organisation": "Norton University",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Norton University",
+        "website": "",
+        "twitter": "",
+        "facebook": null,
+        "github": "",
+        "linkedin": "",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 2,
+                "title": "Welcome of Rector of Norton University"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Anna Maj Hultgård",
+        "email": "",
+        "mobile": null,
+        "photo-url": "/images/speakers/anna.jpg",
+        "organisation": "Ambassador of the Swedish Embassy",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Ambassador of the Swedish Embassy",
+        "website": "",
+        "twitter": "",
+        "facebook": null,
+        "github": "",
+        "linkedin": "",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 3,
+                "title": "Keynote address of Anna Maj Hultgård, Ambassador of the Swedish Embassy"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Khieu Kanharith",
+        "email": "",
+        "mobile": null,
+        "photo-url": "/images/speakers/khieu.jpg",
+        "organisation": "Minister of Information",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Minister of Information",
+        "website": "",
+        "twitter": "",
+        "facebook": null,
+        "github": "",
+        "linkedin": "",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 4,
+                "title": "Opening remark by Minister of Information Khieu Kanharith"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Greta Greathouse",
+        "email": "",
+        "mobile": null,
+        "photo-url": "/images/speakers/greta.jpg",
+        "organisation": "Development Innovations",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Development Innovations",
+        "website": "",
+        "twitter": "",
+        "facebook": null,
+        "github": "",
+        "linkedin": "",
+        "is-featured": false,
+        "sessions": [
+            {
+                "id": 5,
+                "title": "Technologies for Development, Development Innovations, Greta Greathouse"
+            }
+        ]
+    }
+]
