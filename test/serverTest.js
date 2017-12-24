@@ -331,7 +331,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the PyCon 17 event', function(done) {
+    it('should generate the PyCon 17 event', function (done) {
       var data = {};
 
       data.body = {
@@ -350,7 +350,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the RedHat Summit 2017 event', function(done) {
+    it('should generate the RedHat Summit 2017 event', function (done) {
       var data = {};
 
       data.body = {
@@ -365,12 +365,28 @@ describe('generate', function () {
         assert.equal(appFolder, "a@a.com/RedHatSummit2017");
         done();
       });
+    });
 
+    it('should generate the Fossasia 2014 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA14",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2014");
+        done();
+      });
     });
 
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 12;
+      var totalFiles = 13;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -404,7 +420,7 @@ describe('generate', function () {
       copyStatic('PyCon17.jpg');
       copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
-
+      copyStatic('fossasia16.jpg');
     });
 
   });
@@ -454,9 +470,8 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
-
-    it('Checking the broken links in navbar and footer', function(done) {
-      eventPage.getNavbarFooterBrokenLinks().then(function(numBrokenLinks) {
+    it('Checking the broken links in navbar and footer', function (done) {
+      eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
         assert.equal(numBrokenLinks, 0);
         done();
       }).catch(function (err) {
@@ -468,7 +483,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
       eventPage.getEventName().then(function (eventName) {
         assert.equal(eventName, "FOSSASIA Summit");
         done();
-      }).catch(function(err) {
+      }).catch(function (err) {
         done(err);
       });
     });
