@@ -384,9 +384,28 @@ describe('generate', function () {
       });
     });
 
+    it('should generate the Fossasia FOSSASIA2011 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA11",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2011");
+        done();
+      });
+
+    });
+
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 13;
+      var totalFiles = 14;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -421,6 +440,8 @@ describe('generate', function () {
       copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
       copyStatic('fossasia16.jpg');
+      copyStatic('fossasia2011.jpg')
+
     });
 
   });
@@ -1037,4 +1058,3 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
   });
 });
-
