@@ -366,7 +366,6 @@ describe('generate', function () {
         assert.equal(appFolder, "a@a.com/RedHatSummit2017");
         done();
       });
-
     });
 
     it('should generate the Fossasia 2014 event', function (done) {
@@ -384,8 +383,26 @@ describe('generate', function () {
         assert.equal(appFolder, "a@a.com/FOSSASIA2014");
         done();
       });
+    });
+
+    it('should generate the Fossasia FOSSASIA2011 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA11",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIA2011");
+        done();
+      });
 
     });
+
 
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
@@ -421,7 +438,8 @@ describe('generate', function () {
       copyStatic('PyCon17.jpg');
       copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
-      copyStatic('fossasia16.jpg')
+      copyStatic('fossasia16.jpg');
+      copyStatic('fossasia2011.jpg')
 
     });
 
@@ -471,7 +489,6 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-
 
     it('Checking the broken links in navbar and footer', function (done) {
       eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
@@ -1040,4 +1057,3 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
   });
 });
-
