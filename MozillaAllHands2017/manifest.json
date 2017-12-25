@@ -1,0 +1,39 @@
+{
+"short_name":"MozillaAllHands2017",
+ "icons": [
+    {
+      "src": "./images/logo.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./images/logo.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./images/logo.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./images/logo.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./images/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "description": "Open Event Web Application Generator",
+  "dir": "ltr",
+  "lang": "en-US"
+}
