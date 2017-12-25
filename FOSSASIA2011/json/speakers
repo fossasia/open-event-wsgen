@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Hong Phuc Dang",
+        "email": "hong_phuc_dang@fossasia.org",
+        "mobile": null,
+        "photo-url": "/images/speakers/HongPhucDang_1.jpg",
+        "organisation": "FOSSASIA",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Hong Phuc, originally from Vietnam, has lived in the US, Singapore and Berlin. She was a speaker at the Chaos Communication Congress presenting the latest advances in Open Fashion and Technology. She is also the founder of FOSSASIA, the Asia organization bringing together an inspiring community across borders and ages to form a better future with Open Technologies and ICT. Hong Phuc organizes events like the annual FOSSASIA summit since 2009 and puts together Science Hackdays across the region in Vietnam, Dubai and China.",
+        "website": "http://hpdang.com",
+        "twitter": "http://twitter.com/hpdang",
+        "facebook": null,
+        "github": "http://github.com/hpdang",
+        "linkedin": "https://www.linkedin.com/in/hongphucdang",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 1,
+                "title": "Organizers Welcome"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Reactor of Van Lang University",
+        "email": "",
+        "mobile": null,
+        "photo-url": "/images/speakers/reactor.jpg",
+        "organisation": "Van Lang University",
+        "position": null,
+        "country": "Not available",
+        "short-biography": "",
+        "long-biography": "Van Lang University",
+        "website": "",
+        "twitter": "",
+        "facebook": null,
+        "github": "",
+        "linkedin": "",
+        "is-featured": true,
+        "sessions": [
+            {
+                "id": 2,
+                "title": "Welcome of Reactor of Van Lang University"
+            }
+        ]
+    }
+]
