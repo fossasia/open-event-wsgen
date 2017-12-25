@@ -1,0 +1,289 @@
+[
+    {
+        "id": 1,
+        "title": "Pre-Meeting",
+        "subtitle": null,
+        "short-abstract": "Pre-Meeting",
+        "long-abstract": "",
+        "starts-at": "2010-11-11T20:00:00+07:00",
+        "ends-at": "2010-11-11T20:30:00+07:00",
+        "session-type": {
+            "id": 1,
+            "name": "Pre-Meeting",
+            "length": 0.3
+        },
+        "track": {
+            "id": 1,
+            "name": "Lightweight Technologies"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 2,
+            "name": "The Spotted Cow Bar111 Bui Vien, dist 1. HCMC"
+        },
+        "signup-url": null,
+        "speakers": [{
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+        }],
+        "state": "accepted"
+    },
+    {
+        "id": 2,
+        "title": "Info Day (15-20 min presentations about projects and set up of info tables)",
+        "subtitle": null,
+        "short-abstract": "Info Day (15-20 min presentations about projects and set up of info tables)",
+        "long-abstract": "",
+        "starts-at": "2010-11-12T09:00:00+07:00",
+        "ends-at": "2010-11-12T16:00:00+07:00",
+        "session-type": {
+            "id": 2,
+            "name": "Info Day",
+            "length": 0.3
+        },
+        "track": {
+            "id": 1,
+            "name": "Lightweight Technologies"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 3,
+            "name": "Raffles Institute"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 3,
+        "title": "Hack Sessions",
+        "subtitle": null,
+        "short-abstract": "Hack Sessions",
+        "long-abstract": "",
+        "starts-at": "2010-11-12T16:00:00+07:00",
+        "ends-at": "2010-11-12T22:00:00+07:00",
+        "session-type": {
+            "id": 3,
+            "name": "Hack Sessions",
+            "length": 0.3
+        },
+        "track": {
+            "id": 1,
+            "name": "Lightweight Technologies"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 3,
+            "name": "Raffles Institute"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 4,
+        "title": "Community Day (keynotes, talks, workshops)",
+        "subtitle": null,
+        "short-abstract": "Community Day (keynotes, talks, workshops)",
+        "long-abstract": "",
+        "starts-at": "2010-11-13T09:00:00+07:00",
+        "ends-at": "2010-11-13T17:15:00+07:00",
+        "session-type": {
+            "id": 4,
+            "name": "Community Day",
+            "length": 0.3
+        },
+        "track": {
+            "id": 2,
+            "name": "Growing the community, expanding Openness"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 3,
+            "name": "Raffles Institute"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 5,
+        "title": "Social Meet Up",
+        "subtitle": null,
+        "short-abstract": "Social Meet Up",
+        "long-abstract": "",
+        "starts-at": "2010-11-13T17:15:00+07:00",
+        "ends-at": "2010-11-13T18:15:00+07:00",
+        "session-type": {
+            "id": 5,
+            "name": "Social Meet up",
+            "length": 0.3
+        },
+        "track": {
+            "id": 2,
+            "name": "Growing the community, expanding Openness"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 3,
+            "name": "Raffles Institute"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 6,
+        "title": "Workshops and Follow ups",
+        "subtitle": null,
+        "short-abstract": "Workshops and Follow ups",
+        "long-abstract": "",
+        "starts-at": "2010-11-14T09:00:00+07:00",
+        "ends-at": "2010-11-14T15:30:00+07:00",
+        "session-type": {
+            "id": 6,
+            "name": "Workshops and Follow ups",
+            "length": 0.3
+        },
+        "track": {
+            "id": 2,
+            "name": "Growing the community, expanding Openness"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 3,
+            "name": "Raffles Institute"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 7,
+        "title": "Mekong Excursion organized by tour company",
+        "subtitle": null,
+        "short-abstract": "Mekong Excursion organized by tour company",
+        "long-abstract": "",
+        "starts-at": "2010-11-15T08:00:00+07:00",
+        "ends-at": "2010-11-15T16:00:00+07:00",
+        "session-type": {
+            "id": 7,
+            "name": "Mekong Excursion",
+            "length": 0.3
+        },
+        "track": {
+            "id": 3,
+            "name": "OpenOffice.org/ODF"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 4,
+            "name": "Mekong Delta"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    },
+    {
+        "id": 8,
+        "title": "Presentations and Meetings with students and professors in universities",
+        "subtitle": null,
+        "short-abstract": "Presentations and Meetings with students and professors in universities",
+        "long-abstract": "",
+        "starts-at": "2010-11-15T08:00:00+07:00",
+        "ends-at": "2010-11-15T16:00:00+07:00",
+        "session-type":
+        {
+            "id": 8,
+            "name": "Presentations and Meetings",
+            "length": 0.3
+        },
+        "track": {
+            "id": 4,
+            "name": "Debconf"
+        },
+        "comments": "",
+        "language": null,
+        "slides-url": null,
+        "audio-url": null,
+        "video-url": null,
+        "microlocation": {
+            "id": 5,
+            "name": "Ho Chi Minh City"
+        },
+        "signup-url": null,
+        "speakers": [
+            {
+                "id": 1,
+                "name": "Hong Phuc Dang",
+                "organisation": "FOSSASIA"
+            }
+        ],
+        "state": "accepted"
+    }
+]

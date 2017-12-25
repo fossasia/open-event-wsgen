@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Online QTSC Cloud Service Provider",
+        "logo-url": "/images/sponsors/qtsconline_logo-url_1.png",
+        "level": "1",
+        "type": "Diamond",
+        "url": "http://2010.fossasia.org/sponsors/qtsconline-cloud-service-provider",
+        "description": ""
+    },
+    {
+        "id": 5,
+        "name": "FOSSASIA",
+        "logo-url": "/images/sponsors/Fossasia_5.png",
+        "level": "1",
+        "type": "Diamond",
+        "url": "http://blog.fossasia.org/",
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "OpenOffice.org",
+        "logo-url": "/images/sponsors/openoffice.png",
+        "level": "2",
+        "type": "Platinum",
+        "url": "http://2010.fossasia.org/sponsors/openofficeorg",
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "Seacem",
+        "logo-url": "/images/sponsors/seacem.png",
+        "level": "1",
+        "type": "Platinum",
+        "url": "http://2010.fossasia.org/sponsors/seacem",
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "webessentials",
+        "logo-url": "/images/sponsors/webessentials.png",
+        "level": "4",
+        "type": "Gold",
+        "url": "http://2010.fossasia.org/sponsors/webessentials",
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "The GIOI VI TINH",
+        "logo-url": "/images/sponsors/TGVT logo-url.gif",
+        "level": "3",
+        "type": "Gold",
+        "url": "http://www.pcworld.com.vn/",
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "MBM",
+        "logo-url": "/images/sponsors/Mbm_7.png",
+        "level": "2",
+        "type": "Gold",
+        "url": "http://mbm.asia/",
+        "description": ""
+    },
+    {
+        "id": 8,
+        "name": "QHoach",
+        "logo-url": "/images/sponsors/qhoach-logo-url-en.png",
+        "level": "5",
+        "type": "Silver",
+        "url": "http://2010.fossasia.org/sponsors/qhoach",
+        "description": ""
+    },
+    {
+        "id": 9,
+        "name": "XOAI Mini-Hotel",
+        "logo-url": "/images/sponsors/canthohotelmekong.png",
+        "level": "4",
+        "type": "Silver",
+        "url": "http://hotelxoai.com",
+        "description": ""
+    },
+    {
+        "id": 10,
+        "name": "Raffles International College",
+        "logo-url": "/images/sponsors/raffles.png",
+        "level": "5",
+        "type": "Silver",
+        "url": "http://2010.fossasia.org/sponsors/raffles-international-college",
+        "description": ""
+    }
+]
