@@ -365,7 +365,6 @@ describe('generate', function () {
         assert.equal(appFolder, "a@a.com/RedHatSummit2017");
         done();
       });
-
     });
 
     it('should generate the Fossasia 2014 event', function (done) {
@@ -383,7 +382,6 @@ describe('generate', function () {
         assert.equal(appFolder, "a@a.com/FOSSASIA2014");
         done();
       });
-
     });
 
     it('should generate the Fossasia FOSSASIA2011 event', function (done) {
@@ -492,7 +490,6 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-
 
     it('Checking the broken links in navbar and footer', function (done) {
       eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
