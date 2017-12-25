@@ -28,6 +28,11 @@
       position: relative;
       min-height: 100%;
       padding-bottom: 40px;
+      background-image: url(Open.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: center;
+      
     }
 
     .custom-navbar {
@@ -132,6 +137,18 @@
       border-top: 1px solid #bfbfbf;
       background-color: #f9f9f9;
     }
+    .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-image: url(chill.jpg);
+    
+}
 
     @media(max-width: 768px){
       .custom-navtitle, .custom-menubutton {
@@ -153,10 +170,17 @@
           width: 250px;
       }
     }
+
+    body:hover .overlay{
+      opacity: 1;
+    }
+
   </style>
 </head>
 
 <body>
+
+<div class="overlay">
   <div class="custom-navbar">
     <a href='.' class="custom-navtitle">
       <strong>Open Event Webapp Generator</strong>
@@ -209,7 +233,7 @@
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
       <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4" style="margin-bottom: 0;">
-        <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
+        <label for="name"><font color="#FFFFFF">Email</font></label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
         <!--<label for="theme">Choose your theme</label>-->
          <!--<select class="form-control" id="theme" name="theme">-->
          <!--<option value="light">Light</option>-->
@@ -220,16 +244,17 @@
                     <label for="name">App's Name</label>
                     <input type="text" class="form-control" id="name" name="name" required="true">
                     <br>
-                -->
-         <label>Choose Session Style</label>
+                chill-->
+         <label><font color="#FFFFFF">Choose Session Style</font></label>
         <ul style="list-style-type:none">
-          <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
-          <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
-        </ul><label>Choose your data source</label>
+
+          <li id="single"><input name="session" required="" type="radio" value="single"><font color="#FFFFFF"> Single</font></li>
+          <li id="expandable"><input name="session" type="radio" value="expand"><font color="#FFFFFF"> Expandable</font></li>
+        </ul><label><font color="#FFFFFF">Choose your data source</font></label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li id="uploadJSON"><input name="datasource" type="radio" value="jsonupload"> Upload your own JSON files</li>
-          <li id="endpointAPI"><input name="datasource" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
+          <li id="uploadJSON"><input name="datasource" type="radio" value="jsonupload"><font color="#FFFFFF"> Upload your own JSON files</font></li>
+          <li id="endpointAPI"><input name="datasource" type="radio" value="eventapi"><font color="#FFFFFF"> API endpoint of event on OpenEvent</font></li>
         </ul>
         <section id="eventapi-input" style="display:none;">
           <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
@@ -264,7 +289,7 @@
         <!--</select>-->
         <input name="assetmode" type="hidden" value="download">
         <section>
-          <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp">Upload via FTP</label>
+          <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp"><font color="#FFFFFF">Upload via FTP</font></label>
           <div id="upload-ftp-details" style="display: none">
             <input class="form-control" id="ftp-host" placeholder="host" type="text"> <input class="form-control" id="ftp-user" placeholder="username" style="width: 49.2%; display: inline" type="text"> <input class="form-control" id="ftp-pass" placeholder="password" style="width: 49.2%; display: inline" type="password"> <input class="form-control" id="ftp-path" placeholder="/path/to/deploy/folder" type="text">
           </div>
@@ -280,7 +305,7 @@
       <div class="col-md-4 col-xs-2"></div>
       <div class="col-md-offset-3 col-xs-offset-1 col-xs-10 col-md-6" style="margin-top: -20px;">
         <center>
-          <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;">-Logs-</a>
+          <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;"><font color="#000000"><strong>-Logs-</a>
           <pre id="buildLog" style="display:none;">
                     </pre><br>
           <button class="download btn btn-default" disabled id="btnGenerate" style="margin-top:7px" title="Upload zip or use API mode to enable" type="button" value="Validate">GENERATE WEBAPP</button> <button class="download btn btn-default" id="btnLive" type="button">PREVIEW</button> <button class="download btn btn-default" id="btnDownload" type="button">DOWNLOAD</button> <a class="btn btn-default" id="deploy" style="display:none">DEPLOY</a>
@@ -292,5 +317,6 @@
     <span> <strong>Version: </strong></span>
     <span> <a id="deploy-link"> </a> </span>
   </div>
+</div>
 </body>
 </html>
