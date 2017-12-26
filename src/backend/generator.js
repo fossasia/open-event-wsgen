@@ -477,16 +477,16 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       logger.addLog('Info', 'Calculating the hash of the event folder and copying the service worker file', socket);
-      console.log( 'Calculating the hash of the event folder and copying the service worker file');
-      if (emit) socket.emit('live.process', {donePercent: 85, status: "Copying Service Worker File" });
+      console.log('Calculating the hash of the event folder and copying the service worker file');
+      if (emit) socket.emit('live.process', {donePercent: 85, status: "Copying Service Worker File"});
 
-      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function(err, hashObj) {
+      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function (err, hashObj) {
         if (err) {
           console.log(err);
           logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
           return done(err);
         }
-        distHelper.copyServiceWorker(appFolder, hashObj['hash'], function(err) {
+        distHelper.copyServiceWorker(appFolder, hashObj['hash'], function (err) {
           if (err) {
             console.log(err);
             logger.addLog('Error', 'Error occured while copying service worker file', socket, err);
@@ -495,6 +495,20 @@ exports.createDistDir = function(req, socket, callback) {
           return done(null);
         });
       });
+    },
+
+    (done) => {
+        logger.addLog('Info', 'Copying the manifest file', socket);
+        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Service Worker File"});
+
+        distHelper.copyManifestFile(appFolder, eventName, function(err) {
+          if (err) {
+            console.log(err);
+            logger.addLog('Error', 'Error occured while copying manifest file', socket, err);
+            return done(err);
+          }
+          return done(null);
+        });
     },
 
     (done) => {
@@ -535,6 +549,15 @@ exports.createDistDir = function(req, socket, callback) {
         done(null, 'write');
       });
 
+      process.on('uncaughtException',function(err){
+        if(err.code === 'ETIMEDOUT'){
+          console.log('Failed to connect to address '+err.address);
+          logger.addLog('Error','Failed to connect to address '+err.address,socket);
+        }
+        else{
+          console.log(err);
+        }
+      });
     }
   ]);
 };
@@ -553,3 +576,5 @@ exports.pipeZipToRes = function(email, appName, res) {
 
   zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
+
+
