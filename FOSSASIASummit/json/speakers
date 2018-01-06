@@ -5425,7 +5425,7 @@
         "sponsorship-required": ""
     },
     {
-        "twitter": "http://twitter.com/opensourceville",
+        "twitter": "https://twitter.com/alexcg",
         "is-featured": false,
         "photo-url": "https://storage.googleapis.com/eventyay.com/events/6/speakers/2195/photo/T1VndmszMk/1485789127.5.png",
         "linkedin": "http://www.linkedin.com/in/alexcg",
@@ -5757,7 +5757,7 @@
         "twitter": "https://www.twitter.com/Saptak013",
         "is-featured": false,
         "photo-url": "https://storage.googleapis.com/eventyay.com/events/6/speakers/2215/photo/R09NSko3bF/1485849320.74.png",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/saptaks/",
         "id": 2215,
         "city": "Allahabad",
         "organisation": "FOSSASIA",
@@ -5786,7 +5786,7 @@
         "twitter": "https://twitter.com/chibitronics",
         "is-featured": true,
         "photo-url": "https://storage.googleapis.com/eventyay.com/events/6/speakers/2217/photo/TURhbVYwUU/1485888353.84.png",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/bunnie-huang-b98910/",
         "id": 2217,
         "city": "Singapore",
         "organisation": "Chibitronics PTE LTD",
