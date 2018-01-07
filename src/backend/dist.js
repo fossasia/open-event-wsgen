@@ -241,7 +241,8 @@ var resizeSponsors = function(dir, socket, done) {
 };
 
 var resizeSpeakers = function(dir, socket, done) {
-  fs.readdir(dir + '/speakers/', function(err, list){
+  fs.readdir(dir + '/speakers/', function(err, array){
+    var list = array.splice(array.splice( array.indexOf('thumbnails'), 1 ));
     if(err) {
       logger.addLog('Info', 'No sponsors images found', socket, err);
     }
