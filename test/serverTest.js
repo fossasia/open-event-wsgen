@@ -17,6 +17,7 @@ var generator = require('../src/backend/generator.js');
 var dist = require('../src/backend/dist.js');
 var app = require('../src/app');
 var webdriver = require('selenium-webdriver');
+var generatorPage = require('../src/selenium/generatorPage');
 var eventPage = require('../src/selenium/eventPage.js');
 var trackPage = require('../src/selenium/trackPage.js');
 var schedulePage = require('../src/selenium/schedulePage.js');
@@ -489,6 +490,61 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
   after(function () {
     return driver.quit();
+  });
+
+
+  describe('Testing generator page', function () {
+
+    before(function () {
+      generatorPage.init(driver);
+      generatorPage.visit('http://localhost:5000');
+    });
+
+    it('Checking for jsonUpload input section', function (done) {
+      generatorPage.checkJsonInput().then(function (val) {
+        assert.deepEqual(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking for eventAPI input section', function (done) {
+      generatorPage.checkAPIendpointInput().then(function (val) {
+        assert.deepEqual(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking for FTP input section', function (done) {
+      generatorPage.checkFTPinput().then(function (val) {
+        assert.deepEqual(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking for log Section', function (done) {
+      generatorPage.checkBuildLogs().then(function (boolArr) {
+        assert.deepEqual(boolArr, [true, false]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking for Menu Section', function (done) {
+      generatorPage.checkWebappMenu().then(function (boolArr) {
+        assert.deepEqual(boolArr, [true, false]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing event page', function () {
