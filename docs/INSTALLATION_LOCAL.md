@@ -9,7 +9,8 @@ npm install or npm install bcrypt
 ```
 if you get an error, then fix npm permissions globally. Then restart from step 1.
 refer this:"https://docs.npmjs.com/getting-started/fixing-npm-permissions"
-
+![Windows :clone](screenshots/local_windows_1.JPG)
+![Windows :npm install](screenshots/local_windows_2.JPG)
 Sometimes it may give an error of fetch failed
 then type
 
@@ -28,6 +29,7 @@ or
 ```shell
 npm run server.generator
 ```
+![Windows :npm run start](screenshots/local_windows_3.JPG)
 
 The app will be running on http://localhost:5000
 
@@ -53,4 +55,4 @@ and then install the package
 ```shell
 npm install --global node-gyp
 ```
-
+![Windows :npm err](screenshots/local_windows_err.JPG)
