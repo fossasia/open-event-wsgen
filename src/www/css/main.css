@@ -47,3 +47,13 @@ pre#buildLog{
 #btnLive, #btnDownload, #deploy {
   margin-top : 1%;
 }
+
+div.form-div-board {
+	color: #000;
+	margin-bottom: 0;
+	padding: 20px;
+	background: #fffc;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.54);
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
