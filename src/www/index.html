@@ -233,8 +233,8 @@
   </div>
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
-      <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4" style="margin-bottom: 0;">
-        <label for="name" class="white-color">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
+      <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
+        <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
         <!--<label for="theme">Choose your theme</label>-->
          <!--<select class="form-control" id="theme" name="theme">-->
          <!--<option value="light">Light</option>-->
@@ -246,17 +246,15 @@
                     <input type="text" class="form-control" id="name" name="name" required="true">
                     <br>
                 -->
-         <label class="white-color">Choose Session Style</label>
+         <label>Choose Session Style</label>
         <ul style="list-style-type:none">
-          <li id="single"><input name="session" required="" type="radio" value="single" class="white-color"> Single</li>
-          <li id="expandable"><input name="session" type="radio" value="expand" class="white-color"> Expandable</li>
-        </ul><label class="white-color">Choose your data source</label>
+          <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
+          <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
+        </ul><label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files
-          </li>
-          <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent
-          </li>
+          <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
+          <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
         </ul>
         <section id="eventapi-input" style="display:none;">
           <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
@@ -291,7 +289,7 @@
         <!--</select>-->
         <input name="assetmode" type="hidden" value="download">
         <section>
-          <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp" class="white-color">Upload via FTP</label>
+          <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp">Upload via FTP</label>
           <div id="upload-ftp-details" style="display: none">
             <input class="form-control" id="ftp-host" placeholder="host" type="text"> <input class="form-control" id="ftp-user" placeholder="username" style="width: 49.2%; display: inline" type="text"> <input class="form-control" id="ftp-pass" placeholder="password" style="width: 49.2%; display: inline" type="password"> <input class="form-control" id="ftp-path" placeholder="/path/to/deploy/folder" type="text">
           </div>
@@ -303,9 +301,6 @@
             </div>
           </div>
         </section>
-      </div>
-      <div class="col-md-4 col-xs-2"></div>
-      <div class="col-md-offset-3 col-xs-offset-1 col-xs-10 col-md-6" style="margin-top: -20px;">
         <center>
           <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;">-Logs-</a>
           <pre id="buildLog" style="display:none;">
