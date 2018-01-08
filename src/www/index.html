@@ -152,10 +152,7 @@
      opacity: 0;
      background-image: url(chill.jpg);
     }
-    
-    body:hover .overlay{
-    opacity: 1;
-    }
+
     
     @media(max-width: 768px){
       .custom-navtitle, .custom-menubutton {
@@ -178,6 +175,21 @@
       }
     }
   </style>
+  <script>
+    var browserSuggestionTweak;
+    $(document).on('mouseover', function () {
+        /* Clearing any timeout set under browserSuggestionTweak */
+        clearTimeout(browserSuggestionTweak);
+        $('.overlay')[0].style.opacity = 1;
+    });
+    $(document).on('mouseout', function () {
+        /* Set a timeout as immediatly displaying the overlay when suggestions
+        appear in the browser will be very bad.*/
+        browserSuggestionTweak = setTimeout(function () {
+            $('.overlay')[0].style.opacity = "";
+        }, 3000);
+    });
+  </script>
 </head>
 
 <body>
