@@ -12,6 +12,7 @@
 
 **Feature Requests and Bug Reports**
 * When you file a feature request or when you are submitting a bug report to the [issue tracker](https://github.com/fossasia/susper.com/issues), make sure you add steps to reproduce it. Especially if that bug is some weird/rare one.
+* Also make sure to get your issues labeled with the issue problem eg: bug, documentation, advanced etc.
 
 **Join the development**
 * Before you join development, please set up the project on your local machine, run it and go through the application completely. Press on any button you can find and see where it leads to. Explore. (Don't worry ... Nothing will happen to the app or to you due to the exploring :wink: Only thing that will happen is, you'll be more familiar with what is where and might even get some cool ideas on how to improve various aspects of the app.)
