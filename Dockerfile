@@ -1,4 +1,4 @@
-FROM node:argon
+FROM node:boron
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -13,4 +13,3 @@ COPY . /usr/src/app
 
 EXPOSE 5000
 CMD [ "npm", "start" ]
-

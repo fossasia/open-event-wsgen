@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: webapp-generator-notls
+  namespace: web
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: webgen.eventyay.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: webapp-generator
+          servicePort: 5000

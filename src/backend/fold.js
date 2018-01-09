@@ -33,14 +33,29 @@ function replaceSpaceWithUnderscore(str) {
   return str.replace(/ /g, '_');
 }
 
+function removeSpace(str) {
+  return str.replace(/ /g, '');
+}
+
 function returnTrackColor(trackInfo, id) {
   if ((trackInfo == null) || (id == null)) {
-    return '#f8f8fa'
+    return '#f8f8fa';
+  }
+  return trackInfo[id];
+}
+
+function returnTrackFontColor(trackInfo, id) {
+  if ((trackInfo === null) || (id === null)) {
+    return '#000000';
   }
   return trackInfo[id];
 }
 
 function checkNullHtml(html) {
+  if(html === undefined) {
+    return true;
+  }
+
   html = html.replace(/<\/?[^>]+(>|$)/g, "").trim();
   return (html === '');
 }
@@ -95,21 +110,21 @@ function createTimeLine(startTime, endTime) {
 
 function checkWidth(columns) {
   if(columns * columnWidth > calendarWidth) {
-      return columnWidth;
+    return columnWidth;
   } else {
-      let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
-      return columnWidth + whiteSpace;
+    let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
+    return columnWidth + whiteSpace;
   }
 }
 
 function convertLicenseToCopyright(licence, copyright) {
   var data = {};
-  data.licence_url = licence.licence_url === undefined ? licence.url : licence.licence_url;
-  data.logo = licence.compact_logo === undefined ? licence.logo : licence.compact_logo;
-  data.licence = licence.long_name;
+  data.licence_url = licence['licence-url'] === undefined ? licence.url : licence['licence-url'];
+  data.logo = licence['compact-logo-url'] === undefined ? licence['logo-url'] : licence['compact-logo-url'];
+  data.licence = licence['long-name'];
   data.year = copyright.year;
   data.holder = copyright.holder;
-  data.holder_url = copyright.holder_url;
+  data.holder_url = copyright['holder-url'];
   return data;
 }
 
@@ -117,21 +132,23 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   const trackData = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   async.eachSeries(sessions,(session,callback) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
-        return callback(null);
+    if (!session['starts-at'] || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
+      return callback(null);
     }
 
     // generate slug/key for session
-    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
     const trackName = (session.track == null) ? 'deftrack' : session.track.name;
     const roomName = session.microlocation.name;
-    const session_type = (session.session_type == null) ? '' : session.session_type.name ;
+    const session_type = (session['session-type'] == null) ? '' : session['session-type'].name ;
     var trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
     const slug = date + '-' + trackNameUnderscore;
     let track = null;
@@ -140,9 +157,10 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     if (!trackData.has(slug) && (session.track != null)) {
       track = {
         title: session.track.name,
-        color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
+        date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
+        sortKey: moment.parseZone(session['starts-at']).format('YY-MM-DD'),
         slug: slug,
         sessions: []
       };
@@ -151,55 +169,58 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       track = trackData.get(slug);
     }
 
-      if (track == undefined) {
-        return;
-      }
-      track.sessions.push({
-      start: moment.utc(session.start_time).local().format('HH:mm'),
-      end : moment.utc(session.end_time).local().format('HH:mm'),
+    if (track == undefined) {
+      return;
+    }
+    track.sessions.push({
+      startDay: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
+      startDate: moment.parseZone(session['starts-at']).format('YYYY-MM-DD'),
+      start: moment.parseZone(session['starts-at']).format('HH:mm'),
+      end : moment.parseZone(session['ends-at']).format('HH:mm'),
       title: session.title,
       type: session_type,
       location: roomName,
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
-        if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
+        if(spkr['photo-url']){
+          spkr.thumb = 'images/speakers/thumbnails/' + (spkr['photo-url']).split('/').pop();
+          spkr.photo = spkr['photo-url'];
         }
-        if(spkr.short_biography !== '') {
-          spkr.biography = spkr.short_biography;
+        if(spkr['short-biography'] !== '') {
+          spkr.biography = spkr['short-biography'];
         }
         else {
-          spkr.biography = spkr.long_biography;
+          spkr.biography = spkr['long-biography'];
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
-      sign_up: session.signup_url,
-      video: session.video,
-      slides: session.slides,
-      audio: session.audio
+      sign_up: session['signup-url'],
+      video: session['video-url'],
+      slides: session['slides-url'],
+      audio: session['audio-url']
 
     });
 
     if (reqOpts.assetmode === 'download') {
       const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-      if ((session.audio !== null) && (session.audio !== '') ) {
-        if(session.audio.substring(0, 4) === 'http'){
-          distHelper.downloadAudio(appFolder, session.audio, function(audio){
-             track.sessions.audio = encodeURI(audio);
-             callback();
+      if ((session['audio-url'] !== null) && (session['audio-url'] !== '') ) {
+        if(session['audio-url'].substring(0, 4) === 'http'){
+          distHelper.downloadAudio(appFolder, session['audio-url'], function(audio){
+            track.sessions.audio = encodeURI(audio);
+            callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi') {
-           distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session.audio), function(audio){
-             track.sessions.audio = encodeURI(audio);
-             callback();
-           });
+          distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session['audio-url']), function(audio){
+            track.sessions.audio = encodeURI(audio);
+            callback();
+          });
         }
         else {
-            callback();
+          callback();
         }
       }
       else {
@@ -210,34 +231,35 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       callback();
     }
   },function(){
-      let tracks = Array.from(trackData.values());
-      tracks.sort(byProperty('sortKey'));
-      tracks.forEach(function(track) {
-        track.sessions.sort(byProperty('start'));
-        console.log(track.sessions.speakers_list);
-      });
-      next(tracks);
+    let tracks = Array.from(trackData.values());
+    tracks.sort(byProperty('sortKey'));
+    tracks.forEach(function(track) {
+      track.sessions.sort(byProperty('start'));
     });
+    next(tracks);
+  });
 }
 
 function foldByTime(sessions, speakers, trackInfo) {
   let dateMap = new Map();
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const trackDetails = {};
+  const trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   sessions.forEach((session) => {
-    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending') {
+    if(session.microlocation === null || session.state === 'rejected' || session.state === 'pending' || session.state === 'draft' ) {
       return;
     }
     const roomName = session.microlocation.name;
-    const session_type = (session.session_type == null) ? ' ' : session.session_type.name ;
-    let date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-    let startTime = moment.utc(session.start_time).local().format('HH:mm');
-    let endTime = moment.utc(session.end_time).local().format('HH:mm');
+    const session_type = (session['session-type'] == null) ? ' ' : session['session-type'].name ;
+    let date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
+    let startTime = moment.parseZone(session['starts-at']).format('HH:mm');
+    let endTime = moment.parseZone(session['ends-at']).format('HH:mm');
     let time = startTime + ' - ' + endTime;
     let speakersNum = session.speakers.length;
     const tracktitle = (session.track == null) ? " " : session.track.name;
@@ -245,9 +267,9 @@ function foldByTime(sessions, speakers, trackInfo) {
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+        date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
         times: new Map()
-      })
+      });
     }
 
     let timeMap = dateMap.get(date).times;
@@ -255,30 +277,32 @@ function foldByTime(sessions, speakers, trackInfo) {
       timeMap.set(time, {
         caption: time,
         sessions: []
-      })
+      });
     }
     timeMap.get(time).sessions.push({
-      start: moment.utc(session.start_time).local().format('HH:mm'),
-      end : moment.utc(session.end_time).local().format('HH:mm'),
+      start: moment.parseZone(session['starts-at']).format('HH:mm'),
+      end : moment.parseZone(session['ends-at']).format('HH:mm'),
       color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track == null) ? null : session.track.id),
       title: session.title,
       type: session_type,
       location: roomName,
       speakers_list: session.speakers.map((speaker) =>  {
         let spkr = speakersMap.get(speaker.id);
-        if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/'+ (spkr.photo).split('/').pop();
+        if(spkr['photo-url']){
+          spkr.thumb = 'images/speakers/thumbnails/'+ (spkr['photo-url']).split('/').pop();
+          spkr.photo = spkr['photo-url'];
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
-      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
+      description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
-      sign_up: session.signup_url,
-      video: session.video,
-      slides: session.slides,
-      audio: session.audio,
-      sessiondate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      sign_up: session['signup-url'],
+      video: session['video-url'],
+      slides: session['slides-url'],
+      audio: session['audio-url'],
+      sessiondate: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
       tracktitle: tracktitle,
       speakers: speakersNum
     });
@@ -317,13 +341,15 @@ function returnTracknames(sessions, trackInfo) {
 
   const trackData = new Map();
   const trackDetails = new Object();
+  const trackDetailsFont = new Object();
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   sessions.forEach((session) => {
-    if (!session.start_time) {
+    if (!session['starts-at']) {
       return;
     }
 
@@ -337,7 +363,8 @@ function returnTracknames(sessions, trackInfo) {
       track = {
         title: session.track.name,
         color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
+        sortKey: session.track.name,
         slug: slug
       };
       trackData.set(slug, track);
@@ -353,9 +380,21 @@ function returnTracknames(sessions, trackInfo) {
   return tracks;
 }
 
+function returnRoomnames(roomsInfo) {
+  var allRoomsList = [];
+  roomsInfo.forEach(function(dayRooms) {
+    var roomsVenue = dayRooms.venue;
+    roomsVenue.forEach(function(tempVenue) {
+      allRoomsList.push(tempVenue.venue);
+    });
+  });
+  var uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
+  return uniqueRoomList;
+}
+
 function createSocialLinks(event) {
 
-  const sociallinks = Array.from(event.social_links);
+  const sociallinks = Array.from(event['social-links']);
 
   sociallinks.forEach((link) => {
     link.show = true;
@@ -387,6 +426,9 @@ function createSocialLinks(event) {
       case 'google plus':
         link.icon = 'google-plus';
         break;
+      case 'instagram':
+        link.icon = 'instagram';
+        break;
       default:
         link.show = false;
         break;
@@ -400,7 +442,7 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
-  const sociallinks = Array.from(event.social_links);
+  const sociallinks = Array.from(event['social-links']);
   var sociallink ="";
   var featuresection = 0;
   var sponsorsection = 0;
@@ -408,42 +450,42 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     if(link.name.toLowerCase() === "twitter") {
       sociallink = link.link;
     }
-  })
+  });
 
   sponsors.forEach((sponsor) => {
     if( sponsor.id !==undefined && typeof(sponsor.id)==='number') {
       sponsorsection ++;
     }
-  })
+  });
   speakers.forEach((speaker) => {
-    if(speaker.featured !== undefined && speaker.featured !==false && speaker.featured===true ) {
-         featuresection++;
+    if(speaker['is-featured'] !== undefined && speaker['is-featured'] !==false && speaker['is-featured']===true ) {
+      featuresection++;
     }
-  })
+  });
 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
 
   const urls= {
-    main_page_url: event.event_url,
-    logo_url: event.logo,
-    background_url: event.background_image,
-    background_path: event.background_image,
-    date: moment.utc(event.start_time).local().format('dddd, Do MMM'),
-    time: moment.utc(event.start_time).local().format('HH:mm'),
-    end_date: moment.utc(event.end_time).local().format('dddd, Do MMM'),
-    end_time: moment.utc(event.end_time).local().format('HH:mm'),
+    main_page_url: event['event-url'],
+    logo_url: event['logo-url'],
+    background_url: event['original-image-url'],
+    background_path: event['original-image-url'],
+    date: moment.parseZone(event['starts-at']).format('dddd, Do MMM'),
+    time: moment.parseZone(event['starts-at']).format('HH:mm'),
+    end_date: moment.parseZone(event['ends-at']).format('dddd, Do MMM'),
+    end_time: moment.parseZone(event['ends-at']).format('HH:mm'),
     name: event.name,
     description: event.description,
-    location: event.location_name,
+    location: event['location-name'],
     latitude: event.latitude,
     longitude: event.longitude,
     register: event.ticket_url,
     twitterLink: twitterLink,
     tweetUrl: sociallink,
     email: event.email,
-    orgname: event.organizer_name,
-    location_name: event.location_name,
+    orgname: event['organizer-name'],
+    location_name: event['location-name'],
     featuresection: featuresection,
     sponsorsection: sponsorsection
   };
@@ -451,37 +493,37 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
 
-    if (event.logo != null && event.logo != '') {
-      if (event.logo.substring(0, 4) === 'http') {
-        distHelper.downloadLogo(appFolder, event.logo, function(result){
+    if (event['logo-url'] != null && event['logo-url'] != '') {
+      if (event['logo-url'].substring(0, 4) === 'http') {
+        distHelper.downloadLogo(appFolder, event['logo-url'], function(result){
           urls.logo_url = encodeURI(result);
         });
       } else if (reqOpts.datasource === 'eventapi') {
-        if (event.logo.charAt(0) == '/') event.logo = event.logo.substr(1);
-        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.logo),function(result){
+        if (event['logo-url'].charAt(0) == '/') event['logo-url'] = event['logo-url'].substr(1);
+        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event['logo-url']),function(result){
           urls.logo_url = encodeURI(result);
         });
       }
       else {
-        let reg = event.logo.split('');
+        let reg = event['logo-url'].split('');
         if(reg[0] =='/'){
-          urls.logo_url = encodeURI(event.logo.substring(1,event.logo.length));
+          urls.logo_url = encodeURI(event['logo-url'].substring(1,event['logo-url'].length));
         }
 
       }
     }
 
-    if ((event.background_image != null) && (event.background_image != '')) {
-      if (event.background_image.substring(0, 4) === 'http') {
-        distHelper.downloadLogo(appFolder, event.background_image, function(result){
+    if ((event['original-image-url'] != null) && (event['original-image-url'] != '')) {
+      if (event['original-image-url'].substring(0, 4) === 'http') {
+        distHelper.downloadLogo(appFolder, event['original-image-url'], function(result){
           urls.background_url = result;
           urls.background_path = urls.background_url;
           urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
           next(urls);
         });
       } else if (reqOpts.datasource === 'eventapi') {
-        if (event.background_image.charAt(0) == '/') event.background_image = event.background_image.substr(1);
-        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event.background_image), function(result){
+        if (event['original-image-url'].charAt(0) == '/') event['original-image-url'] = event['original-image-url'].substr(1);
+        distHelper.downloadLogo(appFolder, urljoin(reqOpts.apiendpoint, event['original-image-url']), function(result){
           urls.background_url = encodeURI(result);
           urls.background_path = urls.background_url;
           urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
@@ -489,9 +531,9 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
         });
       }
       else {
-        let reg = event.background_image.split('');
+        let reg = event['original-image-url'].split('');
         if(reg[0] =='/'){
-          urls.background_url = encodeURI(event.background_image.substring(1,event.background_image.length));
+          urls.background_url = encodeURI(event['original-image-url'].substring(1,event['original-image-url'].length));
           urls.background_path = urls.background_url;
           urls.background_url = urls.background_url.substring(0, urls.background_url.lastIndexOf('.')) + '.jpg';
           next(urls);
@@ -507,10 +549,13 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 }
 
 function getCopyrightData(event) {
-  if(event.licence_details) {
-  return convertLicenseToCopyright(event.licence_details, event.copyright);
+  if(event['licence-details']) {
+    return convertLicenseToCopyright(event['licence-details'], event['event-copyright']);
   } else {
-  return event.copyright;
+    event['event-copyright'].logo = event['event-copyright']['logo-url'];
+    event['event-copyright'].license_url = event['event-copyright']['licence-url'];
+    event['event-copyright'].holder_url = event['event-copyright']['holder-url'];
+    return event['event-copyright'];
   }
 }
 
@@ -530,14 +575,14 @@ function foldByLevel(sponsors ,reqOpts, next) {
   let level1=0,level2=0,level3=0;
   const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
   sponsors.forEach( (sponsor) => {
-    if(sponsor.level==="1" && (sponsor.logo !== null||" ")){
+    if(sponsor.level==="1" && (sponsor['logo-url'] !== null||" ")){
       level1++;
     }
-    if (sponsor.level==="2" && (sponsor.logo !== null||" ")) {
-       level2++;
+    if (sponsor.level==="2" && (sponsor['logo-url'] !== null||" ")) {
+      level2++;
     }
-     if (sponsor.level==="3" && (sponsor.logo !== null||" ")) {
-       level3++;
+    if (sponsor.level==="3" && (sponsor['logo-url'] !== null||" ")) {
+      level3++;
     }
 
   });
@@ -553,18 +598,18 @@ function foldByLevel(sponsors ,reqOpts, next) {
       imgsize: '',
       sponsorimg:'',
       name: sponsor.name,
-      logo: sponsor.logo,
+      logo: sponsor['logo-url'],
       url:  sponsor.url,
       level: sponsor.level,
       description: sponsor.description,
-      type: sponsor.sponsor_type
+      type: sponsor['type']
     };
 
     switch (sponsorItem.level) {
       case '1':
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
-      sponsorItem.imgsize = 'large';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.imgsize = 'large';
         break;
       case '2':
         sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
@@ -572,33 +617,33 @@ function foldByLevel(sponsors ,reqOpts, next) {
         sponsorItem.imgsize = 'medium';
         break;
       case '3':
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
         sponsorItem.imgsize = 'small';
         break;
       default:
-      sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
-      sponsorItem.sponsorimg = 'vcenter sponsorimg';
+        sponsorItem.divclass = 'vcenter col-md-4 col-sm-6';
+        sponsorItem.sponsorimg = 'vcenter sponsorimg';
     }
 
-    if (sponsor.logo !== null && sponsor.logo != "") {
-      if (sponsor.logo.substring(0, 4) === 'http') {
-        distHelper.downloadSponsorPhoto(appFolder, sponsor.logo, function(result){
+    if (sponsor['logo-url'] !== null && sponsor['logo-url'] != "") {
+      if (sponsor['logo-url'].substring(0, 4) === 'http') {
+        distHelper.downloadSponsorPhoto(appFolder, sponsor['logo-url'], function(result){
           sponsorItem.logo = encodeURI(result);
           levelData[sponsor.level].push(sponsorItem);
           callback();
         });
       } else if (reqOpts.datasource === 'eventapi' ) {
-        distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor.logo), function(result){
+        distHelper.downloadSponsorPhoto(appFolder, urljoin(reqOpts.apiendpoint, sponsor['logo-url']), function(result){
           sponsorItem.logo = encodeURI(result);
           levelData[sponsor.level].push(sponsorItem);
           callback();
         });
       }
       else {
-      let reg = sponsor.logo.split('');
-      if(reg[0] =='/'){
-          sponsorItem.logo = encodeURI(sponsor.logo.substring(1,sponsor.logo.length));
+        let reg = sponsor['logo-url'].split('');
+        if(reg[0] =='/'){
+          sponsorItem.logo = encodeURI(sponsor['logo-url'].substring(1,sponsor['logo-url'].length));
           levelData[sponsor.level].push(sponsorItem);
           callback();
         }
@@ -615,71 +660,78 @@ function sessionsByRooms(id, sessions, trackInfo) {
   var sessionInRooms = [];
   const DateData = new Map();
   const trackDetails = new Object();
-   trackInfo.forEach((track) => {
+  const trackDetailsFont = new Object();
+
+  trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   sessions.forEach((session) => {
 
-   const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
-   const slug = date + '-' + session.microlocation.name;
+    const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
+    const slug = date + '-' + session.microlocation.name;
     //if (sessionInRooms.indexOf(Object.values(slug))==-1) {
-   if (!DateData.has(slug)) {
-     var dated = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    if (!DateData.has(slug)) {
+      var dated = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
     }
-   else {
-     dated = "";
-   }
+    else {
+      dated = "";
+    }
     if(typeof session.microlocation !== 'undefined') {
       if(id === session.microlocation.id) {
         sessionInRooms.push({
           date: dated ,
           name: session.title,
-          time: moment.utc(session.start_time).local().format('HH:mm'),
-          color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id)
+          time: moment.parseZone(session['starts-at']).format('HH:mm'),
+          color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+          font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id)
         });
-        DateData.set(slug,moment.utc(session.start_time).local().format('YYYY-MM-DD'));
+        DateData.set(slug,moment.parseZone(session['starts-at']).format('YYYY-MM-DD'));
       }
-  }
+    }
 
-});
+  });
 
- sessionInRooms.sort(byProperty('date'));
- return sessionInRooms;
+  sessionInRooms.sort(byProperty('date'));
+  return sessionInRooms;
 }
 
 function foldByRooms(room, sessions, speakers, trackInfo) {
   const roomData = new Map();
-  const trackDetails = new Object();
+  const trackDetails = {};
+  const trackDetailsFont = {};
   const speakersMap = new Map(speakers.map((s) => [s.id, s]));
   const microlocationArray = [];
+
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   sessions.forEach((session) => {
-    if (!session.start_time || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected')) {
+    if (!session['starts-at'] || (session.microlocation === null) || (session.state === 'pending') || (session.state === 'rejected') || (session.state === 'draft')) {
       return;
     }
 
     // generate slug/key for session
-    const date = moment.utc(session.start_time).local().format('YYYY-MM-DD');
+    const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
     const roomName = session.microlocation.name;
     const slug = date ;
     const tracktitle = (session.track == null) ? " " : session.track.name;
-    const start = moment.utc(session.start_time).local().format('HH:mm');
-    const end = moment.utc(session.end_time).local().format('HH:mm');
+    const start = moment.parseZone(session['starts-at']).format('HH:mm');
+    const end = moment.parseZone(session['ends-at']).format('HH:mm');
 
     let room = null;
 
     // set up room if it does not exist
     if (!roomData.has(slug) && (session.microlocation != null)) {
       room = {
-        date: moment.utc(session.start_time).local().format('dddd, Do MMM'),
-        sortKey: moment.utc(session.start_time).local().format('YY-MM-DD'),
+        date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
+        sortKey: moment.parseZone(session['starts-at']).format('YY-MM-DD'),
         slug: slug,
-        start_time: start,
-        end_time: end,
+       ['starts-at']: start,
+       ['ends-at']: end,
         timeLine: [],
         sessions: []
       };
@@ -701,42 +753,43 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       venue = session.microlocation.name;
     }
 
-    if(room.start_time == slug || room.start_time > start ) {
-      room.start_time = start;
+    if(room['starts-at'] == slug || room['starts-at'] > start ) {
+      room['starts-at'] = start;
     }
 
-    if(room.end_time == slug || room.end_time < end ) {
-      room.end_time = end;
+    if(room['ends-at'] == slug || room['ends-at'] < end ) {
+      room['ends-at'] = end;
     }
 
     room.sessions.push({
       start: start,
-      color: returnTrackColor(trackDetails, (session.track == null) ? null : session.track.id),
+      color: returnTrackColor(trackDetails, (session.track === null) ? null : session.track.id),
+      font_color: returnTrackFontColor(trackDetailsFont, (session.track === null) ? null : session.track.id),
       venue: venue,
       end : end,
       title: session.title,
-      type: (session.session_type == null) ? '' : session.session_type.name,
-      description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
+      type: (session['session-type'] == null) ? '' : session['session-type'].name,
+      description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
-      audio:session.audio,
+      audio:session['audio-url'],
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
-        if(spkr.photo){
-           spkr.thumb = 'images/speakers/thumbnails/' + (spkr.photo).split('/').pop();
+        if(spkr['photo-url']){
+          spkr.thumb = 'images/speakers/thumbnails/' + (spkr['photo-url']).split('/').pop();
         }
-        if(spkr.short_biography !== '') {
-          spkr.biography = spkr.short_biography;
+        if(spkr['short-biography'] !== '') {
+          spkr.biography = spkr['short-biography'];
         }
         else {
-          spkr.biography = spkr.long_biography;
+          spkr.biography = spkr['long-biography'];
         }
         spkr.nameIdSlug = slugify(spkr.name + spkr.id);
         return spkr;
       }),
       tracktitle: tracktitle,
-      sessiondate: moment.utc(session.start_time).local().format('dddd, Do MMM'),
+      sessiondate: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
       roomname: roomName,
-      sortKey: venue + moment.utc(session.start_time).local().format('HH:mm')
+      sortKey: venue + moment.parseZone(session['starts-at']).format('HH:mm')
     });
   });
 
@@ -748,8 +801,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     // sort all sessions in each day by 'venue + date'
     roomsDetail[i].sessions.sort(byProperty('sortKey'));
     roomsDetail[i].venue = [];
-    let startTime = roomsDetail[i].start_time;
-    let endTime = roomsDetail[i].end_time;
+    let startTime = roomsDetail[i]['starts-at'];
+    let endTime = roomsDetail[i]['ends-at'];
     let timeinfo = createTimeLine(startTime, endTime);
     roomsDetail[i].timeline = timeinfo.timeline;
     roomsDetail[i].height = timeinfo.height;
@@ -772,7 +825,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         tempVenue.sessions.push(roomsDetail[i].sessions[j]);
       } else {
         if(JSON.stringify(tempVenue) != JSON.stringify({}) && prevVenue != '') {
-          roomsDetail[i].venue.push(tempVenue)
+          roomsDetail[i].venue.push(tempVenue);
           tempVenue = {};
           tempVenue.sessions = [];
         }
@@ -790,13 +843,13 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
 }
 
 function getAppName(event) {
-    const name = event.name;
-    return name;
+  const name = event.name;
+  return name;
 }
 
 function getOrganizerName(event) {
-    const name = event.organizer_name;
-    return name;
+  const name = event['organizer-name'];
+  return name;
 }
 
 function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
@@ -804,25 +857,25 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
     async.eachOfSeries(speakers, (speaker, key, callback) => {
 
-      if (speaker.photo !== null && speaker.photo != '') {
-        if (speaker.photo.substring(0, 4) === 'http') {
-          distHelper.downloadSpeakerPhoto(appFolder, speaker.photo, function(result){
-            speakers[key].photo = encodeURI(result);
-            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
+      if (speaker['photo-url'] !== null && speaker['photo-url'] != '') {
+        if (speaker['photo-url'].substring(0, 4) === 'http') {
+          distHelper.downloadSpeakerPhoto(appFolder, speaker['photo-url'], function(result){
+            speakers[key]['photo-url'] = encodeURI(result);
+            speakers[key]['photo-url'] = speakers[key]['photo-url'].substring(0, speakers[key]['photo-url'].lastIndexOf('.')) + '.jpg';
             callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi' ) {
-          distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker.photo), function(result){
-            speakers[key].photo = encodeURI(result);
-            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
+          distHelper.downloadSpeakerPhoto(appFolder, urljoin(reqOpts.apiendpoint, speaker['photo-url']), function(result){
+            speakers[key]['photo-url'] = encodeURI(result);
+            speakers[key]['photo-url'] = speakers[key]['photo-url'].substring(0, speakers[key]['photo-url'].lastIndexOf('.')) + '.jpg';
             callback();
           });
         } else {
-          var reg = speaker.photo.split('');
+          var reg = speaker['photo-url'].split('');
           if(reg[0] =='/'){
-            speakers[key].photo = encodeURI(speaker.photo.substring(1,speaker.photo.length));
-            speakers[key].photo = speakers[key].photo.substring(0, speakers[key].photo.lastIndexOf('.')) + '.jpg';
+            speakers[key]['photo-url'] = encodeURI(speaker['photo-url'].substring(1,speaker['photo-url'].length));
+            speakers[key]['photo-url'] = speakers[key]['photo-url'].substring(0, speakers[key]['photo-url'].lastIndexOf('.')) + '.jpg';
             callback();
           }
         }
@@ -830,44 +883,50 @@ function foldBySpeakers(speakers ,sessions, tracksData, reqOpts, next) {
         callback();
       }
     }, function(){
-        let speakerslist = [];
-        speakers.forEach((speaker) => {
-          if(speaker.photo){
-            var thumb = 'images/speakers/thumbnails/' + (speaker.photo).split('/').pop();
-          }
+      let speakerslist = [];
+      speakers.forEach((speaker) => {
+        if(speaker['photo-url']){
+          var thumb = 'images/speakers/thumbnails/' + (speaker['photo-url']).split('/').pop();
+        }
+        let allSessions = getAllSessions(speaker.sessions, sessions, tracksData);
+        if (allSessions.length) {
           speakerslist.push({
             country: speaker.country,
-            featured: speaker.featured,
+            featured: speaker['is-featured'],
             email: speaker.email,
             facebook: speaker.facebook ,
             github: speaker.github ,
             linkedin: speaker.linkedin ,
             twitter: speaker.twitter ,
             website: speaker.website ,
-            long_biography: (checkNullHtml(speaker.long_biography)) ? speaker.short_biography : speaker.long_biography,
+            long_biography: (checkNullHtml(speaker['long-biography'])) ? speaker['short-biography'] : speaker['long-biography'],
             mobile: speaker.mobile,
             name: speaker.name,
             thumb: thumb,
-            photo: speaker.photo,
+            photo: speaker['photo-url'],
             organisation: speaker.organisation,
-            sessions : getAllSessions(speaker.sessions, sessions, tracksData),
+            position: speaker.position,
+            sessions: allSessions,
             speaker_id: speaker.id,
             nameIdSlug: slugify(speaker.name + speaker.id)
           });
+        }
         speakerslist.sort(byProperty('name'));
       });
-        next(speakerslist);
-      });
+      next(speakerslist);
+    });
   }
 }
 
 function getAllSessions(speakerid , session, trackInfo){
   let speakersession =[];
   let sessiondetail = [];
-  let trackDetails = new Object();
+  let trackDetails = {};
+  let trackDetailsFont = {};
 
   trackInfo.forEach((track) => {
     trackDetails[track.id] = track.color;
+    trackDetailsFont[track.id] = (track['font-color'] !== null) ? track['font-color'] : '#000000';
   });
 
   const sessionsMap = new Map(session.map((s) => [s.id, s]));
@@ -877,7 +936,7 @@ function getAllSessions(speakerid , session, trackInfo){
       if(speakerSessionDetail === undefined) {
         return;
       }
-      if(speakerSessionDetail.microlocation !== null && speakerSessionDetail.state !== 'pending' && speakerSessionDetail.state !== 'rejected') {
+      if(speakerSessionDetail.microlocation !== null && (speakerSessionDetail.state === 'accepted' || speakerSessionDetail.state === 'confirmed')) {
         sessiondetail.push({
           detail:speakerSessionDetail
         });
@@ -888,12 +947,13 @@ function getAllSessions(speakerid , session, trackInfo){
     const roomname = (session.detail == null || session.detail.microlocation == null) ?' ': session.detail.microlocation.name;
     if(session.detail !== undefined ) {
       speakersession.push({
-        sortKey :  moment.utc(session.detail.start_time).local().format('YYYY-MM-DD HH:MM'),
-        start: moment.utc(session.detail.start_time).local().format('HH:mm'),
-        end:   moment.utc(session.detail.end_time).local().format('HH:mm'),
+        sortKey :  moment.parseZone(session.detail['starts-at']).format('YYYY-MM-DD HH:MM'),
+        start: moment.parseZone(session.detail['starts-at']).format('HH:mm'),
+        end:   moment.parseZone(session.detail['ends-at']).format('HH:mm'),
         title: session.detail.title,
-        date: moment.utc(session.detail.start_time).local().format('ddd, Do MMM'),
-        color: returnTrackColor(trackDetails, (session.detail.track == null) ? null : session.detail.track.id),
+        date: moment.parseZone(session.detail['starts-at']).format('ddd, Do MMM'),
+        color: returnTrackColor(trackDetails, (session.detail.track === null) ? null : session.detail.track.id),
+        font_color: returnTrackFontColor(trackDetailsFont, (session.detail.track === null) ? null : session.detail.track.id),
         microlocation: roomname,
         session_id: session.detail.id
       });
@@ -917,3 +977,7 @@ module.exports.getOrganizerName = getOrganizerName;
 module.exports.foldBySpeakers = foldBySpeakers;
 module.exports.foldByTime = foldByTime;
 module.exports.returnTracknames = returnTracknames;
+module.exports.checkNullHtml = checkNullHtml;
+module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
+module.exports.removeSpace = removeSpace;
+module.exports.returnRoomnames = returnRoomnames;

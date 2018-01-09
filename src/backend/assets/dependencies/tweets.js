@@ -13,8 +13,12 @@ function interval() {
 }
 
 var datafetcher = function () {
+  if(tweetP === null) {
+    return;
+  }
+
   loklakFetcher.getTweets({}, datahandler);
-}
+};
 
 function datahandler(raw) {
   stuff = raw;   // Makes the data available globally.

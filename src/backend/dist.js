@@ -15,6 +15,7 @@ const sharp = require('sharp');
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
+var JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 
 const downloadFile = function(url, filePath, next) {
   const fileStream = fs.createWriteStream(filePath);
@@ -67,33 +68,64 @@ const downloadAudioFile = function(url, filePath, next) {
 
 };
 
-const downloadJson = function(appPath, endpoint, jsonFile, cb) {
+const downloadJsonFromGithub = function(appPath, endpoint, jsonFile, cb) {
   const fileStream = fs.createWriteStream(appPath + '/json/' + jsonFile);
+  var statusCode;
 
   fileStream.on('error', function(err) {
     console.log(err);
+    return cb(err);
   });
 
   fileStream.on('finish', function () {
-    cb();
+    if(statusCode != 200) {
+      return cb(new Error('Response = ' + statusCode + ' received'));
+    }
+    return cb();
   });
 
   try {
-    console.log('Downloading ' + endpoint + '/' + jsonFile);
+    console.log('Downloading ' + endpoint);
     request
-      .get(endpoint + '/' + jsonFile)
+      .get({url:endpoint, timeout:30000})
+      .on('error', function (error) {
+        console.log('Could not connect to server');
+        return cb(new Error(error.code));
+      })
       .on('response', function(response) {
-        if (response.statusCode != 200) {
-          cb(new Error('Response = ' + response.statusCode + 'received'));
-        }
+        statusCode = response.statusCode;
       })
       .pipe(fileStream);
   }
 
   catch (err) {
     console.log(err);
+    return cb(err);
   }
 
+};
+
+const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
+  var fileName = appPath + '/json/' + jsonFile;
+
+  request.get({url: endpoint}, function(err, response, body) {
+    if(err) {
+      console.log(err);
+      return cb(err);
+    }
+    var json = JSON.parse(body);
+
+    new JSONAPIDeserializer().deserialize(json, function(err, data) {
+      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(err) {
+        if(err) {
+          console.log(err);
+          return cb(err);
+        }
+        cb();
+      });
+    });
+
+  });
 };
 
 var extensionChange = function(image) {
@@ -106,30 +138,73 @@ var extensionChange = function(image) {
 };
 
 var optimizeBackground = function(image, socket, done) {
-  if(image != null) {
+  if(image !== null) {
     sharp(image)
-    .resize(1150,500)
-    .toFile(extensionChange(image), (err) => {
-      if(err) {
-        console.log(err);
-        return 0;
-      }
-      var extension = image.substring(image.lastIndexOf('.') + 1);
-      if(extension === 'jpg') {
-        fs.rename(image + '.new', image, function(err) {
-          if(err) {
-            console.log(err);
-          }
-        });
-      }
-      else {
-        fs.unlink(image, function(err) {
-          if ( err ) console.log('ERROR: ' + err);
-        });
-      }
-    });
+      .resize(1150,500)
+      .toFile(extensionChange(image), (err) => {
+        if(err) {
+          console.log(err);
+          return 0;
+        }
+        var extension = image.substring(image.lastIndexOf('.') + 1);
+        if(extension === 'jpg') {
+          fs.rename(image + '.new', image, function(err) {
+            if(err) {
+              console.log(err);
+            }
+          });
+        }
+        else {
+          fs.unlink(image, function(err) {
+            if ( err ) console.log('ERROR: ' + err);
+          });
+        }
+      });
   }
   done();
+};
+
+var optimizeLogo = function(image, socket, done) {
+  sharp(image).metadata(function(err, metaData) {
+    if(err) {
+      return done(err);
+    }
+    var width = metaData.width;
+    var height = metaData.height;
+    var ratio = width/height;
+    var padding = 5;
+    var diffHeight = 0;
+
+    height = 45;
+    width = Math.floor(45 * ratio);
+    if (width > 110) {
+      width = 110;
+      height = Math.floor(width/ratio);
+      diffHeight = 45 - height;
+      padding = padding + (diffHeight)/2;
+    }
+    var qualityMultiplier = 4;
+
+    width = width * qualityMultiplier;
+    height = height * qualityMultiplier;
+
+    sharp(image).resize(width, height).toFile(image + '.new', function(err, info) {
+      if(err) {
+        return done(err);
+      }
+      fs.unlink(image, function(err) {
+        if(err) {
+          return done(err);
+        }
+        fs.rename(image + '.new', image, function(err) {
+          if(err) {
+            return done(err);
+          }
+          return done(null, padding);
+        });
+      });
+    });
+  });
 };
 
 var resizeSponsors = function(dir, socket, done) {
@@ -141,7 +216,7 @@ var resizeSponsors = function(dir, socket, done) {
     async.each(list, function(image, trial) {
       sharp(dir + '/sponsors/' + image)
         .resize(150, 80)
-        .background({r: 255, g: 255, b: 255, a: 0})
+        .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
         .toFile(dir + '/sponsors/' + image + '.new', (err) => {
           if(err) {
@@ -166,14 +241,15 @@ var resizeSponsors = function(dir, socket, done) {
 };
 
 var resizeSpeakers = function(dir, socket, done) {
-  fs.readdir(dir + '/speakers/', function(err, list){
+  fs.readdir(dir + '/speakers/', function(err, array){
+    var list = array.splice(array.splice( array.indexOf('thumbnails'), 1 ));
     if(err) {
       logger.addLog('Info', 'No sponsors images found', socket, err);
     }
     async.each(list, function(image, trial) {
       sharp(dir + '/speakers/' + image)
         .resize(264, 264)
-        .background({r: 255, g: 255, b: 255, a: 0})
+        .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
         .toFile(dir + '/speakers/' + extensionChange(image), (err) => {
           if(err) {
@@ -211,6 +287,7 @@ module.exports = {
   resizeSponsors,
   resizeSpeakers,
   extensionChange,
+  optimizeLogo,
   moveZip: function(dlPath, id) {
     fs.move(dlPath, path.join(__dirname, "../../uploads/connection-" + id.toString() + "/upload.zip"), () => {
 
@@ -237,8 +314,9 @@ module.exports = {
   },
   cleanDist: function(appFolder, err) {
     fs.emptyDir(distPath + '/' + appFolder, (emptyErr) => {
-      if(emptyErr)
-         err(emptyErr);
+      if(emptyErr) {
+        err(emptyErr);
+      }
       fs.remove(distPath + '/' + appFolder, err);
     });
   },
@@ -251,6 +329,7 @@ module.exports = {
       fs.mkdirpSync(distPath);
       fs.mkdirpSync(appPath);
       fs.mkdirpSync(appPath + '/audio');
+      fs.mkdirpSync(appPath + '/sessions');
       fs.mkdirpSync(appPath + '/images/speakers');
       fs.mkdirpSync(appPath + '/images/sponsors');
       fs.mkdirpSync(appPath + '/images/speakers/thumbnails/');
@@ -265,12 +344,43 @@ module.exports = {
     const appPath = distPath + '/' + appFolder;
     fs.copy((__dirname + '/assets'), appPath, {clobber: true}, err);
   },
+
+  copyServiceWorker: function(appFolder, folderHash, done) {
+    const appPath = distPath + '/' + appFolder;
+    var filePath = __dirname + '/assets/js/sw.js';
+
+    try {
+      var fileData = fs.readFileSync(filePath).toString().split('\n');
+      var hashString = "'" + folderHash + "'";
+      fileData.unshift("var CACHE_NAME = " + hashString);
+      fs.writeFileSync(appPath + '/sw.js', fileData.join('\n'));
+      return done(null);
+    } catch(err) {
+      return done(err);
+    }
+  },
+
+  copyManifestFile: function(appFolder,eventName, done) {
+    const appPath = distPath + '/' + appFolder;
+    var filePath = __dirname + '/assets/dependencies/manifest.json';
+
+    try {
+      var fileData = fs.readFileSync(filePath).toString().split('\n');
+      fileData.unshift("{\n\"short_name\":\"" + eventName+"\",");
+      fs.writeFileSync(appPath + '/manifest.json', fileData.join('\n'));
+      return done(null);
+    } catch(err) {
+      return done(err);
+    }
+  },
+
   removeDependency: function(appFolder, socket, done) {
     const appPath = distPath + '/' + appFolder;
     const cssPath = appPath + '/css';
     const jsPath = appPath + '/js';
     const imagesPath = appPath + '/images';
     const dependencyPath = appPath + '/dependencies';
+
     logger.addLog('Info', 'Reading the contents of the dependenices directory', socket);
     fs.readdir(dependencyPath, function(err, list){
       if(err) {
@@ -295,17 +405,23 @@ module.exports = {
         var filePath = dependencyPath + '/' + file;
         switch(extension) {
           case '':
-          fs.copy(filePath, appPath + '/' + file, check);
-          break;
+            fs.copy(filePath, appPath + '/' + file, check);
+            break;
           case '.css':
-          fs.copy(filePath, cssPath + '/' + file, check);
-          break;
+            fs.copy(filePath, cssPath + '/' + file, check);
+            break;
           case '.png':
-          fs.copy(filePath, imagesPath + '/' + file, check);
-          break;
+            fs.copy(filePath, imagesPath + '/' + file, check);
+            break;
           case '.js':
-          fs.copy(filePath, jsPath + '/' + file, check);
-          break;
+            fs.copy(filePath, jsPath + '/' + file, check);
+            break;
+          case '.html':
+            fs.copy(filePath, appPath + '/' + file, check);
+            break;
+          case '.json':
+            fs.copy(filePath, appPath + '/' + file, check);
+            break;
         }
       });
     });
@@ -339,80 +455,68 @@ module.exports = {
     unzipper.on('extract', function(log) {
       logger.addLog('Info', 'zip successfully extracted', socket);
 
-        async.series([
+      async.series([
 
-          // Resizing sponsors images to 150X80
-          function(callback) {
-            resizeSponsors(appPath + '/zip/images', socket, function(){
-              callback();
-            });
-          },
-          // Resizing speakers images to 300X300
-          function(callback) {
-            resizeSpeakers(appPath + '/zip/images', socket, function() {
-              callback();
-            });
-          },
-          function(callback){
-            fs.readdir(appPath + '/zip' , function(err, list){
-              if(err) {
-                logger.addLog('Error', 'Error while reading directory', socket, err);
-                return done(err);
-              }
+        function(callback){
+          fs.readdir(appPath + '/zip' , function(err, list){
+            if(err) {
+              logger.addLog('Error', 'Error while reading directory', socket, err);
+              return done(err);
+            }
 
-              async.each(list, function(file, callback){
+            async.each(list, function(file, callback){
 
-                var filePath = appPath + '/zip/' + file;
+              var filePath = appPath + '/zip/' + file;
 
-                function check(err){
-                  if(err !== null) {
-                    logger.addLog('Error', 'Error while copying folder', socket, err);
-                    callback(err);
-                  }
-                  else {
-                    callback(null);
-                  }
-                }
-
-                switch(file) {
-                  case 'audio':
-                  fs.copy(filePath, appPath + '/audio' , check);
-                  break;
-                  case 'images':
-                  fs.copy(filePath, appPath + '/' + file, check);
-                  break;
-                  case 'sessions':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  case 'speakers':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  case 'event':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  case 'tracks':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  case 'microlocations':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  case 'sponsors':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
-                  break;
-                  default: callback(null);
-                }
-              }, function(err) {
+              function check(err){
                 if(err !== null) {
-                  return done(err);
+                  logger.addLog('Error', 'Error while copying folder', socket, err);
+                  callback(err);
                 }
                 else {
-                  fs.remove(appPath + '/zip', done);
+                  callback(null);
                 }
-              });
+              }
+
+              switch(file) {
+                case 'audio':
+                  fs.copy(filePath, appPath + '/audio' , check);
+                  break;
+                case 'images':
+                  fs.copy(filePath, appPath + '/' + file, check);
+                  break;
+                case 'sessions':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                case 'speakers':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                case 'event':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                case 'tracks':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                case 'microlocations':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                case 'sponsors':
+                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  break;
+                default: callback(null);
+              }
+            }, function(err) {
+              if(err !== null) {
+                return done(err);
+              }
+              else {
+                fs.remove(appPath + '/zip', done);
+              }
             });
-            callback()
+          });
+          callback();
         }
-        ]);
+      ]);
     });
   },
   removeDuplicateEventFolders: function(newName, emailAddress, socket, done) {
@@ -462,15 +566,48 @@ module.exports = {
   fetchApiJsons: function(appFolder, apiEndpoint, socket, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
     const appPath = distPath + '/' + appFolder;
+    var endpointType = 'github';
 
-    const jsons = [
-      'speakers',
-      'sponsors',
-      'sessions',
-      'tracks',
-      'microlocations',
-      'event'
-    ];
+    var jsonsUrl = {
+      'speakers': '',
+      'sponsors': '',
+      'sessions': '',
+      'tracks': '',
+      'microlocations': '',
+      'event': '',
+    };
+
+    Object.keys(jsonsUrl).forEach(function(key) {
+      jsonsUrl[key] = endpoint + '/' + key;
+    });
+
+    if(endpoint.search('eventyay') != -1) {
+      endpointType = 'eventyay';
+
+      Object.keys(jsonsUrl).forEach(function(key) {
+
+        if (key === 'sessions') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=track,microlocation,session-type,speakers' +
+            '&fields[track]=id,name' +
+            '&fields[speaker]=id,name' +
+            '&fields[microlocation]=id,name' +
+            '&page[size]=0';
+        }
+
+        else if (key === 'tracks') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+        }
+
+        else if (key === 'event') {
+          jsonsUrl[key] = endpoint + '?include=social-links,event-copyright';
+        }
+
+        else if (key === 'speakers') {
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+        }
+
+      });
+    }
 
     try {
       fs.mkdirpSync(appPath + '/json');
@@ -481,8 +618,13 @@ module.exports = {
       done(err);
     }
 
-    async.eachSeries(jsons, (json, callback) => {
-      downloadJson(appPath, endpoint, json, callback);
+    async.forEachOf(jsonsUrl, (endpoint, fileName, callback) => {
+
+      if (endpointType == 'github') {
+        downloadJsonFromGithub(appPath, endpoint, fileName, callback);
+      } else if (endpointType == 'eventyay') {
+        downloadJsonFromEventyay(appPath, endpoint, fileName, callback);
+      }
     }, (err) => {
       if (err) {
         logger.addLog('Error', 'Error occured while downloading jsons from the internet', socket, err);
@@ -494,6 +636,7 @@ module.exports = {
       }
     });
   },
+
   copyMockJsons: function(appFolder) {
     const appPath = distPath + '/' + appFolder;
     fs.mkdirpSync(appPath + '/json');
@@ -511,7 +654,7 @@ module.exports = {
 
     downloadAudioFile(audioUrl, appPath + '/' + audioFilePath,function(){
       console.log('Downloading audio : ' + audioFileName);
-       next(audioFilePath);
+      next(audioFilePath);
     });
 
   },
@@ -535,7 +678,7 @@ module.exports = {
       next(photoFilePath);
     });
   },
-   downloadSponsorPhoto: function(appFolder, photoUrl, next) {
+  downloadSponsorPhoto: function(appFolder, photoUrl, next) {
     const appPath = distPath + '/' +appFolder;
     const photoFileName = photoUrl.split('/').pop();
     const photoFilePath = 'images/sponsors/' + photoFileName;
@@ -547,24 +690,24 @@ module.exports = {
   },
   generateThumbnails: function(path, next){
     recursive(path + '/images/speakers/',function (err, files) {
-        if(err) {
-            console.log("Error happened");
-            console.log(err);
-        }
+      if(err) {
+        console.log("Error happened");
+        console.log(err);
+      }
       async.each(files, function(file,callback){
         const thumbFileName = file.split('/').pop();
         sharp(file)
-        .resize(100, 100)
-        .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
-          if (err) {
+          .resize(100, 100)
+          .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
+            if (err) {
               console.log("Error happened in sharp");
               console.log(err);
-          }
-          callback();
-        });
+            }
+            callback();
+          });
       },function(){
         next();
-      })
+      });
     });
   }
 };

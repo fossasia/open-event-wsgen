@@ -352,7 +352,13 @@ a {
 }
 
 .sponsor-row {
-  margin: 0;
+  font-weight: bold;
+  color: black;
+}
+
+.sponsor-row-text {
+  margin-bottom: 60px;
+  margin-top: 10px;
 }
 
 .sponsors {
@@ -367,6 +373,11 @@ a {
 
 .location {
   background-color: $white-classic-background;
+}
+
+.location-map {
+  margin-left: 0;
+  margin-right: 0
 }
 
 .address {
@@ -427,22 +438,28 @@ a {
 /* Track SCSS */
 
 .show-button-filter {
-  flex-grow: 1;
   padding-top: 10px;
-
-  @media only screen and (min-width: 990px) and (max-width: 1190px) {
-    flex-grow: 0;
-  }
+  padding-right: 10px;
+  flex-grow: 1;
 }
 
-.list-filter {
-    flex-grow: 1;
-    padding-top: 8px;
+.filter {
+  margin-right: 10px;
+  padding-top: 8px;
+}
+
+.list-menu {
+  top: 90%;
 }
 
 .calendar-filter {
-    flex-grow: 1;
-    padding-top: 8px;
+  flex-grow: 1;
+  padding-top: 8px;
+}
+
+.schedule-download {
+  padding-top: 10px;
+  margin-left: 0;
 }
 
 #event {
@@ -496,7 +513,6 @@ a {
 
 @media (max-width: 600px) {
   .show-button-filter {
-    margin: 0 auto;
     padding-bottom: 0;
   }
 
@@ -716,8 +732,21 @@ a {
 }
 
 .speakers-list {
+  max-width: 50%;
+  float: left;
+  padding-left: 15px;
+
+  // On smaller screens, make width less between the picture and the description of speaker
+  @media only screen and (max-width: 400px) {
+    max-width: 35%;
+  }
+}
+
+.speaker-short-info {
   width: auto;
-  max-width:50%;
+  overflow: hidden;
+  padding-left: 15px;
+
 }
 
 .track-heading {
@@ -778,6 +807,31 @@ a {
   border-radius: 50%;
   height: 12px;
   width: 12px;
+  display: inline-block;
+}
+
+.track-name {
+  cursor: pointer;
+}
+
+.room-name {
+  cursor: pointer;
+}
+
+.track-info {
+  margin-bottom: 5px;
+}
+
+.room-info {
+  margin-bottom: 5px;
+}
+
+.room-name-list {
+  margin-bottom: 20px;
+}
+
+.list-title {
+  font-weight: bold;
 }
 
 .title-inline {
@@ -799,9 +853,14 @@ a {
   line-height : 13px;
 }
 
-.track-names {
+.track-room-names {
   color: $black;
   margin-top: 16%;
+  padding-left: 30px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .social-buttons {
@@ -866,10 +925,6 @@ a {
     float: left;
     width: 40%;
   }
-
-  .track-names {
-    margin-top: 0;
-  }
 }
 
 @media (max-width: 767px) {
@@ -888,12 +943,23 @@ a {
   //cursor:pointer;
 }
 
-.track-inline {
-  margin : 1%;
+.schedule-track {
+  @media (max-width: 600px) {
+    display: block;
+  }
+
+  margin-right: 10px;
   display: inline-block;
   vertical-align: text-top;
 }
 
+.margin-down-10 {
+  margin-bottom: 10px;
+}
+
+.margin-down-15 {
+  margin-bottom: 15px;
+}
 //event page
 
 .carousel {
@@ -1046,7 +1112,7 @@ a {
 
 
         &:hover {
-            .hover-state {
+          .hover-state {
             opacity: 1;
 
             .social-links {
@@ -1071,8 +1137,9 @@ a {
 
 .speaker-name {
   color: $light-black;
-  height: 22px;
+  height: 30px;
   text-align: center;
+  line-height: 1em;
 }
 
 @media only screen and (max-width: 692px) {
@@ -1256,10 +1323,14 @@ a {
   }
 }
 
+#tweet {
+  word-break: break-all;
+}
+
 @media screen and (max-width : 600px) {
   .tweets-feed {
     font-size : 1em;
-      #dateTweeted {
+    #dateTweeted {
       display: block;
       font-size: .9em;
     }
@@ -1380,15 +1451,6 @@ a {
   color: $gray-dark;
 }
 
-.search-filter {
-
-  .fossasia-filter {
-    background-color: $white;
-    border: 1px solid $gray-dim;
-    color: $black;
-    font-size: 12pt;
-  }
-}
 
 .search-filter-speaker {
   margin-bottom: 3.5rem;
@@ -1399,6 +1461,7 @@ a {
     height: 28px;
     margin: 0 auto;
     width: 186px;
+    padding-left: 25px;
   }
 
   @media only screen and (max-width: 600px) {
@@ -1413,35 +1476,70 @@ a {
 }
 
 .tweets-row{
-    background: $white-classic-background;
-    margin-right: 0px;
-    margin-left: 0px;
-    height: 600px;
+  background: $white-classic-background;
+  margin-right: 0px;
+  margin-left: 0px;
+  height: 600px;
 
-    section {
-      padding : 72px;
-    }
+  section {
+    padding : 72px;
+  }
 }
 
 
 .search-filter-schedule {
-  flex-grow: 1;
-  padding-top: 12px;
+  flex-grow: 2;
+  padding: 10px;
+  padding-left: 0px;
+  font-size: small;
+  border-radius: 5px;
+}
 
-  .fossasia-filter {
-    height: 33px;
-    width: 180px;
+.fossasia-filter {
+  height: 33px;
+  width: 100%;
+  padding-left: 25px;
+  font-size: small;
+  border-radius: 5px;
+}
+
+.search-filter {
+
+  @media only screen and (max-width: 350px) {
+    display: none;
   }
 
-  @media only screen and (max-width: 450px) {
-    margin-right: 5px;
+  .fossasia-filter {
+    background-color: $white;
+    border: 1px solid $gray-dim;
+    color: $black;
+  }
 
-    .fossasia-filter {
-      border-radius: 5px;
-      width: 100%;
+  label {
+    .fa {
+      margin: -6px;
+      padding-left: 12px;
+      padding-right: 3px;
+      position: absolute;
     }
   }
 }
+
+.search-filter input:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px #0076f9;
+}
+
+
+@media only screen and (max-width: 450px) {
+  margin-right: 5px;
+
+  .fossasia-filter {
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
 
 .search-filter-room {
   flex-grow: 2;
@@ -1646,25 +1744,34 @@ a.skip:hover {
   width: auto;
 }
 
+.view-active {
+  background-color: $white-gray;
+  color: $black;
+}
+
 .view-button {
   display: inline-block;
+
   button {
-    margin : 5px 5px 10px 0;
-    background-color : $white-gray;
-    color : $black;
+    margin: 5px 5px 10px 0;
   }
 }
 
 .unselect {
-  background-color:$white-gray;
-  border-color: $black;
-  color: $black;
+  background-color: $gray;
+  color: $white;
 }
 
 .calendar {
   margin-top: 13px;
   display: block;
+  background-color: $white;
 }
+
+.day-filter {
+  background-color: $white;
+}
+
 
 .calendar-content {
   display: block;
@@ -1697,6 +1804,10 @@ a.skip:hover {
   position: relative;
 }
 
+.room-filter {
+  overflow: hidden;
+}
+
 .room-header {
   padding-left: 2px;
   padding-right: 2px;
@@ -1715,14 +1826,26 @@ a.skip:hover {
   @include cursorpointer;
   color: $white;
   position: absolute;
-  border: 1px solid $gray-extra-dark;
+  outline: 1px solid $gray-extra-dark;
+  padding: 5px;
   width: 100%;
+  line-height: 120%;
+  font-weight: bold;
   word-wrap: break-word;
 }
 
 .session-name {
   overflow: hidden;
-  text-overflow: ellipsis;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 3.6em;
+}
+
+.session-name:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  margin-top: 0.2em;
 }
 
 .time {
@@ -1743,7 +1866,12 @@ a.skip:hover {
 #social-icons {
   padding-right:0;
   padding-left:0;
-  margin-left:15px
+  margin-left:15px;
+  margin-right: 0;
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    margin-right: 15px;
+  }
 }
 
 // style from tracks
@@ -1754,12 +1882,10 @@ a.skip:hover {
   border-color:$light-black;
   margin: 0;
   width: 100%;
-  flex-grow: 1;
 }
 
-
 #content-block {
-  margin: 15px 0 0 15px;
+  padding-left: 30px;
 }
 
 #track-list {
@@ -1782,14 +1908,9 @@ a.skip:hover {
   margin-right: 0;
 }
 
-.list-view {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.calendar-view {
-  padding-left: 0;
-  padding-right: 0;
+.schedule-margin {
+  margin-right: 0;
+  margin-bottom: 20px;
 }
 
 .left-border {
@@ -1798,7 +1919,7 @@ a.skip:hover {
   padding-bottom:10px;
 }
 
-#event-title {
+.event-title {
   font-size:18px;
   color: $light-black;
   padding-top:10px;
@@ -1878,3 +1999,115 @@ a.skip:hover {
 #speaker-social-icons {
   padding:2%;
 }
+
+@media screen and (max-width: 768px) {
+  .side-collapse {
+    background-color: $white;
+    bottom: 0;
+    opacity: .9;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    transition: width .4s;
+    width: 60%;
+  }
+  .side-collapse.in {
+    width: 0;
+  }
+
+}
+
+.session-container {
+  margin-top: 2%;
+  background-color: white;
+  text-align: center;
+}
+
+.single-session {
+  margin-top: 100px;
+}
+
+.session-content {
+  width: 75%;
+  margin: auto;
+}
+
+.session-ul {
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+}
+
+
+.search-box {
+  $tl: .3s; // transition length
+  border: 0;
+  height: 40px;
+  outline: 0;
+  transition: width $tl;
+  width: 40px;
+
+  label {
+    .search-icon {
+      color: $black;
+    }
+  }
+
+  &:focus {
+    border: 1px solid $black;
+    border-radius: 20px;
+    box-shadow: none;
+    cursor: text;
+    padding-left: 15px;
+    transition: width $tl;
+    width: 90%;
+  }
+
+  &:not(:focus) {
+    text-indent: -5000px;
+  }
+}
+
+.search-icon {
+  left: -30px;
+  position: relative;
+}
+
+.search-container {
+  @media only screen and (min-width: 350px) {
+    display: none;
+  }
+
+  margin: 7.5px -15px;
+}
+
+#filterInfo {
+  display: none;
+  font-size: 18px;
+  margin-top:20px;
+  border: 1px dotted black;
+  background-color: #efefef;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.mobile-track-room-list {
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile-track-room-info {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.display-block {
+  display: block;
+}
+

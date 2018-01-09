@@ -35,7 +35,7 @@
          {{else}}
          {{copyright.holder}}.
          {{/if}}
-         The website and it's contents are licensed under
+         The website and its contents are licensed under
           <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
          The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.
          </p>
@@ -46,21 +46,18 @@
       <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
-
-        <i class="fa fa-envelope"></i>
-          <span>
-          <a href="mailto:{{eventurls.email}}" target="_self" class="org-name">
-          {{eventurls.email}}
-          </a>
-          </span>
-
-
+          <i class="fa fa-envelope"></i>
+          <div>
+            <a href="mailto:{{eventurls.email}}" target="_self" class="org-name">
+            {{eventurls.email}}
+            </a>
+          </div>
         </li>
         {{/if}}
         {{#if eventurls.location}}
         <li class="address">
         <i class="fa fa-map-marker"></i>
-          <span>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</span>
+          <div>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</div>
         </li>
         {{/if}}
       </ul>
