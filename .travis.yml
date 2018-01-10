@@ -1,6 +1,9 @@
+# Specify language to use
 language: node_js
 node_js:
   - 6.10.2
+  
+# Using sudo enabled Linux VM
 sudo: required
 services:
   - docker
@@ -18,15 +21,19 @@ addons:
       - g++-4.8
   code_climate:
     repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
+# installing required items for build
 install:
   - npm install -g istanbul mocha@3
   - npm install
+ # testing script
 script:
   - istanbul cover _mocha
+ # notify codecov and deploy to cloud
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - bash gh_deploy.sh
   - bash kubernetes/travis/deploy.sh
+ # deploy to heroku
 deploy:
   provider: heroku
   api_key:
