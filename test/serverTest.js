@@ -190,7 +190,7 @@ describe('generate', function () {
     it('should generate the FOSSASIA Summit 2017', function (done) {
       var data = {};
 
-      data.body = {FOSSASIASummit2017
+      data.body = {
         "email": "a@a.com",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2017/",
