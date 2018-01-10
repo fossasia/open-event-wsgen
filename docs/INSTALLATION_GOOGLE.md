@@ -70,3 +70,8 @@ You can view the application in your web browser using:
 gcloud app browse
 ```
 The application will now open in a new tab in your browser for you to view.
+
+See the entire process step by step
+![GIF](screenshots/open-event-webapp.gif)
+- [ASCII Cast of Complete Process](https://asciinema.org/a/156500)
+
