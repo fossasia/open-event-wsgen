@@ -28,12 +28,12 @@ var fs = require('fs');
 
 
 var data = {
-  event: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/event'},
-  speakers: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/speakers'},
-  sessions: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/sessions'},
-  sponsors: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/sponsors'},
-  tracks: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/tracks'},
-  microlocations: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16/microlocations'}
+  event: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/event'},
+  speakers: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/speakers'},
+  sessions: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/sessions'},
+  sponsors: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/sponsors'},
+  tracks: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/tracks'},
+  microlocations: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/microlocations'}
 };
 
 
@@ -136,7 +136,7 @@ describe('fold', function () {
   });
   describe('.getAppName()', () => {
     it('should return event title from event object', () => {
-      assert.equal(fold.getAppName(data.event.json), 'FOSSASIA 2016');
+      assert.equal(fold.getAppName(data.event.json), 'FOSSASIA Summit 2016');
     });
   });
   describe('.checkNullHtml()', () => {
@@ -193,13 +193,13 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit/",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2017/",
         "datasource": "eventapi",
         "assetmode": "download",
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2017");
         done();
       });
 
@@ -242,19 +242,19 @@ describe('generate', function () {
 
     });
 
-    it('should generate the FOSSASIA 16 event', function (done) {
+    it('should generate the FOSSASIA Summit 2016 event', function (done) {
       var data = {};
 
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA16",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016",
         "datasource": "eventapi",
         "assetmode": "download"
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIA2016");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2016");
         done();
       });
 
@@ -368,54 +368,54 @@ describe('generate', function () {
       });
     });
 
-    it('should generate the Fossasia 2014 event', function (done) {
+    it('should generate the FOSSASIA Summit 2014 event', function (done) {
       var data = {};
 
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA14",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2014",
         "datasource": "eventapi",
         "assetmode": "download"
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIA2014");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2014");
         done();
       });
     });
 
-    it('should generate the Fossasia FOSSASIA2011 event', function (done) {
+    it('should generate the FOSSASIA Summit 2011 event', function (done) {
       var data = {};
 
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA11",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2011",
         "datasource": "eventapi",
         "assetmode": "download"
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIA2011");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2011");
         done();
       });
 
     });
 
-    it('should generate the Fossasia FOSSASIA2010 event', function (done) {
+    it('should generate the FOSSASIA Summit 2010 event', function (done) {
       var data = {};
 
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIA10",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2010",
         "datasource": "eventapi",
         "assetmode": "download"
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIA2010");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2010");
         done();
       });
 
@@ -549,7 +549,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       eventPage.init(driver);
-      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit');
+      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017');
     });
 
     it('Check for Scrollbars', function (done) {
@@ -574,7 +574,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     it('Checking the title of the page', function (done) {
       eventPage.getEventName().then(function (eventName) {
-        assert.equal(eventName, "FOSSASIA Summit");
+        assert.equal(eventName, "FOSSASIA Summit 2017");
         done();
       }).catch(function (err) {
         done(err);
@@ -604,7 +604,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       trackPage.init(driver);
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
     });
 
     it('Test for font color of sessions', function (done) {
@@ -678,7 +678,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     it('Checking Jump to Speaker functionality', function (done) {
       trackPage.jumpToSpeaker().then(function (val) {
         assert.equal(val, true);
-        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
         done();
       }).catch(function (err) {
         done(err);
@@ -695,7 +695,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the bookmark toggle', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
       trackPage.checkIsolatedBookmark().then(function (visArr) {
         assert.deepEqual(visArr, [true, true, false, true]);
         done();
@@ -715,7 +715,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Track filter followed by search and starred filter and reversing them', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/tracks.html');
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
       trackPage.filterCombination(['trackselect', 'search', 'starred', 'unstarred', 'unsearch', 'trackunselect']).then(function (val) {
         assert.deepEqual(val[0], [true, true, true, true, false, false]);
         assert.deepEqual(val[1], [true, false, true, false, false, false]);
@@ -805,7 +805,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       schedulePage.init(driver);
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
 
     it('Test for font color of sessions', function (done) {
@@ -931,7 +931,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking Jump to Speaker functionality', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.jumpToSpeaker().then(function (val) {
         assert.equal(val, true);
         done();
@@ -941,7 +941,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the working of social buttons', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkSocialLinks().then(function (num) {
         assert.equal(num, 5);
         done();
@@ -951,7 +951,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the bookmark toggle', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/schedule.html');
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function (visArr) {
         assert.deepEqual(visArr, [true, false, false]);
         done();
@@ -966,7 +966,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       roomPage.init(driver);
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
     });
 
     it('Test for font color of sessions', function (done) {
@@ -1046,7 +1046,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking Jump to Speaker functionality', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.jumpToSpeaker().then(function (val) {
         assert.equal(val, true);
         done();
@@ -1056,7 +1056,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the bookmark toggle', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.checkIsolatedBookmark().then(function (visArr) {
         assert.deepEqual(visArr, [false, false, false]);
         done();
@@ -1066,7 +1066,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the starred mode after search', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.toggleSessionBookmark(['3014', '3015']).then(roomPage.searchThenStarredMode.bind(roomPage)).then(function (boolArr) {
         assert.deepEqual(boolArr, [true, false, false]);
         done();
@@ -1076,7 +1076,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking search in starred mode', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/rooms.html');
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.starredModeThenSearch().then(function (boolArr) {
         assert.deepEqual(boolArr, [true, false, false]);
         done();
@@ -1091,7 +1091,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       speakerPage.init(driver);
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit/speakers.html');
+      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/speakers.html');
     });
 
     it('Checking search functionality', function (done) {
