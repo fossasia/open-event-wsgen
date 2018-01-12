@@ -44,7 +44,7 @@
       font-size: 20px;
       color: black;
     }
-
+    
     h3.custom-navtitle {
       position: relative;
     }
@@ -168,7 +168,7 @@
   <div class="custom-menu-cont hidden">
     <div class="custom-menu">
       <div class="hide-arrow"></div>
-      <div class="custom-menu-cont">
+      <div>
         <div class="custom-menu-item">
           <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp" target="_blank"><img src="./icons/code.png">
           <p class="custom-title">Code</p></a>
@@ -183,7 +183,7 @@
         </div>
         <hr style="margin-bottom: 0; margin-top: 10px;">
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://eventyay.com/" target="_blank"><img src="./icons/eventyay.png">
+          <a class="custom-icon" href="https://eventyay.com/" target="_blank"><img src="./favicon.ico">
           <p class="custom-title">Eventyay</p></a>
         </div>
         <div class="custom-menu-item">
@@ -228,8 +228,8 @@
         </ul><label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li id="uploadJSON"><input name="datasource" type="radio" value="jsonupload"> Upload your own JSON files</li>
-          <li id="endpointAPI"><input name="datasource" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
+          <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
+          <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
         </ul>
         <section id="eventapi-input" style="display:none;">
           <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
@@ -291,3 +291,4 @@
   </div>
 </body>
 </html>
+
