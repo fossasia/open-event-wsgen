@@ -1884,7 +1884,8 @@
       "integrity": "sha1-KjhFVBuC1G/NLOAU8oMG6plzhIU=",
       "requires": {
         "graceful-fs": "4.1.11",
-        "minimatch": "3.0.4"
+        "minimatch": "3.0.4",
+        "when": "3.7.8"
       }
     },
     "follow-redirects": {
@@ -5747,6 +5748,11 @@
       "version": "0.0.11",
       "resolved": "https://registry.npmjs.org/walkdir/-/walkdir-0.0.11.tgz",
       "integrity": "sha1-oW0CXrkxvQO1LzCMrtD0D86+lTI="
+    },
+    "when": {
+      "version": "3.7.8",
+      "resolved": "https://registry.npmjs.org/when/-/when-3.7.8.tgz",
+      "integrity": "sha1-xxMLan6gRpPoQs3J56Hyqjmjn4I="
     },
     "which": {
       "version": "1.2.14",

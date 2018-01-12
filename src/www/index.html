@@ -44,7 +44,7 @@
       font-size: 20px;
       color: black;
     }
-
+    
     h3.custom-navtitle {
       position: relative;
     }
@@ -168,7 +168,7 @@
   <div class="custom-menu-cont hidden">
     <div class="custom-menu">
       <div class="hide-arrow"></div>
-      <div class="custom-menu-cont">
+      <div>
         <div class="custom-menu-item">
           <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp" target="_blank"><img src="./icons/code.png">
           <p class="custom-title">Code</p></a>
@@ -183,19 +183,23 @@
         </div>
         <hr style="margin-bottom: 0; margin-top: 10px;">
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://eventyay.com" target="_blank"><img src="./icons/eventyay.png">
+          <a class="custom-icon" href="https://eventyay.com/" target="_blank"><img src="./icons/eventyay.png">
           <p class="custom-title">Eventyay</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://fossasia.org" target="_blank"><img src="./icons/fossasia.png">
-          <p class="custom-title">FOSSASIA</p></a>
+          <a class="custom-icon" href="https://susper.com/" target="_blank"><img src="./icons/susper.png">
+          <p class="custom-title">Susper</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://chat.susi.ai" target="_blank"><img src="./icons/susi.jpg">
+          <a class="custom-icon" href="https://chat.susi.ai/" target="_blank"><img src="./icons/susi.png">
           <p class="custom-title">Susi</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://loklak.net" target="_blank"><img src="./icons/loklak.png">
+          <a class="custom-icon" href="https://fossasia.org/" target="_blank"><img src="./icons/fossasia.png">
+          <p class="custom-title">FOSSASIA</p></a>
+        </div>
+        <div class="custom-menu-item">
+          <a class="custom-icon" href="https://loklak.org/" target="_blank"><img src="./icons/loklak.png">
           <p class="custom-title">loklak</p></a>
         </div>
       </div>
@@ -204,7 +208,7 @@
   </div>
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
-      <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4" style="margin-bottom: 0;">
+      <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
         <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
         <!--<label for="theme">Choose your theme</label>-->
          <!--<select class="form-control" id="theme" name="theme">-->
@@ -219,13 +223,13 @@
                 -->
          <label>Choose Session Style</label>
         <ul style="list-style-type:none">
-          <li><input name="session" required="" type="radio" value="single"> Single</li>
-          <li><input name="session" type="radio" value="expand"> Expandable</li>
+          <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
+          <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
         </ul><label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li><input name="datasource" type="radio" value="jsonupload"> Upload your own JSON files</li>
-          <li><input name="datasource" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
+          <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
+          <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
         </ul>
         <section id="eventapi-input" style="display:none;">
           <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
@@ -272,9 +276,6 @@
             </div>
           </div>
         </section>
-      </div>
-      <div class="col-md-4 col-xs-2"></div>
-      <div class="col-md-offset-3 col-xs-offset-1 col-xs-10 col-md-6" style="margin-top: -20px;">
         <center>
           <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;">-Logs-</a>
           <pre id="buildLog" style="display:none;">
@@ -290,3 +291,4 @@
   </div>
 </body>
 </html>
+

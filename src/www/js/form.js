@@ -31,6 +31,7 @@ function createCookie(name, value, days) {
 
 $(document).ready(function () {
   var socket = io();
+  document.getElementById('email').focus();
 
   function uploadFile(file) {
 
@@ -143,6 +144,73 @@ $(document).ready(function () {
   uploadProgressVal = $('#upload-progress-val');
   statusText = $('#status');
 
+  $('#single').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+    function() {
+      $(this).find('input').prop('checked',true);
+  });
+
+  $('#expandable').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+  });
+
+  $('#uploadJSON').mouseover(
+    function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+          if ($(this).find('input').is(':checked')) {
+
+              if ($(this).find('input').val() === 'mockjson') {
+                  $('#jsonupload-input').hide(100);
+                  $('#eventapi-input').hide(100);
+              }
+
+              if ($(this).find('input').val() === 'jsonupload') {
+                  $('#jsonupload-input').show(100);
+                  $('#eventapi-input').hide(100);
+                  $('#btnLive').hide();
+                  $('#btnDownload').hide();
+                  $('#deploy').hide();
+                  if (uploadFinished) {
+                      enableGenerateButton(true);
+                  } else {
+                      enableGenerateButton(false);
+                  }
+              }
+          }
+  });
+
+  $('#endpointAPI').mouseover(
+     function() {
+      $(this).css('cursor','pointer');
+  }).mousedown(
+      function() {
+          $(this).find('input').prop('checked',true);
+          if ($(this).find('input').is(':checked')) {
+
+              if ($(this).find('input').val() === 'mockjson') {
+                  $('#jsonupload-input').hide(100);
+                  $('#eventapi-input').hide(100);
+              }
+
+              if ($(this).find('input').val() === 'eventapi') {
+                  $('#eventapi-input').show(100);
+                  $('#jsonupload-input').hide(100);
+                  $('#btnLive').hide();
+                  $('#btnDownload').hide();
+                  $('#deploy').hide();
+                  enableGenerateButton(true);
+              }
+          }
+  });
 
   $('input:radio[name="datasource"]').change(
     function() {
