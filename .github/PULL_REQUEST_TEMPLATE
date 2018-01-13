@@ -1,5 +1,19 @@
-Fixes #[Add issue number here. Note: This will automatically close the issue. If you do not solve the issue entirely, please change the message e.g. "First steps for issues #IssueNumber]
+Please follow the Pull Request Template --
 
-Changes: [Add here what changes were made in this issue and if possible provide links.]
+Check by changing each `[ ]` to `[x]` Please take note of the whitespace as it matters.
 
-Screenshots for the change: 
+- [ ] Read and understood (see CONTRIBUTING.md)
+- [ ] Included screenshots (if required)showing after and before the changes.
+- [ ] Included a description of change below.
+- [ ] Squashed the commits.
+
+# Changes done in this Pull Request
+[Here please mention in detail what you have done]
+
+# Screenshots(if any)
+[Here please add screenshots of before and adter the changes]
+
+
+### Fixes:-
+[If you have fixed an issue, please link it]
+Fixes #[Issue number]
