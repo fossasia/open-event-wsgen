@@ -1,5 +1,7 @@
 # How to install the Open Event Web App Generator on Google Cloud
-This documentation provides instructions to deploy the Open Event Web App on Google Cloud using the App Engine flexible environment.
+> This documentation provides instructions to deploy the Open Event Web App on Google Cloud using the App Engine flexible environment.
+
+* **[ASCII Cast of Complete Process](https://asciinema.org/a/156500)**
 
 ## Step 1
 ##### Create a new project on Google Cloud Console
@@ -71,7 +73,9 @@ gcloud app browse
 ```
 The application will now open in a new tab in your browser for you to view.
 
-See the entire process step by step
+**See the entire process step by step :**
+
 ![GIF](screenshots/open-event-webapp.gif)
-- [ASCII Cast of Complete Process](https://asciinema.org/a/156500)
+
+
 
