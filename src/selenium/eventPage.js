@@ -1,6 +1,5 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var EventPage = Object.create(BasePage);
 
