@@ -31,6 +31,7 @@ function createCookie(name, value, days) {
 
 $(document).ready(function () {
   var socket = io();
+  document.getElementById('email').focus();
 
   function uploadFile(file) {
 
