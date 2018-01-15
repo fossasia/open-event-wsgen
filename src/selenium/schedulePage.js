@@ -1,6 +1,5 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var SchedulePage = Object.create(BasePage);
 var datesId = ['2017-03-17', '2017-03-18', '2017-03-19'];
