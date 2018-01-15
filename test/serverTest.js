@@ -23,6 +23,7 @@ var trackPage = require('../src/selenium/trackPage.js');
 var schedulePage = require('../src/selenium/schedulePage.js');
 var roomPage = require('../src/selenium/roomPage.js');
 var speakerPage = require('../src/selenium/speakerPage.js');
+var sessionPage = require('../src/selenium/sessionPage.js');
 var By = webdriver.By;
 var fs = require('fs');
 
@@ -1149,4 +1150,69 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
   });
+  
+  describe('Testing Session page', function () {
+    before(function () {
+      sessionPage.init(driver);
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+    });
+    
+    it('Get the title of the session', function (done) {
+      sessionPage.getSessionTitle().then(function (val) {
+        assert.equal(val, 'IT All Hands (Session of 2 hours) | IT');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Check the background color of the title', function (done) {
+      sessionPage.getSessionBackgroundColor().then(function (val) {
+        assert.equal(val, 'rgba(88, 214, 141, 1)');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Get the speaker of the session', function (done) {
+      sessionPage.getSpeakerName().then(function (val) {
+        assert.equal(val, 'Alex Fridman');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to tracks page', function (done) {
+      sessionPage.jumpToTrack().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to speakers page', function (done) {
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.jumpToSpeaker().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to rooms page', function (done) {
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.jumpToRoom().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+  });
+  
 });
