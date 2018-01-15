@@ -50,7 +50,7 @@ EventPage.checkSponsorSection = function() {
 EventPage.getSponsorsBrokenLinks = function() {
   var allLinks = this.getAllLinks(By.className('sponsorscont'));
   var brokenLinks = allLinks.then(this.countBrokenLinks);
-    
+  
   return brokenLinks;
 };
 
