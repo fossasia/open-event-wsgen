@@ -600,6 +600,24 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+    
+    
+    it('Checking the presence of Sponsors section', function (done) {
+      eventPage.checkSponsorSection().then(function () {
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Checking broken links in of Sponsors section', function (done) {
+      eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount){
+        assert.equal(brokenLinksCount,1);
+        done();
+      }).catch(function(err){
+        done(err);
+      });
+    });
 
   });
 

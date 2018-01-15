@@ -43,4 +43,15 @@ EventPage.getNavbarFooterBrokenLinks = function() {
   return getUniqueLinks().then(this.countBrokenLinks);
 };
 
+EventPage.checkSponsorSection = function() {
+  return this.find(By.className('sponsorscont'));
+};
+
+EventPage.getSponsorsBrokenLinks = function() {
+  var allLinks = this.getAllLinks(By.className('sponsorscont'));
+  var brokenLinks = allLinks.then(this.countBrokenLinks);
+
+  return brokenLinks;
+};
+
 module.exports = EventPage;
