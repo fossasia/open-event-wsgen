@@ -1,6 +1,5 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var TrackPage = Object.create(BasePage);
 

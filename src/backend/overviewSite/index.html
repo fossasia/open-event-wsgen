@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
@@ -96,19 +96,39 @@
             background: #1b1c1d;
             color: rgba(255, 255, 255, .9);;
         }
-
+         .margin {
+             margin-bottom: 50px;
+        }
         footer p {
             margin: 0px;
         }
+        .event-holder {
+            cursor: pointer;
 
-        img {
-            height: 160px;
-            width: 310px;
-            max-width: 100%;
         }
-
-        .margin {
-            margin-bottom: 50px;
+        .event-holder:hover > .thumbnail > .caption {
+            background-color: #f7f7f7;
+        }
+        .event-holder hr {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .event-holder img {
+            max-height: 160px;
+            min-height: 160px;
+            width: 100%;
+            border: none;
+        }
+        .event-holder .thumbnail {
+            padding: 0;
+        }
+        .event-holder .name {
+            height: 40px;
+            text-overflow: ellipsis;
+        }
+        .event-holder .caption {
+            background-color: #FFFFFF;
+            transition: background-color 0.5s;
         }
     </style>
 </head>
@@ -145,104 +165,159 @@
         <h1>Open Event Web Apps</h1>
         <p>The <a href="https://webgen.eventyay.com"> Open Event Web App Generator </a>uses the <a
                 href="https://github.com/fossasia/open-event"> Open Event format </a> to generate static websites of
-            events. Feast your eyes on our beautiful example events.</p>
+            events <br> Feast your eyes on our beautiful example events.</p>
     </div>
     <div class="tint"></div>
 </div>
 
-<div class="container-fluid bg-3">
+<div class="container bg-3">
     <h2 class="margin"> Apps with expandable sessions page </h2>
-    <div class="row text-center">
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Open Tech Summit 2017</strong></p>
-            <a href='./OpenTechSummit/index.html' target='_blank'>
-                <img src="./otssmall.jpg" class="" alt="Image">
-            </a>
+    <div class="row text-left">
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./OpenTechSummit/index.html' target='_blank'>
+                <img src='./otssmall.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Open Tech Summit 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Facebook Developer Conference 2017</strong></p>
-            <a href='./F8-FacebookDeveloperConference2017/index.html' target='_blank'>
-                <img src="./fbsmall.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./F8-FacebookDeveloperConference2017/index.html' target='_blank'>
+                <img src='./fbsmall.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Facebook Developer Conference 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>FOSSASIA Summit 2017</strong></p>
-            <a href='./FOSSASIASummit2017/index.html' target='_blank'>
-                <img src="./fasmall.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./FOSSASIASummit2017/index.html' target='_blank'>
+                <img src='./fasmall.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">FOSSASIA Summit 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>OSCON 2017</strong></p>
-            <a href='./OSCON2017/index.html' target='_blank'>
-                <img src="./oscon.png" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./OSCON2017/index.html' target='_blank'>
+                <img src='./oscon.png' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">OSCON 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>FOSSASIA 2016</strong></p>
-            <a href='./FOSSASIA2016/index.html' target='_blank'>
-                <img src="./fa16small.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./FOSSASIA2016/index.html' target='_blank'>
+                <img src='./fa16small.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">FOSSASIA 2016</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Nextcloud Conference 2017</strong></p>
-            <a href='./NextcloudConference2017/index.html' target='_blank'>
-                <img src="./nextcloud2017.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./NextcloudConference2017/index.html' target='_blank'>
+                <img src='./nextcloud2017.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Nextcloud Conference 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>GoogleIO 2017</strong></p>
-            <a href='./GoogleIO2017/index.html' target='_blank'>
-                <img src="./googleIO.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./GoogleIO2017/index.html' target='_blank'>
+                <img src='./googleIO.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">GoogleIO 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>RedHat Summit 2017</strong></p>
-            <a href='./RedHatSummit2017/index.html' target='_blank'>
-                <img src="./redhat.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./RedHatSummit2017/index.html' target='_blank'>
+                <img src='./redhat.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">RedHat Summit 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Droidcon 2017</strong></p>
-            <a href='./Droidcon2017/index.html' target='_blank'>
-                <img src="./droidcon.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./Droidcon2017/index.html' target='_blank'>
+                <img src='./droidcon.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Droidcon 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Fossasia 2014</strong></p>
-            <a href='./FOSSASIA2014/index.html' target='_blank'>
-                <img src="./fossasia16.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./FOSSASIA2014/index.html' target='_blank'>
+                <img src='./fossasia16.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Fossasia 2014</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Fossasia 2011</strong></p>
-            <a href='./FOSSASIA2011/index.html' target='_blank'>
-                <img src="./fossasia2011.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./FOSSASIA2011/index.html' target='_blank'>
+                <img src='./fossasia2011.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Fossasia 2011</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 col-xs-12 margin">
-            <p><strong>Fossasia 2010</strong></p>
-            <a href='./FOSSASIA2010/index.html' target='_blank'>
-                <img src="./fossasia2010.JPG" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./FOSSASIA2010/index.html' target='_blank'>
+                <img src='./fossasia2010.JPG' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Fossasia 2010</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-
-<div class="container-fluid bg-3">
+<div class="container bg-3">
     <h2 class="margin">Apps with single sessions page</h2>
-    <div class="row text-center">
-        <div class="col-md-4 col-md-offset-0 col-sm-6 col-xs-12 margin">
-            <p><strong>Mozilla All Hands 2017</strong></p>
-            <a href='./MozillaAllHands2017/index.html' target='_blank'>
-                <img src="./mozilla_banner.jpg" class="" alt="Image">
-            </a>
+    <div class="row text-left">
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./MozillaAllHands2017/index.html' target='_blank'>
+                <img src='./mozilla_banner.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">Mozilla All Hands 2017</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 col-md-offset-0 col-sm-6 col-xs-12 margin">
-            <p><strong>PyCon 2017</strong></p>
-            <a href='./PyCon2017/index.html' target='_blank'>
-                <img src="./PyCon17.jpg" class="" alt="Image">
-            </a>
+        <div class="col-md-4 col-xs-12 col-sm-6 event-holder">
+            <div class="thumbnail">
+                <a href='./PyCon2017/index.html' target='_blank'>
+                <img src='./PyCon17.jpg' onerror="imgError(this, true);">
+                </a>
+                <div class="caption">
+                    <h4 class="name">PyCon 2017</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
