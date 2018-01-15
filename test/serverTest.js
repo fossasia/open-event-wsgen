@@ -1106,6 +1106,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
+    it('Display speaker details and test social links on hovering over image', function (done) {
+      speakerPage.hoverOverSpeaker().then(function (val) {
+        assert.equal(val, 0);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
     it('Jump to track page on clicking session of a speaker', function (done) {
       speakerPage.jumpToTrack().then(function (val) {
         assert.equal(val, 1);
@@ -1114,6 +1123,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+
   });
 
   describe('Testing Speakers page for single page type', function () {
