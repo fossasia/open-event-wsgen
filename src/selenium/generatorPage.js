@@ -23,6 +23,8 @@ var GeneratorPage = {
   }
 };
 
+// Checks if json upload section appears on selecting json-upload as a choice for input data
+
 GeneratorPage.checkJsonInput = function () {
   var self = this;
   var inputJsonId = 'jsonupload-input';
@@ -33,6 +35,8 @@ GeneratorPage.checkJsonInput = function () {
   });
   return promise;
 };
+
+// Checks if API endpoint section appears on selecting API-endpoint as a choice for input data
 
 GeneratorPage.checkAPIendpointInput = function () {
   var self = this;
@@ -45,6 +49,8 @@ GeneratorPage.checkAPIendpointInput = function () {
   return promise;
 };
 
+// Checks if ftp-details section appears on choosing ftp-upload.
+
 GeneratorPage.checkFTPinput = function () {
   var self = this;
   var inputFTPid = 'upload-ftp-details';
@@ -55,6 +61,8 @@ GeneratorPage.checkFTPinput = function () {
   });
   return promise;
 };
+
+// Checks if logs are displayed on clicking the logs link.
 
 GeneratorPage.checkBuildLogs = function () {
   var self = this;
@@ -72,6 +80,8 @@ GeneratorPage.checkBuildLogs = function () {
   });
   return promise;
 };
+
+// Checks if the webapp menu appear on clicking the option to see sister projects.
 
 GeneratorPage.checkWebappMenu = function () {
   var self = this;
