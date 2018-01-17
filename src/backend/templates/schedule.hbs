@@ -457,6 +457,15 @@
         $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
       });
 
+        $('.calendar').each(function(){
+            var length=$(this).find('.room').length;
+
+            if(length<=3)
+            {
+                $(this).find('.rooms').addClass('remove_scroll');
+            }
+        });
+
       $('.fossasia-filter').change(function() {
         var filterVal = $(this).val();
         $('.day-filter').each(function() {
