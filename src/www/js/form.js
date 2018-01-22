@@ -460,6 +460,7 @@ function getData () {
   if ($('#upload-ftp').prop('checked')) {
     data.ftpdetails = {
       host: $('#ftp-host').val(),
+      port: $('#ftp-port').val(),
       user: $('#ftp-user').val(),
       pass: $('#ftp-pass').val(),
       path: $('#ftp-path').val()
