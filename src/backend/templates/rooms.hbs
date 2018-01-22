@@ -94,7 +94,7 @@
                 <div class="{{slug}} date-filter" id="rooms-list">
                   <div class="row paddingzero">
                     <div class="col-md-12 paddingzero">
-                      <h5 class="text">{{date}}</h4>
+                      <h5 class="text">{{date}}</h5>
                     </div>
                   </div>
                   {{#venue}}
@@ -281,6 +281,7 @@
         </div>
       </div>
     </div>
+  </div>
 
     {{> footer}}
     <script src="./js/jquery.min.js"></script>
@@ -571,7 +572,7 @@
           var elemId;
           Object.keys(temp).forEach(function(key) {
             if (temp[key] == 1) {
-              elemId = $('#' + key).find('.bookmark').css("color", "black");;
+              elemId = $('#' + key).find('.bookmark').css("color", "black");
             }
           });
         }
