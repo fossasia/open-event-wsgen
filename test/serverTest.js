@@ -420,6 +420,24 @@ describe('generate', function () {
 
     });
 
+    it('should generate the Mozilla All Hands 2016 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands16",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/AllHands/2016Hawaii");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
 
@@ -457,6 +475,7 @@ describe('generate', function () {
       copyStatic('fossasia16.jpg');
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
+      copyStatic('mozilla2016.jpg');
 
     });
 
@@ -825,6 +844,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
         assert.deepEqual(val[3], val[1]);
         assert.deepEqual(val[4], val[0]);
         assert.deepEqual(val[5], [true, true, true, true, true, true]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Checking the share link', function (done) {
+      trackPage.checkSharableUrl().then(function (link) {
+        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
         done();
       }).catch(function (err) {
         done(err);
