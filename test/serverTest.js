@@ -851,6 +851,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+    
+    it('Checking the share link', function (done) {
+      trackPage.checkSharableUrl().then(function (link) {
+        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
 
   });
 
