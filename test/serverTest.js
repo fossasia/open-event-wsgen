@@ -7,7 +7,6 @@
 'use strict';
 
 const assert = require('chai').assert;
-const jsonfile = require('jsonfile');
 const async = require('async');
 const config = require('../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
@@ -24,7 +23,6 @@ var schedulePage = require('../src/selenium/schedulePage.js');
 var roomPage = require('../src/selenium/roomPage.js');
 var speakerPage = require('../src/selenium/speakerPage.js');
 var sessionPage = require('../src/selenium/sessionPage.js');
-var By = webdriver.By;
 var fs = require('fs');
 
 
@@ -468,6 +466,7 @@ describe('generate', function () {
 describe("Running Selenium tests on Chrome Driver", function () {
   this.timeout(600000);
   var driver;
+  
   before(function () {
     if (process.env.SAUCE_USERNAME !== undefined) {
       driver = new webdriver.Builder()
@@ -477,12 +476,26 @@ describe("Running Selenium tests on Chrome Driver", function () {
           build: process.env.TRAVIS_BUILD_NUMBER,
           username: process.env.SAUCE_USERNAME,
           accessKey: process.env.SAUCE_ACCESS_KEY,
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+                    'downloads': {
+                      'prompt_for_download': false
+                    }
+                }
+            }
         }).build();
     } else {
       driver = new webdriver.Builder()
         .withCapabilities({
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+              'downloads': {
+                'prompt_for_download': false
+              }
+            }
+          }
         }).build();
     }
   });
@@ -826,7 +839,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
-
+    
+    it('Test for working of download buttons', function (done) {
+      schedulePage.getDownloadDropdown().then(function (boolArr) {
+        assert.deepEqual(boolArr,[true,false]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
     it('Test for font color of sessions', function (done) {
       schedulePage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
