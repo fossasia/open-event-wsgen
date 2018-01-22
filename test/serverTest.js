@@ -420,9 +420,27 @@ describe('generate', function () {
 
     });
 
+    it('should generate the Mozilla All Hands 2016 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands16",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/AllHands/2016Hawaii");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 15;
+      var totalFiles = 16;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -459,6 +477,7 @@ describe('generate', function () {
       copyStatic('fossasia16.jpg');
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
+      copyStatic('mozilla2016.jpg');
 
     });
 
