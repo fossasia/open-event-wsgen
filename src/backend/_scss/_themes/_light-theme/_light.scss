@@ -1,5 +1,5 @@
-@charset 'UTF-8';
-@import '../../_base/config';
+@charset "UTF-8";
+@import "../../_base/config";
 
 // 1.Overwrite stuff
 
@@ -9,9 +9,9 @@ $corp-color-second: $blue;
 $corp-color-second-dark: darken($corp-color-second, 10%);
 $base-font-size: 1.6;
 $base-font-family: Droid Sans, Georgia, Arial;
-$main-background: light;  
-$base-border-radius: 0px;
+$main-background: light;
+$base-border-radius: 0;
 $base-border-color: $gray-light;
 $main-background: $white;
 
-@import '../../application';
+@import "../../application";
