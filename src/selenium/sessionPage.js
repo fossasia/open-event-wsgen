@@ -82,12 +82,15 @@ sessionPage.jumpToSpeaker = function() {
 
 sessionPage.jumpToRoom = function() {
   var self = this;
+  var pageVertScrollOffset = 'return window.scrollY';
   
   var roomPromise =  new Promise(function(resolve) {
-    self.find((By.css("a[href='../rooms.html#venue-2017-06-30-Plaza_Room_B']"))).then(function(elem) {
+    self.find((By.css("a[href='../rooms.html#2017-06-30-Plaza_Room_B']"))).then(function(elem) {
       elem.click().then(self.getPageUrl.bind(self))
         .then(function(url) {
-          resolve((url.search('rooms') !== -1));
+          self.driver.executeScript(pageVertScrollOffset).then(function(height) {
+            resolve(height > 0 && url.search('rooms') !== -1);
+          });
         });
     });
   });
