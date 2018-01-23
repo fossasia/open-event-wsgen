@@ -7,7 +7,6 @@
 'use strict';
 
 const assert = require('chai').assert;
-const jsonfile = require('jsonfile');
 const async = require('async');
 const config = require('../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
@@ -24,7 +23,6 @@ var schedulePage = require('../src/selenium/schedulePage.js');
 var roomPage = require('../src/selenium/roomPage.js');
 var speakerPage = require('../src/selenium/speakerPage.js');
 var sessionPage = require('../src/selenium/sessionPage.js');
-var By = webdriver.By;
 var fs = require('fs');
 
 
@@ -422,9 +420,27 @@ describe('generate', function () {
 
     });
 
+    it('should generate the Mozilla All Hands 2016 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands16",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/AllHands/2016Hawaii");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 15;
+      var totalFiles = 16;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -461,6 +477,7 @@ describe('generate', function () {
       copyStatic('fossasia16.jpg');
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
+      copyStatic('mozilla2016.jpg');
 
     });
 
@@ -470,6 +487,7 @@ describe('generate', function () {
 describe("Running Selenium tests on Chrome Driver", function () {
   this.timeout(600000);
   var driver;
+  
   before(function () {
     if (process.env.SAUCE_USERNAME !== undefined) {
       driver = new webdriver.Builder()
@@ -479,12 +497,26 @@ describe("Running Selenium tests on Chrome Driver", function () {
           build: process.env.TRAVIS_BUILD_NUMBER,
           username: process.env.SAUCE_USERNAME,
           accessKey: process.env.SAUCE_ACCESS_KEY,
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+                    'downloads': {
+                      'prompt_for_download': false
+                    }
+                }
+            }
         }).build();
     } else {
       driver = new webdriver.Builder()
         .withCapabilities({
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+              'downloads': {
+                'prompt_for_download': false
+              }
+            }
+          }
         }).build();
     }
   });
@@ -819,6 +851,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+    
+    it('Checking the share link', function (done) {
+      trackPage.checkSharableUrl().then(function (link) {
+        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
 
   });
 
@@ -828,7 +869,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
-
+    
+    it('Test for working of download buttons', function (done) {
+      schedulePage.getDownloadDropdown().then(function (boolArr) {
+        assert.deepEqual(boolArr,[true,false]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
     it('Test for font color of sessions', function (done) {
       schedulePage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
