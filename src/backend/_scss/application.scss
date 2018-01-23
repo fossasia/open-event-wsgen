@@ -1032,7 +1032,7 @@ a {
 }
 
 .speaker-info {
-  @include cursorpointer
+  @include cursorpointer;
   height: 280px;
   margin-bottom: 10px;
   padding: 0;
