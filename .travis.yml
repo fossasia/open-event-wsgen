@@ -30,9 +30,12 @@ script:
   - istanbul cover _mocha
  # notify codecov and deploy to cloud
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - bash gh_deploy.sh
-  - bash kubernetes/travis/deploy.sh
+  - stage: Code_coverage
+    - bash <(curl -s https://codecov.io/bash)
+  - stage: Github_deploy  
+    - bash gh_deploy.sh
+  - stage: Cloud_deploy  
+    - bash kubernetes/travis/deploy.sh
  # deploy to heroku
 deploy:
   provider: heroku
