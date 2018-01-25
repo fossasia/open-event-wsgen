@@ -54,6 +54,7 @@ $(document).ready(function () {
     });
     $(document).hover(function(event){
       popbox.addClass('hide');
+      resetPage();
       hidePopbox();
     });
   }
