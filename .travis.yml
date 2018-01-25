@@ -31,8 +31,7 @@ script:
  # notify codecov and deploy to cloud
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - bash gh_deploy.sh
-  - bash kubernetes/travis/deploy.sh
+  - bash gh_deploy.sh && bash kubernetes/travis/deploy.sh
  # deploy to heroku
 deploy:
   provider: heroku
