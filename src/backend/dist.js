@@ -366,7 +366,7 @@ module.exports = {
 
     try {
       var fileData = fs.readFileSync(filePath).toString().split('\n');
-      fileData.unshift("{\n\"short_name\":\"" + eventName+"\",");
+      fileData.unshift("{\n\"name\":\""+eventName+"\",\n\"short_name\":\"" + eventName+"\",");
       fs.writeFileSync(appPath + '/manifest.json', fileData.join('\n'));
       return done(null);
     } catch(err) {
