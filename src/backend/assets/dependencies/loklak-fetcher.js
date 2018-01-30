@@ -61,7 +61,7 @@ window.loklakFetcher = (function() {
       }
 
       if(dataset.from) {
-        query = query + "&from:" + dataset.from;
+        query = "from:" + dataset.from;
       }
 
       // Write unset options as their default

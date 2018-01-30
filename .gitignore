@@ -46,3 +46,4 @@ jspm_packages
 /uploads
 /mockjson
 
+configmap.yml.secret

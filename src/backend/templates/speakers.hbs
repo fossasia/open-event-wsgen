@@ -38,6 +38,21 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+  <style>
+  .search-filter>label>.fa {
+    position: absolute;
+    padding-top: 20px;
+    padding-left: 67px;
+  }
+  @media only screen and (max-width: 450px) {
+         .search-filter>label>.fa {
+             position: absolute;
+             padding-top: 25px;
+             padding-left: 40px;
+           }
+  }
+  </style>
+
 </head>
   <body id="speaker-body">
     <a href="#speakers-list" class="skip">Skip to content</a>
@@ -59,15 +74,17 @@
         search-filter, search-filter-speaker and fossasia-filter
         These classes are designed for search tab.
         --------------------------------------------------------------- -->
-    <div class=row>
-        <div class="search-filter search-filter-speaker" id="speakers-list">
-            <input class="fossasia-filter" type="text" placeholder="Search" />
-		    </div>
-    </div>
+       <div class="row" style="margin: auto; max-width: 300px;">
+         <div class="search-filter search-filter-speaker" id="speakers-list">
+                  <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+                  <input class="fossasia-filter" type="text" placeholder="Search">
+         </div>
+       </div>
+
 
   <div class="row speakers-row">
   {{#speakerslist}}
-    <div class="col-md-3 col-sm-6 speaker-column">
+    <div class="col-md-3 col-sm-6 speaker-column" id="{{speaker_id}}">
       <div class="speaker">
         <div class="image-holder">
          <a class="anchor" id="{{nameIdSlug}}"></a>
@@ -108,7 +125,7 @@
                   <span class="s-popup-header-name"><strong>{{{name}}}</strong>
                     {{#if organisation}}
                         {{#ifvalue organisation notequals=""}}
-                            ({{{organisation}}})
+                          ({{{position}}} {{{organisation}}})
                         {{/ifvalue}}
                     {{/if}}</span>
                 </div>
@@ -150,8 +167,12 @@
                     <span id="session-location" >{{microlocation}}</span>
                     </strong>
                   </h5>
-                  <a href="tracks.html#{{session_id}}">
-                   <h4 style="background-color:{{{color}}};"  class="sizeevent event">
+                    {{#if ../../mode}}
+                        <a href = "sessions/session_{{session_id}}.html">
+                    {{else}}
+                        <a href = "tracks.html#{{session_id}}">
+                    {{/if}}
+                    <h4 style="background-color:{{{color}}}; color:{{{font_color}}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
                       <span>{{{title}}}</span>
                     </h4>
@@ -165,7 +186,7 @@
             </div>
           </div>
           <span class="speaker-name">{{{name}}}</span>
-          <span class="speaker-name org-name">{{{organisation}}}</span>
+          <span class="speaker-name org-name">{{{position}}} {{{organisation}}}</span>
       </div>
     </div>
     {{/speakerslist}}
@@ -189,14 +210,15 @@
             var val = $(this).parent().parent().find('.speakers-inputbox').val();
             $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
         });
-        $('.fossasia-filter:first').change(function() {
+        $('.fossasia-filter').change(function() {
                 var filterVal = $(this).val();
                 if (filterVal) {
                     $('.speaker').each(function() {
                         if ($(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0 &&
                             $(this).find('.pop-over').text().toUpperCase().indexOf(filterVal.toUpperCase()) < 0) {
                              $(this).parent().hide();
-                         } else {
+                    } else if ($(this).find(".speaker-name").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                                    $(this).find(".pop-over").text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0)  {
                              $(this).parent().show();
                          }
                     });

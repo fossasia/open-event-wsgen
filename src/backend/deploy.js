@@ -174,7 +174,7 @@ module.exports = function(accessToken, folder, user, socket, callback) {
           return;
         }
 
-        var sha = res['object']['sha'];
+        var sha = res['data']['object']['sha'];
 
         gh.gitdata.createReference({owner: user, repo: repoName, ref: 'refs/heads/gh-pages', sha: sha}, function(err, res) {
           if(err) {
@@ -199,16 +199,16 @@ module.exports = function(accessToken, folder, user, socket, callback) {
     }
   ],
 
-  function(err, results) {
-    if(err) {
-      if (err === 'aborted') {
-        console.log('The process was aborted by the user');
-        socket.emit('abort', 'The process has been successfully aborted');
+    function(err, results) {
+      if(err) {
+        if (err === 'aborted') {
+          console.log('The process was aborted by the user');
+          socket.emit('abort', 'The process has been successfully aborted');
+        }
+        else {
+          console.log('The deployment process failed with an error');
+          console.log(err);
+        }
       }
-      else {
-        console.log('The deployment process failed with an error');
-        console.log(err);
-      }
-    }
-  });
+    });
 };

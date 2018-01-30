@@ -11,7 +11,7 @@ _Note: You will have to enter credit card details to prove you are not a robot, 
 After creating an account, go to the Google Cloud Console: https://console.cloud.google.com/
 When you finish the tutorial of the basics of the Console, click on the dropdown in the navigation panel on top, and select 'Create Project'.
 
-Enter your project name. Make sure the name is meaningful. 
+Enter your project name. Make sure the name is meaningful.
 You will be provided with a Project ID. Keep a copy of the ID on your system.
 
 The URL of your deployed app will have the following strucutre: `https://[YOUR_PROJECT_ID].appspot.com`
@@ -30,17 +30,17 @@ Next, enter the following command in the terminal:
 ```
 The terminal will then ask for a series of numeric choices. Remember to choose your existing Google Cloud account, and selecting the Cloud project you created in Step 1
 
-Your Google Cloud SDK will now be configured and ready to use. 
+Your Google Cloud SDK will now be configured and ready to use.
 
 
-## Step 3 
+## Step 3
 ##### Cloning the repository from Github and deploying the app
 The next step is to clone the Open Event Web App repository into a folder.
 Navigate to the folder where you want to clone, and then enter the command:
 ```shell
 git clone https://github.com/fossasia/open-event-webapp
 ```
-Enter the location of the Web App repository using the command: 
+Enter the location of the Web App repository using the command:
 ```
 cd open-event-webapp
 ```
@@ -64,9 +64,14 @@ You will get a message asking if you want to continue with deploying. Type 'y' (
 It will take a few minutes for your app to finish deploying. When the deployment finishes, you will get the following two messages:
 ###### Updating service ... Done
 ###### Deployed service to [https://[YOUR_PROJECT_ID].appspot.com]
-#
-You can view the application in your web browser using: 
+
+You can view the application in your web browser using:
 ```
 gcloud app browse
 ```
 The application will now open in a new tab in your browser for you to view.
+
+See the entire process step by step
+![GIF](screenshots/open-event-webapp.gif)
+- [ASCII Cast of Complete Process](https://asciinema.org/a/156500)
+

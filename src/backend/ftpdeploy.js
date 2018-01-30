@@ -12,7 +12,7 @@ function deploy(ftpDetails, appFolder, done) {
     username: ftpDetails.user,
     password: ftpDetails.pass, // optional, prompted if none given
     host: ftpDetails.host,
-    port: 21,
+    port: ftpDetails.port,
     localRoot: path.join(__dirname, '/../../dist', appFolder),
     remoteRoot: ftpDetails.path,
     exclude: ['.git', '.idea', 'tmp/*'],

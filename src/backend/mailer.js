@@ -2,32 +2,49 @@
  * Created by championswimmer on 1/8/16.
  * Modified by uttpal.
  */
-"use strict";
-
-const Promise = require('bluebird');
-const helper = require('sendgrid').mail;
+'use strict';
 const config = require('../../config.json');
-const sg = require('sendgrid').SendGrid(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
+
+/**
+ * Set these before requiring aws-sdk for all ENV vars to be loaded properly
+ */
+process.env.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID;
+process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY;
+process.env.AWS_BUCKET = process.env.AWS_BUCKET || config.AWS_BUCKET;
+process.env.CLOUD_STORAGE = process.env.CLOUD_STORAGE || config.CLOUD_STORAGE;
+
+const promise = require('bluebird');
+const helper = require('sendgrid').mail;
+const sg = require('sendgrid')(process.env.SENDGRID_API_KEY || config.SENDGRID_API_KEY);
 const distHelper = require('./dist.js');
 const logger = require('./buildlogger.js');
 const aws = require('aws-sdk');
 const fs = require('fs');
 const uuid = require('node-uuid');
-const appUrl = process.env.HEROKU_URL;
+const appUrl = process.env.HEROKU_URL || 'https://webgen.eventyay.com/';
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 const moment = require('moment');
 
-aws.config.setPromisesDependency(Promise);
-const s3 = new aws.S3();
+aws.config.setPromisesDependency(promise);
 
-process.env.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || config.AWS_ACCESS_KEY_ID;
-process.env.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || config.AWS_SECRET_ACCESS_KEY;
+let s3 = new aws.S3();
+
+/**
+ * Support Google Cloud Store too using the same AWS SDK via Google Cloud Storage interoperability keys
+ */
+if (process.env.CLOUD_STORAGE === 'google_cloud') {
+  s3 = new aws.S3({endpoint: new aws.Endpoint('https://storage.googleapis.com')});
+}
+
 process.env.DEFAULT_MAIL_STRATEGY = process.env.DEFAULT_MAIL_STRATEGY || config.DEFAULT_MAIL_STRATEGY;
 process.env.DEFAULT_FROM_EMAIL = process.env.DEFAULT_FROM_EMAIL || config.DEFAULT_FROM_EMAIL;
 
 function uploadToS3(file, fileName, socket) {
-  const uploadParams = {Bucket: 'FOSSASIA',  Key: fileName};
+  const uploadParams = {
+    Bucket: process.env.AWS_BUCKET,
+    Key: fileName
+  };
   const fileStream = fs.createReadStream(file);
 
   fileStream.on('error', function(err) {
@@ -45,22 +62,31 @@ function emailSend(toEmail, url, appName) {
   const currDate = new Date();
   let previewExpiryDate = new Date();
   let downloadLinkExpiryDate = new Date();
+  let mailSendStatus = 0; // boolean to indicate the success and failure of email send
+  let chanChannelLink = 'https://gitter.im/fossasia/open-event-webapp';
+  let githubIssueLink = 'https://github.com/fossasia/open-event-webapp/issues';
+  var emailContent = '';
 
   previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
+  previewExpiryDate = moment.utc(previewExpiryDate).format('dddd, h A')+' (UTC)';
   downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
-  previewExpiryDate = moment.utc(previewExpiryDate).local().format('dddd, h A' );
-  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).local().format('dddd, MMMM Do YYYY');
+  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).format('dddd, MMMM Do YYYY')+' (UTC)';
 
+  var successMesg = 'Hi ! <br>' +
+    ' Your webapp has been generated <br>' +
+    'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
+    'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate + '<br><br><br>' + 'Thank you for using Open Event Webapp Generator :)';
+
+  var errorMesg = 'Hi ! <br> The cloud upload of the webapp failed. Please inform us about it on our ' + 'chat channel'.link(chanChannelLink) +  ' or file an issue on our ' +  'Github repo'.link(githubIssueLink) + '. Sorry for the inconvenience :(';
+
+  // The Cloud upload fails so download link point to the event folder on Heroku itself which will be purged in a few hours
   if(!url) {
     downloadUrl = appUrl + 'download/' + toEmail + '/' + appName;
+    emailContent = errorMesg;
+  } else {
+    emailContent = successMesg;
   }
-  const emailContent = 'Hi ! <br>' +
-  ' Your webapp has been generated <br>' +
-  'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
-  'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate +
-  '<br><br><br>' +
-  'Thank you for using Open Event Webapp Generator :)';
-  
+
   if(process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
     const smtpConfig = {
       host: process.env.SMTP_HOST || config.SMTP_HOST,
@@ -78,14 +104,14 @@ function emailSend(toEmail, url, appName) {
       subject: subject,
       html: emailContent
     }).then((response) => {
+      mailSendStatus = 1;
       console.log('Successfully sent Email');
       console.log(response);
-      return url;
-    })
-    .catch((err) => {
+      return {'url': url, 'mail': mailSendStatus};
+    }).catch((err) => {
       console.log('Error sending Email', err);
-      return url;
-    });
+      return {'url': url, 'mail': mailSendStatus};
+      });
   }
   const fromEmail = new helper.Email(process.env.DEFAULT_FROM_EMAIL);
   const recipientEmail = new helper.Email(toEmail);
@@ -101,19 +127,21 @@ function emailSend(toEmail, url, appName) {
   console.log(request);
   return sg.API(request)
     .then((response) => {
+      mailSendStatus = 1;
       console.log(response.statusCode);
       console.log(response.body);
       console.log(response.headers);
-      return url;
+      return {'url': url, 'mail': mailSendStatus};
     })
     .catch((err) => {
       console.log('Error sending Email', err);
-      return url;
+      return {'url': url, 'mail': mailSendStatus};
     });
 }
 
 function uploadAndsendMail(toEmail, appName, socket, done) {
   const file = distHelper.distPath + '/' + toEmail + '/event.zip';
+
   appName = appName.split(' ').join('_');
   const fileName = uuid.v4() + '/' + appName + '.zip';
 
@@ -129,8 +157,8 @@ function uploadAndsendMail(toEmail, appName, socket, done) {
       logger.addLog('Info', 'Failed while uploading the zip. No Amazon S3 keys found', socket);
       return emailSend(toEmail, null, appName);
     })
-    .then((url) => {
-      return done(url);
+    .then((obj) => {
+      return done(obj);
     });
 }
 

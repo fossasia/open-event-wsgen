@@ -10,32 +10,21 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-HSAMPLE_EVENT="${HSAMPLE_EVENT:-Open\ Tech\ Summit}"
-GH_EVENT="${GH_EVENT:-FOSSASIA\ Summit}"
-
-if [ -z ${FTP_USER+x} ] || [ -z ${FTP_PASSWORD+x} ]; then   
-  echo "please set FTP_USER and FTP_PASSWORD"
-else
-  eval cd dist/a@a.com/$HSAMPLE_EVENT/
-  echo "Going ahead with ftp deployment"
-  find . -type f -exec curl --ftp-ssl --cacert ../../../cacert.pem -k --user $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp://ftp.taxation365.com:21/ots/{} \;
-  cd ../../../
-fi
-
-eval cd dist/a@a.com/$GH_EVENT
+eval cd dist/a@a.com/
 # Project maintainer information
 git init
-git config user.name "aayusharora"
-git config user.email "aayush113002@gmail.com"
+git config --global user.name "Travis CI"
+git config --global user.email "noreply+travis@fossasia.org"
 
 git remote add upstream "https://$GH_TOKEN@github.com/"${TRAVIS_REPO_SLUG}".git"
 git fetch upstream
 git reset upstream/gh-pages
+
+echo $GH_CNAME > CNAME
 
 touch .
 
 git add -A .
 git commit -m "rebuild pages at ${rev}"
 git push -q upstream HEAD:gh-pages
-
 
