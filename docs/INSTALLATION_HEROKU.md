@@ -6,6 +6,8 @@ You can use the one click deployment:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)
 
+If however you live out-side the United States or Europe you may need to manually deploy Open-Event WebApp generator on Heroku as many face problems through this process. However give it a go.
+
 ## Manual Deploy
 
 You can also setup your app on heroku manually:
@@ -14,6 +16,8 @@ You can also setup your app on heroku manually:
 - **heroku toolbelt** installed on your system
 For more info on heroku toolbelt: [here](https://devcenter.heroku.com/articles/heroku-cli)
 - **git** installed on your system
+- If you are MacOS users, you will need to install home-brew: [here](https://brew.sh/)
+
 ## Installation with Heroku
 
 **Note**: Our app has an [app.json](../app.json), so it can be directly forked and setup on Heroku.
@@ -91,6 +95,9 @@ $ heroku open
 It will fire up your deployed app like this:
 ![App running](screenshots/heroku_7.png)
 
+However, if the web app does not fire up, try one of the following solution to resolve the issue:
+ 1. Open a new terminal and write: `$ heroku open`
+ 2. Go to your heroku account on the web and deploy your app from there
 
 > Congrats you are done now!
 

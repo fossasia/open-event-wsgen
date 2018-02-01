@@ -1,6 +1,5 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var SchedulePage = Object.create(BasePage);
 var datesId = ['2017-03-17', '2017-03-18', '2017-03-19'];
@@ -15,7 +14,6 @@ SchedulePage.checkIsolatedBookmark = function() {
 
 SchedulePage.toggleSessionElem = function() {
   var self = this;
-
   // Checking the toggle behaviour of session having id 3014
   var promise = new Promise(function(resolve) {
     self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
@@ -56,6 +54,25 @@ SchedulePage.toggleMode = function() {
   var toggleButtonId = 'page-mode';
 
   return self.find(By.id(toggleButtonId)).then(self.click).then(self.getCurrentView.bind(self));
+};
+
+SchedulePage.getDownloadDropdown = function() {
+  var self = this;
+  var downloadButtonId = 'dropdown-toggle';
+  var promiseArr = [];
+
+  var promise = new Promise(function(resolve) {
+    self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
+      promiseArr.push(self.find(By.className('dropdown-menu')).isDisplayed());
+    }).then(function() {
+      self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
+        promiseArr.push(self.find(By.className('dropdown-menu')).isDisplayed());
+        resolve(Promise.all(promiseArr));
+      });
+    });
+  });
+
+  return promise;
 };
 
 module.exports = SchedulePage;

@@ -1,6 +1,5 @@
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
 
 var TrackPage = Object.create(BasePage);
 
@@ -29,6 +28,25 @@ TrackPage.getNumTracksVisible = function() {
   });
 
   return numPromise;
+};
+
+TrackPage.checkSharableUrl = function() {
+  var self = this;
+  var speakerId = '3014';
+
+  var promise = new Promise(function(resolve) {
+    self.find(By.id(speakerId)).click().then(function() {
+      self.find(By.className('clickable-link')).click().then(self.driver.sleep(1000)).then(function() {
+        var link = self.find(By.className('speakers-inputbox')).getAttribute('value');
+
+        self.find(By.id(speakerId)).click().then(self.driver.sleep(1000)).then(function() {
+          resolve(link);
+        });
+      });
+    });
+  });
+
+  return promise;
 };
 
 TrackPage.checkIsolatedBookmark = function() {

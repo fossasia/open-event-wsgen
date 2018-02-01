@@ -7,7 +7,6 @@
 'use strict';
 
 const assert = require('chai').assert;
-const jsonfile = require('jsonfile');
 const async = require('async');
 const config = require('../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
@@ -23,7 +22,7 @@ var trackPage = require('../src/selenium/trackPage.js');
 var schedulePage = require('../src/selenium/schedulePage.js');
 var roomPage = require('../src/selenium/roomPage.js');
 var speakerPage = require('../src/selenium/speakerPage.js');
-var By = webdriver.By;
+var sessionPage = require('../src/selenium/sessionPage.js');
 var fs = require('fs');
 
 
@@ -421,9 +420,27 @@ describe('generate', function () {
 
     });
 
+    it('should generate the Mozilla All Hands 2016 event', function (done) {
+      var data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands16",
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/AllHands/2016Hawaii");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 15;
+      var totalFiles = 16;
       var counter = 0;
 
       function copyStatic(fileName) {
@@ -460,6 +477,7 @@ describe('generate', function () {
       copyStatic('fossasia16.jpg');
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
+      copyStatic('mozilla2016.jpg');
 
     });
 
@@ -469,6 +487,7 @@ describe('generate', function () {
 describe("Running Selenium tests on Chrome Driver", function () {
   this.timeout(600000);
   var driver;
+  
   before(function () {
     if (process.env.SAUCE_USERNAME !== undefined) {
       driver = new webdriver.Builder()
@@ -478,12 +497,26 @@ describe("Running Selenium tests on Chrome Driver", function () {
           build: process.env.TRAVIS_BUILD_NUMBER,
           username: process.env.SAUCE_USERNAME,
           accessKey: process.env.SAUCE_ACCESS_KEY,
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+                    'downloads': {
+                      'prompt_for_download': false
+                    }
+                }
+            }
         }).build();
     } else {
       driver = new webdriver.Builder()
         .withCapabilities({
-          browserName: "chrome"
+          browserName: "chrome",
+          'chromeOptions': {
+            prefs: {
+              'downloads': {
+                'prompt_for_download': false
+              }
+            }
+          }
         }).build();
     }
   });
@@ -596,6 +629,24 @@ describe("Running Selenium tests on Chrome Driver", function () {
         assert.equal(offset, 0);
         done();
       }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    
+    it('Checking the presence of Sponsors section', function (done) {
+      eventPage.checkSponsorSection().then(function () {
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Checking broken links in of Sponsors section', function (done) {
+      eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount){
+        assert.equal(brokenLinksCount, 0);
+        done();
+      }).catch(function(err){
         done(err);
       });
     });
@@ -800,6 +851,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+    
+    it('Checking the share link', function (done) {
+      trackPage.checkSharableUrl().then(function (link) {
+        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
 
   });
 
@@ -809,7 +869,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
-
+    
+    it('Test for working of download buttons', function (done) {
+      schedulePage.getDownloadDropdown().then(function (boolArr) {
+        assert.deepEqual(boolArr,[true,false]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
     it('Test for font color of sessions', function (done) {
       schedulePage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
@@ -1105,6 +1174,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
+    it('Display speaker details and test social links on hovering over image', function (done) {
+      speakerPage.hoverOverSpeaker().then(function (val) {
+        assert.equal(val, 0);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
     it('Jump to track page on clicking session of a speaker', function (done) {
       speakerPage.jumpToTrack().then(function (val) {
         assert.equal(val, 1);
@@ -1113,6 +1191,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
+
   });
 
   describe('Testing Speakers page for single page type', function () {
@@ -1131,4 +1210,69 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
   });
+  
+  describe('Testing Session page', function () {
+    before(function () {
+      sessionPage.init(driver);
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+    });
+    
+    it('Get the title of the session', function (done) {
+      sessionPage.getSessionTitle().then(function (val) {
+        assert.equal(val, 'IT All Hands (Session of 2 hours) | IT');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Check the background color of the title', function (done) {
+      sessionPage.getSessionBackgroundColor().then(function (val) {
+        assert.equal(val, 'rgba(88, 214, 141, 1)');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Get the speaker of the session', function (done) {
+      sessionPage.getSpeakerName().then(function (val) {
+        assert.equal(val, 'Alex Fridman');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to tracks page', function (done) {
+      sessionPage.jumpToTrack().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to speakers page', function (done) {
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.jumpToSpeaker().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+    it('Jump to rooms page', function (done) {
+      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.jumpToRoom().then(function (val) {
+        assert.equal(val, true);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+    
+  });
+  
 });

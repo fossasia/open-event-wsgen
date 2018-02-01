@@ -63,6 +63,7 @@ $(document).ready(function () {
       if($(this).is(openedPop)) {
         resetPage();
         $(this).find('.pop-box').toggleClass('hide');
+        openedPop=null;
       } else {
         resetPage();
         openedPop = this;

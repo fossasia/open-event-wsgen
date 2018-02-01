@@ -370,7 +370,7 @@ exports.createDistDir = function(req, socket, callback) {
                   sessionObj.font_color = trackArr[i].font_color;
                   sessionObj.track_title = trackArr[i].title;
                   sessionObj.track_jump_link = '../tracks.html#' + trackArr[i].slug;
-                  sessionObj.room_jump_link = '../rooms.html#' + 'venue-' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
+                  sessionObj.room_jump_link = '../rooms.html#' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
 
                   for(var k = 0; k < speakerList.length; k++) {
                     speakerList[k].thumb = '../' + speakerList[k].thumb;
@@ -499,7 +499,7 @@ exports.createDistDir = function(req, socket, callback) {
 
     (done) => {
         logger.addLog('Info', 'Copying the manifest file', socket);
-        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Service Worker File"});
+        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Manifest File"});
 
         distHelper.copyManifestFile(appFolder, eventName, function(err) {
           if (err) {
