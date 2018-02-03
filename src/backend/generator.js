@@ -499,7 +499,7 @@ exports.createDistDir = function(req, socket, callback) {
 
     (done) => {
         logger.addLog('Info', 'Copying the manifest file', socket);
-        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Service Worker File"});
+        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Manifest File"});
 
         distHelper.copyManifestFile(appFolder, eventName, function(err) {
           if (err) {
