@@ -15,284 +15,339 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/socket.io-stream.js"></script>
 
-  <style>
-    .error {
-      font-weight: normal;
-    }
+    <style>
+        .error {
+            font-weight: normal;
+        }
 
-    html {
-      height: 100%;
-    }
+        html {
+            height: 100%;
+        }
 
-    body {
-      position: relative;
-      min-height: 100%;
-      padding-bottom: 40px;
-    }
+        body {
+            position: relative;
+            min-height: 100%;
+            padding-bottom: 40px;
+        }
 
-    .custom-navbar {
-      padding: 10px 15px;
-      display: relative;
-      margin-bottom: 20px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #bfbfbf;
-    }
+        .custom-navbar {
+            padding: 10px 15px;
+            /*background-color: #ffffff;*/
+            border-bottom: 1px solid #bfbfbf;
+            z-index: -1;
+        }
 
-    .custom-navtitle, .custom-menubutton {
-      display: inline-block;
-      margin: 0px;
-      font-size: 20px;
-      color: black;
-    }
+        .custom-navtitle {
+            display: inline-block;
+            margin: 0px;
+            font-size: 20px;
+            color: black;
+        }
 
-    h3.custom-navtitle {
-      position: relative;
-    }
+        h3.custom-navtitle {
+            position: relative;
+        }
 
-    .custom-menubutton {
-      position: absolute;
-      right: 40px;
-      cursor: pointer;
-    }
+        .custom-menubutton {
+            position: absolute;
+            top:0px;
+            right: 40px;
+            cursor: pointer;
+            padding: 10px;
+            height:50px;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    .custom-menu-cont {
-      position: relative;
-    }
+        }
 
-    .custom-menu-cont.hidden {
-      display: none;
-    }
+        .custom-menubutton:hover{
+            background-color:#F0EEEE;
+        }
 
-    .custom-menu-cont-shown {
-      display: inline-block;
-    }
+        .custom-menu-cont {
+            position: relative;
 
-    .custom-menu {
-      min-height: 350px;
-      overflow: auto;
-      width: 300px;
-      position: absolute;
-      border: 1px solid #bfbfbf;
-      position: absolute;
-      right: 20px;
-      top: 0px;
-      box-shadow: 0px 0px 5px 5px #f2f2f2;
-      background-color: white;
-    }
+        }
 
-    .custom-arrow {
-      background-color: white;
-      width: 15px;
-      height: 15px;
-      border: 1px solid #bfbfbf;
-      position: absolute;
-      top: -7px;
-      right: 44px;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
+        .custom-menu-cont.hidden {
+            display: none;
+        }
 
-    .hide-arrow {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      background-color: white;
-      right: 10px;
-      top: 0px;
-      z-index: 2;
-    }
+        .custom-menu-cont-shown {
+            display: inline-block;
+        }
 
-    .custom-menu-cont {
-      z-index: 3;
-    }
+        .custom-menu {
+            min-height: 350px;
+            /*overflow: hidden;*/
+            width: 327px;
+            position: absolute;
+            border: 1px solid #bfbfbf;
+            border-top: none;
+            right: 40px;
+            top: 0px;
+            box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
+            background-color: white;
+            padding:28px;
+        }
 
-    .custom-menu-item {
-      display: inline-block;
-      width: 32%;
-      max-height: 70px;
-      padding: 5px;
-      text-align: center;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      margin-top: 20px;
-    }
+        .arrow-up {
+            width: 7px;
+            height: 7px;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 7px solid white;
+            position: absolute;
+            right:17px;
+            top:-7px;
+            /*border-bottom-color: rgba(0, 0, 0, 0.2);*/
+        }
 
-    .custom-icon img {
-      width: 60%;
-    }
 
-    #deployment {
-      position: absolute;
-      text-align: center;
-      width: 100%;
-      padding: 10px;
-      bottom: 0px;
-      border-top: 1px solid #bfbfbf;
-      background-color: #f9f9f9;
-    }
+        .custom-menu-cont {
+            z-index: 3;
+        }
+        /*c*/
+        .custom-menu-item {
+            border: 1px solid white;
+            display: inline-block;
+            width: 87px;
+            /*min-width: 87px;*/
+            /*max-height: 70px;*/
+            padding: 10px 0;
+            text-align: center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        /*//c*/
+        .custom-menu-item a{
+            color: #737373;
+            text-decoration: none;
+            outline: none;
+        }
 
-    @media(max-width: 768px){
-      .custom-navtitle, .custom-menubutton {
-          font-size: 15px;
-      }
+        .custom-menu-item img{
+            display: block;
+            margin: 0 auto 5px auto;
+            height: auto;
+            width: auto;
+            max-height: 50px;
+            max-width: 60px;
+        }
 
-      .custom-arrow {
-          right: 40px;
-      }
-    }
+        .custom-menu-item p{
+            height:28px;
+            margin:0px;
+        }
 
-    #message {
-      display: none;
-      color: green;
-    }
+        .custom-menu-item:hover{
+            border:1px solid #e7e7e7;
+        }
 
-    @media(max-width: 400px){
-      .custom-menu {
-          width: 250px;
-      }
-    }
-  </style>
+        .custom-menubutton-color{
+            background-color: #e7e7e7;
+        }
+
+        .custom-icon{
+
+            height:50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #deployment {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            bottom: 0px;
+            border-top: 1px solid #bfbfbf;
+            background-color: #f9f9f9;
+        }
+
+        @media(max-width: 768px){
+            .custom-navtitle, .custom-menubutton {
+                font-size: 15px;
+            }
+
+            .custom-arrow {
+                right: 40px;
+            }
+        }
+
+        #message {
+            display: none;
+            color: green;
+        }
+
+        @media(max-width: 400px){
+            .custom-menu {
+                width: 250px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="custom-navbar">
+
+<div class="custom-navbar">
     <a href='.' class="custom-navtitle">
-      <strong>Open Event Webapp Generator</strong>
+        <strong>Open Event Webapp Generator</strong>
     </a>
     <div class="custom-menubutton">
-      <i class="glyphicon glyphicon-th"></i>
+
+        <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
+
     </div>
-  </div>
-  <div class="custom-menu-cont hidden">
+</div>
+<div class="custom-menu-cont hidden">
     <div class="custom-menu">
-      <div class="hide-arrow"></div>
-      <div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp" target="_blank"><img src="./icons/code.png">
-          <p class="custom-title">Code</p></a>
+        <div class="arrow-up"></div>
+        <div>
+            <div class="custom-menu-item">
+                <a  href="http://github.com/fossasia/open-event-webapp" target="_blank">
+                    <div class="custom-icon"><img src="./icons/code.png"></div>
+                    <p class="custom-title">Code</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="http://github.com/fossasia/open-event-webapp/issues" target="_blank">
+                    <div class="custom-icon"><img src="./icons/bug.png"></div>
+                    <p class="custom-title">Bug Report</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="http://blog.fossasia.org" target="_blank">
+                    <div class="custom-icon"><img src="./icons/blog.png"></div>
+                    <p class="custom-title">Blogs</p></a>
+            </div>
+            <hr style="margin-bottom: 10px; margin-top: 10px;">
+            <div class="custom-menu-item">
+                <a  href="https://eventyay.com/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/eventyay.png"></div>
+                    <p class="custom-title">Eventyay</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://susper.com/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/susper.png" style="width: 60px;height: 16px;"></div>
+                    <p class="custom-title">Susper</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://chat.susi.ai/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/susi.png"></div>
+                    <p class="custom-title">Susi</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://fossasia.org/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/fossasia.png"></div>
+                    <p class="custom-title">FOSSASIA</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://loklak.org/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/loklak.png"></div>
+                    <p class="custom-title">loklak</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://phimp.me/" target="_blank">
+                    <div class="custom-icon"><img src="./icons/phimp.png"></div>
+                    <p class="custom-title">Phimp.me</p></a>
+            </div>
+            <div class="custom-menu-item">
+                <a  href="https://pslab.fossasia.org" target="_blank">
+                    <div class="custom-icon"><img src="./icons/Pslab.png"></div>
+                    <p class="custom-title">PS Lab</p></a>
+            </div>
+
+            <hr style="margin: 10px">
+
+            <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
+                <a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">More on labs.fossasia.org</a>
+            </div>
         </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp/issues" target="_blank"><img src="./icons/bug.png">
-          <p class="custom-title">Bug Report</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="http://blog.fossasia.org" target="_blank"><img src="./icons/blog.png">
-          <p class="custom-title">Blogs</p></a>
-        </div>
-        <hr style="margin-bottom: 0; margin-top: 10px;">
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://eventyay.com/" target="_blank"><img src="./icons/eventyay.png">
-          <p class="custom-title">Eventyay</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://susper.com/" target="_blank"><img src="./icons/susper.png">
-          <p class="custom-title">Susper</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://chat.susi.ai/" target="_blank"><img src="./icons/susi.png">
-          <p class="custom-title">Susi</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://fossasia.org/" target="_blank"><img src="./icons/fossasia.png">
-          <p class="custom-title">FOSSASIA</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://loklak.org/" target="_blank"><img src="./icons/loklak.png">
-          <p class="custom-title">loklak</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://phimp.me/" target="_blank"><img src="./icons/phimp.png">
-          <p class="custom-title">Phimp.me</p></a>
-        </div>
-        <div class="custom-menu-item">
-          <a class="custom-icon" href="https://pslab.fossasia.org" target="_blank"><img src="./icons/pslab.png">
-          <p class="custom-title">PS Lab</p></a>
-        </div>
-      </div>
     </div>
-    <div class="custom-arrow"></div>
-  </div>
-  <div class="container">
-    <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
-      <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
-        <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
-        <!--<label for="theme">Choose your theme</label>-->
-         <!--<select class="form-control" id="theme" name="theme">-->
-         <!--<option value="light">Light</option>-->
-         <!--<option value="dark">Dark</option>-->
-         <!--</select>-->
-         <!--<br>-->
-         <input id="theme" name="theme" type="hidden" value="light"> <!--
+</div>
+    <div class="container">
+        <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
+            <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
+                <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
+                <!--<label for="theme">Choose your theme</label>-->
+                <!--<select class="form-control" id="theme" name="theme">-->
+                <!--<option value="light">Light</option>-->
+                <!--<option value="dark">Dark</option>-->
+                <!--</select>-->
+                <!--<br>-->
+                <input id="theme" name="theme" type="hidden" value="light"> <!--
                     <label for="name">App's Name</label>
                     <input type="text" class="form-control" id="name" name="name" required="true">
                     <br>
                 -->
-         <label>Choose Session Style</label>
-        <ul style="list-style-type:none">
-          <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
-          <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
-        </ul><label>Choose your data source</label>
-        <ul style="list-style-type:none">
-          <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
-          <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
-          <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
-        </ul>
-        <section id="eventapi-input" style="display:none;">
-          <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
-        </section>
-        <section id="jsonupload-input" style="display:none;">
-          <label for="siofu_input">Zip file containing resources for the event</label> <input accept="application/zip" class="form-control" id="siofu_input" name="singlefileUpload" required="true" type="file">
-            <div id="message">
-              <p>File has been successfully uploaded</p>
-            </div>
-          <div hidden="" id="upload-info">
-            <div class="row">
-              <div class="col-sm-6 col-xs-7">
-                <p><strong id="upload-filename"></strong> <small class="text-muted"><span id="upload-filesize"></span></small></p>
-              </div>
-              <div class="col-sm-5 col-xs-3 progressbar">
-                <div class="upload-progress progress">
-                  <div class="progress-bar progress-bar-info" id="upload-progress-bar" role="progressbar" style="width:0%; height: 20px;">
-                    <!-- <span id="upload-progress-val">0%</span> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-1 col-xs-2" style="padding: 0 10px">
-                <button aria-label="Close" class="close" data-dismiss="modal" id="cancelUpload" type="button"><span aria-hidden="true">×</span></button>
-              </div>
-            </div>
-          </div>
-        </section><!--<label title="Wether to download assets into website folder or link to external sources"-->
-        <!--for="theme">How to link audio/images</label>-->
-        <!--<select class="form-control" id="assetmode" name="assetmode" style="-webkit-appearance: menulist;">-->
-        <!--<option title="Download images and audio files into website folder" value="download">Downloaded locally with website</option>-->
-        <!--<option value="link">Linked to external locations</option>-->
-        <!--</select>-->
-        <input name="assetmode" type="hidden" value="download">
-        <section>
-          <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp">Upload via FTP</label>
-          <div id="upload-ftp-details" style="display: none">
-            <input class="form-control" style="width: 49.2%; display: inline" id="ftp-host" placeholder="host" type="text"> <input class="form-control" style="width: 49.2%; display: inline" id="ftp-port" placeholder="port" type="text"> <input class="form-control" id="ftp-user" placeholder="username" style="width: 49.2%; display: inline" type="text"> <input class="form-control" id="ftp-pass" placeholder="password" style="width: 49.2%; display: inline" type="password"> <input class="form-control" id="ftp-path" placeholder="/path/to/deploy/folder" type="text">
-          </div>
-        </section>
-        <section>
-          <div class="generator-progress progress" style="display:none;">
-            <div class="progress-bar" id="generator-progress-bar" role="progressbar" style="width:0%; height: 20px;">
-              <span id="generator-progress-val">0%</span>
-            </div>
-          </div>
-        </section>
-        <center>
-          <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;">-Logs-</a>
-          <pre id="buildLog" style="display:none;">
+                <label>Choose Session Style</label>
+                <ul style="list-style-type:none">
+                    <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
+                    <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
+                </ul><label>Choose your data source</label>
+                <ul style="list-style-type:none">
+                    <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
+                    <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
+                    <li id="endpointAPI"><input name="datasource" id="eventapi" type="radio" value="eventapi"> API endpoint of event on OpenEvent</li>
+                </ul>
+                <section id="eventapi-input" style="display:none;">
+                    <label for="apiendpoint">Link to Open Event API endpoint</label> <input class="form-control" id="apiendpoint" name="apiendpoint" required="true" type="url">
+                </section>
+                <section id="jsonupload-input" style="display:none;">
+                    <label for="siofu_input">Zip file containing resources for the event</label> <input accept="application/zip" class="form-control" id="siofu_input" name="singlefileUpload" required="true" type="file">
+                    <div id="message">
+                        <p>File has been successfully uploaded</p>
+                    </div>
+                    <div hidden="" id="upload-info">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-7">
+                                <p><strong id="upload-filename"></strong> <small class="text-muted"><span id="upload-filesize"></span></small></p>
+                            </div>
+                            <div class="col-sm-5 col-xs-3 progressbar">
+                                <div class="upload-progress progress">
+                                    <div class="progress-bar progress-bar-info" id="upload-progress-bar" role="progressbar" style="width:0%; height: 20px;">
+                                        <!-- <span id="upload-progress-val">0%</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1 col-xs-2" style="padding: 0 10px">
+                                <button aria-label="Close" class="close" data-dismiss="modal" id="cancelUpload" type="button"><span aria-hidden="true">×</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </section><!--<label title="Wether to download assets into website folder or link to external sources"-->
+                <!--for="theme">How to link audio/images</label>-->
+                <!--<select class="form-control" id="assetmode" name="assetmode" style="-webkit-appearance: menulist;">-->
+                <!--<option title="Download images and audio files into website folder" value="download">Downloaded locally with website</option>-->
+                <!--<option value="link">Linked to external locations</option>-->
+                <!--</select>-->
+                <input name="assetmode" type="hidden" value="download">
+                <section>
+                    <input id="upload-ftp" title="Upload via FTP" type="checkbox"> <label for="upload-ftp">Upload via FTP</label>
+                    <div id="upload-ftp-details" style="display: none">
+                        <input class="form-control" style="width: 49.2%; display: inline" id="ftp-host" placeholder="host" type="text"> <input class="form-control" style="width: 49.2%; display: inline" id="ftp-port" placeholder="port" type="text"> <input class="form-control" id="ftp-user" placeholder="username" style="width: 49.2%; display: inline" type="text"> <input class="form-control" id="ftp-pass" placeholder="password" style="width: 49.2%; display: inline" type="password"> <input class="form-control" id="ftp-path" placeholder="/path/to/deploy/folder" type="text">
+                    </div>
+                </section>
+                <section>
+                    <div class="generator-progress progress" style="display:none;">
+                        <div class="progress-bar" id="generator-progress-bar" role="progressbar" style="width:0%; height: 20px;">
+                            <span id="generator-progress-val">0%</span>
+                        </div>
+                    </div>
+                </section>
+                <center>
+                    <div id="status" style="margin-bottom:10px;"></div><a id="aLog" style="cursor:pointer;">-Logs-</a>
+                    <pre id="buildLog" style="display:none;">
                     </pre><br>
-          <button class="download btn btn-default" disabled id="btnGenerate" style="margin-top:7px" title="Upload zip or use API mode to enable" type="button" value="Validate">GENERATE WEBAPP</button> <button class="download btn btn-default" id="btnLive" type="button">PREVIEW</button> <button class="download btn btn-default" id="btnDownload" type="button">DOWNLOAD</button> <a class="btn btn-default" id="deploy" style="display:none">DEPLOY</a>
-        </center>
-      </div>
-    </form>
-  </div>
+                    <button class="download btn btn-default" disabled id="btnGenerate" style="margin-top:7px" title="Upload zip or use API mode to enable" type="button" value="Validate">GENERATE WEBAPP</button> <button class="download btn btn-default" id="btnLive" type="button">PREVIEW</button> <button class="download btn btn-default" id="btnDownload" type="button">DOWNLOAD</button> <a class="btn btn-default" id="deploy" style="display:none">DEPLOY</a>
+                </center>
+            </div>
+        </form>
+    </div>
+
   <div id="deployment">
     <span> <strong>Version: </strong></span>
     <span> <a id="deploy-link"> </a> </span>
