@@ -19,6 +19,15 @@
     .error {
       font-weight: normal;
     }
+    /* made changes-1 added from here */
+    label.error{
+      color:red;
+      display:block;
+    }
+    ul>label.error{
+    position: absolute;
+    }
+    /* made changes-1 till here */
 
     html {
       height: 100%;
@@ -271,10 +280,21 @@
                     <br>
                 -->
          <label>Choose Session Style</label>
-        <ul style="list-style-type:none">
+        <!-- changes-2 removed from here -->
+        <!-- <ul style="list-style-type:none">
           <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
           <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
-        </ul><label>Choose your data source</label>
+        </ul> -->
+        <!-- changes-2 removed till here -->
+        <!-- changes-2 added from here -->
+        <ul style="list-style-type:none;postion: relative;">
+          <label>Single</label>
+          <input name="session" required="" type="radio" value="single" id="single">
+          <label>Expandable</label>
+          <input name="session" type="radio" value="expand" id="expandable">
+        </ul>
+        <!-- changes-2 added till here -->
+        <label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
           <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
@@ -340,4 +360,3 @@
   </div>
 </body>
 </html>
-
