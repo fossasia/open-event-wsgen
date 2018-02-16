@@ -1,0 +1,216 @@
+[{
+		"id": 1,
+		"name": "All hands",
+		"color": "#3DC8C3",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 20,
+				"title": "SensorWeb: Team Kick-off"
+		}],
+		"track-image-url": null
+	},
+	{
+		"id": 2,
+		"name": "Emerging Technologies",
+		"color": "#1485CC",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 213,
+				"title": "Emerging Technologies Homeroom"
+			},
+			{
+				"id": 21,
+				"title": "Emerging Technologies Homeroom"
+			},
+			{
+				"id": 69,
+				"title": "Emerging Technologies All Hands"
+			}],
+		"track-image-url": null
+	},
+	{
+		"id": 3,
+		"name": "IT",
+		"color": "#B21212",
+		"font-color": "#FFFFFF",
+		"sessions": [
+
+			{
+				"id": 39,
+				"title": "IT: Who is our new EUS Manager?"
+			},
+			{
+				"id": 63,
+				"title": "IT: Document Vendor Procurement Process"
+			},
+			{
+				"id": 65,
+				"title": "IT: Security Awareness 2017"
+			},
+			{
+				"id": 74,
+				"title": "IT: Commons AV System Design"
+			},
+			{
+				"id": 10,
+				"title": "IT: Application Services - Service Strategy Pivot"
+			},
+			{
+				"id": 11,
+				"title": "IT: Infosec 2017 Planning"
+			}],
+		"track-image-url": null
+	},
+	{
+		"id": 4,
+		"name": "Strategic Ops",
+		"color": "#9EFF56",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 209,
+				"title": "WPR\\, Metrics & Internal Comms Homeroom"
+			},
+			{
+				"id": 45,
+				"title": "Electives Coaching - Final Session"
+			}
+		],
+		"track-image-url": null
+	},
+	{
+		"id": 5,
+		"name": "people",
+		"color": "#E8782C",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 13,
+				"title": "Ops OKR Presentation / Project Planning"
+			},
+			{
+				"id": 77,
+				"title": "Merit Cycle Process Conversation"
+			},
+			{
+				"id": 129,
+				"title": "People Ops planning"
+			}],
+		"track-image-url": null
+	},
+	{
+		"id": 6,
+		"name": "FP&A",
+		"color": "#FF3046",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 22,
+				"title": "FP&A Session with Jim"
+			},
+			{
+				"id": 216,
+				"title": "FP&A Session with Jim"
+			},
+			{
+				"id": 59,
+				"title": "FP&A Session with Jim"
+			},
+			{
+				"id": 137,
+				"title": "FP&A Session with Jim"
+			}
+		],
+		"track-image-url": null
+	}, 
+	{
+		"id": 7,
+		"name": "Marketing",
+		"color": "#BF532E",
+		"font-color": "#FFFFFF",
+		"sessions": [
+			{
+				"id": 28,
+				"title": "Marketing: Year in Review and Looking Ahead"
+			},
+			{
+				"id": 170,
+				"title": "Marketing: Q&A with CBeard"
+			},
+			{
+				"id": 222,
+				"title": "Marketing: Durable Teams/Cross Team"
+			},
+			{
+				"id": 245,
+				"title": "Marketing: Marketing Closing Remarks"
+			}
+
+		],
+		"track-image-url": null
+	},
+	{
+		"id": 8,
+		"name": "Firefox",
+		"color": "#FFF22A",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 252,
+				"title": "FlyWeb Security & Status Update"
+			},
+			{
+				"id": 54,
+				"title": "A tour of the engine room"
+			},
+			{
+				"id": 38,
+				"title": "Form Autofill Q1 Planning & Key Decisions"
+			},
+			{
+				"id": 241,
+				"title": "Release Management: So\\, you want to kill Aurora?"
+			},
+			{
+				"id": 56,
+				"title": "Core Browser 2016 Review / 2017 H1 Planning"
+			},
+			{
+				"id": 214,
+				"title": "Firefox Homeroom"
+			},
+			{
+				"id": 241,
+				"title": "Release Management: So\\, you want to kill Aurora?"
+			},
+			{
+				"id": 131,
+				"title": "Firefox Homeroom"
+			}
+			],
+		"track-image-url": null
+	},
+	{
+		"id": 10,
+		"name": "connected devices",
+		"color": "#E0331F",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+				"id": 247,
+				"title": "Connected Devices Wrap-up"
+			},
+			{
+				"id": 31,
+				"title": "Connected Devices All Hands"
+			}
+		],
+		"track-image-url": null
+	},
+	{
+		"id": 11,
+		"name": "Legal / business development and policy",
+		"color": "#B062A1",
+		"font-color": "#FFFFFF",
+		"sessions": [{
+			"id": 246,
+			"title": "Legal\\, Bus Dev\\, Policy: Mitchell Baker Fireside Chat"
+		}],
+		"track-image-url": null
+	}
+]

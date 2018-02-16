@@ -1,0 +1,1499 @@
+[
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":105,
+            "name":"Sean White",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Application Services - Service Strategy Pivot",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-06T12:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T13:00:00",
+      "microlocation":{
+         "id":13,
+         "name":"Kona Ballroom 4"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":10
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":15,
+            "name":"Jeff Bryner",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Infosec 2017 Planning",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-06T12:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T13:00:00",
+      "microlocation":{
+         "id":13,
+         "name":"Kona Ballroom 4"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":11
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":77,
+            "name":"Nancy Kuettel",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"Ops OKR Presentation / Project Planning",
+      "track":{
+         "id":5,
+         "name":"People",
+         "color":"#E8782C"
+      },
+      "starts-at":"2016-12-06T12:00:00",
+      "session-type":{
+         "id":2,
+         "length":"2.30",
+         "name":"2.5 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T14:30:00",
+      "microlocation":{
+         "id":12,
+         "name":"Kona Ballroom 3"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":13
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":44,
+            "name":"Jean Gong ",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"SensorWeb: Team Kick-off",
+      "track":{
+         "id":1,
+         "name":"All Hands",
+         "color":"#3DC8C3"
+      },
+      "starts-at":"2016-12-06T13:00:00",
+      "session-type":{},
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T14:15:00",
+      "microlocation":{
+         "id":14,
+         "name":"Kona Ballroom 5"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":20
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":42,
+            "name":"Ava Espinoza ",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"Emerging Technologies Homeroom",
+      "track":{
+         "id":2,
+         "name":"Emerging Technologies",
+         "color":"#1485CC"
+      },
+      "starts-at":"2016-12-06T13:00:00",
+      "session-type":{
+         "id":8,
+         "length":"4.00",
+         "name":"4 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T17:00:00",
+      "microlocation":{
+         "id":21,
+         "name":"Queen's Ballroom 5"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":21
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":28,
+            "name":"Jim Cook",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"FP&A Session with Jim",
+      "track":{
+         "id":6,
+         "name":"FP&A",
+         "color":"#FF3046"
+      },
+      "starts-at":"2016-12-06T13:00:00",
+      "session-type":{
+         "id":1,
+         "length":"2.00",
+         "name":"2 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T14:00:00",
+      "microlocation":{
+         "id":11,
+         "name":"Kona Ballroom 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":22
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":73,
+            "name":"Jascha Kaykas-Wolff",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"Marketing: Year in Review and Looking Ahead",
+      "track":{
+         "id":7,
+         "name":"Marketing",
+         "color":"#BF532E"
+      },
+      "starts-at":"2016-12-06T13:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T14:00:00",
+      "microlocation":{
+         "id":6,
+         "name":"kohala Ballroom 1"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":28
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":37,
+            "name":"Peter Dolanjsk",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"Form Autofill Q1 Planning & Key Decisions",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-06T15:00:00",
+      "session-type":{
+         "id":1,
+         "length":"2.00",
+         "name":"2 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-06T17:00:00",
+      "microlocation":{
+         "id":8,
+         "name":"Kohala Ballroom 3 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":38
+   },
+   {
+      "short-abstract":"",
+      "speakers":[{
+            "id":104,
+            "name":"Richard Whitmarsh",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+      }],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Who is our new EUS Manager?",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-07T15:30:00",
+      "session-type":{
+         "id":2,
+         "length":"2.30",
+         "name":"2.5 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T17:00:00",
+      "microlocation":{
+         "id":24,
+         "name":"Waikoloa Suite 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":39
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":15,
+            "name":"David Bryant",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"A Tour of the Engine Room",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-07T08:45:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T10:00:00",
+      "microlocation":{
+         "id":7,
+         "name":"Kohala Ballroom 2 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":54
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":10,
+            "name":"Barbara Bermes",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Core Browser 2016 Review / 2017 H1 Planning",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-07T08:45:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T11:30:00",
+      "microlocation":{
+         "id":5,
+         "name":"King 's Ballroom 3"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":56
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":28,
+            "name":"Jim Cook",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"FP&A Session with Jim",
+      "track":{
+         "id":6,
+         "name":"FP&A",
+         "color":"#FF3046"
+      },
+      "starts-at":"2016-12-08T09:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-08T10:00:00",
+      "microlocation":{
+         "id":11,
+         "name":"Kona Ballroom 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":59
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":107,
+            "name":"Sean Rich",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Document Vendor Procurement Process",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-07T09:00:00",
+      "session-type":{
+         "id":2,
+         "length":"2.30",
+         "name":"2.5 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T11:30:00",
+      "microlocation":{
+         "id":13,
+         "name":"Kona Ballroom 4"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":63
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":15,
+            "name":"Jeff Bryner",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Security Awareness 2017",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-07T09:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T10:00:00",
+      "microlocation":{
+         "id":13,
+         "name":"Kona Ballroom 4"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":65
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":105,
+            "name":"Sean White",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Emerging Technologies All Hands",
+      "track":{
+         "id":2,
+         "name":"Emerging Technologies",
+         "color":"#1485CC"
+      },
+      "starts-at":"2016-12-07T09:30:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T10:30:00",
+      "microlocation":{
+         "id":19,
+         "name":"Monarchy Ballroom"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":69
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":62,
+            "name":"Guillermo Huerta",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"IT: Commons AV System Design",
+      "track":{
+         "id":3,
+         "name":"IT",
+         "color":"#B21212"
+      },
+      "starts-at":"2016-12-07T10:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T11:00:00",
+      "microlocation":{
+         "id":13,
+         "name":"Kona Ballroom 4"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":74
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":98,
+            "name":"Andrea Zingerman",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Merit Cycle Process Conversation",
+      "track":{
+         "id":5,
+         "name":"People",
+         "color":"#E8782C"
+      },
+      "starts-at":"2016-12-07T10:00:00",
+      "session-type":{
+         "id":3,
+         "length":"0.30",
+         "name":"0.5 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T10:30:00",
+      "microlocation":{
+         "id":12,
+         "name":"Kona Ballroom 3"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":77
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":78,
+            "name":"Tove Lam",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"People Ops Planning",
+      "track":{
+         "id":5,
+         "name":"People",
+         "color":"#E8782C"
+      },
+      "starts-at":"2016-12-08T08:30:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-08T09:30:00",
+      "microlocation":{
+         "id":12,
+         "name":"Kona Ballroom 3"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":129
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":48,
+            "name":"Catherine Groswird",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Firefox Homeroom",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-08T08:45:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T14:30:00",
+      "microlocation":{
+         "id":9,
+         "name":"Kohala Ballroom 4 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":131
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":28,
+            "name":"Jim Cook",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"FP&A Session with Jim",
+      "track":{
+         "id":6,
+         "name":"FP&A",
+         "color":"#FF3046"
+      },
+      "starts-at":"2016-12-09T09:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-08T10:00:00",
+      "microlocation":{
+         "id":11,
+         "name":"Kona Ballroom 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":137
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":6,
+            "name":"Chris Beard",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         },
+         {
+            "id":73,
+            "name":"Jascha Kaykas-Wolff",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Marketing: Q&A with CBeard",
+      "track":{
+         "id":7,
+         "name":"Marketing",
+         "color":"#BF532E"
+      },
+      "starts-at":"2016-12-08T13:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T14:00:00",
+      "microlocation":{
+         "id":6,
+         "name":"Kohala Ballroom 1 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":170
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":42,
+            "name":"Ava Espinoza ",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Emerging Technologies Homeroom",
+      "track":{
+         "id":2,
+         "name":"Emerging Technologies",
+         "color":"#1485CC"
+      },
+      "starts-at":"2016-12-09T09:00:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T17:00:00",
+      "microlocation":{
+         "id":21,
+         "name":"Queen's Ballroom 5"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":213
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":48,
+            "name":"Catherine Groswird",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Firefox Homeroom",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-09T09:00:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T15:00:00",
+      "microlocation":{
+         "id":9,
+         "name":"Kohala Ballroom 4 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":214
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":28,
+            "name":"Jim Cook",
+            "organisation":"Mozilla",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"FP&A Session with Jim",
+      "track":{
+         "id":6,
+         "name":"FP&A",
+         "color":"#FF3046"
+      },
+      "starts-at":"2016-12-07T09:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-07T10:00:00",
+      "microlocation":{
+         "id":11,
+         "name":"Kona Ballroom 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":216
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":29,
+            "name":"Alex Costello",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Marketing: Durable Teams/Cross Team",
+      "track":{
+         "id":7,
+         "name":"Marketing",
+         "color":"#BF532E"
+      },
+      "starts-at":"2016-12-09T09:00:00",
+      "session-type":{
+         "id":1,
+         "length":"2.00",
+         "name":"2 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T11:00:00",
+      "microlocation":{
+         "id":6,
+         "name":"Kohala Ballroom 1 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":222
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":79,
+            "name":"Sylvestre Ledru",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Release Management: So\\, you want to kill Aurora?",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-09T13:00:00",
+      "session-type":{
+         "id":4,
+         "length":"1.30",
+         "name":"1.5 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T14:30:00",
+      "microlocation":{
+         "id":7,
+         "name":"Kohala Ballroom 2"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":241
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":73,
+            "name":"Jascha Kaykas-Wolff",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Marketing: Marketing Closing Remarks",
+      "track":{
+         "id":7,
+         "name":"Marketing",
+         "color":"#BF532E"
+      },
+      "starts-at":"2016-12-09T14:00:00 ",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T15:00:00",
+      "microlocation":{
+         "id":6,
+         "name":"Kohala Ballroom 1 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":245
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":4,
+            "name":"Mitchell Baker",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Legal\\, Bus Dev\\, Policy: Mitchell Baker Fireside Chat",
+      "track":{
+         "id":11,
+         "name":"Legal / business development and policy",
+         "color":"#B062A1"
+      },
+      "starts-at":"2016-12-09T14:30:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T15:30:00",
+      "microlocation":{
+         "id":22,
+         "name":"Queen's Ballroom 6"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":246
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":33,
+            "name":"Justin D'Arcangelo",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"FlyWeb Security & Status Update",
+      "track":{
+         "id":8,
+         "name":"Firefox",
+         "color":"#FFF22A"
+      },
+      "starts-at":"2016-12-09T15:15:00",
+      "session-type":{
+         "id":5,
+         "length":"",
+         "name":"Random"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T16:00:00",
+      "microlocation":{
+         "id":7,
+         "name":"Kohala Ballroom 2 "
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":252
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":108,
+            "name":"Diane Tate",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "title":"Electives Coaching - Final Session",
+      "track":{
+         "id":5,
+         "name":"Strategic Ops",
+         "color":"#9EFF56"
+      },
+      "starts-at":"2016-12-09T17:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T18:00:00",
+      "microlocation":{
+         "id":3,
+         "name":"King's Ballroom 1"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":45
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":109,
+            "name":"Ari Jaski",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "name":"connected devices Wrap-up",
+      "track":{
+         "id":10,
+         "name":"connected devices",
+         "color":"#E0331F"
+      },
+      "starts-at":"2016-12-09T11:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T12:00:00",
+      "microlocation":{
+         "id":14,
+         "name":"Kona Ballroom 5"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":247
+   },
+   {
+      "short-abstract":"",
+      "speakers":[
+         {
+            "id":109,
+            "name":"Ari Jaski",
+            "organisation":"",
+            "city":"",
+            "heard-from":"",
+            "icon-image-url":"",
+            "long-biography":"",
+            "small-image-url":"",
+            "photo-url":"",
+            "thumbnail-image-url":"",
+            "short-biography":"",
+            "speaking-experience":"",
+            "sponsorship-required":""
+         }
+      ],
+      "subtitle":null,
+      "language":"english",
+      "name":"connected devices All Hands",
+      "track":{
+         "id":10,
+         "name":"connected devices",
+         "color":"#E0331F"
+      },
+      "starts-at":"2016-12-09T14:00:00",
+      "session-type":{
+         "id":6,
+         "length":"1.00",
+         "name":"1 hour session"
+      },
+      "comments":"",
+      "long-abstract":"",
+      "slides-url": null,
+      "state":"accepted",
+      "video-url": null,
+      "ends-at":"2016-12-09T15:00:00",
+      "microlocation":{
+         "id":14,
+         "name":"Kona Ballroom 5"
+      },
+      "audio-url": null,
+      "signup-url": null,
+      "id":31
+   }
+]
