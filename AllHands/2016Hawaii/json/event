@@ -1,0 +1,90 @@
+{
+	"social-links": [{
+			"id": 1,
+			"link": "https://twitter.com/mozilla",
+			"name": "Twitter"
+		},
+		{
+			"id": 2,
+			"link": "https://github.com/mozilla/mofo-allhands/tree/gh-pages/2016-hawaii",
+			"name": "Github"
+		},
+		{
+			"id": 3,
+			"link": "https://www.facebook.com/mozilla",
+			"name": "Facebook"
+		},
+		{
+			"id": 4,
+			"link": "https://www.flickr.com/groups/42678169@N00",
+			"name": "Flickr"
+		},
+		{
+			"id": 5,
+			"link": "https://plus.google.com/+MozillaDeveloperNetwork",
+			"name": "Google Plus"
+		},
+		{
+			"id": 6,
+			"link": "https://www.youtube.com/channel/UCltqjpqVd-IowlC-iLp91eg/videos",
+			"name": "YouTube"
+		},
+		{
+			"id": 7,
+			"link": "https://www.linkedin.com/company-beta/13948/",
+			"name": "Linkedin"
+		},
+		{
+			"id": 8,
+			"link": "https://hawaiiallhands2016.sched.com/",
+			"name": "External Event URL"
+		}
+	],
+	"organizer-description": "Mozilla, the proudly non-profit champions of the Internet, helping to keep it healthy, open and accessible to all.",
+	"id": 3,
+	"name": "All Hands/2016 Hawaii",
+	"latitude": 19.924029,
+	"longitude": -155.887498,
+	"location-name": "Hilton Waikoloa village, Hawaii",
+	"starts-at": "2016-12-05T13:00:00",
+	"ends-at": "2016-12-09T20:00:00",
+	"timezone": "Hawaii-Aleutian",
+	"description": "Multiple team meetings, happening in the same city, at the same time + some opportunity to get together as one big group as well as with other teams as it makes sense. Then, on the last day, we have a fun social event for all, Mozilla-style!",
+	"original-image-url": "/images/background.jpg",
+	"logo-url": "/images/mozilla.png",
+	"organizer-name": "Mozilla",
+	"ticket-url": "",
+	"privacy": "public",
+	"type": "Conference",
+	"topic": null,
+	"sub-topic": null,
+	"code-of-conduct": "",
+	"event-copyright": {
+		"holder": null,
+		"holder-url": null,
+		"licence": null,
+		"licence-url": null,
+		"logo-url": null,
+		"year": null
+	},
+	"speakers-call": {
+		"announcement": null,
+		"ends-at": null,
+		"privacy": null,
+		"starts-at": null,
+		"timezone": null
+	},
+	"email": "support@mozilla.com",
+	"is-sessions-speakers-enabled": true,
+	"schedule-published-on": null,
+	"searchable-location-name": null,
+	"state": "Completed",
+	"version": {
+		"event_ver": 1,
+		"microlocations_ver": 2,
+		"sessions_ver": 3,
+		"speakers_ver": 3,
+		"sponsors_ver": 1,
+		"tracks_ver": 4
+	}
+}

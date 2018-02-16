@@ -1,0 +1,210 @@
+[
+    {
+        "id": 1,
+        "name": "Convention Center Lobby",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 2,
+        "name": "Convention Center",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    }, 
+    {
+        "id": 3, 
+        "name": "King's Ballroom 1", 
+        "floor": 0, 
+        "latitude": 19.924029, 
+        "longitude": -155.887498, 
+        "room": null
+    },
+    {
+        "id": 4,
+        "name": "King's Ballroom 2",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    }, 
+    {
+        "id": 5, 
+        "name": "King's Ballroom 3", 
+        "floor": 0, 
+        "latitude": 19.924029, 
+        "longitude": -155.887498, 
+        "room": null
+    },
+    {
+        "id": 6,
+        "name": "Kohala Ballroom 1",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 7,
+        "name": "Kohala Ballroom 2",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 8,
+        "name": "Kohala Ballroom 3",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 9,
+        "name": "Kohala Ballroom 4",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 10,
+        "name": "Kona Ballroom 1",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 11,
+        "name": "Kona Ballroom 2",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 12,
+        "name": "Kona Ballroom 3",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 13,
+        "name": "Kona Ballroom 4",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 14,
+        "name": "Kona Ballroom 5",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 15,
+        "name": "Kona Pool",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 16,
+        "name": "Kona Promenade",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 17,
+        "name": "Kona Tap Room",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 18,
+        "name": "Lagoon Lanai",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 19,
+        "name": "Monarchy Ballroom",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 20,
+        "name": "Queen's Ballroom 4",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 21,
+        "name": "Queen's Ballroom 5",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 22,
+        "name": "Queen's Ballroom 6",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 23,
+        "name": "Waikoloa Suite 1",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 24,
+        "name": "Waikoloa Suite 2",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 25,
+        "name": "Waikoloa Suite 3",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    },
+    {
+        "id": 26,
+        "name": "Water's edge Ballroom",
+        "floor": 0,
+        "latitude": 19.924029,
+        "longitude": -155.887498,
+        "room": null
+    }
+]
