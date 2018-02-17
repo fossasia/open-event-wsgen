@@ -1,0 +1,171 @@
+[{
+		"speakers": [{
+			"id": 1,
+			"name": "Hong Phuc Dang",
+			"organisation": "FOSSASIA"
+		}],
+		"slides-url": null,
+		"title": "Organizers Welcome",
+		"id": 1,
+		"session-type": {
+			"id": 1,
+			"name": "Welcome",
+			"length": 0.3
+		},
+		"microlocation": {
+			"id": 1,
+			"name": "Norton University"
+		},
+		"ends-at": "2014-02-28T09:30:00+07:00",
+		"long-abstract": "Welcome to the 8th year of FOSSASIA. A friendly community of Open Technologists meets at the Science Centre Singapore.",
+		"subtitle": null,
+		"state": "accepted",
+		"short-abstract": "Short Abstract for the event",
+		"signup-url": null,
+		"video-url": null,
+		"comments": "",
+		"audio-url": null,
+		"language": null,
+		"starts-at": "2014-02-28T09:00:00+07:00",
+		"track": {
+			"id": 1,
+			"name": "Opening Talks and Keynotes"
+		}
+	},
+	{
+		"speakers": [{
+			"id": 2,
+			"name": "Rector of Norton University",
+			"organisation": "Norton University"
+		}],
+		"slides-url": null,
+		"title": "Welcome of Rector of Norton University",
+		"id": 2,
+		"session-type": {
+			"id": 2,
+			"length": 0.3,
+			"name": "Keynotes"
+		},
+		"microlocation": {
+			"id": 1,
+			"name": "Norton University"
+		},
+		"ends-at": "2014-02-28T10:00:00+07:00",
+		"long-abstract": "Welcome of Rector of Norton University",
+		"subtitle": null,
+		"state": "accepted",
+		"short-abstract": "Short Abstract for the event",
+		"signup-url": null,
+		"video-url": null,
+		"comments": "",
+		"audio-url": null,
+		"language": null,
+		"starts-at": "2014-02-28T09:30:00+07:00",
+		"track": {
+			"id": 1,
+			"name": "Opening Talks and Keynotes"
+		}
+	},
+	{
+		"speakers": [{
+			"id": 3,
+			"name": "Anna Maj Hultgård",
+			"organisation": "Ambassador of the Swedish Embassy"
+		}],
+		"slides-url": null,
+		"title": "Keynote address of Anna Maj Hultgård, Ambassador of the Swedish Embassy",
+		"id": 3,
+		"session-type": {
+			"id": 2,
+			"name": "Keynotes",
+			"length": 0.3
+		},
+		"microlocation": {
+			"id": 1,
+			"name": "Norton University"
+		},
+		"ends-at": "2014-02-28T10:30:00+07:00",
+		"long-abstract": "Keynote address of Anna Maj Hultgård, Ambassador of the Swedish Embassy",
+		"subtitle": null,
+		"state": "accepted",
+		"short-abstract": "Short Abstract for the event",
+		"signup-url": null,
+		"video-url": null,
+		"comments": "",
+		"audio-url": null,
+		"language": null,
+		"starts-at": "2014-02-28T10:00:00+07:00",
+		"track": {
+			"id": 1,
+			"name": "Opening Talks and Keynotes"
+		}
+	},
+	{
+		"speakers": [{
+			"id": 4,
+			"name": "Khieu Kanharith",
+			"organisation": "Minister of Information"
+		}],
+		"slides-url": null,
+		"title": "Opening remark by Minister of Information Khieu Kanharith",
+		"id": 4,
+		"session-type": {
+			"id": 2,
+			"name": "Keynotes",
+			"length": 0.3
+		},
+		"microlocation": {
+			"id": 1,
+			"name": "Norton University"
+		},
+		"ends-at": "2014-02-28T11:00:00+07:00",
+		"long-abstract": "Opening remark by Minister of Information Khieu Kanharith",
+		"subtitle": null,
+		"state": "accepted",
+		"short-abstract": "Short Abstract for the event",
+		"signup-url": null,
+		"video-url": null,
+		"comments": "",
+		"audio-url": null,
+		"language": null,
+		"starts-at": "2014-02-28T10:30:00+07:00",
+		"track": {
+			"id": 1,
+			"name": "Opening Talks and Keynotes"
+		}
+	},
+	{
+		"speakers": [{
+			"id": 5,
+			"name": "Greta Greathouse",
+			"organisation": "Development Innovations"
+		}],
+		"slides-url": null,
+		"title": "Technologies for Development, Development Innovations, Greta Greathouse",
+		"id": 5,
+		"session-type": {
+			"id": 2,
+			"name": "Keynotes",
+			"length": 0.3
+		},
+		"microlocation": {
+			"id": 1,
+			"name": "Norton University"
+		},
+		"ends-at": "2014-02-28T11:30:00+07:00",
+		"long-abstract": "Opening remark by Minister of Information Khieu Kanharith",
+		"subtitle": null,
+		"state": "accepted",
+		"short-abstract": "Short Abstract for the event",
+		"starts-at": "2014-02-28T11:00:00+07:00",
+		"signup-url": null,
+		"video-url": null,
+		"comments": "",
+		"audio-url": null,
+		"language": null,
+		"track": {
+			"id": 1,
+			"name": "Opening Talks and Keynotes"
+		}
+	}
+]

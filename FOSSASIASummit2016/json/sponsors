@@ -1,0 +1,101 @@
+[
+  {
+    "url": "https://developers.google.com/open-source/",
+    "level": "1",
+    "name": "Google",
+    "description": "",
+    "id": 1,
+    "logo-url": "/images/sponsors/Google_1.png",
+    "type": "Diamond"
+  },
+  {
+    "url": "http://blog.fossasia.org/",
+    "level": "1",
+    "name": "FOSSASIA",
+    "description": "",
+    "id": 5,
+    "logo-url": "/images/sponsors/Fossasia_5.png",
+    "type": "Diamond"
+  },
+  {
+    "url": "http://redhat.com",
+    "level": "2",
+    "name": "RedHat",
+    "description": "",
+    "id": 2,
+    "logo-url": "/images/sponsors/Redhat_2.png",
+    "type": "Platinum"
+  },
+  {
+    "url": "http://github.com",
+    "level": "1",
+    "name": "GitHub",
+    "description": "",
+    "id": 3,
+    "logo-url": "/images/sponsors/Github_3.png",
+    "type": "Platinum"
+  },
+  {
+    "url": "http://mysql.com",
+    "level": "4",
+    "name": "MySQL",
+    "description": "",
+    "id": 4,
+    "logo-url": "/images/sponsors/Mysql_4.png",
+    "type": "Gold"
+  },
+  {
+    "url": "http://www.unesco.org/new/en/communication-and-information/access-to-knowledge/free-and-open-source-software-foss/",
+    "level": "3",
+    "name": "UNESCO",
+    "description": "",
+    "id": 6,
+    "logo-url": "/images/sponsors/Unesco_6.png",
+    "type": "Gold"
+  },
+  {
+    "url": "http://mbm.asia/",
+    "level": "2",
+    "name": "MBM",
+    "description": "",
+    "id": 7,
+    "logo-url": "/images/sponsors/Mbm_7.png",
+    "type": "Gold"
+  },
+  {
+    "url": "https://hackerspace.sg/",
+    "level": "5",
+    "name": "hackerspace.sg",
+    "description": "",
+    "id": 8,
+    "logo-url": "/images/sponsors/Hackerspace.Sg_8.png",
+    "type": "Silver"
+  },
+  {
+    "url": "http://enterprise.nus.edu.sg/",
+    "level": "4",
+    "name": "NUS Enterprise",
+    "description": "",
+    "id": 9,
+    "logo-url": "/images/sponsors/NusEnterprise_9.png",
+    "type": "Silver"
+  },
+  {
+    "url": "https://www.python.org/",
+    "level": "5",
+    "name": "Python",
+    "description": "",
+    "id": 10,
+    "logo-url": "/images/sponsors/Python_10.png",
+    "type": "Silver"
+  },
+  {
+    "url": "http://www.youthmobile.org/",
+    "level": "4",
+    "name": "Youth Mobile",
+    "description": "",
+    "id": 12,
+    "logo-url": "/images/sponsors/YouthMobile_12.png",
+    "type": "Bronze"
+  }
+]

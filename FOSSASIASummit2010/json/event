@@ -1,0 +1,90 @@
+{
+    "social-links": [{
+                    "id": 1,
+                    "link": "https://twitter.com/fossasia",
+                    "name": "Twitter"
+            },
+            {
+                    "id": 2,
+                    "link": "https://github.com/fossasia",
+                    "name": "Github"
+            },
+            {
+                    "id": 3,
+                    "link": "https://www.facebook.com/fossasia",
+                    "name": "Facebook"
+            },
+            {
+                    "id": 4,
+                    "link": "https://www.flickr.com/photos/fossasia",
+                    "name": "Flickr"
+            },
+            {
+                    "id": 5,
+                    "link": "https://plus.google.com/108920596016838318216",
+                    "name": "Google Plus"
+            },
+            {
+                    "id": 6,
+                    "link": "https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ",
+                    "name": "YouTube"
+            },
+            {
+                    "id": 7,
+                    "link": "https://www.linkedin.com/groups/FOSSASIA-3762811",
+                    "name": "Linkedin"
+            },
+            {
+                    "id": 8,
+                    "link": "http://2010.fossasia.org/",
+                    "name": "External Event URL"
+            }
+    ],
+    "organizer-description": "FOSSASIA is the premier Free and Open Source technology event in Asia for developers, start-ups, and contributors. Projects at FOSSASIA range from open hardware, to design, graphics and software. FOSSASIA was established in 2009. Previous events took place in Cambodia and Vietnam.",
+    "id": 1,
+    "name": "FOSSASIA Summit 2010",
+    "latitude": 10.793564,
+    "longitude": 106.6740486,
+    "location-name": "Raffles International College Ho Chi Minh City",
+    "starts-at": "2010-11-12T09:00:00+07:00",
+    "ends-at": "2010-11-14T15:30:00+07:00",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "description": "The Internet of Things for Me at Asia's Premier Open Technology Event",
+    "original-image-url": "/images/fossasia10.jpg",
+    "logo-url": "/images/fossasia-dark.png",
+    "organizer-name": "FOSSASIA",
+    "ticket-url": "http://www.eventnook.com/event/fossasia",
+    "privacy": "public",
+    "type": "Conference",
+    "topic": "Lightweight Computing and Women in IT",
+    "sub-topic": "OpenOffice.org & Debian Mini-Debconf",
+    "code-of-conduct": "",
+    "event-copyright": {
+        "holder": "FOSSASIA",
+        "holder-url": "http://fossasia.org/contact/",
+        "licence": "Creative Commons Attribution License",
+        "licence-url": "http://creativecommons.org/licenses/by/4.0/",
+        "logo-url": "https://i.creativecommons.org/l/by/4.0/80x15.png",
+        "year": 2010
+    },
+    "speakers-call": {
+        "announcement": "<p>Wanna speak at our prestigious event. Send us a proposal</p>",
+        "ends-at": "2010-11-12T9:00:00+07:00",
+        "privacy": "public",
+        "starts-at": "2010-11-14T115:30:00+07:00",
+        "timezone": "Asia/Ho_Chi_Minh"
+    },
+    "email": "contact@fossasia.org",
+    "is-sessions-speakers-enabled": true,
+    "schedule-published-on": "2010-11-10T00:00:00+07:00",
+    "searchable-location-name": null,
+    "state": "Completed",
+    "version": {
+        "event_ver": 1,
+        "microlocations_ver": 2,
+        "sessions_ver": 3,
+        "speakers_ver": 2,
+        "sponsors_ver": 3,
+        "tracks_ver": 4
+    }
+}
