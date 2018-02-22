@@ -1,0 +1,29 @@
+[{
+          "id": 1,
+          "name": "Opening Talks and Keynotes",
+          "color": "#3DC8C3",
+          "font-color": "#FFFFFF",
+          "description": "Opening Talks and Keynotes",
+          "sessions": [{
+                          "id": 1,
+                          "title": "Organizers Welcome"
+                  },
+                  {
+                          "id": 2,
+                          "title": "Welcome of Rector of Norton University"
+                  },
+                  {
+                          "id": 3,
+                          "title": "Keynote address of Anna Maj Hultgård, Ambassador of the Swedish Embassy"
+                  },
+                  {
+                          "id": 4,
+                          "title": "Opening remark by Minister of Information Khieu Kanharith"
+                  },
+                  {
+                          "id": 5,
+                          "title": "Technologies for Development, Development Innovations, Greta Greathouse"
+                  }
+          ]
+    }
+]

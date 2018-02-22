@@ -1,0 +1,90 @@
+{
+	"social-links": [{
+            		"id": 1,
+            		"link": "https://twitter.com/fossasia",
+            		"name": "Twitter"
+        	},
+        	{
+            		"id": 2,
+            		"link": "https://github.com/fossasia",
+            		"name": "Github"
+        	},
+        	{
+            		"id": 3,
+            		"link": "https://www.facebook.com/fossasia",
+            		"name": "Facebook"
+        	},
+        	{
+            		"id": 4,
+            		"link": "https://www.flickr.com/photos/fossasia",
+            		"name": "Flickr"
+        	},
+        	{
+            		"id": 5,
+            		"link": "https://plus.google.com/108920596016838318216",
+            		"name": "Google Plus"
+        	},
+        	{
+            		"id": 6,
+            		"link": "https://www.youtube.com/channel/UCQprMsG-raCIMlBudm20iLQ",
+            		"name": "YouTube"
+        	},
+        	{
+            		"id": 7,
+            		"link": "https://www.linkedin.com/groups/FOSSASIA-3762811",
+            		"name": "Linkedin"
+        	},
+        	{
+            		"id": 8,
+            		"link": "http://2016.fossasia.org/",
+            		"name": "External Event URL"
+        	}
+	],
+	"organizer-description": "FOSSASIA is the premier Free and Open Source technology event in Asia for developers, start-ups, and contributors. Projects at FOSSASIA range from open hardware, to design, graphics and software. FOSSASIA was established in 2009. Previous event took place in Vietnam.",
+	"starts-at": "2011-11-11T09:00:00+07:00",
+    "id": 1,
+    "name": "FOSSASIA Summit 2011",
+	"speakers-call": {
+        	"announcement": "<p>Wanna speak at our prestigious event. Send us a proposal</p>",
+		"starts_at": "2011-10-14T19:30:00+07:00",
+		"timezone": "Asia/Ho_Chi_Minh",
+		"privacy": "public",
+        	"ends-at": "2011-10-27T20:30:00+07:00"
+        },
+	"logo-url": "/images/fossasia-dark.png",
+	"timezone": "Asia/Ho_Chi_Minh",
+	"searchable_location_name": null,
+	"description": "The main topics of FOSSASIA 2011 are all related to Free and Open Source Software with a track for Mobile Solutions, Web Technologies, Operating Systems and Applications, and Women in IT.",
+	"is-sessions-speakers-enabled": true,
+	"topic": "Science & Technology",
+	"schedule-published-on": "2011-11-09T00:00:00+07:00",
+	"state": "Completed",
+	"version": {
+        	"event_ver": 1,
+        	"microlocations_ver": 2,
+        	"sessions_ver": 3,
+        	"speakers_ver": 2,
+        	"sponsors_ver": 3,
+        	"tracks_ver": 4
+    	},
+	"original-image-url": "/images/fossasia16.jpg",
+	"email": "contact@fossasia.org",
+	"sub_topic": null,
+	"type": "Conference",
+	"organizer-name": "FOSSASIA",
+    	"latitude": 10.7627114,
+    	"longitude": 106.6911399,
+	"ends-at": "2011-11-13T15:30:00+07:00",
+	"privacy": "public",
+	"code-of-conduct": "",
+	"event-copyright": {
+		"logo-url": "https://i.creativecommons.org/l/by/4.0/80x15.png",
+		"licence-url": "http://creativecommons.org/licenses/by/4.0/",
+        	"holder": "FOSSASIA",
+		"licence": "Creative Commons Attribution License",
+        	"holder-url": "http://fossasia.org/contact/",
+ 		"year": 2011
+    	},
+    	"location_name": "Van Lang University Campus 2, 233A Phan Van Tri Street, Binh Thanh District, Ho Chi Minh City",
+    	"ticket-url": "http://2011.fossasia.org/"
+}

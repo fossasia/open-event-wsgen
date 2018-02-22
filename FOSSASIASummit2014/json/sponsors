@@ -1,0 +1,118 @@
+[{
+        "id": 1,
+        "name": "Google",
+        "logo-url": "/images/sponsors/Google_1.png",
+        "level": 1,
+        "type": "Platinum",
+        "url": "https://developers.google.com/open-source/",
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "Embassy of Sweden,Phnom Penh",
+        "logo-url": "/images/sponsors/embassyofsweden.png",
+        "level": 1,
+        "type": "Platinum",
+        "url": "http://www.swedenabroad.com/en-GB/Embassies/Phnom-Penh/",
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "EZECOM",
+        "logo-url": "/images/sponsors/ezecom.png",
+        "level": 2,
+        "type": "Diamond",
+        "url": "http://www.ezecom.com.kh/",
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "Fedora",
+        "logo-url": "/images/sponsors/fedora_0.png",
+        "level": 3,
+        "type": "Community Partner",
+        "url": "https://fedoraproject.org/",
+        "description": ""
+    },
+    {
+        "id": 5,
+        "name": "Development Innovations",
+        "logo-url": "/images/sponsors/DevelopmentInnovations-Web.png",
+        "level": 3,
+        "type": "Gold",
+        "url": "http://dai.com/our-work/projects/cambodia%E2%80%94development-innovations",
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "Mozilla",
+        "logo-url": "/images/sponsors/mozilla-fossasia-grey.png",
+        "level": 4,
+        "type": "Silver",
+        "url": "",
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "Sabay",
+        "logo-url": "/images/sponsors/Sabay_0.png",
+        "level": 4,
+        "type": "Silver",
+        "url": "http://sabay.com.kh/",
+        "description": ""
+    },
+    {
+        "id": 8,
+        "name": "MBM",
+        "logo-url": "/images/sponsors/mbm_logo-url_0.png",
+        "level": 3,
+        "type": "Organizing Partners",
+        "url": "http://mbm.asia/",
+        "description": ""
+    },
+    {
+        "id": 9,
+        "name": "Web Essentials",
+        "logo-url": "/images/sponsors/webessentials.png",
+        "level": 3,
+        "type": "Organizing Partners",
+        "url": "http://www.web-essentials.asia/",
+        "description": ""
+    },
+    {
+        "id": 10,
+        "name": "Open Institute",
+        "logo-url": "/images/sponsors/openinstitute.gif",
+        "level": 3,
+        "type": "Organizing Partners",
+        "url": "http://open.org.kh/",
+        "description": ""
+    },
+    {
+        "id": 11,
+        "name": "InSTEDD iLAb",
+        "logo-url": "/images/sponsors/InSTEDD iLab SEA_0.png",
+        "level": 5,
+        "type": "International Contributor",
+        "url": "http://www.ilabsoutheastasia.org/",
+        "description": ""
+    },
+    {
+        "id": 12,
+        "name": "Norton University",
+        "logo-url": "/images/sponsors/norton-university.png",
+        "level": 4,
+        "type": "HOST 2014",
+        "url": "http://norton-u.com/",
+        "description": ""
+    },
+    {
+        "id": 13,
+        "name": "TYP03",
+        "logo-url": "/images/sponsors/KTUG_logo-url.png",
+        "level": 6,
+        "type": "Supporter",
+        "url": "http://www.typo3cambodia.org/",
+        "description": ""
+    }
+]
