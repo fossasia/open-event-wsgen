@@ -547,7 +547,6 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 function getCopyrightData(event) {
   if(event['licence_details']) {
     return convertLicenseToCopyright(event['licence_details'], event['copyright']);
-    console.log("error in copyright");
   } else {
     event['copyright'].logo = event['copyright']['logo'];
     event['copyright'].license_url = event['copyright']['licence_url'];
