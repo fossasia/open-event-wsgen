@@ -153,7 +153,9 @@
                                 <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                               {{/if}}
                               </div>
-                              <span class="margin-down-10">{{name}}</span>
+                              <div class="margin-down-10">
+                                  <p>{{name}}</p>
+                              </div>
                           </a>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
@@ -290,7 +292,9 @@
                                          <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                                        {{/if}}
                                        </p>
-                                       <span class="graytext">{{name}}</span>
+                                       <div class="graytext">
+                                           <p>{{name}}</p>
+                                       </div>
                                      </div>
                                    </a>
                                    {{#if organisation}}
@@ -466,7 +470,7 @@
             var flag = 1;
             $(this).find('.schedule-track').each(function() {
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a div p').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
@@ -491,7 +495,7 @@
         });
         $('.session').each(function() {
           if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.session-speakers-list a div p').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
             $(this).show();
