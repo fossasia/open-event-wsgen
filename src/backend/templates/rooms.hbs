@@ -562,6 +562,22 @@
               $(this).hide();
             }
           });
+
+            var searchRooms=0;
+
+            $('.fossasia-filter').each(function() {
+                if($(this).is(':visible') && $(this).val().length!==0) {
+                    searchRooms=1;
+                }
+            });
+
+            if ($('.date-filter:visible').length == 0  && searchRooms==1) {
+                $('#no-results').remove();
+                $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+            } else {
+                $('#no-results').remove();
+
+            }
         }
 
         function initPage() {
