@@ -22,7 +22,7 @@ body {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-  color: $light-black;
+  color: $head-color;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
@@ -546,7 +546,7 @@ a {
 }
 
 .text {
-  color: $black;
+  color: $schedule-color;
   font-size: 22px;
   text-align: justify;
   word-wrap: break-word;
@@ -764,7 +764,7 @@ a {
 }
 
 .eventtime {
-  color: $gray-dark;
+  color: $event-color;
   height: 46px;
   text-align: center;
   transform: translateY(30%);
@@ -854,7 +854,7 @@ a {
 }
 
 .track-room-names {
-  color: $black;
+  color: $room-color;
   margin-top: 16%;
   padding-left: 30px;
 
@@ -1767,11 +1767,6 @@ a.skip:hover {
   display: block;
   background-color: $white;
 }
-
-.day-filter {
-  background-color: $white;
-}
-
 
 .calendar-content {
   display: block;

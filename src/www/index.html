@@ -19,6 +19,15 @@
     .error {
       font-weight: normal;
     }
+    /* made changes-1 added from here */
+    label.error{
+      color:red;
+      display:block;
+    }
+    ul>label.error{
+    position: absolute;
+    }
+    /* made changes-1 till here */
 
     html {
       height: 100%;
@@ -32,13 +41,11 @@
 
     .custom-navbar {
       padding: 10px 15px;
-      display: relative;
-      margin-bottom: 20px;
-      background-color: #ffffff;
       border-bottom: 1px solid #bfbfbf;
+      z-index: -1;
     }
 
-    .custom-navtitle, .custom-menubutton {
+    .custom-navtitle {
       display: inline-block;
       margin: 0px;
       font-size: 20px;
@@ -51,8 +58,19 @@
 
     .custom-menubutton {
       position: absolute;
+      top:0px;
       right: 40px;
       cursor: pointer;
+      padding: 10px;
+      height:50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .custom-menubutton:hover {
+      background-color:#F0EEEE;
     }
 
     .custom-menu-cont {
@@ -69,38 +87,26 @@
 
     .custom-menu {
       min-height: 350px;
-      overflow: auto;
-      width: 300px;
+      width: 327px;
       position: absolute;
       border: 1px solid #bfbfbf;
-      position: absolute;
-      right: 20px;
+      border-top: none;
+      right: 40px;
       top: 0px;
-      box-shadow: 0px 0px 5px 5px #f2f2f2;
+      box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.176);
       background-color: white;
+      padding:28px;
     }
 
-    .custom-arrow {
-      background-color: white;
-      width: 15px;
-      height: 15px;
-      border: 1px solid #bfbfbf;
+    .arrow-up {
+      width: 7px;
+      height: 7px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 7px solid white;
       position: absolute;
-      top: -7px;
-      right: 44px;
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
-
-    .hide-arrow {
-      width: 30px;
-      height: 30px;
-      position: absolute;
-      background-color: white;
-      right: 10px;
-      top: 0px;
-      z-index: 2;
+      right:17px;
+      top:-7px;
     }
 
     .custom-menu-cont {
@@ -108,19 +114,49 @@
     }
 
     .custom-menu-item {
+      border: 1px solid white;
       display: inline-block;
-      width: 32%;
-      max-height: 70px;
-      padding: 5px;
+      width: 87px;
+      padding: 10px 0;
       text-align: center;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      margin-top: 20px;
     }
 
-    .custom-icon img {
-      width: 60%;
+    .custom-menu-item a {
+      color: #737373;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .custom-menu-item img {
+      display: block;
+      margin: 0 auto 5px auto;
+      height: auto;
+      width: auto;
+      max-height: 50px;
+      max-width: 60px;
+    }
+
+    .custom-menu-item p {
+      height:28px;
+      margin:0px;
+    }
+
+    .custom-menu-item:hover {
+      border:1px solid #e7e7e7;
+    }
+
+    .custom-menubutton-color {
+      background-color: #e7e7e7;
+    }
+
+    .custom-icon {
+      height:50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #deployment {
@@ -162,78 +198,108 @@
       <strong>Open Event Webapp Generator</strong>
     </a>
     <div class="custom-menubutton">
-      <i class="glyphicon glyphicon-th"></i>
+      <i class="glyphicon glyphicon-th" style="font-size:20px;"></i>
     </div>
   </div>
   <div class="custom-menu-cont hidden">
     <div class="custom-menu">
-      <div class="hide-arrow"></div>
+      <div class="arrow-up"></div>
       <div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp" target="_blank"><img src="./icons/code.png">
+          <a href="http://github.com/fossasia/open-event-webapp" target="_blank">
+          <div class="custom-icon"><img src="./icons/code.png"></div>
           <p class="custom-title">Code</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://github.com/fossasia/open-event-webapp/issues" target="_blank"><img src="./icons/bug.png">
+          <a href="http://github.com/fossasia/open-event-webapp/issues" target="_blank">
+          <div class="custom-icon"><img src="./icons/bug.png"></div>
           <p class="custom-title">Bug Report</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="http://blog.fossasia.org" target="_blank"><img src="./icons/blog.png">
+          <a href="http://blog.fossasia.org" target="_blank">
+          <div class="custom-icon"><img src="./icons/blog.png"></div>
           <p class="custom-title">Blogs</p></a>
         </div>
-        <hr style="margin-bottom: 0; margin-top: 10px;">
+        <hr style="margin-bottom: 10px; margin-top: 10px;">
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://eventyay.com/" target="_blank"><img src="./icons/eventyay.png">
+          <a href="https://eventyay.com/" target="_blank">
+          <div class="custom-icon"><img src="./icons/eventyay.png"></div>
           <p class="custom-title">Eventyay</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://susper.com/" target="_blank"><img src="./icons/susper.png">
+          <a href="https://susper.com/" target="_blank">
+          <div class="custom-icon"><img src="./icons/susper.png" style="width: 60px;height: 16px;"></div>
           <p class="custom-title">Susper</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://chat.susi.ai/" target="_blank"><img src="./icons/susi.png">
+          <a href="https://chat.susi.ai/" target="_blank">
+          <div class="custom-icon"><img src="./icons/susi.png"></div>
           <p class="custom-title">Susi</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://fossasia.org/" target="_blank"><img src="./icons/fossasia.png">
+          <a href="https://fossasia.org/" target="_blank">
+          <div class="custom-icon"><img src="./icons/fossasia.png"></div>
           <p class="custom-title">FOSSASIA</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://loklak.org/" target="_blank"><img src="./icons/loklak.png">
+          <a href="https://loklak.org/" target="_blank">
+          <div class="custom-icon"><img src="./icons/loklak.png"></div>
           <p class="custom-title">loklak</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://phimp.me/" target="_blank"><img src="./icons/phimp.png">
+          <a href="https://phimp.me/" target="_blank">
+          <div class="custom-icon"><img src="./icons/phimp.png"></div>
           <p class="custom-title">Phimp.me</p></a>
         </div>
         <div class="custom-menu-item">
-          <a class="custom-icon" href="https://pslab.fossasia.org" target="_blank"><img src="./icons/pslab.png">
+          <a href="https://pslab.fossasia.org" target="_blank">
+          <div class="custom-icon"><img src="./icons/Pslab.png"></div>
           <p class="custom-title">PS Lab</p></a>
+        </div>
+        <hr style="margin: 10px">
+        <div style="display: flex;justify-content: center;align-items: center; margin: 0 0 -20px 0">
+          <a href="https://labs.fossasia.org/" target="_blank" style="text-decoration: none;color: #737373">More on labs.fossasia.org</a>
         </div>
       </div>
     </div>
-    <div class="custom-arrow"></div>
   </div>
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
       <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
         <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
-        <!--<label for="theme">Choose your theme</label>-->
-         <!--<select class="form-control" id="theme" name="theme">-->
-         <!--<option value="light">Light</option>-->
-         <!--<option value="dark">Dark</option>-->
-         <!--</select>-->
-         <!--<br>-->
-         <input id="theme" name="theme" type="hidden" value="light"> <!--
+        <label for="theme">Choose your theme</label>
+         <select class="form-control" id="theme" name="theme">
+         <option value="light">Light</option>
+         <option value="dark">Dark</option>
+         </select>
+         <br>
+         <!--<input id="theme" name="theme" type="hidden" value="light">-->
+                <!--
                     <label for="name">App's Name</label>
                     <input type="text" class="form-control" id="name" name="name" required="true">
                     <br>
                 -->
          <label>Choose Session Style</label>
-        <ul style="list-style-type:none">
+        <!-- changes-2 removed from here -->
+        <!-- <ul style="list-style-type:none">
           <li id="single"><input name="session" required="" type="radio" value="single"> Single</li>
           <li id="expandable"><input name="session" type="radio" value="expand"> Expandable</li>
-        </ul><label>Choose your data source</label>
+        </ul> -->
+        <!-- changes-2 removed till here -->
+        <!-- changes-2 added from here -->
+        <ul style="list-style-type:none;postion: relative;">
+          <li>
+            <input name="session" required="" type="radio" value="single" id="single">
+            <label>Single</label>
+          </li>
+
+          <li>
+            <input name="session" type="radio" value="expand" id="expandable">
+            <label>Expandable</label>
+          </li>
+        </ul>
+        <!-- changes-2 added till here -->
+        <label>Choose your data source</label>
         <ul style="list-style-type:none">
           <!--<li><input type="radio" name="datasource" value="mockjson"> Default mock API </input></li>-->
           <li id="uploadJSON"><input name="datasource" id="jsonupload" type="radio" value="jsonupload"> Upload your own JSON files</li>
@@ -299,4 +365,3 @@
   </div>
 </body>
 </html>
-
