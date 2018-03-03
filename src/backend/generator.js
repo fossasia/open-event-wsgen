@@ -160,7 +160,7 @@ exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
   req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
-  const theme = req.body.theme || 'light';
+  const theme = req.body.theme || 'light' ;
   const mode = req.body.sessionMode;
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;

@@ -32,7 +32,7 @@ function createCookie(name, value, days) {
 $(document).ready(function () {
   var socket = io();
   document.getElementById('email').focus();
-
+  
   function uploadFile(file) {
 
     var size = (file.size/(1024*1024)).toString().substring(0, 3);
@@ -77,9 +77,14 @@ $(document).ready(function () {
     blobStream.pipe(stream);
 
   }
-
+ 
+  //if(!$('#siofu_input').val()){
+// 
+  $('#siofu_input').val();
   $('#siofu_input').change(function(e) {
+   
     var file = e.target.files[0];
+  
     var extension = file.name.substring(file.name.lastIndexOf('.') + 1);
 
     statusText.text('');
@@ -88,6 +93,7 @@ $(document).ready(function () {
     if(extension === 'zip') {
       uploadFile(file);
     }
+   
 
     else {
       $('#siofu_input').val('');
@@ -96,27 +102,22 @@ $(document).ready(function () {
     }
 
   });
-
-  var customMenuButton = $('.custom-menubutton');
+ // }
+  //else{alert("CAME");
+    // enableGenerateButton(true);  
+//}
+  var customMenuButton = $('.glyphicon-th').first();
   var menuContent = $('.custom-menu-cont');
-  var fontAwesomeIcom=$('.glyphicon-th');
 
   customMenuButton.click(function() {
     menuContent.toggleClass("hidden");
-    $(this).toggleClass('custom-menubutton-color');
-  });
-
-  $('.custom-menu-item').click(function () {
-     menuContent.addClass('hidden');
-     customMenuButton.removeClass('custom-menubutton-color');
   });
 
   $(document).mouseup(function(e) {
     // if the target of the click is not the button,
     // the container, or descendants of the container
-    if (!$(e.target).is(customMenuButton) && !$(e.target).is(menuContent) && menuContent.has(e.target).length === 0 && !$(e.target).is(fontAwesomeIcom)) {
+    if (!customMenuButton.is(e.target) && !menuContent.is(e.target) && menuContent.has(e.target).length === 0) {
       menuContent.addClass("hidden");
-      customMenuButton.removeClass('custom-menubutton-color')
     }
   });
 
@@ -175,7 +176,7 @@ $(document).ready(function () {
       function() {
           $(this).find('input').prop('checked',true);
           if ($(this).find('input').is(':checked')) {
-
+             
               if ($(this).find('input').val() === 'mockjson') {
                   $('#jsonupload-input').hide(100);
                   $('#eventapi-input').hide(100);
@@ -189,7 +190,9 @@ $(document).ready(function () {
                   $('#deploy').hide();
                   if (uploadFinished) {
                       enableGenerateButton(true);
-                  } else {
+                  } 
+                  else if($('#siofu_input').val()){enableGenerateButton(true);}
+                  else {
                       enableGenerateButton(false);
                   }
               }
@@ -426,8 +429,9 @@ function updateStatus(statusMsg) {
 function initialState() {
   $('input:radio[name="datasource"]').prop('checked', false);
   $('#upload-ftp').prop('checked', false);
+  if(!$("#siofu_input").val()){
   $('#btnGenerate').prop('disabled', true);
-  uploadFinished = false;
+  uploadFinished = false;}
 }
 
 function enableGenerateButton(enabled) {
@@ -439,8 +443,12 @@ function enableGenerateButton(enabled) {
     $('#btnGenerate').attr('title', 'Select a zip to upload first');
   }
 }
-
-
+function checkState() {
+  if(!$("#siofu_input").val()){
+  $('#btnGenerate').prop('disabled', true);
+ }
+}
+setInterval(checkState,1);
 function getFile () {
   var data = {};
   try {
