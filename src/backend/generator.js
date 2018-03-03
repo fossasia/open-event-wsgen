@@ -117,7 +117,7 @@ function getJsonData(reqOpts, next) {
     const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
     const tracksData = jsonfile.readFileSync(distJsonsPath + '/tracks');
     const roomsData = jsonfile.readFileSync(distJsonsPath + '/microlocations');
-
+    ///made required changes
     return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, reqOpts, function(data) {
       next(null, data);
     });
@@ -576,5 +576,3 @@ exports.pipeZipToRes = function(email, appName, res) {
 
   zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
-
-

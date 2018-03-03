@@ -113,17 +113,14 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       console.log(err);
       return cb(err);
     }
-    var json = JSON.parse(body);
-
-    new JSONAPIDeserializer().deserialize(json, function(err, data) {
-      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(err) {
+    var json = JSON.parse(JSON.stringify(response.body));
+      fs.writeFile(fileName, json, 'utf-8', function(err) {
         if(err) {
           console.log(err);
           return cb(err);
         }
         cb();
       });
-    });
 
   });
 };
