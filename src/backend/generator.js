@@ -22,6 +22,7 @@ const scroll = handlebars.compile(fs.readFileSync(__dirname + '/templates/partia
 const social = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/social.hbs').toString('utf-8'));
 const tracklist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/tracklist.hbs').toString('utf-8'));
 const roomlist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/roomlist.hbs').toString('utf-8'));
+const googleanalytics = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/googleanalytics.hbs').toString('utf-8'));
 
 handlebars.registerPartial('navbar', navbar);
 handlebars.registerPartial('footer', footer);
@@ -29,6 +30,7 @@ handlebars.registerPartial('scroll', scroll);
 handlebars.registerPartial('social', social);
 handlebars.registerPartial('tracklist', tracklist);
 handlebars.registerPartial('roomlist', roomlist);
+handlebars.registerPartial('googleanalytics', googleanalytics);
 
 const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
 const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
@@ -319,6 +321,9 @@ exports.createDistDir = function(req, socket, callback) {
               }
               jsonData.navpad = pad;
             });
+          }
+          if(req.body.ganalyticsID) {
+            jsonData.ganalyticsID = req.body.ganalyticsID;
           }
           distHelper.resizeSponsors(basePath, socket, function() {
             distHelper.resizeSpeakers(basePath, socket, function() {
