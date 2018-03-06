@@ -283,6 +283,16 @@
       });
 
       window.onload = function () {
+
+        window.addEventListener("hashchange", function(){
+            if(window.location.href.split('#')[1] !== '' && /^\d+$/.test(window.location.href.split('#')[1].substring(0,4))) {
+              let offset = 20;
+              $('html, body').animate({
+                scrollTop: $("#" + window.location.href.split('#')[1]).offset().top - $(".navbar-fixed-top").height() - offset
+              }, 0);
+            }
+        }, false);
+
         if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
