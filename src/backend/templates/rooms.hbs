@@ -312,6 +312,10 @@
           }
 
           roomName = decodeURIComponent(window.location.href.toString().split('#')[1]);
+          if($('#'+roomName).length) {
+            $('html, body').animate({scrollTop: $("#"+roomName).offset().top}, 500);
+            return;
+          }
           roomFilterMode = 1;
 
           $('.fossasia-filter').each(function () {
