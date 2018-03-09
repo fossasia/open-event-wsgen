@@ -113,10 +113,8 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       console.log(err);
       return cb(err);
     }
-    var json = JSON.parse(body);
 
-    new JSONAPIDeserializer().deserialize(json, function(err, data) {
-      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(err) {
+    fs.writeFile(fileName, JSON.parse(JSON.stringify(response.body)), 'utf-8', function(err) {
         if(err) {
           console.log(err);
           return cb(err);
@@ -125,7 +123,6 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       });
     });
 
-  });
 };
 
 var extensionChange = function(image) {

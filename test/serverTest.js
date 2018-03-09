@@ -11,7 +11,7 @@ const async = require('async');
 const config = require('../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 
-var fold = require('../src/backend/fold.js');
+var fold = require('../src/backend/fold_v2.js');
 var generator = require('../src/backend/generator.js');
 var dist = require('../src/backend/dist.js');
 var app = require('../src/app');
@@ -592,15 +592,6 @@ describe("Running Selenium tests on Chrome Driver", function () {
       eventPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
         eventPage.driver.manage().window().maximize();
         assert.deepEqual(statusArr, [false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the broken links in navbar and footer', function (done) {
-      eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
-        assert.equal(numBrokenLinks, 0);
         done();
       }).catch(function (err) {
         done(err);
