@@ -598,15 +598,6 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
-    it('Checking the broken links in navbar and footer', function (done) {
-      eventPage.getNavbarFooterBrokenLinks().then(function (numBrokenLinks) {
-        assert.equal(numBrokenLinks, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
     it('Checking the title of the page', function (done) {
       eventPage.getEventName().then(function (eventName) {
         assert.equal(eventName, "FOSSASIA Summit 2017");

@@ -7,6 +7,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
   <link href="css/main.css" rel="stylesheet">
   <script src="js/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -153,11 +154,22 @@
     }
 
     .custom-icon {
-      height:50px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
+   .form-control-feedback {
+      left: 0;
+      background-color: #E8E8EE;
+      border-radius: 4px;
+   }
+
+   .has-feedback .form-control{
+      padding-left: 40px;
+      padding-right: 0px;
+   }
 
     #deployment {
       position: absolute;
@@ -266,7 +278,14 @@
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
       <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
-        <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
+        <div class="has-feedback">
+          <label for="name">Email</label>
+          <input autofocus="" class="form-control" id="email" name="email" required="true" type="email">
+          <span class="form-control-feedback">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <br>
         <label for="theme">Choose your theme</label>
          <select class="form-control" id="theme" name="theme">
          <option value="light">Light</option>
@@ -287,7 +306,7 @@
         </ul> -->
         <!-- changes-2 removed till here -->
         <!-- changes-2 added from here -->
-        <ul style="list-style-type:none;postion: relative;">
+        <ul style="list-style-type:none;position:relative;">
           <li>
             <input name="session" required="" type="radio" value="single" id="single">
             <label>Single</label>
