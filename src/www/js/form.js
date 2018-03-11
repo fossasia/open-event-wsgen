@@ -464,6 +464,7 @@ function getData () {
     if (field.name === 'apiendpoint') {data.apiendpoint = field.value; }
     if (field.name === 'assetmode') {data.assetmode = field.value; }
     if (field.name === 'session') {data.sessionMode = field.value;}
+    if (field.name === 'apiVersion') {data.apiVersion = field.value;}
   });
   if ($('#upload-ftp').prop('checked')) {
     data.ftpdetails = {
