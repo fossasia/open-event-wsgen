@@ -2096,6 +2096,30 @@ a.skip:hover {
   margin-right: 15px;
 }
 
+.track-filter-info {
+  background-color: $span-background;
+  border: 1px dotted $black;
+  display: none;
+  font-size: 18px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.room-filter-info {
+  background-color: $span-background;
+  border: 1px dotted $black;
+  display: none;
+  font-size: 18px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 20px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
 .mobile-track-room-list {
   @media only screen and (min-width: 768px) {
     display: none;

@@ -92,6 +92,14 @@
       </div>
     </div>
 
+    <div class="container track-filter-info">
+      Track: <span id="TrackCurFilter" style="font-weight:bold;"> </span> <a href="#" id="TrackClearFilter">  [Clear Filter]</a>
+    </div>
+
+    <div class="container room-filter-info">
+      Room: <span id="RoomCurFilter" style="font-weight:bold;"> </span> <a href="#" id="RoomClearFilter">  [Clear Filter]</a>
+    </div>
+
     <div class="row">
       <div class="col-md-9 list-view">
         <div id="track-list" class="container">
@@ -155,7 +163,7 @@
                                 <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                               {{/if}}
                               </div>
-                              <div class="margin-down-10">{{name}}</div>
+                              <span class="margin-down-10">{{name}}</span>
                           </a>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
@@ -203,7 +211,7 @@
                           <hr class="clear-both">
                           {{/each}}
                           <div class="blacktext">
-                            <p><i>{{location}}</i></p>
+                            <p><i id="location">{{location}}</i></p>
                             <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
                             <p>
                               <ul class="title-inline">
@@ -373,17 +381,31 @@
           {{/roomsinfo}}
         </div>
       </div>
-      <div class="track-room-names col-md-3">
-      {{#tracknames}}
-      {{#if title}}
-        <ul class="title-inline title-legend">
-          <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>
-          <li>{{title}}</li>
-        </ul>
-      {{/if}}
-      {{/tracknames}}
+        <div class="track-room-names col-md-3 col-sm-3">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 room-name-list">
+              <h4 class='list-title'> Rooms List </h4>
+                {{#each roomsnames}}
+                  <div class="room-info">
+                    <span style="background-color: #777;" class="titlecolor"></span>
+                    <span class="room-name">{{this}}</span>
+                  </div>
+                  {{/each}}
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <h4 class='list-title'> Tracks List </h4>
+                {{#tracknames}}
+                {{#if title}}
+                <div class="track-info">
+                  <span style="background-color: {{color}};" class="titlecolor"></span>
+                  <span class="track-name">{{title}}</span>
+                </div>
+                {{/if}}
+                {{/tracknames}}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 </div>
 
@@ -397,12 +419,16 @@
       var mode = 0;
       var flag = 0;
       var isAdded = 0;
+      var trackFilterMode=0;
+      var roomFilterMode=0;
       var isCalendarView = false;
       var $timeline;
       var numberOfChildElements;
       var widthOfChild;
       var canvasWidth;
       var initialWidth;
+      var roomName;
+      var trackName;
 
       $(function() {
         $("img.lazy").lazyload({
@@ -460,20 +486,169 @@
         $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
       });
 
-      $('.fossasia-filter').change(function() {
-        var filterVal = $(this).val();
-        $('.day-filter').each(function() {
-          var temp = 1;
-          $(this).find('.time-filter').each(function() {
-            var flag = 1;
-            $(this).find('.schedule-track').each(function() {
+      $('#TrackClearFilter').click(function() {
+        trackFilterMode = 0;
+        display();
+        $('.track-filter-info').hide();
+      });
+
+      $('.track-name').click(function () {
+        var filterVal;
+        trackName = $(this).text();
+        trackFilterMode = 1;
+        roomFilterMode=0;
+        var local_storage_events=JSON.parse(localStorage[eventName]);
+
+        var sidebarDiv = $('.side-collapse');
+        if (!sidebarDiv.hasClass('in'))
+            sidebarDiv.addClass('in');
+
+        $('.fossasia-filter').each(function() {
+          if($(this).is(':visible')) {
+            filterVal = $(this).val();
+          }
+        });
+
+        $('.track-filter-info').show();
+        $('#TrackCurFilter').text(trackName);
+        $('.room-filter-info').hide();
+
+        $('.day-filter').each(function () {
+          var temp=0;
+          $(this).find('.time-filter').each(function () {
+            var flag=0;
+            $(this).find('.schedule-track').each(function () {
+            if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+              var name=$(this).find('.title-inline .blacktext').text();
+              var id=$(this).attr('id');
+              if(mode && local_storage_events[id]!=1)
+              {
+                  $(this).hide();
+              }else if(name!=trackName) {
+                $(this).hide();
+              } else {
+                 $(this).show();
+                 flag=1;
+              }
+            } else {
+               $(this).hide();
+            }
+            });
+            if(flag===0) {
+              $(this).hide();
+              } else {
+              $(this).show();
+              temp=1;
+            }
+          });
+          if(temp==0) {
+            $(this).hide();
+            } else {
+               $(this).show();
+            }
+        });
+       $('html, body').animate({scrollTop: 0}, 500);
+      });
+
+      $('#RoomClearFilter').click(function() {
+        roomFilterMode = 0;
+        display();
+        $('.room-filter-info').hide();
+      });
+
+      $('.room-name').click(function () {
+        var filterVal;
+        roomName = $(this).text();
+        roomFilterMode = 1;
+        trackFilterMode = 0;
+        var local_storage_events = JSON.parse(localStorage[eventName]);
+
+        var sidebarDiv = $('.side-collapse');
+        if (!sidebarDiv.hasClass('in'))
+           sidebarDiv.addClass('in');
+
+        $('.fossasia-filter').each(function () {
+          if ($(this).is(':visible')) {
+            filterVal = $(this).val();
+          }
+        });
+
+        $('.room-filter-info').show();
+        $('#RoomCurFilter').text(roomName);
+        $('.track-filter-info').hide();
+
+        $('.day-filter').each(function () {
+          var temp = 0;
+          $(this).find('.time-filter').each(function () {
+          var flag = 0;
+            $(this).find('.schedule-track').each(function () {
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                flag = 0;
-                $(this).show();
+                var name = $(this).find('#location').text();
+                var id=$(this).attr('id');
+                if(mode && local_storage_events[id]!=1) {
+                      $(this).hide();
+                } else if (name != roomName) {
+                  $(this).hide();
+                } else {
+                   $(this).show();
+                   flag = 1;
+                }
+            } else {
+               $(this).hide();
+            }
+            });
+            if (flag === 0) {
+              $(this).hide();
+            } else {
+               $(this).show();
+               temp = 1;
+            }
+          });
+          if (temp == 0) {
+            $(this).hide();
+          } else {
+             $(this).show();
+          }
+        });
+      $('html, body').animate({scrollTop: 0}, 500);
+      });
+
+      $('.fossasia-filter').change(function() {
+
+        var filterVal = $(this).val();
+        var local_storage_events = JSON.parse(localStorage[eventName]);
+
+        $('.day-filter').each(function() {
+          var temp = 1;
+          $(this).find('.time-filter').each(function() {
+            var flag = 1;
+            $(this).find('.schedule-track').each(function() {
+              var id=$(this).attr('id');
+              if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  var trackVal=$(this).find('.title-inline .blacktext').text();
+                  var roomVal=$(this).find('#location').text();
+                  if(mode && local_storage_events[id]!=1){
+                      $(this).hide();
+                  }else if(trackFilterMode && trackVal!=trackName) {
+                    $(this).hide();
+                  }else if(roomFilterMode&&roomVal!=roomName){
+                    $(this).hide();
+                  } else {
+                   flag = 0;
+                   $(this).show();
+                  }
               } else {
                 $(this).hide();
               }
@@ -488,12 +663,12 @@
           if (temp == 1) {
             $(this).hide();
           } else {
-            $(this).show();
+           $(this).show();
           }
         });
         $('.session').each(function() {
           if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
             $(this).show();
@@ -719,21 +894,48 @@
 
       function display() {
         var temp = JSON.parse(localStorage[eventName]);
+        var filterVal;
+        $('.fossasia-filter').each(function () {
+          if ($(this).is(':visible')) {
+             filterVal = $(this).val();
+          }
+        });
 
         $('.day-filter').each(function() {
           var dayFlag = 0;
           $(this).find('.time-filter').each(function() {
             var timeFlag = 0;
             $(this).find('.schedule-track').each(function() {
+              var filter=1;
+              if(trackFilterMode){
+                 var trackVal=$(this).find('.title-inline .blacktext').text();
+                 if(trackVal!=trackName){
+                     filter=0;
+                 }
+              } else if(roomFilterMode){
+                var roomVal=$(this).find('#location').text();
+                if(roomVal!=roomName){
+                        filter=0;
+                }
+              }
               var elemId = $(this).attr('id');
               var elemFlag = 0;
-              if(temp[elemId] == 1) {
-                elemFlag = timeFlag = dayFlag = 1;
-                $(this).find('.bookmark').each(function() {
-                  $(this).css("color", "black");
-                });
+              if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0){
+                    if(temp[elemId] == 1 && filter) {
+                       elemFlag = 1;
+                       $(this).find('.bookmark').each(function() {
+                         $(this).css("color", "black");
+                       });
+                    }else if(!mode&&filter) {
+                        elemFlag=1;
+                    }
               }
-              if (elemFlag || !mode) {
+              if (elemFlag) {
+                timeFlag=1;
                 $(this).show();
               }
               else {
@@ -741,7 +943,8 @@
               }
             });
 
-            if(timeFlag || !mode) {
+            if(timeFlag) {
+              dayFlag=1;
               $(this).show();
             }
             else {
@@ -749,7 +952,7 @@
             }
           });
 
-          if(dayFlag || !mode) {
+          if(dayFlag) {
             $(this).show();
           }
           else {
