@@ -1,0 +1,39 @@
+ //open-sans-300 - latin
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./_opensans/open-sans-v15-latin-300.eot");
+  src: local("Open Sans Light"), local("OpenSans-Light"),
+  url("./_opensans/open-sans-v15-latin-300.eot?#iefix") format("embedded-opentype"),
+  url("./_opensans/open-sans-v15-latin-300.woff2") format("woff2"),
+  url("./_opensans/open-sans-v15-latin-300.woff") format("woff"),
+  url("./_opensans/open-sans-v15-latin-300.ttf") format("truetype"),
+  url("./_opensans/open-sans-v15-latin-300.svg#OpenSans") format("svg");
+}
+ //open-sans-regular - latin
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./_opensans/open-sans-v15-latin-regular.eot");
+  src: local("Open Sans Regular"), local("OpenSans-Regular"),
+  url("./_opensans/open-sans-v15-latin-regular.eot?#iefix") format("embedded-opentype"),
+  url("./_opensans/open-sans-v15-latin-regular.woff2") format("woff2"),
+  url("./_opensans/open-sans-v15-latin-regular.woff") format("woff"),
+  url("./_opensans/open-sans-v15-latin-regular.ttf") format("truetype"),
+  url("./_opensans/open-sans-v15-latin-regular.svg#OpenSans") format("svg");
+}
+ //open-sans-600 - latin
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./_opensans/open-sans-v15-latin-600.eot");
+  src: local("Open Sans SemiBold"), local("OpenSans-SemiBold"),
+  url("./_opensans/open-sans-v15-latin-600.eot?#iefix") format("embedded-opentype"),
+  url("./_opensans/open-sans-v15-latin-600.woff2") format("woff2"),
+  url("./_opensans/open-sans-v15-latin-600.woff") format("woff"),
+  url("./_opensans/open-sans-v15-latin-600.ttf") format("truetype"),
+  url("./_opensans/open-sans-v15-latin-600.svg#OpenSans") format("svg");
+}
