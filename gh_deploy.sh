@@ -16,7 +16,7 @@ git init
 git config --global user.name "Travis CI"
 git config --global user.email "noreply+travis@fossasia.org"
 
-git remote add upstream "https://$GH_TOKEN@github.com/"${TRAVIS_REPO_SLUG}".git"
+git remote add upstream "https://$gh_token@github.com/"${TRAVIS_REPO_SLUG}".git"
 git fetch upstream
 git reset upstream/gh-pages
 
