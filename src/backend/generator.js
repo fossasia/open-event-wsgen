@@ -12,9 +12,9 @@ const sass = require('node-sass');
 const jsonfile = require('jsonfile');
 const minify = require('html-minifier').minify;
 const distHelper = require(__dirname + '/dist.js');
-const fold = require(__dirname + '/fold.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
+var fold;
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
 const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
@@ -162,6 +162,15 @@ exports.createDistDir = function(req, socket, callback) {
   req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light' ;
   const mode = req.body.sessionMode;
+  var type = req.body.apiVersion || 'api_v2';
+  
+  if(type === 'api_v1') {
+    fold = require(__dirname + '/fold_v1.js');
+  }
+  else {
+    fold = require(__dirname + '/fold_v2.js');
+  }
+  
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
 

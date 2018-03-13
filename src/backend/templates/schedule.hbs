@@ -159,7 +159,7 @@
                                 <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
                               {{/if}}
                               </div>
-                              <div class="margin-down-10">{{name}}</div>
+                              <span class="margin-down-10">{{name}}</span>
                           </a>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
@@ -629,7 +629,7 @@
             $(this).find('.schedule-track').each(function() {
               var id=$(this).attr('id');
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
@@ -664,7 +664,7 @@
         });
         $('.session').each(function() {
           if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
             $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
             $(this).show();
