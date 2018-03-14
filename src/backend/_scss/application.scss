@@ -3,11 +3,15 @@
 // 1.Base
 @import '_base/config';
 
+//Fonts
+@import "fonts/fonts";
+
 /* Offsets for fixed navbar */
 body {
   background-color: $background-shade !important;
   color: $gray-dark;
-  font: 12px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "OpenSans-Light";
+  font-weight: 300;
 }
 
 .anchor {
@@ -23,8 +27,9 @@ body {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   color: $head-color;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-family: "OpenSans-Regular";
+  font-weight: 400;
+
 }
 
 a {
