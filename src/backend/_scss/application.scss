@@ -439,8 +439,6 @@ a {
 
 .show-button-filter {
   padding-top: 10px;
-  padding-right: 10px;
-  flex-grow: 1;
 }
 
 .filter {
@@ -1573,10 +1571,10 @@ a {
 .navbar-flex {
   display: flex;
   flex-wrap: wrap;
-  padding-right: 0;
 
   @media only screen and (max-width: 900px) {
     padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -1877,9 +1875,6 @@ a.skip:hover {
 // style from tracks
 
 #starred {
-  background-color:$white-gray;
-  color:black;
-  border-color:$light-black;
   margin: 0;
   width: 100%;
 }
