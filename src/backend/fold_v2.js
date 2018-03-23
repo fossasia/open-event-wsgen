@@ -394,6 +394,7 @@ function returnRoomnames(roomsInfo) {
     });
   });
   var uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
+  uniqueRoomList.sort();
   return uniqueRoomList;
 }
 
