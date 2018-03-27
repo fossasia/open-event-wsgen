@@ -1622,6 +1622,10 @@ a {
   right: 0;
   top: 0;
 
+  &.starred {
+    color: black;
+  }
+
   i {
     margin-left: 5px;
   }

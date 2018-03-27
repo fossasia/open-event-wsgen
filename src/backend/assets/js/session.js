@@ -12,7 +12,7 @@ $(document).ready(function() {
     var temp = JSON.parse(localStorage[eventName] || '{}');
 
     if (temp[sessionId] === 1) {
-      sessionElem.find('.bookmark').css('color', 'black');
+      sessionElem.find('.bookmark').addClass('starred');
     }
   }
 
@@ -38,13 +38,12 @@ $(document).ready(function() {
 
   $('.bookmark').click(function() {
     var temp = JSON.parse(localStorage[eventName]);
-    var curColor = $(this).css('color');
 
-    if (curColor === 'rgb(0, 0, 0)') {
-      $(this).css('color', '');
+    if ($(this).hasClass('starred')) {
+      $(this).removeClass('starred');
       temp[sessionId] = 0;
     } else {
-      $(this).css('color', 'black');
+      $(this).addClass('starred');
       temp[sessionId] = 1;
     }
 
