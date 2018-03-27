@@ -9,13 +9,7 @@ $(document).ready(function() {
   var sessionId = sessionElem.attr('id');
 
   function init() {
-    var temp;
-
-    if (localStorage.hasOwnProperty(eventName) === false) {
-      localStorage[eventName] = '{}';
-    }
-
-    temp = JSON.parse(localStorage[eventName]);
+    var temp = JSON.parse(localStorage[eventName] || '{}');
 
     if (temp[sessionId] === 1) {
       sessionElem.find('.bookmark').css('color', 'black');
