@@ -110,7 +110,7 @@ TrackPage.filterThenSessionStatus = function(choice) {
       });
     } else {
       // Removing applied track filter
-      self.find(By.id('clearFilter')).click().then(self.getElemsDisplayStatus.bind(null, promiseArr)).then(function(ans) {
+      self.find(By.id('TrackClearFilter')).click().then(self.getElemsDisplayStatus.bind(null, promiseArr)).then(function(ans) {
         self.driver.sleep(1000).then(function() {
           resolve(ans);
         });
