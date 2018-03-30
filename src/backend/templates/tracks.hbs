@@ -622,6 +622,7 @@
 
           localStorage[eventName] = JSON.stringify(temp);
           event.stopPropagation();
+          display();
         });
 
         $('#starred').click(function () {
