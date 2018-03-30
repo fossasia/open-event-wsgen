@@ -483,6 +483,7 @@
 
           localStorage[eventName] = JSON.stringify(temp);
           event.stopPropagation();
+          display();
         });
 
         $('.room-filter').click(function () {
