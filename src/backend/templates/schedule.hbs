@@ -75,7 +75,7 @@
         </span>
         <span class="dropdown filter">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span> </button>
-          <ul class="dropdown-menu list-menu">
+          <ul class="dropdown-menu list-menu download-dropdown">
             <li> <a href="#" class="export-png"> Download as png </a> </li>
             <li> <a href="#" class="export-schedule"> Download as ics </a> </li>
           </ul>
@@ -778,6 +778,7 @@
           isAdded = 1;
         }
         localStorage[eventName] = JSON.stringify(temp);
+        display();
       });
 
       $('.schedule-track').click(function(event){
