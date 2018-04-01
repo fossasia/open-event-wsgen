@@ -615,6 +615,7 @@
             $('.date-filter').each(function() {
               var flag = 0;
               $(this).find('.venue-filter').each(function() {
+                var venueFlag = 0;
                 $(this).find('.room-filter').each(function() {
                   var name=$(this).find('.title-inline .blacktext').text();
                   if(name!=trackName) {
@@ -634,14 +635,14 @@
                   }
                   if(elemFlag == 1) {
                     flag = 1;
+                    venueFlag = 1;
                     $(this).show();
                   } else {
                     $(this).hide();
                   }
                 });
-                if(flag) {
+                if(venueFlag) {
                   $(this).show();
-                  $(this).children('.row').hide();
                 } else {
                   $(this).hide();
                 }
