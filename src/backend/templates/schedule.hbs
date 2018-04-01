@@ -76,7 +76,7 @@
         </span>
         <span class="dropdown filter">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span> </button>
-          <ul class="dropdown-menu list-menu">
+          <ul class="dropdown-menu list-menu download-dropdown">
             <li> <a href="#" class="export-png"> Download as png </a> </li>
             <li> <a href="#" class="export-schedule"> Download as ics </a> </li>
             <li> <a href="#" class="export-pdf"> Download as pdf </a> </li>
@@ -87,7 +87,7 @@
          <input class="fossasia-filter" type="text" placeholder="Search">
         </span>
         <span class = "show-button-filter">
-            <button class = "btn btn-primary" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
+            <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
         </span>
       </div>
     </div>
@@ -705,6 +705,7 @@
           isAdded = 1;
         }
         localStorage[eventName] = JSON.stringify(temp);
+        display();
       });
 
       $('.schedule-track').click(function(event){
@@ -730,7 +731,7 @@
           mode = !mode;
           if(!mode) {
               $(this).css("color", "black");
-              $('#starred').css("background-color","#eee");
+              $('#starred').css("background-color","#fff");
            }
           else {
               $(this).css("color", "white");

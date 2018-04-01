@@ -63,10 +63,10 @@ SchedulePage.getDownloadDropdown = function() {
 
   var promise = new Promise(function(resolve) {
     self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
-      promiseArr.push(self.find(By.className('dropdown-menu')).isDisplayed());
+      promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
     }).then(function() {
       self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
-        promiseArr.push(self.find(By.className('dropdown-menu')).isDisplayed());
+        promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
         resolve(Promise.all(promiseArr));
       });
     });

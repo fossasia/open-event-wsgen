@@ -78,7 +78,7 @@
              <input class="fossasia-filter" type="text" placeholder="Search">
             </div>
             <div class="show-button-filter">
-                <button class = "btn btn-primary" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
+                <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
             </div>
           </div>
       </div>
@@ -483,6 +483,7 @@
 
           localStorage[eventName] = JSON.stringify(temp);
           event.stopPropagation();
+          display();
         });
 
         $('.room-filter').click(function () {
@@ -500,7 +501,7 @@
           mode = !mode;
           if(!mode) {
             $(this).css("color", "black");
-            $('#starred').css("background-color","#eee");
+            $('#starred').css("background-color","#fff");
           }
           else {
             $(this).css("color", "white");

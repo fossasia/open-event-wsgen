@@ -71,13 +71,19 @@
          </div>
 
           <div class="show-button-filter">
-              <button class = "btn btn-primary" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
+              <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
-      <div id="filterInfo" class="container">
-        TYPE: <span id="curFilter" style="font-weight:bold;"> </span> <a href="#" id="clearFilter">  [Clear Filter]</a>
+
+      <div  class="container track-filter-info">
+        TYPE: <span id="TrackCurFilter" style="font-weight:bold;"> </span> <a href="#" id="TrackClearFilter">  [Clear Filter]</a>
       </div>
+
+      <div class="container room-filter-info">
+        Room: <span id="RoomCurFilter" style="font-weight:bold;"> </span> <a href="#" id="RoomClearFilter">  [Clear Filter]</a>
+      </div>
+
       <div id="session-list" class="container">
         <div class="row">
           <div id="content-block" class="col-md-9 col-sm-9">
@@ -222,7 +228,7 @@
                                   <hr class="clear-both">
                                 {{/speakers_list}}
                                 <div class="blacktext">
-                                  {{#if location}}<p><i>{{location}}</i></p>{{/if}}
+                                  {{#if location}}<p><i id="location">{{location}}</i></p>{{/if}}
                                   {{#if ../date}}<p>{{../date}}, <span>{{start}} - {{end}}</span></p>{{/if}}
                                   <p>
                                     <ul class="title-inline">
@@ -245,16 +251,30 @@
               {{/days}}
             </div>
           </div>
-          <div class="track-room-names col-md-3 col-sm-3">
-            {{#tracknames}}
-              {{#if title}}
-                <div class="track-info">
-                  <span style="background-color: {{color}};" class="titlecolor"></span>
-                  <span class="track-name">{{title}}</li>
+            <div class="track-room-names col-md-3 col-sm-3">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <h4 class='list-title'> Tracks List </h4>
+                    {{#tracknames}}
+                      {{#if title}}
+                        <div class="track-info">
+                          <span style="background-color: {{color}};" class="titlecolor"></span>
+                          <span class="track-name">{{title}}</span>
+                        </div>
+                      {{/if}}
+                    {{/tracknames}}
                 </div>
-              {{/if}}
-            {{/tracknames}}
-          </div>
+                <div class="col-md-12 col-sm-12 room-name-list">
+                  <h4 class='list-title'> Rooms List </h4>
+                    {{#each roomsnames}}
+                      <div class="room-info">
+                        <span style="background-color: #777;" class="titlecolor"></span>
+                        <span class="room-name">{{this}}</span>
+                      </div>
+                    {{/each}}
+                </div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -271,7 +291,9 @@
       var isAdded = 0;
       var mode = 0;
       var trackFilterMode = 0;
+      var roomFilterMode = 0;
       var trackName;
+      var roomName;
       // Mode is true if the page is in starred view.
 
       $(function () {
@@ -369,10 +391,81 @@
           $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
         });
 
-        $('#clearFilter').click(function() {
+        $('#RoomClearFilter').click(function() {
+          roomFilterMode = 0;
+          display();
+          $('.room-filter-info').hide();
+        });
+
+        $('.room-name').click(function() {
+          var filterVal;
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          if (!sidebarDiv.hasClass('in'))
+               sidebarDiv.addClass('in');
+
+          roomName = $(this).text();
+          trackFilterMode = 0;
+          roomFilterMode = 1;
+
+          $('.fossasia-filter').each(function() {
+          if($(this).is(':visible')) {
+             filterVal = $(this).val();
+            }
+          });
+
+          $('.room-filter-info').show();
+          $('#RoomCurFilter').text(roomName);
+          $('.track-filter-info').hide();
+
+          $('.date-filter').each(function() {
+            var flag = 0;
+            $(this).find('.track-filter').each(function() {
+
+            $(this).find('.room-filter').each(function() {
+              var name = $(this).find('#location').text();
+              if(name != roomName) {
+                $(this).hide();
+                  return;
+                }
+              var id = $(this).attr('id');
+              var elemFlag = 0;
+              if($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                elemFlag = 1;
+                if(mode && temp[id] != 1) {
+                  elemFlag = 0;
+                }
+              }
+              if(elemFlag == 1) {
+                flag = 1;
+                $(this).show();
+                } else {
+                  $(this).hide();
+                }
+            });
+            if(flag) {
+              $(this).show();
+              $(this).children('.row').hide();
+            } else {
+              $(this).hide();
+              }
+            });
+            if(flag) {
+              $(this).show();
+            } else {
+              $(this).hide();
+              }
+          });
+          $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('#TrackClearFilter').click(function() {
           trackFilterMode = 0;
           display();
-          $('#filterInfo').hide();
+          $('.track-filter-info').hide();
         });
 
         $('.track-name').click(function() {
@@ -384,6 +477,7 @@
 
           trackName = $(this).text();
           trackFilterMode = 1;
+          roomFilterMode = 0;
 
           $('.fossasia-filter').each(function() {
             if($(this).is(':visible')) {
@@ -391,8 +485,10 @@
             }
           });
 
-          $('#filterInfo').show();
-          $('#curFilter').text(trackName);
+          $('.track-filter-info').show();
+          $('#TrackCurFilter').text(trackName);
+          $('.room-filter-info').hide();
+
           $('.date-filter').each(function() {
             var flag = 0;
             $(this).find('.track-filter').each(function() {
@@ -448,12 +544,17 @@
             var flag = 1;
             $(this).find('.track-filter').each(function () {
               var flagTrack = 1;
-              var name = $(this).find('.text').text();
-              if(trackFilterMode && (name != trackName)) {
+              var trackVal = $(this).find('.text').text();
+              if(trackFilterMode && (trackVal != trackName)) {
                 $(this).hide();
                 return;
               }
               $(this).find('.room-filter').each(function () {
+                var roomVal = $(this).find('#location').text();
+                if(roomFilterMode && (roomVal != roomName)) {
+                  $(this).hide();
+                  return;
+                }
                 var id = $(this).attr('id');
                 var elemFlag = 1;
                 if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -521,13 +622,14 @@
 
           localStorage[eventName] = JSON.stringify(temp);
           event.stopPropagation();
+          display();
         });
 
         $('#starred').click(function () {
           mode = !mode;
           if(!mode) {
             $(this).css("color", "black");
-            $('#starred').css("background-color","#eee");
+            $('#starred').css("background-color","#fff");
           }
           else {
             $(this).css("color", "white");
@@ -559,6 +661,11 @@
                 return;
               }
               $(this).find('.room-filter').each(function () {
+                var roomVal = $(this).find('#location').text();
+                if(roomFilterMode && roomVal != roomName) {
+                  $(this).hide();
+                  return;
+                }
                 var elemId = $(this).attr('id');
                 var bookFlag = 0, searchFlag = 0, elemFlag = 0;
                 var filterVal;
@@ -567,7 +674,7 @@
                   if($(this).is(':visible')) {
                     filterVal = $(this).val();
                   }
-                });
+                    });
 
                 if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                   $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||

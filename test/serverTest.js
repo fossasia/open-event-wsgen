@@ -437,6 +437,27 @@ describe('generate', function () {
       });
 
     });
+    
+    it('should generate the FOSSASIA Summit  2018 event', function (done) {
+      var data = {};
+      
+      data.body = {
+        "email": 'a@a.com',
+        "theme": 'light',
+        "sessionMode": 'expand',
+        "apiVersion": 'api_v1',
+        "datasource": 'eventapi',
+        "apiendpoint": 'https://eventyay.com/api/v1/events/275',
+        "assetmode": 'download'
+      };
+      
+      
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        done();
+      });
+    
+    });
 
     it('should copy all the static files', function (done) {
       var staticPath = __dirname + '/../src/backend/overviewSite/';
