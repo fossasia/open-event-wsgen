@@ -84,10 +84,15 @@ function convertTimeToPixel(startTime, sessionTime) {
 function createTimeLine(startTime, endTime) {
   let timeLine = [];
   let startHour = parseInt(getHoursFromTime(startTime));
+  let startMinute = parseInt(getMinutessFromTime(startTime));
   let endHour = parseInt(getHoursFromTime(endTime));
-  let i = 0;
+  let i = startMinute;
   let time = '';
   let height = timeToPixel;
+
+  if(i%15!==0){
+      i=0;
+  }
 
   while(startHour <= endHour) {
     time = startHour < 10 ? '0' + startHour : startHour;
@@ -389,6 +394,7 @@ function returnRoomnames(roomsInfo) {
     });
   });
   var uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
+  uniqueRoomList.sort();
   return uniqueRoomList;
 }
 

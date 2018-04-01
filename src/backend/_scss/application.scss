@@ -171,14 +171,31 @@ a {
 }
 
 .navbar-toggle {
+  border: 0;
   color: $gray-dark;
-  padding: 6px 10px;
-  margin-left:2em;
-  margin-top:1em;
+  margin-left: 0;
+  margin-top: 1em;
+  padding: 6px 5px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
   background-color: $gray-dark;
+}
+
+.dropdown-menu {
+  min-width: 60px;
+
+  li {
+    a {
+      padding: 5px 20px;
+    }
+  }
+}
+
+.homelink {
+  @media only screen and (max-width: 350px) {
+    display: none;
+  }
 }
 
 /* General styling of session list */
@@ -278,6 +295,10 @@ a {
   .btn-sign-up {
     font-size: 15px;
     margin-top: -8px;
+  }
+
+  .navbar-toggle {
+    margin-right: 0;
   }
 }
 
@@ -439,8 +460,6 @@ a {
 
 .show-button-filter {
   padding-top: 10px;
-  padding-right: 10px;
-  flex-grow: 1;
 }
 
 .filter {
@@ -1573,10 +1592,10 @@ a {
 .navbar-flex {
   display: flex;
   flex-wrap: wrap;
-  padding-right: 0;
 
   @media only screen and (max-width: 900px) {
     padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -1868,18 +1887,21 @@ a.skip:hover {
   padding-left:0;
   margin-left:15px;
   margin-right: 0;
-  @media screen and (max-width: 500px) {
+
+  @media screen and (max-width: 768px) {
     margin-left: 0;
-    margin-right: 15px;
+    text-align: center;
+
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
   }
 }
 
 // style from tracks
 
 #starred {
-  background-color:$white-gray;
-  color:black;
-  border-color:$light-black;
   margin: 0;
   width: 100%;
 }
