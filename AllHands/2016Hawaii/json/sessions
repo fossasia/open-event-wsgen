@@ -1241,7 +1241,7 @@
          "name":"Marketing",
          "color":"#BF532E"
       },
-      "starts-at":"2016-12-09T14:00:00 ",
+      "starts-at":"2016-12-09T14:00:00",
       "session-type":{
          "id":6,
          "length":"1.00",
