@@ -7,6 +7,7 @@ var uploadFinished = false;
 
 var isCancelling = false;
 var menuDisplay = false;
+var generationStarted = false;
 
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
@@ -125,6 +126,7 @@ $(document).ready(function () {
     statusText.text('');
 
     isCancelling = true;
+    generationStarted = false;
 
     $('#siofu_input').val('').show();
     $('#upload-info').hide();
@@ -173,49 +175,54 @@ $(document).ready(function () {
       $(this).css('cursor','pointer');
   }).mousedown(
       function() {
-          $(this).find('input').prop('checked',true);
-          if ($(this).find('input').is(':checked')) {
-
-              if ($(this).find('input').val() === 'mockjson') {
-                  $('#jsonupload-input').hide(100);
-                  $('#eventapi-input').hide(100);
-              }
-
-              if ($(this).find('input').val() === 'jsonupload') {
-                  $('#jsonupload-input').show(100);
-                  $('#eventapi-input').hide(100);
-                  $('#btnLive').hide();
-                  $('#btnDownload').hide();
-                  $('#deploy').hide();
-                  if (uploadFinished) {
-                      enableGenerateButton(true);
-                  } else {
-                      enableGenerateButton(false);
+          if(!generationStarted){
+              $(this).find('input').prop('checked', true);
+              if ($(this).find('input').is(':checked')) {
+        
+                  if ($(this).find('input').val() === 'mockjson') {
+                      $('#jsonupload-input').hide(100);
+                      $('#eventapi-input').hide(100);
+                  }
+        
+                  if ($(this).find('input').val() === 'jsonupload') {
+                      $('#jsonupload-input').show(100);
+                      $('#eventapi-input').hide(100);
+                      $('#btnLive').hide();
+                      $('#btnDownload').hide();
+                      $('#deploy').hide();
+                      if (uploadFinished) {
+                          enableGenerateButton(true);
+                      } else {
+                          enableGenerateButton(false);
+                      }
                   }
               }
           }
-  });
+      });
+
 
   $('#endpointAPI').mouseover(
      function() {
       $(this).css('cursor','pointer');
   }).mousedown(
       function() {
-          $(this).find('input').prop('checked',true);
-          if ($(this).find('input').is(':checked')) {
-
-              if ($(this).find('input').val() === 'mockjson') {
-                  $('#jsonupload-input').hide(100);
-                  $('#eventapi-input').hide(100);
-              }
-
-              if ($(this).find('input').val() === 'eventapi') {
-                  $('#eventapi-input').show(100);
-                  $('#jsonupload-input').hide(100);
-                  $('#btnLive').hide();
-                  $('#btnDownload').hide();
-                  $('#deploy').hide();
-                  enableGenerateButton(true);
+          if(!generationStarted) {
+              $(this).find('input').prop('checked', true);
+              if ($(this).find('input').is(':checked')) {
+        
+                  if ($(this).find('input').val() === 'mockjson') {
+                      $('#jsonupload-input').hide(100);
+                      $('#eventapi-input').hide(100);
+                  }
+        
+                  if ($(this).find('input').val() === 'eventapi') {
+                      $('#eventapi-input').show(100);
+                      $('#jsonupload-input').hide(100);
+                      $('#btnLive').hide();
+                      $('#btnDownload').hide();
+                      $('#deploy').hide();
+                      enableGenerateButton(true);
+                  }
               }
           }
   });
@@ -284,6 +291,7 @@ $(document).ready(function () {
     $('.error').focus();
     if (check) {
       var formData = getData();
+      generationStarted = true;
       $('#buildLog').empty();
       socket.emit('live', formData);
       $('.generator-progress').show();
@@ -375,6 +383,7 @@ $(document).ready(function () {
       paragraph.append(aElem);
       paragraph.append(divElem);
       errorno += 1;
+      generationStarted = false;
       updateGenerateProgress(0);
       updateStatusAnimate(data.smallMessage, 200, 'red');
       $('#btnGenerate').prop('disabled', false);
