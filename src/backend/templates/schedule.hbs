@@ -917,53 +917,45 @@
 
 
       $('.export-pdf').click(function () {
-      if (isCalendarView === true) {
-          $('.calendar').each(function () {
-          if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
-              $timeline = $(this);
-              initialWidth = $timeline.width();
-              numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
-              numberOfChildElements = numberOfChildElements - 1;
-              widthOfChild = $timeline.find('.room').width();
-              canvasWidth = numberOfChildElements * widthOfChild + 50;
-              $timeline.width(canvasWidth);
+          let pdf = new jsPDF('l', 'pt', 'a4');
+          let options = {
+            pagesplit: true
+          };
+          if (isCalendarView === true) {
+              let fullScheduler = true;
+
+              $('.calendar').each(function() {
+                  let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+                  fullScheduler = hidePresent && fullScheduler;
+                  if (hidePresent) {
+                    $timeline = $(this);
+                  }
+              });
+              if(fullScheduler) {
+                  $timeline = $('.calendar').parent();
+              }
+          } else {
+              let fullScheduler = true;
+              $('.day-filter').each(function() {
+                  let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+                  fullScheduler = hidePresent && fullScheduler;
+                  if (hidePresent) {
+                    $timeline = $(this);
+                  }
+              });
+              if(fullScheduler) {
+                  $timeline = $('.day-filter').parent();
+              }
           }
+              let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
+              if (scheduleDate) {
+                  scheduleDate=scheduleDate[0];
+              } else {
+                  scheduleDate ="Schedule";
+              }
+          pdf.addHTML($timeline, 0, 0, options, function(){
+              pdf.save(scheduleDate + ".pdf");
           });
-      } else {
-          $('.day-filter').each(function () {
-          if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
-              $timeline = $(this);
-              return false;
-            }
-          });
-      }
-      html2canvas($timeline, {
-          onrendered: function (canvas) {
-          canvas.id = "generated-canvas";
-          let imgData = canvas.toDataURL("image/png");
-          let pdf = new jsPDF('p', 'mm');
-
-          let imgWidth = 210;
-          let pageHeight = 295;
-          let imgHeight = canvas.height * imgWidth / canvas.width;
-          let heightLeft = imgHeight;
-
-          let position = 0;
-
-          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
-
-          while (heightLeft >= 0) {
-              position = heightLeft - imgHeight;
-              pdf.addPage();
-              pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-              heightLeft -= pageHeight;
-          }
-          pdf.save($timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g)[0] + ".pdf");
-
-          },
-      });
-      $timeline.width(initialWidth);
       });
 
 
