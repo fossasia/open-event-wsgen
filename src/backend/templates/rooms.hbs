@@ -194,12 +194,7 @@
                                         {{position}} {{organisation}}
                                       </p>
                                     {{/if}}
-                                    {{#if biography}}
-                                      <div class="session-speakers-more">
-                                        {{{biography}}}
-                                      </div>
-                                    {{/if}}
-                                    <div class="blacktext session-speaker-social">
+                                    <div class="blacktext session-speaker-social margin-down-10">
                                       <div class="session-speakers-more">
                                         {{#if website}}
                                           <a class="blacktext social speaker-social" href="{{{website}}}"}>
@@ -221,6 +216,15 @@
                                             <i class="fa fa-linkedin"></i> LinkedIn
                                           </a>&nbsp;
                                         {{/if}}
+                                      </div>
+                                    </div>
+                                    {{#if biography}}
+                                      <div class="session-speakers-more">
+                                        {{{biography}}}
+                                      </div>
+                                    {{/if}}
+                                    <div class="blacktext session-speaker-social">
+                                      <div class="session-speakers-more">
                                         <a class="session-lin blacktext social speaker-social clickable-link">
                                           <i class="fa fa-share"></i> Share
                                         </a>
