@@ -270,6 +270,16 @@ $(document).ready(function () {
     }
   );
 
+  $('#enable-google-analytics').change(
+    function () {
+      if ($(this).is(':checked')) {
+        $('#ganalytics-id-container').show(100);
+      } else {
+        $('#ganalytics-id-container').hide(100);
+      }
+    }
+  );
+
   $('#singlefileUpload').change(function () {
     var ext = this.value.match(/\.([^\.]+)$/)[1];
     switch (ext) {
@@ -435,6 +445,7 @@ function updateStatus(statusMsg) {
 function initialState() {
   $('input:radio[name="datasource"]').prop('checked', false);
   $('#upload-ftp').prop('checked', false);
+  $('#enable-google-analytics').prop('checked', false);
   $('#btnGenerate').prop('disabled', true);
   uploadFinished = false;
 }
@@ -482,6 +493,11 @@ function getData () {
       user: $('#ftp-user').val(),
       pass: $('#ftp-pass').val(),
       path: $('#ftp-path').val()
+    };
+  }
+  if ($('#enable-google-analytics').prop('checked')) {
+    data.ganalyticsID = {
+        id: $('#ganalytics-id').val()
     };
   }
   return data;
