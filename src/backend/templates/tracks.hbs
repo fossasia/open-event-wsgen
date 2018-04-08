@@ -427,7 +427,7 @@
           $('.date-filter').each(function() {
             var flag = 0;
             $(this).find('.track-filter').each(function() {
-
+              var trackFlag = 0;
             $(this).find('.room-filter').each(function() {
               var name = $(this).find('#location').text();
               if(name != roomName) {
@@ -447,14 +447,14 @@
               }
               if(elemFlag == 1) {
                 flag = 1;
+                trackFlag = 1;
                 $(this).show();
                 } else {
                   $(this).hide();
                 }
             });
-            if(flag) {
+            if(trackFlag) {
               $(this).show();
-              $(this).children('.row').hide();
             } else {
               $(this).hide();
               }
