@@ -425,9 +425,9 @@
           $('.track-filter-info').hide();
 
           $('.date-filter').each(function() {
-            var flag = 0;
+            var flag = false;
             $(this).find('.track-filter').each(function() {
-
+              var trackFlag = false;
             $(this).find('.room-filter').each(function() {
               var name = $(this).find('#location').text();
               if(name != roomName) {
@@ -435,26 +435,26 @@
                   return;
                 }
               var id = $(this).attr('id');
-              var elemFlag = 0;
+              var elemFlag = false;
               if($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                elemFlag = 1;
+                elemFlag = true;
                 if(mode && temp[id] != 1) {
-                  elemFlag = 0;
+                  elemFlag = false;
                 }
               }
-              if(elemFlag == 1) {
-                flag = 1;
+              if(elemFlag) {
+                flag = true;
+                trackFlag = true;
                 $(this).show();
                 } else {
                   $(this).hide();
                 }
             });
-            if(flag) {
+            if(trackFlag) {
               $(this).show();
-              $(this).children('.row').hide();
             } else {
               $(this).hide();
               }
