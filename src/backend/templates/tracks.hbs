@@ -612,17 +612,16 @@
         });
 
         $('.bookmark').click(function (event) {
-          var temp = JSON.parse(localStorage[eventName]);
-          var curColor = $(this).css("color");
+          var temp = JSON.parse(localStorage[eventName] || '{}');
           var id = $(this).attr('id').substring(1);
           flag = 1;
 
-          if (curColor == "rgb(0, 0, 0)") {
+          if ($(this).hasClass('starred')) {
             temp[id] = 0;
-            $(this).css("color", "");
+            $(this).removeClass('starred');
             if(mode) $('#' + id).hide();
           } else {
-            $(this).css("color", "black");
+            $(this).addClass('starred');
             temp[id] = 1;
           }
 
@@ -690,7 +689,7 @@
                   if (temp[elemId] == 1) {
                     bookFlag = 1;
                     $(this).find('.bookmark').each(function () {
-                      $(this).css("color", "black");
+                      $(this).addClass('starred');
                     });
                   }
                 }
@@ -752,7 +751,7 @@
           var elemId;
           Object.keys(temp).forEach(function(key) {
             if (temp[key] == 1) {
-              elemId = $('#' + key).find('.bookmark').css("color", "black");;
+              elemId = $('#' + key).find('.bookmark').addClass('starred');
             }
           });
         }
