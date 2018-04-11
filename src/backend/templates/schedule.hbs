@@ -243,15 +243,11 @@
       <div class="col-md-12 calendar-view hide">
         <div id="track-list" class="container">
         {{#roomsinfo}}
-          {{#if @first}}
             <div class="{{slug}} calendar">
-            {{else}}
-            <div class="{{slug}} calendar hide">
-          {{/if}}
-            <div class="col-md-12 paddingzero">
-              <a class="anchor" id="{{slug}}"></a>
-              <h5 class="text">{{date}}</h4>
-            </div>
+              <div class="col-md-12 paddingzero">
+                <a class="anchor" id="{{slug}}"></a>
+                <h5 class="text">{{date}}</h5>
+              </div>
               <div class="calendar-content">
                 <div class="times">
                   <div class="time" style="height: {{{timeToPixel}}}px">
@@ -1001,12 +997,13 @@
                   $timeline = $('.day-filter').parent();
               }
           }
-              let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
-              if (scheduleDate) {
-                  scheduleDate=scheduleDate[0];
-              } else {
-                  scheduleDate ="Schedule";
-              }
+
+          let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
+          if (scheduleDate) {
+              scheduleDate=scheduleDate[0];
+          } else {
+              scheduleDate ="Schedule";
+          }
           pdf.addHTML($timeline, 0, 0, options, function(){
               pdf.save(scheduleDate + ".pdf");
           });
