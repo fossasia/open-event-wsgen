@@ -250,7 +250,8 @@
           {{/if}}
             <div class="col-md-12 paddingzero">
               <a class="anchor" id="{{slug}}"></a>
-              <h5 class="text">{{date}}</h4>
+              <button class = "btn btn-default pull-right pop-button" ><i class="fa fa-expand" aria-hidden="true"></i></button>
+              <h5 class="text">{{date}}</h5>
             </div>
               <div class="calendar-content">
                 <div class="times">
@@ -867,6 +868,13 @@
               $('#starred').css("background-color","#838282");
           }
           display();
+      });
+
+      $('.pop-button').click(function() {
+        $(this).parents('.calendar').toggleClass('pop-out');
+        $('body').toggleClass('carousel-inner');
+        $(this).children().toggleClass('fa-expand');
+        $(this).children().toggleClass('fa-compress');
       });
 
       function getCurrentDate() {

@@ -1791,6 +1791,18 @@ a.skip:hover {
   background-color: $white;
 }
 
+.pop-out {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  overflow: scroll;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5000;
+}
+
 .calendar-content {
   display: block;
 }
