@@ -1810,7 +1810,7 @@ a.skip:hover {
 .rooms {
   overflow: hidden;
   overflow-x : auto;
-  width: calc(100% - 80px);
+  width: calc(100% - 48px);
   display: inline-block;
   white-space: nowrap;
 }
@@ -1820,6 +1820,7 @@ a.skip:hover {
   white-space: initial;
   display: inline-block;
   position: relative;
+  min-width: 160px;
 }
 
 .room-filter {
