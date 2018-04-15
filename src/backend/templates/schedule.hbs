@@ -756,6 +756,7 @@
 
         var filterVal = $(this).val();
         var local_storage_events = JSON.parse(localStorage[eventName]);
+        var visibleRooms = 0;
 
         $('.day-filter').each(function() {
           var temp = 1;
@@ -797,19 +798,37 @@
            $(this).show();
           }
         });
-        $('.session').each(function() {
-          if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-            $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-            $(this).show();
-          } else {
+
+        $('.calendar:visible').find('.room').each(function() {
+          flag = 1;
+          $(this).find('.session').each(function() {
+            if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+              $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+              $(this).show();
+              flag = 0;
+            } else {
+              $(this).hide();
+            }
+          });
+          if (flag == 1) {
             $(this).hide();
+          } else {
+            $(this).show();
+            visibleRooms++;
           }
         });
+
+        if (visibleRooms <= 6) {
+          let width = 100 / visibleRooms;
+          $('.calendar:visible').find('.room').css("width", width + '%');
+        } else {
+          $('.calendar:visible').find('.room').css("width", "160px");
+        }
+
         var listFilterLength = $('.day-filter:visible').length;
-        var calFilterLength = $('.calendar:visible').length;
-        if((isCalendarView && calFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
+        if((isCalendarView && visibleRooms == 0) || (!isCalendarView && listFilterLength == 0)) {
           $('#no-results').remove();
           $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
         } else {
