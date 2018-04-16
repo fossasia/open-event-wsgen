@@ -581,7 +581,7 @@ a {
 .arrow {
   height: 10px;
   left: 6px;
-  margin-top: -9px;
+  margin-top: -8px;
   overflow: hidden;
   position: absolute;
   width: 25px;
@@ -612,6 +612,7 @@ a {
   background-color: $white;
   border: 1px solid $span-border-left;
   border-radius: 4px;
+  margin-top: 8px;
   height: auto;
   min-height: 255px;
   position: absolute;
