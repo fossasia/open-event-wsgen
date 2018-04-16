@@ -2175,3 +2175,61 @@ a.skip:hover {
   display: block;
 }
 
+.dropdown-submenu a h4 span {
+  display: none;
+}
+
+.dropdown-inner {
+  max-height: 200px;
+  overflow: scroll;
+}
+
+@media only screen and (max-width:900px) {
+  .filter {
+    margin-right: 1%;
+  }
+}
+
+@media only screen and (max-width:989px) {
+  .sidebar{
+    display: none;
+  }
+
+  .tracks-rooms-filter {
+    margin-right: 10px;
+    padding-top: 10px;
+  }
+
+  .search-filter-schedule {
+    width: 39%;
+  }
+
+  .dropdown-menu>li {
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+  }
+
+  .dropdown-menu>li>a {
+    padding-left: 5px;
+  }
+
+  .dropdown-menu>li>a>h4 {
+    text-align: left;
+  }
+
+  .dropdown-submenu {
+    position: static;
+  }
+}
+
+@media only screen and (min-width:990px) {
+
+  .sidebar {
+    display: inline-flex;
+  }
+
+  .dropdown-list {
+    display: none;
+  }
+}
