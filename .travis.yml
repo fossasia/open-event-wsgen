@@ -25,6 +25,7 @@ addons:
 install:
   - npm install -g istanbul mocha@3
   - npm install
+  - npm install --save-dev
  # testing script
 script:
   - istanbul cover _mocha
