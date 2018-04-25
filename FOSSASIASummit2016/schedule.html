@@ -211,16 +211,17 @@
         $('.track-filter-info').hide();
       });
 
-      $('.track-name').click(function () {
+      $('.track-name').click(function() {
         var filterVal;
         trackName = $(this).text();
         trackFilterMode = 1;
-        roomFilterMode=0;
-        var local_storage_events=JSON.parse(localStorage[eventName]);
+        roomFilterMode = 0;
+        var local_storage_events = JSON.parse(localStorage[eventName]);
+        var visibleRooms = 0;
 
         var sidebarDiv = $('.side-collapse');
         if (!sidebarDiv.hasClass('in'))
-            sidebarDiv.addClass('in');
+          sidebarDiv.addClass('in');
 
         $('.fossasia-filter').each(function() {
           if($(this).is(':visible')) {
@@ -233,44 +234,82 @@
         $('.room-filter-info').hide();
 
         $('.day-filter').each(function () {
-          var temp=0;
+          var temp = 0;
           $(this).find('.time-filter').each(function () {
-            var flag=0;
+            var flag = 0;
             $(this).find('.schedule-track').each(function () {
             if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
               $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
               $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
               $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
               $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-              var name=$(this).find('.title-inline .blacktext').text();
-              var id=$(this).attr('id');
-              if(mode && local_storage_events[id]!=1)
+              var name = $(this).find('.title-inline .blacktext').text();
+              var id = $(this).attr('id');
+              if (mode && local_storage_events[id] != 1)
               {
-                  $(this).hide();
-              }else if(name!=trackName) {
+                $(this).hide();
+              } else if (name != trackName) {
                 $(this).hide();
               } else {
-                 $(this).show();
-                 flag=1;
+                $(this).show();
+                flag = 1;
               }
             } else {
-               $(this).hide();
+              $(this).hide();
             }
             });
-            if(flag===0) {
+            if(flag === 0) {
               $(this).hide();
-              } else {
+            } else {
               $(this).show();
-              temp=1;
+              temp = 1;
             }
           });
-          if(temp==0) {
+          if(temp == 0) {
             $(this).hide();
-            } else {
-               $(this).show();
-            }
+          } else {
+            $(this).show();
+          }
         });
-       $('html, body').animate({scrollTop: 0}, 500);
+
+        $('.calendar').each(function() {
+          visibleRooms = 0;
+          $(this).find('.room').each(function() {
+            flag = 1;
+            $(this).find('.session').each(function() {
+              if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                var name = $(this).find('.title-inline .blacktext').text();
+                if (name != trackName) {
+                  $(this).hide();
+                } else {
+                  $(this).show();
+                  flag = 0;
+                }
+              } else {
+                $(this).hide();
+              }
+            });
+            if (flag == 1) {
+              $(this).hide();
+            } else {
+              $(this).show();
+              visibleRooms++;
+            }
+          });
+
+          if (visibleRooms <= 6) {
+            let width = 100 / visibleRooms;
+            $(this).find('.room').css("width", width + '%');
+          } else {
+            $(this).find('.room').css("width", "160px");
+          }
+        });
+
+        noResult();
+        $('html, body').animate({scrollTop: 0}, 500);
       });
 
       $('#RoomClearFilter').click(function() {
@@ -337,7 +376,33 @@
              $(this).show();
           }
         });
-      $('html, body').animate({scrollTop: 0}, 500);
+
+        $('.calendar').each(function() {
+          $(this).find('.room').each(function() {
+            flag = 1;
+            if ($(this).find('.room-header').find('span').text() == roomName) {
+              $(this).find('.session').each(function() {
+                if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  flag = 0;
+                } else {
+                  $(this).hide();
+                }
+              });
+            }
+            if (flag == 1) {
+              $(this).hide();
+            } else {
+              $(this).show();
+              $(this).css("width", "100%");
+            }
+          });
+        });
+
+        noResult();
+        $('html, body').animate({scrollTop: 0}, 500);
       });
 
       $('.fossasia-filter').change(function() {
@@ -357,18 +422,18 @@
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                  var trackVal=$(this).find('.title-inline .blacktext').text();
-                  var roomVal=$(this).find('#location').text();
-                  if(mode && local_storage_events[id]!=1){
-                      $(this).hide();
-                  }else if(trackFilterMode && trackVal!=trackName) {
-                    $(this).hide();
-                  }else if(roomFilterMode&&roomVal!=roomName){
-                    $(this).hide();
-                  } else {
-                   flag = 0;
-                   $(this).show();
-                  }
+                var trackVal = $(this).find('.title-inline .blacktext').text();
+                var roomVal = $(this).find('#location').text();
+                if (mode && local_storage_events[id] != 1) {
+                  $(this).hide();
+                } else if (trackFilterMode && trackVal != trackName) {
+                  $(this).hide();
+                } else if (roomFilterMode && roomVal != roomName) {
+                  $(this).hide();
+                } else {
+                  flag = 0;
+                  $(this).show();
+                }
               } else {
                 $(this).hide();
               }
@@ -387,41 +452,46 @@
           }
         });
 
-        $('.calendar:visible').find('.room').each(function() {
-          flag = 1;
-          $(this).find('.session').each(function() {
-            if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-              $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-              $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-              $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-              $(this).show();
-              flag = 0;
-            } else {
+        $('.calendar').each(function() {
+          visibleRooms = 0;
+          $(this).find('.room').each(function() {
+            flag = 1;
+            $(this).find('.session').each(function() {
+              if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                var trackVal = $(this).find('.title-inline .blacktext').text();
+                var roomVal = $(this).find('.blacktext i').text();
+                if (trackFilterMode && trackVal != trackName) {
+                  $(this).hide();
+                } else if (roomFilterMode && roomVal != roomName) {
+                  $(this).hide();
+                } else {
+                  $(this).show();
+                  flag = 0;
+                }
+              } else {
+                $(this).hide();
+              }
+            });
+            if (flag == 1) {
               $(this).hide();
+            } else {
+              $(this).show();
+              visibleRooms++;
             }
           });
-          if (flag == 1) {
-            $(this).hide();
+
+          if (visibleRooms <= 6) {
+            let width = 100 / visibleRooms;
+            $(this).find('.room').css("width", width + '%');
           } else {
-            $(this).show();
-            visibleRooms++;
+            $(this).find('.room').css("width", "160px");
           }
         });
 
-        if (visibleRooms <= 6) {
-          let width = 100 / visibleRooms;
-          $('.calendar:visible').find('.room').css("width", width + '%');
-        } else {
-          $('.calendar:visible').find('.room').css("width", "160px");
-        }
-
-        var listFilterLength = $('.day-filter:visible').length;
-        if((isCalendarView && visibleRooms == 0) || (!isCalendarView && listFilterLength == 0)) {
-          $('#no-results').remove();
-          $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
-        } else {
-          $('#no-results').remove();
-        }
+        noResult();
       }).keyup(function() {
         $(this).change();
       });
@@ -527,7 +597,7 @@
         } else {
           viewsFilter('list', className);
         }
-
+        noResult();
       });
 
       $('#page-mode').click(function() {
@@ -627,14 +697,24 @@
           });
       });
 
-
+      function noResult() {
+        var listFilterLength = $('.day-filter:visible').length;
+        var calendarFilterLength = $('.room:visible').length;
+        if((isCalendarView && calendarFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
+          $('#no-results').remove();
+          $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+        } else {
+          $('#no-results').remove();
+        }
+      }
 
       function display() {
         var temp = JSON.parse(localStorage[eventName]);
         var filterVal;
+        var visibleRooms = 0;
         $('.fossasia-filter').each(function () {
           if ($(this).is(':visible')) {
-             filterVal = $(this).val();
+            filterVal = $(this).val();
           }
         });
 
@@ -643,36 +723,36 @@
           $(this).find('.time-filter').each(function() {
             var timeFlag = 0;
             $(this).find('.schedule-track').each(function() {
-              var filter=1;
-              if(trackFilterMode){
-                 var trackVal=$(this).find('.title-inline .blacktext').text();
-                 if(trackVal!=trackName){
-                     filter=0;
-                 }
-              } else if(roomFilterMode){
-                var roomVal=$(this).find('#location').text();
-                if(roomVal!=roomName){
-                        filter=0;
+              var filter = 1;
+              if (trackFilterMode) {
+                var trackVal = $(this).find('.title-inline .blacktext').text();
+                if (trackVal != trackName) {
+                  filter = 0;
+                }
+              } else if (roomFilterMode) {
+                var roomVal = $(this).find('#location').text();
+                if(roomVal != roomName){
+                  filter = 0;
                 }
               }
               var elemId = $(this).attr('id');
               var elemFlag = 0;
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0){
-                    if(temp[elemId] == 1 && filter) {
-                       elemFlag = 1;
-                       $(this).find('.bookmark').each(function() {
-                         $(this).addClass('starred');
-                       });
-                    }else if(!mode&&filter) {
-                        elemFlag=1;
-                    }
+                $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                if (temp[elemId] == 1 && filter) {
+                  elemFlag = 1;
+                  $(this).find('.bookmark').each(function() {
+                    $(this).addClass('starred');
+                  });
+                  } else if (!mode && filter) {
+                  elemFlag = 1;
+                }
               }
               if (elemFlag) {
-                timeFlag=1;
+                timeFlag = 1;
                 $(this).show();
               }
               else {
@@ -680,8 +760,8 @@
               }
             });
 
-            if(timeFlag) {
-              dayFlag=1;
+            if (timeFlag) {
+              dayFlag = 1;
               $(this).show();
             }
             else {
@@ -689,13 +769,46 @@
             }
           });
 
-          if(dayFlag) {
+          if (dayFlag) {
             $(this).show();
           }
           else {
             $(this).hide();
           }
         });
+
+        $('.calendar').each(function() {
+          visibleRooms = 0;
+          $(this).find('.room').each(function() {
+            var roomFlag = 1;
+            $(this).find('.session').each(function() {
+              if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                $(this).show();
+                roomFlag = 0;
+              } else {
+                $(this).hide();
+              }
+            });
+            if (roomFlag == 1)  {
+              $(this).hide();
+            } else {
+              $(this).show();
+              visibleRooms++;
+            }
+          });
+          if (visibleRooms <= 6) {
+            let width = 100 / visibleRooms;
+            $(this).find('.room').css("width", width + '%');
+          }
+          else {
+            $(this).find('.room').css("width", "160px");
+          }
+        });
+
+        noResult();
       }
 
       function initPage() {
