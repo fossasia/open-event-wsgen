@@ -1037,6 +1037,7 @@
       });
 
       $(".export-png").click(function() {
+        let fullScheduler = true;
         if (isCalendarView === true) {
           $('.calendar').each(function() {
             if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
@@ -1051,15 +1052,28 @@
           });
         } else {
           $('.day-filter').each(function() {
-            if ($(this).attr('class').split(' ').indexOf('hide') <= 0)
-              $timeline = $(this);
+            $('.day-filter').each(function() {
+              let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+              fullScheduler = hidePresent && fullScheduler;
+              if (hidePresent) {
+                $timeline = $(this);
+              }
+            });
+            if(fullScheduler) {
+              $timeline = $('.day-filter').parent();
+            }
           });
         }
         html2canvas($timeline, {
           onrendered: function(canvas) {
             canvas.id = "generated-canvas";
             canvas.toBlob(function(blob) {
-              saveAs(blob, '' + $timeline.attr('class') + '.png');
+              if(fullScheduler) {
+                saveAs(blob, '' + $timeline.attr('id') + '.png');
+              }
+              else{
+                saveAs(blob, '' + $timeline.attr('class') + '.png');
+              }
             });
           },
         });
