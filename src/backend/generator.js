@@ -165,14 +165,14 @@ exports.createDistDir = function(req, socket, callback) {
   const theme = req.body.theme || 'light' ;
   const mode = req.body.sessionMode;
   var type = req.body.apiVersion || 'api_v2';
-  
+
   if(type === 'api_v1') {
     fold = require(__dirname + '/fold_v1.js');
   }
   else {
     fold = require(__dirname + '/fold_v2.js');
   }
-  
+
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   let emit = false;
 
@@ -349,9 +349,11 @@ exports.createDistDir = function(req, socket, callback) {
 
               function checkLinks() {
 
-                function changeEventUrlLinks() {
-                  data.eventurls.logo_url = '../' + jsonData.eventurls.logo_url;
-                  data.eventurls.name = '../' + jsonData.eventurls.name;
+                function changeEventUrlLinks(eventUrlLogo, eventUrlName) {
+                  if(eventUrlLogo && eventUrlName) {
+                    data.eventurls.logo_url = '../' + eventUrlLogo;
+                    data.eventurls.name = '../' + eventUrlName;
+                  }
                 }
 
                 if(jsonData.tracks !== undefined)
@@ -367,7 +369,7 @@ exports.createDistDir = function(req, socket, callback) {
                 data.sociallinks = jsonData.sociallinks;
                 data.copyright = jsonData.copyright;
 
-                changeEventUrlLinks();
+                changeEventUrlLinks(jsonData.eventurls.logo_url, jsonData.eventurls.name);
               }
 
               jsonData.mode = mode;
