@@ -4,7 +4,7 @@
   "description": "Open Event Webapp",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "start": "node src/app.js",
     "test": "mocha",
     "coverage": "istanbul cover _mocha"
   },
