@@ -437,10 +437,10 @@ describe('generate', function () {
       });
 
     });
-    
+
     it('should generate the FOSSASIA Summit  2018 event', function (done) {
       var data = {};
-      
+
       data.body = {
         "email": 'a@a.com',
         "theme": 'light',
@@ -450,13 +450,13 @@ describe('generate', function () {
         "apiendpoint": 'https://eventyay.com/api/v1/events/275',
         "assetmode": 'download'
       };
-      
-      
+
+
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/FOSSASIASummit");
         done();
       });
-    
+
     });
 
     it('should copy all the static files', function (done) {
@@ -508,7 +508,7 @@ describe('generate', function () {
 describe("Running Selenium tests on Chrome Driver", function () {
   this.timeout(600000);
   var driver;
-  
+
   before(function () {
     if (process.env.SAUCE_USERNAME !== undefined) {
       driver = new webdriver.Builder()
@@ -644,8 +644,8 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
-    
+
+
     it('Checking the presence of Sponsors section', function (done) {
       eventPage.checkSponsorSection().then(function () {
         done();
@@ -653,7 +653,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking broken links in of Sponsors section', function (done) {
       eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount){
         assert.equal(brokenLinksCount, 0);
@@ -863,10 +863,20 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Checking the share link', function (done) {
       trackPage.checkSharableUrl().then(function (link) {
         assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking direct link for tracks filter', function(done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
+      trackPage.checkTrackFilterDirectLink().then(function (tracksArr){
+        assert.deepEqual(tracksArr, ["1002", "1101", "1102"]);
         done();
       }).catch(function (err) {
         done(err);
@@ -881,7 +891,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
       schedulePage.init(driver);
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
-    
+
     it('Test for working of download buttons', function (done) {
       schedulePage.getDownloadDropdown().then(function (boolArr) {
         assert.deepEqual(boolArr,[true,false]);
@@ -890,7 +900,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Test for font color of sessions', function (done) {
       schedulePage.getSessionElemsColor().then(function (colorArr) {
         assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
@@ -1043,6 +1053,27 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
+    it('Checking direct link for Rooms filter', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Balboa');
+      schedulePage.checkFilterDirectLink().then(function (roomsArr){
+        assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking direct link for Tracks filter', function(done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Meals%20w/%20Registered%20Guests');
+      schedulePage.refresh();
+      schedulePage.checkFilterDirectLink().then(function (TracksArr){
+        assert.deepEqual(TracksArr, ["1002", "1101", "1102"]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing rooms page', function () {
@@ -1168,6 +1199,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
+    it('Checking direct link for Rooms filter', function(done) {
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/rooms.html#Balboa');
+      roomPage.checkRoomFilterDirectLink().then(function (roomsArr){
+        assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing Speakers page', function () {
@@ -1222,13 +1263,13 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
   });
-  
+
   describe('Testing Session page', function () {
     before(function () {
       sessionPage.init(driver);
       sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
     });
-    
+
     it('Get the title of the session', function (done) {
       sessionPage.getSessionTitle().then(function (val) {
         assert.equal(val, 'IT All Hands (Session of 2 hours) | IT');
@@ -1237,7 +1278,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Check the background color of the title', function (done) {
       sessionPage.getSessionBackgroundColor().then(function (val) {
         assert.equal(val, 'rgba(88, 214, 141, 1)');
@@ -1246,7 +1287,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Get the speaker of the session', function (done) {
       sessionPage.getSpeakerName().then(function (val) {
         assert.equal(val, 'Alex Fridman');
@@ -1255,7 +1296,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Jump to tracks page', function (done) {
       sessionPage.jumpToTrack().then(function (val) {
         assert.equal(val, true);
@@ -1264,7 +1305,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Jump to speakers page', function (done) {
       sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
       sessionPage.jumpToSpeaker().then(function (val) {
@@ -1274,7 +1315,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
     it('Jump to rooms page', function (done) {
       sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
       sessionPage.jumpToRoom().then(function (val) {
@@ -1284,7 +1325,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
         done(err);
       });
     });
-    
+
   });
-  
+
 });
