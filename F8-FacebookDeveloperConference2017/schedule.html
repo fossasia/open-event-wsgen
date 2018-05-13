@@ -18,6 +18,7 @@
       var trackFilterMode=0;
       var roomFilterMode=0;
       var isCalendarView = false;
+      let url = window.location.href.split('#')[0];
       var $timeline;
       var numberOfChildElements;
       var widthOfChild;
@@ -220,6 +221,7 @@
         var visibleRooms = 0;
 
         var sidebarDiv = $('.side-collapse');
+        window.location.href = url + '#' + trackName;
         if (!sidebarDiv.hasClass('in'))
           sidebarDiv.addClass('in');
 
@@ -326,6 +328,7 @@
         var local_storage_events = JSON.parse(localStorage[eventName]);
 
         var sidebarDiv = $('.side-collapse');
+        window.location.href = url + '#' + roomName;
         if (!sidebarDiv.hasClass('in'))
            sidebarDiv.addClass('in');
 
