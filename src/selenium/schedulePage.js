@@ -75,5 +75,30 @@ SchedulePage.getDownloadDropdown = function() {
   return promise;
 };
 
+SchedulePage.checkFilterDirectLink = function() {
+  var self = this;
+  var roomTrackIdArr = [];
+
+  function pushId(roomTrackElem) {
+    roomTrackElem.getAttribute('id').then(function(id) {
+      roomTrackIdArr.push(id);
+    });
+  }
+
+  return new Promise(function(resolve) {
+    self.findAll(By.className('schedule-track')).then(function(roomTrackElems) {
+      roomTrackElems.forEach(function(roomTrackElem) {
+        roomTrackElem.isDisplayed().then(function(val) {
+          if(val === true) {
+            pushId(roomTrackElem);
+          }
+        });
+      });
+    }).then(function() {
+      resolve(roomTrackIdArr);
+    });
+  });
+};
+
 module.exports = SchedulePage;
 

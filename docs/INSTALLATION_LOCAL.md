@@ -6,6 +6,7 @@ First install the dependencies.
 
 ```shell
 npm install or npm install bcrypt
+npm install --save-dev
 ```
 if you get an error, then fix npm permissions globally. Then restart from step 1.
 refer this:"https://docs.npmjs.com/getting-started/fixing-npm-permissions"

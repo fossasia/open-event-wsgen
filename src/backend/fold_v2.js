@@ -115,10 +115,10 @@ function createTimeLine(startTime, endTime) {
 
 function checkWidth(columns) {
   if(columns * columnWidth > calendarWidth) {
-    return columnWidth;
+    return columnWidth + 'px';
   } else {
-    let whiteSpace = (calendarWidth - columns * columnWidth) / columns;
-    return columnWidth + whiteSpace;
+    let percentageWidth = 100 / columns;
+    return percentageWidth + '%';
   }
 }
 

@@ -193,4 +193,29 @@ TrackPage.filterCombination = function(filtersArr) {
   return serialPromise(filtersArrProm);
 };
 
+TrackPage.checkTrackFilterDirectLink = function() {
+  var self = this;
+  var trackIdArr = [];
+
+  function pushId(trackElem) {
+    trackElem.getAttribute('id').then(function(id) {
+      trackIdArr.push(id);
+    });
+  }
+
+  return new Promise(function(resolve) {
+    self.findAll(By.className('room-filter')).then(function(trackElems) {
+      trackElems.forEach(function(trackElem) {
+        trackElem.isDisplayed().then(function(val) {
+          if(val === true) {
+            pushId(trackElem);
+          }
+        });
+      });
+    }).then(function() {
+      resolve(trackIdArr);
+    });
+  });
+};
+
 module.exports = TrackPage;

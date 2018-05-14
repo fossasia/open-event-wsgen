@@ -137,6 +137,8 @@ a {
   background-color: $navbar-color;
   border-color: $gray-extra-light;
 
+  box-shadow: 0 0 8px 0 $navbar-shadow;
+
   .navbar-nav > li > a {
     color: $black;
     font-size: 11px;
@@ -581,7 +583,7 @@ a {
 .arrow {
   height: 10px;
   left: 6px;
-  margin-top: -9px;
+  margin-top: -8px;
   overflow: hidden;
   position: absolute;
   width: 25px;
@@ -612,6 +614,7 @@ a {
   background-color: $white;
   border: 1px solid $span-border-left;
   border-radius: 4px;
+  margin-top: 8px;
   height: auto;
   min-height: 255px;
   position: absolute;
@@ -1791,6 +1794,18 @@ a.skip:hover {
   background-color: $white;
 }
 
+.pop-out {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  overflow: scroll;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5000;
+}
+
 .calendar-content {
   display: block;
 }
@@ -1810,7 +1825,7 @@ a.skip:hover {
 .rooms {
   overflow: hidden;
   overflow-x : auto;
-  width: calc(100% - 80px);
+  width: calc(100% - 48px);
   display: inline-block;
   white-space: nowrap;
 }
@@ -1820,6 +1835,7 @@ a.skip:hover {
   white-space: initial;
   display: inline-block;
   position: relative;
+  min-width: 160px;
 }
 
 .room-filter {

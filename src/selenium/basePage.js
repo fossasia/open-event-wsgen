@@ -12,6 +12,10 @@ var BasePage = {
     return this.driver.get(url);
   },
 
+  refresh: function() {
+    return this.driver.navigate().refresh();
+  },
+
   find: function(locator, timeout) {
     var waitTime = timeout || 20000;
     this.driver.wait(until.elementLocated(locator, waitTime));

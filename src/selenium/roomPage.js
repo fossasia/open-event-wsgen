@@ -47,4 +47,29 @@ RoomPage.starredModeThenSearch = function() {
   return self.toggleStarredButton().then(self.search.bind(self, 'wel')).then(self.getElemsDisplayStatus.bind(null, promiseArr));
 };
 
+RoomPage.checkRoomFilterDirectLink = function() {
+  var self = this;
+  var roomIdArr = [];
+
+  function pushId(roomElement) {
+    roomElement.getAttribute('id').then(function(id) {
+      roomIdArr.push(id);
+    });
+  }
+
+  return new Promise(function(resolve) {
+    self.findAll(By.className('room-filter')).then(function(roomElems) {
+      roomElems.forEach(function(roomElem) {
+        roomElem.isDisplayed().then(function(val) {
+          if(val === true) {
+            pushId(roomElem);
+          }
+        });
+      });
+    }).then(function() {
+      resolve(roomIdArr);
+    });
+  });
+};
+
 module.exports = RoomPage;
