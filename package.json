@@ -4,10 +4,13 @@
   "description": "Open Event Webapp",
   "main": "index.js",
   "scripts": {
-    "server.generator": "node src/app.js",
-    "start": "npm run server.generator",
+    "start": "node src/app.js",
     "test": "mocha",
     "coverage": "istanbul cover _mocha"
+  },
+  "nodemonConfig": {
+    "ignore": ["build/*", "dist/*"],
+    "delay": "1500"
   },
   "repository": {
     "type": "git",
@@ -72,6 +75,7 @@
     "url-join": "^2.0.2"
   },
   "devDependencies": {
-    "connect-domain": "^0.5.0"
+    "connect-domain": "^0.5.0",
+    "nodemon": "^1.17.3"
   }
 }

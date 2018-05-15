@@ -137,6 +137,8 @@ a {
   background-color: $navbar-color;
   border-color: $gray-extra-light;
 
+  box-shadow: 0 0 8px 0 $navbar-shadow;
+
   .navbar-nav > li > a {
     color: $black;
     font-size: 11px;

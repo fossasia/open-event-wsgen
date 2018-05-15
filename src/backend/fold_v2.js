@@ -486,7 +486,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     location: event['location-name'],
     latitude: event.latitude,
     longitude: event.longitude,
-    register: event.ticket_url,
+    register: event['ticket-url'],
     twitterLink: twitterLink,
     tweetUrl: sociallink,
     email: event.email,
