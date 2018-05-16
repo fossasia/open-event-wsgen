@@ -67,6 +67,35 @@
           </span>
         </div>
         <div class = "col-md-4 col-sm-12 col-xs-12 navbar-flex">
+          <span class="dropdown tracks-rooms-filter dropdown-list">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
+            <ul class="dropdown-menu list-menu">
+              <li class="dropdown-submenu">
+                 <a href="#"><h4>Tracks List <span class="caret"></span></h4></a>
+                 <ul class="dropdown-menu dropdown-inner">
+                   {{#tracknames}}
+                   {{#if title}}
+                     <li class="mobile-track-room-info">
+                       <span style="background-color: {{color}};" class="titlecolor"></span>
+                       <span class="track-name">{{title}}</span>
+                     </li>
+                   {{/if}}
+                  {{/tracknames}}
+                </ul>
+               </li>
+                <li class="dropdown-submenu">
+                  <a href="#"><h4>Rooms List <span class="caret"></span></h4></a>
+                  <ul class="dropdown-menu dropdown-inner">
+                     {{#each roomsnames}}
+                      <li class="mobile-track-room-info">
+                        <span style="background-color: #777;" class="titlecolor"></span>
+                        <span class="room-name">{{this}}</span>
+                      </li>
+                     {{/each}}
+                  </ul>
+                </li>
+            </ul>
+          </span>
           <div class="search-filter search-filter-room filter-margin">
                <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
                <input class="fossasia-filter" type="text" placeholder="Search">
@@ -257,7 +286,7 @@
               {{/days}}
             </div>
           </div>
-            <div class="track-room-names col-md-3 col-sm-3">
+            <div class="track-room-names col-md-3 col-sm-3 sidebar">
               <div class="row">
                 <div class="col-md-12 col-sm-12">
                   <h4 class='list-title'> Tracks List </h4>
@@ -450,6 +479,15 @@
       };
 
       $(document).ready(function () {
+
+        $('.dropdown-submenu a').on("click", function(e){
+          $(this).next('ul').toggle();
+          var spanDisplay = $(this).next('ul').is(':visible') ? 'inline-flex' : 'none';
+          $(this).find('span').css('display', spanDisplay);
+          $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+          $(this).parent().siblings().eq(0).children('a').find('span').hide();
+          e.stopPropagation();
+        });
 
         $('.session-lin').click(function (e) {
           e.stopPropagation();

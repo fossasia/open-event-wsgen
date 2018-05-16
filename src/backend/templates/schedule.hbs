@@ -84,6 +84,35 @@
             <li> <a href="#" class="export-pdf"> Download as pdf </a> </li>
           </ul>
         </span>
+        <span class="dropdown filter dropdown-list">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
+          <ul class="dropdown-menu list-menu">
+              <li class="dropdown-submenu">
+                <a href="#"><h4>Rooms List <span class="caret"></span></h4></a>
+                <ul class="dropdown-menu dropdown-inner">
+                   {{#each roomsnames}}
+                    <li class="mobile-track-room-info">
+                      <span style="background-color: #777;" class="titlecolor"></span>
+                      <span class="room-name">{{this}}</span>
+                    </li>
+                   {{/each}}
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                 <a href="#"><h4>Tracks List <span class="caret"></span></h4></a>
+                 <ul class="dropdown-menu dropdown-inner">
+                   {{#tracknames}}
+                   {{#if title}}
+                     <li class="mobile-track-room-info">
+                       <span style="background-color: {{color}};" class="titlecolor"></span>
+                       <span class="track-name">{{title}}</span>
+                     </li>
+                   {{/if}}
+                  {{/tracknames}}
+                </ul>
+               </li>
+          </ul>
+        </span>
         <span class="search-filter search-filter-schedule">
          <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
          <input class="fossasia-filter" type="text" placeholder="Search">
@@ -274,8 +303,8 @@
                     </div>
                     <div>
                       {{#sessions}}
-                        <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
-                          color: {{{font_color}}};">
+                        <div class="session" style ="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
+                          color:{{{font_color}}};">
                         <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
@@ -610,6 +639,15 @@
 
       $('.export-schedule').click(function() {
         exportICS();
+      });
+
+      $('.dropdown-submenu a').on("click", function(e){
+        $(this).next('ul').toggle();
+        var spanDisplay = $(this).next('ul').is(':visible') ? 'inline-flex' : 'none';
+        $(this).find('span').css('display', spanDisplay);
+        $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+        $(this).parent().siblings().eq(0).children('a').find('span').hide();
+        e.stopPropagation();
       });
 
       $('.session-lin').click(function() {
