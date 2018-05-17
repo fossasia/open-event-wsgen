@@ -318,6 +318,13 @@
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
+          let link = window.location.href;
+          let url = link.toString();
+          let infoFilter = $('#filterInfo');
+          let currentFilter =   $('#curFilter');
+          let trackFilterInfo = $('.track-filter-info');
+          let roomFilterInfo = $('.room-filter-info');
+          let currentTrackFilter = $('#TrackCurFilter');
 
           if (!sidebarDiv.hasClass('in')) {
             sidebarDiv.addClass('in');
@@ -329,6 +336,8 @@
             return;
           }
           roomFilterMode = 1;
+          trackFilterMode = 0;
+          isTrack = true;
 
           $('.fossasia-filter').each(function () {
             if ($(this).is(':visible')) {
@@ -336,8 +345,8 @@
             }
           });
 
-          $('#filterInfo').show();
-          $('#curFilter').text(roomName);
+          infoFilter.show();
+          currentFilter.text(roomName);
 
           $('.date-filter').each(function () {
             var flag = 0;
@@ -379,11 +388,71 @@
 
             if (flag) {
               $(this).show();
+              isTrack = false;
             } else {
               $(this).hide();
             }
           });
           $('html, body').animate({scrollTop: 0}, 500);
+
+          if(isTrack === true){
+            trackName = decodeURIComponent(url.split('#')[1]);
+            roomFilterMode = 0;
+            trackFilterMode = 1;
+
+            $('.fossasia-filter').each(function() {
+              if($(this).is(':visible')) {
+                filterVal = $(this).val();
+              }
+            });
+
+            trackFilterInfo.show();
+            roomFilterInfo.hide();
+            currentTrackFilter.text(trackName);
+
+            $('.date-filter').each(function() {
+              var flag = 0;
+              $(this).find('.venue-filter').each(function() {
+                var venueFlag = 0;
+                $(this).find('.room-filter').each(function() {
+                  var name=$(this).find('.title-inline .blacktext').text();
+                  if(name!=trackName) {
+                    $(this).hide();
+                    return;
+                  }
+                  var id = $(this).attr('id');
+                  var elemFlag = 0;
+                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                        elemFlag = 1;
+                        if(mode && temp[id] != 1) {
+                          elemFlag = 0;
+                        }
+                  }
+                  if(elemFlag == 1) {
+                    flag = 1;
+                    venueFlag = 1;
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+                if(venueFlag) {
+                  $(this).show();
+                } else {
+                  $(this).hide();
+                }
+              });
+              if(flag) {
+                $(this).show();
+              } else {
+                $(this).hide();
+              }
+            });
+            $('html, body').animate({scrollTop: 0}, 500);
+          }
         }
       };
 
@@ -525,6 +594,7 @@
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
 
           if (!sidebarDiv.hasClass('in')) {
             sidebarDiv.addClass('in');
@@ -533,6 +603,7 @@
           roomName = $(this).text();
           roomFilterMode = 1;
           trackFilterMode = 0;
+          window.location.href = url + '#' + roomName;
 
           $('.fossasia-filter').each(function() {
             if($(this).is(':visible')) {
@@ -598,6 +669,7 @@
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
 
           if (!sidebarDiv.hasClass('in')) {
              sidebarDiv.addClass('in');
@@ -606,6 +678,7 @@
           trackName = $(this).text();
           roomFilterMode = 0;
           trackFilterMode = 1;
+          window.location.href = url + '#' + trackName;
 
           $('.fossasia-filter').each(function() {
             if($(this).is(':visible')) {
