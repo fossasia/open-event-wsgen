@@ -2181,6 +2181,8 @@ a.skip:hover {
   overflow-y: auto;
 }
 
+// Filters for mobile view
+
 .dropdown-submenu a h4 span {
   display: none;
 }
@@ -2197,7 +2199,7 @@ a.skip:hover {
 }
 
 @media only screen and (max-width:989px) {
-  .sidebar{
+  .sidebar {
     display: none;
   }
 
@@ -2227,10 +2229,33 @@ a.skip:hover {
   .dropdown-submenu {
     position: static;
   }
+
+  .dropdown-inner {
+    // Some track/room names can be quite long.  Expand the submenu for them.
+    min-width: 300px;
+
+    > li {
+      // If the track/room name needs to wrap, it should wrap in its own box, not below the coloured dot
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+
+      // Override the line-height we have inherited from .date-list
+      line-height: 1.5em;
+      // But allow some spacing between entries
+      padding: 2px 0;
+
+      .titlecolor {
+        // Do not let the dot lose its shape from being shrunk
+        flex: 0 0 auto;
+        // Ensure a gap between the dot and the track/room name
+        margin-right: 8px;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width:990px) {
-
   .sidebar {
     display: inline-flex;
   }
