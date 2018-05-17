@@ -2177,6 +2177,10 @@ a.skip:hover {
   display: block;
 }
 
+.session-speakers-list {
+  overflow-y: auto;
+}
+
 .dropdown-submenu a h4 span {
   display: none;
 }

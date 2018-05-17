@@ -272,16 +272,11 @@
       <div class="col-md-12 calendar-view hide">
         <div id="track-list" class="container">
         {{#roomsinfo}}
-          {{#if @first}}
             <div class="{{slug}} calendar">
-            {{else}}
-            <div class="{{slug}} calendar hide">
-          {{/if}}
-            <div class="col-md-12 paddingzero">
-              <a class="anchor" id="{{slug}}"></a>
-              <button class = "btn btn-default pull-right pop-button" ><i class="fa fa-expand" aria-hidden="true"></i></button>
-              <h5 class="text">{{date}}</h5>
-            </div>
+              <div class="col-md-12 paddingzero">
+                <a class="anchor" id="{{slug}}"></a>
+                <h5 class="text">{{date}}</h5>
+              </div>
               <div class="calendar-content">
                 <div class="times">
                   <div class="time" style="height: {{{timeToPixel}}}px">
@@ -325,7 +320,7 @@
                                <div class="pop-over row">
                                  <hr>
                                  <h4 class="text"><strong>Speakers</strong></h4>
-                                 <div class="session-speakers-list">
+                                 <div class="session-speakers-list" style="height: {{{height}}}px;">
                                  {{#speakers_list}}
                                    <a href="speakers.html#{{nameIdSlug}}">
                                      <div class="session-speakers-less">
@@ -1153,12 +1148,13 @@
                   $timeline = $('.day-filter').parent();
               }
           }
-              let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
-              if (scheduleDate) {
-                  scheduleDate=scheduleDate[0];
-              } else {
-                  scheduleDate ="Schedule";
-              }
+
+          let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
+          if (scheduleDate) {
+              scheduleDate=scheduleDate[0];
+          } else {
+              scheduleDate ="Schedule";
+          }
           pdf.addHTML($timeline, 0, 0, options, function(){
               pdf.save(scheduleDate + ".pdf");
           });
@@ -1169,7 +1165,7 @@
         var calendarFilterLength = $('.room:visible').length;
         if((isCalendarView && calendarFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
           $('#no-results').remove();
-          $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+          $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold' id='no-results'>No matching results found.</p>");
         } else {
           $('#no-results').remove();
         }
