@@ -52,7 +52,7 @@ function returnTrackFontColor(trackInfo, id) {
 }
 
 function checkNullHtml(html) {
-  if(html === undefined) {
+  if(html === undefined || html === null) {
     return true;
   }
 
@@ -203,7 +203,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       sign_up: session['signup-url'],
-      video: session['video-url'],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
       slides: session['slides-url'],
       audio: session['audio-url']
 
@@ -211,27 +211,34 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
 
     if (reqOpts.assetmode === 'download') {
       const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
-      if ((session['audio-url'] !== null) && (session['audio-url'] !== '') ) {
-        if(session['audio-url'].substring(0, 4) === 'http'){
-          distHelper.downloadAudio(appFolder, session['audio-url'], function(audio){
+      if (((session['audio-url'] !== null) && (session['audio-url'] !== '')) ) {
+        if (session['audio-url'].substring(0, 4) === 'http') {
+          distHelper.downloadAudio(appFolder, session['audio-url'], function (audio) {
             track.sessions.audio = encodeURI(audio);
-            callback();
           });
         }
         else if (reqOpts.datasource === 'eventapi') {
-          distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint,'/', session['audio-url']), function(audio){
+          distHelper.downloadAudio(appFolder, urljoin(reqOpts.apiendpoint, '/', session['audio-url']), function (audio) {
             track.sessions.audio = encodeURI(audio);
-            callback();
           });
         }
-        else {
+      }
+
+      if(((session['video-url'] !== null) && (session['video-url'] !== ''))) {
+        if (session['video-url'].substring(0, 32) === 'https://www.youtube.com/watch?v=') {
+          track.sessions.video = session['video-url'].split('=')[1];
           callback();
         }
+        else{
+            callback();
+        }
       }
+
       else {
         callback();
       }
     }
+
     else {
       callback();
     }
@@ -304,7 +311,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       sign_up: session['signup-url'],
-      video: session['video-url'],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
       slides: session['slides-url'],
       audio: session['audio-url'],
       sessiondate: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
@@ -778,6 +785,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       audio:session['audio-url'],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr['photo-url']){
