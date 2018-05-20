@@ -67,6 +67,10 @@
                     <source src="{{ audio }}">
                   </audio>
                 {{/if}}
+                {{#if slides}}
+                  <iframe id = "slide" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src={{slides}}">
+                  </iframe>
+                {{/if}}
                 {{#if video}}
                   <iframe id = "video" class = "video-iframe col-xs-12 col-sm-12 col-md-12"  src="https://www.youtube.com/embed/{{video}}">
                   </iframe>

@@ -120,7 +120,7 @@
 
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="schedule-track" id="{{session_id}}" onclick = "loadVideo('{{session_id}}', '{{video}}')">
+                <div class="schedule-track" id="{{session_id}}" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
@@ -134,17 +134,22 @@
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                       {{/if}}
+                        <div class = "features">
+                          {{#if slides}}
+                              <i class="fa fa-file-powerpoint-o slides" aria-hidden="true"></i>
+                          {{/if}}
+                          {{#if audio}}
+                            <i class="fa fa-music" aria-hidden="true"></i>
+                          {{/if}}
+                          {{#if video}}
+                            <i class="fa fa-video-camera video" aria-hidden="true"></i>
+                          {{/if}}
+                          <a class = "bookmark" id = "c{{session_id}}" >
+                            <i class="fa fa-star" aria-hidden="true">
+                            </i>
+                          </a>
+                        </div>
                         {{title}}
-                        {{#if audio}}
-                          <i class="fa fa-music" aria-hidden="true"></i>
-                        {{/if}}
-                        {{#if video}}
-                          <i class="fa fa-video-camera video" aria-hidden="true"></i>
-                        {{/if}}
-                        <a class = "bookmark" id = "c{{session_id}}" >
-                          <i class="fa fa-star" aria-hidden="true">
-                          </i>
-                        </a>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}
@@ -1255,14 +1260,23 @@
       initPage();
     });
 
-    function loadVideo(div, videoURL){
+    function loadVideoAndSlides(div, videoURL, slideURL){
       if(videoURL !== null && videoURL !== '') {
         let isVideoDisplayed = $('#desc-' + div).hasClass('in');
         if (!isVideoDisplayed) {
-          $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+          $('#desc-' + div).children('div').prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>');
         }
         else {
-          $('#' + videoURL).remove();
+          $('#video-' + div).remove();
+        }
+      }
+      if(slideURL !== null && slideURL !== '') {
+        let isSlideDisplayed = $('#desc-' + div).hasClass('in');
+        if (!isSlideDisplayed) {
+          $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
+        }
+        else {
+          $('#slide-' + div).remove();
         }
       }
     }

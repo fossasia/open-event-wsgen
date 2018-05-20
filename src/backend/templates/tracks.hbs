@@ -127,19 +127,24 @@
                             {{#if ../../../mode}}
                               <div class="sizeevent event event-title" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};">
                             {{else}}
-                              <div class="sizeevent event event-title" onclick = "loadVideo('{{session_id}}', '{{video}}')" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}} ">
+                              <div class="sizeevent event event-title" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}} ">
                             {{/if}}
-                              <div class="margin-down-15">{{title}}</div>
-                              <a class="bookmark" id="b{{session_id}}">
-                                <i class="fa fa-star" aria-hidden="true">
-                                </i>
-                              </a>
-                              {{#if audio}}
-                                <i class="fa fa-music" aria-hidden="true"></i>
-                              {{/if}}
-                              {{#if video}}
+                              <div class = "features">
+                                {{#if slides}}
+                                  <i class="fa fa-file-powerpoint-o slides" aria-hidden="true"></i>
+                                {{/if}}
+                                {{#if audio}}
+                                  <i class="fa fa-music" aria-hidden="true"></i>
+                                {{/if}}
+                                {{#if video}}
                                   <i class="fa fa-video-camera video" aria-hidden="true"></i>
-                              {{/if}}
+                                {{/if}}
+                                <a class = "bookmark" id = "c{{session_id}}" >
+                                  <i class="fa fa-star" aria-hidden="true">
+                                  </i>
+                                </a>
+                              </div>
+                              <div class="margin-down-15">{{title}}</div>
                               <div id="desc2-{{session_id}}" class="collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
                                 <div class="row">
@@ -829,14 +834,24 @@
         initPage();
       });
 
-      function loadVideo(div, videoURL){
+      function loadVideoAndSlides(div, videoURL, slideURL){
         if(videoURL !== null && videoURL !== '') {
           let isVideoDisplayed = $('#desc-' + div).hasClass('in');
           if (!isVideoDisplayed) {
-            $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+            $('#desc-' + div).children('div').prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>');
           }
           else {
-            $('#' + videoURL).remove();
+            $('#video-' + div).remove();
+          }
+        }
+
+        if(slideURL !== null && slideURL !== '') {
+          let isSlideDisplayed = $('#desc-' + div).hasClass('in');
+          if (!isSlideDisplayed) {
+            $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
+          }
+          else {
+            $('#slide-' + div).remove();
           }
         }
       }
