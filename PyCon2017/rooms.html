@@ -549,4 +549,16 @@
           });
         }
         initPage();
-      });</script></body></html>
+      });
+
+      function loadVideo(div, videoURL){
+        if(videoURL !== null && videoURL !== '') {
+          let isVideoDisplayed = $('#desc-' + div).hasClass('in');
+          if (!isVideoDisplayed) {
+            $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" width="420" height="345" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+          }
+          else {
+            $('#' + videoURL).remove();
+          }
+        }
+      }</script></body></html>
