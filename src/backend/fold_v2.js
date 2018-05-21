@@ -52,7 +52,7 @@ function returnTrackFontColor(trackInfo, id) {
 }
 
 function checkNullHtml(html) {
-  if(html === undefined) {
+  if(html === undefined || html === null) {
     return true;
   }
 
