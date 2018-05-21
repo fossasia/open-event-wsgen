@@ -120,7 +120,7 @@
 
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="schedule-track" id="{{session_id}}">
+                <div class="schedule-track" id="{{session_id}}" onclick = "loadVideo('{{session_id}}', '{{video}}')">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
@@ -137,6 +137,9 @@
                         {{title}}
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true"></i>
+                        {{/if}}
+                        {{#if video}}
+                          <i class="fa fa-video-camera video" aria-hidden="true"></i>
                         {{/if}}
                         <a class = "bookmark" id = "c{{session_id}}" >
                           <i class="fa fa-star" aria-hidden="true">
@@ -291,7 +294,7 @@
                                <div class="pop-over row">
                                  <hr>
                                  <h4 class="text"><strong>Speakers</strong></h4>
-                                 <div class="session-speakers-list">
+                                 <div class="session-speakers-list" style="height: {{{height}}}px;">
                                  {{#speakers_list}}
                                    <a href="speakers.html#{{nameIdSlug}}">
                                      <div class="session-speakers-less">
@@ -907,6 +910,7 @@
       });
 
       $('.bookmark').click(function(event){
+        event.stopPropagation();
         var temp = JSON.parse(localStorage[eventName] || '{}');
         var id = ($(this).attr('id').substr(1));
         flag = 1;
@@ -944,7 +948,8 @@
           }
         }
       });
-      $('#starred').click(function(){
+      $('#starred').click(function(event){
+          event.stopPropagation();
           mode = !mode;
           if(!mode) {
               $(this).css("color", "black");
@@ -1251,6 +1256,19 @@
       }
       initPage();
     });
+
+    function loadVideo(div, videoURL){
+      if(videoURL !== null && videoURL !== '') {
+        let isVideoDisplayed = $('#desc-' + div).hasClass('in');
+        if (!isVideoDisplayed) {
+          $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" width="420" height="345" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+        }
+        else {
+          $('#' + videoURL).remove();
+        }
+      }
+    }
+
   </script>
 </body>
 </html>

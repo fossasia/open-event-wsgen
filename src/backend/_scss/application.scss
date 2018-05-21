@@ -2177,3 +2177,15 @@ a.skip:hover {
   display: block;
 }
 
+.session-speakers-list {
+  overflow-y: auto;
+}
+
+.video {
+  @include cursorpointer;
+  padding: 5px;
+  position: absolute;
+  right: 23px;
+  top: 1px;
+  color: $black;
+}
