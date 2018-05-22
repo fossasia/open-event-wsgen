@@ -224,6 +224,12 @@ a {
   }
 }
 
+@media (min-width: 600px) {
+  .video-iframe {
+    height: 370px;
+  }
+}
+
 @media (min-width: 768px) {
   #day-menu {
     .dropdown-menu {
