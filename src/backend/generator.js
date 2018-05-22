@@ -246,7 +246,9 @@ exports.createDistDir = function(req, socket, callback) {
               console.log(err);
               done(err);
             }
-            done(null, 'copyUploads');
+            else {
+              done(null, 'copyUploads');
+            }
           });
           break;
         case 'eventapi':
