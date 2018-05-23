@@ -132,15 +132,19 @@
                                   {{#if audio}}
                                     <i class="fa fa-music" aria-hidden="true"></i>
                                   {{/if}}
-                                  {{#if video}}
-                                    <i class="fa fa-video-camera video" aria-hidden="true"></i>
-                                  {{/if}}
                                   <a class = "bookmark" id = "c{{session_id}}" >
                                       <i class="fa fa-star" aria-hidden="true">
                                       </i>
                                   </a>
                                 </div>
-                                <div class="margin-down-15">{{title}}</div>
+                                <div class="margin-down-15">{{title}}
+                                  {{#if video}}
+                                    <span id="stack" class="fa-stack ">
+                                      <i class="fa fa-video-camera video fa-stack-2x"></i>
+                                      <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
+                                    </span>
+                                  {{/if}}
+                                </div>
                                 <div id="desc2-{{session_id}}" class="collapse in"
                                   style="background-color:{{{color}}}; color: {{{font_color}}};">
                                   <div class="row">
@@ -849,20 +853,28 @@
       });
 
       function loadVideoAndSlides(div, videoURL, slideURL){
+        let descriptionDiv = $('#desc-' + div);
+
         if(videoURL !== null && videoURL !== '') {
-          let isVideoDisplayed = $('#desc-' + div).hasClass('in');
+          let isVideoDisplayed = descriptionDiv.hasClass('in');
+          let faviconDiv = $('#v' + div);
+
           if (!isVideoDisplayed) {
-            $('#desc-' + div).children('div').prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+            faviconDiv.css('display', 'block');
+            faviconDiv.addClass('blink');
+            descriptionDiv.children('div').prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>')
           }
           else {
+            faviconDiv.css('display', 'none');
+            faviconDiv.removeClass('blink');
             $('#video-' + div).remove();
           }
         }
 
         if(slideURL !== null && slideURL !== '') {
-          let isSlideDisplayed = $('#desc-' + div).hasClass('in');
+          let isSlideDisplayed = descriptionDiv.hasClass('in');
           if (!isSlideDisplayed) {
-            $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
+            descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
           }
           else {
             $('#slide-' + div).remove();
