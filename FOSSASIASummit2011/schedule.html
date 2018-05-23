@@ -500,7 +500,6 @@
       });
 
       $('.bookmark').click(function(event){
-        event.stopPropagation();
         var temp = JSON.parse(localStorage[eventName] || '{}');
         var id = ($(this).attr('id').substr(1));
         flag = 1;
@@ -516,12 +515,12 @@
           isAdded = 1;
         }
         localStorage[eventName] = JSON.stringify(temp);
+        event.stopPropagation();
         display();
       });
 
       $('.schedule-track').click(function(event){
         if(flag) {
-          event.stopPropagation();
           if(mode && !isAdded) {
             $(this).hide();
             isAdded = 0;
@@ -539,7 +538,6 @@
         }
       });
       $('#starred').click(function(event){
-          event.stopPropagation();
           mode = !mode;
           if(!mode) {
               $(this).css("color", "black");
@@ -851,7 +849,7 @@
       if(videoURL !== null && videoURL !== '') {
         let isVideoDisplayed = $('#desc-' + div).hasClass('in');
         if (!isVideoDisplayed) {
-          $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" width="420" height="345" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+          $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
         }
         else {
           $('#' + videoURL).remove();
