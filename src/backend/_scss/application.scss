@@ -224,6 +224,12 @@ a {
   }
 }
 
+@media (min-width: 600px) {
+  .video-iframe {
+    height: 370px;
+  }
+}
+
 @media (min-width: 768px) {
   #day-menu {
     .dropdown-menu {
@@ -2179,6 +2185,15 @@ a.skip:hover {
 
 .session-speakers-list {
   overflow-y: auto;
+}
+
+.video {
+  @include cursorpointer;
+  padding: 5px;
+  position: absolute;
+  right: 23px;
+  top: 1px;
+  color: $black;
 }
 
 // Filters for mobile view

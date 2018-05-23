@@ -149,7 +149,7 @@
 
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="schedule-track" id="{{session_id}}">
+                <div class="schedule-track" id="{{session_id}}" onclick = "loadVideo('{{session_id}}', '{{video}}')">
                   <a class="anchor" id="s-{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
@@ -166,6 +166,9 @@
                         {{title}}
                         {{#if audio}}
                           <i class="fa fa-music" aria-hidden="true"></i>
+                        {{/if}}
+                        {{#if video}}
+                          <i class="fa fa-video-camera video" aria-hidden="true"></i>
                         {{/if}}
                         <a class = "bookmark" id = "c{{session_id}}" >
                           <i class="fa fa-star" aria-hidden="true">
@@ -961,12 +964,12 @@
           isAdded = 1;
         }
         localStorage[eventName] = JSON.stringify(temp);
+        event.stopPropagation();
         display();
       });
 
       $('.schedule-track').click(function(event){
         if(flag) {
-          event.stopPropagation();
           if(mode && !isAdded) {
             $(this).hide();
             isAdded = 0;
@@ -983,7 +986,7 @@
           }
         }
       });
-      $('#starred').click(function(){
+      $('#starred').click(function(event){
           mode = !mode;
           if(!mode) {
               $(this).css("color", "black");
@@ -1290,6 +1293,19 @@
       }
       initPage();
     });
+
+    function loadVideo(div, videoURL){
+      if(videoURL !== null && videoURL !== '') {
+        let isVideoDisplayed = $('#desc-' + div).hasClass('in');
+        if (!isVideoDisplayed) {
+          $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+        }
+        else {
+          $('#' + videoURL).remove();
+        }
+      }
+    }
+
   </script>
 </body>
 </html>

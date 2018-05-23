@@ -11,22 +11,14 @@ const async = require('async');
 const config = require('../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 
-var fold = require('../src/backend/fold_v2.js');
-var generator = require('../src/backend/generator.js');
-var dist = require('../src/backend/dist.js');
-var app = require('../src/app');
-var webdriver = require('selenium-webdriver');
-var generatorPage = require('../src/selenium/generatorPage');
-var eventPage = require('../src/selenium/eventPage.js');
-var trackPage = require('../src/selenium/trackPage.js');
-var schedulePage = require('../src/selenium/schedulePage.js');
-var roomPage = require('../src/selenium/roomPage.js');
-var speakerPage = require('../src/selenium/speakerPage.js');
-var sessionPage = require('../src/selenium/sessionPage.js');
-var fs = require('fs');
+let fold = require('../src/backend/fold_v2.js');
+let generator = require('../src/backend/generator.js');
+let dist = require('../src/backend/dist.js');
+let app = require('../src/app');
+let fs = require('fs');
 
 
-var data = {
+let data = {
   event: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/event'},
   speakers: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/speakers'},
   sessions: {endpoint: 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016/sessions'},
@@ -79,7 +71,7 @@ describe('fold', function () {
   });
   describe('.createSocialLinks()', () => {
     it('should return array of social links of event', () => {
-      var socialLinks = fold.createSocialLinks(data.event.json);
+      let socialLinks = fold.createSocialLinks(data.event.json);
       assert.equal(socialLinks[0].icon, 'twitter');
       assert.equal(socialLinks[1].icon, 'github');
       assert.equal(socialLinks[2].icon, 'facebook');
@@ -169,7 +161,7 @@ describe('generate', function () {
     this.timeout(800000);
 
     it('should generate the Facebook Developer Conference Hands', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -187,7 +179,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit 2017', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -205,7 +197,7 @@ describe('generate', function () {
     });
 
     it('should generate the Mozilla All Hands 2017', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -224,7 +216,7 @@ describe('generate', function () {
     });
 
     it('should generate the OSCON 2017', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -242,7 +234,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit 2016 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -260,7 +252,7 @@ describe('generate', function () {
     });
 
     it('should generate the Open Tech Summit site', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -278,7 +270,7 @@ describe('generate', function () {
     });
 
     it('should generate the Open Tech Summit site', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -296,7 +288,7 @@ describe('generate', function () {
     });
 
     it('should generate the GoogleIO 17 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -314,7 +306,7 @@ describe('generate', function () {
     });
 
     it('should generate the Droidcon 17 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -332,7 +324,7 @@ describe('generate', function () {
     });
 
     it('should generate the PyCon 17 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -351,7 +343,7 @@ describe('generate', function () {
     });
 
     it('should generate the RedHat Summit 2017 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -368,7 +360,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit 2014 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -385,7 +377,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit 2011 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -403,7 +395,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit 2010 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -421,7 +413,7 @@ describe('generate', function () {
     });
 
     it('should generate the Mozilla All Hands 2016 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": "a@a.com",
@@ -439,7 +431,7 @@ describe('generate', function () {
     });
 
     it('should generate the FOSSASIA Summit  2018 event', function (done) {
-      var data = {};
+      let data = {};
 
       data.body = {
         "email": 'a@a.com',
@@ -460,9 +452,9 @@ describe('generate', function () {
     });
 
     it('should copy all the static files', function (done) {
-      var staticPath = __dirname + '/../src/backend/overviewSite/';
-      var totalFiles = 16;
-      var counter = 0;
+      let staticPath = __dirname + '/../src/backend/overviewSite/';
+      let totalFiles = 16;
+      let counter = 0;
 
       function copyStatic(fileName) {
         fs.readFile(staticPath + fileName, function (err, data) {
@@ -503,829 +495,4 @@ describe('generate', function () {
     });
 
   });
-});
-
-describe("Running Selenium tests on Chrome Driver", function () {
-  this.timeout(600000);
-  var driver;
-
-  before(function () {
-    if (process.env.SAUCE_USERNAME !== undefined) {
-      driver = new webdriver.Builder()
-        .usingServer('http://' + process.env.SAUCE_USERNAME + ':' + process.env.SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub')
-        .withCapabilities({
-          'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-          build: process.env.TRAVIS_BUILD_NUMBER,
-          username: process.env.SAUCE_USERNAME,
-          accessKey: process.env.SAUCE_ACCESS_KEY,
-          browserName: "chrome",
-          'chromeOptions': {
-            prefs: {
-                    'downloads': {
-                      'prompt_for_download': false
-                    }
-                }
-            }
-        }).build();
-    } else {
-      driver = new webdriver.Builder()
-        .withCapabilities({
-          browserName: "chrome",
-          'chromeOptions': {
-            prefs: {
-              'downloads': {
-                'prompt_for_download': false
-              }
-            }
-          }
-        }).build();
-    }
-  });
-
-  after(function () {
-    return driver.quit();
-  });
-
-
-  describe('Testing generator page', function () {
-
-    before(function () {
-      generatorPage.init(driver);
-      generatorPage.visit('http://localhost:5000');
-    });
-
-    it('Checking for jsonUpload input section', function (done) {
-      generatorPage.checkJsonInput().then(function (val) {
-        assert.deepEqual(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking for eventAPI input section', function (done) {
-      generatorPage.checkAPIendpointInput().then(function (val) {
-        assert.deepEqual(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking for FTP input section', function (done) {
-      generatorPage.checkFTPinput().then(function (val) {
-        assert.deepEqual(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking for log Section', function (done) {
-      generatorPage.checkBuildLogs().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking for Menu Section', function (done) {
-      generatorPage.checkWebappMenu().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing event page', function () {
-
-    before(function () {
-      eventPage.init(driver);
-      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017');
-    });
-
-    it('Check for Scrollbars', function (done) {
-      var sizesArr = [[300, 600], [720, 600]];
-      eventPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
-        eventPage.driver.manage().window().maximize();
-        assert.deepEqual(statusArr, [false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the title of the page', function (done) {
-      eventPage.getEventName().then(function (eventName) {
-        assert.equal(eventName, "FOSSASIA Summit 2017");
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the presence of tweet section', function (done) {
-      eventPage.checkTweetSection().then(function () {
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Check whether the down button is working or not', function (done) {
-      eventPage.checkDownButton().then(function (offset) {
-        assert.equal(offset, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-
-    it('Checking the presence of Sponsors section', function (done) {
-      eventPage.checkSponsorSection().then(function () {
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking broken links in of Sponsors section', function (done) {
-      eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount){
-        assert.equal(brokenLinksCount, 1);
-        done();
-      }).catch(function(err){
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing tracks page', function () {
-
-    before(function () {
-      trackPage.init(driver);
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
-    });
-
-    it('Test for font color of sessions', function (done) {
-      trackPage.getSessionElemsColor().then(function (colorArr) {
-        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Check for Scrollbars', function (done) {
-      var sizesArr = [[300, 600], [720, 600]];
-      trackPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
-        trackPage.driver.manage().window().maximize();
-        assert.deepEqual(statusArr, [false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-
-    it('Checking track name list appear near the top of page', function (done) {
-      trackPage.checkTrackNamePos().then(function (boolval) {
-        assert.equal(boolval, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking horizontal alignment of date tab and session content below it', function (done) {
-      trackPage.checkAlignment().then(function (val) {
-        assert.equal(val, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking search functionality', function (done) {
-      trackPage.commonSearchTest().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    //Click on the session Elem to collapse
-    it('Expanding the session', function (done) {
-      trackPage.toggleSessionElem().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    //Click again to bring it back to default view
-    it('Bring back the session to default view', function (done) {
-      trackPage.toggleSessionElem().then(function (boolArr) {
-        assert.deepEqual(boolArr, [false, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking Jump to Speaker functionality', function (done) {
-      trackPage.jumpToSpeaker().then(function (val) {
-        assert.equal(val, true);
-        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the working of social buttons', function (done) {
-      trackPage.checkSocialLinks().then(function (num) {
-        assert.equal(num, 5);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the bookmark toggle', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
-      trackPage.checkIsolatedBookmark().then(function (visArr) {
-        assert.deepEqual(visArr, [true, true, false, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the Track Filter', function (done) {
-      trackPage.checkIsolatedTrackFilter().then(function (numTrack) {
-        assert.equal(numTrack, 1);
-        driver.sleep(1000);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Track filter followed by search and starred filter and reversing them', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
-      trackPage.filterCombination(['trackselect', 'search', 'starred', 'unstarred', 'unsearch', 'trackunselect']).then(function (val) {
-        assert.deepEqual(val[0], [true, true, true, true, false, false]);
-        assert.deepEqual(val[1], [true, false, true, false, false, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Search filter followed by track and starred filter and reversing them', function (done) {
-      trackPage.filterCombination(['search', 'trackselect', 'starred', 'unstarred', 'trackunselect', 'unsearch']).then(function (val) {
-        assert.deepEqual(val[0], [true, false, true, false, true, false]);
-        assert.deepEqual(val[1], [true, false, true, false, false, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Track filter followed by starred and search filter and reversing them', function (done) {
-      trackPage.filterCombination(['trackselect', 'starred', 'search', 'unsearch', 'unstarred', 'trackunselect']).then(function (val) {
-        assert.deepEqual(val[0], [true, true, true, true, false, false]);
-        assert.deepEqual(val[1], [true, true, false, false, false, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Search filter followed by starred and track filter and reversing them', function (done) {
-      trackPage.filterCombination(['search', 'starred', 'trackselect', 'trackunselect', 'unstarred', 'unsearch']).then(function (val) {
-        assert.deepEqual(val[0], [true, false, true, false, true, false]);
-        assert.deepEqual(val[1], [true, false, false, false, true, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Starred filter followed by search and track filter and reversing them', function (done) {
-      trackPage.filterCombination(['starred', 'search', 'trackselect', 'trackunselect', 'unsearch', 'unstarred']).then(function (val) {
-        assert.deepEqual(val[0], [true, true, false, false, true, false]);
-        assert.deepEqual(val[1], [true, false, false, false, true, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Starred filter followed by track And search filter and reversing them', function (done) {
-      trackPage.filterCombination(['starred', 'trackselect', 'search', 'unsearch', 'trackunselect', 'unstarred']).then(function (val) {
-        assert.deepEqual(val[0], [true, true, false, false, true, false]);
-        assert.deepEqual(val[1], [true, true, false, false, false, false]);
-        assert.deepEqual(val[2], [true, false, false, false, false, false]);
-        assert.deepEqual(val[3], val[1]);
-        assert.deepEqual(val[4], val[0]);
-        assert.deepEqual(val[5], [true, true, true, true, true, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the share link', function (done) {
-      trackPage.checkSharableUrl().then(function (link) {
-        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking direct link for tracks filter', function(done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
-      trackPage.checkTrackFilterDirectLink().then(function (tracksArr){
-        assert.deepEqual(tracksArr, ["1002", "1101", "1102"]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing schedule page', function () {
-
-    before(function () {
-      schedulePage.init(driver);
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
-    });
-
-    it('Test for working of download buttons', function (done) {
-      schedulePage.getDownloadDropdown().then(function (boolArr) {
-        assert.deepEqual(boolArr,[true,false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Test for font color of sessions', function (done) {
-      schedulePage.getSessionElemsColor().then(function (colorArr) {
-        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Check for Scrollbars', function (done) {
-      var sizesArr = [[300, 600], [720, 600]];
-      schedulePage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
-        schedulePage.driver.manage().window().maximize();
-        assert.deepEqual(statusArr, [false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking track name list appear near the top of page', function (done) {
-      schedulePage.checkTrackNamePos().then(function (boolval) {
-        assert.equal(boolval, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking alignment of date tab and session content', function (done) {
-      schedulePage.checkAlignment().then(function (val) {
-        assert.equal(val, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking search functionality', function (done) {
-      schedulePage.commonSearchTest().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    // Click on the session Elem to collapse
-    it('Expanding the session', function (done) {
-      schedulePage.toggleSessionElem().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    // Click again to bring it back to default view
-    it('Bring back the session to default view', function (done) {
-      schedulePage.toggleSessionElem().then(function (val) {
-        assert.deepEqual(val, false);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    //Now, we will do a series of tests to check the behaviour of the date divs when the date and mode is changed
-    //First array gives the visibility of the date divs inside the list view container
-    //Second array gives the visibility of the date divs inside the calendar view container
-
-    //In default view, all the dates inside the list view must be visible. The calendar view container should not be shown
-    it('Checking the default view of the page', function (done) {
-      schedulePage.getCurrentView().then(function (arr) {
-        assert.deepEqual(arr[0], [true, true, true]);
-        assert.deepEqual(arr[1], [false, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Changing the date to Sunday', function (done) {
-      schedulePage.changeDay(3).then(function (arr) {
-        assert.deepEqual(arr[0], [false, false, true]);
-        assert.deepEqual(arr[1], [false, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Changing the mode to Calendar', function (done) {
-      schedulePage.toggleMode().then(function (arr) {
-        assert.deepEqual(arr[0], [false, false, false]);
-        assert.deepEqual(arr[1], [false, false, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Changing the date to Saturday in calendar mode itself', function (done) {
-      schedulePage.changeDay(2).then(function (arr) {
-        assert.deepEqual(arr[0], [false, false, false]);
-        assert.deepEqual(arr[1], [false, true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Changing the mode back to list', function (done) {
-      schedulePage.toggleMode().then(function (arr) {
-        assert.deepEqual(arr[0], [false, true, false]);
-        assert.deepEqual(arr[1], [false, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking Jump to Speaker functionality', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
-      schedulePage.jumpToSpeaker().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the working of social buttons', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
-      schedulePage.checkSocialLinks().then(function (num) {
-        assert.equal(num, 5);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the bookmark toggle', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
-      schedulePage.checkIsolatedBookmark().then(function (visArr) {
-        assert.deepEqual(visArr, [true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking direct link for Rooms filter', function(done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Balboa');
-      schedulePage.checkFilterDirectLink().then(function (roomsArr){
-        assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking direct link for Tracks filter', function(done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Meals%20w/%20Registered%20Guests');
-      schedulePage.refresh();
-      schedulePage.checkFilterDirectLink().then(function (TracksArr){
-        assert.deepEqual(TracksArr, ["1002", "1101", "1102"]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing rooms page', function () {
-
-    before(function () {
-      roomPage.init(driver);
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
-    });
-
-    it('Test for font color of sessions', function (done) {
-      roomPage.getSessionElemsColor().then(function (colorArr) {
-        assert.deepEqual(colorArr, ['rgba(255, 255, 255, 1)', 'rgba(0, 0, 0, 1)']);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Check for Scrollbars', function (done) {
-      var sizesArr = [[300, 600], [720, 600]];
-      roomPage.getScrollbarVisibility(sizesArr).then(function (statusArr) {
-        roomPage.driver.manage().window().maximize();
-        assert.deepEqual(statusArr, [false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking track name list appear near the top of page', function (done) {
-      trackPage.checkTrackNamePos().then(function (boolval) {
-        assert.equal(boolval, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking alignment of date tab and session content', function (done) {
-      trackPage.checkAlignment().then(function (val) {
-        assert.equal(val, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    // Click on the session Elem to collapse
-    it('Expanding the session', function (done) {
-      roomPage.toggleSessionElem().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    // Click again to bring it back to default view
-    it('Bring back the session to default view', function (done) {
-      roomPage.toggleSessionElem().then(function (boolArr) {
-        assert.deepEqual(boolArr, [false, true]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking search functionality', function (done) {
-      roomPage.commonSearchTest().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, true, true, true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the working of social buttons', function (done) {
-      roomPage.checkSocialLinks().then(function (num) {
-        assert.equal(num, 5);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking Jump to Speaker functionality', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
-      roomPage.jumpToSpeaker().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the bookmark toggle', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
-      roomPage.checkIsolatedBookmark().then(function (visArr) {
-        assert.deepEqual(visArr, [false, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking the starred mode after search', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
-      roomPage.toggleSessionBookmark(['3014', '3015']).then(roomPage.searchThenStarredMode.bind(roomPage)).then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking search in starred mode', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
-      roomPage.starredModeThenSearch().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Checking direct link for Rooms filter', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/rooms.html#Balboa');
-      roomPage.checkRoomFilterDirectLink().then(function (roomsArr){
-        assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing Speakers page', function () {
-
-    before(function () {
-      speakerPage.init(driver);
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/speakers.html');
-    });
-
-    it('Checking search functionality', function (done) {
-      speakerPage.searchTest().then(function (boolArr) {
-        assert.deepEqual(boolArr, [true, false]);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Display speaker details and test social links on hovering over image', function (done) {
-      speakerPage.hoverOverSpeaker().then(function (val) {
-        assert.equal(val, 0);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Jump to track page on clicking session of a speaker', function (done) {
-      speakerPage.jumpToTrack().then(function (val) {
-        assert.equal(val, 1);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
-  describe('Testing Speakers page for single page type', function () {
-
-    before(function () {
-      speakerPage.init(driver);
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
-    });
-
-    it('Jump to session page on clicking session of a speaker', function (done) {
-      speakerPage.jumpToSession().then(function (val) {
-        assert.equal(val, 1);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-  });
-
-  describe('Testing Session page', function () {
-    before(function () {
-      sessionPage.init(driver);
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
-    });
-
-    it('Get the title of the session', function (done) {
-      sessionPage.getSessionTitle().then(function (val) {
-        assert.equal(val, 'IT All Hands (Session of 2 hours) | IT');
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Check the background color of the title', function (done) {
-      sessionPage.getSessionBackgroundColor().then(function (val) {
-        assert.equal(val, 'rgba(88, 214, 141, 1)');
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Get the speaker of the session', function (done) {
-      sessionPage.getSpeakerName().then(function (val) {
-        assert.equal(val, 'Alex Fridman');
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Jump to tracks page', function (done) {
-      sessionPage.jumpToTrack().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Jump to speakers page', function (done) {
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
-      sessionPage.jumpToSpeaker().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-    it('Jump to rooms page', function (done) {
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
-      sessionPage.jumpToRoom().then(function (val) {
-        assert.equal(val, true);
-        done();
-      }).catch(function (err) {
-        done(err);
-      });
-    });
-
-  });
-
 });

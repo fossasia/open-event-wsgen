@@ -156,7 +156,7 @@
                             {{#if ../../../mode}}
                               <div class="sizeevent event event-title" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};">
                             {{else}}
-                              <div class="sizeevent event event-title" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
+                              <div class="sizeevent event event-title" onclick = "loadVideo('{{session_id}}', '{{video}}')" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}} ">
                             {{/if}}
                               <div class="margin-down-15">{{title}}</div>
                               <a class="bookmark" id="b{{session_id}}">
@@ -165,6 +165,9 @@
                               </a>
                               {{#if audio}}
                                 <i class="fa fa-music" aria-hidden="true"></i>
+                              {{/if}}
+                              {{#if video}}
+                                  <i class="fa fa-video-camera video" aria-hidden="true"></i>
                               {{/if}}
                               <div id="desc2-{{session_id}}" class="collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
@@ -864,6 +867,18 @@
         }
         initPage();
       });
+
+      function loadVideo(div, videoURL){
+        if(videoURL !== null && videoURL !== '') {
+          let isVideoDisplayed = $('#desc-' + div).hasClass('in');
+          if (!isVideoDisplayed) {
+            $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
+          }
+          else {
+            $('#' + videoURL).remove();
+          }
+        }
+      }
     </script>
   </body>
 </html>
