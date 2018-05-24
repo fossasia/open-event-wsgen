@@ -23,6 +23,8 @@ $schedule-color: $white;
 $event-color: $white;
 $head-color: $white;
 $room-color: $white;
+// Currently used for the filter search box.  Matches the filter button borders (currently #ccc from Bootstrap's .btn-default)
+$filter-input-border-color: #ccc;
 $date-button:$gray-perfect;
 $text-color: $white;
 $navbar-color: #2b324a;

@@ -75,28 +75,32 @@
             </span>
           </div>
           <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
-            <span class="dropdown tracks-rooms-filter dropdown-list">
+            <span class="filter tracks-rooms-filter dropdown dropdown-list">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
               <ul class="dropdown-menu list-menu">
                   <li class="dropdown-submenu">
-                    <a href="#"><h4>Rooms List <span class="caret"></span></h4></a>
+                    <a href="#">Rooms List <span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-inner">
                        {{#each roomsnames}}
-                        <li class="mobile-track-room-info">
-                          <span style="background-color: #777;" class="titlecolor"></span>
-                          <span class="room-name">{{this}}</span>
+                        <li>
+                          <a href="#" class="room-name">
+                            <span style="background-color: #777;" class="titlecolor"></span>
+                            <span>{{this}}</span>
+                          </a>
                         </li>
                        {{/each}}
                     </ul>
                   </li>
                   <li class="dropdown-submenu">
-                     <a href="#"><h4>Tracks List <span class="caret"></span></h4></a>
+                     <a href="#">Tracks List <span class="caret"></span></a>
                      <ul class="dropdown-menu dropdown-inner">
                        {{#tracknames}}
                        {{#if title}}
-                         <li class="mobile-track-room-info">
-                           <span style="background-color: {{color}};" class="titlecolor"></span>
-                           <span class="track-name">{{title}}</span>
+                         <li>
+                           <a href="#" class="track-name">
+                             <span style="background-color: {{color}};" class="titlecolor"></span>
+                             <span>{{title}}</span>
+                           </a>
                          </li>
                        {{/if}}
                       {{/tracknames}}
@@ -104,11 +108,11 @@
                    </li>
               </ul>
             </span>
-            <div class="search-filter search-filter-room filter-margin">
+            <div class="filter search-filter search-filter-room">
              <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
              <input class="fossasia-filter" type="text" placeholder="Search">
             </div>
-            <div class="show-button-filter">
+            <div class="filter show-button-filter">
                 <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
             </div>
           </div>
@@ -368,7 +372,7 @@
 
       window.onload = function () {
         if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
-          var filterVal;
+          var filterVal = '';
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
           let link = window.location.href;
@@ -511,13 +515,13 @@
 
       $(document).ready(function() {
 
-        $('.dropdown-submenu a').on("click", function(e){
+        $('.tracks-rooms-filter > ul > li > a').on("click", function(e){
           e.preventDefault();
-          $(this).next('ul').toggle();
-          var spanDisplay = $(this).next('ul').is(':visible') ? 'inline-flex' : 'none';
-          $(this).find('span').css('display', spanDisplay);
+          $(this).next('.dropdown-inner').toggle();
+          // var spanDisplay = $(this).next('.dropdown-inner').is(':visible') ? 'inline-flex' : 'none';
+          // $(this).find('.caret').css('display', spanDisplay);
+          // $(this).parent().siblings().eq(0).children('a').find('.caret').hide();
           $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
-          $(this).parent().siblings().eq(0).children('a').find('span').hide();
           e.stopPropagation();
         });
 
@@ -654,7 +658,7 @@
         });
 
         $('.room-name').click(function() {
-          var filterVal;
+          var filterVal = '';
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
           var url = window.location.href.split('#')[0];
@@ -663,7 +667,7 @@
             sidebarDiv.addClass('in');
           }
 
-          roomName = $(this).text();
+          roomName = $(this).text().trim();
           roomFilterMode = 1;
           trackFilterMode = 0;
           window.location.href = url + '#' + roomName;
@@ -729,7 +733,7 @@
         });
 
         $('.track-name').click(function() {
-          var filterVal;
+          var filterVal = '';
           var temp = JSON.parse(localStorage[eventName]);
           var sidebarDiv = $('.side-collapse');
           var url = window.location.href.split('#')[0];
@@ -738,7 +742,7 @@
              sidebarDiv.addClass('in');
           }
 
-          trackName = $(this).text();
+          trackName = $(this).text().trim();
           roomFilterMode = 0;
           trackFilterMode = 1;
           window.location.href = url + '#' + trackName;
@@ -816,7 +820,7 @@
                 }
                 var elemId = $(this).attr('id');
                 var bookFlag = 0, searchFlag = 0, elemFlag = 0;
-                var filterVal;
+                var filterVal = '';
 
                 $('.fossasia-filter').each(function() {
                   if($(this).is(':visible')) {
