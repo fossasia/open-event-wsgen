@@ -1,57 +1,62 @@
-# Specify language to use
-language: node_js
-node_js:
-  - 6.10.2
+jobs:
+  include:
+    - stage: test
+      language: node_js
+      node_js:
+        - 6.10.2
 
-# Using sudo enabled Linux VM
-sudo: required
-services:
-  - docker
-env:
-  - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
-  - TESTFOLDER=test/roomsAndSpeakers.js
-  - TESTFOLDER=test/tracks.js
-  - TESTFOLDER=test/generatorAndSchedule.js
-  - TESTFOLDER=test/sessionAndEvent.js
+      sudo: required
+      services:
+        - docker
+      env:
+        - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
+        - TESTFOLDER=test/roomsAndSpeakers.js
+        - TESTFOLDER=test/tracks.js
+        - TESTFOLDER=test/generatorAndSchedule.js
+        - TESTFOLDER=test/sessionAndEvent.js
 
-addons:
-  sauce_connect:
-    username: princu7
-  jwt:
-    secure: FslueGK2gtPHkRANMpUlGyCGsr1jTVuaKpP+SvYUxBYh5zbz73GMq+VsqlE29IZ1ER1+xMfWuCCvg3VA7HePyN6hzoZ/t0LADureYVPur6R5ZJgqgQpBinjpytIjo2BhN3NqaNWaIJZTLDSAT76R7HuNm016jbuOEjO5foYWuz2F82B03viHmk42CRNl3eqXEMcwkkLfEkvu9iupeVAArPXepA2YCpaaFbV2D5ahTelzMROnc2YQ/HyAdaaLtto8L0CDmZSrFsPZtTGQKarFdOgKWeor2iD1AiYLHYdcbvXV5YbBVvi7tFJG8r5h0YBUu1JIkhvzWIi698GJRGwDCONStCaKVhrMvpL7C8fEpbzullxFSpWOVupTEjn+u0OGaxrugwSZ1dtSkbIu+2SlVR/QuXS8o6OMiDz7lrFhIc+hF6EvFRWI7UIjt9NPte1o3COA8WESaseCWKhLY0g/hgpRSM7pyfKx2NAj4UCXyPATTKRJNlEHcs/jMpgxu+RSjPYphK4rrWxm6O6bJxd+jNwQNBOmJ1lQgOPAxpA7SvRDpN5Et+L61tWttR1EEO1+sj0g/iGO+zrZfD8m+jxNnIGWih/ykSzggiaJ42VFbQcJFk5BCfxlty6c0p8DvJkdulcRkboU21nQx9irqWmSeedcA3VJX2r0womx3tZYnbY=
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-  code_climate:
-    repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
-# installing required items for build
-install:
-  - npm install -g istanbul mocha@3
-  - npm install
-  - npm install --save-dev
- # testing script
-script:
-  - istanbul cover _mocha -- $TESTFOLDER
+      addons:
+        sauce_connect:
+          username: princu7
+        jwt:
+          secure: FslueGK2gtPHkRANMpUlGyCGsr1jTVuaKpP+SvYUxBYh5zbz73GMq+VsqlE29IZ1ER1+xMfWuCCvg3VA7HePyN6hzoZ/t0LADureYVPur6R5ZJgqgQpBinjpytIjo2BhN3NqaNWaIJZTLDSAT76R7HuNm016jbuOEjO5foYWuz2F82B03viHmk42CRNl3eqXEMcwkkLfEkvu9iupeVAArPXepA2YCpaaFbV2D5ahTelzMROnc2YQ/HyAdaaLtto8L0CDmZSrFsPZtTGQKarFdOgKWeor2iD1AiYLHYdcbvXV5YbBVvi7tFJG8r5h0YBUu1JIkhvzWIi698GJRGwDCONStCaKVhrMvpL7C8fEpbzullxFSpWOVupTEjn+u0OGaxrugwSZ1dtSkbIu+2SlVR/QuXS8o6OMiDz7lrFhIc+hF6EvFRWI7UIjt9NPte1o3COA8WESaseCWKhLY0g/hgpRSM7pyfKx2NAj4UCXyPATTKRJNlEHcs/jMpgxu+RSjPYphK4rrWxm6O6bJxd+jNwQNBOmJ1lQgOPAxpA7SvRDpN5Et+L61tWttR1EEO1+sj0g/iGO+zrZfD8m+jxNnIGWih/ykSzggiaJ42VFbQcJFk5BCfxlty6c0p8DvJkdulcRkboU21nQx9irqWmSeedcA3VJX2r0womx3tZYnbY=
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.8
+        code_climate:
+          repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
 
- # notify codecov and deploy to cloud
-after_success:
-  if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then
-    bash <(curl -s https://codecov.io/bash);
-    bash gh_deploy.sh && kubernetes/travis/deploy.sh;
-  fi
+      install:
+        - npm install -g istanbul mocha@3
+        - npm install
+        - npm install --save-dev
 
- # deploy to heroku
-deploy:
-  provider: heroku
-  api_key:
-    secure: ogAnS9LCFXVkMocd7DbYup45n8eRHIFpeptDP947PajNy27xPfOspBGj1UMQri/0d/hAYqdC52Bfd7eccyOLm/6H9d5LzDWNBHz4rqT+FXkdpJf7PofC7kUua5oUXlh0eiccBKwn3j8n3suLnLsigJ/UD4rjKIGKrfodAud4XhsPdg0+XVNihDa6rSMH5G6TTAYQjukCLT2TlCPFiyNSJvfjH1+h2uE93vWBzsjkLzlWMoAr00uAwlYJgotoQ9v2ECqfZ7mhAJCwSoRdqmir9Xvj5GSj3qRc953bbye8ZJoEMXDt9N2GNwV3/3XFtrc/fQuq7cRj2OFZuDZ/Ch0Z2MQGbXoG0gqRfntoGFBDcx4w+rifburPnIDS4V4H5DpW/lohGG6tWLSa4ynfF5utnUowpy9pT8RCBmrvZkLfSfqF4J/rh7HzfyhMpDGqv5hcs+RSJZQiLN8sdcSRvz2aKoaAxXi7U0IfUAUluJ9fPD5WRmUbV3FwAxEjjuRMKYabelam7lvKI6vyf6lWt1oyI4EKd7M33JfeRbcJ9BwM4SDbgxHCSeSI4AIiqFs1l35ZVfDlz8yLhHt33ZWSBrWoGw3e83rUJPc/I9Uxu4xX3WKCZ+tXKD8YA64rdeoCDra/2Ad2Rm4doFgdWmW2I23jKNx/CtKiq3YXcWmiBCaL6IQ=
-  app: opev-webgen-dev
-  on:
-    repo: fossasia/open-event-webapp
-    branch:
-      - master
-      - development
-    condition: $TESTFOLDER = test/serverTest.js
+      script:
+        - istanbul cover _mocha -- $TESTFOLDER
+
+      after_success:
+        if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then
+          bash <(curl -s https://codecov.io/bash);
+          bash gh_deploy.sh && kubernetes/travis/deploy.sh;
+        fi
+
+    - stage: deploy
+      language: node_js
+      node_js:
+        - 6.10.2
+
+      sudo: required
+      deploy:
+        provider: heroku
+        api_key:
+          secure: ogAnS9LCFXVkMocd7DbYup45n8eRHIFpeptDP947PajNy27xPfOspBGj1UMQri/0d/hAYqdC52Bfd7eccyOLm/6H9d5LzDWNBHz4rqT+FXkdpJf7PofC7kUua5oUXlh0eiccBKwn3j8n3suLnLsigJ/UD4rjKIGKrfodAud4XhsPdg0+XVNihDa6rSMH5G6TTAYQjukCLT2TlCPFiyNSJvfjH1+h2uE93vWBzsjkLzlWMoAr00uAwlYJgotoQ9v2ECqfZ7mhAJCwSoRdqmir9Xvj5GSj3qRc953bbye8ZJoEMXDt9N2GNwV3/3XFtrc/fQuq7cRj2OFZuDZ/Ch0Z2MQGbXoG0gqRfntoGFBDcx4w+rifburPnIDS4V4H5DpW/lohGG6tWLSa4ynfF5utnUowpy9pT8RCBmrvZkLfSfqF4J/rh7HzfyhMpDGqv5hcs+RSJZQiLN8sdcSRvz2aKoaAxXi7U0IfUAUluJ9fPD5WRmUbV3FwAxEjjuRMKYabelam7lvKI6vyf6lWt1oyI4EKd7M33JfeRbcJ9BwM4SDbgxHCSeSI4AIiqFs1l35ZVfDlz8yLhHt33ZWSBrWoGw3e83rUJPc/I9Uxu4xX3WKCZ+tXKD8YA64rdeoCDra/2Ad2Rm4doFgdWmW2I23jKNx/CtKiq3YXcWmiBCaL6IQ=
+        app: opev-webgen-dev
+        on:
+          repo: fossasia/open-event-webapp
+          branch:
+            - master
+            - development
+          condition: $TESTFOLDER = test/serverTest.js
 
