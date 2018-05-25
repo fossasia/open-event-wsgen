@@ -67,6 +67,15 @@ handlebars.registerHelper('ifvalue', function (conditional, options) {
   }
 });
 
+handlebars.registerHelper('ifcontains', function (string, substring, options) {
+    if (string.indexOf(substring) !== -1){
+        return options.fn(this);
+    }
+    else{
+        return options.inverse(this);
+    }
+});
+
 handlebars.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
