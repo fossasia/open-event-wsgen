@@ -71,10 +71,6 @@
                   <iframe id = "slide" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src={{slides}}">
                   </iframe>
                 {{/if}}
-                {{#if video}}
-                  <iframe id = "video" class = "video-iframe col-xs-12 col-sm-12 col-md-12"  src="https://www.youtube.com/embed/{{video}}">
-                  </iframe>
-                {{/if}}
               </div>
               <hr class="clear-both">
               <div class="session-speakers-list" aria-expanded="false"
@@ -234,15 +230,32 @@
             </div>
         </footer>
     </div>
-    <script>
-      var eventInfo = {};
-      eventInfo.name = "{{eventurls.name}}";
-      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
-    </script>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../js/session.min.js" type="text/javascript"></script>
     <script src="../js/tracks.min.js"></script>
+    <script type="text/javascript">
+      var eventInfo = {};
+      eventInfo.name = "{{eventurls.name}}";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
+      let videoURL = "{{session.video}}";
+      let id = "{{session.session_id}}";
+
+      if($('#video-' + id).length === 0) {
+        if (videoURL !== null && videoURL !== '') {
+          if (videoURL.indexOf('v&#x3D;') !== -1) {
+            videoURL = videoURL.split('v&#x3D;')[1].replace(/[&#].*/, '');
+            $('#title-' + id).after('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>');
+          }
+          else if (videoURL.indexOf('https://youtu.be/') !== -1) {
+            videoURL = videoURL.split('https://youtu.be/')[1];
+            console.log(videoURL);
+            $('#title-' + id).after('<iframe id = "' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>');
+          }
+        }
+      }
+
+    </script>
   </body>
 </html>
 
