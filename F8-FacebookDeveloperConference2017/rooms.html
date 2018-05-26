@@ -244,7 +244,7 @@
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
-            $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+            $('.search-filter:first').after('<p id="no-results" style="color: red">No matching results found.</p>');
           } else {
             $('#no-results').remove();
           }
@@ -529,7 +529,7 @@
 
             if ($('.date-filter:visible').length == 0  && searchRooms==1) {
                 $('#no-results').remove();
-                $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold' id='no-results'>No matching results found.</p>");
+                $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
             } else {
                 $('#no-results').remove();
 
