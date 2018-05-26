@@ -232,7 +232,7 @@
                 // show "no results" if search input value matches zero items
                 if ($('.speaker:visible').length == 0) {
                     $('#no-results').remove();
-                    $('.search-filter-speaker:first').after('<p id="no-results">No matching results found.</p>');
+                    $('.search-filter-speaker:first').after('<p id="no-results" style="color: red; padding-left: 25px; margin-left: 30px">No matching results found.</p>');
                 } else {
                     $('#no-results').remove();
                 }
