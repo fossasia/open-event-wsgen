@@ -225,8 +225,15 @@ a {
 }
 
 @media (min-width: 600px) {
-  .video-iframe {
+  .video-iframe,
+  .iframe {
     height: 370px;
+  }
+}
+
+@media (max-width: 600px) {
+  .iframe {
+    height: 250px;
   }
 }
 
@@ -1624,13 +1631,15 @@ a {
   }
 }
 
-.bookmark {
+.features {
   @include cursorpointer;
-  padding: 5px;
+  padding: 2px;
   position: absolute;
   right: 0;
   top: 0;
+}
 
+.bookmark {
   &.starred {
     color: black;
   }
@@ -2187,11 +2196,7 @@ a.skip:hover {
   overflow-y: auto;
 }
 
-.video {
-  @include cursorpointer;
-  padding: 5px;
-  position: absolute;
-  right: 23px;
-  top: 1px;
+.video,
+.slides {
   color: $black;
 }
