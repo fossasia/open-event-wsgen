@@ -58,21 +58,27 @@ SchedulePage.toggleMode = function() {
 
 SchedulePage.getDownloadDropdown = function() {
   var self = this;
-  var downloadButtonId = 'dropdown-toggle';
   var promiseArr = [];
 
-  var promise = new Promise(function(resolve) {
-    self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
-      promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
-    }).then(function() {
-      self.find(By.className(downloadButtonId)).then(self.click).then(self.driver.sleep(1000)).then(function() {
-        promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
-        resolve(Promise.all(promiseArr));
-      });
+  var clickDropdownButton = function() {
+    return self.find(By.css('.filter.dropdown .fa-download')).then(function(icon) {
+      return icon.findElement(By.xpath('..'));
+    }).then(function(button) {
+      return button.click().then(self.driver.sleep(1000));
     });
-  });
+  };
 
-  return promise;
+  return Promise.resolve().then(function() {
+    return clickDropdownButton();
+  }).then(function() {
+    promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
+  }).then(function() {
+    return clickDropdownButton();
+  }).then(function() {
+    promiseArr.push(self.find(By.className('download-dropdown')).isDisplayed());
+  }).then(function() {
+    return Promise.all(promiseArr);
+  });
 };
 
 SchedulePage.checkFilterDirectLink = function() {
