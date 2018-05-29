@@ -147,8 +147,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/generate', function (req, res) {
-  generator.createDistDir(req, res, function(appFolder) {
-    res.send("Website generation started. You'll get an email when it is ready");
+  generator.createDistDir(req, res, function(appFolder, url) {
+    console.log('App folder is ' + appFolder + ' and URL is ' + url);
   });
 });
 

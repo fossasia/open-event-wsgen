@@ -300,6 +300,9 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       logger.addLog('Info', 'Extracting data from the uploaded jsons', socket);
+      if (socket.constructor.name === 'ServerResponse') {
+        socket.send('Website generation started. You\'ll get an email when it is ready');
+      }
       console.log('================================WRITING\n');
       if (emit) socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates" });
 
