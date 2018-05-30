@@ -135,9 +135,6 @@
                           aria-controls="desc-{{session_id}}">
                       {{/if}}
                         <div class = "features">
-                          {{#if slides}}
-                              <i class="fa fa-file-powerpoint-o slides" aria-hidden="true"></i>
-                          {{/if}}
                           {{#if audio}}
                             <i class="fa fa-music" aria-hidden="true"></i>
                           {{/if}}
@@ -149,7 +146,12 @@
                             </i>
                           </a>
                         </div>
-                        {{title}}
+                        <div>
+                          {{title}}
+                          {{#if slides}}
+                            <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                          {{/if}}
+                        </div>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}

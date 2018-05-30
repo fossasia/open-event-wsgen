@@ -843,6 +843,7 @@ a {
   height: 12px;
   width: 12px;
   display: inline-block;
+  margin-right: 2px;
 }
 
 .track-name {
@@ -855,10 +856,30 @@ a {
 
 .track-info {
   margin-bottom: 5px;
+  &:hover {
+    .track-name {
+      color: $light-blue;
+    }
+    .titlecolor {
+      height: 14px;
+      margin-right: 0;
+      width: 14px;
+    }
+  }
 }
 
 .room-info {
   margin-bottom: 5px;
+  &:hover {
+    .room-name {
+      color: $light-blue;
+    }
+    .titlecolor {
+      height: 14px;
+      margin-right: 0;
+      width: 14px;
+    }
+  }
 }
 
 .room-name-list {
@@ -2196,7 +2217,6 @@ a.skip:hover {
   overflow-y: auto;
 }
 
-.video,
-.slides {
+.video {
   color: $black;
 }

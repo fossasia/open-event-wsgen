@@ -67,9 +67,14 @@
                     <source src="{{ audio }}">
                   </audio>
                 {{/if}}
-                {{#if slides}}
+                {{#ifcontains slides "ppt"}}
                   <iframe id = "slide" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src={{slides}}">
                   </iframe>
+                {{/ifcontains}}
+                {{#ifcontains slides "pdf"}}
+                  <iframe id = "slide" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url={{slides}}&embedded=true">
+                  </iframe>
+                {{/ifcontains}}
                 {{/if}}
               </div>
               <hr class="clear-both">
