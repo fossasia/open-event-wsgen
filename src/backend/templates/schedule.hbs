@@ -135,9 +135,6 @@
                           aria-controls="desc-{{session_id}}">
                       {{/if}}
                         <div class = "features">
-                          {{#if slides}}
-                              <i class="fa fa-file-powerpoint-o slides" aria-hidden="true"></i>
-                          {{/if}}
                           {{#if audio}}
                             <i class="fa fa-music" aria-hidden="true"></i>
                           {{/if}}
@@ -149,7 +146,12 @@
                             </i>
                           </a>
                         </div>
-                        {{title}}
+                        <div>
+                          {{title}}
+                          {{#if slides}}
+                            <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                          {{/if}}
+                        </div>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}
@@ -1273,7 +1275,12 @@
       if(slideURL !== null && slideURL !== '') {
         let isSlideDisplayed = $('#desc-' + div).hasClass('in');
         if (!isSlideDisplayed) {
-          $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
+          if (slideURL.indexOf('pdf') !== -1) {
+            $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
+          }
+          else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1){
+            $('#desc-' + div).children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
+          }
         }
         else {
           $('#slide-' + div).remove();
