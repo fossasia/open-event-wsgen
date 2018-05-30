@@ -126,9 +126,6 @@
                                 <div class="sizeevent event event-title" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
                               {{/if}}
                                 <div class = "features">
-                                  {{#if slides}}
-                                    <i class="fa fa-file-powerpoint-o slides" aria-hidden="true"></i>
-                                  {{/if}}
                                   {{#if audio}}
                                     <i class="fa fa-music" aria-hidden="true"></i>
                                   {{/if}}
@@ -143,6 +140,8 @@
                                       <i class="fa fa-video-camera video fa-stack-2x"></i>
                                       <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
                                     </span>
+                                  {{#if slides}}
+                                    <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                                   {{/if}}
                                 </div>
                                 <div id="desc2-{{session_id}}" class="collapse in"
@@ -874,7 +873,12 @@
         if(slideURL !== null && slideURL !== '') {
           let isSlideDisplayed = descriptionDiv.hasClass('in');
           if (!isSlideDisplayed) {
-            descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL  +'"></iframe>');
+            if (slideURL.indexOf('pdf') !== -1) {
+              descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
+            }
+            else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1){
+              descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
+            }
           }
           else {
             $('#slide-' + div).remove();

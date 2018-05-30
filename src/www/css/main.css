@@ -41,7 +41,9 @@ center{
 pre#buildLog{
 	max-height: 400px;
 	font-size: 12px;
+    overflow-y: auto;
 	text-align: left;
+    word-break: unset;
 }
 
 #btnLive, #btnDownload, #deploy {
