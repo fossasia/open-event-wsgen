@@ -200,6 +200,19 @@ $(document).ready(function() {
           }
         }
       }
+
+      if ($(this).find('input').val() === 'jsonupload') {
+        $('#jsonupload-input').show(100);
+        $('#eventapi-input').hide(100);
+        $('#btnLive').hide();
+        $('#btnDownload').hide();
+        $('#deploy').hide();
+        if (uploadFinished) {
+          enableGenerateButton(true);
+        } else {
+          enableGenerateButton(false);
+        }
+      }
     });
 
   $('#endpointAPI').mouseover(
@@ -224,6 +237,15 @@ $(document).ready(function() {
             enableGenerateButton(true);
           }
         }
+      }
+
+      if ($(this).find('input').val() === 'eventapi') {
+        $('#eventapi-input').show(100);
+        $('#jsonupload-input').hide(100);
+        $('#btnLive').hide();
+        $('#btnDownload').hide();
+        $('#deploy').hide();
+        enableGenerateButton(true);
       }
     });
 
@@ -325,6 +347,10 @@ $(document).ready(function() {
 
   socket.on('uploadsId', function(data) {
     initialValue = data;
+  });
+
+  socket.on('waiting', function() {
+    updateStatusAnimate('Request status: Waiting');
   });
 
   socket.on('live.ready', function(data) {
