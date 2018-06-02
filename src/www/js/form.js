@@ -8,6 +8,7 @@ var uploadFinished = false;
 var isCancelling = false;
 var menuDisplay = false;
 var generationStarted = false;
+let initialValue = 0;
 
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
@@ -178,12 +179,12 @@ $(document).ready(function () {
           if(!generationStarted){
               $(this).find('input').prop('checked', true);
               if ($(this).find('input').is(':checked')) {
-        
+
                   if ($(this).find('input').val() === 'mockjson') {
                       $('#jsonupload-input').hide(100);
                       $('#eventapi-input').hide(100);
                   }
-        
+
                   if ($(this).find('input').val() === 'jsonupload') {
                       $('#jsonupload-input').show(100);
                       $('#eventapi-input').hide(100);
@@ -209,12 +210,12 @@ $(document).ready(function () {
           if(!generationStarted) {
               $(this).find('input').prop('checked', true);
               if ($(this).find('input').is(':checked')) {
-        
+
                   if ($(this).find('input').val() === 'mockjson') {
                       $('#jsonupload-input').hide(100);
                       $('#eventapi-input').hide(100);
                   }
-        
+
                   if ($(this).find('input').val() === 'eventapi') {
                       $('#eventapi-input').show(100);
                       $('#jsonupload-input').hide(100);
@@ -300,7 +301,7 @@ $(document).ready(function () {
     var check = $('#form').valid();
     $('.error').focus();
     if (check) {
-      var formData = getData();
+      var formData = getData({uploadsId: initialValue});
       generationStarted = true;
       $('#buildLog').empty();
       socket.emit('live', formData);
@@ -319,6 +320,10 @@ $(document).ready(function () {
   function addDeployLink() {
     $('#deploy').attr('href', '/auth');
   }
+
+  socket.on('uploadsId', function (data) {
+    initialValue = data;
+  });
 
   socket.on('live.ready', function (data) {
     updateStatusAnimate('live render ready');
@@ -474,8 +479,8 @@ function getFile () {
   return data;
 }
 
-function getData () {
-  var data = {};
+function getData (initialValue) {
+  var data = initialValue;
   var formData = $('#form').serializeArray();
   formData.forEach( function(field) {
     if (field.name === 'email') {data.email = field.value; }
@@ -502,3 +507,4 @@ function getData () {
   }
   return data;
 }
+

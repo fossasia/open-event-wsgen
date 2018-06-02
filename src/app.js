@@ -29,6 +29,8 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var id = 0;
+var count = 0;
+let filename = '';
 
 if (sentryUrl) {
   Raven.config(sentryUrl).install();
@@ -65,9 +67,10 @@ io.on('connection', function(socket){
   socket.connId = id;
 
   ss(socket).on('file', function(stream, file) {
-    generator.startZipUpload(socket.connId);
+    generator.startZipUpload(count, socket);
     console.log(file);
-    var filename = path.join(__dirname, '..', 'uploads/connection-' + id.toString()) + '/upload.zip';
+    filename = path.join(__dirname, '..', 'uploads/connection-' + count.toString()) + '/upload.zip';
+    count += 1;
     stream.pipe(fs.createWriteStream(filename));
   });
 
@@ -179,7 +182,10 @@ server.listen(app.get('port'), function() {
 });
 
 module.exports = {
-  getApp: function () {
+  getApp: function() {
     return app;
+  },
+  getCount: function() {
+    return count;
   }
 };
