@@ -1285,7 +1285,7 @@
       }
 
       if(slideURL !== null && slideURL !== '') {
-        let isSlideDisplayed = descr.hasClass('in');
+        let isSlideDisplayed = descriptionDiv.hasClass('in');
         if (!isSlideDisplayed) {
           if (slideURL.indexOf('pdf') !== -1) {
             descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
