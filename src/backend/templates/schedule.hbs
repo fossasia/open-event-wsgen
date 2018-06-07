@@ -167,16 +167,16 @@
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
                           {{#each speakers_list}}
-                          <a href="speakers.html#{{nameIdSlug}}">
-                              <div class="margin-down-10">
-                              {{#if photo}}
-                                <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="card-img-top speaker-image-large lazy" width="10" height="10"/>
-                              {{else}}
-                                <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
-                              {{/if}}
-                              </div>
-                              <span class="margin-down-10">{{name}}</span>
-                          </a>
+                            <div class="margin-down-10">
+                              <a href="speakers.html#{{nameIdSlug}}">
+                                {{#if photo}}
+                                  <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="card-img-top speaker-image-large lazy margin-down-10" width="10" height="10"/>
+                                {{else}}
+                                  <img class="card-img-top speaker-image-large margin-down-10" src="images/avatar.png"/>
+                                {{/if}}
+                                <span class="margin-down-10 desc-speaker-name">{{name}}</span>
+                              </a>
+                            </div>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
                             {{position}} {{organisation}}
