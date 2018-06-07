@@ -2255,3 +2255,12 @@ a.skip:hover {
     visibility: hidden;
   }
 }    
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $gray-medium;
+}

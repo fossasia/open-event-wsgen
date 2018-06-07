@@ -324,13 +324,20 @@
       window.onload = function () {
 
         window.addEventListener("hashchange", function(){
-          if(url.split('#')[1] !== '' && /^\d+$/.test(url.split('#')[1].substring(0,4))) {
+          let curUrl = window.location.href;
+          let trackNumber = curUrl.split('#')[1];
+          if(trackNumber !== '' && /^\d+$/.test(trackNumber.substring(0,4))) {
             let offset = 20;
             $('html, body').animate({
-              scrollTop: $("#" + window.location.href.split('#')[1]).offset().top - $(".navbar-fixed-top").height() - offset
+              scrollTop: $("#" + trackNumber).offset().top - $(".navbar-fixed-top").height() - offset
             }, 0);
+            $('#title-' + trackNumber).click();
           }
         }, false);
+
+        if(window.location.href.split('#')[1] !== '' && /^\d+$/.test(window.location.href.split('#')[1].substring(0,4))) {
+          $('#title-' + window.location.href.split('#')[1]).click();
+        }
 
         if(url.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(url.split('#')[1].substring(0,4)))) {
           var filterVal;
