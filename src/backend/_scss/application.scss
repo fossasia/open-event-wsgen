@@ -140,9 +140,14 @@ a {
   box-shadow: 0 0 8px 0 $navbar-shadow;
 
   .navbar-nav > li > a {
-    color: $black;
+    color: $nav-text;
     font-size: 11px;
   }
+}
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: $nav-text;
 }
 
 .navbar-header {
