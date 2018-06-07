@@ -2220,3 +2220,23 @@ a.skip:hover {
 .video {
   color: $black;
 }
+
+.coc {
+  margin: auto;
+  text-align: justify;
+  width: 60%;
+
+  a {
+    &:hover {
+      color: $dark-black;
+    }
+  }
+}
+
+.main-coc-container {
+  background-color: $main-background;
+  margin-bottom: 4%;
+  margin-top: 2%;
+  padding-bottom: 50px;
+  padding-top: 2%;
+}
