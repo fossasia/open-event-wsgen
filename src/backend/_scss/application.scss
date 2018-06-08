@@ -1192,7 +1192,7 @@ a {
 }
 
 .speaker-name {
-  color: $light-black;
+  color: $speaker-color;
   height: 30px;
   text-align: center;
   line-height: 1em;
@@ -2055,12 +2055,7 @@ a.skip:hover {
 
 // style from speaker
 
-#speaker-body {
-  background-color: $header-color !important;
-}
-
 #speaker-container {
-  background-color: $white;
   padding: 2%;
 }
 
