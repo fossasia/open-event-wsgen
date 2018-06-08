@@ -2240,3 +2240,12 @@ a.skip:hover {
   padding-bottom: 50px;
   padding-top: 2%;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $gray-medium;
+}
