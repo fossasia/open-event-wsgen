@@ -228,6 +228,7 @@ a {
   .video-iframe,
   .iframe {
     height: 370px;
+    margin-bottom: 20px;
   }
 }
 
@@ -1662,7 +1663,7 @@ a {
 
 .bookmark {
   &.starred {
-    color: black;
+    color: $gold;
   }
 
   i {
@@ -2217,9 +2218,43 @@ a.skip:hover {
   overflow-y: auto;
 }
 
-.video {
-  color: $black;
+.slides {
+  color: $grey;
 }
+
+.video {
+  color: $grey;
+  font-size: 22px;
+}
+
+#stack {
+  height: 1.4em;
+}
+
+.video-circle {
+  color: $red;
+  display: none;
+  font-size: 7px;
+  margin-left: 8px;
+  padding-top: 7px;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}    
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -2229,4 +2264,3 @@ a.skip:hover {
   border-radius: 5px;
   background-color: $gray-medium;
 }
-
