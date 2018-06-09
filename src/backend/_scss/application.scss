@@ -2244,6 +2244,10 @@ a.skip:hover {
   -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 
+.desc-speaker-name {
+  display: block;
+}
+
 @keyframes blink-animation {
   to {
     visibility: hidden;

@@ -188,19 +188,19 @@
                               <div class="session-speakers-list" aria-expanded="false"
                                 aria-controls="desc-{{session_id}}">
                                 {{#speakers_list}}
-                                  <a href="speakers.html#{{nameIdSlug}}">
-                                    <div class="session-speakers-less">
-                                      <p class="session-speakers">
+                                  <div class="session-speakers-less">
+                                    <p class="session-speakers">
+                                      <a href="speakers.html#{{nameIdSlug}}">
                                         {{#if photo}}
                                           <img onError="this.onerror=null;this.src='./images/avatar.png';"
-                                          data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
+                                          data-original="{{thumb}}" class="lazy card-img-top speaker-image-large margin-down-10"/>
                                         {{else}}
-                                          <img class="card-img-top speaker-image-large" src="./images/avatar.png"/>
+                                          <img class="card-img-top speaker-image-large margin-down-10" src="./images/avatar.png"/>
                                         {{/if}}
-                                      </p>
-                                      <span class="graytext">{{name}}</span>
-                                    </div>
-                                  </a>
+                                        <span class="graytext desc-speaker-name">{{name}}</span>
+                                      </a>
+                                    </p>
+                                  </div>
                                   {{#if organisation}}
                                     <p class="session-speakers-more">{{position}} {{organisation}}</p>
                                   {{/if}}
