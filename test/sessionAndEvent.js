@@ -216,7 +216,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
 
     it('Checking broken links in of Sponsors section', function(done) {
       eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
-        assert.equal(brokenLinksCount, 1);
+        assert.equal(brokenLinksCount, 2);
         done();
       }).catch(function(err) {
         done(err);
