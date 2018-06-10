@@ -119,7 +119,7 @@
                 Exception handling in Python can sometimes feel like a Wild West. If you have a send_email function, and the caller inputs an invalid email address, should it: A) Return None or some other special return value, B) Let the underlying exception it might cause bubble up, C) Check via a regex and type checking and raise a ValueError immediately, or D) Make a custom EmailException subclass and raise that? What if there is a network error while the email was sending? Or what if the function calls a helper _format_email that returns an integer (clearly wrong!), or raises an TypeError itself? Should it crash the program or prompt a retry? This talk will introduce the concept of an exception, explain the built-in Python exception hierarchy and the utility of custom subclasses, demonstrate try/except/finally/else syntax, and then explore different design patterns for exception control flow and their tradeoffs using examples. It will also make comparisons to error handling philosophy in other languages, like Eiffel and Go.
               </div>
               <hr class=clear-both>
-              <div class=session-speakers-list aria-expanded=false aria-controls=desc-94>
+              <div id=desc-94 class=session-speakers-list aria-expanded=false aria-controls=desc-94>
                   <a href=../speakers.html#amandine-lee104>
                     <div class=session-speakers-less>
                       <p class=session-speakers>
@@ -223,11 +223,32 @@
             </div>
         </footer>
     </div>
-    <script>var eventInfo={};eventInfo.name="../PyCon 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
     <script src=../js/jquery.min.js></script>
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script>
+      var eventInfo = {};
+      eventInfo.name = "../PyCon 2017";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
+      let videoURL = "";
+      let id = "94";
+
+      if($('#video-' + id).length === 0) {
+        if (videoURL !== null && videoURL !== '') {
+          if (videoURL.indexOf('v&#x3D;') !== -1) {
+            videoURL = videoURL.split('v&#x3D;')[1].replace(/[&#].*/, '');
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+          else if (videoURL.indexOf('https://youtu.be/') !== -1) {
+            videoURL = videoURL.split('https://youtu.be/')[1];
+            console.log(videoURL);
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+        }
+      }
+
+    </script>
   </body>
 </html>
 

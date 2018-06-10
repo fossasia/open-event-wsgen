@@ -119,7 +119,7 @@
                 Python is a decades-strong language with a large community, and it has a solid foundation on the server, but it doesn't have a good user story in the browser... until now. The BeeWare project aims to bring Python natively, everywhere. Using a combination of the Batavia and Toga projects, we can develop and entirely native web experience in Python, no JavaScript required. During this talk, you will learn about how the BeeWare project has built Batavia, a Python virtual machine in JavaScript; and Toga, a multi-platform native API wrapper; a combination of which can be used to build an entire web platform in Python only.
               </div>
               <hr class=clear-both>
-              <div class=session-speakers-list aria-expanded=false aria-controls=desc-108>
+              <div id=desc-108 class=session-speakers-list aria-expanded=false aria-controls=desc-108>
                   <a href=../speakers.html#katie-mclaughlin115>
                     <div class=session-speakers-less>
                       <p class=session-speakers>
@@ -223,11 +223,32 @@
             </div>
         </footer>
     </div>
-    <script>var eventInfo={};eventInfo.name="../PyCon 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
     <script src=../js/jquery.min.js></script>
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script>
+      var eventInfo = {};
+      eventInfo.name = "../PyCon 2017";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
+      let videoURL = "";
+      let id = "108";
+
+      if($('#video-' + id).length === 0) {
+        if (videoURL !== null && videoURL !== '') {
+          if (videoURL.indexOf('v&#x3D;') !== -1) {
+            videoURL = videoURL.split('v&#x3D;')[1].replace(/[&#].*/, '');
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+          else if (videoURL.indexOf('https://youtu.be/') !== -1) {
+            videoURL = videoURL.split('https://youtu.be/')[1];
+            console.log(videoURL);
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+        }
+      }
+
+    </script>
   </body>
 </html>
 

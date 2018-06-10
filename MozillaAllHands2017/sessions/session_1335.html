@@ -125,7 +125,7 @@
                 <p>Functional Team Time.</p>
               </div>
               <hr class=clear-both>
-              <div class=session-speakers-list aria-expanded=false aria-controls=desc-1335>
+              <div id=desc-1335 class=session-speakers-list aria-expanded=false aria-controls=desc-1335>
                   <a href=../speakers.html#jascha-kaykas-wolff21>
                     <div class=session-speakers-less>
                       <p class=session-speakers>
@@ -241,11 +241,32 @@
             </div>
         </footer>
     </div>
-    <script>var eventInfo={};eventInfo.name="../Mozilla All Hands 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
     <script src=../js/jquery.min.js></script>
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script>
+      var eventInfo = {};
+      eventInfo.name = "../Mozilla All Hands 2017";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
+      let videoURL = "";
+      let id = "1335";
+
+      if($('#video-' + id).length === 0) {
+        if (videoURL !== null && videoURL !== '') {
+          if (videoURL.indexOf('v&#x3D;') !== -1) {
+            videoURL = videoURL.split('v&#x3D;')[1].replace(/[&#].*/, '');
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+          else if (videoURL.indexOf('https://youtu.be/') !== -1) {
+            videoURL = videoURL.split('https://youtu.be/')[1];
+            console.log(videoURL);
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+        }
+      }
+
+    </script>
   </body>
 </html>
 

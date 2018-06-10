@@ -119,7 +119,7 @@
                 When writing an application, it is common to want to do many things at once. For web servers, this is serve multiple web requests, for GUI applications it's doing a background task whilst keeping the UI responsive. But how do we actually do that? This talk will go into how concurrency and parallelism work from the CPU, OS, and threads up, how state (data) is shared between them, and how this interacts with the functions that you, the programmer, write, and how you can write properly behaving concurrent or parallel software.
               </div>
               <hr class=clear-both>
-              <div class=session-speakers-list aria-expanded=false aria-controls=desc-75>
+              <div id=desc-75 class=session-speakers-list aria-expanded=false aria-controls=desc-75>
                   <a href=../speakers.html#amber-brown87>
                     <div class=session-speakers-less>
                       <p class=session-speakers>
@@ -223,11 +223,32 @@
             </div>
         </footer>
     </div>
-    <script>var eventInfo={};eventInfo.name="../PyCon 2017",eventInfo.name=eventInfo.name.substring(eventInfo.name.lastIndexOf("/")+1)</script>
     <script src=../js/jquery.min.js></script>
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script>
+      var eventInfo = {};
+      eventInfo.name = "../PyCon 2017";
+      eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
+      let videoURL = "";
+      let id = "75";
+
+      if($('#video-' + id).length === 0) {
+        if (videoURL !== null && videoURL !== '') {
+          if (videoURL.indexOf('v&#x3D;') !== -1) {
+            videoURL = videoURL.split('v&#x3D;')[1].replace(/[&#].*/, '');
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+          else if (videoURL.indexOf('https://youtu.be/') !== -1) {
+            videoURL = videoURL.split('https://youtu.be/')[1];
+            console.log(videoURL);
+            $('#desc-' + id).prepend('<iframe id = "video-' + id + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>');
+          }
+        }
+      }
+
+    </script>
   </body>
 </html>
 
