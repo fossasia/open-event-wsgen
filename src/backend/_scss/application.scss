@@ -2264,6 +2264,10 @@ a.skip:hover {
   padding-top: 2%;
 }
 
+.desc-speaker-name {
+  display: block;
+}
+
 @keyframes blink-animation {
   to {
     visibility: hidden;
