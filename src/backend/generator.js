@@ -39,6 +39,7 @@ const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/room
 const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
 const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
 const sessiontpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/session.hbs').toString('utf-8'));
+const codeOfConductTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/CoC.hbs').toString('utf-8'));
 
 if (!String.linkify) {
   String.prototype.linkify = function() {
@@ -420,7 +421,7 @@ exports.createDistDir = function(req, socket, callback) {
             }
 
             function setPageFlag(page) {
-              jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+              jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = jsonData.CoCflag = 0;
               switch(page) {
                 case 'track':
                   jsonData.trackFlag = 1;
@@ -436,6 +437,9 @@ exports.createDistDir = function(req, socket, callback) {
                   break;
                 case 'speaker':
                   jsonData.speakerFlag = 1;
+                  break;
+                case 'CoC':
+                  jsonData.CoCflag = 1;
                   break;
               }
             }
@@ -454,6 +458,12 @@ exports.createDistDir = function(req, socket, callback) {
 
             setPageFlag('index');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
+
+            if(jsonData.eventurls.codeOfConduct) {
+              setPageFlag('CoC');
+              fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/CoC.html', minifyHtml(codeOfConductTpl(jsonData)));
+            }
+
           } catch (err) {
             console.log(err);
             logger.addLog('Error', 'Error in compiling/writing templates', socket, err);

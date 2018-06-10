@@ -491,7 +491,8 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     orgname: event.organizer_name,
     location_name: event.location_name,
     featuresection: featuresection,
-    sponsorsection: sponsorsection
+    sponsorsection: sponsorsection,
+    codeOfConduct: event.code_of_conduct
   };
 
   if (reqOpts.assetmode === 'download') {
