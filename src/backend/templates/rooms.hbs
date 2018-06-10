@@ -126,18 +126,22 @@
                                 <div class="sizeevent event event-title" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
                               {{/if}}
                                 <div class = "features">
-                                  {{#if audio}}
-                                    <i class="fa fa-music" aria-hidden="true"></i>
-                                  {{/if}}
-                                  {{#if video}}
-                                    <i class="fa fa-video-camera video" aria-hidden="true"></i>
-                                  {{/if}}
                                   <a class = "bookmark" id = "c{{session_id}}" >
                                       <i class="fa fa-star" aria-hidden="true">
                                       </i>
                                   </a>
                                 </div>
                                 <div class="margin-down-15">{{title}}
+                                  {{#if video}}
+                                    <span id="stack" class="fa-stack ">
+                                      <i class="fa fa-video-camera video fa-stack-2x"></i>
+                                      <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
+                                    </span>
+                                  {{/if}}
+                                  {{#if audio}}
+                                    <i class="fa fa-music" aria-hidden="true"></i>
+                                  {{/if}}
+
                                   {{#if slides}}
                                     <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                                   {{/if}}
@@ -183,7 +187,7 @@
                                   </audio>
                                 {{/if}}
                                 <hr class="clear-both">
-                                <div class="session-speakers-list"
+                                <div id="speaker-{{session_id}}" class="session-speakers-list"
                                   aria-expanded="false"
                                   aria-controls="desc-{{session_id}}">
                                   {{#speakers_list}}
