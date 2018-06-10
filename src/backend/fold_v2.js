@@ -203,7 +203,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       sign_up: session['signup-url'],
-      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'],
       slides: session['slides-url'],
       audio: session['audio-url']
 
@@ -225,13 +225,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       }
 
       if(((session['video-url'] !== null) && (session['video-url'] !== ''))) {
-        if (session['video-url'].substring(0, 32) === 'https://www.youtube.com/watch?v=') {
-          track.sessions.video = session['video-url'].split('=')[1];
-          callback();
-        }
-        else{
-            callback();
-        }
+        track.sessions.video = session['video-url'];
+        callback();
       }
 
       else {
@@ -311,7 +306,7 @@ function foldByTime(sessions, speakers, trackInfo) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       sign_up: session['signup-url'],
-      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'],
       slides: session['slides-url'],
       audio: session['audio-url'],
       sessiondate: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
@@ -785,8 +780,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       description: (checkNullHtml(session['long-abstract'])) ? session['short-abstract'] : session['long-abstract'],
       session_id: session.id,
       audio:session['audio-url'],
-      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'].split('=')[1],
       slides: session['slides-url'],
+      video: (checkNullHtml(session['video-url'])) ? '' : session['video-url'],
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr['photo-url']){
