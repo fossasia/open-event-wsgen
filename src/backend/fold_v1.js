@@ -774,6 +774,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       description: (checkNullHtml(session.long_abstract)) ? session.short_abstract : session.long_abstract,
       session_id: session.id,
       audio:session.audio,
+      video:session.video,
+      slides:session.slides,
       speakers_list: session.speakers.map((speaker) => {
         let spkr = speakersMap.get(speaker.id);
         if(spkr.photo){

@@ -129,18 +129,15 @@
                                   {{#if audio}}
                                     <i class="fa fa-music" aria-hidden="true"></i>
                                   {{/if}}
+                                  {{#if video}}
+                                    <i class="fa fa-video-camera video" aria-hidden="true"></i>
+                                  {{/if}}
                                   <a class = "bookmark" id = "c{{session_id}}" >
                                       <i class="fa fa-star" aria-hidden="true">
                                       </i>
                                   </a>
                                 </div>
                                 <div class="margin-down-15">{{title}}
-                                  {{#if video}}
-                                    <span id="stack" class="fa-stack ">
-                                      <i class="fa fa-video-camera video fa-stack-2x"></i>
-                                      <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
-                                    </span>
-                                  {{/if}}  
                                   {{#if slides}}
                                     <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                                   {{/if}}
@@ -254,7 +251,7 @@
                                   {{/speakers_list}}
                                   <div class="blacktext">
                                     {{#if roomname}}
-                                      <p><i class="room-name">{{roomname}}</i></p>
+                                      <p><i>{{roomname}}</i></p>
                                     {{/if}}
                                     {{#if sessiondate}}
                                       <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
@@ -311,6 +308,7 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/rooms.min.js" type="text/javascript"></script>
+    <script src="./js/main.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var eventName = "{{eventurls.name}}";
       var flag = 0;
@@ -328,22 +326,6 @@
       });
 
       window.onload = function () {
-        window.addEventListener("hashchange", function(){
-          let curUrl = window.location.href;
-          let trackNumber = curUrl.split('#')[1];
-          if(trackNumber !== '' && /^\d+$/.test(trackNumber.substring(0,4))) {
-            let offset = 20;
-            $('html, body').animate({
-              scrollTop: $("#" + trackNumber).offset().top - $(".navbar-fixed-top").height() - offset
-            }, 0);
-            $('#title-' + trackNumber).click();
-          }
-        }, false);
-
-        if(window.location.href.split('#')[1] !== '' && /^\d+$/.test(window.location.href.split('#')[1].substring(0,4))) {
-          $('#title-' + window.location.href.split('#')[1]).click();
-        }
-
         if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
           var filterVal;
           var temp = JSON.parse(localStorage[eventName]);
@@ -562,7 +544,7 @@
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
-            $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
+            $('.search-filter:first').after('<p id="no-results" style="color: red">No matching results found.</p>');
           } else {
             $('#no-results').remove();
           }
@@ -868,41 +850,6 @@
         }
         initPage();
       });
-
-      function loadVideoAndSlides(div, videoURL, slideURL){
-        let descriptionDiv = $('#desc-' + div);
-
-        if(videoURL !== null && videoURL !== '') {
-          let isVideoDisplayed = descriptionDiv.hasClass('in');
-          let faviconDiv = $('#v' + div);
-
-          if (!isVideoDisplayed) {
-            faviconDiv.css('display', 'block');
-            faviconDiv.addClass('blink');
-            descriptionDiv.children('div').prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '" frameborder="0" allowfullscreen></iframe>')
-          }
-          else {
-            faviconDiv.css('display', 'none');
-            faviconDiv.removeClass('blink');
-            $('#video-' + div).remove();
-          }
-        }
-
-        if(slideURL !== null && slideURL !== '') {
-          let isSlideDisplayed = descriptionDiv.hasClass('in');
-          if (!isSlideDisplayed) {
-            if (slideURL.indexOf('pdf') !== -1) {
-              descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
-            }
-            else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1){
-              descriptionDiv.children('div').prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
-            }
-          }
-          else {
-            $('#slide-' + div).remove();
-          }
-        }
-      }
     </script>
   </body>
 </html>
