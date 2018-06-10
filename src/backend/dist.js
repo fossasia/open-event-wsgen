@@ -317,8 +317,9 @@ module.exports = {
       fs.remove(distPath + '/' + appFolder, err);
     });
   },
-  makeUploadsDir: function(id) {
+  makeUploadsDir: function(id, socket) {
     fs.mkdirpSync(uploadsPath + '/connection-' + id.toString());
+    socket.emit('uploadsId', id);
   },
   makeDistDir: function(appFolder, socket) {
     const appPath = distPath + '/' + appFolder;
@@ -424,7 +425,7 @@ module.exports = {
     });
   },
 
-  copyUploads: function(appFolder, socket, done) {
+  copyUploads: function(appFolder, socket, id, done) {
 
     const appPath = distPath + '/' + appFolder;
     try {
@@ -436,7 +437,6 @@ module.exports = {
       console.log(err);
     }
     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
-    var id = socket.connId;
     var unzipper = new zip(path.join(uploadsPath, 'connection-' + id.toString(), 'upload.zip'));
 
     unzipper.on('error', function (err) {

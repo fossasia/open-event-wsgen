@@ -14,6 +14,7 @@ const minify = require('html-minifier').minify;
 const distHelper = require(__dirname + '/dist.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
+const app = require('../app');
 var fold;
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
@@ -158,13 +159,14 @@ exports.finishZipUpload = function(file, id) {
   console.log('=============================ZIP SAVED\n');
   console.log(file.base);
   console.log(file.pathName);
-  distHelper.moveZip(file.pathName, id);
+  var count = app.getCount();
+  distHelper.moveZip(file.pathName, count);
 
 };
 
-exports.startZipUpload = function(id) {
+exports.startZipUpload = function(id, socket) {
   console.log('========================ZIP UPLOAD START\n\n');
-  distHelper.makeUploadsDir(id);
+  distHelper.makeUploadsDir(id, socket);
   distHelper.cleanUploads(id);
 };
 
@@ -184,6 +186,7 @@ exports.createDistDir = function(req, socket, callback) {
   }
 
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
+  let uploadsId = req.body.uploadsId;
   let emit = false;
 
   if (socket.constructor.name == 'Socket') {
@@ -251,7 +254,7 @@ exports.createDistDir = function(req, socket, callback) {
       switch (req.body.datasource) {
         case 'jsonupload':
           logger.addLog('Info','Jsons have been uploaded by the user', socket);
-          distHelper.copyUploads(appFolder, socket, function(err) {
+          distHelper.copyUploads(appFolder, socket, uploadsId, function(err) {
             if(err) {
               console.log(err);
               done(err);
