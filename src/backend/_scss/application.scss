@@ -2051,7 +2051,8 @@ a.skip:hover {
 
 #audio-block {
   display: block;
-  margin-top: 15px
+  margin-top: 15px;
+  padding-left: 15px;
 }
 
 // style from speaker
@@ -2258,7 +2259,7 @@ a.skip:hover {
   to {
     visibility: hidden;
   }
-}    
+}
 
 ::-webkit-scrollbar {
   width: 8px;

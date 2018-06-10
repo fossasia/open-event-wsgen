@@ -2,6 +2,7 @@
 
 const loadVideoAndSlides = function(div, videoURL, slideURL) {
   const descriptionDiv = $('#desc-' + div);
+  const speakerDiv = $('#speaker-' + div);
 
   if(videoURL !== null && videoURL !== '') {
     const isVideoDisplayed = descriptionDiv.hasClass('in');
@@ -14,11 +15,11 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
       video = videoURL.split('https://youtu.be/')[1];
     }
 
-    if (!isVideoDisplayed) {
+    if (!isVideoDisplayed && $('[id="video-' + div + '"]').length === 0) {
       faviconDiv.css('display', 'block');
       faviconDiv.addClass('blink');
-      descriptionDiv.prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + video + '" frameborder="0" allowfullscreen></iframe>');
-    } else {
+      speakerDiv.prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + video + '" frameborder="0" allowfullscreen></iframe>');
+    } else if(isVideoDisplayed) {
       faviconDiv.css('display', 'none');
       faviconDiv.removeClass('blink');
       $('#video-' + div).remove();
@@ -28,14 +29,14 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
   if(slideURL !== null && slideURL !== '') {
     const isSlideDisplayed = descriptionDiv.hasClass('in');
 
-    if (!isSlideDisplayed) {
+    if (!isSlideDisplayed && $('[id="slide-' + div + '"]').length === 0) {
       if (slideURL.indexOf('pdf') !== -1) {
-        descriptionDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
+        speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
       } else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1) {
-        descriptionDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
+        speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
       }
     }
-    else {
+    else if(isSlideDisplayed) {
       $('#slide-' + div).remove();
     }
   }
