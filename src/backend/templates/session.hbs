@@ -62,11 +62,16 @@
             <div>
               <div>
                 {{{description}}}
-                {{#if audio}}
-                  <audio controls="" id="audio-block" preload="none">
+                {{#ifcontains audio "mp3"}}
+                  <audio controls="" preload="none" id="audio-block">
                     <source src="{{ audio }}">
                   </audio>
-                {{/if}}
+                {{/ifcontains}}
+                {{#ifcontains audio "aac"}}
+                  <audio controls="" preload="none" id="audio-block">
+                    <source src="{{ audio }}">
+                  </audio>
+                {{/ifcontains}}
                 <hr class="clear-both">
                 {{#ifcontains slides "ppt"}}
                   <iframe id = "slide" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src={{slides}}">
