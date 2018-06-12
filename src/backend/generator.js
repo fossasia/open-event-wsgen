@@ -19,30 +19,6 @@ const ftpDeployer = require('./ftpdeploy');
 const app = require('../app');
 let fold;
 
-const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
-const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
-const scroll = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/scroll.hbs').toString('utf-8'));
-const social = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/social.hbs').toString('utf-8'));
-const tracklist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/tracklist.hbs').toString('utf-8'));
-const roomlist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/roomlist.hbs').toString('utf-8'));
-const googleanalytics = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/googleanalytics.hbs').toString('utf-8'));
-
-handlebars.registerPartial('navbar', navbar);
-handlebars.registerPartial('footer', footer);
-handlebars.registerPartial('scroll', scroll);
-handlebars.registerPartial('social', social);
-handlebars.registerPartial('tracklist', tracklist);
-handlebars.registerPartial('roomlist', roomlist);
-handlebars.registerPartial('googleanalytics', googleanalytics);
-
-const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
-const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
-const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
-const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
-const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
-const sessiontpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/session.hbs').toString('utf-8'));
-const codeOfConductTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/CoC.hbs').toString('utf-8'));
-
 if (!String.linkify) {
   String.prototype.linkify = function() {
     const urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
@@ -445,6 +421,30 @@ exports.createDistDir = function(req, socket, callback) {
 
         function templateGenerate() {
           try {
+            const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
+            const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
+            const scroll = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/scroll.hbs').toString('utf-8'));
+            const social = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/social.hbs').toString('utf-8'));
+            const tracklist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/tracklist.hbs').toString('utf-8'));
+            const roomlist = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/roomlist.hbs').toString('utf-8'));
+            const googleanalytics = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/googleanalytics.hbs').toString('utf-8'));
+
+            handlebars.registerPartial('navbar', navbar);
+            handlebars.registerPartial('footer', footer);
+            handlebars.registerPartial('scroll', scroll);
+            handlebars.registerPartial('social', social);
+            handlebars.registerPartial('tracklist', tracklist);
+            handlebars.registerPartial('roomlist', roomlist);
+            handlebars.registerPartial('googleanalytics', googleanalytics);
+
+            const tracksTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/tracks.hbs').toString('utf-8'));
+            const scheduleTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/schedule.hbs').toString('utf-8'));
+            const roomstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/rooms.hbs').toString('utf-8'));
+            const speakerstpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/speakers.hbs').toString('utf-8'));
+            const eventtpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/event.hbs').toString('utf-8'));
+            const sessiontpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/session.hbs').toString('utf-8'));
+            const codeOfConductTpl = handlebars.compile(fs.readFileSync(__dirname + '/templates/CoC.hbs').toString('utf-8'));
+
             if (mode === 'single') {
               logger.addLog('Info', 'Generating Single Page for each session', socket);
 
