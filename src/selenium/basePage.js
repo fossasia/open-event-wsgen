@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-label */
+'use strict';
+
 var until = require('selenium-webdriver').until;
 var By = require('selenium-webdriver').By;
 var request = require('request');
@@ -18,18 +21,21 @@ var BasePage = {
 
   find: function(locator, timeout) {
     var waitTime = timeout || 20000;
+
     this.driver.wait(until.elementLocated(locator, waitTime));
     return this.driver.findElement(locator);
   },
 
   findAll: function(locator, timeout) {
     var waitTime = timeout || 20000;
+
     this.driver.wait(until.elementLocated(locator, waitTime));
     return this.driver.findElements(locator);
   },
 
   getColor: function(el) {
     var element = el || this;
+
     return element.getAttribute('color');
   },
 
@@ -135,14 +141,16 @@ var BasePage = {
 
   countOnesInArray: function(arr) {
     return arr.reduce(function(counter, value) {
-      return (value === 1 || value === 'true') ? counter + 1 : counter;
+      return value === 1 || value === 'true' ? counter + 1 : counter;
     }, 0);
   },
 
   getAllLinks: function(locator) {
-
     function linksFromAnchorTags(anchorTags) {
-      var promiseArr = anchorTags.map(function(anchor) { return anchor.getAttribute('href'); });
+      var promiseArr = anchorTags.map(function(anchor) {
+        return anchor.getAttribute('href');
+      });
+
       return Promise.all(promiseArr);
     }
 
@@ -153,16 +161,20 @@ var BasePage = {
 
   countBrokenLinks: function(links) {
     return new Promise(function(resolve) {
-      var brokenLinks = 0, counter = 0;
+      var brokenLinks = 0;
+      var counter = 0;
 
       links.forEach(function(link) {
         request(link, function(error, response) {
           counter += 1;
-          if (error || response.statusCode == 404) { brokenLinks++; }
-          if (counter == links.length) { resolve(brokenLinks); }
+          if (error || response.statusCode === 404) {
+            brokenLinks++;
+          }
+          if (counter === links.length) {
+            resolve(brokenLinks);
+          }
         });
       });
-
     });
   },
 
@@ -180,7 +192,7 @@ var BasePage = {
       self.find(By.id(sessionTitleId)).then(self.click).then(function() {
         self.find(By.id(sessionDetailId)).findElement(By.css('a')).click().then(self.getPageUrl.bind(self)).then(function(url) {
           self.driver.executeScript(pageVertScrollOffset).then(function(height) {
-            resolve(height > 0 && (url.search('speakers') != -1));
+            resolve(height > 0 && url.search('speakers') !== -1);
           });
         });
       });
@@ -203,6 +215,7 @@ var BasePage = {
 
   getVerticalOffset: function() {
     var pageVertScrollOffset = 'return window.scrollY';
+
     return this.driver.executeScript(pageVertScrollOffset);
   },
 
@@ -230,13 +243,14 @@ var BasePage = {
                 .then(self.getVerticalOffset.bind(self)).then(function(height) {
                   self.goToTop().then(function() {
                     resolve(height > 0);
+                  });
                 });
-              });
             });
           });
         });
       });
     });
+
     return subnavbarPromise;
   },
 
@@ -246,7 +260,7 @@ var BasePage = {
     var counter = 1;
     var days = 3;
 
-    while(counter <= days) {
+    while (counter <= days) {
       promiseArr.push(self.subnavbarStatus(counter));
       counter += 1;
     }
@@ -288,7 +302,7 @@ var BasePage = {
       });
     });
 
-  return checkAlign;
+    return checkAlign;
   },
 
   bookmarkCheck: function(sessionToggleArr, visCheckSessionArr) {

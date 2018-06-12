@@ -1,0 +1,3 @@
+/backend/assets/**
+*.min.js
+*.min.css
