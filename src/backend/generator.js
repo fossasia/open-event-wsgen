@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-label */
 'use strict';
 
 var exports = module.exports = {};
@@ -60,22 +61,20 @@ handlebars.registerHelper('linkify', function(options) {
   return new handlebars.SafeString(content.linkify());
 });
 
-handlebars.registerHelper('ifvalue', function (conditional, options) {
-  if (conditional !== options.hash.notequals){
+handlebars.registerHelper('ifvalue', function(conditional, options) {
+  if (conditional !== options.hash.notequals) {
     return options.fn(this);
   }
-  else{
-    return options.inverse(this);
-  }
+
+  return options.inverse(this);
 });
 
-handlebars.registerHelper('ifcontains', function (string, substring, options) {
-    if (string.indexOf(substring) !== -1){
-        return options.fn(this);
-    }
-    else{
-        return options.inverse(this);
-    }
+handlebars.registerHelper('ifcontains', function(string, substring, options) {
+  if (string.indexOf(substring) !== -1) {
+    return options.fn(this);
+  }
+
+  return options.inverse(this);
 });
 
 handlebars.registerHelper('json', function(context) {
@@ -91,6 +90,7 @@ function minifyHtml(file) {
     removeScriptTypeAttributes: true,
     removeStyleLinkTypeAttributes: true
   });
+
   return result;
 }
 
@@ -98,23 +98,26 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   fold.foldByTrack(sessions, speakers, tracksData, reqOpts, function(tracks) {
     const days = fold.foldByDate(tracks);
     const sociallinks = fold.createSocialLinks(event);
-    fold.extractEventUrls(event, speakers, sponsors, reqOpts, function(eventurls){
+
+    fold.extractEventUrls(event, speakers, sponsors, reqOpts, function(eventurls) {
       const copyright = fold.getCopyrightData(event);
-      fold.foldByLevel(sponsors, reqOpts, function(sponsorpics){
+
+      fold.foldByLevel(sponsors, reqOpts, function(sponsorpics) {
         const roomsinfo = fold.foldByRooms(roomsData, sessions, speakers, tracksData);
-        fold.foldBySpeakers(speakers, sessions, tracksData, reqOpts, function(speakerslist){
+
+        fold.foldBySpeakers(speakers, sessions, tracksData, reqOpts, function(speakerslist) {
           const apptitle = fold.getAppName(event);
           const timeList = fold.foldByTime(sessions, speakers, tracksData);
           const metaauthor = fold.getOrganizerName(event);
           const tracknames = fold.returnTracknames(sessions, tracksData);
           const roomsnames = fold.returnRoomnames(roomsinfo);
+
           next({
             tracks, days, sociallinks,
             eventurls, copyright, sponsorpics,
             roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames, roomsnames
           });
         });
-
       });
     });
   });
@@ -139,29 +142,68 @@ function getJsonData(reqOpts, next) {
   }
 }
 
-exports.stopBuild = function(socket){
-  if (statusMap[socket.connId]) {
-    statusMap[socket.connId] = false;
+function checkLinks(jsonData, data) {
+  function changeEventUrlLinks(eventUrlLogo, eventUrlName) {
+    if (eventUrlLogo && eventUrlName) {
+      data.eventurls.logo_url = '../' + eventUrlLogo;
+      data.eventurls.name = '../' + eventUrlName;
+    }
   }
-  else{
-    socket.emit('Cancel_Build');
+
+  if (jsonData.tracks !== undefined) {
+    data.tracks = true;
   }
+  if (jsonData.roomsinfo !== undefined) {
+    data.roomsinfo = true;
+  }
+  if (jsonData.speakerslist !== undefined) {
+    data.speakerslist = true;
+  }
+  if (jsonData.timeList !== undefined) {
+    data.timeList = true;
+  }
+
+  data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
+  data.sociallinks = jsonData.sociallinks;
+  data.copyright = jsonData.copyright;
+
+  changeEventUrlLinks(jsonData.eventurls.logo_url, jsonData.eventurls.name);
 }
 
-exports.enableBuild = function(socket){
-  statusMap[socket.connId] = true;
+function setPageFlag(jsonData, page) {
+  jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+  switch (page) {
+    case 'track':
+      jsonData.trackFlag = 1;
+      break;
+    case 'schedule':
+      jsonData.scheduleFlag = 1;
+      break;
+    case 'room':
+      jsonData.roomFlag = 1;
+      break;
+    case 'index':
+      jsonData.indexFlag = 1;
+      break;
+    case 'speaker':
+      jsonData.speakerFlag = 1;
+      break;
+    case 'CoC':
+      jsonData.CoCflag = 1;
+      break;
+  }
 }
 
 exports.uploadJsonZip = function(fileData, socket) {
-  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket)
+  distHelper.uploadWithProgress(fileData.singlefileUpload, fileData.zipLength, socket);
 };
 exports.finishZipUpload = function(file, id) {
   console.log('=============================ZIP SAVED\n');
   console.log(file.base);
   console.log(file.pathName);
   var count = app.getCount();
-  distHelper.moveZip(file.pathName, count);
 
+  distHelper.moveZip(file.pathName, count);
 };
 
 exports.startZipUpload = function(id, socket) {
@@ -173,23 +215,22 @@ exports.startZipUpload = function(id, socket) {
 exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
-  req.body.name = 'tempProject' + socket.connId;  // temporary name for the project till the time we get the actual name of the event
-  const theme = req.body.theme || 'light' ;
+  req.body.name = 'tempProject' + socket.connId; // temporary name for the project till the time we get the actual name of the event
+  const theme = req.body.theme || 'light';
   const mode = req.body.sessionMode;
   var type = req.body.apiVersion || 'api_v2';
 
-  if(type === 'api_v1') {
+  if (type === 'api_v1') {
     fold = require(__dirname + '/fold_v1.js');
-  }
-  else {
+  } else {
     fold = require(__dirname + '/fold_v2.js');
   }
 
   var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
-  let uploadsId = req.body.uploadsId;
+  const uploadsId = req.body.uploadsId;
   let emit = false;
 
-  if (socket.constructor.name == 'Socket') {
+  if (socket.constructor.name === 'Socket') {
     emit = true;
   }
   // the below variable will store the actual name of the event
@@ -199,9 +240,11 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       console.log('================================CLEANING TEMPORARY FOLDERS\n');
       logger.addLog('Info', 'Cleaning up the previously existing temporary folders', socket);
-      if (emit) socket.emit('live.process', {donePercent: 5, status: "Cleaning temporary folder"});
+      if (emit) {
+        socket.emit('live.process', {donePercent: 5, status: 'Cleaning temporary folder'});
+      }
       fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
-        if(err !== null) {
+        if (err !== null) {
           logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
           console.log(err);
         }
@@ -212,12 +255,16 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       console.log('================================MAKING\n');
       logger.addLog('Info', 'Making the dist folder', socket);
-      if (emit) socket.emit('live.process', {donePercent: 10, status: "Making dist folder" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 10, status: 'Making dist folder'});
+      }
       distHelper.makeDistDir(appFolder, socket);
       done(null, 'make');
     },
     (done) => {
-      if (emit) socket.emit('live.process', { donePercent: 20, status: "Copying assets" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 20, status: 'Copying assets'});
+      }
       logger.addLog('Info', 'Copying Assets', socket);
       distHelper.copyAssets(appFolder, (copyerr) => {
         console.log('================================COPYING\n');
@@ -225,41 +272,44 @@ exports.createDistDir = function(req, socket, callback) {
         if (copyerr !== null) {
           console.log(copyerr);
           logger.addLog('Error', 'Error occured while copying assets into the appFolder', socket, copyerr);
-          return socket.emit('live.error', {donePercent: 30, status: "Error in Copying assets" });
+          return socket.emit('live.error', {donePercent: 30, status: 'Error in Copying assets'});
         }
         logger.addLog('Success', 'Assets were successfully copied', socket);
         done(null, 'copy');
       });
     },
     (done) => {
-      if (emit) socket.emit('live.process', { donePercent: 40, status: "Cleaning dependencies folder" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 40, status: 'Cleaning dependencies folder'});
+      }
       logger.addLog('Info', 'Cleaning dependencies folder created as a part of copying assets inside the appFolder', socket);
       distHelper.removeDependency(appFolder, socket, (copyerr) => {
         console.log('============================Moving contents from dependency folder and deleting the dependency folder');
         if (copyerr !== null) {
           logger.addLog('Error', 'Error while reading directory', socket, copyerr);
           console.log(copyerr);
-          return socket.emit('live.error', {donePercent: 45, status: "Error in moving files from dependency folder" });
+          return socket.emit('live.error', {donePercent: 45, status: 'Error in moving files from dependency folder'});
         }
         return gulp.minifyJs(distHelper.distPath + '/' + appFolder, function() {
           logger.addLog('Success', 'Dependencies folder cleaned successfully', socket);
           return done(null, 'move');
-        })
+        });
       });
     },
     (done) => {
       console.log('================================COPYING JSONS\n');
       logger.addLog('Info', 'Copying Jsons', socket);
-      if (emit) socket.emit('live.process', {donePercent: 50, status: "Copying the JSONs" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 50, status: 'Copying the JSONs'});
+      }
       switch (req.body.datasource) {
         case 'jsonupload':
-          logger.addLog('Info','Jsons have been uploaded by the user', socket);
+          logger.addLog('Info', 'Jsons have been uploaded by the user', socket);
           distHelper.copyUploads(appFolder, socket, uploadsId, function(err) {
-            if(err) {
+            if (err) {
               console.log(err);
               done(err);
-            }
-            else {
+            } else {
               done(null, 'copyUploads');
             }
           });
@@ -268,7 +318,7 @@ exports.createDistDir = function(req, socket, callback) {
           console.log('================================FETCHING JSONS\n');
           logger.addLog('Info', 'Fetching Jsons from the internet', socket);
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
-            if(err !== null) {
+            if (err !== null) {
               console.log(err);
               return done(err);
             }
@@ -285,7 +335,9 @@ exports.createDistDir = function(req, socket, callback) {
     },
     (done) => {
       console.log('===============================COMPILING SASS\n');
-      if (emit) socket.emit('live.process', {donePercent: 60, status: "Compiling the SASS files" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 60, status: 'Compiling the SASS files'});
+      }
       sass.render({
         file: __dirname + '/_scss/_themes/_' + theme + '-theme/_' + theme + '.scss',
         outFile: distHelper.distPath + '/' + appFolder + '/css/schedule.css'
@@ -296,18 +348,19 @@ exports.createDistDir = function(req, socket, callback) {
             if (writeErr !== null) {
               logger.addLog('Error', 'Error in writing css file', socket, writeErr);
               console.log(writeErr);
-              return socket.emit('live.error', { status: "Error in Writing css file" });
+              return socket.emit('live.error', {status: 'Error in Writing css file'});
             }
-            return gulp.minifyCss(distHelper.distPath + '/' + appFolder, function () {
+            return gulp.minifyCss(distHelper.distPath + '/' + appFolder, function() {
               logger.addLog('Success', 'css file was written successfully', socket);
               return done(null, 'sass');
             });
           });
-        }
-        else {
+        } else {
           logger.addLog('Error', 'Error in compiling SASS', socket, err);
           console.log(err);
-          if (emit) socket.emit('live.error', { status: "Error in Compiling SASS" });
+          if (emit) {
+            socket.emit('live.error', {status: 'Error in Compiling SASS'});
+          }
         }
       });
     },
@@ -317,7 +370,9 @@ exports.createDistDir = function(req, socket, callback) {
         socket.send('Website generation started. You\'ll get an email when it is ready');
       }
       console.log('================================WRITING\n');
-      if (emit) socket.emit('live.process', {donePercent: 70, status: "Compiling the HTML pages from templates" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 70, status: 'Compiling the HTML pages from templates'});
+      }
 
       getJsonData(req.body, function(error, data) {
         if (error) {
@@ -339,9 +394,10 @@ exports.createDistDir = function(req, socket, callback) {
         var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         var basePath = distHelper.distPath + '/' + appFolder + '/images';
         var logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
+
         distHelper.optimizeBackground(backPath, socket, function() {
-          if(jsonData.eventurls.logo_url) {
-            distHelper.optimizeLogo(logoPath, socket, function (err, pad) {
+          if (jsonData.eventurls.logo_url) {
+            distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
               if (err) {
                 console.log(err);
                 return done(err);
@@ -349,7 +405,7 @@ exports.createDistDir = function(req, socket, callback) {
               jsonData.navpad = pad;
             });
           }
-          if(req.body.ganalyticsID) {
+          if (req.body.ganalyticsID) {
             jsonData.ganalyticsID = req.body.ganalyticsID;
           }
           distHelper.resizeSponsors(basePath, socket, function() {
@@ -361,41 +417,16 @@ exports.createDistDir = function(req, socket, callback) {
 
         function templateGenerate() {
           try {
-
-            if(mode == 'single') {
+            if (mode === 'single') {
               logger.addLog('Info', 'Generating Single Page for each session', socket);
-
-              function checkLinks() {
-
-                function changeEventUrlLinks(eventUrlLogo, eventUrlName) {
-                  if(eventUrlLogo && eventUrlName) {
-                    data.eventurls.logo_url = '../' + eventUrlLogo;
-                    data.eventurls.name = '../' + eventUrlName;
-                  }
-                }
-
-                if(jsonData.tracks !== undefined)
-                  data.tracks = true;
-                if(jsonData.roomsinfo !== undefined)
-                  data.roomsinfo = true;
-                if(jsonData.speakerslist !== undefined)
-                  data.speakerslist = true;
-                if(jsonData.timeList !== undefined)
-                  data.timeList = true;
-
-                data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
-                data.sociallinks = jsonData.sociallinks;
-                data.copyright = jsonData.copyright;
-
-                changeEventUrlLinks(jsonData.eventurls.logo_url, jsonData.eventurls.name);
-              }
 
               jsonData.mode = mode;
               var trackArr = jsonData.tracks;
-              for(var i = 0; i < trackArr.length; i++) {
+
+              for (var i = 0; i < trackArr.length; i++) {
                 var sessionArr = trackArr[i].sessions;
 
-                for(var j = 0; j < sessionArr.length; j++) {
+                for (var j = 0; j < sessionArr.length; j++) {
                   var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
                   var sessionId = sessionObj.session_id;
                   var speakerList = sessionObj.speakers_list;
@@ -406,64 +437,39 @@ exports.createDistDir = function(req, socket, callback) {
                   sessionObj.track_jump_link = '../tracks.html#' + trackArr[i].slug;
                   sessionObj.room_jump_link = '../rooms.html#' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
 
-                  for(var k = 0; k < speakerList.length; k++) {
+                  for (var k = 0; k < speakerList.length; k++) {
                     speakerList[k].thumb = '../' + speakerList[k].thumb;
                   }
 
                   var data = {session: sessionObj};
-                  data.single_session = true;
-                  checkLinks();
-                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(data)));
 
+                  data.single_session = true;
+                  checkLinks(jsonData, data);
+                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(data)));
                 }
               }
               logger.addLog('Success', 'Generated single page for each session', socket);
             }
 
-            function setPageFlag(page) {
-              jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = jsonData.CoCflag = 0;
-              switch(page) {
-                case 'track':
-                  jsonData.trackFlag = 1;
-                  break;
-                case 'schedule':
-                  jsonData.scheduleFlag = 1;
-                  break;
-                case 'room':
-                  jsonData.roomFlag = 1;
-                  break;
-                case 'index':
-                  jsonData.indexFlag = 1;
-                  break;
-                case 'speaker':
-                  jsonData.speakerFlag = 1;
-                  break;
-                case 'CoC':
-                  jsonData.CoCflag = 1;
-                  break;
-              }
-            }
-
-            setPageFlag('track');
+            setPageFlag(jsonData, 'track');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
 
-            setPageFlag('schedule');
+            setPageFlag(jsonData, 'schedule');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
 
-            setPageFlag('room');
+            setPageFlag(jsonData, 'room');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
 
-            setPageFlag('speaker');
+            setPageFlag(jsonData, 'speaker');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
 
-            setPageFlag('index');
+            setPageFlag(jsonData, 'index');
             fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
 
-            if(jsonData.eventurls.codeOfConduct) {
-              setPageFlag('CoC');
+            if (jsonData.eventurls.codeOfConduct) {
+              setPageFlag(jsonData, 'CoC');
               fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/CoC.html', minifyHtml(codeOfConductTpl(jsonData)));
             }
-
           } catch (err) {
             console.log(err);
             logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
@@ -482,26 +488,31 @@ exports.createDistDir = function(req, socket, callback) {
 
     (done) => {
       logger.addLog('Info', 'Cleaning up remaining folder of the same name as that of the event', socket);
-      console.log("============Cleaning up remaining folders of the same name\n");
-      if (emit) socket.emit('live.process', {donePercent: 75, status: "Cleaning up folders of the same name" });
+      console.log('============Cleaning up remaining folders of the same name\n');
+      if (emit) {
+        socket.emit('live.process', {donePercent: 75, status: 'Cleaning up folders of the same name'});
+      }
 
       distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
         if (remerr !== null) {
           logger.addLog('Error', 'Error occured while removing the duplicate event folders', socket, remerr);
           console.log(remerr);
-          if (emit) socket.emit('live.error', {status: "Error in removing the duplicate event folders of the same name" });
+          if (emit) {
+            socket.emit('live.error', {status: 'Error in removing the duplicate event folders of the same name'});
+          }
         }
         return gulp.minifyHtml(distHelper.distPath + '/' + appFolder, function() {
           logger.addLog('Success', 'Duplicated events removed successfully', socket);
           return done(null, 'remove');
         });
       });
-
     },
     (done) => {
       logger.addLog('Info', 'Renaming temporary folder to the actual event folder', socket);
-      console.log("============Renaming temporary folder to the actual event folder");
-      if (emit) socket.emit('live.process', {donePercent: 80, status: "Generating the event folder" });
+      console.log('============Renaming temporary folder to the actual event folder');
+      if (emit) {
+        socket.emit('live.process', {donePercent: 80, status: 'Generating the event folder'});
+      }
 
       const eventFolderSource = __dirname + '/../../dist/';
 
@@ -509,27 +520,29 @@ exports.createDistDir = function(req, socket, callback) {
         if (moveerr !== null) {
           logger.addLog('Error', 'Error in moving files to the event folders', socket, moveerr);
           console.log(moveerr);
-          if (emit) socket.emit('live.error', {status: "Error in moving files to the event directory" });
+          if (emit) {
+            socket.emit('live.error', {status: 'Error in moving files to the event directory'});
+          }
         }
         logger.addLog('Success', 'Changed the temporary name of the project to its actual name', socket);
         appFolder = req.body.email + '/' + eventName;
         done(null, 'move');
-
       });
-
     },
     (done) => {
       logger.addLog('Info', 'Calculating the hash of the event folder and copying the service worker file', socket);
       console.log('Calculating the hash of the event folder and copying the service worker file');
-      if (emit) socket.emit('live.process', {donePercent: 85, status: "Copying Service Worker File"});
+      if (emit) {
+        socket.emit('live.process', {donePercent: 85, status: 'Copying Service Worker File'});
+      }
 
-      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function (err, hashObj) {
+      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function(err, hashObj) {
         if (err) {
           console.log(err);
           logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
           return done(err);
         }
-        distHelper.copyServiceWorker(appFolder, hashObj['hash'], function (err) {
+        distHelper.copyServiceWorker(appFolder, hashObj.hash, function(err) {
           if (err) {
             console.log(err);
             logger.addLog('Error', 'Error occured while copying service worker file', socket, err);
@@ -541,31 +554,36 @@ exports.createDistDir = function(req, socket, callback) {
     },
 
     (done) => {
-        logger.addLog('Info', 'Copying the manifest file', socket);
-        if (emit) socket.emit('live.process', {donePercent: 88, status: "Copying Manifest File"});
+      logger.addLog('Info', 'Copying the manifest file', socket);
+      if (emit) {
+        socket.emit('live.process', {donePercent: 88, status: 'Copying Manifest File'});
+      }
 
-        distHelper.copyManifestFile(appFolder, eventName, function(err) {
-          if (err) {
-            console.log(err);
-            logger.addLog('Error', 'Error occured while copying manifest file', socket, err);
-            return done(err);
-          }
-          return done(null);
-        });
+      distHelper.copyManifestFile(appFolder, eventName, function(err) {
+        if (err) {
+          console.log(err);
+          logger.addLog('Error', 'Error occured while copying manifest file', socket, err);
+          return done(err);
+        }
+        return done(null);
+      });
     },
 
     (done) => {
       logger.addLog('Info', 'Creating zip file of the event', socket);
-      console.log("==================================Creating zip file");
-      if (emit) socket.emit('live.process', {donePercent:90, status: "Website is being generated"});
+      console.log('==================================Creating zip file');
+      if (emit) {
+        socket.emit('live.process', {donePercent: 90, status: 'Website is being generated'});
+      }
       var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
       var archive = archiver('zip', {store: true});
+
       output.on('close', function() {
         logger.addLog('Success', 'Zip file has been created', socket);
         done(null, 'zip');
       });
       archive.on('error', function(err) {
-        logger.addLog('Error', 'Error occured while zipping the file', socket, err)
+        logger.addLog('Error', 'Error occured while zipping the file', socket, err);
       });
       archive.pipe(output);
       archive.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
@@ -573,31 +591,33 @@ exports.createDistDir = function(req, socket, callback) {
     (done) => {
       logger.addLog('Info', 'Sending mail to the user', socket);
       console.log('=================================SENDING MAIL\n');
-      if (emit) socket.emit('live.process', {donePercent: 95, status: "Website is being generated" });
+      if (emit) {
+        socket.emit('live.process', {donePercent: 95, status: 'Website is being generated'});
+      }
 
       if (req.body.ftpdetails) {
         setTimeout(() => {
           ftpDeployer.deploy(req.body.ftpdetails, appFolder, () => {
-            //Send call back to orga server
-          })
+            // Send call back to orga server
+          });
         }, 30000);
       }
 
       mailer.uploadAndsendMail(req.body.email, eventName, socket, (obj) => {
-        if(obj.mail)
+        if (obj.mail) {
           logger.addLog('Success', 'Mail sent succesfully', socket);
-        else
+        } else {
           logger.addLog('Error', 'Error sending mail', socket);
+        }
         callback(appFolder, obj.url);
         done(null, 'write');
       });
 
-      process.on('uncaughtException',function(err){
-        if(err.code === 'ETIMEDOUT'){
-          console.log('Failed to connect to address '+err.address);
-          logger.addLog('Error','Failed to connect to address '+err.address,socket);
-        }
-        else{
+      process.on('uncaughtException', function(err) {
+        if (err.code === 'ETIMEDOUT') {
+          console.log('Failed to connect to address ' + err.address);
+          logger.addLog('Error', 'Failed to connect to address ' + err.address, socket);
+        } else {
           console.log(err);
         }
       });
@@ -607,6 +627,7 @@ exports.createDistDir = function(req, socket, callback) {
 
 exports.pipeZipToRes = function(email, appName, res) {
   const appFolder = email + '/' + appName;
+
   console.log('================================ZIPPING\n');
   const zipfile = archiver('zip');
 
@@ -619,5 +640,4 @@ exports.pipeZipToRes = function(email, appName, res) {
 
   zipfile.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
 };
-
 

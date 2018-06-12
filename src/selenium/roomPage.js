@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-label */
+'use strict';
+
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
 
@@ -18,6 +21,7 @@ RoomPage.toggleSessionElem = function() {
   var promise = new Promise(function(resolve) {
     self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
       var promiseArr = [];
+
       promiseArr.push(self.find(By.id('desc-3014')).isDisplayed());
       promiseArr.push(self.find(By.id('desc2-3014')).isDisplayed());
       resolve(Promise.all(promiseArr));
@@ -61,7 +65,7 @@ RoomPage.checkRoomFilterDirectLink = function() {
     self.findAll(By.className('room-filter')).then(function(roomElems) {
       roomElems.forEach(function(roomElem) {
         roomElem.isDisplayed().then(function(val) {
-          if(val === true) {
+          if (val === true) {
             pushId(roomElem);
           }
         });

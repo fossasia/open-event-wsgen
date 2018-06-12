@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-label */
+'use strict';
+
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
 
@@ -20,9 +23,9 @@ SpeakerPage.jumpToTrack = function() {
       elem.findElement(By.className('sessions')).findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
         .then(function(url) {
           self.driver.executeScript(pageVertScrollOffset).then(function(height) {
-            resolve(height > 0 && (url.search('tracks') !== -1));
+            resolve(height > 0 && url.search('tracks') !== -1);
+          });
         });
-      });
     });
   });
 
@@ -57,10 +60,10 @@ SpeakerPage.hoverOverSpeaker = function() {
   var promise = new Promise(function(resolve) {
     self.find(By.className(speaker)).click().then(self.driver.sleep(1000)).then(function() {
       var socialLinkPromise = self.getAllLinks(By.id(speakerDetailsDiv));
-      
+
       socialLinkPromise.then(function(socialLinkArr) {
         var brokenLinks = self.countBrokenLinks(socialLinkArr.slice(0, 4));
-        
+
         resolve(brokenLinks);
       });
     });
