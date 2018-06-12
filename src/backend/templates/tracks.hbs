@@ -142,12 +142,18 @@
                                     <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
                                   </span>
                                 {{/if}}
-                                {{#if audio}}
+                                {{#ifcontains audio "mp3"}}
                                   <i class="fa fa-music" aria-hidden="true"></i>
-                                {{/if}}
-                                {{#if slides}}
+                                {{/ifcontains}}
+                                {{#ifcontains audio "aac"}}
+                                  <i class="fa fa-music" aria-hidden="true"></i>
+                                {{/ifcontains}}
+                                {{#ifcontains slides "ppt"}}
                                   <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
-                                {{/if}}
+                                {{/ifcontains}}
+                                {{#ifcontains slides "pdf"}}
+                                  <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                                {{/ifcontains}}
                               </div>
                               <div id="desc2-{{session_id}}" class="collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">
@@ -179,11 +185,16 @@
                             </div>
                             <div id="desc-{{session_id}}" class="collapse">
                               {{{description}}}
-                              {{#if audio}}
-                                <audio controls="" id="audio-block" preload="none">
+                              {{#ifcontains audio "mp3"}}
+                                <audio controls="" preload="none" id="audio-block">
                                   <source src="{{ audio }}">
                                 </audio>
-                              {{/if}}
+                              {{/ifcontains}}
+                              {{#ifcontains audio "aac"}}
+                                <audio controls="" preload="none" id="audio-block">
+                                  <source src="{{ audio }}">
+                                </audio>
+                              {{/ifcontains}}
                               <hr class="clear-both">
                               <div id="speaker-{{session_id}}" class="session-speakers-list" aria-expanded="false"
                                 aria-controls="desc-{{session_id}}">
