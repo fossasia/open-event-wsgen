@@ -148,21 +148,32 @@
                               <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
                             </span>
                           {{/if}}
-                          {{#if audio}}
+                          {{#ifcontains audio "mp3"}}
                             <i class="fa fa-music" aria-hidden="true"></i>
-                          {{/if}}
-                          {{#if slides}}
+                          {{/ifcontains}}
+                          {{#ifcontains audio "aac"}}
+                            <i class="fa fa-music" aria-hidden="true"></i>
+                          {{/ifcontains}}
+                          {{#ifcontains slides "ppt"}}
                             <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
-                          {{/if}}
+                          {{/ifcontains}}
+                          {{#ifcontains slides "pdf"}}
+                            <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                          {{/ifcontains}}
                         </div>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}
-                        {{#if audio}}
+                        {{#ifcontains audio "mp3"}}
                           <audio controls="" preload="none" id="audio-block">
                             <source src="{{ audio }}">
                           </audio>
-                        {{/if}}
+                        {{/ifcontains}}
+                        {{#ifcontains audio "aac"}}
+                          <audio controls="" preload="none" id="audio-block">
+                            <source src="{{ audio }}">
+                          </audio>
+                        {{/ifcontains}}
                         {{#ifvalue description notequals=""}}
                           <hr class="clear-both">
                         {{/ifvalue}}
