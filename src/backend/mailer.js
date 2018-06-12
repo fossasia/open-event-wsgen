@@ -1,8 +1,6 @@
-/**
- * Created by championswimmer on 1/8/16.
- * Modified by uttpal.
- */
+/* eslint-disable no-empty-label */
 'use strict';
+
 const config = require('../../config.json');
 
 /**
@@ -63,31 +61,31 @@ function emailSend(toEmail, url, appName) {
   let previewExpiryDate = new Date();
   let downloadLinkExpiryDate = new Date();
   let mailSendStatus = 0; // boolean to indicate the success and failure of email send
-  let chanChannelLink = 'https://gitter.im/fossasia/open-event-webapp';
-  let githubIssueLink = 'https://github.com/fossasia/open-event-webapp/issues';
+  const chanChannelLink = 'https://gitter.im/fossasia/open-event-webapp';
+  const githubIssueLink = 'https://github.com/fossasia/open-event-webapp/issues';
   var emailContent = '';
 
   previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
-  previewExpiryDate = moment.utc(previewExpiryDate).format('dddd, h A')+' (UTC)';
+  previewExpiryDate = moment.utc(previewExpiryDate).format('dddd, h A') + ' (UTC)';
   downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
-  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).format('dddd, MMMM Do YYYY')+' (UTC)';
+  downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).format('dddd, MMMM Do YYYY') + ' (UTC)';
 
   var successMesg = 'Hi ! <br>' +
     ' Your webapp has been generated <br>' +
     'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
     'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate + '<br><br><br>' + 'Thank you for using Open Event Webapp Generator :)';
 
-  var errorMesg = 'Hi ! <br> The cloud upload of the webapp failed. Please inform us about it on our ' + 'chat channel'.link(chanChannelLink) +  ' or file an issue on our ' +  'Github repo'.link(githubIssueLink) + '. Sorry for the inconvenience :(';
+  var errorMesg = 'Hi ! <br> The cloud upload of the webapp failed. Please inform us about it on our ' + 'chat channel'.link(chanChannelLink) + ' or file an issue on our ' + 'Github repo'.link(githubIssueLink) + '. Sorry for the inconvenience :(';
 
   // The Cloud upload fails so download link point to the event folder on Heroku itself which will be purged in a few hours
-  if(!url) {
+  if (!url) {
     downloadUrl = appUrl + 'download/' + toEmail + '/' + appName;
     emailContent = errorMesg;
   } else {
     emailContent = successMesg;
   }
 
-  if(process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
+  if (process.env.DEFAULT_MAIL_STRATEGY === 'SMTP') {
     const smtpConfig = {
       host: process.env.SMTP_HOST || config.SMTP_HOST,
       port: process.env.SMTP_PORT || config.SMTP_PORT,
@@ -111,7 +109,7 @@ function emailSend(toEmail, url, appName) {
     }).catch((err) => {
       console.log('Error sending Email', err);
       return {'url': url, 'mail': mailSendStatus};
-      });
+    });
   }
   const fromEmail = new helper.Email(process.env.DEFAULT_FROM_EMAIL);
   const recipientEmail = new helper.Email(toEmail);

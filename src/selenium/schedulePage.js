@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-label */
+'use strict';
+
 var BasePage = require('./basePage.js');
 var By = require('selenium-webdriver').By;
 
@@ -27,10 +30,9 @@ SchedulePage.toggleSessionElem = function() {
 SchedulePage.getVisibleDates = function(mode) {
   var self = this;
 
-  if (mode == 'list') {
+  if (mode === 'list') {
     return self.find(By.className('list-view')).findElements(By.className('day-filter')).then(self.getElemsDisplayStatus);
-  }
-  else if (mode == 'calendar') {
+  } else if (mode === 'calendar') {
     return self.find(By.className('calendar-view')).findElements(By.className('calendar')).then(self.getElemsDisplayStatus);
   }
 };
@@ -38,6 +40,7 @@ SchedulePage.getVisibleDates = function(mode) {
 SchedulePage.getCurrentView = function() {
   // Gives the current status about visibility of the date divs inside the list and the calendar container
   var promiseArr = [];
+
   promiseArr.push(this.getVisibleDates('list'));
   promiseArr.push(this.getVisibleDates('calendar'));
   return Promise.all(promiseArr);
@@ -46,6 +49,7 @@ SchedulePage.getCurrentView = function() {
 SchedulePage.changeDay = function(dayNo) {
   var self = this;
   var dateId = datesId[dayNo - 1];
+
   return self.find(By.id(dateId)).then(self.click).then(self.getCurrentView.bind(self));
 };
 
@@ -95,7 +99,7 @@ SchedulePage.checkFilterDirectLink = function() {
     self.findAll(By.className('schedule-track')).then(function(roomTrackElems) {
       roomTrackElems.forEach(function(roomTrackElem) {
         roomTrackElem.isDisplayed().then(function(val) {
-          if(val === true) {
+          if (val === true) {
             pushId(roomTrackElem);
           }
         });
