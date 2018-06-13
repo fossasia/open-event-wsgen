@@ -1,17 +1,17 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var BasePage = require('./basePage.js');
-var By = require('selenium-webdriver').By;
+const BasePage = require('./basePage.js');
+const By = require('selenium-webdriver').By;
 
-var sessionPage = Object.create(BasePage);
+const sessionPage = Object.create(BasePage);
 
 sessionPage.getSessionTitle = function() {
-  var self = this;
-  var titleId = 'title-1090';
+  const self = this;
+  const titleId = 'title-1090';
 
-  var sessionPromise = new Promise(function(resolve) {
-    var title = self.find(By.id(titleId)).getText();
+  const sessionPromise = new Promise(function(resolve) {
+    const title = self.find(By.id(titleId)).getText();
 
     resolve(title);
   });
@@ -20,11 +20,11 @@ sessionPage.getSessionTitle = function() {
 };
 
 sessionPage.getSessionBackgroundColor = function() {
-  var self = this;
-  var titleId = 'title-1090';
+  const self = this;
+  const titleId = 'title-1090';
 
-  var sessionPromise = new Promise(function(resolve) {
-    var backgroundColor = self.find(By.id(titleId)).getCssValue('background-color');
+  const sessionPromise = new Promise(function(resolve) {
+    const backgroundColor = self.find(By.id(titleId)).getCssValue('background-color');
 
     resolve(backgroundColor);
   });
@@ -33,11 +33,11 @@ sessionPage.getSessionBackgroundColor = function() {
 };
 
 sessionPage.getSpeakerName = function() {
-  var self = this;
-  var speaker = 'graytext';
+  const self = this;
+  const speaker = 'graytext';
 
-  var sessionPromise = new Promise(function(resolve) {
-    var title = self.find(By.className(speaker)).getText();
+  const sessionPromise = new Promise(function(resolve) {
+    const title = self.find(By.className(speaker)).getText();
 
     resolve(title);
   });
@@ -46,11 +46,11 @@ sessionPage.getSpeakerName = function() {
 };
 
 sessionPage.jumpToTrack = function() {
-  var self = this;
-  var trackClass = 'session-ul';
-  var pageVertScrollOffset = 'return window.scrollY';
+  const self = this;
+  const trackClass = 'session-ul';
+  const pageVertScrollOffset = 'return window.scrollY';
 
-  var trackPromise =  new Promise(function(resolve) {
+  const trackPromise =  new Promise(function(resolve) {
     self.find(By.className(trackClass)).then(function(elem) {
       elem.findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
         .then(function(url) {
@@ -65,11 +65,11 @@ sessionPage.jumpToTrack = function() {
 };
 
 sessionPage.jumpToSpeaker = function() {
-  var self = this;
-  var speakerClass = 'session-speakers-list';
-  var pageVertScrollOffset = 'return window.scrollY';
+  const self = this;
+  const speakerClass = 'session-speakers-list';
+  const pageVertScrollOffset = 'return window.scrollY';
 
-  var speakerPromise =  new Promise(function(resolve) {
+  const speakerPromise =  new Promise(function(resolve) {
     self.find(By.className(speakerClass)).then(function(elem) {
       elem.findElement(By.css('a')).click().then(self.getPageUrl.bind(self))
         .then(function(url) {
@@ -84,10 +84,10 @@ sessionPage.jumpToSpeaker = function() {
 };
 
 sessionPage.jumpToRoom = function() {
-  var self = this;
-  var pageVertScrollOffset = 'return window.scrollY';
+  const self = this;
+  const pageVertScrollOffset = 'return window.scrollY';
 
-  var roomPromise =  new Promise(function(resolve) {
+  const roomPromise =  new Promise(function(resolve) {
     self.find(By.css("a[href='../rooms.html#2017-06-30-Plaza_Room_B']")).then(function(elem) {
       elem.click().then(self.getPageUrl.bind(self))
         .then(function(url) {

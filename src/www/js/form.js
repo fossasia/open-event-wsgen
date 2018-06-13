@@ -2,18 +2,11 @@
 /* global $ */
 'use strict';
 
-var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
-var uploadFinished = false;
-
-var isCancelling = false;
-var generationStarted = false;
+let generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText, date, percent, customMenuButton, menuContent, fontAwesomeIcom, msg;
+let uploadFinished = false;
+let isCancelling = false;
+let generationStarted = false;
 let initialValue = 0;
-let date;
-let percent;
-let message;
-let customMenuButton;
-let menuContent;
-let fontAwesomeIcom;
 
 function updateGenerateProgress(perc) {
   generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function() {
@@ -27,7 +20,7 @@ function updateUploadProgress(perc) {
 }
 
 function createCookie(name, value, days) {
-  var expires = '';
+  let expires = '';
 
   if (days) {
     date = new Date();
@@ -39,15 +32,19 @@ function createCookie(name, value, days) {
 }
 
 $(document).ready(function() {
-  var socket = io();
+// eslint-disable-next-line no-undef
+  const socket = io();
 
   document.getElementById('email').focus();
 
   function uploadFile(file) {
-    var size = (file.size / (1024 * 1024)).toString().substring(0, 3);
-    var stream = ss.createStream();
-    var blobStream = ss.createBlobReadStream(file);
-    var fileUploadSize = 0;
+    // eslint-disable-next-line no-undef
+    const size = (file.size / (1024 * 1024)).toString().substring(0, 3);
+    // eslint-disable-next-line no-undef
+    const stream = ss.createStream();
+    // eslint-disable-next-line no-undef
+    const blobStream = ss.createBlobReadStream(file);
+    let fileUploadSize = 0;
 
     $('#siofu_input').hide();
     $('#upload-info').show();
@@ -83,13 +80,14 @@ $(document).ready(function() {
       }
     });
 
+    // eslint-disable-next-line no-undef
     ss(socket).emit('file', stream, {size: file.size, name: file.name});
     blobStream.pipe(stream);
   }
 
   $('#siofu_input').change(function(e) {
-    var file = e.target.files[0];
-    var extension = file.name.substring(file.name.lastIndexOf('.') + 1);
+    const file = e.target.files[0];
+    const extension = file.name.substring(file.name.lastIndexOf('.') + 1);
 
     statusText.text('');
     isCancelling = false;
@@ -282,28 +280,29 @@ $(document).ready(function() {
   );
 
   $('#singlefileUpload').change(function() {
-    var ext = this.value.match(/\.([^\.]+)$/)[1];
+    const ext = this.value.match(/\.([^\.]+)$/)[1];
 
     switch (ext) {
       case 'zip':
         break;
       default:
+        // eslint-disable-next-line no-alert
         alert('Only zip files are allowed');
         this.value = '';
     }
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
-    var fileData = getFile();
+    const fileData = getFile();
 
     socket.emit('upload', fileData);
   });
 
   $('#btnGenerate').click(function() {
-    var check = $('#form').valid();
+    const check = $('#form').valid();
 
     $('.error').focus();
     if (check) {
-      var formData = getData({uploadsId: initialValue});
+      const formData = getData({uploadsId: initialValue});
 
       generationStarted = true;
       $('#buildLog').empty();
@@ -353,12 +352,12 @@ $(document).ready(function() {
   });
 
   function deployStatus() {
-    var apiUrl = 'https://api.github.com/repos/fossasia/open-event-webapp/git/refs/heads/development';
+    const apiUrl = 'https://api.github.com/repos/fossasia/open-event-webapp/git/refs/heads/development';
 
     $.ajax({url: apiUrl, success: function(result) {
-      var version = result.object.sha;
-      var versionLink = 'https://github.com/fossasia/open-event-webapp/tree/' + version;
-      var deployLink = $('#deploy-link');
+      const version = result.object.sha;
+      const versionLink = 'https://github.com/fossasia/open-event-webapp/tree/' + version;
+      const deployLink = $('#deploy-link');
 
       deployLink.attr('href', versionLink);
       deployLink.html(version);
@@ -367,7 +366,7 @@ $(document).ready(function() {
 
   deployStatus();
 
-  var errorno = 0; // stores the id of an error needed for its div element
+  let errorno = 0; // stores the id of an error needed for its div element
 
   socket.on('buildLog', function(data) {
     // There are three category of Log statements
@@ -376,11 +375,11 @@ $(document).ready(function() {
     // Error statements give information about a task failing to complete. These statements also contain a detailed error log which can be viewed
     // by clicking on the Know more Button.
 
-    var spanElem = $('<span></span>'); // will contain the info about type of statement
-    var spanMess = $('<span></span>'); // will contain the actual message
-    var aElem = $('<button></button>'); // Button to view the detailed error log
-    var divElem = $('<div></div>'); // Contain the detailed error log
-    var paragraph = $('<p></p>'); // Contain the whole statement
+    const spanElem = $('<span></span>'); // will contain the info about type of statement
+    const spanMess = $('<span></span>'); // will contain the actual message
+    const aElem = $('<button></button>'); // Button to view the detailed error log
+    const divElem = $('<div></div>'); // Contain the detailed error log
+    const paragraph = $('<p></p>'); // Contain the whole statement
 
     spanMess.css({'margin-left': '5px'});
     aElem.css({'margin-left': '5px'});
@@ -416,9 +415,9 @@ $(document).ready(function() {
 });
 
 function displayButtons(appPath, url) {
-  var btnDownload = $('#btnDownload');
-  var btnLive = $('#btnLive');
-  var deploy = $('#deploy');
+  const btnDownload = $('#btnDownload');
+  const btnLive = $('#btnLive');
+  const deploy = $('#deploy');
 
   deploy.show();
   btnDownload.css('display', 'block');
@@ -438,14 +437,14 @@ function displayButtons(appPath, url) {
 }
 
 function updateStatusAnimate(statusMsg, speed, color) {
-  color = color || 'black';
-  speed = speed || 200;
-  var lowerOpaque = speed < 200 ? 0.8 : 0.2;
+  const statusColor = color || 'black';
+  const statusSpeed = speed || 200;
+  const lowerOpaque = statusSpeed < 200 ? 0.8 : 0.2;
 
-  statusText.animate({'opacity': lowerOpaque}, speed, function() {
-    statusText.css({'color': color});
+  statusText.animate({'opacity': lowerOpaque}, statusSpeed, function() {
+    statusText.css({'color': statusColor});
     statusText.text(statusMsg);
-  }).animate({'opacity': 1}, speed);
+  }).animate({'opacity': 1}, statusSpeed);
 }
 
 function updateStatus(statusMsg) {
@@ -470,7 +469,7 @@ function enableGenerateButton(enabled) {
 }
 
 function getFile() {
-  var data = {};
+  const data = {};
 
   try {
     data.singlefileUpload = $('#singlefileUpload')[0].files[0];
@@ -482,9 +481,9 @@ function getFile() {
   return data;
 }
 
-function getData(initialValue) {
-  var data = initialValue;
-  var formData = $('#form').serializeArray();
+function getData(initValue) {
+  const data = initValue;
+  const formData = $('#form').serializeArray();
 
   formData.forEach(function(field) {
     if (field.name === 'email') {

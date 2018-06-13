@@ -63,19 +63,16 @@ function emailSend(toEmail, url, appName) {
   let mailSendStatus = 0; // boolean to indicate the success and failure of email send
   const chanChannelLink = 'https://gitter.im/fossasia/open-event-webapp';
   const githubIssueLink = 'https://github.com/fossasia/open-event-webapp/issues';
-  var emailContent = '';
+  let emailContent = '';
 
   previewExpiryDate.setTime(currDate.getTime() + 7200000); // corresponds to current date + 2 hours
   previewExpiryDate = moment.utc(previewExpiryDate).format('dddd, h A') + ' (UTC)';
   downloadLinkExpiryDate.setTime(currDate.getTime() + 259200000); // corresponds to current date + 3 days
   downloadLinkExpiryDate = moment.utc(downloadLinkExpiryDate).format('dddd, MMMM Do YYYY') + ' (UTC)';
 
-  var successMesg = 'Hi ! <br>' +
-    ' Your webapp has been generated <br>' +
-    'You can preview it live on ' + ' link'.link(previewUrl) + '. This link expires on ' + previewExpiryDate + '<br>' +
-    'You can download a zip of your website from  ' + ' here'.link(downloadUrl) + '. The download link for zip expires on ' + downloadLinkExpiryDate + '<br><br><br>' + 'Thank you for using Open Event Webapp Generator :)';
+  const successMesg = `Hi ! <br> Your webapp has been generated <br>You can preview it live on ${' link'.link(previewUrl)}. This link expires on ${previewExpiryDate}<br>You can download a zip of your website from  ${' here'.link(downloadUrl)}. The download link for zip expires on ${downloadLinkExpiryDate}<br><br><br>Thank you for using Open Event Webapp Generator :)`;
 
-  var errorMesg = 'Hi ! <br> The cloud upload of the webapp failed. Please inform us about it on our ' + 'chat channel'.link(chanChannelLink) + ' or file an issue on our ' + 'Github repo'.link(githubIssueLink) + '. Sorry for the inconvenience :(';
+  const errorMesg = 'Hi ! <br> The cloud upload of the webapp failed. Please inform us about it on our ' + 'chat channel'.link(chanChannelLink) + ' or file an issue on our ' + 'Github repo'.link(githubIssueLink) + '. Sorry for the inconvenience :(';
 
   // The Cloud upload fails so download link point to the event folder on Heroku itself which will be purged in a few hours
   if (!url) {
@@ -123,6 +120,7 @@ function emailSend(toEmail, url, appName) {
   request.path = '/v3/mail/send';
   request.body = requestBody;
   console.log(request);
+  // eslint-disable-next-line new-cap
   return sg.API(request)
     .then((response) => {
       mailSendStatus = 1;
@@ -140,20 +138,20 @@ function emailSend(toEmail, url, appName) {
 function uploadAndsendMail(toEmail, appName, socket, done) {
   const file = distHelper.distPath + '/' + toEmail + '/event.zip';
 
-  appName = appName.split(' ').join('_');
-  const fileName = uuid.v4() + '/' + appName + '.zip';
+  const app_name = appName.split(' ').join('_');
+  const fileName = uuid.v4() + '/' + app_name + '.zip';
 
   uploadToS3(file, fileName, socket)
     .then((data) => {
       logger.addLog('Success', 'Upload successful to s3', socket);
       data.Location = decodeURIComponent(data.Location);
       console.log('Upload Success', data.Location);
-      return emailSend(toEmail, data.Location, appName);
+      return emailSend(toEmail, data.Location, app_name);
     })
     .catch((err) => {
       console.log('Error', err);
       logger.addLog('Info', 'Failed while uploading the zip. No Amazon S3 keys found', socket);
-      return emailSend(toEmail, null, appName);
+      return emailSend(toEmail, null, app_name);
     })
     .then((obj) => {
       return done(obj);

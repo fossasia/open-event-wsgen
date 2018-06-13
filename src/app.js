@@ -25,14 +25,14 @@ const sentryUrl = process.env.SENTRY_DSN;
 const ss = require('socket.io-stream');
 const Raven = require('raven');
 
-var errorHandler;
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var id = 0;
-var count = 0;
-let filename = '';
+const app = express();
+// eslint-disable-next-line new-cap
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 let parsedCookie, sid, folder;
+let id = 0;
+let count = 0;
+let filename = '';
 
 if (sentryUrl) {
   Raven.config(sentryUrl).install();
@@ -89,7 +89,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('live', function(formData) {
-    var req = {body: formData};
+    const req = {body: formData};
 
     generator.createDistDir(req, socket, function(appFolder, url) {
       socket.emit('live.ready', {
@@ -131,7 +131,7 @@ io.of('/deploy').on('connection', function(socket) {
 
 app.use(connectDomain());
 
-errorHandler = function(err, req, res, next) {
+const errorHandler = function(err, req, res, next) {
   res.sendFile(__dirname + '/www/404.html');
   next();
   console.log(err);

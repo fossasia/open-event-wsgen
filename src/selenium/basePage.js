@@ -1,11 +1,11 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var until = require('selenium-webdriver').until;
-var By = require('selenium-webdriver').By;
-var request = require('request');
+const until = require('selenium-webdriver').until;
+const By = require('selenium-webdriver').By;
+const request = require('request');
 
-var BasePage = {
+const BasePage = {
 
   init: function(webdriver) {
     this.driver = webdriver;
@@ -20,21 +20,21 @@ var BasePage = {
   },
 
   find: function(locator, timeout) {
-    var waitTime = timeout || 20000;
+    const waitTime = timeout || 20000;
 
     this.driver.wait(until.elementLocated(locator, waitTime));
     return this.driver.findElement(locator);
   },
 
   findAll: function(locator, timeout) {
-    var waitTime = timeout || 20000;
+    const waitTime = timeout || 20000;
 
     this.driver.wait(until.elementLocated(locator, waitTime));
     return this.driver.findElements(locator);
   },
 
   getColor: function(el) {
-    var element = el || this;
+    const element = el || this;
 
     return element.getAttribute('color');
   },
@@ -48,11 +48,11 @@ var BasePage = {
   },
 
   toggleSessionBookmark: function(sessionIds) {
-    var self = this;
-    var promiseArr = [];
+    const self = this;
+    const promiseArr = [];
 
     sessionIds.forEach(function(sessionId) {
-      var promElem = new Promise(function(resolve, reject) {
+      const promElem = new Promise(function(resolve, reject) {
         self.find(By.id(sessionId)).then(function(el) {
           el.findElement(By.className('bookmark')).then(self.click).then(function() {
             resolve('done');
@@ -67,7 +67,7 @@ var BasePage = {
   },
 
   getElemsDisplayStatus: function(arr) {
-    var promiseArr = [];
+    const promiseArr = [];
 
     arr.forEach(function(elem) {
       promiseArr.push(elem.isDisplayed());
@@ -76,9 +76,9 @@ var BasePage = {
   },
 
   getSessionElemsColor: function() {
-    var self = this;
-    var sessionElemIdArr = ['title-3014', 'title-2941'];
-    var colorPromArr = sessionElemIdArr.map(function(sessionElemId) {
+    const self = this;
+    const sessionElemIdArr = ['title-3014', 'title-2941'];
+    const colorPromArr = sessionElemIdArr.map(function(sessionElemId) {
       return self.find(By.id(sessionElemId)).getCssValue('color');
     });
 
@@ -86,7 +86,7 @@ var BasePage = {
   },
 
   checkDownButton: function() {
-    var self = this;
+    const self = this;
 
     return self.driver.executeScript('window.scrollTo(0, document.body.scrollHeight)').then(self.find.bind(self, By.id('down-button'))).then(function(el) {
       return el.click().then(self.driver.sleep(1000)).then(function() {
@@ -96,8 +96,8 @@ var BasePage = {
   },
 
   search: function(text) {
-    var self = this;
-    var searchClass = 'fossasia-filter';
+    const self = this;
+    const searchClass = 'fossasia-filter';
 
     // There are two search input box with the class fossasia-filter. One of them is for mobile view and other is for bigger
     // screens. We are doing this test on bigger screen so we have to select that input element and enter text in it. The second
@@ -109,15 +109,15 @@ var BasePage = {
   },
 
   commonSearchTest: function(text, idList) {
-    var self = this;
-    var searchText = text || 'Mario';
+    const self = this;
+    const searchText = text || 'Mario';
 
     // First 4 session ids should show up on default search text and the last two not
-    var arrId = idList || ['3017', '3029', '3013', '3031', '3014', '3015'];
+    const arrId = idList || ['3017', '3029', '3013', '3031', '3014', '3015'];
 
-    var promise = new Promise(function(resolve) {
+    const promise = new Promise(function(resolve) {
       self.search(searchText).then(function() {
-        var promiseArr = arrId.map(function(curElem) {
+        const promiseArr = arrId.map(function(curElem) {
           return self.find(By.id(curElem)).isDisplayed();
         });
 
@@ -131,8 +131,8 @@ var BasePage = {
   },
 
   resetSearchBar: function() {
-    var self = this;
-    var searchClass = 'fossasia-filter';
+    const self = this;
+    const searchClass = 'fossasia-filter';
 
     return self.findAll(By.className(searchClass)).then(function(inputArr) {
       return inputArr[1].clear();
@@ -147,7 +147,7 @@ var BasePage = {
 
   getAllLinks: function(locator) {
     function linksFromAnchorTags(anchorTags) {
-      var promiseArr = anchorTags.map(function(anchor) {
+      const promiseArr = anchorTags.map(function(anchor) {
         return anchor.getAttribute('href');
       });
 
@@ -161,8 +161,8 @@ var BasePage = {
 
   countBrokenLinks: function(links) {
     return new Promise(function(resolve) {
-      var brokenLinks = 0;
-      var counter = 0;
+      let brokenLinks = 0;
+      let counter = 0;
 
       links.forEach(function(link) {
         request(link, function(error, response) {
@@ -183,10 +183,10 @@ var BasePage = {
   },
 
   jumpToSpeaker: function() {
-    var self = this;
-    var sessionTitleId = 'title-3014';
-    var sessionDetailId = 'desc-3014';
-    var pageVertScrollOffset = 'return window.scrollY';
+    const self = this;
+    const sessionTitleId = 'title-3014';
+    const sessionDetailId = 'desc-3014';
+    const pageVertScrollOffset = 'return window.scrollY';
 
     return new Promise(function(resolve) {
       self.find(By.id(sessionTitleId)).then(self.click).then(function() {
@@ -204,7 +204,7 @@ var BasePage = {
   },
 
   checkScrollbar: function() {
-    var scrollVisible =  'return document.documentElement.scrollWidth > document.documentElement.clientWidth';
+    const scrollVisible =  'return document.documentElement.scrollWidth > document.documentElement.clientWidth';
 
     return this.driver.executeScript(scrollVisible);
   },
@@ -214,14 +214,14 @@ var BasePage = {
   },
 
   getVerticalOffset: function() {
-    var pageVertScrollOffset = 'return window.scrollY';
+    const pageVertScrollOffset = 'return window.scrollY';
 
     return this.driver.executeScript(pageVertScrollOffset);
   },
 
   goToTop: function() {
-    var self = this;
-    var sleepDuration = 1000;
+    const self = this;
+    const sleepDuration = 1000;
 
     return self.find(By.id('down-button')).click().then(function() {
       return self.driver.sleep(sleepDuration);
@@ -229,12 +229,12 @@ var BasePage = {
   },
 
   subnavbarStatus: function(day) {
-    var self = this;
-    var tabSelectClass = 'tabs-nav-link';
-    var tabLinkContainerClass = 'tab-content';
-    var sleepDuration = 1000;
+    const self = this;
+    const tabSelectClass = 'tabs-nav-link';
+    const tabLinkContainerClass = 'tab-content';
+    const sleepDuration = 1000;
 
-    var subnavbarPromise = new Promise(function(resolve) {
+    const subnavbarPromise = new Promise(function(resolve) {
       self.findAll(By.className(tabSelectClass)).then(function(dayElems) {
         dayElems[day - 1].click().then(function() {
           self.findAll(By.className(tabLinkContainerClass)).then(function(linkContainer) {
@@ -255,10 +255,10 @@ var BasePage = {
   },
 
   checkAllSubnav: function() {
-    var self = this;
-    var promiseArr = [];
-    var counter = 1;
-    var days = 3;
+    const self = this;
+    const promiseArr = [];
+    let counter = 1;
+    const days = 3;
 
     while (counter <= days) {
       promiseArr.push(self.subnavbarStatus(counter));
@@ -268,8 +268,8 @@ var BasePage = {
   },
 
   getScrollbarVisibility: function(sizeList) {
-    var promiseArr = [];
-    var self = this;
+    const promiseArr = [];
+    const self = this;
 
     sizeList.forEach(function(size) {
       promiseArr.push(self.resizeWindow(size[0], size[1]).then(self.checkScrollbar.bind(self)));
@@ -282,7 +282,7 @@ var BasePage = {
   },
 
   checkTrackNamePos: function() {
-    var self = this;
+    const self = this;
 
     return self.find(By.className('track-room-names')).then(self.getPos).then(function(posObj) {
       return posObj.y < 2000;
@@ -290,13 +290,13 @@ var BasePage = {
   },
 
   checkAlignment: function() {
-    var self = this;
-    var posPromArr = [];
+    const self = this;
+    const posPromArr = [];
 
     posPromArr.push(self.find(By.id('tabs')).then(self.getPos));
     posPromArr.push(self.find(By.className('text')).then(self.getPos));
 
-    var checkAlign = new Promise(function(resolve) {
+    const checkAlign = new Promise(function(resolve) {
       Promise.all(posPromArr).then(function(posArr) {
         resolve(Math.abs(posArr[0].x - posArr[1].x));
       });
@@ -306,8 +306,8 @@ var BasePage = {
   },
 
   bookmarkCheck: function(sessionToggleArr, visCheckSessionArr) {
-    var self = this;
-    var sessionElemArr = visCheckSessionArr.map(function(id) {
+    const self = this;
+    const sessionElemArr = visCheckSessionArr.map(function(id) {
       return self.find(By.id(id));
     });
 
@@ -322,8 +322,8 @@ var BasePage = {
 
   closeOtherWindows: function(windowArr, baseWindow) {
     // Close all other windows and switch to the base window
-    var self = this;
-    var closeWindowProm = windowArr.map(function(windowElem) {
+    const self = this;
+    const closeWindowProm = windowArr.map(function(windowElem) {
       return self.driver.switchTo().window(windowElem).then(function() {
         return self.driver.close();
       });
@@ -336,12 +336,12 @@ var BasePage = {
 
   getSocialButtonElems: function() {
     // Returns social button elements of a particular session
-    var sessionId = '3014';
-    var socialToggleClass = 'session-lin';
-    var socialButtonClass = 'social-button';
-    var self = this;
+    const sessionId = '3014';
+    const socialToggleClass = 'session-lin';
+    const socialButtonClass = 'social-button';
+    const self = this;
 
-    var socialButtonProm = new Promise(function(resolve) {
+    const socialButtonProm = new Promise(function(resolve) {
       self.find(By.id(sessionId)).then(function(el) {
         self.click(el).then(function() {
           el.findElement(By.className(socialToggleClass)).click().then(function() {
@@ -356,21 +356,21 @@ var BasePage = {
 
   checkSocialLinks: function() {
     // Returns the number of social button links of a session which are working properly
-    var self = this;
-    var baseWindow;
+    const self = this;
+    let baseWindow;
 
     self.driver.getWindowHandle().then(function(windowElem) {
       baseWindow = windowElem;
     });
 
-    var socialPromise = new Promise(function(resolve) {
+    const socialPromise = new Promise(function(resolve) {
       self.getSocialButtonElems().then(function(socialArr) {
-        var windowPromArr = socialArr.map(function(linkElem) {
+        const windowPromArr = socialArr.map(function(linkElem) {
           return linkElem.click();
         });
 
         Promise.all(windowPromArr).then(self.getAllWindows.bind(self)).then(function(windowArr) {
-          var len = windowArr.length;
+          const len = windowArr.length;
 
           windowArr.splice(windowArr.indexOf(baseWindow), 1);
           self.closeOtherWindows(windowArr, baseWindow).then(function() {

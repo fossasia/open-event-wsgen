@@ -56,8 +56,9 @@ function checkNullHtml(html) {
     return true;
   }
 
-  html = html.replace(/<\/?[^>]+(>|$)/g, '').trim();
-  return html === '';
+  const htmlVal = html.replace(/<\/?[^>]+(>|$)/g, '').trim();
+
+  return htmlVal === '';
 }
 
 function getHoursFromTime(time) {
@@ -125,7 +126,7 @@ function checkWidth(columns) {
 }
 
 function convertLicenseToCopyright(licence, copyright) {
-  var data = {};
+  const data = {};
 
   data.licence_url = licence['licence-url'] === undefined ? licence.url : licence['licence-url'];
   data.logo = licence['compact-logo-url'] === undefined ? licence['logo-url'] : licence['compact-logo-url'];
@@ -157,7 +158,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
     const trackName = session.track === null ? 'deftrack' : session.track.name;
     const roomName = session.microlocation.name;
     const session_type = session['session-type'] === null ? '' : session['session-type'].name;
-    var trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
+    const trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
     const slug = date + '-' + trackNameUnderscore;
     let track = null;
 
@@ -391,16 +392,16 @@ function returnTracknames(sessions, trackInfo) {
 }
 
 function returnRoomnames(roomsInfo) {
-  var allRoomsList = [];
+  const allRoomsList = [];
 
   roomsInfo.forEach(function(dayRooms) {
-    var roomsVenue = dayRooms.venue;
+    const roomsVenue = dayRooms.venue;
 
     roomsVenue.forEach(function(tempVenue) {
       allRoomsList.push(tempVenue.venue);
     });
   });
-  var uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
+  const uniqueRoomList = allRoomsList.filter((it, i, ar) => ar.indexOf(it) === i);
 
   uniqueRoomList.sort();
   return uniqueRoomList;
@@ -456,9 +457,9 @@ function createSocialLinks(event) {
 
 function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
   const sociallinks = Array.from(event['social-links']);
-  var sociallink = '';
-  var featuresection = 0;
-  var sponsorsection = 0;
+  let sociallink = '';
+  let featuresection = 0;
+  let sponsorsection = 0;
 
   sociallinks.forEach((link) => {
     if (link.name.toLowerCase() === 'twitter') {
@@ -574,11 +575,11 @@ function getCopyrightData(event) {
 }
 
 function sortLevelData(levelData) {
-  var keys = Object.keys(levelData);
+  const keys = Object.keys(levelData);
 
   keys.sort().reverse();
-  var lowIndex = parseInt(keys[keys.length - 1], 10);
-  var sortedData = {};
+  const lowIndex = parseInt(keys[keys.length - 1], 10);
+  const sortedData = {};
 
   keys.forEach(function(key, index) {
     sortedData[key] = levelData[index + lowIndex];
@@ -674,7 +675,7 @@ function foldByLevel(sponsors, reqOpts, next) {
 }
 
 function sessionsByRooms(id, sessions, trackInfo) {
-  var sessionInRooms = [];
+  const sessionInRooms = [];
   const DateData = new Map();
   const trackDetails = {};
   const trackDetailsFont = {};
@@ -737,6 +738,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     const start = moment.parseZone(session['starts-at']).format('HH:mm');
     const end = moment.parseZone(session['ends-at']).format('HH:mm');
 
+    // eslint-disable-next-line no-shadow
     let room = null;
 
     // set up room if it does not exist
@@ -974,6 +976,7 @@ function getAllSessions(speakerid, session, trackInfo) {
       }
     }
   });
+  // eslint-disable-next-line no-shadow
   sessiondetail.forEach((session) => {
     const roomname = session.detail === null || session.detail.microlocation === null ? ' ' : session.detail.microlocation.name;
 

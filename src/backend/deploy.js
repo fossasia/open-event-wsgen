@@ -1,39 +1,31 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var distHelper = require('./dist.js');
-var fs = require('fs');
-var Github = require('github');
-var gh = new Github();
-var async = require('async');
-
-function encode(file) {
-  var bitmap = fs.readFileSync(file);
-
-  return new Buffer(bitmap).toString('base64');
-}
-
-var Gemfile = __dirname + '/Gemfile';
-
-var walk = function(dir, done) {
-  var results = [];
-
+const distHelper = require('./dist.js');
+const fs = require('fs');
+const Github = require('github');
+const gh = new Github();
+const async = require('async');
+let results, bitmap, i, file, fullPath, eventName, repoName, total, counter, elem, fileName, sha;
+const Gemfile = __dirname + '/Gemfile';
+const walk = function(dir, done) {
+  results = [];
   fs.readdir(dir, function(err, list) {
     if (err) {
       return done(err);
     }
-    var i = 0;
+    i = 0;
 
     (function next() {
-      var file = list[i++];
+      file = list[i++];
 
       if (!file) {
         return done(null, results);
       }
       file = dir + '/' + file;
-      fs.stat(file, function(err, stat) {
+      fs.stat(file, function(error_stat, stat) {
         if (stat && stat.isDirectory()) {
-          walk(file, function(err, res) {
+          walk(file, function(error, res) {
             results = results.concat(res);
             next();
           });
@@ -46,11 +38,17 @@ var walk = function(dir, done) {
   });
 };
 
+function encode(file_name) {
+  bitmap = fs.readFileSync(file_name);
+
+  return new Buffer(bitmap).toString('base64');
+}
+
 module.exports = function(accessToken, folder, user, socket, callback) {
   gh.authenticate({type: 'oauth', token: accessToken});
-  var fullPath = distHelper.distPath + '/' + folder;
-  var eventName = folder.substr(folder.search('/') + 1);
-  var repoName = 'eventSiteWebApp';
+  fullPath = distHelper.distPath + '/' + folder;
+  eventName = folder.substr(folder.search('/') + 1);
+  repoName = 'eventSiteWebApp';
 
   async.series([
 
@@ -114,7 +112,7 @@ module.exports = function(accessToken, folder, user, socket, callback) {
       socket.emit('started', 'Creating a list of all files to be uploaded and committed to Github');
       console.log('-------------Creating a list of all the files to be uploaded and committed to the github--------------');
 
-      walk(fullPath, function(err, results) {
+      walk(fullPath, function(err, resultsArray) {
         if (err) {
           console.log('Error happened while traversing the event site folder');
           done(err, 'error');
@@ -122,24 +120,24 @@ module.exports = function(accessToken, folder, user, socket, callback) {
           return;
         }
 
-        var total = results.length;
-        var counter = 0;
+        total = resultsArray.length;
+        counter = 0;
 
         function doOne() {
-          if (results.length > 0) {
-            var elem = results.shift();
-            var fileName = elem.substr(elem.search(eventName) + eventName.length + 1);
+          if (resultsArray.length > 0) {
+            elem = resultsArray.shift();
+            fileName = elem.substr(elem.search(eventName) + eventName.length + 1);
 
             console.log(fileName);
             setTimeout(function() {
               socket.emit('select', fileName + ' uploading');
               gh.repos.createFile({owner: user, repo: repoName, path: fileName, message: 'commit by web app', content: encode(elem)},
-                function(err, res) {
+                function(error, res) {
                   counter += 1;
 
-                  if (err) {
+                  if (error) {
                     console.log('Error occured while uploading ' + fileName);
-                    console.log(err);
+                    console.log(error);
                     socket.emit('errorLog', 'Error happened while uploading ' + fileName + '. Ignoring');
                   } else {
                     socket.emit('fileUpload', {file: fileName, percent: counter * 100 / total});
@@ -177,12 +175,12 @@ module.exports = function(accessToken, folder, user, socket, callback) {
           return;
         }
 
-        var sha = res.data.object.sha;
+        sha = res.data.object.sha;
 
-        gh.gitdata.createReference({owner: user, repo: repoName, ref: 'refs/heads/gh-pages', sha: sha}, function(err, res) {
-          if (err) {
+        gh.gitdata.createReference({owner: user, repo: repoName, ref: 'refs/heads/gh-pages', sha: sha}, function(error, response) {
+          if (error) {
             console.log('Error happened while creating gh-pages branch');
-            done(err, 'error');
+            done(error, 'error');
             socket.emit('errorLog', 'Error happened while creating gh-pages branch. Can\'t continue further');
             return;
           }
@@ -202,7 +200,7 @@ module.exports = function(accessToken, folder, user, socket, callback) {
     }
   ],
 
-  function(err, results) {
+  function(err, result) {
     if (err) {
       if (err === 'aborted') {
         console.log('The process was aborted by the user');

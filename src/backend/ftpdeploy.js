@@ -1,13 +1,13 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var FtpDeploy = require('ftp-deploy');
-var path = require('path');
+const FtpDeploy = require('ftp-deploy');
+const path = require('path');
 
 function deploy(ftpDetails, appFolder, done) {
-  var ftpDeploy = new FtpDeploy();
+  const ftpDeploy = new FtpDeploy();
 
-  var config = {
+  const config = {
     username: ftpDetails.user,
     password: ftpDetails.pass, // optional, prompted if none given
     host: ftpDetails.host,
