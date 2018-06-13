@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-label */
+'use strict';
+
 var socket = io.connect('https://opev-webgen-dev.herokuapp.com/deploy');
 var $deploy = $('#deploy');
 var $abort = $('#abort');
@@ -25,7 +28,6 @@ function hideInfo() {
   $msg.hide();
   $link.hide();
   $progressDiv.hide();
-
 }
 
 function setProgressValues(percent) {
@@ -39,6 +41,7 @@ function addInfoMessage(msg) {
 
 function addErrorMessage(msg) {
   var errorMsg = $("<p class='errorMsg' style='color:red'>" + msg + '</p>');
+
   $error.append(errorMsg);
 }
 
@@ -65,6 +68,7 @@ socket.on('progress', function(msg) {
 
 socket.on('finished', function(msg) {
   var link = $('<a> Here is your deployed Event site. Thanks for using web app generator </a>');
+
   link.attr('href', msg);
   $link.append(link);
   setProgressValues(100);
@@ -88,14 +92,15 @@ socket.on('started', function(msg) {
 socket.on('fileUpload', function(msg) {
   var fileName = msg.file;
   var percent = msg.percent;
-  addInfoMessage(fileName + " uploaded");
-  setProgressValues(parseInt(percent));
+
+  addInfoMessage(fileName + ' uploaded');
+  setProgressValues(parseInt(percent, 10));
 });
 
 socket.on('abort', function(msg) {
   console.log(msg);
   $deploy.show();
-  $error.html("");
+  $error.html('');
   addErrorMessage(msg);
   $title.html('Press the button below to re-start the deployment process');
 });

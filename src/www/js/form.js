@@ -1,17 +1,22 @@
+/* eslint-disable no-empty-label */
 /* global $ */
-"use strict";
-
+'use strict';
 
 var generateProgressBar, generateProgressVal, uploadProgressBar, uploadProgressVal, statusText;
 var uploadFinished = false;
 
 var isCancelling = false;
-var menuDisplay = false;
 var generationStarted = false;
 let initialValue = 0;
+let date;
+let percent;
+let message;
+let customMenuButton;
+let menuContent;
+let fontAwesomeIcom;
 
 function updateGenerateProgress(perc) {
-  generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function () {
+  generateProgressBar.animate({'width': perc + '%'}, 200, 'linear', function() {
     generateProgressVal.html(parseInt(perc, 10) + '%');
   });
 }
@@ -23,21 +28,23 @@ function updateUploadProgress(perc) {
 
 function createCookie(name, value, days) {
   var expires = '';
+
   if (days) {
-    var date = new Date();
-    date.setTime(date.getTime() + (days*24*60*60*1000));
+    date = new Date();
+
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
     expires = '; expires=' + date.toUTCString();
   }
   document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/';
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
   var socket = io();
+
   document.getElementById('email').focus();
 
   function uploadFile(file) {
-
-    var size = (file.size/(1024*1024)).toString().substring(0, 3);
+    var size = (file.size / (1024 * 1024)).toString().substring(0, 3);
     var stream = ss.createStream();
     var blobStream = ss.createBlobReadStream(file);
     var fileUploadSize = 0;
@@ -47,20 +54,21 @@ $(document).ready(function () {
     $('#upload-filename').html(file.name);
     $('#upload-filesize').html(size + 'M');
 
-    stream.on('end', function(data) {
+    stream.on('end', function() {
       console.log('File upload has finished');
       $('#message').show();
       socket.emit('finished', 'File upload has finished');
     });
 
-
     blobStream.on('data', function(chunk) {
       fileUploadSize += chunk.length;
-      var percent = (fileUploadSize / file.size * 100) ;
+      percent = fileUploadSize / file.size * 100;
+
       socket.emit('progress', percent);
 
-      if(isCancelling) {
-        var msg = 'File upload was cancelled by user';
+      if (isCancelling) {
+        msg = 'File upload was cancelled by user';
+
         stream.destroy();
         socket.emit('cancelled', msg);
         isCancelling = false;
@@ -77,7 +85,6 @@ $(document).ready(function () {
 
     ss(socket).emit('file', stream, {size: file.size, name: file.name});
     blobStream.pipe(stream);
-
   }
 
   $('#siofu_input').change(function(e) {
@@ -87,42 +94,39 @@ $(document).ready(function () {
     statusText.text('');
     isCancelling = false;
 
-    if(extension === 'zip') {
+    if (extension === 'zip') {
       uploadFile(file);
-    }
-
-    else {
+    } else {
       $('#siofu_input').val('');
-      statusText.css({'color' : 'red'});
+      statusText.css({'color': 'red'});
       statusText.text('Upload zip extension');
     }
-
   });
 
-  var customMenuButton = $('.custom-menubutton');
-  var menuContent = $('.custom-menu-cont');
-  var fontAwesomeIcom=$('.glyphicon-th');
+  customMenuButton = $('.custom-menubutton');
+  menuContent = $('.custom-menu-cont');
+  fontAwesomeIcom = $('.glyphicon-th');
 
   customMenuButton.click(function() {
-    menuContent.toggleClass("hidden");
+    menuContent.toggleClass('hidden');
     $(this).toggleClass('custom-menubutton-color');
   });
 
-  $('.custom-menu-item').click(function () {
-     menuContent.addClass('hidden');
-     customMenuButton.removeClass('custom-menubutton-color');
+  $('.custom-menu-item').click(function() {
+    menuContent.addClass('hidden');
+    customMenuButton.removeClass('custom-menubutton-color');
   });
 
   $(document).mouseup(function(e) {
     // if the target of the click is not the button,
     // the container, or descendants of the container
     if (!$(e.target).is(customMenuButton) && !$(e.target).is(menuContent) && menuContent.has(e.target).length === 0 && !$(e.target).is(fontAwesomeIcom)) {
-      menuContent.addClass("hidden");
-      customMenuButton.removeClass('custom-menubutton-color')
+      menuContent.addClass('hidden');
+      customMenuButton.removeClass('custom-menubutton-color');
     }
   });
 
-  $('#cancelUpload').click(function(e){
+  $('#cancelUpload').click(function(e) {
     e.preventDefault();
     statusText.text('');
 
@@ -157,81 +161,77 @@ $(document).ready(function () {
 
   $('#single').mouseover(
     function() {
-      $(this).css('cursor','pointer');
-  }).mousedown(
+      $(this).css('cursor', 'pointer');
+    }).mousedown(
     function() {
-      $(this).find('input').prop('checked',true);
-  });
+      $(this).find('input').prop('checked', true);
+    });
 
   $('#expandable').mouseover(
     function() {
-      $(this).css('cursor','pointer');
-  }).mousedown(
-      function() {
-          $(this).find('input').prop('checked',true);
-  });
+      $(this).css('cursor', 'pointer');
+    }).mousedown(
+    function() {
+      $(this).find('input').prop('checked', true);
+    });
 
   $('#uploadJSON').mouseover(
     function() {
-      $(this).css('cursor','pointer');
-  }).mousedown(
-      function() {
-          if(!generationStarted){
-              $(this).find('input').prop('checked', true);
-              if ($(this).find('input').is(':checked')) {
-
-                  if ($(this).find('input').val() === 'mockjson') {
-                      $('#jsonupload-input').hide(100);
-                      $('#eventapi-input').hide(100);
-                  }
-
-                  if ($(this).find('input').val() === 'jsonupload') {
-                      $('#jsonupload-input').show(100);
-                      $('#eventapi-input').hide(100);
-                      $('#btnLive').hide();
-                      $('#btnDownload').hide();
-                      $('#deploy').hide();
-                      if (uploadFinished) {
-                          enableGenerateButton(true);
-                      } else {
-                          enableGenerateButton(false);
-                      }
-                  }
-              }
+      $(this).css('cursor', 'pointer');
+    }).mousedown(
+    function() {
+      if (!generationStarted) {
+        $(this).find('input').prop('checked', true);
+        if ($(this).find('input').is(':checked')) {
+          if ($(this).find('input').val() === 'mockjson') {
+            $('#jsonupload-input').hide(100);
+            $('#eventapi-input').hide(100);
           }
-      });
 
+          if ($(this).find('input').val() === 'jsonupload') {
+            $('#jsonupload-input').show(100);
+            $('#eventapi-input').hide(100);
+            $('#btnLive').hide();
+            $('#btnDownload').hide();
+            $('#deploy').hide();
+            if (uploadFinished) {
+              enableGenerateButton(true);
+            } else {
+              enableGenerateButton(false);
+            }
+          }
+        }
+      }
+    });
 
   $('#endpointAPI').mouseover(
-     function() {
-      $(this).css('cursor','pointer');
-  }).mousedown(
-      function() {
-          if(!generationStarted) {
-              $(this).find('input').prop('checked', true);
-              if ($(this).find('input').is(':checked')) {
-
-                  if ($(this).find('input').val() === 'mockjson') {
-                      $('#jsonupload-input').hide(100);
-                      $('#eventapi-input').hide(100);
-                  }
-
-                  if ($(this).find('input').val() === 'eventapi') {
-                      $('#eventapi-input').show(100);
-                      $('#jsonupload-input').hide(100);
-                      $('#btnLive').hide();
-                      $('#btnDownload').hide();
-                      $('#deploy').hide();
-                      enableGenerateButton(true);
-                  }
-              }
+    function() {
+      $(this).css('cursor', 'pointer');
+    }).mousedown(
+    function() {
+      if (!generationStarted) {
+        $(this).find('input').prop('checked', true);
+        if ($(this).find('input').is(':checked')) {
+          if ($(this).find('input').val() === 'mockjson') {
+            $('#jsonupload-input').hide(100);
+            $('#eventapi-input').hide(100);
           }
-  });
+
+          if ($(this).find('input').val() === 'eventapi') {
+            $('#eventapi-input').show(100);
+            $('#jsonupload-input').hide(100);
+            $('#btnLive').hide();
+            $('#btnDownload').hide();
+            $('#deploy').hide();
+            enableGenerateButton(true);
+          }
+        }
+      }
+    });
 
   $('input:radio[name="datasource"]').change(
     function() {
       if ($(this).is(':checked')) {
-
         if ($(this).val() === 'mockjson') {
           $('#jsonupload-input').hide(100);
           $('#eventapi-input').hide(100);
@@ -262,7 +262,7 @@ $(document).ready(function () {
     });
 
   $('#upload-ftp').change(
-    function () {
+    function() {
       if ($(this).is(':checked')) {
         $('#upload-ftp-details').show(100);
       } else {
@@ -272,7 +272,7 @@ $(document).ready(function () {
   );
 
   $('#enable-google-analytics').change(
-    function () {
+    function() {
       if ($(this).is(':checked')) {
         $('#ganalytics-id-container').show(100);
       } else {
@@ -281,8 +281,9 @@ $(document).ready(function () {
     }
   );
 
-  $('#singlefileUpload').change(function () {
+  $('#singlefileUpload').change(function() {
     var ext = this.value.match(/\.([^\.]+)$/)[1];
+
     switch (ext) {
       case 'zip':
         break;
@@ -293,15 +294,17 @@ $(document).ready(function () {
     $('.upload-progress').show();
     $('#upload-progress-bar').show();
     var fileData = getFile();
+
     socket.emit('upload', fileData);
   });
 
-  $('#btnGenerate').click(function () {
-
+  $('#btnGenerate').click(function() {
     var check = $('#form').valid();
+
     $('.error').focus();
     if (check) {
       var formData = getData({uploadsId: initialValue});
+
       generationStarted = true;
       $('#buildLog').empty();
       socket.emit('live', formData);
@@ -321,41 +324,42 @@ $(document).ready(function () {
     $('#deploy').attr('href', '/auth');
   }
 
-  socket.on('uploadsId', function (data) {
+  socket.on('uploadsId', function(data) {
     initialValue = data;
   });
 
-  socket.on('live.ready', function (data) {
+  socket.on('live.ready', function(data) {
     updateStatusAnimate('live render ready');
     updateGenerateProgress(100);
     displayButtons(data.appDir, data.url);
     createCookie('folder', data.appDir);
     $('#btnGenerate').prop('disabled', true);
-    $('#btnGenerate').attr('title', 'Generated webapp')
+    $('#btnGenerate').attr('title', 'Generated webapp');
     $('#btnGenerate').prop('disabled', false);
     addDeployLink();
   });
 
-  socket.on('live.process', function (data) {
-    if(!isCancelling){
+  socket.on('live.process', function(data) {
+    if (!isCancelling) {
       console.log(data.status);
       statusText.text(data.status);
       updateGenerateProgress(data.donePercent);
     }
   });
 
-  socket.on('live.error' , function (err) {
+  socket.on('live.error', function(err) {
     statusText.css('color', 'red');
     updateStatusAnimate(err.status);
-
   });
 
   function deployStatus() {
-    var apiUrl = "https://api.github.com/repos/fossasia/open-event-webapp/git/refs/heads/development";
-    $.ajax({url: apiUrl, success: function(result){
-      var version = result['object']['sha'];
+    var apiUrl = 'https://api.github.com/repos/fossasia/open-event-webapp/git/refs/heads/development';
+
+    $.ajax({url: apiUrl, success: function(result) {
+      var version = result.object.sha;
       var versionLink = 'https://github.com/fossasia/open-event-webapp/tree/' + version;
       var deployLink = $('#deploy-link');
+
       deployLink.attr('href', versionLink);
       deployLink.html(version);
     }});
@@ -364,6 +368,7 @@ $(document).ready(function () {
   deployStatus();
 
   var errorno = 0; // stores the id of an error needed for its div element
+
   socket.on('buildLog', function(data) {
     // There are three category of Log statements
     // Info statements give information about the task currently being performed by the webapp
@@ -371,28 +376,28 @@ $(document).ready(function () {
     // Error statements give information about a task failing to complete. These statements also contain a detailed error log which can be viewed
     // by clicking on the Know more Button.
 
-    var spanElem = $('<span></span>');  // will contain the info about type of statement
-    var spanMess = $('<span></span>');  // will contain the actual message
+    var spanElem = $('<span></span>'); // will contain the info about type of statement
+    var spanMess = $('<span></span>'); // will contain the actual message
     var aElem = $('<button></button>'); // Button to view the detailed error log
-    var divElem = $('<div></div>');     // Contain the detailed error log
-    var paragraph = $('<p></p>');       // Contain the whole statement
+    var divElem = $('<div></div>'); // Contain the detailed error log
+    var paragraph = $('<p></p>'); // Contain the whole statement
 
-    spanMess.css({'margin-left' : '5px'});
-    aElem.css({'margin-left' : '5px'});
-    aElem.attr({'data-toggle' : 'collapse', 'href' : '#error' + String(errorno)});
-    divElem.attr({'id' : 'error' + String(errorno)  , 'class' : 'collapse'});
-    divElem.css({'color' : 'red'});
+    spanMess.css({'margin-left': '5px'});
+    aElem.css({'margin-left': '5px'});
+    aElem.attr({'data-toggle': 'collapse', 'href': '#error' + String(errorno)});
+    divElem.attr({'id': 'error' + String(errorno), 'class': 'collapse'});
+    divElem.css({'color': 'red'});
     aElem.text('Know More');
     spanMess.text(data.smallMessage);
     spanElem.text(data.type.toUpperCase() + ':');
     paragraph.append(spanElem);
     paragraph.append(spanMess);
 
-    if(data.type === 'Info') {
+    if (data.type === 'Info') {
       spanElem.css({'color': 'blue'});
-    } else if(data.type === 'Success') {
+    } else if (data.type === 'Success') {
       spanElem.css({'color': 'green'});
-    } else if(data.type === 'Error') {
+    } else if (data.type === 'Error') {
       spanElem.css({'color': 'red'});
       divElem.text(data.largeMessage);
       paragraph.append(aElem);
@@ -406,39 +411,39 @@ $(document).ready(function () {
       $('#email').prop('disabled', false);
     }
     $('#buildLog').append(paragraph);
-    $("#buildLog").scrollTop($("#buildLog")[0].scrollHeight);
+    $('#buildLog').scrollTop($('#buildLog')[0].scrollHeight);
   });
-
 });
 
-function displayButtons (appPath, url) {
+function displayButtons(appPath, url) {
   var btnDownload = $('#btnDownload');
   var btnLive = $('#btnLive');
   var deploy = $('#deploy');
+
   deploy.show();
   btnDownload.css('display', 'block');
   btnLive.css('display', 'block');
 
-  btnLive.unbind('click').click(function () {
+  btnLive.unbind('click').click(function() {
     window.open('/live/preview/' + appPath, '_blank');
   });
 
-  btnDownload.unbind('click').click(function () {
-    if(url === null) {
+  btnDownload.unbind('click').click(function() {
+    if (url === null) {
       window.open('/download/' + appPath, '_blank');
-    }
-    else {
+    } else {
       window.open(url);
     }
   });
 }
 
-function updateStatusAnimate (statusMsg, speed, color) {
+function updateStatusAnimate(statusMsg, speed, color) {
   color = color || 'black';
   speed = speed || 200;
-  var lowerOpaque = (speed < 200) ? 0.8 : 0.2;
-  statusText.animate({'opacity': lowerOpaque}, speed, function () {
-    statusText.css({'color' : color});
+  var lowerOpaque = speed < 200 ? 0.8 : 0.2;
+
+  statusText.animate({'opacity': lowerOpaque}, speed, function() {
+    statusText.css({'color': color});
     statusText.text(statusMsg);
   }).animate({'opacity': 1}, speed);
 }
@@ -459,37 +464,50 @@ function enableGenerateButton(enabled) {
   $('#btnGenerate').prop('disabled', !enabled);
   if (enabled) {
     $('#btnGenerate').attr('title', 'Generate webapp');
-  }
-  else {
+  } else {
     $('#btnGenerate').attr('title', 'Select a zip to upload first');
   }
 }
 
-
-function getFile () {
+function getFile() {
   var data = {};
+
   try {
     data.singlefileUpload = $('#singlefileUpload')[0].files[0];
     data.zipLength = $('#singlefileUpload')[0].files[0].size;
-  }
-  catch (err) {
-    data.singlefileUpload = "";
+  } catch (err) {
+    data.singlefileUpload = '';
     data.zipLength = 0;
   }
   return data;
 }
 
-function getData (initialValue) {
+function getData(initialValue) {
   var data = initialValue;
   var formData = $('#form').serializeArray();
-  formData.forEach( function(field) {
-    if (field.name === 'email') {data.email = field.value; }
-    if (field.name === 'theme') {data.theme = field.value; }
-    if (field.name === 'datasource') {data.datasource = field.value; }
-    if (field.name === 'apiendpoint') {data.apiendpoint = field.value; }
-    if (field.name === 'assetmode') {data.assetmode = field.value; }
-    if (field.name === 'session') {data.sessionMode = field.value;}
-    if (field.name === 'apiVersion') {data.apiVersion = field.value;}
+
+  formData.forEach(function(field) {
+    if (field.name === 'email') {
+      data.email = field.value;
+    }
+    if (field.name === 'theme') {
+      data.theme = field.value;
+    }
+    if (field.name === 'datasource') {
+      data.datasource = field.value;
+    }
+    if (field.name === 'apiendpoint') {
+      data.apiendpoint = field.value;
+    }
+    if (field.name === 'assetmode') {
+      data.assetmode = field.value;
+    }
+    if (field.name === 'session') {
+      data.sessionMode = field.value;
+    }
+    if (field.name === 'apiVersion') {
+      data.apiVersion = field.value;
+    }
   });
   if ($('#upload-ftp').prop('checked')) {
     data.ftpdetails = {
@@ -502,7 +520,7 @@ function getData (initialValue) {
   }
   if ($('#enable-google-analytics').prop('checked')) {
     data.ganalyticsID = {
-        id: $('#ganalytics-id').val()
+      id: $('#ganalytics-id').val()
     };
   }
   return data;
