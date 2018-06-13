@@ -1,0 +1,4 @@
+./src/www/js/socket.io-stream.js
+/backend/assets/**
+*.min.js
+*.min.css
