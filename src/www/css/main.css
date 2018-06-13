@@ -1,49 +1,52 @@
 #btnLive {
-    display: none;
+  display: none;
 }
 
 #btnDownload {
-    display: none;
+  display: none;
 }
 
 input[type="file"] {
-    height: inherit;
-    display: block;
+  display: block;
+  height: inherit;
 }
 
 section,
 center{
-    margin-bottom: 20px;
-    margin-top: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .upload-progress{
-	height: 12px;
-	margin-top: 4px;
-	border-radius: 0;
-	border: 1.1px solid #cecece;
+  border-radius: 0;
+  border: 1.1px solid #cecece;
+  height: 12px;
+  margin-top: 4px;
 }
 
 #upload-info{
-	margin: 0;
-	background: rgb(237, 237, 237);
-	padding: 5px 10px;
-	height: 30px;
-	border: 0.7px solid rgb(219, 219, 219);
+  background: rgb(237, 237, 237);
+  border: 0.7px solid rgb(219, 219, 219);
+  height: 30px;
+  margin: 0;
+  padding: 5px 10px;
 }
+
 .progressbar{
-	padding-left:10px;
-	padding-right:10px;
+  padding-left:10px;
+  padding-right:10px;
 }
+
 .close{
-	line-height: 0.85;
+  line-height: 0.85;
 }
+
 pre#buildLog{
-	max-height: 400px;
-	font-size: 12px;
-    overflow-y: auto;
-	text-align: left;
-    word-break: unset;
+  font-size: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  text-align: left;
+  word-break: unset;
 }
 
 #btnLive, #btnDownload, #deploy {
@@ -51,11 +54,10 @@ pre#buildLog{
 }
 
 div.form-div-board {
-	color: #000;
-	margin-bottom: 0;
-	padding: 20px;
-	background: #fffc;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	margin-top: 40px;
-	margin-bottom: 50px;
+  background: #fffc;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  color: #000;
+  margin-bottom: 50px;
+  margin-top: 40px;
+  padding: 20px;
 }
