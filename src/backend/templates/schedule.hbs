@@ -1157,11 +1157,32 @@
       function noResult() {
         var listFilterLength = $('.day-filter:visible').length;
         var calendarFilterLength = $('.room:visible').length;
+        var trackFilterInfo = $('.track-filter-info');
+        var roomFilterInfo = $('.room-filter-info');
+
         if((isCalendarView && calendarFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
           $('#no-results').remove();
           $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
+
+          if(trackFilterMode){
+            trackFilterInfo.addClass('filter-not-found');
+            trackFilterInfo.css("border","1px dotted red")
+
+          } else if(roomFilterMode) {
+              roomFilterInfo.addClass('filter-not-found');
+              roomFilterInfo.css("border","1px dotted red")
+          }
+
         } else {
           $('#no-results').remove();
+
+            if(trackFilterMode){
+              trackFilterInfo.removeClass('filter-not-found');
+              trackFilterInfo.css("border","1px dotted black")
+            } else if(roomFilterMode) {
+                roomFilterInfo.removeClass('filter-not-found');
+                roomFilterInfo.css("border","1px dotted black")
+            }
         }
       }
 
