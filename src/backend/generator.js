@@ -1,10 +1,11 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
+// eslint-disable-next-line no-var
 var exports = module.exports = {};
-var logger = require('./buildlogger.js');
-var gulp = require('./gulpfile.js');
-var hasher = require('folder-hash');
+const logger = require('./buildlogger.js');
+const gulp = require('./gulpfile.js');
+const hasher = require('folder-hash');
 const fs = require('fs-extra');
 const handlebars = require('handlebars');
 const async = require('async');
@@ -16,7 +17,7 @@ const distHelper = require(__dirname + '/dist.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
 const app = require('../app');
-var fold;
+let fold;
 
 const navbar = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/navbar.hbs').toString('utf-8'));
 const footer = handlebars.compile(fs.readFileSync(__dirname + '/templates/partials/footer.hbs').toString('utf-8'));
@@ -44,9 +45,9 @@ const codeOfConductTpl = handlebars.compile(fs.readFileSync(__dirname + '/templa
 
 if (!String.linkify) {
   String.prototype.linkify = function() {
-    var urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
-    var pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
-    var emailAddressPattern = /[\w.]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+/gim;
+    const urlPattern = /\b(?:https?|ftp):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*[a-z0-9-+&@#\/%=~_|]/gim;
+    const pseudoUrlPattern = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    const emailAddressPattern = /[\w.]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,6})+/gim;
 
     return this
       .replace(urlPattern, '<a href="$&">$&</a>')
@@ -56,7 +57,7 @@ if (!String.linkify) {
 }
 
 handlebars.registerHelper('linkify', function(options) {
-  var content = options.fn(this);
+  const content = options.fn(this);
 
   return new handlebars.SafeString(content.linkify());
 });
@@ -69,13 +70,12 @@ handlebars.registerHelper('ifvalue', function(conditional, options) {
   return options.inverse(this);
 });
 
-handlebars.registerHelper('ifcontains', function (string, substring, options) {
-    if (string && string.indexOf(substring) !== -1){
-        return options.fn(this);
-    }
-    else{
-        return options.inverse(this);
-    }
+handlebars.registerHelper('ifcontains', function(string, substring, options) {
+  if (string && string.indexOf(substring) !== -1) {
+    return options.fn(this);
+  }
+
+  return options.inverse(this);
 });
 
 handlebars.registerHelper('json', function(context) {
@@ -83,7 +83,7 @@ handlebars.registerHelper('json', function(context) {
 });
 
 function minifyHtml(file) {
-  var result = minify(file, {
+  const result = minify(file, {
     removeAttributeQuotes: true,
     minifyCSS: true,
     minifyJS: true,
@@ -173,6 +173,7 @@ function checkLinks(jsonData, data) {
 
 function setPageFlag(jsonData, page) {
   jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+  // eslint-disable-next-line default-case
   switch (page) {
     case 'track':
       jsonData.trackFlag = 1;
@@ -202,7 +203,7 @@ exports.finishZipUpload = function(file, id) {
   console.log('=============================ZIP SAVED\n');
   console.log(file.base);
   console.log(file.pathName);
-  var count = app.getCount();
+  const count = app.getCount();
 
   distHelper.moveZip(file.pathName, count);
 };
@@ -219,7 +220,7 @@ exports.createDistDir = function(req, socket, callback) {
   req.body.name = 'tempProject' + socket.connId; // temporary name for the project till the time we get the actual name of the event
   const theme = req.body.theme || 'light';
   const mode = req.body.sessionMode;
-  var type = req.body.apiVersion || 'api_v2';
+  const type = req.body.apiVersion || 'api_v2';
 
   if (type === 'api_v1') {
     fold = require(__dirname + '/fold_v1.js');
@@ -227,7 +228,7 @@ exports.createDistDir = function(req, socket, callback) {
     fold = require(__dirname + '/fold_v2.js');
   }
 
-  var appFolder = req.body.email + '/' + fold.slugify(req.body.name);
+  let appFolder = req.body.email + '/' + fold.slugify(req.body.name);
   const uploadsId = req.body.uploadsId;
   let emit = false;
 
@@ -235,7 +236,7 @@ exports.createDistDir = function(req, socket, callback) {
     emit = true;
   }
   // the below variable will store the actual name of the event
-  var eventName;
+  let eventName;
 
   async.series([
     (done) => {
@@ -377,7 +378,7 @@ exports.createDistDir = function(req, socket, callback) {
 
       getJsonData(req.body, function(error, data) {
         if (error) {
-          console.log('Error Invalid Zip');
+          console.log(error);
           logger.addLog('Error', 'Invalid Zip', socket, error);
           if (emit) {
             socket.emit('live.error', {status: 'Error in read contents of zip'});
@@ -392,9 +393,9 @@ exports.createDistDir = function(req, socket, callback) {
         const jsonData = data;
 
         eventName = fold.removeSpace(jsonData.eventurls.name);
-        var backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
-        var basePath = distHelper.distPath + '/' + appFolder + '/images';
-        var logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
+        const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
+        const basePath = distHelper.distPath + '/' + appFolder + '/images';
+        const logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
 
         distHelper.optimizeBackground(backPath, socket, function() {
           if (jsonData.eventurls.logo_url) {
@@ -422,15 +423,15 @@ exports.createDistDir = function(req, socket, callback) {
               logger.addLog('Info', 'Generating Single Page for each session', socket);
 
               jsonData.mode = mode;
-              var trackArr = jsonData.tracks;
+              const trackArr = jsonData.tracks;
 
-              for (var i = 0; i < trackArr.length; i++) {
-                var sessionArr = trackArr[i].sessions;
+              for (let i = 0; i < trackArr.length; i++) {
+                const sessionArr = trackArr[i].sessions;
 
-                for (var j = 0; j < sessionArr.length; j++) {
-                  var sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
-                  var sessionId = sessionObj.session_id;
-                  var speakerList = sessionObj.speakers_list;
+                for (let j = 0; j < sessionArr.length; j++) {
+                  const sessionObj = JSON.parse(JSON.stringify(sessionArr[j]));
+                  const sessionId = sessionObj.session_id;
+                  const speakerList = sessionObj.speakers_list;
 
                   sessionObj.color = trackArr[i].color;
                   sessionObj.font_color = trackArr[i].font_color;
@@ -438,15 +439,15 @@ exports.createDistDir = function(req, socket, callback) {
                   sessionObj.track_jump_link = '../tracks.html#' + trackArr[i].slug;
                   sessionObj.room_jump_link = '../rooms.html#' + sessionObj.startDate + '-' + fold.replaceSpaceWithUnderscore(sessionObj.location);
 
-                  for (var k = 0; k < speakerList.length; k++) {
+                  for (let k = 0; k < speakerList.length; k++) {
                     speakerList[k].thumb = '../' + speakerList[k].thumb;
                   }
 
-                  var data = {session: sessionObj};
+                  const completeData = {session: sessionObj};
 
-                  data.single_session = true;
-                  checkLinks(jsonData, data);
-                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(data)));
+                  completeData.single_session = true;
+                  checkLinks(jsonData, completeData);
+                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(completeData)));
                 }
               }
               logger.addLog('Success', 'Generated single page for each session', socket);
@@ -543,11 +544,11 @@ exports.createDistDir = function(req, socket, callback) {
           logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
           return done(err);
         }
-        distHelper.copyServiceWorker(appFolder, hashObj.hash, function(err) {
-          if (err) {
-            console.log(err);
+        distHelper.copyServiceWorker(appFolder, hashObj.hash, function(error) {
+          if (error) {
+            console.log(error);
             logger.addLog('Error', 'Error occured while copying service worker file', socket, err);
-            return done(err);
+            return done(error);
           }
           return done(null);
         });
@@ -576,8 +577,8 @@ exports.createDistDir = function(req, socket, callback) {
       if (emit) {
         socket.emit('live.process', {donePercent: 90, status: 'Website is being generated'});
       }
-      var output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
-      var archive = archiver('zip', {store: true});
+      const output = fs.createWriteStream(distHelper.distPath + '/' + req.body.email + '/event.zip');
+      const archive = archiver('zip', {store: true});
 
       output.on('close', function() {
         logger.addLog('Success', 'Zip file has been created', socket);

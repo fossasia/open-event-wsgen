@@ -1,10 +1,10 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var BasePage = require('./basePage.js');
-var By = require('selenium-webdriver').By;
+const BasePage = require('./basePage.js');
+const By = require('selenium-webdriver').By;
 
-var EventPage = Object.create(BasePage);
+const EventPage = Object.create(BasePage);
 
 EventPage.getEventName = function() {
   return this.find(By.css('h1')).getText().then(function(name) {
@@ -19,10 +19,10 @@ EventPage.checkTweetSection = function() {
 
 EventPage.getNavbarFooterBrokenLinks = function() {
   // Both the promises return an array of links contained inside the container
-  var navbarPromise = this.getAllLinks(By.className('navbar-default'));
-  var footerPromise = this.getAllLinks(By.className('footer-container'));
+  const navbarPromise = this.getAllLinks(By.className('navbar-default'));
+  const footerPromise = this.getAllLinks(By.className('footer-container'));
 
-  var promiseArr = [];
+  const promiseArr = [];
 
   promiseArr.push(navbarPromise);
   promiseArr.push(footerPromise);
@@ -51,8 +51,8 @@ EventPage.checkSponsorSection = function() {
 };
 
 EventPage.getSponsorsBrokenLinks = function() {
-  var allLinks = this.getAllLinks(By.className('sponsorscont'));
-  var brokenLinks = allLinks.then(this.countBrokenLinks);
+  const allLinks = this.getAllLinks(By.className('sponsorscont'));
+  const brokenLinks = allLinks.then(this.countBrokenLinks);
 
   return brokenLinks;
 };

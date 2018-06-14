@@ -2,8 +2,8 @@
 'use strict';
 
 const fs = require('fs-extra');
-var logger = require('./buildlogger.js');
-var zip = require('decompress-zip');
+const logger = require('./buildlogger.js');
+const zip = require('decompress-zip');
 const config = require('../../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
 const async = require('async');
@@ -16,10 +16,10 @@ const sharp = require('sharp');
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
-var JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
+let width, height, ratio, padding, diffHeight, qualityMultiplier, filePath, fileData, hashString, counter;
 
-const downloadFile = function(url, filePath, next) {
-  const fileStream = fs.createWriteStream(filePath);
+const downloadFile = function(url, file_path, next) {
+  const fileStream = fs.createWriteStream(file_path);
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -40,8 +40,8 @@ const downloadFile = function(url, filePath, next) {
   }
 };
 
-const downloadAudioFile = function(url, filePath, next) {
-  const fileStream = fs.createWriteStream(filePath, {encoding: null});
+const downloadAudioFile = function(url, pathOfFile, next) {
+  const fileStream = fs.createWriteStream(pathOfFile, {encoding: null});
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -64,7 +64,7 @@ const downloadAudioFile = function(url, filePath, next) {
 
 const downloadJsonFromGithub = function(appPath, endpoint, jsonFile, cb) {
   const fileStream = fs.createWriteStream(appPath + '/json/' + jsonFile);
-  var statusCode;
+  let statusCode;
 
   fileStream.on('error', function(err) {
     console.log(err);
@@ -97,7 +97,7 @@ const downloadJsonFromGithub = function(appPath, endpoint, jsonFile, cb) {
 };
 
 const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
-  var fileName = appPath + '/json/' + jsonFile;
+  const fileName = appPath + '/json/' + jsonFile;
 
   request.get({url: endpoint}, function(err, response, body) {
     if (err) {
@@ -105,19 +105,19 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       return cb(err);
     }
 
-    fs.writeFile(fileName, JSON.parse(JSON.stringify(response.body)), 'utf-8', function(err) {
-      if (err) {
-        console.log(err);
-        return cb(err);
+    fs.writeFile(fileName, JSON.parse(JSON.stringify(response.body)), 'utf-8', function(error) {
+      if (error) {
+        console.log(error);
+        return cb(error);
       }
       cb();
     });
   });
 };
 
-var extensionChange = function(image) {
-  var name = image.substring(0, image.lastIndexOf('.'));
-  var extension = image.substring(image.lastIndexOf('.') + 1);
+const extensionChange = function(image) {
+  const name = image.substring(0, image.lastIndexOf('.'));
+  const extension = image.substring(image.lastIndexOf('.') + 1);
 
   if (extension === 'jpg') {
     return image + '.new';
@@ -125,7 +125,7 @@ var extensionChange = function(image) {
   return name + '.jpg';
 };
 
-var optimizeBackground = function(image, socket, done) {
+const optimizeBackground = function(image, socket, done) {
   if (image !== null) {
     sharp(image)
       .resize(1150, 500)
@@ -134,18 +134,18 @@ var optimizeBackground = function(image, socket, done) {
           console.log(err);
           return 0;
         }
-        var extension = image.substring(image.lastIndexOf('.') + 1);
+        const extension = image.substring(image.lastIndexOf('.') + 1);
 
         if (extension === 'jpg') {
-          fs.rename(image + '.new', image, function(err) {
-            if (err) {
-              console.log(err);
+          fs.rename(image + '.new', image, function(error) {
+            if (error) {
+              console.log(error);
             }
           });
         } else {
-          fs.unlink(image, function(err) {
+          fs.unlink(image, function(error) {
             if (err) {
-              console.log('ERROR: ' + err);
+              console.log('ERROR: ' + error);
             }
           });
         }
@@ -154,16 +154,16 @@ var optimizeBackground = function(image, socket, done) {
   done();
 };
 
-var optimizeLogo = function(image, socket, done) {
+const optimizeLogo = function(image, socket, done) {
   sharp(image).metadata(function(err, metaData) {
     if (err) {
       return done(err);
     }
-    var width = metaData.width;
-    var height = metaData.height;
-    var ratio = width / height;
-    var padding = 5;
-    var diffHeight = 0;
+    width = metaData.width;
+    height = metaData.height;
+    ratio = width / height;
+    padding = 5;
+    diffHeight = 0;
 
     height = 45;
     width = Math.floor(45 * ratio);
@@ -173,22 +173,22 @@ var optimizeLogo = function(image, socket, done) {
       diffHeight = 45 - height;
       padding = padding + diffHeight / 2;
     }
-    var qualityMultiplier = 4;
+    qualityMultiplier = 4;
 
     width = width * qualityMultiplier;
     height = height * qualityMultiplier;
 
-    sharp(image).resize(width, height).toFile(image + '.new', function(err, info) {
-      if (err) {
-        return done(err);
+    sharp(image).resize(width, height).toFile(image + '.new', function(error, info) {
+      if (error) {
+        return done(error);
       }
-      fs.unlink(image, function(err) {
-        if (err) {
-          return done(err);
+      fs.unlink(image, function(error_link) {
+        if (error_link) {
+          return done(error_link);
         }
-        fs.rename(image + '.new', image, function(err) {
-          if (err) {
-            return done(err);
+        fs.rename(image + '.new', image, function(error_rename) {
+          if (error_rename) {
+            return done(error_rename);
           }
           return done(null, padding);
         });
@@ -197,7 +197,7 @@ var optimizeLogo = function(image, socket, done) {
   });
 };
 
-var resizeSponsors = function(dir, socket, done) {
+const resizeSponsors = function(dir, socket, done) {
   fs.readdir(dir + '/sponsors/', function(err, list) {
     if (err) {
       logger.addLog('Info', 'No sponsors images found', socket, err);
@@ -208,31 +208,31 @@ var resizeSponsors = function(dir, socket, done) {
         .resize(150, 80)
         .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
-        .toFile(dir + '/sponsors/' + image + '.new', (err) => {
-          if (err) {
+        .toFile(dir + '/sponsors/' + image + '.new', (error) => {
+          if (error) {
             console.log(image + ' Can not be converted');
-            console.log(err);
+            console.log(error);
             trial(null);
             return 0;
           }
 
-          fs.rename(dir + '/sponsors/' + image + '.new', dir + '/sponsors/' + image, function(err) {
-            if (err) {
-              console.log('ERROR: ' + err);
+          fs.rename(dir + '/sponsors/' + image + '.new', dir + '/sponsors/' + image, function(error_rename) {
+            if (error_rename) {
+              console.log('ERROR: ' + error_rename);
             }
             trial(null);
           });
         });
-    }, function(err) {
+    }, function(error) {
       console.log('Sponsors images converted successfully');
       done();
     });
   });
 };
 
-var resizeSpeakers = function(dir, socket, done) {
+const resizeSpeakers = function(dir, socket, done) {
   fs.readdir(dir + '/speakers/', function(err, array) {
-    var list = array.splice(array.splice(array.indexOf('thumbnails'), 1));
+    const list = array.splice(array.splice(array.indexOf('thumbnails'), 1));
 
     if (err) {
       logger.addLog('Info', 'No sponsors images found', socket, err);
@@ -242,31 +242,31 @@ var resizeSpeakers = function(dir, socket, done) {
         .resize(264, 264)
         .background({r: 255, g: 255, b: 255, alpha: 0})
         .embed()
-        .toFile(dir + '/speakers/' + extensionChange(image), (err) => {
-          if (err) {
+        .toFile(dir + '/speakers/' + extensionChange(image), (error) => {
+          if (error) {
             console.log(err);
             trial(null);
             return 0;
           }
-          var extension = image.substring(image.lastIndexOf('.') + 1);
+          const extension = image.substring(image.lastIndexOf('.') + 1);
 
           if (extension === 'jpg') {
-            fs.rename(dir + '/speakers/' + image + '.new', dir + '/speakers/' + image, function(err) {
-              if (err) {
-                console.log(err);
+            fs.rename(dir + '/speakers/' + image + '.new', dir + '/speakers/' + image, function(error_rename) {
+              if (error_rename) {
+                console.log(error_rename);
               }
               trial(null);
             });
           } else {
-            fs.unlink(dir + '/speakers/' + image, function(err) {
-              if (err) {
-                console.log('ERROR: ' + err);
+            fs.unlink(dir + '/speakers/' + image, function(error_link) {
+              if (error_link) {
+                console.log('ERROR: ' + error_link);
               }
             });
             trial(null);
           }
         });
-    }, function(err) {
+    }, function(error) {
       console.log('Speakers images converted successfully');
       done();
     });
@@ -292,7 +292,7 @@ module.exports = {
       emitter.emit('upload.progress', progress);
     });
 
-    var fileBufferStream = new streamBuffer.ReadableStreamBuffer({
+    const fileBufferStream = new streamBuffer.ReadableStreamBuffer({
       // frequency: 100,   // in milliseconds.
       chunkSize: 4096  // in bytes.
     });
@@ -342,11 +342,11 @@ module.exports = {
 
   copyServiceWorker: function(appFolder, folderHash, done) {
     const appPath = distPath + '/' + appFolder;
-    var filePath = __dirname + '/assets/js/sw.js';
+    const pathOfFile = __dirname + '/assets/js/sw.js';
 
     try {
-      var fileData = fs.readFileSync(filePath).toString().split('\n');
-      var hashString = "'" + folderHash + "'";
+      fileData = fs.readFileSync(pathOfFile).toString().split('\n');
+      hashString = "'" + folderHash + "'";
 
       fileData.unshift('var CACHE_NAME = ' + hashString);
       fs.writeFileSync(appPath + '/sw.js', fileData.join('\n'));
@@ -358,13 +358,14 @@ module.exports = {
 
   copyManifestFile: function(appFolder, eventName, done) {
     const appPath = distPath + '/' + appFolder;
-    var filePath = __dirname + '/assets/dependencies/manifest.json';
+
+    filePath = __dirname + '/assets/dependencies/manifest.json';
 
     try {
-      var fileData = fs.readFileSync(filePath).toString().split('\n');
+      const dataOfFile = fs.readFileSync(filePath).toString().split('\n');
 
       fileData.unshift('{\n"name":"' + eventName + '",\n"short_name":"' + eventName + '",');
-      fs.writeFileSync(appPath + '/manifest.json', fileData.join('\n'));
+      fs.writeFileSync(appPath + '/manifest.json', dataOfFile.join('\n'));
       return done(null);
     } catch (err) {
       return done(err);
@@ -384,11 +385,11 @@ module.exports = {
         logger.addLog('Error', 'Error while reading directory', socket, err);
         return done(err);
       }
-      var filesCopiedCounter = 0;
+      let filesCopiedCounter = 0;
 
-      function check(err) {
-        if (err) {
-          return done(err);
+      function check(error) {
+        if (error) {
+          return done(error);
         }
         filesCopiedCounter += 1;
         if (filesCopiedCounter === list.length) {
@@ -399,27 +400,28 @@ module.exports = {
       }
 
       list.forEach(function(file) {
-        var extension = path.extname(file);
-        var filePath = dependencyPath + '/' + file;
+        const extension = path.extname(file);
+        const fPath = dependencyPath + '/' + file;
 
+        // eslint-disable-next-line default-case
         switch (extension) {
           case '':
-            fs.copy(filePath, appPath + '/' + file, check);
+            fs.copy(fPath, appPath + '/' + file, check);
             break;
           case '.css':
-            fs.copy(filePath, cssPath + '/' + file, check);
+            fs.copy(fPath, cssPath + '/' + file, check);
             break;
           case '.png':
-            fs.copy(filePath, imagesPath + '/' + file, check);
+            fs.copy(fPath, imagesPath + '/' + file, check);
             break;
           case '.js':
-            fs.copy(filePath, jsPath + '/' + file, check);
+            fs.copy(fPath, jsPath + '/' + file, check);
             break;
           case '.html':
-            fs.copy(filePath, appPath + '/' + file, check);
+            fs.copy(fPath, appPath + '/' + file, check);
             break;
           case '.json':
-            fs.copy(filePath, appPath + '/' + file, check);
+            fs.copy(fPath, appPath + '/' + file, check);
             break;
         }
       });
@@ -436,7 +438,8 @@ module.exports = {
       console.log(err);
     }
     logger.addLog('Info', 'Extracting entries of the zip folder uploaded by the user', socket);
-    var unzipper = new zip(path.join(uploadsPath, 'connection-' + id.toString(), 'upload.zip'));
+    // eslint-disable-next-line new-cap
+    const unzipper = new zip(path.join(uploadsPath, 'connection-' + id.toString(), 'upload.zip'));
 
     unzipper.on('error', function(err) {
       logger.addLog('Error', 'Error occurred while Extracting Zip', socket, err);
@@ -460,48 +463,48 @@ module.exports = {
               return done(err);
             }
 
-            async.each(list, function(file, callback) {
-              var filePath = appPath + '/zip/' + file;
+            async.each(list, function(file, cb) {
+              const fPath = appPath + '/zip/' + file;
 
-              function check(err) {
-                if (err !== null) {
-                  logger.addLog('Error', 'Error while copying folder', socket, err);
-                  callback(err);
+              function check(error) {
+                if (error !== null) {
+                  logger.addLog('Error', 'Error while copying folder', socket, error);
+                  cb(err);
                 } else {
-                  callback(null);
+                  cb(null);
                 }
               }
 
               switch (file) {
                 case 'audio':
-                  fs.copy(filePath, appPath + '/audio', check);
+                  fs.copy(fPath, appPath + '/audio', check);
                   break;
                 case 'images':
-                  fs.copy(filePath, appPath + '/' + file, check);
+                  fs.copy(fPath, appPath + '/' + file, check);
                   break;
                 case 'sessions':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
                 case 'speakers':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
                 case 'event':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
                 case 'tracks':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
                 case 'microlocations':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
                 case 'sponsors':
-                  fs.copy(filePath, appPath + '/json/' + file, check);
+                  fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
-                default: callback(null);
+                default: cb(null);
               }
-            }, function(err) {
-              if (err !== null) {
-                return done(err);
+            }, function(error) {
+              if (error !== null) {
+                return done(error);
               }
 
               fs.remove(appPath + '/zip', done);
@@ -524,7 +527,7 @@ module.exports = {
       logger.addLog('Info', 'Directory succesfully read', socket);
 
       // counter stores the no of folders that have been matched against the given event name
-      var counter = 0;
+      counter = 0;
 
       // The function below checks whether all the files have been successfully checked or not. If yes, then return
       function checkForCompletion() {
@@ -536,16 +539,16 @@ module.exports = {
 
       list.forEach(function(file) {
         // the duplicate entry we are searching for must be a folder so its extension must be an empty string ''
-        var extension = path.extname(file);
+        const extension = path.extname(file);
 
         if (file === newName && extension === '') {
           logger.addLog('Info', 'Duplicate folder found having the same name as that of the event', socket);
           // duplicate folder found
           logger.addLog('Info', 'Removing the duplicate folder', socket);
-          fs.remove(removeFolder, function(err) {
-            if (err !== null) {
-              logger.addLog('Error', 'Error occured during deletion of the duplicate folder', socket, err);
-              return done(err);
+          fs.remove(removeFolder, function(error) {
+            if (error !== null) {
+              logger.addLog('Error', 'Error occured during deletion of the duplicate folder', socket, error);
+              return done(error);
             }
             counter += 1;
             checkForCompletion();
@@ -560,9 +563,9 @@ module.exports = {
   fetchApiJsons: function(appFolder, apiEndpoint, socket, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
     const appPath = distPath + '/' + appFolder;
-    var endpointType = 'github';
+    let endpointType = 'github';
 
-    var jsonsUrl = {
+    const jsonsUrl = {
       'speakers': '',
       'sponsors': '',
       'sessions': '',
@@ -603,11 +606,11 @@ module.exports = {
       done(err);
     }
 
-    async.forEachOf(jsonsUrl, (endpoint, fileName, callback) => {
+    async.forEachOf(jsonsUrl, (endPoint, fileName, callback) => {
       if (endpointType === 'github') {
-        downloadJsonFromGithub(appPath, endpoint, fileName, callback);
+        downloadJsonFromGithub(appPath, endPoint, fileName, callback);
       } else if (endpointType === 'eventyay') {
-        downloadJsonFromEventyay(appPath, endpoint, fileName, callback);
+        downloadJsonFromEventyay(appPath, endPoint, fileName, callback);
       }
     }, (err) => {
       if (err) {
@@ -671,8 +674,8 @@ module.exports = {
       next(photoFilePath);
     });
   },
-  generateThumbnails: function(path, next) {
-    recursive(path + '/images/speakers/', function(err, files) {
+  generateThumbnails: function(imagePath, next) {
+    recursive(imagePath + '/images/speakers/', function(err, files) {
       if (err) {
         console.log('Error happened');
         console.log(err);
@@ -682,10 +685,10 @@ module.exports = {
 
         sharp(file)
           .resize(100, 100)
-          .toFile(path + '/images/speakers/thumbnails/' + thumbFileName, function(err, info) {
-            if (err) {
+          .toFile(imagePath + '/images/speakers/thumbnails/' + thumbFileName, function(error, info) {
+            if (error) {
               console.log('Error happened in sharp');
-              console.log(err);
+              console.log(error);
             }
             callback();
           });

@@ -1,18 +1,19 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var minify = require('gulp-minify-css');
-var htmlmin = require('gulp-htmlmin');
-var iife = require('gulp-iife');
-var clean = require('gulp-clean');
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
+const concat = require('gulp-concat');
+const minify = require('gulp-minify-css');
+const htmlmin = require('gulp-htmlmin');
+const iife = require('gulp-iife');
+const clean = require('gulp-clean');
+// eslint-disable-next-line no-var
 var exports = module.exports = {};
 
 exports.minifyJs = function(path, cb) {
-  var dir = path + '/js/';
+  const dir = path + '/js/';
 
   gulp.task('scheduleJs', function() {
     return gulp.src([dir + 'FileSaver.js', dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js', dir + 'html2canvas.js', dir + 'jquery.lazyload.js', dir + 'icsGen.js'])

@@ -7,7 +7,8 @@
     "start": "node src/app.js",
     "test": "mocha",
     "coverage": "istanbul cover _mocha",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "precommit": "eslint ./src"
   },
   "nodemonConfig": {
     "ignore": [
@@ -81,6 +82,6 @@
   "devDependencies": {
     "connect-domain": "^0.5.0",
     "eslint": "^4.19.1",
-    "nodemon": "^1.17.3"
+    "husky": "^0.14.3"
   }
 }
