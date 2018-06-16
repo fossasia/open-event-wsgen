@@ -6,10 +6,15 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "mocha",
-    "coverage": "istanbul cover _mocha"
+    "coverage": "istanbul cover _mocha",
+    "lint": "eslint ./src",
+    "precommit": "eslint ./src"
   },
   "nodemonConfig": {
-    "ignore": ["build/*", "dist/*"],
+    "ignore": [
+      "build/*",
+      "dist/*"
+    ],
     "delay": "1500"
   },
   "repository": {
@@ -76,6 +81,7 @@
   },
   "devDependencies": {
     "connect-domain": "^0.5.0",
-    "nodemon": "^1.17.3"
+    "eslint": "^4.19.1",
+    "husky": "^0.14.3"
   }
 }

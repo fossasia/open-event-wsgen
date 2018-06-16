@@ -1,13 +1,16 @@
-var socket = io.connect('https://opev-webgen-dev.herokuapp.com/deploy');
-var $deploy = $('#deploy');
-var $abort = $('#abort');
-var $msg = $('#msg');
-var $link = $('#link');
-var $error = $('#error');
-var $progressBar = $('#upload-progress-bar');
-var $progressVal = $('#upload-progress-val');
-var $progressDiv = $('.progress');
-var $title = $('#title');
+/* eslint-disable no-empty-label */
+'use strict';
+// eslint-disable-next-line no-undef
+const socket = io.connect('https://opev-webgen-dev.herokuapp.com/deploy');
+const $deploy = $('#deploy');
+const $abort = $('#abort');
+const $msg = $('#msg');
+const $link = $('#link');
+const $error = $('#error');
+const $progressBar = $('#upload-progress-bar');
+const $progressVal = $('#upload-progress-val');
+const $progressDiv = $('.progress');
+const $title = $('#title');
 
 function resetContents() {
   $error.html('');
@@ -25,7 +28,6 @@ function hideInfo() {
   $msg.hide();
   $link.hide();
   $progressDiv.hide();
-
 }
 
 function setProgressValues(percent) {
@@ -38,7 +40,8 @@ function addInfoMessage(msg) {
 }
 
 function addErrorMessage(msg) {
-  var errorMsg = $("<p class='errorMsg' style='color:red'>" + msg + '</p>');
+  const errorMsg = $("<p class='errorMsg' style='color:red'>" + msg + '</p>');
+
   $error.append(errorMsg);
 }
 
@@ -64,7 +67,8 @@ socket.on('progress', function(msg) {
 });
 
 socket.on('finished', function(msg) {
-  var link = $('<a> Here is your deployed Event site. Thanks for using web app generator </a>');
+  const link = $('<a> Here is your deployed Event site. Thanks for using web app generator </a>');
+
   link.attr('href', msg);
   $link.append(link);
   setProgressValues(100);
@@ -86,16 +90,17 @@ socket.on('started', function(msg) {
 });
 
 socket.on('fileUpload', function(msg) {
-  var fileName = msg.file;
-  var percent = msg.percent;
-  addInfoMessage(fileName + " uploaded");
-  setProgressValues(parseInt(percent));
+  const fileName = msg.file;
+  const percent = msg.percent;
+
+  addInfoMessage(fileName + ' uploaded');
+  setProgressValues(parseInt(percent, 10));
 });
 
 socket.on('abort', function(msg) {
   console.log(msg);
   $deploy.show();
-  $error.html("");
+  $error.html('');
   addErrorMessage(msg);
   $title.html('Press the button below to re-start the deployment process');
 });
