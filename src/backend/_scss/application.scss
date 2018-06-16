@@ -5,8 +5,8 @@
 
 /* Offsets for fixed navbar */
 body {
-  background-color: $background-shade !important;
-  color: $gray-dark;
+  background-color: $background-shade;
+  color: $text-color;
   font: 12px 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -28,10 +28,10 @@ body {
 }
 
 a {
-  color: $gray-dark;
+  color: $link-color;
 
   &:hover {
-    color: $gray-extra-dark;
+    color: $hover-color;
     text-decoration: none;
   }
 
@@ -86,7 +86,7 @@ a {
   }
 
   a:hover {
-    color: $black;
+    color: $hover-color;
   }
 }
 
@@ -134,14 +134,18 @@ a {
 }
 
 .navbar-default {
-  background-color: $navbar-color;
+  background-color: $main-background;
   border-color: $gray-extra-light;
 
   box-shadow: 0 0 8px 0 $navbar-shadow;
 
   .navbar-nav > li > a {
-    color: $black;
+    color: $navbar-text-color;
     font-size: 11px;
+
+    &:hover {
+      color: $hover-color;
+    }
   }
 }
 
@@ -161,7 +165,7 @@ a {
     padding-bottom: 14px;
 
     &:hover {
-      border-bottom: 3px solid $gray-dark;
+      border-bottom: 3px solid $hover-color;
       text-decoration: none;
     }
     @media screen and (max-width: 768px) {
@@ -385,7 +389,7 @@ a {
 }
 
 .sponsor-container {
-  background: $white;
+  background: $white-classic-background;
 }
 
 .sponsor-row {
@@ -410,6 +414,7 @@ a {
 
 .location {
   background-color: $white-classic-background;
+  padding-top: 5%;
 }
 
 .location-map {
@@ -527,9 +532,6 @@ a {
   span {
     font-weight: 700;
   }
-  i {
-    margin-left: 10px;
-  }
 }
 
 .featured-speaker {
@@ -625,7 +627,7 @@ a {
 
 .pop-box {
   cursor: text;
-  background-color: $white;
+  background-color: $main-background;
   border: 1px solid $span-border-left;
   border-radius: 4px;
   margin-top: 8px;
@@ -650,7 +652,7 @@ a {
     padding: 10px 20px 0 0;
     &:hover {
       .fa {
-        color: $black;
+        color: $hover-color;
       }
 
       .s-button {
@@ -660,7 +662,7 @@ a {
   }
 
   .pop {
-    background-color: $white;
+    background-color: $main-background;
     margin-left: 20px;
     border-radius: 3px;
 
@@ -680,7 +682,7 @@ a {
     }
 
     .pop-over {
-      color: $gray-dark;
+      color: $text-color;
       font-weight: 400;
       line-height: 20px;
       margin: 0;
@@ -845,6 +847,10 @@ a {
   width: 12px;
   display: inline-block;
   margin-right: 2px;
+}
+
+.room-titlecolor {
+  background-color: $link-color;
 }
 
 .track-name {
@@ -1054,10 +1060,10 @@ a {
   padding: 0;
   position: relative;
   overflow: hidden;
-  background-color: white;
+  background-color: $main-background;
 
   .listing-panel {
-    background-color: $white;
+    background-color: $main-background;
     border-color: $event-border;
     border-style: solid;
     border-width: 0 0 1px;
@@ -1080,7 +1086,10 @@ a {
 }
 
 .eventdes {
-  color: $gray-dark;
+  color: $text-color;
+  font-size: 1.4em;
+  padding-left: 3%;
+  padding-right: 3%;
   padding-top: 30px;
   text-align: justify;
   p {
@@ -1193,7 +1202,7 @@ a {
 }
 
 .speaker-name {
-  color: $light-black;
+  color: $speaker-name;
   height: 30px;
   text-align: center;
   line-height: 1em;
@@ -1361,7 +1370,7 @@ a {
 }
 
 .tweets-feed {
-  color: $gray-dark;
+  color: $text-color;
   font-size: 20px;
   height: 100px;
   line-height: 30px;
@@ -1447,7 +1456,8 @@ a {
     a {
       text-decoration: none;
       &:hover {
-        color: $black;
+        border-bottom: 1px solid;
+        color: $hover-color;
       }
     }
   }
@@ -1460,7 +1470,7 @@ a {
       margin: 0;
       padding: 0;
       i {
-        color: $gray-dark;
+        color: $link-color;
         font-size: 36px;
       }
 
@@ -1536,7 +1546,7 @@ a {
   background: $white-classic-background;
   margin-right: 0px;
   margin-left: 0px;
-  height: 600px;
+  height: auto;
 
   section {
     padding : 72px;
@@ -1662,7 +1672,17 @@ a {
 }
 
 .bookmark {
+  color: $gray-dark;
+
+  &:hover {
+    color: $grey;
+  }
+
   &.starred {
+    color: $gold;
+  }
+
+  &.starred:hover {
     color: $gold;
   }
 
@@ -1763,7 +1783,8 @@ a {
     }
 
     &:hover {
-      color: $dark-black;
+      border-bottom: 1px solid;
+      color: $hover-color;
     }
   }
 }
@@ -1776,7 +1797,7 @@ a {
 }
 
 #down-button {
-  color: $gray;
+  color: $text-color;
   font-size: 3em;
   position: fixed;
   right: 5%;
@@ -1828,7 +1849,7 @@ a.skip:hover {
 .calendar {
   margin-top: 13px;
   display: block;
-  background-color: $white;
+  background-color: $main-background;
 }
 
 .pop-out {
@@ -1849,7 +1870,6 @@ a.skip:hover {
 
 .calendar-footer {
   position: absolute;
-  background-color: $white;
   width: 100%;
 }
 
@@ -1884,7 +1904,7 @@ a.skip:hover {
   padding-right: 2px;
   display: flex;;
   width: 100%;
-  background-color: $white;
+  background-color: $background-shade;
   border-color: $gray-extra-light;
   border: 1px solid;
 
@@ -1922,7 +1942,7 @@ a.skip:hover {
 .time {
   padding-left: 5px;
   padding-right: 5px;
-  background-color: #f2f2f2;
+  background-color: $background-shade;
   border: 1px solid $border-event;
 }
 
@@ -1951,7 +1971,8 @@ a.skip:hover {
 
     &:hover {
       background-color: $white;
-      color: $black;
+      border-bottom: 1px solid;
+      color: $hover-color;
     }
   }
 }
@@ -2016,7 +2037,7 @@ a.skip:hover {
 }
 
 .org-name {
-  color: $gray-dark;
+  color: $text-color;
 }
 
 .session-header {
@@ -2062,12 +2083,12 @@ a.skip:hover {
 }
 
 #speaker-container {
-  background-color: $white;
+  background-color: $main-background;
   padding: 2%;
 }
 
 #pop-speaker-name {
-  color: $black;
+  color: $speaker-name;
 }
 
 #session-location {
@@ -2227,17 +2248,25 @@ a.skip:hover {
 .video {
   color: $grey;
   font-size: 22px;
+  width: 1%;
 }
 
 #stack {
   height: 1.4em;
+  margin-right: 5px;
+  width: 1.4em;
 }
+
+.fa-music {
+  margin-right: 5px;
+}
+
 
 .video-circle {
   color: $red;
   display: none;
   font-size: 7px;
-  margin-left: 8px;
+  margin-left: -4px;
   padding-top: 7px;
 }
 
@@ -2253,7 +2282,8 @@ a.skip:hover {
 
   a {
     &:hover {
-      color: $dark-black;
+      border-bottom: 1px solid;
+      color: $hover-color;
     }
   }
 }
@@ -2267,6 +2297,7 @@ a.skip:hover {
 }
 
 .desc-speaker-name {
+  color: $text-color;
   display: block;
 }
 

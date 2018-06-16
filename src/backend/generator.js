@@ -410,6 +410,11 @@ exports.createDistDir = function(req, socket, callback) {
           if (req.body.ganalyticsID) {
             jsonData.ganalyticsID = req.body.ganalyticsID;
           }
+          if (req.body.theme === 'light') {
+            jsonData.theme = 0;
+          } else {
+            jsonData.theme = 1;
+          }
           distHelper.resizeSponsors(basePath, socket, function() {
             distHelper.resizeSpeakers(basePath, socket, function() {
               templateGenerate();
