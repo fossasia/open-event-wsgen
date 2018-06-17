@@ -25,6 +25,7 @@ describe('generate', function() {
       let data = {};
       data.body = {
         "email": "a@a.com",
+        "theme": "light",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2017/",
         "datasource": "eventapi",
@@ -40,6 +41,7 @@ describe('generate', function() {
       let data = {};
       data.body = {
         "email": "a@a.com",
+        "theme": "light",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
         "sessionMode": "single",
