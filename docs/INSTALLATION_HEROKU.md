@@ -71,7 +71,12 @@ origin	https://github.com/yourusername/open-event-webapp.git (push)
 $ git remote add heroku https://git.heroku.com/your-heroku-app-name.git
 ```
 
-7) now push the code from the development branch to heroku's master branch
+7) Open Event Webapp uses Redis. Run the following to create a redis instance.
+```sh
+$ heroku addons:create heroku-redis:hobby-dev
+```
+
+8) now push the code from the development branch to heroku's master branch
 ```sh
 $ git push heroku development:master
 ```
@@ -80,14 +85,14 @@ $ git push heroku development:master
 ![Build](screenshots/heroku_5.png)
 ![Build](screenshots/heroku_6.png)
 
-8) confirm the webapp is running
+9) confirm the webapp is running
 ```sh
 $ heroku logs --tail
 ```
 
-9) sometimes the server may take a while to start, the logs would say `State changed from starting to up` when the server is ready.
+10) sometimes the server may take a while to start, the logs would say `State changed from starting to up` when the server is ready.
 
-10) open the URL of your server in your browser
+11) open the URL of your server in your browser
 ```sh
 $ heroku open
 ```
