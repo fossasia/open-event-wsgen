@@ -2328,3 +2328,14 @@ a.skip:hover {
   border-radius: 5px;
   background-color: $gray-medium;
 }
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.list-child {
+  display: inline-block;
+  padding-right: 10px;
+}
