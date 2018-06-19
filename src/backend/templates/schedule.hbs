@@ -315,7 +315,7 @@
                                <div class="pop-over row">
                                  <hr>
                                  <h4 class="text"><strong>Speakers</strong></h4>
-                                 <div class="session-speakers-list">
+                                 <div id= "calendar-seesion-speakers-list" class="session-speakers-list">
                                  {{#speakers_list}}
                                    <a href="speakers.html#{{nameIdSlug}}">
                                      <div class="session-speakers-less">
@@ -411,23 +411,27 @@
           <div class="row">
             <div class="col-md-12 col-sm-12 room-name-list">
               <h4 class='list-title'> Rooms List </h4>
+                <div id="room-list">
                 {{#each roomsnames}}
                   <div class="room-info">
                     <span class="titlecolor room-titlecolor"></span>
                     <span class="room-name">{{this}}</span>
                   </div>
                   {{/each}}
+                </div>
             </div>
             <div class="col-md-12 col-sm-12">
               <h4 class='list-title'> Tracks List </h4>
-                {{#tracknames}}
-                {{#if title}}
-                <div class="track-info">
-                  <span style="background-color: {{color}};" class="titlecolor"></span>
-                  <span class="track-name">{{title}}</span>
+                <div id="tracks-list">
+                  {{#tracknames}}
+                    {{#if title}}
+                    <div class="track-info">
+                      <span style="background-color: {{color}};" class="titlecolor"></span>
+                      <span class="track-name">{{title}}</span>
+                    </div>
+                    {{/if}}
+                  {{/tracknames}}
                 </div>
-                {{/if}}
-                {{/tracknames}}
             </div>
           </div>
         </div>
@@ -1043,23 +1047,27 @@
       });
 
       $('#page-mode').click(function() {
-        var curDate = getCurrentDate();
+        let curDate = getCurrentDate();
+        let trackRoomNames = $('.track-room-names');
+        let trackListId = $('#tracks-list');
 
-        if (isCalendarView == false) {
+        $('#room-list, #tracks-list').toggleClass('list-container');
+        $('.room-info, .track-info').toggleClass('list-child');
+        trackRoomNames.toggleClass('col-md-3').toggleClass('col-sm-3').toggleClass('col-md-12').toggleClass('col-sm-12');
+        $('#page-mode i').toggleClass('fa-list-alt').toggleClass('fa-calendar');
+        $('.list-view, .calendar-view').toggleClass('hide');
+
+        if (isCalendarView === false) {
           isCalendarView = true;
-          $('#page-mode i').addClass('fa-list-alt');
-          $('#page-mode i').removeClass('fa-calendar');
-          $('.list-view').addClass('hide');
-          $('.calendar-view').removeClass('hide');
+          trackRoomNames.css('margin-top','0%');
+          trackListId.css('margin-top', '0%');
           if (curDate !== '') {
             viewsFilter('calendar', curDate);
           }
         } else {
           isCalendarView = false;
-          $('#page-mode i').removeClass('fa-list-alt');
-          $('#page-mode i').addClass('fa-calendar');
-          $('.list-view').removeClass('hide');
-          $('.calendar-view').addClass('hide');
+          trackRoomNames.css('margin-top','16%');
+          trackListId.css('margin-top', '4%');
           if (curDate !== '') {
             viewsFilter('list', curDate);
           }

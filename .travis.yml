@@ -1,7 +1,7 @@
 # Specify language to use
 language: node_js
 node_js:
-  - 6.10.2
+  - 8.11.1
 
 # Using sudo enabled Linux VM
 sudo: required
@@ -31,6 +31,9 @@ install:
   - npm install -g istanbul mocha@3
   - npm install
   - npm install --save-dev
+ # Adds redis as a service
+services:
+    - redis-server
  # testing script
 script:
   - istanbul cover _mocha -- $TESTFOLDER
