@@ -155,6 +155,7 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
 
     // generate slug/key for session
     const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
+    const calendarDate = session['starts-at'];
     const trackName = session.track === null ? 'deftrack' : session.track.name;
     const roomName = session.microlocation.name;
     const session_type = session['session-type'] === null ? '' : session['session-type'].name;
@@ -169,6 +170,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
         color: returnTrackColor(trackDetails, session.track === null ? null : session.track.id),
         font_color: returnTrackFontColor(trackDetailsFont, session.track === null ? null : session.track.id),
         date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
+        calendarStart: session['starts-at'],
+        calendarEnd: session['ends-at'],
         sortKey: moment.parseZone(session['starts-at']).format('YY-MM-DD'),
         slug: slug,
         sessions: []
@@ -186,6 +189,8 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
       startDate: moment.parseZone(session['starts-at']).format('YYYY-MM-DD'),
       start: moment.parseZone(session['starts-at']).format('HH:mm'),
       end: moment.parseZone(session['ends-at']).format('HH:mm'),
+      calendarStart: session['starts-at'],
+      calendarEnd: session['ends-at'],
       title: session.title,
       type: session_type,
       location: roomName,
@@ -290,6 +295,8 @@ function foldByTime(sessions, speakers, trackInfo) {
     timeMap.get(time).sessions.push({
       start: moment.parseZone(session['starts-at']).format('HH:mm'),
       end: moment.parseZone(session['ends-at']).format('HH:mm'),
+      calendarStart: session['starts-at'],
+      calendarEnd: session['ends-at'],
       color: returnTrackColor(trackDetails, session.track === null ? null : session.track.id),
       font_color: returnTrackFontColor(trackDetailsFont, session.track === null ? null : session.track.id),
       title: session.title,
@@ -490,12 +497,15 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     time: moment.parseZone(event['starts-at']).format('HH:mm'),
     end_date: moment.parseZone(event['ends-at']).format('dddd, Do MMM'),
     end_time: moment.parseZone(event['ends-at']).format('HH:mm'),
+    calendarStart: event['starts-at'],
+    calendarEnd: event['ends-at'],
     name: event.name,
     description: event.description,
     location: event['location-name'],
     latitude: event.latitude,
     longitude: event.longitude,
     register: event['ticket-url'],
+    timezone: event.timezone,
     twitterLink: twitterLink,
     tweetUrl: sociallink,
     email: event.email,
@@ -701,8 +711,10 @@ function sessionsByRooms(id, sessions, trackInfo) {
           date: dated,
           name: session.title,
           time: moment.parseZone(session['starts-at']).format('HH:mm'),
+          calendarStart: session['starts-at'],
           color: returnTrackColor(trackDetails, session.track === null ? null : session.track.id),
-          font_color: returnTrackFontColor(trackDetailsFont, session.track === null ? null : session.track.id)
+          font_color: returnTrackFontColor(trackDetailsFont, session.track === null ? null : session.track.id),
+          calendarEnd: session['ends-at']
         });
         DateData.set(slug, moment.parseZone(session['starts-at']).format('YYYY-MM-DD'));
       }
@@ -737,6 +749,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     const tracktitle = session.track === null ? ' ' : session.track.name;
     const start = moment.parseZone(session['starts-at']).format('HH:mm');
     const end = moment.parseZone(session['ends-at']).format('HH:mm');
+    const calendarStart = session['starts-at'];
+    const calendarEnd = session['ends-at'];
 
     // eslint-disable-next-line no-shadow
     let room = null;
@@ -747,6 +761,8 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
         date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
         sortKey: moment.parseZone(session['starts-at']).format('YY-MM-DD'),
         slug: slug,
+        calendarStart: calendarStart,
+        calendarEnd: calendarEnd,
         ['starts-at']: start,
         ['ends-at']: end,
         timeLine: [],
@@ -809,8 +825,10 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
       }),
       tracktitle: tracktitle,
       sessiondate: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
+      calendarStart: session['starts-at'],
       roomname: roomName,
-      sortKey: venue + moment.parseZone(session['starts-at']).format('HH:mm')
+      sortKey: venue + moment.parseZone(session['starts-at']).format('HH:mm'),
+      calendarEnd: session['ends-at']
     });
   });
 
@@ -985,6 +1003,8 @@ function getAllSessions(speakerid, session, trackInfo) {
         sortKey:  moment.parseZone(session.detail['starts-at']).format('YYYY-MM-DD HH:MM'),
         start: moment.parseZone(session.detail['starts-at']).format('HH:mm'),
         end:   moment.parseZone(session.detail['ends-at']).format('HH:mm'),
+        calendarStart: session.detail['starts-at'],
+        calendarEnd: session.detail['ends-at'],
         title: session.detail.title,
         date: moment.parseZone(session.detail['starts-at']).format('ddd, Do MMM'),
         color: returnTrackColor(trackDetails, session.detail.track === null ? null : session.detail.track.id),

@@ -1,5 +1,91 @@
 'use strict';
 
+$('.fa-calendar').click(function(event) {
+  event.stopPropagation();
+});
+
+function handleClientLoad() {
+  gapi.load('client:auth2', initClient);
+}
+
+function initClient() {
+  let id = document.getElementById('gcalendar-id').value;
+  let key = document.getElementById('gcalendar-key').value;
+  let CLIENT_ID = id || '160684527585-baqm9op1fe80reu4f76l1jjcstusq3qb.apps.googleusercontent.com';
+  let API_KEY = key || 'AIzaSyDrBzjFDGw3p7AbZqRihL5Ilw46w7RpI7s';
+  let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+  let SCOPES = "https://www.googleapis.com/auth/calendar";
+
+  gapi.client.init({
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+  }).then(function() {
+    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+  });
+}
+
+function updateSigninStatus(isSignedIn) {
+  if (isSignedIn) {
+    console.log("Signed IN");
+  }
+}
+
+function handleAuthClick(title, location, calendarStart, calendarEnd, timezone, description) {
+  let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
+  if (!isSignedIn) {
+    gapi.auth2.getAuthInstance().signIn().then(function() {
+      listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+    });
+  } else {
+    listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+  }
+}
+
+function listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description) {
+  let event = {
+    'summary': title,
+    'location': location,
+    'description': description,
+    'start': {
+      'dateTime': calendarStart,
+      'timeZone': timezone
+    },
+    'end': {
+      'dateTime': calendarEnd,
+      'timeZone': timezone
+    },
+    'reminders': {
+      'useDefault': false,
+      'overrides': [{
+          'method': 'email',
+          'minutes': 24 * 60
+        },
+        {
+          'method': 'popup',
+          'minutes': 10
+        }
+      ]
+    },
+    'colorId': '5'
+  };
+
+  let request = gapi.client.calendar.events.insert({
+    'calendarId': 'primary',
+    'resource': event
+  });
+  request.execute(function(event) {
+    console.log(event);
+    swal({
+      title: "Session added to your google calendar!",
+      icon: "success",
+      button: "OK!",
+    });
+  });
+}
+
 const loadVideoAndSlides = function(div, videoURL, slideURL) {
   const descriptionDiv = $('#desc-' + div);
   const speakerDiv = $('#speaker-' + div);
@@ -40,4 +126,9 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
   }
 };
 
+window.handleClientLoad = handleClientLoad;
+window.initClient = initClient;
+window.handleAuthClick = handleAuthClick;
+window.updateSigninStatus = updateSigninStatus;
+window.listUpcomingEvents = listUpcomingEvents;
 window.loadVideoAndSlides = loadVideoAndSlides;
