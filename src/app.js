@@ -24,7 +24,9 @@ const callbackUrl = process.env.CALLBACK_URL || config.CALLBACK_URL;
 const sentryUrl = process.env.SENTRY_DSN;
 const ss = require('socket.io-stream');
 const Raven = require('raven');
-
+const redisClient =  require('redis').createClient(process.env.REDIS_URL);
+const Queue = require('bee-queue');
+const queue = new Queue('generator-queue', {redis: redisClient});
 const app = express();
 // eslint-disable-next-line new-cap
 const server = require('http').Server(app);
@@ -33,6 +35,8 @@ let parsedCookie, sid, folder;
 let id = 0;
 let count = 0;
 let filename = '';
+const emitter = null;
+const socketObj = {};
 
 if (sentryUrl) {
   Raven.config(sentryUrl).install();
@@ -90,18 +94,42 @@ io.on('connection', function(socket) {
 
   socket.on('live', function(formData) {
     const req = {body: formData};
+    const job = queue.createJob(req);
 
-    generator.createDistDir(req, socket, function(appFolder, url) {
-      socket.emit('live.ready', {
-        appDir: appFolder,
-        url: url
-      });
+    job.on('succeeded', function() {
+      console.log('completed job ' + job.id);
+    });
+
+    job.save(async function(err, currentJob) {
+      if (err) {
+        console.log('job failed to save');
+      }
+      const currJobId = currentJob.id;
+
+      socketObj[currJobId] = socket;
+      console.log('saved job ' + currentJob.id);
+      const jobs = await queue.getJobs('waiting', {start: 0, end: 25});
+      const jobIds = await jobs.map((currJob) => currJob.id);
+
+      if (jobIds.indexOf(currentJob.id) !== -1) {
+        socket.emit('waiting');
+      }
     });
   });
 
   socket.on('upload', function(fileData) {
     generator.uploadJsonZip(fileData, socket);
   });
+});
+
+queue.on('ready', function() {
+  queue.process(function(job, done) {
+    console.log('processing job ' + job.id);
+    const processId = job.id;
+
+    generator.createDistDir(job.data, socketObj[processId], done);
+  });
+  console.log('processing jobs...');
 });
 
 io.of('/deploy').on('connection', function(socket) {
