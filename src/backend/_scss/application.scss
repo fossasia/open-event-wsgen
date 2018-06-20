@@ -2283,9 +2283,10 @@ a.skip:hover {
 }
 
 .coc {
-  margin: auto;
+  font-size: 1.3em;
+  padding-left: 3%;
+  padding-right: 3%;
   text-align: justify;
-  width: 60%;
 
   a {
     &:hover {

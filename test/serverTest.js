@@ -166,6 +166,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817/",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -184,6 +185,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2017/",
         "datasource": "eventapi",
         "assetmode": "download",
@@ -202,6 +204,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
         "sessionMode": "single",
         "datasource": "eventapi",
@@ -221,6 +224,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCON17",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -239,6 +243,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -257,6 +262,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OpenTechSummit2017/",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -275,6 +281,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/NextcloudConference2017/",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -293,6 +300,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/GoogleIO17",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -311,6 +319,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/Droidcon17",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -329,6 +338,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/PyCon17",
         "datasource": "eventapi",
         "assetmode": "download",
@@ -349,6 +359,7 @@ describe('generate', function () {
         "email": "a@a.com",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/RedHatSummit17",
+        "theme": 'light',
         "datasource": "eventapi",
         "assetmode": "download"
       };
@@ -365,6 +376,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2014",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -382,6 +394,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2011",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -400,6 +413,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2010",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -418,6 +432,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
+        "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands16",
         "datasource": "eventapi",
         "assetmode": "download"
