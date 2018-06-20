@@ -698,12 +698,33 @@
               $(this).show();
             }
           });
+
+          var trackFilterInfo = $('.track-filter-info');
+          var roomFilterInfo = $('.room-filter-info');
+
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
             $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red ' id='no-results'>No matching results found.</p>");
+
+              if(trackFilterMode){
+                trackFilterInfo.addClass('filter-not-found');
+                trackFilterInfo.css("border","1px dotted red")
+
+              } else if(roomFilterMode) {
+                  roomFilterInfo.addClass('filter-not-found');
+                  roomFilterInfo.css("border","1px dotted red")
+              }
           } else {
             $('#no-results').remove();
+
+              if(trackFilterMode){
+                trackFilterInfo.removeClass('filter-not-found');
+                trackFilterInfo.css("border","1px dotted black")
+              } else if(roomFilterMode) {
+                  roomFilterInfo.removeClass('filter-not-found');
+                  roomFilterInfo.css("border","1px dotted black")
+              }
           }
           return false;
         }).keyup(function () {
@@ -833,11 +854,32 @@
                 }
             });
 
+            var trackFilterInfo = $('.track-filter-info')
+            var roomFilterInfo = $('.room-filter-info');
+
             if ($('.date-filter:visible').length == 0  && searchTracks==1) {
                 $('#no-results').remove();
                 $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red ' id='no-results'>No matching results found.</p>");
+
+                if(trackFilterMode){
+                  trackFilterInfo.addClass('filter-not-found');
+                  trackFilterInfo.css("border","1px dotted red")
+
+                } else if(roomFilterMode) {
+                    roomFilterInfo.addClass('filter-not-found');
+                    roomFilterInfo.css("border","1px dotted red")
+                }
+
             } else {
                 $('#no-results').remove();
+
+                if(trackFilterMode){
+                  trackFilterInfo.removeClass('filter-not-found');
+                  trackFilterInfo.css("border","1px dotted black")
+                } else if(roomFilterMode) {
+                    roomFilterInfo.removeClass('filter-not-found');
+                    roomFilterInfo.css("border","1px dotted black")
+                }
 
             }
         }
