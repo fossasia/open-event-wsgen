@@ -21,29 +21,32 @@
             {{#if speakerslist}}
             <li><a target="_self" href="speakers.html">Speakers</a></li>
             {{/if}}
+            {{#if eventurls.codeOfConduct}}
+              <li><a target="_self" href="CoC.html">Code of Conduct</a></li>
+            {{/if}}
             <li><a class="inner-link back-to-top" href="#top">Back To Top</a></li>
           </ul>
         </div>
         <div  id="copyright" class="col-sm-7 col-md-7 col-xs-12">
-         {{#if copyright}}
-         {{#if copyright.licence}}
-         <p>
-        <a href="{{{copyright.licence_url}}}"><img src="{{{copyright.logo}}}"></a>
-         &nbsp; &copy; {{copyright.year}}
-         {{#if copyright.holder_url}}
-         <a href="{{{copyright.holder_url}}}">{{copyright.holder}}.</a>
-         {{else}}
-         {{copyright.holder}}.
-         {{/if}}
-         The website and its contents are licensed under
-          <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
-         The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.
-         </p>
-         {{/if}}
-        {{/if}}
+          {{#if copyright}}
+            {{#if copyright.licence}}
+              <p>
+                <a href="{{{copyright.licence_url}}}"><img src="{{{copyright.logo}}}"></a>
+         &nbsp;       &copy; {{copyright.year}}
+                {{#if copyright.holder_url}}
+                  <a href="{{{copyright.holder_url}}}">{{copyright.holder}}.</a>
+                {{else}}
+                  {{copyright.holder}}.
+                {{/if}}
+                The website and its contents are licensed under
+                <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
+                The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.
+              </p>
+            {{/if}}
+          {{/if}}
         </div>
-    <div  class="contact-details col-sm-3 col-md-3 col-xs-12">
-      <ul class="contact-methods">
+        <div class="contact-details col-sm-3 col-md-3 col-xs-12">
+        <ul class="contact-methods">
        {{#if eventurls.email}}
         <li>
           <i class="fa fa-envelope"></i>
@@ -64,7 +67,7 @@
     </div>
   </div>
   <div class="row ui-sortable">
-    <div class="col-sm-12 text-center">
+    <div class="col-sm-10 text-center">
       <ul class="social-profiles">
         {{#sociallinks}}
           {{#if show}}

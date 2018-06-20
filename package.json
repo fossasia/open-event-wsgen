@@ -6,11 +6,9 @@
   "scripts": {
     "start": "node src/app.js",
     "test": "mocha",
-    "coverage": "istanbul cover _mocha"
-  },
-  "nodemonConfig": {
-    "ignore": ["build/*", "dist/*"],
-    "delay": "1500"
+    "coverage": "istanbul cover _mocha",
+    "lint": "eslint ./src",
+    "precommit": "eslint ./src"
   },
   "repository": {
     "type": "git",
@@ -27,6 +25,7 @@
     "async": "^2.0.0-rc.6",
     "aws-sdk": "^2.62.0",
     "babel-preset-es2015": "^6.24.0",
+    "bee-queue": "^1.2.2",
     "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "chai": "^4.0.1",
@@ -64,6 +63,7 @@
     "progress-stream": "^2.0.0",
     "raven": "^2.1.0",
     "recursive-readdir": "^2.1.0",
+    "redis": "^2.8.0",
     "request": "^2.74.0",
     "selenium-webdriver": "^3.4.0",
     "sendgrid": "^5.1.1",
@@ -76,6 +76,7 @@
   },
   "devDependencies": {
     "connect-domain": "^0.5.0",
-    "nodemon": "^1.17.3"
+    "eslint": "^4.19.1",
+    "husky": "^0.14.3"
   }
 }

@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
   <link href="css/main.css" rel="stylesheet">
   <script src="js/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
   <script src="js/form.js"></script>
   <script src="js/validation.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
@@ -266,8 +266,13 @@
   <div class="container">
     <form class="form-group generator_form" enctype="multipart/form-data" id="form" method="post" name="form" role="form">
       <div class="form-group col-md-offset-4 col-xs-offset-2 col-xs-8 col-md-4 form-div-board" style="margin-bottom: 0;">
-        <label for="name">Email</label> <input autofocus="" class="form-control" id="email" name="email" required="true" type="email"><br>
-        <label for="theme">Choose your theme</label>
+        <label for="name">Email</label>
+          <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input autofocus="" class="form-control" id="email" name="email" required="true" type="email" >
+          </div>
+         <br>
+         <label for="theme">Choose your theme</label>
          <select class="form-control" id="theme" name="theme">
          <option value="light">Light</option>
          <option value="dark">Dark</option>

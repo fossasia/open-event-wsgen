@@ -74,6 +74,17 @@ $(document).ready(function () {
     }
   });
 
+  $(document).mouseup(function(e) {
+    let container = popbox;
+    if (!container.is(e.target) && container.has(e.target).length === 0 && !$(e.target).is(sessionname) && !$(e.target).is(session)) {
+      container.addClass('hide');
+      hidePopbox();
+      resetPage();
+      openedPop=null;
+
+    }
+  });
+
   function addPopbox(element) {
     popbox.addClass('hide');
     $(element).find('.pop-box').removeClass('hide');
@@ -133,7 +144,7 @@ $(document).ready(function () {
           diff = childHeight - parentHeight + 30;
           footerOffset = diff + 50;
           diff = roomsHeight + diff;
-          previousRoomHeight = previousRoomHeight === 0 ? roomsHeight : previousRoomHeight;
+          previousRoomHeight = roomsHeight;
           $(rooms).css({
             "height": diff
           });

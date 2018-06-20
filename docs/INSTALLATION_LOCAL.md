@@ -20,6 +20,12 @@ npm config set registry http://registry.npmjs.org/
 
 and then restart the terminal and start from step 1
 
+Install and run Redis
+```shell
+sudo apt-get install redis-server
+redis-server
+```
+
 Run the app
 
 ```shell

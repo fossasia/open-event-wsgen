@@ -1,15 +1,18 @@
-var BasePage = require('./basePage.js');
-var By = require('selenium-webdriver').By;
+/* eslint-disable no-empty-label */
+'use strict';
 
-var TrackPage = Object.create(BasePage);
+const BasePage = require('./basePage.js');
+const By = require('selenium-webdriver').By;
+
+const TrackPage = Object.create(BasePage);
 
 // Get number of visible tracks on the page
 TrackPage.getNumTracksVisible = function() {
-  var self = this;
-  var numPromise = new Promise(function(resolve) {
+  const self = this;
+  const numPromise = new Promise(function(resolve) {
     self.findAll(By.className('track-filter')).then(function(trackElems) {
-      var counter = 0;
-      var trackNameArr = [];
+      let counter = 0;
+      const trackNameArr = [];
 
       trackElems.forEach(function(trackElem) {
         trackElem.isDisplayed().then(function(val) {
@@ -31,13 +34,13 @@ TrackPage.getNumTracksVisible = function() {
 };
 
 TrackPage.checkSharableUrl = function() {
-  var self = this;
-  var speakerId = '3014';
+  const self = this;
+  const speakerId = '3014';
 
-  var promise = new Promise(function(resolve) {
+  const promise = new Promise(function(resolve) {
     self.find(By.id(speakerId)).click().then(function() {
       self.find(By.className('clickable-link')).click().then(self.driver.sleep(1000)).then(function() {
-        var link = self.find(By.className('speakers-inputbox')).getAttribute('value');
+        const link = self.find(By.className('speakers-inputbox')).getAttribute('value');
 
         self.find(By.id(speakerId)).click().then(self.driver.sleep(1000)).then(function() {
           resolve(link);
@@ -51,16 +54,16 @@ TrackPage.checkSharableUrl = function() {
 
 TrackPage.checkIsolatedBookmark = function() {
   // Sample sessions having ids of 3014 and 3015 being checked for the bookmark feature
-  var self = this;
-  var bookmarkSessionsIdsArr = ['3014', '3015', '2907'];
-  var visibleCheckSessionsIdsArr = ['3014', '3015', '2918', '2907'];
+  const self = this;
+  const bookmarkSessionsIdsArr = ['3014', '3015', '2907'];
+  const visibleCheckSessionsIdsArr = ['3014', '3015', '2918', '2907'];
 
   return self.bookmarkCheck(bookmarkSessionsIdsArr, visibleCheckSessionsIdsArr);
 };
 
 // Clicks on the Open Tech Track and then returns the number of visible tracks present on the page
 TrackPage.checkIsolatedTrackFilter = function() {
-  var self = this;
+  const self = this;
 
   return self.find(By.className('track-room-names')).findElements(By.className('track-name')).then(function(elems) {
     // Clicking on the Open Tech Track
@@ -69,12 +72,13 @@ TrackPage.checkIsolatedTrackFilter = function() {
 };
 
 TrackPage.toggleSessionElem = function() {
-  var self = this;
+  const self = this;
 
   // Checking the toggle behaviour of session having id 3014
-  var promise = new Promise(function(resolve) {
+  const promise = new Promise(function(resolve) {
     self.find(By.id('title-3014')).then(self.click).then(self.driver.sleep(1000)).then(function() {
-      var promiseArr = [];
+      const promiseArr = [];
+
       promiseArr.push(self.find(By.id('desc-3014')).isDisplayed());
       promiseArr.push(self.find(By.id('desc2-3014')).isDisplayed());
       resolve(Promise.all(promiseArr));
@@ -88,16 +92,16 @@ TrackPage.toggleSessionElem = function() {
 of Open Tech Track. The former two are in bookmarked state. Session id 2907 is of Track Hardware and Making and the last session
 with id 2941 is of Database Track. */
 
-var idArr = ['3014', '3015', '3018', '2938', '2907', '2941'];
+const idArr = ['3014', '3015', '3018', '2938', '2907', '2941'];
 
 // Get the visibility status of the selected sessions on enabling and disabling the track filter.
 TrackPage.filterThenSessionStatus = function(choice) {
-  var self = this;
-  var promiseArr = idArr.map(function(elem) {
+  const self = this;
+  const promiseArr = idArr.map(function(elem) {
     return self.find(By.id(elem));
   });
 
-  var statusPromise = new Promise(function(resolve) {
+  const statusPromise = new Promise(function(resolve) {
     if (choice === 'true') {
       // Applying track filter
       self.find(By.className('track-room-names')).findElements(By.className('track-name')).then(function(elems) {
@@ -123,8 +127,8 @@ TrackPage.filterThenSessionStatus = function(choice) {
 
 // Get the visibility status of the selected sessions after search
 TrackPage.searchThenSessionStatus = function(text) {
-  var self = this;
-  var promiseArr = idArr.map(function(elem) {
+  const self = this;
+  const promiseArr = idArr.map(function(elem) {
     return self.find(By.id(elem));
   });
 
@@ -133,8 +137,8 @@ TrackPage.searchThenSessionStatus = function(text) {
 
 // Get the visibility status of the selected sessions after toggling the bookmark button
 TrackPage.starredThenSessionStatus = function() {
-  var self = this;
-  var promiseArr = idArr.map(function(elem) {
+  const self = this;
+  const promiseArr = idArr.map(function(elem) {
     return self.find(By.id(elem));
   });
 
@@ -143,8 +147,8 @@ TrackPage.starredThenSessionStatus = function() {
 
 // Takes in an array of filters, apply them sequentially and send visibility results of selected sessions on each filter
 TrackPage.filterCombination = function(filtersArr) {
-  var self = this;
-  var filterObjectFunc = {
+  const self = this;
+  const filterObjectFunc = {
     'trackselect': function() {
       return self.filterThenSessionStatus('true');
     },
@@ -170,8 +174,8 @@ TrackPage.filterCombination = function(filtersArr) {
     }
   };
 
-  var serialPromise = function series(arrayOfPromises) {
-    var results = [];
+  const serialPromise = function series(arrayOfPromises) {
+    const results = [];
 
     return arrayOfPromises.reduce(function(seriesPromise, promise) {
       return seriesPromise.then(function() {
@@ -184,7 +188,7 @@ TrackPage.filterCombination = function(filtersArr) {
     });
   };
 
-  var filtersArrProm = [];
+  let filtersArrProm = [];
 
   filtersArrProm = filtersArr.map(function(filter) {
     return filterObjectFunc[filter]();
@@ -194,8 +198,8 @@ TrackPage.filterCombination = function(filtersArr) {
 };
 
 TrackPage.checkTrackFilterDirectLink = function() {
-  var self = this;
-  var trackIdArr = [];
+  const self = this;
+  const trackIdArr = [];
 
   function pushId(trackElem) {
     trackElem.getAttribute('id').then(function(id) {
@@ -207,7 +211,7 @@ TrackPage.checkTrackFilterDirectLink = function() {
     self.findAll(By.className('room-filter')).then(function(trackElems) {
       trackElems.forEach(function(trackElem) {
         trackElem.isDisplayed().then(function(val) {
-          if(val === true) {
+          if (val === true) {
             pushId(trackElem);
           }
         });

@@ -1,7 +1,10 @@
-var BasePage = require('./basePage.js');
-var By = require('selenium-webdriver').By;
+/* eslint-disable no-empty-label */
+'use strict';
 
-var EventPage = Object.create(BasePage);
+const BasePage = require('./basePage.js');
+const By = require('selenium-webdriver').By;
+
+const EventPage = Object.create(BasePage);
 
 EventPage.getEventName = function() {
   return this.find(By.css('h1')).getText().then(function(name) {
@@ -10,21 +13,21 @@ EventPage.getEventName = function() {
 };
 
 EventPage.checkTweetSection = function() {
-  //This will return an error if the tweet section is not there
+  // This will return an error if the tweet section is not there
   return this.find(By.id('tweet'));
 };
 
 EventPage.getNavbarFooterBrokenLinks = function() {
-
   // Both the promises return an array of links contained inside the container
-  var navbarPromise = this.getAllLinks(By.className('navbar-default'));
-  var footerPromise = this.getAllLinks(By.className('footer-container'));
+  const navbarPromise = this.getAllLinks(By.className('navbar-default'));
+  const footerPromise = this.getAllLinks(By.className('footer-container'));
 
-  var promiseArr = [];
+  const promiseArr = [];
+
   promiseArr.push(navbarPromise);
   promiseArr.push(footerPromise);
 
-  //Merges two arrays into one and remove duplicate elements
+  // Merges two arrays into one and remove duplicate elements
   function mergeUniqueArr(arr1, arr2) {
     return arr1.concat(arr2.filter(function(item) {
       return arr1.indexOf(item) === -1;
@@ -48,8 +51,8 @@ EventPage.checkSponsorSection = function() {
 };
 
 EventPage.getSponsorsBrokenLinks = function() {
-  var allLinks = this.getAllLinks(By.className('sponsorscont'));
-  var brokenLinks = allLinks.then(this.countBrokenLinks);
+  const allLinks = this.getAllLinks(By.className('sponsorscont'));
+  const brokenLinks = allLinks.then(this.countBrokenLinks);
 
   return brokenLinks;
 };

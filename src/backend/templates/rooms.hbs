@@ -152,18 +152,32 @@
                               {{#if ../../../mode}}
                                 <div class="sizeevent event event-title" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};">
                               {{else}}
-                                <div class="sizeevent event event-title" onclick = "loadVideo('{{session_id}}', '{{video}}')" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
+                                <div class="sizeevent event event-title" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
                               {{/if}}
-                                <div class="margin-down-15">{{title}}</div>
-                                <a class = "bookmark" id="b{{session_id}}">
-                                  <i class="fa fa-star" aria-hidden="true" ></i>
-                                </a>
-                                {{#if audio}}
-                                  <i class="fa fa-music" aria-hidden="true"></i>
-                                {{/if}}
-                                {{#if video}}
-                                  <i class="fa fa-video-camera video" aria-hidden="true"></i>
-                                {{/if}}
+                                <div class = "features">
+                                  {{#ifcontains audio "mp3"}}
+                                    <i class="fa fa-music" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#ifcontains audio "aac"}}
+                                    <i class="fa fa-music" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+
+                                  {{#ifcontains slides "ppt"}}
+                                    <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#ifcontains slides "pdf"}}
+                                    <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#if video}}
+                                    <i class="fa fa-video-camera video"></i>
+                                  {{/if}}
+                                  <a class = "bookmark" id = "c{{session_id}}" >
+                                      <i class="fa fa-star" aria-hidden="true">
+                                      </i>
+                                  </a>
+                                </div>
+                                <div class="margin-down-15">{{title}}
+                                </div>
                                 <div id="desc2-{{session_id}}" class="collapse in"
                                   style="background-color:{{{color}}}; color: {{{font_color}}};">
                                   <div class="row">
@@ -199,28 +213,34 @@
                               </div>
                               <div id="desc-{{session_id}}" class="collapse">
                                 {{{description}}}
-                                {{#if audio}}
-                                  <audio controls="" preload="none" id= "audio-block">
+                                {{#ifcontains audio "mp3"}}
+                                  <audio controls="" preload="none" id="audio-block">
                                     <source src="{{ audio }}">
                                   </audio>
-                                {{/if}}
+                                {{/ifcontains}}
+                                {{#ifcontains audio "aac"}}
+                                  <audio controls="" preload="none" id="audio-block">
+                                    <source src="{{ audio }}">
+                                  </audio>
+                                {{/ifcontains}}
                                 <hr class="clear-both">
-                                <div class="session-speakers-list"
+                                <div id="speaker-{{session_id}}" class="session-speakers-list"
                                   aria-expanded="false"
                                   aria-controls="desc-{{session_id}}">
                                   {{#speakers_list}}
-                                    <a href="speakers.html#{{nameIdSlug}}">
-                                      <div class="session-speakers-less">
-                                        <p class="session-speakers">
+                                    <div class="session-speakers-less">
+                                      <p class="session-speakers">
+                                        <a href="speakers.html#{{nameIdSlug}}">
                                           {{#if photo}}
-                                            <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large"/>
+                                            <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large margin-down-10"/>
                                           {{else}}
-                                            <img class="card-img-top speaker-image-large" src="images/avatar.png"/>
+                                            <img class="card-img-top speaker-image-large margin-down-10" src="images/avatar.png"/>
                                           {{/if}}
-                                        </p>
-                                        <span class="graytext">{{name}}</span>
-                                      </div>
-                                    </a>
+                                          <span class="graytext desc-speaker-name">{{name}}</span>
+                                        </a>
+                                      </p>
+                                    </div>
+
                                     {{#if organisation}}
                                       <p class="session-speakers-more">
                                         {{position}} {{organisation}}
@@ -280,7 +300,7 @@
                                     <p>
                                       <ul class="title-inline">
                                         <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
-                                        <li class="blacktext">{{tracktitle}}</li>
+                                        <li class="blacktext track-name">{{tracktitle}}</li>
                                       </ul>
                                     </p><br>
                                   </div>
@@ -302,7 +322,7 @@
                 <h4 class='list-title'> Rooms List </h4>
                 {{#each roomsnames}}
                   <div class="room-info">
-                    <span style="background-color: #777;" class="titlecolor"></span>
+                    <span class="titlecolor room-titlecolor"></span>
                     <span class="room-name">{{this}}</span>
                   </div>
                 {{/each}}
@@ -329,6 +349,7 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./js/rooms.min.js" type="text/javascript"></script>
+    <script src="./js/main.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var eventName = "{{eventurls.name}}";
       var flag = 0;
@@ -574,7 +595,7 @@
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
-            $('.search-filter:first').after('<p id="no-results">No matching results found.</p>');
+            $('.search-filter:first').after('<p id="no-results" style="color: red">No matching results found.</p>');
           } else {
             $('#no-results').remove();
           }
@@ -857,9 +878,13 @@
                 }
             });
 
-            if ($('.date-filter:visible').length == 0  && searchRooms==1) {
+            if ($('.date-filter:visible').length == 0) {
                 $('#no-results').remove();
-                $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold' id='no-results'>No matching results found.</p>");
+                if(searchRooms) {
+                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
+                } else {
+                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
+                }
             } else {
                 $('#no-results').remove();
 
@@ -880,18 +905,6 @@
         }
         initPage();
       });
-
-      function loadVideo(div, videoURL){
-        if(videoURL !== null && videoURL !== '') {
-          let isVideoDisplayed = $('#desc-' + div).hasClass('in');
-          if (!isVideoDisplayed) {
-            $('#desc-' + div).children('div').prepend('<iframe id = "' + videoURL + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + videoURL + '"></iframe>')
-          }
-          else {
-            $('#' + videoURL).remove();
-          }
-        }
-      }
     </script>
   </body>
 </html>
