@@ -218,7 +218,7 @@ exports.createDistDir = function(req, socket, callback) {
   console.log(req.body);
   // since we don't give the name of the app, we use a dummy value 'tempProject' in place of it
   req.body.name = 'tempProject' + socket.connId; // temporary name for the project till the time we get the actual name of the event
-  const theme = req.body.theme || 'light';
+  const theme = req.body.theme;
   const mode = req.body.sessionMode;
   const type = req.body.apiVersion || 'api_v2';
 
@@ -248,7 +248,9 @@ exports.createDistDir = function(req, socket, callback) {
       fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
         if (err !== null) {
           logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
+          callback(null);
           console.log(err);
+          done(err);
         }
         logger.addLog('Success', 'Successfully cleaned up the temporary folders', socket);
         done(null, 'clean');
@@ -274,6 +276,7 @@ exports.createDistDir = function(req, socket, callback) {
         if (copyerr !== null) {
           console.log(copyerr);
           logger.addLog('Error', 'Error occured while copying assets into the appFolder', socket, copyerr);
+          callback(null);
           return socket.emit('live.error', {donePercent: 30, status: 'Error in Copying assets'});
         }
         logger.addLog('Success', 'Assets were successfully copied', socket);
@@ -289,6 +292,7 @@ exports.createDistDir = function(req, socket, callback) {
         console.log('============================Moving contents from dependency folder and deleting the dependency folder');
         if (copyerr !== null) {
           logger.addLog('Error', 'Error while reading directory', socket, copyerr);
+          callback(null);
           console.log(copyerr);
           return socket.emit('live.error', {donePercent: 45, status: 'Error in moving files from dependency folder'});
         }
@@ -310,6 +314,7 @@ exports.createDistDir = function(req, socket, callback) {
           distHelper.copyUploads(appFolder, socket, uploadsId, function(err) {
             if (err) {
               console.log(err);
+              callback(null);
               done(err);
             } else {
               done(null, 'copyUploads');
@@ -322,6 +327,7 @@ exports.createDistDir = function(req, socket, callback) {
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
             if (err !== null) {
               console.log(err);
+              callback(null);
               return done(err);
             }
             logger.addLog('Success', 'All jsons have been successfully downloaded', socket);
@@ -363,6 +369,7 @@ exports.createDistDir = function(req, socket, callback) {
           if (emit) {
             socket.emit('live.error', {status: 'Error in Compiling SASS'});
           }
+          callback(null);
         }
       });
     },
@@ -383,6 +390,7 @@ exports.createDistDir = function(req, socket, callback) {
           if (emit) {
             socket.emit('live.error', {status: 'Error in read contents of zip'});
           }
+          callback(null);
           return done(error);
         }
 
@@ -402,6 +410,7 @@ exports.createDistDir = function(req, socket, callback) {
             distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
               if (err) {
                 console.log(err);
+                callback(null);
                 return done(err);
               }
               jsonData.navpad = pad;
@@ -480,6 +489,7 @@ exports.createDistDir = function(req, socket, callback) {
           } catch (err) {
             console.log(err);
             logger.addLog('Error', 'Error in compiling/writing templates', socket, err);
+            callback(null);
             if (emit) {
               socket.emit('live.error', {status: 'Error in Compiling/Writing templates'});
             }
@@ -503,6 +513,7 @@ exports.createDistDir = function(req, socket, callback) {
       distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
         if (remerr !== null) {
           logger.addLog('Error', 'Error occured while removing the duplicate event folders', socket, remerr);
+          callback(null);
           console.log(remerr);
           if (emit) {
             socket.emit('live.error', {status: 'Error in removing the duplicate event folders of the same name'});
@@ -526,6 +537,7 @@ exports.createDistDir = function(req, socket, callback) {
       fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
         if (moveerr !== null) {
           logger.addLog('Error', 'Error in moving files to the event folders', socket, moveerr);
+          callback(null);
           console.log(moveerr);
           if (emit) {
             socket.emit('live.error', {status: 'Error in moving files to the event directory'});
@@ -547,12 +559,14 @@ exports.createDistDir = function(req, socket, callback) {
         if (err) {
           console.log(err);
           logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
+          callback(null);
           return done(err);
         }
         distHelper.copyServiceWorker(appFolder, hashObj.hash, function(error) {
           if (error) {
             console.log(error);
-            logger.addLog('Error', 'Error occured while copying service worker file', socket, err);
+            logger.addLog('Error', 'Error occured while copying service worker file', socket, error);
+            callback(null);
             return done(error);
           }
           return done(null);
@@ -570,6 +584,7 @@ exports.createDistDir = function(req, socket, callback) {
         if (err) {
           console.log(err);
           logger.addLog('Error', 'Error occured while copying manifest file', socket, err);
+          callback(null);
           return done(err);
         }
         return done(null);
@@ -591,6 +606,7 @@ exports.createDistDir = function(req, socket, callback) {
       });
       archive.on('error', function(err) {
         logger.addLog('Error', 'Error occured while zipping the file', socket, err);
+        callback(null);
       });
       archive.pipe(output);
       archive.directory(distHelper.distPath + '/' + appFolder, '/').finalize();
@@ -616,7 +632,17 @@ exports.createDistDir = function(req, socket, callback) {
         } else {
           logger.addLog('Error', 'Error sending mail', socket);
         }
-        callback(appFolder, obj.url);
+
+        if (emit) {
+          socket.emit('live.ready', {
+            appDir: appFolder,
+            url: obj.url
+          });
+          callback(null);
+        } else {
+          callback(appFolder);
+        }
+
         done(null, 'write');
       });
 
@@ -627,6 +653,7 @@ exports.createDistDir = function(req, socket, callback) {
         } else {
           console.log(err);
         }
+        callback(null);
       });
     }
   ]);
