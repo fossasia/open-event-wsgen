@@ -1171,15 +1171,30 @@
         });
         var listFilterLength = $('.day-filter:visible').length;
         var calendarFilterLength = $('.room:visible').length;
-        if((isCalendarView && calendarFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
+        var trackFilterInfo = $('.track-filter-info');
+        var roomFilterInfo = $('.room-filter-info');
+
+          if((isCalendarView && calendarFilterLength == 0) || (!isCalendarView && listFilterLength == 0)) {
           $('#no-results').remove();
           if(search) {
             $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
           } else {
              $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
           }
+
+          if(trackFilterMode){
+            trackFilterInfo.addClass('filter-not-found');
+          } else if(roomFilterMode) {
+            roomFilterInfo.addClass('filter-not-found');
+          }
         } else {
           $('#no-results').remove();
+
+          if(trackFilterMode){
+            trackFilterInfo.removeClass('filter-not-found');
+          } else if(roomFilterMode) {
+            roomFilterInfo.removeClass('filter-not-found');
+          }
         }
       }
 

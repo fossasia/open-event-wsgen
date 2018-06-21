@@ -484,6 +484,8 @@
       };
 
       $(document).ready(function() {
+        var trackFilterInfo = $('.track-filter-info');
+        var roomFilterInfo = $('.room-filter-info');
 
         $('.session-lin').click(function() {
           $(this).parent().parent().find("div.social-buttons").toggle();
@@ -560,8 +562,18 @@
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
             $('.search-filter:first').after('<p id="no-results" style="color: red">No matching results found.</p>');
+            if(trackFilterMode){
+              trackFilterInfo.addClass('filter-not-found');
+            } else if(roomFilterMode) {
+              roomFilterInfo.addClass('filter-not-found');
+            }
           } else {
             $('#no-results').remove();
+            if(trackFilterMode){
+              trackFilterInfo.removeClass('filter-not-found');
+            } else if(roomFilterMode) {
+              roomFilterInfo.removeClass('filter-not-found');
+            }
           }
           return false;
         }).keyup(function() {
@@ -843,14 +855,24 @@
             });
 
             if ($('.date-filter:visible').length == 0) {
-                $('#no-results').remove();
-                if(searchRooms) {
-                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
-                } else {
-                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
-                }
-            } else {
-                $('#no-results').remove();
+              $('#no-results').remove();
+              if(searchRooms) {
+                $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
+              } else {
+                $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
+              }
+              if(trackFilterMode){
+                trackFilterInfo.addClass('filter-not-found');
+              } else if(roomFilterMode) {
+                roomFilterInfo.addClass('filter-not-found');
+              }
+            }else {
+              $('#no-results').remove();
+              if(trackFilterMode){
+              trackFilterInfo.removeClass('filter-not-found');
+              }else if(roomFilterMode) {
+               roomFilterInfo.removeClass('filter-not-found');
+              }
 
             }
         }
