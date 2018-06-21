@@ -119,7 +119,6 @@
                 Various optimizations made Python 3.6 faster than Python 3.5. Let's see in detail what was done and how. Python 3.6 is faster than any other Python version on many benchmarks. We will see results of the Python benchmark suite on Python 2.7, 3.5 and 3.6. The bytecode format and instructions to call functions were redesign to run bytecode faster. A new C calling convention, called 'fast call' , was introduced to avoid temporary tuple and dict. The way Python parses arguments was also optimized using a new internal cache. Operations on bytes and encodes like UTF-8 were optimized a lot thanks to a new API to create bytes objects. The API allows very efficient optimizations and reduces memory reallocations. Some parts of asyncio were rewritten in C to speedup code up to 25%. The PyMem_Malloc() function now also uses the fast pymalloc allocator also giving tiny speedup for free. Finally, we will see optimization projects for Python 3.7: use fast calls in more cases, speed up method calls, a cache on opcodes, a cache on global variables.
                 <hr class=clear-both>
               </div>
-              <hr class=clear-both>
               <div id=desc-92 class=session-speakers-list aria-expanded=false aria-controls=desc-92>
                   <a href=../speakers.html#victor-stinner102>
                     <div class=session-speakers-less>
