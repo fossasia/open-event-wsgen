@@ -34,7 +34,7 @@ sessionPage.getSessionBackgroundColor = function() {
 
 sessionPage.getSpeakerName = function() {
   const self = this;
-  const speaker = 'graytext';
+  const speaker = 'desc-speaker-name';
 
   const sessionPromise = new Promise(function(resolve) {
     const title = self.find(By.className(speaker)).getText();
