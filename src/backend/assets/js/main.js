@@ -1,6 +1,6 @@
 'use strict';
 
-$('.fa-calendar').click(function(event) {
+$('h4>.fa-calendar').click(function(event) {
   event.stopPropagation();
 });
 
