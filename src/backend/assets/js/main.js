@@ -11,8 +11,8 @@ function handleClientLoad() {
 function initClient() {
   let id = document.getElementById('gcalendar-id').value;
   let key = document.getElementById('gcalendar-key').value;
-  let CLIENT_ID = id || '160684527585-baqm9op1fe80reu4f76l1jjcstusq3qb.apps.googleusercontent.com';
-  let API_KEY = key || 'AIzaSyDrBzjFDGw3p7AbZqRihL5Ilw46w7RpI7s';
+  let CLIENT_ID = id;
+  let API_KEY = key;
   let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
   let SCOPES = "https://www.googleapis.com/auth/calendar";
 
