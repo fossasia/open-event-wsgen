@@ -130,18 +130,6 @@
                               <div class="sizeevent event event-title" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}"  style="background-color: {{../color}}; color:{{../font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}} ">
                             {{/if}}
                               <div class = "features">
-                                <a class = "bookmark" id = "c{{session_id}}" >
-                                  <i class="fa fa-star" aria-hidden="true">
-                                  </i>
-                                </a>
-                              </div>
-                              <div class="margin-down-15">{{title}}
-                                {{#if video}}
-                                  <span id="stack" class="fa-stack ">
-                                    <i class="fa fa-video-camera video fa-stack-2x"></i>
-                                    <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
-                                  </span>
-                                {{/if}}
                                 {{#ifcontains audio "mp3"}}
                                   <i class="fa fa-music" aria-hidden="true"></i>
                                 {{/ifcontains}}
@@ -154,6 +142,15 @@
                                 {{#ifcontains slides "pdf"}}
                                   <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                                 {{/ifcontains}}
+                                {{#if video}}
+                                  <i class="fa fa-video-camera video"></i>
+                                {{/if}}
+                                <a class = "bookmark" id = "c{{session_id}}" >
+                                  <i class="fa fa-star" aria-hidden="true">
+                                  </i>
+                                </a>
+                              </div>
+                              <div class="margin-down-15">{{title}}
                               </div>
                               <div id="desc2-{{session_id}}" class="collapse in"
                                 style="background-color: {{../color}}; color: {{../font_color}};">

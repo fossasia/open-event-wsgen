@@ -17,11 +17,9 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
 
     if (!isVideoDisplayed && $('[id="video-' + div + '"]').length === 0) {
       faviconDiv.css('display', 'block');
-      faviconDiv.addClass('blink');
       speakerDiv.prepend('<iframe id = "video-' + div + '" class = "video-iframe col-xs-12 col-sm-12 col-md-12" src="https://www.youtube.com/embed/' + video + '" frameborder="0" allowfullscreen></iframe>');
     } else if(isVideoDisplayed) {
       faviconDiv.css('display', 'none');
-      faviconDiv.removeClass('blink');
       $('#video-' + div).remove();
     }
   }
