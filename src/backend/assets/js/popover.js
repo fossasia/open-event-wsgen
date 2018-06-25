@@ -144,7 +144,7 @@ $(document).ready(function () {
           diff = childHeight - parentHeight + 30;
           footerOffset = diff + 50;
           diff = roomsHeight + diff;
-          previousRoomHeight = previousRoomHeight === 0 ? roomsHeight : previousRoomHeight;
+          previousRoomHeight = roomsHeight;
           $(rooms).css({
             "height": diff
           });
