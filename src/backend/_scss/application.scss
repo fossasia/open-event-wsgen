@@ -492,6 +492,11 @@ a {
   padding-top: 8px;
 }
 
+.filter-not-found {
+  border: 1px dotted $red !important;
+  color: $red;
+}
+
 .list-menu {
   top: 90%;
 }
