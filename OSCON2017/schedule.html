@@ -32,7 +32,11 @@
           threshold: 2000
         });
       });
-
+      let featuresWidth;
+      $('.schedule-margin').each(function() {
+        featuresWidth = $(this).children('.features').width() + 2;
+        $(this).css('padding-right', featuresWidth + 'px');
+      });
         window.onload = function () {
           window.addEventListener("hashchange", function(){
             let curUrl = window.location.href;
