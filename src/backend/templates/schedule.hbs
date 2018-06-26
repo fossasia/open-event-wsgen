@@ -136,19 +136,6 @@
                           aria-controls="desc-{{session_id}}" onclick = "loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')">
                       {{/if}}
                         <div class = "features">
-                          <a class = "bookmark" id = "c{{session_id}}" >
-                            <i class="fa fa-star" aria-hidden="true">
-                            </i>
-                          </a>
-                        </div>
-                        <div>
-                          {{title}}
-                          {{#if video}}
-                            <span id="stack" class="fa-stack">
-                              <i class="fa fa-video-camera video fa-stack-2x"></i>
-                              <i id="v{{session_id}}" class="fa fa-circle video-circle fa-stack-2x"></i>
-                            </span>
-                          {{/if}}
                           {{#ifcontains audio "mp3"}}
                             <i class="fa fa-music" aria-hidden="true"></i>
                           {{/ifcontains}}
@@ -161,6 +148,17 @@
                           {{#ifcontains slides "pdf"}}
                             <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                           {{/ifcontains}}
+
+                          {{#if video}}
+                            <i class="fa fa-video-camera video"></i>
+                          {{/if}}
+                          <a class = "bookmark" id = "c{{session_id}}" >
+                            <i class="fa fa-star" aria-hidden="true">
+                            </i>
+                          </a>
+                        </div>
+                        <div>
+                          {{title}}
                         </div>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
@@ -469,7 +467,11 @@
           threshold: 2000
         });
       });
-
+      let featuresWidth;
+      $('.schedule-margin').each(function() {
+        featuresWidth = $(this).children('.features').width() + 2;
+        $(this).css('padding-right', featuresWidth + 'px');
+      });
         window.onload = function () {
           window.addEventListener("hashchange", function(){
             let curUrl = window.location.href;
