@@ -1,9 +1,5 @@
 'use strict';
 
-$('h4>.fa-calendar').click(function(event) {
-  event.stopPropagation();
-});
-
 function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }

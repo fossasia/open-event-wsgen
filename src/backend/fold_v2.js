@@ -155,7 +155,6 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
 
     // generate slug/key for session
     const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
-    const calendarDate = session['starts-at'];
     const trackName = session.track === null ? 'deftrack' : session.track.name;
     const roomName = session.microlocation.name;
     const session_type = session['session-type'] === null ? '' : session['session-type'].name;
