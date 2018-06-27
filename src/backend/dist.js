@@ -414,6 +414,9 @@ module.exports = {
           case '.png':
             fs.copy(fPath, imagesPath + '/' + file, check);
             break;
+          case '.gif':
+            fs.copy(fPath, imagesPath + '/' + file, check);
+            break;
           case '.js':
             fs.copy(fPath, jsPath + '/' + file, check);
             break;

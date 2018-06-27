@@ -481,6 +481,7 @@
   <script src="./js/sweetalert.min.js" type="text/javascript"></script>
   <script src="./js/schedule.min.js" type="text/javascript"></script>
   <script src="./js/main.min.js" type="text/javascript"></script>
+  <script src="./js/async.min.js"></script>
   <script type="text/javascript">
 
     $(document).ready(function() {
@@ -966,46 +967,101 @@
 
 
       $('.export-pdf').click(function () {
-          let pdf = new jsPDF('l', 'pt', 'a4');
-          let options = {
-            pagesplit: true
-          };
-          if (isCalendarView === true) {
-              let fullScheduler = true;
+        let pdf;
+        let options = {
+          pagesplit: true
+        };
 
-              $('.calendar').each(function() {
-                  let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
-                  fullScheduler = hidePresent && fullScheduler;
-                  if (hidePresent) {
-                    $timeline = $(this);
-                  }
-              });
-              if(fullScheduler) {
-                  $timeline = $('.calendar').parent();
-              }
+        swal("Generating the PDF",{
+          icon: "./images/loader.gif",
+          buttons: false
+        });
+        if (isCalendarView === true) {
+          count = 0;
+          let fullScheduler = true;
+          let mapValue = '';
+
+          pdf = new jsPDF('l', 'pt', 'a1');
+          $('.calendar').each(function() {
+            let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+
+            if (hidePresent) {
+              $timeline = $(this);
+              initialWidth[count] = $timeline.width();
+              numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
+              numberOfChildElements = numberOfChildElements - 1;
+              widthOfChild = $timeline.find('.room').width();
+              canvasWidth = numberOfChildElements * widthOfChild + 50;
+              $timeline.width(canvasWidth);
+              count++;
+              mapValue = $timeline;
+            }
+            fullScheduler = hidePresent && fullScheduler;
+          });
+
+          if(fullScheduler) {
+            $timeline = $('.calendar').parent();
+            mapValue = $timeline.children();
+          }
+          let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
+
+          if (scheduleDate) {
+            scheduleDate=scheduleDate[0];
           } else {
-              let fullScheduler = true;
-              $('.day-filter').each(function() {
-                  let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
-                  fullScheduler = hidePresent && fullScheduler;
-                  if (hidePresent) {
-                    $timeline = $(this);
-                  }
-              });
-              if(fullScheduler) {
-                  $timeline = $('.day-filter').parent();
-              }
+            scheduleDate ="Schedule";
           }
 
+          let schedArr = $.map(mapValue, function(value, index) {
+            return [value];
+          });
+          let currDate = 0;
+
+          count = 0;
+          async.eachSeries(schedArr, function (child, callback) {
+            html2canvas(child, {
+              onrendered: function (canvas) {
+                pdf.addPage(canvas.width, canvas.height);
+                child.style.width = initialWidth[count] + 'px';
+                pdf.addImage(canvas, 'png', 0, 0, canvas.width, canvas.height);
+                currDate++;
+                if(currDate === schedArr.length){
+                  pdf.deletePage(1);
+                  swal.close();
+                  pdf.save(scheduleDate + '.pdf');
+                }
+                count++;
+                callback();
+              }
+            });
+          });
+        } else {
+          let fullScheduler = true;
+
+          pdf = new jsPDF('l', 'pt', 'a4');
+          $('.day-filter').each(function() {
+            let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+
+            fullScheduler = hidePresent && fullScheduler;
+            if (hidePresent) {
+              $timeline = $(this);
+            }
+          });
+
+          if(fullScheduler) {
+            $timeline = $('.day-filter').parent();
+          }
           let scheduleDate = $timeline.attr('class').match(/(\d{4}-\d{2}-\d{2})/g);
+
           if (scheduleDate) {
-              scheduleDate=scheduleDate[0];
+            scheduleDate=scheduleDate[0];
           } else {
-              scheduleDate ="Schedule";
+            scheduleDate ="Schedule";
           }
           pdf.addHTML($timeline, 0, 0, options, function(){
-              pdf.save(scheduleDate + ".pdf");
+            swal.close();
+            pdf.save(scheduleDate + ".pdf");
           });
+        }
       });
 
       function display() {
