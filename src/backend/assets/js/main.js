@@ -17,16 +17,7 @@ function initClient() {
     clientId: CLIENT_ID,
     discoveryDocs: DISCOVERY_DOCS,
     scope: SCOPES
-  }).then(function() {
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-  });
-}
-
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    console.log("Signed IN");
-  }
+  })
 }
 
 function handleAuthClick(title, location, calendarStart, calendarEnd, timezone, description) {
@@ -73,7 +64,6 @@ function listUpcomingEvents(title, location, calendarStart, calendarEnd, timezon
     'resource': event
   });
   request.execute(function(event) {
-    console.log(event);
     swal({
       title: "Session added to your google calendar!",
       icon: "success",
@@ -125,6 +115,5 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
 window.handleClientLoad = handleClientLoad;
 window.initClient = initClient;
 window.handleAuthClick = handleAuthClick;
-window.updateSigninStatus = updateSigninStatus;
 window.listUpcomingEvents = listUpcomingEvents;
 window.loadVideoAndSlides = loadVideoAndSlides;
