@@ -23,7 +23,8 @@
       var numberOfChildElements;
       var widthOfChild;
       var canvasWidth;
-      var initialWidth;
+      let initialWidth = [];
+      let count  = 0;
       var roomName;
       var trackName;
 
@@ -655,15 +656,17 @@
       $(".export-png").click(function() {
         let fullScheduler = true;
         if (isCalendarView === true) {
+          count = 0;
           $('.calendar').each(function() {
             if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
               $timeline = $(this);
-              initialWidth = $timeline.width();
+              initialWidth[count] = $timeline.width();
               numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
               numberOfChildElements = numberOfChildElements - 1;
               widthOfChild = $timeline.find('.room').width();
               canvasWidth = numberOfChildElements * widthOfChild + 50;
               $timeline.width(canvasWidth);
+              count++;
             }
           });
         } else {
@@ -693,7 +696,16 @@
             });
           },
         });
-        $timeline.width(initialWidth);
+
+        if (isCalendarView === true) {
+          count = 0;
+          $('.calendar').each(function () {
+            $timeline = $(this);
+            $timeline.width(initialWidth[count]);
+            count++;
+          });
+        }
+
       });
 
 
