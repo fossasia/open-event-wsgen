@@ -193,7 +193,7 @@ a {
 
   li {
     a {
-      padding: 5px 20px;
+      padding: 5px 10px;
     }
   }
 }
@@ -483,13 +483,13 @@ a {
 
 /* Track SCSS */
 
-.show-button-filter {
-  padding-top: 10px;
-}
-
 .filter {
   margin-right: 10px;
   padding-top: 8px;
+
+  @media only screen and (max-width: 600px) {
+    margin-right: 2px;
+  }
 }
 
 .list-menu {
@@ -553,10 +553,6 @@ a {
 }
 
 @media (max-width: 600px) {
-  .show-button-filter {
-    padding-bottom: 0;
-  }
-
   .show-button-filter button {
     width: 100%;
   }
@@ -1529,7 +1525,6 @@ a {
 
   .fossasia-filter {
     display: block;
-    height: 28px;
     margin: 0 auto;
     width: 186px;
     padding-left: 25px;
@@ -1540,7 +1535,6 @@ a {
 
     .fossasia-filter {
       border-radius: 5px;
-      height: 32px;
       width: 80%;
     }
   }
@@ -1560,29 +1554,28 @@ a {
 
 .search-filter-schedule {
   flex-grow: 2;
-  padding: 10px;
-  padding-left: 0px;
   font-size: small;
   border-radius: 5px;
 }
 
 .fossasia-filter {
-  height: 33px;
+  margin-top: 4px;
+  height: 34px;
   width: 100%;
   padding-left: 25px;
   font-size: small;
   border-radius: 5px;
 }
 
+.filter .fossasia-filter,
+.search-filter-speaker .fossasia-filter {
+  // This gives the search box filters the same border as the filter buttons next to it
+  border: 1px solid $filter-input-border-color;
+}
+
 .search-filter {
-
-  @media only screen and (max-width: 350px) {
-    display: none;
-  }
-
   .fossasia-filter {
     background-color: $white;
-    border: 1px solid $gray-dim;
     color: $black;
   }
 
@@ -1614,8 +1607,6 @@ a {
 
 .search-filter-room {
   flex-grow: 2;
-  padding-left: 2px;
-  padding-top: 12px;
 
   input {
     line-height: 30px;
@@ -1626,19 +1617,9 @@ a {
     .fossasia-filter {
       border-radius: 5px;
       float: none;
-      height: 33px;
-      margin: 0 auto;
     }
   }
 
-}
-
-.filter-margin {
-  margin-right: 10px;
-
-  @media only screen and (max-width: 340px) {
-    margin-right: 0;
-  }
 }
 
 .navbar-flex {
@@ -1658,7 +1639,11 @@ a {
 
   .date-list {
     margin-top: 10px;
-    text-align: center;
+
+    // Only affect the date tabs, not the filter dropdowns
+    .tabs {
+      text-align: center;
+    }
   }
 
   .date-pill {
@@ -2328,4 +2313,92 @@ a.skip:hover {
 .list-child {
   display: inline-block;
   padding-right: 10px;
+}
+
+// Filters for mobile view
+
+.dropdown-inner {
+  max-height: 200px;
+  max-height: 60vh;
+  overflow: auto;
+}
+
+// When the screen gets too narrow, hide the searchbox
+@media only screen and (max-width: 380px) {
+  .filter.search-filter {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:989px) {
+  .sidebar {
+    display: none;
+  }
+
+  .search-filter-schedule {
+    width: 39%;
+  }
+
+  // For mobile, menu fonts should be larger, so they can be tapped with a finger
+  .dropdown-menu {
+    a {
+      font-size: 16px;
+    }
+  }
+
+  .tracks-rooms-filter {
+    .dropdown-menu>li {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .dropdown-submenu {
+      position: static;
+    }
+
+    .dropdown-inner {
+      // If there are very long track/room names, make the menu scroll horizontally (rather than the screen)
+      max-width: 80vw;
+
+      > li {
+        // If the track/room name needs to wrap, it should wrap in its own box, not below the coloured dot
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+
+        // Override the line-height we have inherited from .date-list
+        line-height: 1.5em;
+
+        a {
+          // Since we are using the <a> for the blue highlight, it should feel the entire li
+          width: 100%;
+        }
+
+        > a:hover {
+          // This is the rule that Bootstrap uses to make the background blue
+          // We will use it to expand the dot a little
+          .titlecolor {
+            transform: scale(1.2);
+          }
+        }
+
+        .titlecolor {
+          // Do not let the dot lose its shape from being shrunk
+          flex: 0 0 auto;
+          // Ensure a gap between the dot and the track/room name
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:990px) {
+  .sidebar {
+    display: inline-flex;
+  }
+
+  .dropdown-list {
+    display: none;
+  }
 }

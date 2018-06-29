@@ -74,10 +74,43 @@
          </span>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
+        <span class="filter tracks-rooms-filter dropdown dropdown-list">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
+          <ul class="dropdown-menu list-menu">
+              <li class="dropdown-submenu">
+                <a href="#">Rooms List <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-inner">
+                   {{#each roomsnames}}
+                    <li>
+                      <a href="#" class="room-name">
+                        <span style="background-color: #777;" class="titlecolor"></span>
+                        <span>{{this}}</span>
+                      </a>
+                    </li>
+                   {{/each}}
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                 <a href="#">Tracks List <span class="caret"></span></a>
+                 <ul class="dropdown-menu dropdown-inner">
+                   {{#tracknames}}
+                   {{#if title}}
+                     <li>
+                       <a href="#" class="track-name">
+                         <span style="background-color: {{color}};" class="titlecolor"></span>
+                         <span>{{title}}</span>
+                       </a>
+                     </li>
+                   {{/if}}
+                  {{/tracknames}}
+                </ul>
+               </li>
+          </ul>
+        </span>
         <span class="filter">
           <button id = "page-mode" class="btn btn-default" type="button"><i class="fa fa-calendar" aria-hidden="true"></i></button>
         </span>
-        <span class="dropdown filter">
+        <span class="filter dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span> </button>
           <ul class="dropdown-menu list-menu download-dropdown">
             <li> <a href="#" class="export-png"> Download as png </a> </li>
@@ -85,11 +118,11 @@
             <li> <a href="#" class="export-pdf"> Download as pdf </a> </li>
           </ul>
         </span>
-        <span class="search-filter search-filter-schedule">
+        <span class="filter search-filter search-filter-schedule">
          <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
          <input class="fossasia-filter" type="text" placeholder="Search">
         </span>
-        <span class = "show-button-filter">
+        <span class = "filter show-button-filter">
             <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
         </span>
       </div>
@@ -494,7 +527,7 @@
           }
 
           if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
-            var filterVal;
+            var filterVal = '';
             trackName =  decodeURIComponent(window.location.href.toString().split('#')[1]);
             trackFilterMode = 1;
             roomFilterMode = 0;
@@ -649,6 +682,16 @@
         exportICS();
       });
 
+      $('.tracks-rooms-filter > ul > li > a').on("click", function(e){
+        e.preventDefault();
+        $(this).next('.dropdown-inner').toggle();
+        // var spanDisplay = $(this).next('.dropdown-inner').is(':visible') ? 'inline-flex' : 'none';
+        // $(this).find('.caret').css('display', spanDisplay);
+        // $(this).parent().siblings().eq(0).children('a').find('.caret').hide();
+        $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+        e.stopPropagation();
+      });
+
       $('.session-lin').click(function(e) {
         $(this).parent().parent().find("div.social-buttons").toggle();
         var val = $(this).parent().parent().find('.speakers-inputbox').val();
@@ -663,8 +706,8 @@
       });
 
       $('.track-name').click(function() {
-        var filterVal;
-        trackName = $(this).text();
+        var filterVal = '';
+        trackName = $(this).text().trim();
         trackFilterMode = 1;
         roomFilterMode = 0;
         var local_storage_events = JSON.parse(localStorage[eventName]);
@@ -771,8 +814,8 @@
       });
 
       $('.room-name').click(function () {
-        var filterVal;
-        roomName = $(this).text();
+        var filterVal = '';
+        roomName = $(this).text().trim();
         roomFilterMode = 1;
         trackFilterMode = 0;
         var local_storage_events = JSON.parse(localStorage[eventName]);
@@ -1213,7 +1256,7 @@
 
       function display() {
         var temp = JSON.parse(localStorage[eventName]);
-        var filterVal;
+        var filterVal = '';
         var visibleRooms = 0;
         $('.fossasia-filter').each(function () {
           if ($(this).is(':visible')) {

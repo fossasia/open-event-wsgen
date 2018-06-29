@@ -379,7 +379,7 @@ module.exports = {
     const imagesPath = appPath + '/images';
     const dependencyPath = appPath + '/dependencies';
 
-    logger.addLog('Info', 'Reading the contents of the dependenices directory', socket);
+    logger.addLog('Info', 'Reading the contents of the dependencies directory', socket);
     fs.readdir(dependencyPath, function(err, list) {
       if (err) {
         logger.addLog('Error', 'Error while reading directory', socket, err);
@@ -394,7 +394,7 @@ module.exports = {
         filesCopiedCounter += 1;
         if (filesCopiedCounter === list.length) {
           logger.addLog('Info', 'All files of the folder have been copied', socket);
-          logger.addLog('Info', 'Now removing the dependenices folder', socket);
+          logger.addLog('Info', 'Now removing the dependencies folder', socket);
           fs.remove(dependencyPath, done);
         }
       }
