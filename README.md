@@ -310,6 +310,23 @@ The web-app is able to automatically deploy the generated event sites to Github 
  * If you would like to work on an issue, drop in a comment on the issue. 
 
  Do read the [Open Source Developer Guide and Best Practices at FOSSASIA](https://blog.fossasia.org/open-source-developer-guide-and-best-practices-at-fossasia).
+
+
+## Testing locally
+
+If you want to run tests locally, first install the following:
+
+    npm install --no-save mocha chromedriver
+
+You can then run the full test suite with:
+
+    npm test
+
+or you can run one individual test script like this:
+
+    npx mocha -b test/generatorAndSchedule.js
+
+
 ## LICENSE
 
 OpenEvent Webapp - A webapp and it's generator, written under the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure. Copyright (C) 2016, FOSSASIA. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
