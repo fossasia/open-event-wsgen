@@ -1,5 +1,77 @@
 'use strict';
 
+function handleClientLoad() {
+  gapi.load('client:auth2', initClient);
+}
+
+function initClient() {
+  let id = document.getElementById('gcalendar-id').value;
+  let key = document.getElementById('gcalendar-key').value;
+  let CLIENT_ID = id;
+  let API_KEY = key;
+  let DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+  let SCOPES = "https://www.googleapis.com/auth/calendar";
+
+  gapi.client.init({
+    apiKey: API_KEY,
+    clientId: CLIENT_ID,
+    discoveryDocs: DISCOVERY_DOCS,
+    scope: SCOPES
+  })
+}
+
+function handleAuthClick(title, location, calendarStart, calendarEnd, timezone, description) {
+  let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
+  if (!isSignedIn) {
+      gapi.auth2.getAuthInstance().signIn().then(function() {
+        listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+      });
+  } else {
+    listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+  }
+}
+
+function listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description) {
+  let event = {
+    'summary': title,
+    'location': location,
+    'description': description,
+    'start': {
+      'dateTime': calendarStart,
+      'timeZone': timezone
+      },
+    'end': {
+      'dateTime': calendarEnd,
+      'timeZone': timezone
+    },
+    'reminders': {
+      'useDefault': false,
+      'overrides': [{
+        'method': 'email',
+        'minutes': 24 * 60
+       },
+       {
+         'method': 'popup',
+         'minutes': 10
+       }
+      ]
+    },
+    'colorId': '5'
+  };
+
+  let request = gapi.client.calendar.events.insert({
+    'calendarId': 'primary',
+    'resource': event
+  });
+  request.execute(function(event) {
+    swal({
+      title: "Session added to your google calendar!",
+      icon: "success",
+      button: "OK!",
+    });
+  });
+}
+
 const loadVideoAndSlides = function(div, videoURL, slideURL) {
   const descriptionDiv = $('#desc-' + div);
   const speakerDiv = $('#speaker-' + div);
@@ -29,7 +101,7 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
 
     if (!isSlideDisplayed && $('[id="slide-' + div + '"]').length === 0) {
       if (slideURL.indexOf('pdf') !== -1) {
-        speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
+       speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
       } else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1) {
         speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
       }
@@ -40,4 +112,49 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
   }
 };
 
-window.loadVideoAndSlides = loadVideoAndSlides;
+$(document).ready(function () {
+  let filter;
+  //store room filters
+  let room ={
+    dateFilter:'.date-filter'
+  };
+  //store track filters
+  let track ={
+    dateFilter:'.date-filter'
+  };
+  //store schedule filters
+  let schedule={
+    dateFilter:'.day-filter'
+  };
+
+  const noResult=function(filterType,calendarMode) {
+    filter=eval(filterType);
+    var search=false;
+    $('.fossasia-filter').each(function() {
+      if($(this).is(':visible') && $(this).val().length!==0) {
+        search=true;
+      }
+    });
+    var listFilterLength =$(filter.dateFilter+':visible').length;
+    var calendarFilterLength = $('.room:visible').length;
+    if((calendarMode && calendarFilterLength == false) || (!calendarMode && listFilterLength == false)) {
+      $('#no-results').remove();
+      if(search) {
+        $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
+      } else {
+        $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
+        }
+    } else {
+       $('#no-results').remove();
+      }
+  };
+
+  window.main= {
+    noResult:  noResult
+  };
+  window.handleClientLoad = handleClientLoad;
+  window.initClient = initClient;
+  window.handleAuthClick = handleAuthClick;
+  window.listUpcomingEvents = listUpcomingEvents;
+  window.loadVideoAndSlides = loadVideoAndSlides;
+});

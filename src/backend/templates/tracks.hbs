@@ -559,6 +559,7 @@
               $(this).hide();
               }
           });
+          main.noResult('track');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -632,6 +633,7 @@
               $(this).hide();
             }
           });
+          main.noResult('track');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -696,12 +698,7 @@
             }
           });
           // show "no results" if search input value matches zero items
-          if ($('.date-filter:visible').length == 0) {
-            $('#no-results').remove();
-            $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red ' id='no-results'>No matching results found.</p>");
-          } else {
-            $('#no-results').remove();
-          }
+          main.noResult('track');
           return false;
         }).keyup(function () {
           $(this).change();
@@ -829,18 +826,7 @@
                     searchTracks=1;
                 }
             });
-
-            if ($('.date-filter:visible').length == 0) {
-                $('#no-results').remove();
-                if(searchTracks){
-                   $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red ' id='no-results'>No matching results found.</p>");
-                } else {
-                   $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red ' id='no-results'>No result found.</p>");
-                }
-            } else {
-                $('#no-results').remove();
-
-            }
+            main.noResult('track');
         }
 
         function initPage() {
