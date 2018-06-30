@@ -301,6 +301,16 @@ $(document).ready(function() {
     }
   );
 
+  $('#enable-google-calendar').change(
+    function() {
+      if ($(this).is(':checked')) {
+        $('#gcalendar-id-container').show(100);
+      } else {
+        $('#gcalendar-id-container').hide(100);
+      }
+    }
+  );
+
   $('#singlefileUpload').change(function() {
     const ext = this.value.match(/\.([^\.]+)$/)[1];
 
@@ -481,6 +491,7 @@ function initialState() {
   $('input:radio[name="datasource"]').prop('checked', false);
   $('#upload-ftp').prop('checked', false);
   $('#enable-google-analytics').prop('checked', false);
+  $('#enable-google-calendar').prop('checked', false);
   $('#btnGenerate').prop('disabled', true);
   uploadFinished = false;
 }
@@ -548,6 +559,13 @@ function getData(initValue) {
       id: $('#ganalytics-id').val()
     };
   }
+  if ($('#enable-google-calendar').prop('checked')) {
+    data.gcalendar = {
+      id: $('#gcalendar-id').val(),
+      key: $('#gcalendar-key').val()
+    };
+  }
+
   return data;
 }
 

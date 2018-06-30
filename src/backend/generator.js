@@ -416,14 +416,25 @@ exports.createDistDir = function(req, socket, callback) {
               jsonData.navpad = pad;
             });
           }
-          if (req.body.ganalyticsID) {
-            jsonData.ganalyticsID = req.body.ganalyticsID;
-          }
           if (req.body.theme === 'light') {
             jsonData.theme = 0;
           } else {
             jsonData.theme = 1;
           }
+
+          if (req.body.ganalyticsID) {
+            jsonData.ganalyticsID = req.body.ganalyticsID;
+          }
+
+          if (req.body.gcalendar) {
+            jsonData.gcalendar = {};
+            jsonData.gcalendar.enabled = true;
+            jsonData.gcalendar.body = req.body.gcalendar;
+          } else {
+            jsonData.gcalendar = {};
+            jsonData.gcalendar.enabled = false;
+          }
+
           distHelper.resizeSponsors(basePath, socket, function() {
             distHelper.resizeSpeakers(basePath, socket, function() {
               templateGenerate();

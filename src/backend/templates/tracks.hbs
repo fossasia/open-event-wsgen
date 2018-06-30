@@ -215,6 +215,9 @@
                             </div>
                             <div id="desc-{{session_id}}" class="collapse">
                               {{{description}}}
+                              {{#if ../../../gcalendar.enabled}}
+                                <button id="add-to-calendar" class="btn btn-default" onclick="handleAuthClick('{{title}}','{{location}}','{{calendarStart}}','{{calendarEnd}}','{{../../../eventurls.timezone}}','{{description}}')">Add to Calendar</button>
+                              {{/if}}
                               {{#ifcontains audio "mp3"}}
                                 <audio controls="" preload="none" id="audio-block">
                                   <source src="{{ audio }}">
@@ -338,11 +341,13 @@
       </div>
     </div>
   </div>
-
+  <input id="gcalendar-id" type="hidden" value='{{gcalendar.body.id}}' />
+  <input id="gcalendar-key" type="hidden" value='{{gcalendar.body.key}}' />
     {{> footer}}
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/sweetalert.min.js" type="text/javascript"></script>
     <script src="./js/tracks.min.js" type="text/javascript"></script>
     <script src="./js/main.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -901,5 +906,11 @@
         initPage();
       });
     </script>
-  </body>
+    {{#if gcalendar.enabled}}
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload=function(){};handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
+    {{/if}}
+    </body>
 </html>
