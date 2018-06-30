@@ -196,6 +196,9 @@ POST /generate
 |datasource | (required) Either `jsonupload` or `eventapi` | |
 |apiendpoint| (if datasource = eventapi) API endpoint url | |
 
+**API specifications**
+
+[Postman documenter](https://documenter.getpostman.com/view/1436680/generator/RW89LVYc)
 
 ## Configurations
 
