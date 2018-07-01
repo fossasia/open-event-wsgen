@@ -113,7 +113,7 @@ io.on('connection', function(socket) {
       const activeJob = await queue.getJobs('active', {start: 0, end: 25});
       const jobIds = jobs.map((currJob) => currJob.id);
 
-      if (jobIds.indexOf(currentJob.id) !== -1) {
+      if (jobIds.indexOf(currJobId) !== -1) {
         socket.emit('waiting');
         logger.addLog('Info', 'Request waiting number: ' + (currJobId - activeJob[0].id), socket);
       }
