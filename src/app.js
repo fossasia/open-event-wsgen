@@ -12,6 +12,7 @@ const generator = require('./backend/generator.js');
 const deploy = require('./backend/deploy.js');
 const config = require('../config.json');
 const passport = require('passport');
+const logger = require('./backend/buildlogger.js');
 const Strategy = require('passport-github').Strategy;
 const session = require('express-session');
 const MemoryStore = session.MemoryStore;
@@ -107,12 +108,14 @@ io.on('connection', function(socket) {
       const currJobId = currentJob.id;
 
       socketObj[currJobId] = socket;
-      console.log('saved job ' + currentJob.id);
+      console.log('saved job ' + currJobId);
       const jobs = await queue.getJobs('waiting', {start: 0, end: 25});
-      const jobIds = await jobs.map((currJob) => currJob.id);
+      const activeJob = await queue.getJobs('active', {start: 0, end: 25});
+      const jobIds = jobs.map((currJob) => currJob.id);
 
-      if (jobIds.indexOf(currentJob.id) !== -1) {
+      if (jobIds.indexOf(currJobId) !== -1) {
         socket.emit('waiting');
+        logger.addLog('Info', 'Request waiting number: ' + (currJobId - activeJob[0].id), socket);
       }
     });
   });
@@ -126,8 +129,16 @@ queue.on('ready', function() {
   queue.process(function(job, done) {
     console.log('processing job ' + job.id);
     const processId = job.id;
+    const jobs = new Promise(function(resolve) {
+      resolve(queue.getJobs('waiting', {start: 0, end: 25}));
+    });
 
     generator.createDistDir(job.data, socketObj[processId], done);
+    jobs.then(function(waitingJobs) {
+      waitingJobs.forEach(function(waitingJob) {
+        logger.addLog('Info', 'Request waiting number: ' + (waitingJob.id - job.id), socketObj[waitingJob.id]);
+      });
+    });
   });
   console.log('processing jobs...');
 });

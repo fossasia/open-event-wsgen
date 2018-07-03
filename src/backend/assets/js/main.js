@@ -39,7 +39,7 @@ function listUpcomingEvents(title, location, calendarStart, calendarEnd, timezon
     'start': {
       'dateTime': calendarStart,
       'timeZone': timezone
-      },
+    },
     'end': {
       'dateTime': calendarEnd,
       'timeZone': timezone

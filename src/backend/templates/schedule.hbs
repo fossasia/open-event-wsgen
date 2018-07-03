@@ -74,10 +74,43 @@
          </span>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 navbar-flex" >
+        <span class="filter tracks-rooms-filter dropdown dropdown-list">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
+          <ul class="dropdown-menu list-menu">
+              <li class="dropdown-submenu">
+                <a href="#">Rooms List <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-inner">
+                   {{#each roomsnames}}
+                    <li>
+                      <a href="#" class="room-name">
+                        <span style="background-color: #777;" class="titlecolor"></span>
+                        <span>{{this}}</span>
+                      </a>
+                    </li>
+                   {{/each}}
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                 <a href="#">Tracks List <span class="caret"></span></a>
+                 <ul class="dropdown-menu dropdown-inner">
+                   {{#tracknames}}
+                   {{#if title}}
+                     <li>
+                       <a href="#" class="track-name">
+                         <span style="background-color: {{color}};" class="titlecolor"></span>
+                         <span>{{title}}</span>
+                       </a>
+                     </li>
+                   {{/if}}
+                  {{/tracknames}}
+                </ul>
+               </li>
+          </ul>
+        </span>
         <span class="filter">
           <button id = "page-mode" class="btn btn-default" type="button"><i class="fa fa-calendar" aria-hidden="true"></i></button>
         </span>
-        <span class="dropdown filter">
+        <span class="filter dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-download" aria-hidden="true"></i><span class="caret"></span> </button>
           <ul class="dropdown-menu list-menu download-dropdown">
             <li> <a href="#" class="export-png"> Download as png </a> </li>
@@ -85,11 +118,11 @@
             <li> <a href="#" class="export-pdf"> Download as pdf </a> </li>
           </ul>
         </span>
-        <span class="search-filter search-filter-schedule">
+        <span class="filter search-filter search-filter-schedule">
          <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
          <input class="fossasia-filter" type="text" placeholder="Search">
         </span>
-        <span class = "show-button-filter">
+        <span class = "filter show-button-filter">
             <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
         </span>
       </div>
@@ -148,7 +181,6 @@
                           {{#ifcontains slides "pdf"}}
                             <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
                           {{/ifcontains}}
-
                           {{#if video}}
                             <i class="fa fa-video-camera video"></i>
                           {{/if}}
@@ -163,6 +195,9 @@
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}
+                        {{#if ../../../gcalendar.enabled}}
+                          <button id="add-to-calendar" class="btn btn-default" onclick="handleAuthClick('{{title}}','{{location}}','{{calendarStart}}','{{calendarEnd}}','{{../../../eventurls.timezone}}','{{description}}')">Add to Calendar</button>
+                        {{/if}}
                         {{#ifcontains audio "mp3"}}
                           <audio controls="" preload="none" id="audio-block">
                             <source src="{{ audio }}">
@@ -436,29 +471,31 @@
         </div>
       </div>
   </div>
-</div>
-
+  <input id="gcalendar-id" type="hidden" value='{{gcalendar.body.id}}' />
+  <input id="gcalendar-key" type="hidden" value='{{gcalendar.body.key}}' />
   {{> footer}}
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./js/sweetalert.min.js" type="text/javascript"></script>
   <script src="./js/schedule.min.js" type="text/javascript"></script>
   <script src="./js/main.min.js" type="text/javascript"></script>
   <script type="text/javascript">
 
     $(document).ready(function() {
       var eventName = "{{eventurls.name}}";
-      var mode = 0;
-      var flag = 0;
-      var isAdded = 0;
-      var trackFilterMode=0;
-      var roomFilterMode=0;
+      var mode = false;
+      var flag = false;
+      var isAdded = false;
+      var trackFilterMode= false;
+      var roomFilterMode= false;
       var isCalendarView = false;
       let url = window.location.href.split('#')[0];
       var $timeline;
       var numberOfChildElements;
       var widthOfChild;
       var canvasWidth;
-      var initialWidth;
+      let initialWidth = [];
+      let count  = 0;
       var roomName;
       var trackName;
 
@@ -490,10 +527,10 @@
           }
 
           if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
-            var filterVal;
+            var filterVal = '';
             trackName =  decodeURIComponent(window.location.href.toString().split('#')[1]);
-            trackFilterMode = 1;
-            roomFilterMode = 0;
+            trackFilterMode = true;
+            roomFilterMode = false;
             var local_storage_events=JSON.parse(localStorage[eventName]);
             var isRoom = true;
 
@@ -523,7 +560,7 @@
                       $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                         var name=$(this).find('.title-inline .blacktext').text();
                         var id=$(this).attr('id');
-                        if((mode && local_storage_events[id] !== 1) || (name !== trackName))
+                        if((mode && local_storage_events[id] !== true) || (name !== trackName))
                         {
                           $(this).hide();
                         } else {
@@ -552,8 +589,8 @@
 
               if(isRoom === true) {
                 roomName = decodeURIComponent(window.location.href.toString().split('#')[1]);
-                roomFilterMode = 1;
-                trackFilterMode = 0;
+                roomFilterMode = true;
+                trackFilterMode = false;
 
                 $('.room-filter-info').show();
                 $('#RoomCurFilter').text(roomName);
@@ -571,7 +608,7 @@
                         $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                         var name = $(this).find('#location').text();
                         var id = $(this).attr('id');
-                        if ((mode && local_storage_events[id] !== 1) || (name !== roomName)) {
+                        if ((mode && local_storage_events[id] !== true) || (name !== roomName)) {
                           $(this).hide();
                         }else {
                           $(this).show();
@@ -645,6 +682,16 @@
         exportICS();
       });
 
+      $('.tracks-rooms-filter > ul > li > a').on("click", function(e){
+        e.preventDefault();
+        $(this).next('.dropdown-inner').toggle();
+        // var spanDisplay = $(this).next('.dropdown-inner').is(':visible') ? 'inline-flex' : 'none';
+        // $(this).find('.caret').css('display', spanDisplay);
+        // $(this).parent().siblings().eq(0).children('a').find('.caret').hide();
+        $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+        e.stopPropagation();
+      });
+
       $('.session-lin').click(function(e) {
         $(this).parent().parent().find("div.social-buttons").toggle();
         var val = $(this).parent().parent().find('.speakers-inputbox').val();
@@ -653,18 +700,18 @@
       });
 
       $('#TrackClearFilter').click(function() {
-        trackFilterMode = 0;
+        trackFilterMode = false;
         display();
         $('.track-filter-info').hide();
       });
 
       $('.track-name').click(function() {
-        var filterVal;
-        trackName = $(this).text();
-        trackFilterMode = 1;
-        roomFilterMode = 0;
+        var filterVal='';
+        trackName = $(this).text().trim();
+        trackFilterMode = true;
+        roomFilterMode = false;
         var local_storage_events = JSON.parse(localStorage[eventName]);
-        var visibleRooms = 0;
+        var visibleRooms = false;
 
         var sidebarDiv = $('.side-collapse');
         window.location.href = url + '#' + trackName;
@@ -682,9 +729,9 @@
         $('.room-filter-info').hide();
 
         $('.day-filter').each(function () {
-          var temp = 0;
+          var temp = false;
           $(this).find('.time-filter').each(function () {
-            var flag = 0;
+            var flag = false;
             $(this).find('.schedule-track').each(function () {
             if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
               $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -693,27 +740,27 @@
               $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
               var name = $(this).find('.title-inline .blacktext').text();
               var id = $(this).attr('id');
-              if (mode && local_storage_events[id] != 1)
+              if (mode && local_storage_events[id] != true)
               {
                 $(this).hide();
               } else if (name != trackName) {
                 $(this).hide();
               } else {
                 $(this).show();
-                flag = 1;
+                flag = true;
               }
             } else {
               $(this).hide();
             }
             });
-            if(flag === 0) {
+            if(flag === false) {
               $(this).hide();
             } else {
               $(this).show();
-              temp = 1;
+              temp = true;
             }
           });
-          if(temp == 0) {
+          if(temp == false) {
             $(this).hide();
           } else {
             $(this).show();
@@ -721,9 +768,9 @@
         });
 
         $('.calendar').each(function() {
-          visibleRooms = 0;
+          visibleRooms = false;
           $(this).find('.room').each(function() {
-            flag = 1;
+            flag = true;
             $(this).find('.session').each(function() {
               if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -734,13 +781,13 @@
                   $(this).hide();
                 } else {
                   $(this).show();
-                  flag = 0;
+                  flag = false;
                 }
               } else {
                 $(this).hide();
               }
             });
-            if (flag == 1) {
+            if (flag == true) {
               $(this).hide();
             } else {
               $(this).show();
@@ -761,16 +808,17 @@
       });
 
       $('#RoomClearFilter').click(function() {
-        roomFilterMode = 0;
+        roomFilterMode = false;
         display();
         $('.room-filter-info').hide();
       });
 
       $('.room-name').click(function () {
-        var filterVal;
-        roomName = $(this).text();
-        roomFilterMode = 1;
-        trackFilterMode = 0;
+        var filterVal='';
+        roomName = $(this).text().trim();
+        roomFilterMode = true;
+        trackFilterMode = false;
+        
         var local_storage_events = JSON.parse(localStorage[eventName]);
 
         var sidebarDiv = $('.side-collapse');
@@ -789,9 +837,9 @@
         $('.track-filter-info').hide();
 
         $('.day-filter').each(function () {
-          var temp = 0;
+          var temp = false;
           $(this).find('.time-filter').each(function () {
-          var flag = 0;
+          var flag = false;
             $(this).find('.schedule-track').each(function () {
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -800,26 +848,26 @@
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                 var name = $(this).find('#location').text();
                 var id=$(this).attr('id');
-                if(mode && local_storage_events[id]!=1) {
+                if(mode && local_storage_events[id]!=true) {
                       $(this).hide();
                 } else if (name != roomName) {
                   $(this).hide();
                 } else {
                    $(this).show();
-                   flag = 1;
+                   flag = true;
                 }
             } else {
                $(this).hide();
             }
             });
-            if (flag === 0) {
+            if (flag === false) {
               $(this).hide();
             } else {
                $(this).show();
-               temp = 1;
+               temp = true;
             }
           });
-          if (temp == 0) {
+          if (temp == false) {
             $(this).hide();
           } else {
              $(this).show();
@@ -828,20 +876,20 @@
 
         $('.calendar').each(function() {
           $(this).find('.room').each(function() {
-            flag = 1;
+            flag = true;
             if ($(this).find('.room-header').find('span').text() == roomName) {
               $(this).find('.session').each(function() {
                 if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                   $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                   $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                   $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                  flag = 0;
+                  flag = false;
                 } else {
                   $(this).hide();
                 }
               });
             }
-            if (flag == 1) {
+            if (flag == true) {
               $(this).hide();
             } else {
               $(this).show();
@@ -858,12 +906,12 @@
 
         var filterVal = $(this).val();
         var local_storage_events = JSON.parse(localStorage[eventName]);
-        var visibleRooms = 0;
+        var visibleRooms = false;
 
         $('.day-filter').each(function() {
-          var temp = 1;
+          var temp = true;
           $(this).find('.time-filter').each(function() {
-            var flag = 1;
+            var flag = true;
             $(this).find('.schedule-track').each(function() {
               var id=$(this).attr('id');
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -873,28 +921,28 @@
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                 var trackVal = $(this).find('.title-inline .blacktext').text();
                 var roomVal = $(this).find('#location').text();
-                if (mode && local_storage_events[id] != 1) {
+                if (mode && local_storage_events[id] != true) {
                   $(this).hide();
                 } else if (trackFilterMode && trackVal != trackName) {
                   $(this).hide();
                 } else if (roomFilterMode && roomVal != roomName) {
                   $(this).hide();
                 } else {
-                  flag = 0;
+                  flag = false;
                   $(this).show();
                 }
               } else {
                 $(this).hide();
               }
             });
-            if (flag == 1) {
+            if (flag == true) {
               $(this).hide();
             } else {
-              temp = 0;
+              temp = false;
               $(this).show();
             }
           });
-          if (temp == 1) {
+          if (temp == true) {
             $(this).hide();
           } else {
            $(this).show();
@@ -902,9 +950,9 @@
         });
 
         $('.calendar').each(function() {
-          visibleRooms = 0;
+          visibleRooms = false;
           $(this).find('.room').each(function() {
-            flag = 1;
+            flag = true;
             $(this).find('.session').each(function() {
               if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
@@ -918,13 +966,13 @@
                   $(this).hide();
                 } else {
                   $(this).show();
-                  flag = 0;
+                  flag = false;
                 }
               } else {
                 $(this).hide();
               }
             });
-            if (flag == 1) {
+            if (flag == true) {
               $(this).hide();
             } else {
               $(this).show();
@@ -948,17 +996,17 @@
       $('.bookmark').click(function(event){
         var temp = JSON.parse(localStorage[eventName] || '{}');
         var id = ($(this).attr('id').substr(1));
-        flag = 1;
-        temp[id] = 1;
+        flag = true;
+        temp[id] = true;
         if ($(this).hasClass('starred')) {
           $(this).removeClass('starred');
-          temp[id] = 0;
-          isAdded = 0;
+          temp[id] = false;
+          isAdded = false;
         }
         else {
           $(this).addClass('starred');
-          temp[id] = 1;
-          isAdded = 1;
+          temp[id] = true;
+          isAdded = true;
         }
         localStorage[eventName] = JSON.stringify(temp);
         event.stopPropagation();
@@ -969,9 +1017,9 @@
         if(flag) {
           if(mode && !isAdded) {
             $(this).hide();
-            isAdded = 0;
+            isAdded = false;
           }
-          flag = 0;
+          flag = false;
         }
         else {
           var id = $(this).attr('id');
@@ -1090,15 +1138,17 @@
       $(".export-png").click(function() {
         let fullScheduler = true;
         if (isCalendarView === true) {
+          count = 0;
           $('.calendar').each(function() {
             if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
               $timeline = $(this);
-              initialWidth = $timeline.width();
+              initialWidth[count] = $timeline.width();
               numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
               numberOfChildElements = numberOfChildElements - 1;
               widthOfChild = $timeline.find('.room').width();
               canvasWidth = numberOfChildElements * widthOfChild + 50;
               $timeline.width(canvasWidth);
+              count++;
             }
           });
         } else {
@@ -1128,7 +1178,16 @@
             });
           },
         });
-        $timeline.width(initialWidth);
+
+        if (isCalendarView === true) {
+          count = 0;
+          $('.calendar').each(function () {
+            $timeline = $(this);
+            $timeline.width(initialWidth[count]);
+            count++;
+          });
+        }
+
       });
 
 
@@ -1177,8 +1236,9 @@
 
       function display() {
         var temp = JSON.parse(localStorage[eventName]);
-        var filterVal;
-        var visibleRooms = 0;
+        var filterVal='';
+        var visibleRooms = false;
+        
         $('.fossasia-filter').each(function () {
           if ($(this).is(':visible')) {
             filterVal = $(this).val();
@@ -1186,40 +1246,40 @@
         });
 
         $('.day-filter').each(function() {
-          var dayFlag = 0;
+          var dayFlag = false;
           $(this).find('.time-filter').each(function() {
-            var timeFlag = 0;
+            var timeFlag = false;
             $(this).find('.schedule-track').each(function() {
-              var filter = 1;
+              var filter = true;
               if (trackFilterMode) {
                 var trackVal = $(this).find('.title-inline .blacktext').text();
                 if (trackVal != trackName) {
-                  filter = 0;
+                  filter = false;
                 }
               } else if (roomFilterMode) {
                 var roomVal = $(this).find('#location').text();
                 if(roomVal != roomName){
-                  filter = 0;
+                  filter = false;
                 }
               }
               var elemId = $(this).attr('id');
-              var elemFlag = 0;
+              var elemFlag = false;
               if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a p span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                if (temp[elemId] == 1 && filter) {
-                  elemFlag = 1;
+                if (temp[elemId] == true && filter) {
+                  elemFlag = true;
                   $(this).find('.bookmark').each(function() {
                     $(this).addClass('starred');
                   });
                   } else if (!mode && filter) {
-                  elemFlag = 1;
+                  elemFlag = true;
                 }
               }
               if (elemFlag) {
-                timeFlag = 1;
+                timeFlag = true;
                 $(this).show();
               }
               else {
@@ -1228,7 +1288,7 @@
             });
 
             if (timeFlag) {
-              dayFlag = 1;
+              dayFlag = true;
               $(this).show();
             }
             else {
@@ -1245,21 +1305,21 @@
         });
 
         $('.calendar').each(function() {
-          visibleRooms = 0;
+          visibleRooms = false;
           $(this).find('.room').each(function() {
-            var roomFlag = 1;
+            var roomFlag = true;
             $(this).find('.session').each(function() {
               if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                 $(this).show();
-                roomFlag = 0;
+                roomFlag = false;
               } else {
                 $(this).hide();
               }
             });
-            if (roomFlag == 1)  {
+            if (roomFlag == true)  {
               $(this).hide();
             } else {
               $(this).show();
@@ -1286,7 +1346,7 @@
         var temp = JSON.parse(localStorage[eventName]);
         var elemId;
         Object.keys(temp).forEach(function(key) {
-          if (temp[key] == 1) {
+          if (temp[key] == true) {
             elemId = $('#' + key).find('.bookmark').addClass('starred');
           }
         })
@@ -1294,5 +1354,12 @@
       initPage();
     });
   </script>
-</body>
+  {{#if gcalendar.enabled}}
+      <script async defer src="https://apis.google.com/js/api.js"
+          onload="this.onload=function(){};handleClientLoad()"
+          onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
+  {{/if}}
+
+  </body>
 </html>
