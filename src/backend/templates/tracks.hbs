@@ -606,7 +606,7 @@
               $(this).hide();
               }
           });
-          main.noResult('track');
+          main.showNoResult('track');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -680,7 +680,7 @@
               $(this).hide();
             }
           });
-          main.noResult('track');
+          main.showNoResult('track');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -745,7 +745,7 @@
             }
           });
           // show "no results" if search input value matches zero items
-          main.noResult('track');
+          main.showNoResult('track');
           return false;
         }).keyup(function () {
           $(this).change();
@@ -873,7 +873,7 @@
                     searchTracks= true;
                 }
             });
-            main.noResult('track');
+            main.showNoResult('track');
         }
 
         function initPage() {

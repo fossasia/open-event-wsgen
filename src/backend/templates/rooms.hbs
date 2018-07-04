@@ -602,7 +602,7 @@
           });
 
           // show "no results" if search input value matches zero items
-          main.noResult('room');
+          main.showNoResult('room');
           return false;
         }).keyup(function() {
           $(this).change();
@@ -666,7 +666,7 @@
           if (!sidebarDiv.hasClass('in')) {
             sidebarDiv.addClass('in');
           }
-          
+
           roomName = $(this).text().trim();
           roomFilterMode = true;
           trackFilterMode = false;
@@ -724,7 +724,7 @@
               $(this).hide();
             }
           });
-          main.noResult('room');
+          main.showNoResult('room');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -743,11 +743,11 @@
           if (!sidebarDiv.hasClass('in')) {
              sidebarDiv.addClass('in');
           }
-          
+
           trackName = $(this).text().trim();
           roomFilterMode = false;
           trackFilterMode = true;
-          
+
           window.location.href = url + '#' + trackName;
 
           $('.fossasia-filter').each(function() {
@@ -801,7 +801,7 @@
                 $(this).hide();
               }
             });
-            main.noResult('room');
+            main.showNoResult('room');
             $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -888,7 +888,7 @@
                     searchRooms= true;
                 }
             });
-            main.noResult('room');
+            main.showNoResult('room');
         }
 
         function initPage() {

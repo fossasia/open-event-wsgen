@@ -23,9 +23,9 @@ function initClient() {
 function handleAuthClick(title, location, calendarStart, calendarEnd, timezone, description) {
   let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
   if (!isSignedIn) {
-      gapi.auth2.getAuthInstance().signIn().then(function() {
-        listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
-      });
+    gapi.auth2.getAuthInstance().signIn().then(function() {
+      listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+    });
   } else {
     listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
   }
@@ -47,13 +47,13 @@ function listUpcomingEvents(title, location, calendarStart, calendarEnd, timezon
     'reminders': {
       'useDefault': false,
       'overrides': [{
-        'method': 'email',
-        'minutes': 24 * 60
-       },
-       {
-         'method': 'popup',
-         'minutes': 10
-       }
+          'method': 'email',
+          'minutes': 24 * 60
+        },
+        {
+          'method': 'popup',
+          'minutes': 10
+        }
       ]
     },
     'colorId': '5'
@@ -101,7 +101,7 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
 
     if (!isSlideDisplayed && $('[id="slide-' + div + '"]').length === 0) {
       if (slideURL.indexOf('pdf') !== -1) {
-       speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
+        speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://docs.google.com/gview?url=' + slideURL + '&embedded=true"></iframe>');
       } else if (slideURL.indexOf('ppt') !== -1 || slideURL.indexOf('pptx') !== -1) {
         speakerDiv.prepend('<iframe id = "slide-' + div + '" class = "iframe col-xs-12 col-sm-12 col-md-12" frameborder="0" src="https://view.officeapps.live.com/op/embed.aspx?src=' + slideURL + '"></iframe>');
       }
@@ -113,44 +113,39 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
 };
 
 $(document).ready(function () {
-  let filter;
-  //store room filters
-  let room ={
-    dateFilter:'.date-filter'
-  };
-  //store track filters
-  let track ={
-    dateFilter:'.date-filter'
-  };
-  //store schedule filters
-  let schedule={
-    dateFilter:'.day-filter'
+  const allFilter = {
+    room: {
+      dateFilter: '.date-filter'
+    },
+    track: {
+      dateFilter: '.date-filter'
+    },
+    schedule: {
+      dateFilter: '.day-filter'
+    }
   };
 
-  const noResult=function(filterType,calendarMode) {
-    filter=eval(filterType);
-    var search=false;
+  const showNoResult = function(filterType , calendarMode) {
+    const filter = allFilter[filterType];
+    var search = false;
     $('.fossasia-filter').each(function() {
       if($(this).is(':visible') && $(this).val().length!==0) {
-        search=true;
+        search = true;
       }
     });
-    var listFilterLength =$(filter.dateFilter+':visible').length;
+    var listFilterLength = $(filter.dateFilter+':visible').length;
     var calendarFilterLength = $('.room:visible').length;
-    if((calendarMode && calendarFilterLength == false) || (!calendarMode && listFilterLength == false)) {
+    if ((calendarMode && calendarFilterLength == false) || (!calendarMode && listFilterLength == false)) {
       $('#no-results').remove();
-      if(search) {
-        $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
-      } else {
-        $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
-        }
+      const message = search ? 'No matching results found.' : 'No result found.';
+      $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>"+message+"</p>");
     } else {
        $('#no-results').remove();
       }
   };
 
-  window.main= {
-    noResult:  noResult
+  window.main = {
+    showNoResult: showNoResult
   };
   window.handleClientLoad = handleClientLoad;
   window.initClient = initClient;

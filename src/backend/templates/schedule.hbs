@@ -803,7 +803,7 @@
           }
         });
 
-        main.noResult('schedule',isCalendarView);
+        main.showNoResult('schedule', isCalendarView);
         $('html, body').animate({scrollTop: 0}, 500);
       });
 
@@ -818,7 +818,7 @@
         roomName = $(this).text().trim();
         roomFilterMode = true;
         trackFilterMode = false;
-        
+
         var local_storage_events = JSON.parse(localStorage[eventName]);
 
         var sidebarDiv = $('.side-collapse');
@@ -898,7 +898,7 @@
           });
         });
 
-        main.noResult('schedule',isCalendarView);
+        main.showNoResult('schedule', isCalendarView);
         $('html, body').animate({scrollTop: 0}, 500);
       });
 
@@ -988,7 +988,7 @@
           }
         });
 
-        main.noResult('schedule',isCalendarView);
+        main.showNoResult('schedule', isCalendarView);
       }).keyup(function() {
         $(this).change();
       });
@@ -1104,7 +1104,7 @@
         } else {
           viewsFilter('list', className);
         }
-        main.noResult('schedule',isCalendarView);
+        main.showNoResult('schedule', isCalendarView);
       });
 
       $('#page-mode').click(function() {
@@ -1238,7 +1238,7 @@
         var temp = JSON.parse(localStorage[eventName]);
         var filterVal='';
         var visibleRooms = false;
-        
+
         $('.fossasia-filter').each(function () {
           if ($(this).is(':visible')) {
             filterVal = $(this).val();
@@ -1335,7 +1335,7 @@
           }
         });
 
-        main.noResult('schedule',isCalendarView);
+        main.showNoResult('schedule', isCalendarView);
       }
 
       function initPage() {
