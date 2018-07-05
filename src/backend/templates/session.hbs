@@ -62,6 +62,9 @@
             <div>
               <div>
                 {{{description}}}
+                {{#if ../gcalendar.enabled}}
+                  <button id="add-to-calendar" class="btn btn-default">Add to Calendar</button>
+                {{/if}}
                 {{#ifcontains audio "mp3"}}
                   <audio controls="" preload="none" id="audio-block">
                     <source src="{{ audio }}">
@@ -160,7 +163,8 @@
         </div>
       </div>
     {{/session}}
-
+    <input id="gcalendar-id" type="hidden" value='{{gcalendar.body.id}}' />
+    <input id="gcalendar-key" type="hidden" value='{{gcalendar.body.key}}' />
     <div class="footer-container">
         <footer class="classic">
             <div class="container">
@@ -243,12 +247,18 @@
     <script src="../js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../js/session.min.js" type="text/javascript"></script>
     <script src="../js/tracks.min.js"></script>
+    <script src="../js/sweetalert.min.js" type="text/javascript"></script>
+    <script src="../js/main.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var eventInfo = {};
       eventInfo.name = "{{eventurls.name}}";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "{{session.video}}";
       let id = "{{session.session_id}}";
+
+      $('#add-to-calendar').click(function() {
+        main.handleAuthClick('{{session.title}}','{{session.location}}','{{session.calendarStart}}','{{session.calendarEnd}}','{{eventurls.timezone}}','{{session.description}}');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -265,6 +275,12 @@
       }
 
     </script>
+    {{#if gcalendar.enabled}}
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload=function(){};main.handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
+    {{/if}}
   </body>
 </html>
 

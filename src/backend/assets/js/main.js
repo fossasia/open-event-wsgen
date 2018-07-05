@@ -1,7 +1,7 @@
 'use strict';
 
 function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
+  gapi.load('client:auth2', main.initClient);
 }
 
 function initClient() {
@@ -24,10 +24,10 @@ function handleAuthClick(title, location, calendarStart, calendarEnd, timezone, 
   let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
   if (!isSignedIn) {
     gapi.auth2.getAuthInstance().signIn().then(function() {
-      listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+      main.listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
     });
   } else {
-    listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
+    main.listUpcomingEvents(title, location, calendarStart, calendarEnd, timezone, description);
   }
 }
 
@@ -112,8 +112,91 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
   }
 };
 
-window.handleClientLoad = handleClientLoad;
-window.initClient = initClient;
-window.handleAuthClick = handleAuthClick;
-window.listUpcomingEvents = listUpcomingEvents;
-window.loadVideoAndSlides = loadVideoAndSlides;
+$(document).ready(function () {
+  const allFilter = {
+    room: {
+      dateFilter:'.date-filter',
+      place:'.venue-filter',
+      room:'.room-filter'
+    },
+
+    track: {
+      dateFilter:'.date-filter',
+      place:'.track-filter',
+      room:'.room-filter'
+    },
+
+    schedule: {
+      dateFilter:'.day-filter',
+      place:'.time-filter',
+      room:'.schedule-track'
+    }
+  };
+
+  const trackRoomFilter = function (filterType, trackFilterMode, roomFilterMode, trackName, roomName, local_storage_events, mode) {
+    let filterVal = '';
+    const filter = allFilter[filterType];
+    $('.fossasia-filter').each(function() {
+      if($(this).is(':visible')) {
+        filterVal = $(this).val();
+      }
+    });
+    $(filter.dateFilter).each(function() {
+      var temp = true;
+      $(this).find(filter.place).each(function() {
+        var flag = true;
+        var venueName = filterType=='room' ? $(this).find('.text').text() : false;
+        $(this).find(filter.room).each(function() {
+          var id=$(this).attr('id');
+          if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+            $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+              var trackVal = $(this).find('.title-inline .blacktext').text();
+              var roomVal = venueName ? venueName : $(this).find('#location').text();
+              if (mode && local_storage_events[id] != true) {
+                $(this).hide();
+              } else if (trackFilterMode && trackVal != trackName) {
+                $(this).hide();
+              } else if (roomFilterMode && roomVal != roomName) {
+                $(this).hide();
+              } else {
+                flag = false;
+                $(this).show();
+              }
+          } else {
+            $(this).hide();
+          }
+        });
+        if (flag == true) {
+          $(this).hide();
+        } else {
+          temp = false;
+          $(this).show();
+        }
+      });
+      if (temp == true) {
+        $(this).hide();
+      } else {
+        $(this).show();
+      }
+    });
+  };
+
+  window.main = {
+    trackRoomFilter: trackRoomFilter,
+    handleClientLoad: handleClientLoad,
+    initClient: initClient,
+    handleAuthClick: handleAuthClick,
+    listUpcomingEvents: listUpcomingEvents,
+    loadVideoAndSlides: loadVideoAndSlides
+  }
+
+});
+
+
+
+
+
+
