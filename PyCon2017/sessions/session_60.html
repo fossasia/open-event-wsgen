@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "60";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Executing python functions in the linux kernel by transpiling to bpf','Portland Ballroom 254-255      ','2017-05-20T15:15:00-07:00','2017-05-20T16:00:00-07:00','US/Pacific','ebpf is a linux kernel byte-code which can be used for functionality ranging from tracing system calls with kprobe to routing packets with tc. This talk is about a pure-python front-end for ebpf that allows users to write simple python functions to be executed in the kernel. I&#x27;ll first explain how this was made to work and then I&#x27;ll show off some of the features/capabilities of this approach with working examples.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

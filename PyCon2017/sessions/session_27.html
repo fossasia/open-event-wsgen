@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "27";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Let&#x27;s build a web framework!','Room 2      ','2017-05-18T09:00:00-07:00','2017-05-18T12:20:00-07:00','US/Pacific','If you&#x27;re building a web app, you probably reach for your favorite framework -- Django, Flask, Pyramid, etc. But we rarely stop to think about what these tools are doing under the hood. In this hands-on tutorial, you&#x27;ll gain a deeper understanding of what frameworks are and how they work by implementing your own framework from scratch. We&#x27;ll build a complete (if minimal) web framework that handles the WSGI request/response cycle, routing, controllers, templating, and a data layer. Along the way you&#x27;ll gain a deeper understanding of the decisions web frameworks make, their relative merits, and inner workings.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "111";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Temporal Data Structures with SQLAlchemy and Postgres','Oregon Ballroom 203–204 ','2017-05-20T11:30:00-07:00','2017-05-20T12:00:00-07:00','US/Pacific','SQLAlchemy (http://www.sqlalchemy.org) and Postgres (https://www.postgresql.org) provide several useful tools that allow us to build and query records through time: temporal models. Combining a need to have robust auditing, as well feature development on per-property history, we can turn “regulatory overhead” into an exciting technical challenge. At Clover Health we have built a small library to automate the task of decorating a model and making it “temporal.” This talk aims to demonstrate the underlying data model and interface for building this system.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

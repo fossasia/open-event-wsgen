@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "43";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Asynchronous Python for the Complete Beginner','Oregon Ballroom 203-204','2017-05-21T13:50:00-07:00','2017-05-21T14:20:00-07:00','US/Pacific','With the introduction of the asyncio package in Python 3.4, you can hear lots of people talking about asynchronous programming, most in a favorable way, some not so much. In this talk, I will tell you what this async fever is about and what can it do for you that regular Python can&#x27;t, not only with asyncio, but also with other frameworks that existed long before it.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "82";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Leveraging Serverless Architecture for Powerful Data Pipelines','Portland Ballroom 252-253      ','2017-05-19T17:40:00-07:00','2017-05-19T17:40:00-07:00','US/Pacific','Serverless Architectures that allow us to run python functions in the cloud in an event-driven parallel fashion can be used to create extremely dynamic and powerful data pipelines for use in ETL and data science. Join me for an exploration of how to build data pipelines on Amazon Web Services Lambda with python. We&#x27;ll cover a single introduction to event-driven programming. Then, we&#x27;ll walk through building an example pipeline while discussing some of the frameworks and tools that can make building your pipeline easier. Finally, we&#x27;ll discuss how to maintain observability on your pipeline to ensure proper performance and troubleshooting information.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

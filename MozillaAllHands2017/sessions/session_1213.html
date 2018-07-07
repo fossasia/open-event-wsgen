@@ -184,7 +184,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -244,12 +245,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../Mozilla All Hands 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "1213";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Need help with your Q3 OKRs?','Union Square 7','2017-06-29T13:00:00-07:00','2017-06-29T15:00:00-07:00','US/Pacific','&lt;p&gt;You have OKR questions, and Steven has answers. Pop into our room anytime during this session to get help with anything OKR-related. Want to read your boss&#x27;s mind? I can teach you how.&lt;/p&gt;');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -268,4 +275,3 @@
     </script>
   </body>
 </html>
-

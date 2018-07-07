@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "21";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Intermediate Python Bootcamp','Room 3      ','2017-05-18T13:20:00-07:00','2017-05-17T16:40:00-07:00','US/Pacific','Are you new to Python and want to learn to step it up to the next level? Have you heard about closures, decorators, context managers, generators, list comprehensions, or generator expressions? What are these and why do advanced Pythonistas keep mentioning them? Don&#x27;t be intimidated, learn to take advantage of these to make you own code more idiomatic. This hands-on tutorial will cover these intermediate subjects in detail. We will modify existing Python code to take advantage of them. We will start with a basic file, and then introduce these features into it using the REPL, command line, and tests. The audience will get to follow along using their own computer and editor of choice (or can use IDLE as the instructor). We will teach the &#x27;code smells&#x27; to look for. You will know when you should apply these new techniques to your code.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

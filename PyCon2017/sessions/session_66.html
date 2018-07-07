@@ -179,7 +179,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -228,12 +229,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "66";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Grok the GIL: Write Fast And Thread-Safe Python','Oregon Ballroom 201-202      ','2017-05-19T12:10:00-07:00','2017-05-19T12:55:00-07:00','US/Pacific','I wrote Python for years while holding mistaken notions about the Global Interpreter Lock, and I&#x27;ve met others in the same boat. The GIL&#x27;s effect is simply this: only one thread can execute Python code at a time, while N other threads sleep or await network I/O. Let&#x27;s read CPython interpreter source and try some examples to grok the GIL, and learn to write fast and thread-safe Python.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -252,4 +259,3 @@
     </script>
   </body>
 </html>
-

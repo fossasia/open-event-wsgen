@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "32";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Python Epiphanies','Room 1      ','2017-05-18T13:20:00-07:00','2017-05-18T16:40:00-07:00','US/Pacific','This tutorial is for developers who&#x27;ve been using Python for a while and would consider themselves at an intermediate level, but are looking for a deeper understanding of the language. It focuses on how Python differs from other languages in subtle but important ways that are often confusing, and it demystifies a number of language features that are sometimes misunderstood.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

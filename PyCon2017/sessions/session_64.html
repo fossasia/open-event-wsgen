@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "64";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Fuzzy Search Algorithms: How and When to Use Them','Oregon Ballroom 203-204      ','2017-05-20T17:10:00-07:00','2017-05-20T17:40:00-07:00','US/Pacific','Fuzzy Searching or approximate string matching is powerful because often text data is messy. For example, shorthand and abbreviated text are common in various data sets. In addition, outputs from OCR or voice to text conversions tend to be messy or imperfect. Thus, we want to be able to make the most of our data by extrapolating as much information as possible.In this talk, we will explore the various approaches used in fuzzy string matching and demonstrate how they can be used as a feature in a model or a component in your python code. We will dive deep into the approaches of different algorithms such as Soundex, Trigram/n-gram search, and Levenshtein distances and what the best use cases are. We will also discuss situations where it’s important to take into account the meaning or intent of a word and demonstrate approaches for measuring semantic similarity using nltk and word2vec. Furthermore, we will demonstrate via live coding how to implement some of these fuzzy search algorithms using python and/or built-in fuzzy search functions within PostgreSQL.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

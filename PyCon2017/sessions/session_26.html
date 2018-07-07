@@ -263,7 +263,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -312,12 +313,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "26";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('IPython and Jupyter in Depth: High productivity, interactive Python','Room 7','2017-05-18T09:00:00-07:00','2017-05-18T12:20:00-07:00','US/Pacific','IPython and Jupyter provide tools for interactive computing that are widely used in scientific computing, education, and data science, but can benefit any Python developer. You will learn how to use IPython in different ways, as: an interactive shell, a graphical console, a network-aware VM (Virtual machine) in GUIs, a web-based notebook combining code, graphics and rich HTML. We will demonstrate how to deploy a custom environment with Docker that not only contains multiple Python kernels but also a couple of other languages.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -336,4 +343,3 @@
     </script>
   </body>
 </html>
-

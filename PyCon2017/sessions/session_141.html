@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "141";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Metis: Natural Language Processing and Text Mining in Python','Room B118-119      ','2017-05-18T15:30:00-07:00','2017-05-18T17:00:00-07:00','US/Pacific','This session will cover NLP and text mining using Python and offer several examples of real world applications. Participants will be introduced to various text processing techniques and learn about text classification, clustering, and topic modeling. By the end of the workshop, participants will be able to use Python to explore and build their own models on text data. Michael Galvin is the Executive Director of Data Science at Metis. He came to Metis from General Electric where he worked to establish their data science strategy and capabilities for field services and to build solutions supporting Global operations, risk, engineering, sales, and marketing. Prior to GE, Michael spent several years as a data scientist working on problems in credit modeling at Kabbage and corporate travel and procurement at TRX. Michael holds a Bachelor&#x27;s degree in Mathematics and a Master&#x27;s degree in Computational Science and Engineering from the Georgia Institute of Technology where he also spent 3 years working on machine learning research problems related to computational biology and bioinformatics. Additionally, Michael spent 12 years in the United States Marine Corps where he held various leadership roles within aviation, logistics, and training units.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

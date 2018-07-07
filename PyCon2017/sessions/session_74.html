@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "74";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Immutable Programming - Writing Functional Python','Portland Ballroom 254–255','2017-05-19T11:30:00-07:00','2017-05-19T12:00:00-07:00','US/Pacific','The world of Haskell and functional programming may seem like a distant place to many working Python developers, but some of the techniques used there are remarkably useful when developing in Python. In this talk, I will cover some of the pitfalls of mutability that you may run into while writing Python programs, and some tools and techniques that Python has built in that will let you avoid them. You&#x27;ll see namedtuples, enums and properties, and also some patterns for structuring immutable programs that will make them easier to build, extend, and test.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

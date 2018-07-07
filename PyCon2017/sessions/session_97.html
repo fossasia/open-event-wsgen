@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "97";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Probabilistic Programming with PyMC3','Portland Ballroom 251 &amp; 258      ','2017-05-21T13:10:00-07:00','2017-05-21T13:40:00-07:00','US/Pacific','Bayesian statistics offers robust and flexible methods for data analysis that, because they are based on probability models, have the added benefit of being readily interpretable by non-statisticians. Until recently, however, the implementation of Bayesian models has been prohibitively complex for use by most analysts. But, the advent of probabilistic programming has served to abstract the complexity of Bayesian statistics, making such methods more broadly available. PyMC3 is a open-source Python module for probabilistic programming that implements several modern, computationally-intensive statistical algorithms for fitting Bayesian models, including Hamiltonian Monte Carlo (HMC) and variational inference. PyMC3’s intuitive syntax is helpful for new users, and the reliance on Theano for much of the computational work has allowed developers to keep the code base simple, making it easy to extend the software to meet analytic needs. PyMC3 itself extends Python&#x27;s powerful &#x27;scientific stack&#x27; of development tools, which provide fast and efficient data structures, parallel processing, and interfaces for describing statistical models.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

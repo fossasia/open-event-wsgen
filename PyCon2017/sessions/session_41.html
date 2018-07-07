@@ -177,7 +177,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -226,12 +227,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "41";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('An Introduction to Reinforcement Learning','Portland Ballroom 252-253      ','2017-05-20T13:40:00-07:00','2017-05-20T14:25:00-07:00','US/Pacific','Reinforcement learning (RL) is a subfield of machine learning focused on building agents: software that can robustly achieve a desired objective under varying states of the world. This introduction will provide you with an overview of RL and tools to build your own agents. In this talk, we will provide an overview of terminology in reinforcement learning and a Jupyter Notebook outlining basic algorithms to learn &#x27;policies&#x27;, strategies for an agent, and visualize them with numpy, pandas, and seaborn. Newer developments in reinforcement learning apply deep learning to improve performance. We will further discuss deep reinforcement learning and how to use deep learning libraries, such as TensorFlow or Theano, with the latest RL libraries: OpenAI Gym, OpenAI Universe, and DeepMind Lab.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -250,4 +257,3 @@
     </script>
   </body>
 </html>
-

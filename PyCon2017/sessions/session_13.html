@@ -218,7 +218,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -267,12 +268,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "13";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Deploy and scale containers with Docker native, open source orchestration','Room 4      ','2017-05-18T09:00:00-07:00','2017-05-18T12:20:00-07:00','US/Pacific','Deploy your own cluster! Use it to &#x27;build,ship,and run &#x27; containerized applications! Learn how to implement logging, metrics, stateful services, and more! Learn the True Way of DevOps! Alright, we can&#x27;t promise anything about the True Way of DevOps, but everything else will definitely be in this tutorial. We will run a demo app featuring Python components and see some best practices to &#x27;Dockerize &#x27; Python code and Flask in particular; but the tutorial also includes other languages and frameworks. Come with your laptop! You don&#x27;t need to install anything before the workshop, as long as you have a web browser and a SSH client. Each student will have their own private cluster during the tutorial, to get immediately applicable first-hand experience.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -291,4 +298,3 @@
     </script>
   </body>
 </html>
-

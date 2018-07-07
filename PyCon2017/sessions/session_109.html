@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "109";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Solid Snakes or: How to Take 5 Weeks of Vacation','Portland Ballroom 252-253      ','2017-05-19T13:40:00-07:00','2017-05-19T14:25:00-07:00','US/Pacific','No matter whether you run a web app, search for gravitational waves, or maintain a backup script: being responsible for a piece of software or infrastructure means that you either get a pager right away, or that you get angry calls from people affected by outages. Being paged at 4am in everyday life is bad enough. Having to fix problems from hotel rooms while your travel buddies go for brunch is even worse. And while incidents can’t be prevented completely, there are ways to make your systems more reliable and minimize the need for (your!) manual intervention. This talk will help you to get calm nights and relaxing vacations by teaching you some of them.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

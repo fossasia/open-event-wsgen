@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "132";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Anaconda: Accelerating your Python Data Science code with Dask and Numba','Room B118-119      ','2017-05-18T13:30:00-07:00','2017-05-18T15:00:00-07:00','US/Pacific','Anyone doing numerical computing with Python will have run into performance barriers. Using Anaconda is a great start to get a suite of extension packages where the underlying data structures and algorithms are written in C or Fortan. We&#x27;ll briefly review the state of numerical computing in Python, look at some examples to help you remember why you should use NumPy based packages whenever possible, and focus on two options for acceleration: faster serial computing or parallelization. Continuum Analytics has developed two popular open source packages to address these issues: Numba, which provides an LLVM-based JIT that can be easily accessed just through a decorator; and Dask, which provides a distributed computing framework and some high quality data structures that are similar to a Pandas DataFrame or a NumPy NDarray. Participants should have the latest release of Anaconda installed and have some familiarity with Python in order to follow along interactively with the tutorial where we&#x27;ll learn how to efficiently leverage Dask and Numba.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

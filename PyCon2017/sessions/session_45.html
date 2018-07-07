@@ -177,7 +177,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -226,12 +227,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "45";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Awesome Command Line Tools','Portland Ballroom 252-253      ','2017-05-20T11:30:00-07:00','2017-05-20T12:00:00-07:00','US/Pacific','Designing a good command line tool is challenging. Command line tools look archaic compared to modern graphical interfaces, discoverability is a big issue for command line tools, proactive help is hard to implement. This talk will cover a set of specific techniques to help alleviate those challenges. How did pgcli and mycli overcome these problems? We will cover specific examples where command line apps shine. The examples will be drawn from pgcli, mycli and bpython. This talk will suggest libraries and show how they can help you implement a wonderful command line interface. The libraries covered in this talk include python-prompt-toolkit, pygments, click, fuzzyfind. The goal of the talk is to distil the ideas that exist in successful command line applications as guidelines for building powerful command line applications.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -250,4 +257,3 @@
     </script>
   </body>
 </html>
-

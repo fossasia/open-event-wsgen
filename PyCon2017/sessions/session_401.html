@@ -221,7 +221,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -270,12 +271,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "401";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Python Language Summit','Keynotes venue','2017-05-17T10:00:00-07:00','2017-05-17T16:00:00-07:00','US/Pacific','The Python Language Summit is an invitation-only event for the developers of Python implementations (CPython, IronPython, Jython, Parrot, PyPy, etc.) to share information, discuss our shared problems, and — hopefully — solve them. These issues might be related to the language itself, the standard library, the development process, Python 2 and 3, the documentation, package index, web site, et cetera. The Summit will focus on discussion more than on presentations.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -294,4 +301,3 @@
     </script>
   </body>
 </html>
-

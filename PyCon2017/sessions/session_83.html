@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "83";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Library UX: Using abstraction towards friendlier APIs','Oregon Ballroom 203-204      ','2017-05-20T15:15:00-07:00','2017-05-20T15:45:00-07:00','US/Pacific','Complicated libraries can be a pain in the butt to use. It&#x27;s not surprising that there are a lot of &#x27;X for humans &#x27; libraries out there, some of which are mostly wrappers around more frustrating interfaces. This is not a theoretical talk. I&#x27;ll touch upon theory to give you context, but will then talk about what that means for you in practice so that you can write better libraries. I&#x27;ll talk about why library UX matters, about abstraction as a general concept, about out what happens when you over/under abstract, and about some useful tips to help build friendly APIs. Meanwhile, I&#x27;ll show some positive examples from libraries we know and love (flask, SQLAlchemy, Requests, etc). Once you recognize these effects in play, you&#x27;ll be able to apply them to your own code and make life better for everyone!');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

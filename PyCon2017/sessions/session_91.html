@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "91";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('One Data Pipeline to Rule Them All','Oregon Ballroom 201-202      ','2017-05-21T13:50:00-07:00','2017-05-21T14:20:00-07:00','US/Pacific','There are myriad data storage systems available for every use case imaginable, but letting application teams choose storage engines independently can lead to duplicated efforts and wheel reinvention. This talk will explore how to build a reusable data pipeline based on Kafka to support multiple applications, datasets, and use cases including archival, warehousing and analytics, stream and batch processing, and low-latency &#x27;hot&#x27; storage.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

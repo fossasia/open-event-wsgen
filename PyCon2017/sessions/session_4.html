@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "4";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Best Testing Practices for Data Science','Room 8      ','2017-05-18T13:20:00-07:00','2017-05-18T16:40:00-07:00','US/Pacific','So you&#x27;re a data scientist wrangling with data that&#x27;s continually avalanching in, and there&#x27;s always errors cropping up! NaNs, strings where there are supposed to be integers, and more. Moreover, your team is writing code that is getting reused, but that code is failing in mysterious places. How do you solve this? Testing is the answer! In this tutorial, you will gain practical hands-on experience writing tests in a data science setting so that you can continually ensure the integrity of your code and data. You will learn how to use py.test, coverage.py, and hypothesis to write better tests for your code.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

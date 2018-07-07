@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "108";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Snek in the Browser','Room 3','2017-05-19T14:35:00-07:00','2017-05-19T15:05:00-07:00','US/Pacific','Python is a decades-strong language with a large community, and it has a solid foundation on the server, but it doesn&#x27;t have a good user story in the browser... until now. The BeeWare project aims to bring Python natively, everywhere. Using a combination of the Batavia and Toga projects, we can develop and entirely native web experience in Python, no JavaScript required. During this talk, you will learn about how the BeeWare project has built Batavia, a Python virtual machine in JavaScript; and Toga, a multi-platform native API wrapper; a combination of which can be used to build an entire web platform in Python only.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

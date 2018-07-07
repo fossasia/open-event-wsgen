@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "22";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Introduction to Digital Signal Processing','Room 5      ','2017-05-18T13:20:00-07:00','2017-05-18T16:40:00-07:00','US/Pacific','Spectral analysis is an important and useful technique in many areas of science and engineering, and the Fast Fourier Transform is one of the most important algorithms, but the fundamental ideas of signal processing are not as widely known as they should be. Fortunately, Python provides an accessible and enjoyable way to get started.  In this tutorial, I present material from my book, Think DSP, and from a class I teach at Olin College.  We will work with audio signals, including music and other recorded sounds, and visualize their spectrums and spectrograms.  We will synthesize simple sounds and learn about harmonic structure, chirps, filtering, and convolution.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

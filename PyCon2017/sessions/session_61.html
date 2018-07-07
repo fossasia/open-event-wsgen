@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "61";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Experiment Assignment on the Web','Oregon Ballroom 203–204','2017-05-19T10:50:00-07:00','2017-05-19T11:20:00-07:00','US/Pacific','A popular way of improving websites is to run experiments on it. We split users into groups, show two or more variations of the site, measure how well each one does, and then show the best version to everyone. In this talk, I&#x27;ll walk through a toy Python program that does the first step: splits users into groups. A few interesting problems arise: grouping users, whitelists, and scaling. I&#x27;ll share different ways to address them. I&#x27;ll also give examples of things that can go terribly wrong when designing experiment assignment code.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

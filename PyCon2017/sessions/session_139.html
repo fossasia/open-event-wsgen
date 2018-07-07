@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "139";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Intel: Bring deep learning to the fingertips of data scientists with Python &amp; BigDL on Apache Spark','Room B110-111','2017-05-17T13:30:00-07:00','2017-05-17T15:00:00-07:00','US/Pacific','We have seen trends that the data science and big data community begin to engage further with artificial intelligence and deep learning technologies, and efforts to bridge the gap between the deep learning communities and data science / big data communities begin to emerge. However, developing deep neural nets is an intricate procedure, and scaling that to big data scale is an even more challenging process. Therefore, deep learning tools and frameworks, especially visualization support, that can run smoothly on top of big data platforms are essential for scientists to understand, inspect and manipulate their big models and big data. In this talk, we will share how we bring deep learning to the fingertips of big data users and data scientists, by providing visualizations (through widely used frameworks such as Jupyter Notebooks and/or Tensorboard) as well as Python toolkits (e.g., Numpy, Scipy, Scikit-learn, NLTK, Kesra, etc.) on top of BigDL, an open source distributed deep learning library for Apache Spark. In addition, we will also share how real-world big data users and data scientists use these tools to build AI-powered big data analytics applications.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -185,7 +185,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -245,12 +246,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../Mozilla All Hands 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "1350";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('NMX Plannings - Part 1','Golden Gate 5','2017-06-27T11:00:00-07:00','2017-06-27T12:00:00-07:00','US/Pacific','&lt;p&gt;NMX team meeting with Nick Nguyen to discuss NMX status, including Q&amp;A session&lt;/p&gt;');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -269,4 +276,3 @@
     </script>
   </body>
 </html>
-

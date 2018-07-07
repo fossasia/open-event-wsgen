@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "120";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('The trends in choosing licenses in Python ecosystem','Portland Ballroom 254-255      ','2017-05-20T10:50:00-07:00','2017-05-20T11:20:00-07:00','US/Pacific','The software licenses are the permissions over copyrighted software. The permission and/ grant includes the grant to use, to redistribute, to prepare derivative works etc. These software licenses also set forth the limitations over these aforesaid rights. The software licenses basically marks the boundary for the usage of the code. Therefore from the above mentioned introduction it very clear that it is very important for developers to choose the license for their code wisely and correctly. PyPI, the Python Package Index is a repository of software for the Python programming language. There are currently 80000+ packages there. This talk will go through the licenses of the top 2500 packages. We will see the trend of choosing a license for these top Python projects. We will discuss the licenses individually, compare them with each other. the advantages and disadvantages of the same. We will further explain that why a license and/or licenses are being favored by the developers.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

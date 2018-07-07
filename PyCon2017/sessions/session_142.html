@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "142";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Red Hat: Deploying Python web applications to OpenShift/Kubernetes','Room B110-111','2017-05-17T11:00:00-07:00','2017-05-17T12:30:00-07:00','US/Pacific','This will be a hands on workshop where you will get to experience yourself how easy it is to deploy a Python web application to OpenShift. The latest version of OpenShift is implemented on top of Kubernetes for container orchestration and Docker for the container runtime. On top of these tools OpenShift adds its own special magic sauce to even further simplify the deployment of applications. In the workshop you will learn how to deploy a Python web application direct from a Git repository holding the application source code, with the build process being handled by the Source-to-Image (S2I) tool. Next you will deploy a database from a pre-existing Docker-formatted container image and learn how to hook your Python web application up to it. Finally you will configure a Git repository webhook to automate the deployment process so that every time you commit and push up changes your application will be automatically rebuilt and deployed. During the workshop we will be throwing in various other tidbits to help explain what OpenShift is, how it works and how it can help you to host not only your Python web site, but also more complex applications, be they legacy systems, or new micro service architecture applications, in any language. For the workshop, you will be provided access to an online instance of OpenShift Origin with everything you need. The only piece of software you will need to install locally on your own computer will be a single program binary for our command line client for OpenShift.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

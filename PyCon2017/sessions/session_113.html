@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "113";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('The Dictionary Even Mightier','Oregon Ballroom 201-202      ','2017-05-20T15:15:00-07:00','2017-05-20T16:00:00-07:00','US/Pacific','Since my “Mighty Dictionary” talk at PyCon 2010, the Python dictionary has evolved dramatically. Come learn about all of the the improvements, up to and including the re-architecture that has just landed with Python 3.6! The talk will discuss iterable views, the dictionary’s dedicated comprehension syntax, random key ordering, the special key-sharing dictionary designed to underlie object collections, and, most famously of all, the new “compact dictionary” that cuts dictionary storage substantially — and carries a fascinating side-effect. Each new feature that the talk discusses will be motivated by considering the trade-offs inherent in hash table data structure design, and followed up with hints about how you can now use the dictionary even more effectively in your own code!');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

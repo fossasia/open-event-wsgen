@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "52";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Cython as a Game Changer for Efficiency','Portland Ballroom 251 &amp; 258      ','2017-05-20T17:10:00-07:00','2017-05-20T17:40:00-07:00','US/Pacific','Are you running a Web application? Do you suffer from CPU bottlenecks that slow down your growth? There&#x27;s a tool that can easily fix all that, and then some. C++ knowledge not required. Come learn how Instagram, the world&#x27;s largest Django deployment with more than 600M active users, saved ~30% of global CPU by rewriting a handful of modules on the critical path in Cython. Learn to apply those techniques to your own projects with little effort and stop worrying about switching to other programming languages or rewriting stable components in C++.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

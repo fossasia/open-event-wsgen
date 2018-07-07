@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "29";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Microservices with Python and Flask','Room 2 ','2017-05-17T13:20:00-07:00','2017-05-17T16:40:00-07:00','US/Pacific','Microservices are receiving the buzzword treatment these days, and as such, they have a cloud of hype surrounding them that makes it hard to separate substance from fluff. In this tutorial, Miguel Grinberg starts with an introduction to this architecture, including what&#x27;s great and not so great about it, and then teaches you how a traditional monolithic application written in Flask can be refactored into a modern distributed system based on microservices.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

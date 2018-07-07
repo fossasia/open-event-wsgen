@@ -184,7 +184,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -244,12 +245,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../Mozilla All Hands 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "1199";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Corp. Dev. Presentations Class','Nob Hill 10','2017-06-28T09:00:00-07:00','2017-06-28T18:00:00-07:00','US/Pacific','&lt;p&gt;Presentation Skills Session.&lt;/p&gt;');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -268,4 +275,3 @@
     </script>
   </body>
 </html>
-

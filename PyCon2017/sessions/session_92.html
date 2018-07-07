@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "92";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Optimizations which made Python 3.6 faster than Python 3.5','Portland Ballroom 251 &amp; 258','2017-05-19T10:50:00-07:00','2017-05-19T11:20:00-07:00','US/Pacific','Various optimizations made Python 3.6 faster than Python 3.5. Let&#x27;s see in detail what was done and how. Python 3.6 is faster than any other Python version on many benchmarks. We will see results of the Python benchmark suite on Python 2.7, 3.5 and 3.6. The bytecode format and instructions to call functions were redesign to run bytecode faster. A new C calling convention, called &#x27;fast call&#x27; , was introduced to avoid temporary tuple and dict. The way Python parses arguments was also optimized using a new internal cache. Operations on bytes and encodes like UTF-8 were optimized a lot thanks to a new API to create bytes objects. The API allows very efficient optimizations and reduces memory reallocations. Some parts of asyncio were rewritten in C to speedup code up to 25%. The PyMem_Malloc() function now also uses the fast pymalloc allocator also giving tiny speedup for free. Finally, we will see optimization projects for Python 3.7: use fast calls in more cases, speed up method calls, a cache on opcodes, a cache on global variables.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

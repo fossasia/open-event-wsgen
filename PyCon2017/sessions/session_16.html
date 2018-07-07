@@ -218,7 +218,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -267,12 +268,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "16";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Exploratory data analysis in python','Room 7      ','2017-05-17T09:00:00-07:00','2017-05-17T12:20:00-07:00','US/Pacific','With the recent advancements in machine learning algorithms and statistical techniques, and the increasing ease of implementing them in Python, it is tempting to ignore the power and necessity of exploratory data analysis (EDA), the crucial step before diving into machine learning or statistical modeling. Simply applying machine learning algorithms without a proper orientation of the dataset can lead to wasted time and spurious conclusions. EDA allows practitioners to gain intuition for the pattern of the data, identify anomalies, narrow down a set of alternative modeling approaches, devise strategies to handle missing data, and ensure correct interpretation of the results. Further, EDA can rapidly generate insights and answer many questions without requiring complex modeling. Python is a fantastic language not only for machine learning, but also EDA. In this tutorial, we will walk through two hands-on examples of how to perform EDA using Python and discuss various EDA techniques for cross-section data, time-series data, and panel data. One example will demonstrate how to use EDA to answer questions, test business assumptions, and generate hypotheses for further analysis. The other example will focus on performing EDA to prepare for modeling. Between these two examples, we will cover: Data profiling and quality assessment, Basic describing of the data, Visualizing the data including interactive visualizations, Identifying patterns in the data (including patterns of correlated missing data), Dealing with many attributes (columns), Dealing with large datasets using sampling techniques, Informing the engineering of features for future modeling, Identifying challenges of using the data (e.g. skewness, outliers), Developing an intuition for interpreting the results of future modeling. The intended audience for this tutorial are aspiring and practicing data scientists and analysts, or anyone who wants to be able to get insights out of data. Students must have at least an intermediate-level knowledge of Python and some familiarity with analyzing data would be beneficial. Installation of Jupyter Notebook will be required (and potentially, we will also demonstrate analysis in JupyterLab, if its development in the next few months allows). Instructions will be sent on what packages to install beforehand.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -291,4 +298,3 @@
     </script>
   </body>
 </html>
-

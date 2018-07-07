@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "126";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Web identity: OAuth2 and OpenIDConnect','Oregon Ballroom 203-204      ','2017-05-19T12:10:00-07:00','2017-05-19T12:40:00-07:00','US/Pacific','Interested in adding single sign-on to your application, but confused about the variety of different web authentication methods out there? OAuth, OAuth2, OpenID, OpenIDConnect, SAML, Facebook Connect? This talk will clarify the different protocols, examining OAuth2 and OpenIDConnect in greater detail. It will demonstrate a basic client implementation using FLOSS libraries, and briefly touch on some of the issues involved in server implementation.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

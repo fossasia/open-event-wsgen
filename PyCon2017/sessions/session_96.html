@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "96";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Prehistoric Patterns in Python','Portland Ballroom 251 &amp; 258      ','2017-05-19T11:30:00-07:00','2017-05-19T12:00:00-07:00','US/Pacific','Why do some code use dictionaries that have None for all values? Is it true that you shouldn&#x27;t concatenate strings with +? Will Python optimize constant calculations? This talk will go through some patterns that used to be common in Python, but which now are regarded as outdated and see if they really are outdated and why. The results surprised me, maybe they&#x27;ll surprise you.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

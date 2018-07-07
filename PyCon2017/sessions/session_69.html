@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "69";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('How documentation works, and how to make it work for your project','Portland Ballroom 254-255      ','2017-05-20T11:30:00-07:00','2017-05-20T12:00:00-07:00','US/Pacific','Nearly everyone (especially in the Python community) agrees that good documentation is important to the success of software projects, and yet very few projects actually have good documentation. Often, it&#x27;s not for want of effort - the project&#x27;s developers have worked hard on it - nor for lack of documentation - the authors have produced a lot of it. It simply turns out to be not very good - not helpful enough for the users who should be able to rely on it, and a depressing chore for the authors who have to maintain it. The good news is that both these problems can be solved by understanding how documentation works, and what its different functions are. Structuring documentation according to those distinct functions helps ensure that each of them is adequately served. It also makes it far easier to write and maintain. Using real-life examples I&#x27;ll draw out the key functions of documentation, and how they map onto different ways of writing it. Putting this into practice is simple when armed with some basic guidelines. The benefits are huge, and available with a minimum of effort. I won&#x27;t be discussing documentation tools or software or other topics that have been covered amply elsewhere, but some neglected aspects of software documentation that will make your software projects more successful.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

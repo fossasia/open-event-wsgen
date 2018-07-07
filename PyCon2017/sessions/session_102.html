@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "102";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Readability Counts','Oregon Ballroom 201-202      ','2017-05-20T11:30:00-07:00','2017-05-20T12:00:00-07:00','US/Pacific','Have you found unreadable PEP8-compliant code and wondered how to fix it? Have you ever seen code that was simply a pleasure to read? If you&#x27;ve ever wondered what makes code easy to read, this talk is for you. During this talk we&#x27;ll learn a number of techniques for refactoring code to improve readability and maintainability.We&#x27;ll discuss: whitespace, self-documenting code, modularity, expectation management. We&#x27;ll end with a checklist for improving the readability of your own code.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

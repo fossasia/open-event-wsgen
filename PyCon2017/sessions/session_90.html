@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "90";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('No More Sad Pandas: Optimizing Pandas Code for Speed and Efficiency','Oregon Ballroom 201-202      ','2017-05-20T16:30:00-07:00','2017-05-20T17:00:00-07:00','US/Pacific','When I first began working with the Python Pandas library, I was told by an experienced Python engineer: &#x27;Pandas is fine for prototyping a bit of calculations,but it&#x27;s too slow for any time-sensitive applications.&#x27; Over multiple years of working with the Pandas library, I have realized that this was only true if not enough care is put into identifying proper ways to optimize the code&#x27;s performance.This talk will review some of the most common beginner pitfalls that can cause otherwise perfectly good Pandas code to grind to a screeching halt, and walk through a set of tips and tricks to avoid them.Using a series of examples, we will review the process for identifying the elements of the code that may be causing a slowdown,and discuss a series of optimizations, ranging from good practices of input data storage and reading, to the best methods for avoiding inefficient iterations, to using the power of vectorization to optimize functions for Pandas dataframes.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

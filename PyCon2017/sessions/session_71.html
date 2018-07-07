@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "71";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('How to write a Python transpiler','Portland Ballroom 254-255      ','2017-05-20T13:55:00-07:00','2017-05-20T14:25:00-07:00','US/Pacific','We all know Python is a powerful and expressive programming language. What you may not know is how much of the internals of Python itself is exposed for you to use and manipulate. In this talk, you&#x27;ll be introduced to the tools and libraries Python provides to manipulate the compilation and execution of Python code. You will also see how you can use those tools to target execution environments other than the CPython virtual machine.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -184,7 +184,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -244,12 +245,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../Mozilla All Hands 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "1219";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Change 2.0 User Group','Union Square 18','2017-06-27T15:00:00-07:00','2017-06-27T17:00:00-07:00','US/Pacific','&lt;p&gt;Session for Change 2.0 User Group.&lt;/p&gt;');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -268,4 +275,3 @@
     </script>
   </body>
 </html>
-

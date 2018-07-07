@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "138";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Intel: Accelerating Python across the range of applications: the right tools for the job','Room B110-111','2017-05-18T09:00:00-07:00','2017-05-18T10:30:00-07:00','US/Pacific','Python&#x27;s popularity has given way to its use in many areas--from web frameworks all the way to machine learning and scientific computing. However, getting the best performance from Python requires an intimate knowledge of the right tools and techniques that are available today. In this tutorial, participants will learn how to measure, tune and accelerate Python workflows across various domains. This tutorial will cover the following topics: -Performance speedups for scientific computing using Intel® Distribution for Python, multithreading with Intel® Threading Building Blocks library, Numba, and Intel® VTune Amplifier -Data Analytics and machine learning acceleration with pyDAAL -Web framework, scripting, and infrastructure acceleration using the PyPy JIT');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

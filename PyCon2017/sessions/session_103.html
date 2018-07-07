@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "103";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Re-Programming the Human Genome with Python','Portland Ballroom 254-255      ','2017-05-19T16:30:00-07:00','2017-05-19T17:00:00-07:00','US/Pacific','Modern genome editing techniques such as CRISPR-Cas9 are revolutionizing the way we discover and treat the root genetic causes of disease. Many of the most popular tools and libraries in this cutting edge application are written in Python. This talk will provide a general, software-centric introduction to the exciting new area of genome editing, describe the central string search, machine learning, and data management problems involved, and review how Python frameworks and libraries are used today to solve these problems in Production in order to benefit human health. This talk assumes no prior lab experience: only a proficiency with Python and curiosity!');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

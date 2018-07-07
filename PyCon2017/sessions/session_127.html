@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "127";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('What&#x27;s in your pip toolbox?','Oregon Ballroom 203-204      ','2017-05-19T15:15:00-07:00','2017-05-19T15:45:00-07:00','US/Pacific','pip is a great tool, but dependency management doesn&#x27;t stop there. I&#x27;ll explore several tools that work with pip to make managing your dependencies easier, faster, and safer. I&#x27;ll cover generating dependencies a better way, maintaining your requirements.txt for the long-term, and exploring existing Python environments. Afterward, you&#x27;ll never want to pip freeze &gt; requirements.txt again.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

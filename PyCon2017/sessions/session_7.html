@@ -218,7 +218,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -267,12 +268,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "7";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('       Complexity Science','Room 9      ','2017-05-17T13:20:00-07:00','2017-05-17T16:40:00-07:00','US/Pacific','Complexity Science is an approach to modeling systems using tools from discrete mathematics and computer science, including networks, cellular automata, and agent-based models.  It has applications in many areas of natural and social science. Python is a particularly good language for exploring and implementing models of complex systems.  In this tutorial, we present material from the draft second edition of Think Complexity, and from a class we teach at Olin College.  We will work with random networks using NetworkX, with cellular automata using NumPy, and we will implement simple agent-based models.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -291,4 +298,3 @@
     </script>
   </body>
 </html>
-

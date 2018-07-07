@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "49";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Building Stream Processing Applications','Oregon Ballroom 201-202      ','2017-05-21T14:30:00-07:00','2017-05-21T15:00:00-07:00','US/Pacific','Do you have a stream of data that you would like to process in real time? There are many components with Python APIs that you can put together to build a stream processing application. We will go through some common design patterns, tradeoffs and available components / frameworks for designing such systems. We will solve an example problem during the presentation to make these points concrete. Much of what will be presented is based on experience gained from building production pipelines for the real-time processing of ad streams at Yelp. This talk will cover topics such as consistency, availability, idempotency, scalability, etc.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -220,7 +220,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -269,12 +270,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "10";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Creating And Consuming Modern Web Services with Twisted','Room 5      ','2017-05-18T09:00:00-07:00','2017-05-18T12:20:00-07:00','US/Pacific','This tutorial will show students how to write applications and services which efficiently publish and consume services and APIs. To do so, we will combine 4 Python-based technologies: Jupyter is a real-time development environment. Twisted is a powerful platform for network programming that supports many protocols, including HTTP. Klein is a Twisted-based web application framework. Treq is a Requests-style HTTP client based on Twisted. By combining all of these we will guide students through interactively prototyping a production quality web application that publishes both service APIs and web resources such as HTML, and that can efficiently consume many back-end services such as 3rd-party APIs.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -293,4 +300,3 @@
     </script>
   </body>
 </html>
-

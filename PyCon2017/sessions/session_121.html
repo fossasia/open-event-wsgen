@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "121";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('The Wild West of Data Wrangling','Portland Ballroom 254-255      ','2017-05-19T17:10:00-07:00','2017-05-19T17:40:00-07:00','US/Pacific','Data science introductory courses might give you the impression that dealing with data is neat, tidy, and simple. They present you with a simplistic dataset and the scikit-learn or Pandas documentation, and a day or so later, you&#x27;re done! Piece of cake, right? The real world of data isn&#x27;t that easy! As a data scientist who has worked in the industry for several years, I have had a lot of experience dealing with messy, inaccurate, incomplete data, and I want to share those experiences with you. I&#x27;ll talk my way through three real-world situations where I&#x27;ve had to analyze and build models on untidy and complex data, going through how I&#x27;ve preprocessed the data and prepared it for modeling. You&#x27;ll leave with an understanding of how a data scientist thinks about data and what she does when the data is complicated.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

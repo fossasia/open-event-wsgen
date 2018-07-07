@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "55";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Decorators, unwrapped: How do they work?','Oregon Ballroom 201-202      ','2017-05-20T14:35:00-07:00','2017-05-20T15:05:00-07:00','US/Pacific','Decorators are a syntactically-pleasing way of modifying the behavior of functions in Python. However, they can be highly opaque to Python beginners. It took me a while to learn how to write one, and even after I was confident writing my own decorators, felt like they were magical. The goal of this talk is to demystify decorators by methodically stepping through how and why they work. Along the way we&#x27;ll touch on closures, scopes, and how Python is compiled.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "57";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Dial M For Mentor','Portland Ballroom 254-255      ','2017-05-19T13:55:00-07:00','2017-05-19T14:25:00-07:00','US/Pacific','One of the nicest things about Python community is the availability of mentors willing to help you. Various mentors have helped me navigate the open source community and help advanced my skills. I realized finding a mentor is not as easy as it seems, and it takes a lot of courage to reach out in the first place. And then, there is impostor syndrome, where one may feel like they don’t deserve the help. In this talk, I will provide advice about working with a mentor. Asking for help is not a failure.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

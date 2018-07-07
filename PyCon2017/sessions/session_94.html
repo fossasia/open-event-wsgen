@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "94";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Passing Exceptions 101: Paradigms in Error Handling','Oregon Ballroom 201–202','2017-05-19T11:30:00-07:00','2017-05-19T12:00:00-07:00','US/Pacific','Exception handling in Python can sometimes feel like a Wild West. If you have a send_email function, and the caller inputs an invalid email address, should it: A) Return None or some other special return value, B) Let the underlying exception it might cause bubble up, C) Check via a regex and type checking and raise a ValueError immediately, or D) Make a custom EmailException subclass and raise that? What if there is a network error while the email was sending? Or what if the function calls a helper _format_email that returns an integer (clearly wrong!), or raises an TypeError itself? Should it crash the program or prompt a retry? This talk will introduce the concept of an exception, explain the built-in Python exception hierarchy and the utility of custom subclasses, demonstrate try/except/finally/else syntax, and then explore different design patterns for exception control flow and their tradeoffs using examples. It will also make comparisons to error handling philosophy in other languages, like Eiffel and Go.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

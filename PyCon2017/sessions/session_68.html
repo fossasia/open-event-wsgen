@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "68";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Hacking Classic Nintendo Games with Python','Portland Ballroom 252-253      ','2017-05-21T13:10:00-07:00','2017-05-21T13:40:00-07:00','US/Pacific','Do you feel like using your superpowers as a developer to bring the games of your childhood into the future with the power of the Internet? In this live coded journey, we&#x27;ll build an SMS powered &#x27;Game Genie&#x27; allowing the audience to send text messages to manipulate the Nintendo games being played in real time. This will involve working with Flask, the Twilio API, the FCEUX NES emulator and how to bridge them with quick Lua scripts.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

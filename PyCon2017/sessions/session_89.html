@@ -179,7 +179,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -228,12 +229,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "89";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Next Level Testing','Portland Ballroom 251 &amp; 258 ','2017-05-19T12:10:00-07:00','2017-05-19T12:40:00-07:00','US/Pacific','Unit, functional, and integration tests are great first steps towards improving the quality of your python project. Ever wonder if there’s even more you can do? Maybe you&#x27;ve heard of property-based testing, fuzzing, and mutation testing but you&#x27;re unsure exactly how they can help you. In this talk we’ll cover additional types of tests that can help improve the quality and robustness of your python projects: property-based testing, fuzz testing, stress testing, long term reliability testing, and mutation testing. We’ll also go beyond just covering what these tests are. For each of the test types above, I’ll give you real world examples from open source software that I maintain that shows you the types of bugs each test type can find. I’ll also show you how you can integrate these tests into your Travis CI and/or Jenkins environment.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -252,4 +259,3 @@
     </script>
   </body>
 </html>
-

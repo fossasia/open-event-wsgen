@@ -227,7 +227,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -287,12 +288,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../Mozilla All Hands 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "1035";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('e10s Planning','Nob Hill 7','2017-06-28T13:00:00-07:00','2017-06-28T15:00:00-07:00','US/Pacific','&lt;p&gt;Group meet to map out the future of multi process architecture of firefox&lt;/p&gt;');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -311,4 +318,3 @@
     </script>
   </body>
 </html>
-

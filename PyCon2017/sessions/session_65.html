@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "65";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Gothic Colors: Using Python to understand color in nineteenth-century literature','Portland Ballroom 254–255','2017-05-21T14:30:00-07:00','2017-05-21T15:00:00-07:00','US/Pacific','Do you love literature and programming? Have you ever been curious about what the heck “Digital Humanities” are? Join us for a quick survey of what’s going on in this growing field and learn about a specific project, “Gothic Colors” where we set out to enumerate and analyze color references and mood in 19th century Gothic novels, using Python and a couple of popular libraries.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

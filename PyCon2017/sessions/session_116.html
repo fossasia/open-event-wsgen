@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "116";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('The Glory of pdb&#x27;s set_trace','Oregon Ballroom 201-202      ','2017-05-19T16:30:00-07:00','2017-05-19T17:00:00-07:00','US/Pacific','Everyone needs to debug code, and it can take up a non-trivial portion of our time to wait for code to complete execution and write print messages to stdout. There’s one function in particular in the python debugger (pdb) library that can give you a much clearer understanding of what’s going on in your code, much more quickly; pdb.set_ trace(). In this talk, we’ll identify the most useful things you can do when you use set trace, that can make debugging exponentially more efficient and enjoyable.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -176,7 +176,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -225,12 +226,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "34";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Time Series Analysis','Room 6      ','2017-05-17T13:20:00-07:00','2017-05-17T16:40:00-07:00','US/Pacific','Time series analysis is more relevant than ever with the rise of big data, the internet of things, and the general availability of data that follows events through time. This tutorial will introduce participants to the many versatile tools Python offers for exploring, analyzing, and predicting time series data. The tutorial will be a mix of lecture and practice, and it will be broken down into four components: (1) Handling timestamped data in Python (2) Commonly encountered problems with time series (3) Time series prediction exercises (4) Time series classification exercises');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -249,4 +256,3 @@
     </script>
   </body>
 </html>
-

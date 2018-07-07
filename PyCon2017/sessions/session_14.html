@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "14";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Django Admin: Basics and Beyond','Room 2      ','2017-05-18T13:20:00-07:00','2017-05-18T16:40:00-07:00','US/Pacific','Django&#x27;s admin is a great tool but it isn&#x27;t always the easiest or friendliest to set up and customize. The ModelAdmin class has a lot of attributes and methods to understand and come to grips with. On top of these attributes, the admin&#x27;s inlines, custom actions, custom media, and more mean that, really, you can do anything you need with the admin...if you can figure out how. The docs are good but leave a lot to experimentation and the code is notoriously dense. In this tutorial, you&#x27;ll learn the basics of setting up the admin so you can get your job done. Then we&#x27;ll dive deeper and see how advanced features like autocomplete, Markdown editors, image editors, and others would be added to make the admin really shine.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

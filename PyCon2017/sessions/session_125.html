@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "125";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Unicode: what is the big deal?','Portland Ballroom 254-255      ','2017-05-20T17:10:00-07:00','2017-05-20T17:40:00-07:00','US/Pacific','Ever wondered why people complain that text processing is a hard problem? Or why Python 3 would introduce such a big backward incompatibility with switching to Unicode? Wonder no more, this talk is for you. In 30 minutes I&#x27;m going to demonstrate real world text processing problems and how Python 3 helps solve them. The talk is going to explain how you should split your text from binary data in your application, what are sensible defaults and what are possible gotchas. All this sprinkled with a healthy dose of frustration by a guy whose first name starts with Ł.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "135";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Datadog: Distributed Tracing for Python','Room B110-111','2017-05-18T11:00:00-07:00','2017-05-18T12:30:00-07:00','US/Pacific','Tracing is a specialized form of logging that is designed to work effectively in large, distributed environments. When done right, tracing follows the path of a request across process and service boundaries. This provides a big step-up in application observability, and can help inform a developer why certain requests are slow, or why they might have behaved unexpectedly. This tutorial will familiarize users with the benefits of tracing, and describe a general toolkit for emitting traces from Python applications in a minimally intrusive way. We will walk through a simple example app, which receives an HTTP request, and gradually instrument it to be observable via traces. We will discuss language constructs that can generate traces - namely decorators, monkey-patching and context managers - and give users hints on how they might add tracing to their own applications and libraries. In the process users will become familiar with the existing standards for modelling traces, and some of the challenges involved in adhering to this model in a distributed, asynchronous environment.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

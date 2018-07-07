@@ -177,7 +177,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -226,12 +227,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "50";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Community powered packaging: conda-forge','Oregon Ballroom 201-202      ','2017-05-19T13:55:00-07:00','2017-05-19T14:25:00-07:00','US/Pacific','The Python scientific community always wanted a package manager that is cross platform, does not require sudo, and lets Python be awesome! The conda package manager solved that problem, but created a new ones...This talk is a tour disguised as a beginner tutorial to conda-forge packaging. We will try to discuss some myths and misconceptions about conda and conda-forge, as well as a quick comparison with pip and wheels.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -250,4 +257,3 @@
     </script>
   </body>
 </html>
-

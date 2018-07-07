@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "15";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Effectively running python applications in Kubernetes/OpenShift','Room 4      ','2017-05-18T13:20:00-07:00','2017-05-18T16:40:00-07:00','US/Pacific','Google, Red Hat, Intel, Huawei, Mirantis, Deis and many, many others are investing a lot of time and effort into improving Kubernetes. I bet, you have encountered that name at least once in the past twelve months, either on Hacker News, Reddit, or somewhere else. Do you want to learn more about the best container orchestration in the universe, but were afraid of the setup complexity? Do you want to see how easy it is to run any application using containers? Do you want to experience the joy of scaling application with a single click? This, and a lot more will be discussed in details. In this tutorial, every attendee will be provided with an environment, and step by step instructions necessary to setup the environment, build and deploy a microservices based sample application. Alternatively, a sample application of any choosing can be used throughout the entire tutorial. All that will be performed on OpenShift, which is a Red Hat distribution of Kuberenets with some add-ons that will be described in details at the beginning of the tutorial. To wet your appetite even more, here are some of the topics we are going to cover: git integration, image registry integration, scaling application, containers security, batch tasks and much more. After the session, every person will be able to play around with the accompanying code repository that was used in the tutorial, which includes detailed instructions how to run it on your own from scratch.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

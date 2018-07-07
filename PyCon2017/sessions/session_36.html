@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "36";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Web programming from the beginning','Room 2','2017-05-17T09:00:00-07:00','2017-05-17T12:20:00-07:00','US/Pacific','Modern web frameworks such as Django and Flask are immensely powerful. However, these useful tools obscure the foundations of network programming upon which they are based, which can be very helpful to understand. So instead of building useful applications with these libraries, let&#x27;s experiment with sockets! At this tutorial, a Python-flavored history of the web will be presented and attendees will write or modify a TCP chat client, a static site web server, an HTTP client, a CGI script, and a WSGI-compliant server and web application. We will learn what all those things are and how they fit together, bringing the architecture of modern web apps into better focus. The material will be accessible to participants with no web development experience, however, they must be able to write and run Python scripts at the command-line. This tutorial might appeal to someone also attending an introductory web development tutorial, but it covers separate, complementary material. Web development experience is not required but a little exposure would be helpful; for instance, installing flask and running the minimal application on the quickstart page. Similarly, prior exposure to HTML would be useful but is not necessary.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-

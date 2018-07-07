@@ -178,7 +178,8 @@
           </div>
         </div>
       </div>
-
+    <input id=gcalendar-id type=hidden value="">
+    <input id=gcalendar-key type=hidden value="">
     <div class=footer-container>
         <footer class=classic>
             <div class=container>
@@ -227,12 +228,18 @@
     <script src=../js/bootstrap.min.js></script>
     <script src=../js/session.min.js></script>
     <script src=../js/tracks.min.js></script>
+    <script src=../js/sweetalert.min.js></script>
+    <script src=../js/main.min.js></script>
     <script>
       var eventInfo = {};
       eventInfo.name = "../PyCon 2017";
       eventInfo.name = eventInfo.name.substring(eventInfo.name.lastIndexOf('/') + 1);
       let videoURL = "";
       let id = "35";
+
+      $('#add-to-calendar').click(function() {
+        handleAuthClick('Using Functional Programming for efficient Data Processing and Analysis','Room 6','2017-05-17T09:00:00-07:00','2017-05-17T12:20:00-07:00','US/Pacific','As a multi paradigm language, Python has great support for functional programming. For better or for worse, leading data libraries such as Pandas eschew the this style for object-oriented programming. This tutorial will explain how to take advantage of Python&#x27;s excellent functional programming capabilities to efficiently obtain, clean, transform, and store data from disparate sources.');
+      });
 
       if($('#video-' + id).length === 0) {
         if (videoURL !== null && videoURL !== '') {
@@ -251,4 +258,3 @@
     </script>
   </body>
 </html>
-
