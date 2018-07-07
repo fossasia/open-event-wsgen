@@ -167,6 +167,7 @@ function checkLinks(jsonData, data) {
   data.eventurls = JSON.parse(JSON.stringify(jsonData.eventurls));
   data.sociallinks = jsonData.sociallinks;
   data.copyright = jsonData.copyright;
+  data.gcalendar = jsonData.gcalendar;
 
   changeEventUrlLinks(jsonData.eventurls.logo_url, jsonData.eventurls.name);
 }

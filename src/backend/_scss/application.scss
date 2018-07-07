@@ -178,10 +178,30 @@ a {
 
 .navbar-toggle {
   border: 0;
-  color: $gray-dark;
+  color: $text-color;
   margin-left: 0;
   margin-top: 1em;
   padding: 6px 5px;
+}
+
+.navbar-toggle:hover {
+  color: $gray-dark;
+
+  #speakerslink {
+    color: $gray-dark;
+  }
+
+  .caret {
+    border-top: 4px solid $gray-dark;
+  }
+}
+
+#speakerslink {
+  color: $navbar-text-color;
+}
+
+.caret {
+  border-top: 4px solid $navbar-text-color;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -792,7 +812,7 @@ a {
 }
 
 .active {
-  color: $black !important;
+  color: $black;
   font-weight: bold;
   text-decoration: underline;
 }
