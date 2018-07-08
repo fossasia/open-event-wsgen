@@ -112,8 +112,44 @@ const loadVideoAndSlides = function(div, videoURL, slideURL) {
   }
 };
 
-window.handleClientLoad = handleClientLoad;
-window.initClient = initClient;
-window.handleAuthClick = handleAuthClick;
-window.listUpcomingEvents = listUpcomingEvents;
-window.loadVideoAndSlides = loadVideoAndSlides;
+$(document).ready(function () {
+  const allFilter = {
+    room: {
+      dateFilter: '.date-filter'
+    },
+    track: {
+      dateFilter: '.date-filter'
+    },
+    schedule: {
+      dateFilter: '.day-filter'
+    }
+  };
+
+  const showNoResult = function(filterType , calendarMode) {
+    const filter = allFilter[filterType];
+    var search = false;
+    $('.fossasia-filter').each(function() {
+      if($(this).is(':visible') && $(this).val().length!==0) {
+        search = true;
+      }
+    });
+    var listFilterLength = $(filter.dateFilter+':visible').length;
+    var calendarFilterLength = $('.room:visible').length;
+    if ((calendarMode && calendarFilterLength == false) || (!calendarMode && listFilterLength == false)) {
+      $('#no-results').remove();
+      const message = search ? 'No matching results found.' : 'No result found.';
+      $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>"+message+"</p>");
+    } else {
+       $('#no-results').remove();
+      }
+  };
+
+  window.main = {
+    showNoResult: showNoResult
+  };
+  window.handleClientLoad = handleClientLoad;
+  window.initClient = initClient;
+  window.handleAuthClick = handleAuthClick;
+  window.listUpcomingEvents = listUpcomingEvents;
+  window.loadVideoAndSlides = loadVideoAndSlides;
+});

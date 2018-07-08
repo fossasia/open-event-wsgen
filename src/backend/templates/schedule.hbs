@@ -803,7 +803,7 @@
           }
         });
 
-        noResult();
+        main.showNoResult('schedule', isCalendarView);
         $('html, body').animate({scrollTop: 0}, 500);
       });
 
@@ -818,7 +818,7 @@
         roomName = $(this).text().trim();
         roomFilterMode = true;
         trackFilterMode = false;
-        
+
         var local_storage_events = JSON.parse(localStorage[eventName]);
 
         var sidebarDiv = $('.side-collapse');
@@ -898,7 +898,7 @@
           });
         });
 
-        noResult();
+        main.showNoResult('schedule', isCalendarView);
         $('html, body').animate({scrollTop: 0}, 500);
       });
 
@@ -988,7 +988,7 @@
           }
         });
 
-        noResult();
+        main.showNoResult('schedule', isCalendarView);
       }).keyup(function() {
         $(this).change();
       });
@@ -1104,7 +1104,7 @@
         } else {
           viewsFilter('list', className);
         }
-        noResult();
+        main.showNoResult('schedule', isCalendarView);
       });
 
       $('#page-mode').click(function() {
@@ -1234,32 +1234,11 @@
           });
       });
 
-      function noResult() {
-        var search=false;
-        $('.fossasia-filter').each(function() {
-          if($(this).is(':visible') && $(this).val().length!==0) {
-            search=true;
-          }
-        });
-        var listFilterLength = $('.day-filter:visible').length;
-        var calendarFilterLength = $('.room:visible').length;
-        if((isCalendarView && calendarFilterLength == false) || (!isCalendarView && listFilterLength == false)) {
-          $('#no-results').remove();
-          if(search) {
-            $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
-          } else {
-             $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
-          }
-        } else {
-          $('#no-results').remove();
-        }
-      }
-
       function display() {
         var temp = JSON.parse(localStorage[eventName]);
         var filterVal='';
         var visibleRooms = false;
-        
+
         $('.fossasia-filter').each(function () {
           if ($(this).is(':visible')) {
             filterVal = $(this).val();
@@ -1356,7 +1335,7 @@
           }
         });
 
-        noResult();
+        main.showNoResult('schedule', isCalendarView);
       }
 
       function initPage() {

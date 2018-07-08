@@ -602,12 +602,7 @@
           });
 
           // show "no results" if search input value matches zero items
-          if ($('.date-filter:visible').length == 0) {
-            $('#no-results').remove();
-            $('.search-filter:first').after('<p id="no-results" style="color: red">No matching results found.</p>');
-          } else {
-            $('#no-results').remove();
-          }
+          main.showNoResult('room');
           return false;
         }).keyup(function() {
           $(this).change();
@@ -671,7 +666,7 @@
           if (!sidebarDiv.hasClass('in')) {
             sidebarDiv.addClass('in');
           }
-          
+
           roomName = $(this).text().trim();
           roomFilterMode = true;
           trackFilterMode = false;
@@ -729,6 +724,7 @@
               $(this).hide();
             }
           });
+          main.showNoResult('room');
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -747,11 +743,11 @@
           if (!sidebarDiv.hasClass('in')) {
              sidebarDiv.addClass('in');
           }
-          
+
           trackName = $(this).text().trim();
           roomFilterMode = false;
           trackFilterMode = true;
-          
+
           window.location.href = url + '#' + trackName;
 
           $('.fossasia-filter').each(function() {
@@ -805,6 +801,7 @@
                 $(this).hide();
               }
             });
+            main.showNoResult('room');
             $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -891,18 +888,7 @@
                     searchRooms= true;
                 }
             });
-
-            if ($('.date-filter:visible').length == 0) {
-                $('#no-results').remove();
-                if(searchRooms) {
-                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No matching results found.</p>");
-                } else {
-                    $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>No result found.</p>");
-                }
-            } else {
-                $('#no-results').remove();
-
-            }
+            main.showNoResult('room');
         }
 
         function initPage() {
