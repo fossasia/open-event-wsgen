@@ -1,0 +1,1744 @@
+[
+	{
+		"id": 1001,
+		"title": "Scaling Genetic Data Analysis with Apache Spark",
+		"subtitle": null,
+		"short-abstract": "In 2001, it cost ~$100M to sequence a single human genome. In 2014, due to dramatic improvements in sequencing technology far outpacing Moore’s law, we entered the era of the $1,000 genome. At the same time, the power of genetics to impact medicine has become evident. For example, drugs with supporting genetic evidence are twice as likely to succeed in clinical trials. These factors have led to an explosion in the volume of genetic data, in the face of which existing analysis tools are breaking down.",
+		"long-abstract": "In 2001, it cost ~$100M to sequence a single human genome. In 2014, due to dramatic improvements in sequencing technology far outpacing Moore’s law, we entered the era of the $1,000 genome. At the same time, the power of genetics to impact medicine has become evident. For example, drugs with supporting genetic evidence are twice as likely to succeed in clinical trials. These factors have led to an explosion in the volume of genetic data, in the face of which existing analysis tools are breaking down. As a result, the Broad Institute began the open-source Hail project (https://hail.is), a scalable platform built on Apache Spark, to enable the worldwide genetics community to build, share and apply new tools. Hail is focused on variant-level (post-read) data; querying genetic data, as well as annotations, on variants and samples; and performing rare and common variant association analyses. Hail has already been used to analyze datasets with hundreds of thousands of exomes and tens of thousands of whole genomes, enabling dozens of major research projects.",
+		"starts-at": "2017-06-06T11:00:00-07:00",
+		"ends-at": "2017-06-06T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+				"city": "",
+				"heard-from": "",
+				"icon-image-url": "",
+				"id": 1,
+				"long-biography": "",
+				"name": "Jonathan Bloom",
+				"organisation": "Broad Institute of MIT and Harvard",
+				"photo-url": "/images/speakers/jonathon_bloom.jpg",
+				"short-biography": "Jonathan Bloom is a mathematician, engineer, and co-founder of the Hail team at the Broad Institute of MIT and Harvard. Prior to joining the Broad, he did research in geometry and algebraic topology as a Moore Instructor and NSF Fellow in Mathematics at the Massachusetts Institute of Technology. While there, he re-architected the department’s introductory course on probability and statistics, now available on MIT OpenCourseWare. He received his B.A. from Harvard University and Ph.D. from Columbia University in Mathematics.",
+				"small-image-url": "",
+				"speaking-experience": "",
+				"sponsorship-required": "",
+				"thumbnail-image-url": "/images/speakers/jonathon_bloom.jpg"
+			},
+			{
+				"city": "",
+				"heard-from": "",
+				"icon-image-url": "",
+				"id": 2,
+				"long-biography": "",
+				"name": "Timothy Poterba",
+				"organisation": "Broad Institute of MIT and Harvard",
+				"photo-url": "/images/speakers/tim_poterba.jpg",
+				"short-biography": "Tim Poterba is an engineer and computational biologist on the Hail team at the Broad Institute of MIT and Harvard. Prior to joining the Broad, he studied protein folding dynamics at the Max Planck Institute for Biochemistry on a Fulbright Scholarship. He received his B.A. in Biophysics from Amherst College in 2013.",
+				"small-image-url": "",
+				"speaking-experience": "",
+				"sponsorship-required": "",
+				"thumbnail-image-url": "/images/speakers/tim_poterba.jpg"
+			}
+		],
+		"state": "accepted"
+	},
+	{
+		"id": 1002,
+		"title": "Lazy Join Optimizations without upfront statistics",
+		"subtitle": null,
+		"short-abstract": "Modern Data-Intensive Scalable Computing (DISC) systems such as Apache Spark do not support sophisticated cost-based query optimizers because they are specifically designed to process data that resides in external storage systems (e.g. HDFS), or they lack the necessary data statistics.",
+		"long-abstract": "Modern Data-Intensive Scalable Computing (DISC) systems such as Apache Spark do not support sophisticated cost-based query optimizers because they are specifically designed to process data that resides in external storage systems (e.g. HDFS), or they lack the necessary data statistics. Consequently, many crucial optimizations, such as join order and plan selection, are presently out-of-scope in these DISC system optimizers. Yet, join order is one of the most important decisions a cost-optimizer can make because wrong orders can result in a query response time that can become more than an order-of-magnitude slower compared to the better order.",
+		"starts-at": "2017-06-06T11:40:00-07:00",
+		"ends-at": "2017-06-06T12:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 3,
+			"long-biography": "",
+			"name": "Matteo Interlandi",
+			"organisation": "Microsoft CISL",
+			"photo-url": "",
+			"short-biography": "Matteo Interlandi recently joined Microsoft CISL as a Research Scientist. Prior to joining Microsoft, Matteo was Postdoctoral Scholar at the University of California, Los Angeles. His research lies in between databases, distributed systems and declarative languages. In particular, he loves to build systems and tools that make it easier to design and implement data-driven distributed applications.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1003,
+		"title": "Running Apache Spark on a High-Performance Cluster Using RDMA and NVME Flash",
+		"subtitle": null,
+		"short-abstract": "Effectively leveraging fast networking and storage hardware (e.g., RDMA, NVMe, etc.) in Apache Spark remains challenging. Current ways to integrate the hardware at the operating system level fall short, as the hardware performance advantages are shadowed by higher layer software overheads.",
+		"long-abstract": "Effectively leveraging fast networking and storage hardware (e.g., RDMA, NVMe, etc.) in Apache Spark remains challenging. Current ways to integrate the hardware at the operating system level fall short, as the hardware performance advantages are shadowed by higher layer software overheads. This session will show how to integrate RDMA and NVMe hardware in Spark in a way that allows applications to bypass both the operating system and the Java virtual machine during I/O operations. With such an approach, the hardware performance advantages become visible at the application level, and eventually translate into workload runtime improvements. Stuedi will demonstrate how to run various Spark workloads (e.g, SQL, Graph, etc.) effectively on 100Gbit/s networks and NVMe flash.",
+		"starts-at": "2017-06-06T12:20:00-07:00",
+		"ends-at": "2017-06-06T12:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 4,
+			"long-biography": "",
+			"name": "Patrick Stuedi",
+			"organisation": "IBM",
+			"photo-url": "/images/speakers/patrick_stuedi.jpg",
+			"short-biography": "I’m a member of the research staff at IBM research Zurich. My research interests are in distributed systems, networking and operating systems. I graduated with a PhD from ETH Zurich in 2008 and spent two years (2008-2010) as a Postdoc at Microsoft Research Silicon Valley. My current work is about exploiting fast network and storage hardware in data processing systems.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/patrick_stuedi.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1004,
+		"title": "Speeding up Spark with Data Compression on XEON+FPGA",
+		"subtitle": null,
+		"short-abstract": "Data compression is a key aspect in big data processing frameworks, such as Apache Hadoop and Spark, because compression enables the size of the input, shuffle and output data to be reduced, thus potentially speeding up overall processing time by orders of magnitude, especially for large-scale systems. However, since many compression algorithms with good compression ratio are also very CPU-intensive, developers are often forced to use algorithms that are less CPU-intensive at the cost of reduced compression ratio.",
+		"long-abstract": "Data compression is a key aspect in big data processing frameworks, such as Apache Hadoop and Spark, because compression enables the size of the input, shuffle and output data to be reduced, thus potentially speeding up overall processing time by orders of magnitude, especially for large-scale systems. However, since many compression algorithms with good compression ratio are also very CPU-intensive, developers are often forced to use algorithms that are less CPU-intensive at the cost of reduced compression ratio.\n\nIn this session, you’ll learn about a field-programmable gate array (FPGA)-based approach for accelerating data compression in Spark. By opportunistically offloading compute-heavy, compression tasks to the FPGA, the CPU is freed to perform other tasks, resulting in an improved overall performance for end-user applications. In contrast to existing GPU methods for acceleration, this approach affords more performance/energy efficiency, which can translate to significant savings in power and cooling costs, especially for large datacenters. In addition, this implementation offers the benefit of reconfigurability, allowing for the FPGA to be rapidly reprogrammed with a different algorithm to meet system or user requirements.\n\nUsing the Intel Xeon+FPGA platform, Ojika will share how they ported Swif (simplified workload-intuitive framework) to Spark, and the method used to enable an end-to-end, FPGA-aware Spark deployment. Swif is an in-house framework developed to democratize and simplify the deployment of FPGAs in heterogeneous datacenters. Using Swif’s application programmable interface (API), he’ll describe how system architects and software developers can seamlessly integrate FPGAs into their Spark workflow, and in particular, deploy FPGA-based compression schemes that achieve improved performance compared to software-only approaches. In general, Swif’s software stack, along with the underlying Xeon+FPGA hardware platform, provides a workload-centric processing environment that streamlines the process of offloading CPU-intensive tasks to shared FPGA resources, while providing improved system throughput and high resource utilization.",
+		"starts-at": "2017-06-06T05:00:00-07:00",
+		"ends-at": "2017-06-06T05:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 5,
+			"long-biography": "",
+			"name": "David Ojika",
+			"organisation": "University of Florida",
+			"photo-url": "",
+			"short-biography": "David Ojika is an Intel-fellowship recipient and a 4th-year doctoral student of computer engineering at the University of Florida. He completed several internships at Intel, working on near-memory accelerators and on heterogeneous platforms (Xeon+FPGA). Working with Dr. Darin Acosta and Dr. Ann Gordon-Ross, his research focuses on the intersection of computing and physics by investigating machine learning systems that enhance the study of high-energy particles (such as muons) at CERN. In the summer of 2017, David will join Microsoft’s AI & Research group to embark on an internship with the group’s Project Catapult.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1005,
+		"title": "Neuro-Symbolic AI for Sentiment Analysis",
+		"subtitle": null,
+		"short-abstract": "Learn to supercharge sentiment analysis with neural networks and graphs. Neural networks are great at automated black-box pattern recognition, graphs at encoding and human-readable logic. Neuro-symbolic computing promises to leverage the best of both.",
+		"long-abstract": "Learn to supercharge sentiment analysis with neural networks and graphs. Neural networks are great at automated black-box pattern recognition, graphs at encoding and human-readable logic. Neuro-symbolic computing promises to leverage the best of both.\n\nIn this session, you will see how to combine an off-the-shelf neuro-symbolic algorithm, word2vec, with a neural network (Convolutional Neural Network, or CNN) and a symbolic graph, both added to the neuro-symbolic pipeline. The result is an all-Apache Spark text sentiment analysis more accurate than either neural alone or symbolic alone.\n\nAlthough the presentation will be highly technical, high-level concepts and data flows will be highlighted and visually explained for the more casual attendees. Technologies used include MLlib, GraphX, and mCNN (from spark-packages.org) will be highlighted and visually explained for the more casual attendees.",
+		"starts-at": "2017-06-07T12:20:00-07:00",
+		"ends-at": "2017-06-07T12:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 6,
+			"long-biography": "",
+			"name": "Michael Malak",
+			"organisation": "Oracle",
+			"photo-url": "/images/speakers/michael_malak.jpg",
+			"short-biography": "Michael Malak is the lead author of Spark GraphX In Action and has been developing Spark solutions at two Fortune 200 companies since early 2013. He has been programming computers since before they could be bought pre-assembled in stores.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/michael_malak.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1006,
+		"title": "Natural Language Processing with CNTK and Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Apache Spark provides an elegant API for developing machine learning pipelines that can be deployed seamlessly in production. However, one of the most intriguing and performant family of algorithms – deep learning – remains difficult for many groups to deploy in production, both because of the need for tremendous compute resources and also because of the inherent difficulty in tuning and configuring.",
+		"long-abstract": "Apache Spark provides an elegant API for developing machine learning pipelines that can be deployed seamlessly in production. However, one of the most intriguing and performant family of algorithms – deep learning – remains difficult for many groups to deploy in production, both because of the need for tremendous compute resources and also because of the inherent difficulty in tuning and configuring.\n\nIn this session, you’ll discover how to deploy the Microsoft Cognitive Toolkit (CNTK) inside of Spark clusters on the Azure cloud platform. Learn about the key considerations for administering GPU-enabled Spark clusters, configuring such workloads for maximum performance, and techniques for distributed hyperparameter optimization. You’ll also see a real-world example of training distributed deep learning learning algorithms for speech recognition and natural language processing.Microsoft Cognitive Toolkit (CNTK) inside of Spark clusters on the Azure cloud platform. We’ll discuss the key considerations for administering GPU-enabled Spark clusters, configuring such workloads for maximum performance, and techniques for distributed hyperparameter optimization. We’ll illustrate a real-world example of training distributed deep learning learning algorithms for speech recognition and natural language processing.",
+		"starts-at": "2017-06-07T14:00:00-07:00",
+		"ends-at": "2017-06-07T14:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 7,
+			"long-biography": "",
+			"name": "Ali Zaidi",
+			"organisation": "Microsoft",
+			"photo-url": "/images/speakers/ali_zaidi.jpg",
+			"short-biography": "Ali is a data scientist in the Algorithms and Data Science team at Microsoft. He spends his day trying to make distributed computing in the cloud easier, more efficient, and more enjoyable for data scientists and developers alike. He focuses on R, Spark, and Bayesian learning.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/ali_zaidi.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1007,
+		"title": "Apache SparkR under the hood: Your SparkR Applications",
+		"subtitle": null,
+		"short-abstract": "SparkR is a new and evolving interface to Apache Spark. It offers a wide range of APIs and capabilities to Data Scientists and Statisticians. Being a distributed system with a JVM core some R users find SparkR errors unfamiliar. ",
+		"long-abstract": "SparkR is a new and evolving interface to Apache Spark. It offers a wide range of APIs and capabilities to Data Scientists and Statisticians. Being a distributed system with a JVM core some R users find SparkR errors unfamiliar. In this talk we will show what goes on under the hood when you interact with SparkR. We will look at SparkR architecture, performance bottlenecks and API semantics. Equipped with those, we will show how some common errors can be eliminated. I will use debugging examples based on our experience with real SparkR use cases.",
+		"starts-at": "2017-06-07T16:20:00-07:00",
+		"ends-at": "2017-06-07T16:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 8,
+			"long-biography": "",
+			"name": "Hossein Falaki",
+			"organisation": "Databricks",
+			"photo-url": "/images/speakers/hossein_falaki.jpg",
+			"short-biography": "Hossein Falaki is a software engineer and data scientist at Databricks, working on the next big thing. Prior to that he was a data scientist at Apple’s personal assistant, Siri. He graduated with a Ph.D. in Computer Science from UCLA, where he was a member of the Center for Embedded Networked Sensing (CENS).",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/hossein_falaki.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1008,
+		"title": "Creating Personalized Container Solutions with Container Services",
+		"subtitle": null,
+		"short-abstract": "The container ecosystem is exciting, but how do you make sense of all the different choices and opinions? When facing the challenges of building modern apps in an evolving marketplace, how do you make sure you’re choosing the right platform or cloud provider? Important decisions like what to build and how to build, whether to go with software vendors or open source, and finding the right cloud model can seem daunting — but they are critical business decisions nonetheless.",
+		"long-abstract": "The container ecosystem is exciting, but how do you make sense of all the different choices and opinions? When facing the challenges of building modern apps in an evolving marketplace, how do you make sure you’re choosing the right platform or cloud provider? Important decisions like what to build and how to build, whether to go with software vendors or open source, and finding the right cloud model can seem daunting — but they are critical business decisions nonetheless.\n\nMicrosoft Azure Container Service (ACS) uses open source tooling so you can run your workloads wherever you want with the freedom to make the right decision today for the future of your enterprise. We’ll look at the choices available to you for hybrid and pure-play Azure container workloads and see how ACS enables you to delay your choices until you are sure of the path you want to take. We’ll explore how your solution can be molded to your unique needs and how solutions such as Mesosphere DC/OS brings full featured container orchestration and turn-key big data services within easy reach.",
+		"starts-at": "2017-06-07T17:00:00-07:00",
+		"ends-at": "2017-06-07T17:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#2E7D32",
+			"id": 455,
+			"name": "Research"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 9,
+			"long-biography": "",
+			"name": "Ross Gardler",
+			"organisation": "Apache Software Foundation",
+			"photo-url": "/images/speakers/ross_gardler.jpg",
+			"short-biography": "Ross Gardler has been involved with open source in one form or another since the mid ‘90s. He is a member of the Apache Software Foundation where he currently serves as the foundation’s President. He works at Microsoft on the Linux Compute team in Azure where he is responsible for the Azure Container Service.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/ross_gardler.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1009,
+		"title": "Building a unified Data Pipeline with Apache Spark and XGBOOST",
+		"subtitle": null,
+		"short-abstract": "XGBoost (https://github.com/dmlc/xgboost) is a library designed and optimized for tree boosting. XGBoost attracts users from a broad range of organizations in both industry and academia, and more than half of the winning solutions in machine learning challenges hosted at Kaggle adopt XGBoost.",
+		"long-abstract": "XGBoost (https://github.com/dmlc/xgboost) is a library designed and optimized for tree boosting. XGBoost attracts users from a broad range of organizations in both industry and academia, and more than half of the winning solutions in machine learning challenges hosted at Kaggle adopt XGBoost.\n\nWhile being one of the most popular machine learning systems, XGBoost is only one of the components in a complete data analytic pipeline. The data ETL/exploration/serving functionalities are built up on top of more general data processing frameworks, like Apache Spark. As a result, users have to build a communication channel between Apache Spark and XGBoost (usually through HDFS) and face the difficulties/inconveniences in data navigating and application development/deployment.\n\nWe (Distributed (Deep) Machine Learning Community) develop XGBoost4J-Spark (https://github.com/dmlc/xgboost/tree/master/jvm-packages), which seamlessly integrates Apache Spark and XGBoost.\nThe communication channel between Spark and XGBoost is established based on RDDs/DataFrame/Datasets, all of which are standard data interfaces in Spark. Additionally, XGBoost can be embedded into Spark MLLib pipeline and tuned through the tools provided by MLLib. In this talk, I will cover the motivation/history/design philosophy/implementation details as well as the use cases of XGBoost4J-Spark. I expect that this talk will share the insights on building a heterogeneous data analytic pipeline based on Spark and other data intelligence frameworks and bring more discussions on this topic.",
+		"starts-at": "2017-06-06T12:20:00-07:00",
+		"ends-at": "2017-06-06T12:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 10,
+			"long-biography": "",
+			"name": "Nan Zhu",
+			"organisation": "Microsoft",
+			"photo-url": "/images/speakers/nan_zhu.jpg",
+			"short-biography": "Nan Zhu is a Software Engineer from Microsoft, where he works on serving Spark Streaming/Structured Streaming on Azure HDInsight. He is a contributor of Apache Spark (known as CodingCat) and also serves as the committee member of Distributed Machine Learning Community (DMLC) and Apache MxNet (incubator).",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/nan_zhu.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1010,
+		"title": "Extending the R API for Spark with SparkR and Microsoft R Server",
+		"subtitle": null,
+		"short-abstract": "There’s a growing number of data scientists that use R as their primary language. While the SparkR API has made tremendous progress since release 1.6, with major advancements in Apache Spark 2.0 and 2.1, it can be difficult for traditional R programmers to embrace the Spark ecosystem.",
+		"long-abstract": "There’s a growing number of data scientists that use R as their primary language. While the SparkR API has made tremendous progress since release 1.6, with major advancements in Apache Spark 2.0 and 2.1, it can be difficult for traditional R programmers to embrace the Spark ecosystem.\n\nIn this session, Zaidi will discuss the sparklyr package, which is a feature-rich and tidy interface for data science with Spark, and will show how it can be coupled with Microsoft R Server and extended with it’s lower-level API to become a full, first-class citizen of Spark. Learn how easy it is to go from single-threaded, memory-bound R functions to multi-threaded, multi-node, out-of-memory applications that can be deployed in a distributed cluster environment with minimal amount of code changes. You’ll also get best practices for reproducibility and performance by looking at a real-world case study of default risk classification and prediction entirely through R and Spark.",
+		"starts-at": "2017-06-06T14:40:00-07:00",
+		"ends-at": "2017-06-06T15:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 7,
+			"long-biography": "",
+			"name": "Ali Zaidi",
+			"organisation": "Microsoft",
+			"photo-url": "/images/speakers/ali_zaidi.jpg",
+			"short-biography": "Ali is a data scientist in the Algorithms and Data Science team at Microsoft. He spends his day trying to make distributed computing in the cloud easier, more efficient, and more enjoyable for data scientists and developers alike. He focuses on R, Spark, and Bayesian learning.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/ali_zaidi.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1011,
+		"title": "More Algorithms and Tools for Genomic Analysis on Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Hammer Lab built and uses many tools for analyzing genomic data on Spark, as well as libraries for more general computations using RDDs; I’ll discuss some of the most interesting applications and algorithms therein:",
+		"long-abstract": "Hammer Lab built and uses many tools for analyzing genomic data on Spark, as well as libraries for more general computations using RDDs; I’ll discuss some of the most interesting applications and algorithms therein:",
+		"starts-at": "2017-06-06T16:20:00-07:00",
+		"ends-at": "2017-06-06T16:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 11,
+			"long-biography": "",
+			"name": "Ryan Williams",
+			"organisation": "Mount Sinai School of Medicine",
+			"photo-url": "/images/speakers/ryan_williams.jpg",
+			"short-biography": "Ryan writes tools for analyzing genomic data using Spark at Hammer Lab.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/ryan_williams.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1012,
+		"title": "Building a Large Scale Recommendation Engine with Spark and REDIS-ML",
+		"subtitle": null,
+		"short-abstract": "Redis-ML is a Redis module for high performance, real-time serving of Spark-ML models. It allows users to train large complex models in Spark, and then store and query the models directly on Redis clusters. The high throughput and low latency of Redis-ML allows users to perform heavy classification operations in real time while using a minimal number of servers. ",
+		"long-abstract": "Redis-ML is a Redis module for high performance, real-time serving of Spark-ML models. It allows users to train large complex models in Spark, and then store and query the models directly on Redis clusters. The high throughput and low latency of Redis-ML allows users to perform heavy classification operations in real time while using a minimal number of servers. This unique architecture enables significant savings in resources compared to current commonly used methods, without loss in precision or server performance.\n\nThis session will demonstrate how to build a production-level recommendation system from the ground up using Spark-ML and Redis-ML. It will also describe performance and accuracy benchmarks, comparing the results with current standard methods.",
+		"starts-at": "2017-06-06T17:40:00-07:00",
+		"ends-at": "2017-06-06T18:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 12,
+			"long-biography": "",
+			"name": "Shay Nativ",
+			"organisation": "Redis Labs",
+			"photo-url": "/images/speakers/shay_nativ.jpg",
+			"short-biography": "Shay is an experienced software developer, architect, and entrepreneur. He was the founder and VP R&D of Peak-Dynamics—an energy saving solution for water utilities and CTO at Utab, a web platform for musicians. Shay loves solving complex problems and writing performant code.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/shay_nativ.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1013,
+		"title": "HDFS on Kubernetes-Lessons Learned",
+		"subtitle": null,
+		"short-abstract": "There is growing interest in running Apache Spark natively on Kubernetes (see https://github.com/apache-spark-on-k8s/spark). Spark applications often access data in HDFS, and Spark supports HDFS locality by scheduling tasks on nodes that have the task input data on their local disks. ",
+		"long-abstract": "There is growing interest in running Apache Spark natively on Kubernetes (see https://github.com/apache-spark-on-k8s/spark). Spark applications often access data in HDFS, and Spark supports HDFS locality by scheduling tasks on nodes that have the task input data on their local disks. When running Spark on Kubernetes, if the HDFS daemons run outside Kubernetes, applications will slow down while accessing the data remotely.\n\nThis session will demonstrate how to run HDFS inside Kubernetes to speed up Spark. In particular, it will show how Spark scheduler can still provide HDFS data locality on Kubernetes by discovering the mapping of Kubernetes containers to physical nodes to HDFS datanode daemons. You’ll also learn how you can provide Spark with the high availability of the critical HDFS namenode service when running HDFS in Kubernetes.",
+		"starts-at": "2017-06-07T11:00:00-07:00",
+		"ends-at": "2017-06-07T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 13,
+			"long-biography": "",
+			"name": "Kimoon Kim",
+			"organisation": "Pepperdata",
+			"photo-url": "",
+			"short-biography": "Kimoon joined Pepperdata in 2013. Previously, he worked for the Google Search and Yahoo Search teams for many years. Kimoon has hands-on experience with large distributed systems processing massive data sets.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1014,
+		"title": "Homologous Apache Spark Clusters using Nomad",
+		"subtitle": null,
+		"short-abstract": "Nomad is a modern cluster manager by HashiCorp, designed for both long-lived services and short-lived batch processing workloads. The Nomad team has been working to bring a native integration between Nomad and Apache Spark.",
+		"long-abstract": "Nomad is a modern cluster manager by HashiCorp, designed for both long-lived services and short-lived batch processing workloads. The Nomad team has been working to bring a native integration between Nomad and Apache Spark.\n\nBy running Spark jobs on Nomad, both Spark developers and the engineering organization benefit. Nomad’s architecture allows it to have an incredibly high scheduling throughput. To demonstrate this, HashiCorp scheduled 1 million containers in less than five minutes. That speed means that large Spark workloads can be immediately placed, minimizing job runtime and job start latencies.\n\nFor an organization, Nomad offers many benefits. Since Nomad was designed for both batch and services, a single cluster can service both an organization’s Spark workload and all service-oriented jobs. That, coupled with the fact that Nomad uses bin-packing to place multiple jobs on each machine, means that organizations can achieve higher density. Which saves money and makes capacity planning easier.\n\nIn the future, Nomad will also have the ability to enforce quotas and apply chargebacks, allowing multi-tenant clusters to be easily managed. To further increase the performance of Spark on Nomad, HashiCorp would like to ingest HDFS locality information to place the compute by the data.",
+		"starts-at": "2017-06-07T11:40:00-07:00",
+		"ends-at": "2017-06-07T12:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#283593",
+			"id": 456,
+			"name": "Spark Ecosystem"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 3,
+			"name": "Room 2003"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 14,
+			"long-biography": "",
+			"name": "Alex Dadgar",
+			"organisation": "Hashicorp",
+			"photo-url": "/images/speakers/alex_dadgar.jpg",
+			"short-biography": "Alex is the project lead for Nomad, a distributed, highly-available cluster scheduler by HashiCorp. Prior to joining HashiCorp, Alex worked at Google where he architected a streaming-processing system to handle terabytes of YouTube data a day. Having seen the dream of infrastructure at Google, he joined HashiCorp to build it for the rest of the world!",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/alex_dadgar.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1015,
+		"title": "A Deep Dive into Spark SQL Catalyst Optimizer",
+		"subtitle": null,
+		"short-abstract": "Catalyst is becoming one of the most important components of Apache Spark, as it underpins all the major new APIs in Spark 2.0 and later versions, from DataFrames and Datasets to Streaming. At its core, Catalyst is a general library for manipulating trees.",
+		"long-abstract": "Catalyst is becoming one of the most important components of Apache Spark, as it underpins all the major new APIs in Spark 2.0 and later versions, from DataFrames and Datasets to Streaming. At its core, Catalyst is a general library for manipulating trees.\n\nIn this talk, Yin explores a modular compiler frontend for Spark based on this library that includes a query analyzer, optimizer, and an execution planner. Yin offers a deep dive into Spark SQL’s Catalyst optimizer, introducing the core concepts of Catalyst and demonstrating how developers can extend it. You’ll leave with a deeper understanding of how Spark analyzes, optimizes, and plans a user’s query.",
+		"starts-at": "2017-06-06T11:00:00-07:00",
+		"ends-at": "2017-06-06T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 15,
+			"long-biography": "",
+			"name": "Yin Huai",
+			"organisation": "Databricks",
+			"photo-url": "",
+			"short-biography": "Yin Huai is a Software Engineer at Databricks and mainly works on Spark SQL. Before joining Databricks, he was a PhD student at The Ohio State University and was advised by Xiaodong Zhang. His interests include storage systems, database systems, and query optimization. He is also an Apache Hive committer.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1016,
+		"title": "Hive Bucketing in Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Bucketing is a partitioning technique that can improve performance in certain data transformations by avoiding data shuffling and sorting. The general idea of bucketing is to partition, and optionally sort, the data based on a subset of columns while it is written out (a one-time cost), while making successive reads of the data more performant for downstream jobs if the SQL operators can make use of this property. ",
+		"long-abstract": "Bucketing is a partitioning technique that can improve performance in certain data transformations by avoiding data shuffling and sorting. The general idea of bucketing is to partition, and optionally sort, the data based on a subset of columns while it is written out (a one-time cost), while making successive reads of the data more performant for downstream jobs if the SQL operators can make use of this property. Bucketing can enable faster joins (i.e. single stage sort merge join), the ability to short circuit in FILTER operation if the file is pre-sorted over the column in a filter predicate, and it supports quick data sampling.\n\nIn this session, you’ll learn how bucketing is implemented in both Hive and Spark. In particular, Patil will describe the changes in the Catalyst optimizer that enable these optimizations in Spark for various bucketing scenarios. Facebook’s performance tests have shown bucketing to improve Spark performance from 3-5x faster when the optimization is enabled. Many tables at Facebook are sorted and bucketed, and migrating these workloads to Spark have resulted in a 2-3x savings when compared to Hive. You’ll also hear about real-world applications of bucketing, like loading of cumulative tables with daily delta, and the characteristics that can help identify suitable candidate jobs that can benefit from bucketing.",
+		"starts-at": "2017-06-06T12:20:00-07:00",
+		"ends-at": "2017-06-06T12:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 16,
+			"long-biography": "",
+			"name": "Tejas Patil",
+			"organisation": "Facebook",
+			"photo-url": "",
+			"short-biography": "Tejas is a software engineer at Facebook. For the past 3 years, he has been part of the Data Infrastructure group at Facebook and primarily works on building large scale distributed data processing systems responsible for handling batch workloads. He is currently a PMC member and committer of Apache Nutch and has contributed to several open source projects. Tejas obtained a Master’s Degree in Computer Science from University Of California, Irvine.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1017,
+		"title": "Apache Spark MLLIB'S Past Trajectory and New Directions",
+		"subtitle": null,
+		"short-abstract": "This talk discusses the trajectory of MLlib, the Machine Learning (ML) library for Apache Spark. We will review the history of the project, including major trends and efforts leading up to today. These discussions will provide perspective as we delve into ongoing and future efforts within the community. This talk is geared towards both practitioners and developers and will provide a deeper understanding of priorities, directions and plans for MLlib.",
+		"long-abstract": "This talk discusses the trajectory of MLlib, the Machine Learning (ML) library for Apache Spark. We will review the history of the project, including major trends and efforts leading up to today. These discussions will provide perspective as we delve into ongoing and future efforts within the community. This talk is geared towards both practitioners and developers and will provide a deeper understanding of priorities, directions and plans for MLlib.\n\nSince the original MLlib project was merged into Apache Spark, some of the most significant efforts have been in expanding algorithmic coverage, adding multiple language APIs, supporting ML Pipelines, improving DataFrame integration, and providing model persistence. At an even higher level, the project has evolved from building a standard ML library to supporting complex workflows and production requirements.\n\nThis momentum continues. We will discuss some of the major ongoing and future efforts in Apache Spark based on discussions, planning and development amongst the MLlib community. We (the community) aim to provide pluggable and extensible APIs usable by both practitioners and ML library developers. To take advantage of Projects Tungsten and Catalyst, we are exploring DataFrame-based implementations of ML algorithms for better scaling and performance. Finally, we are making continuous improvements to core algorithms in performance, functionality, and robustness. We will augment this discussion with statistics from project activity.",
+		"starts-at": "2017-06-06T14:00:00-07:00",
+		"ends-at": "2017-06-06T14:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 17,
+			"long-biography": "",
+			"name": "Joseph Bradley",
+			"organisation": "Databricks",
+			"photo-url": "/images/speakers/joseph_bradley.jpg",
+			"short-biography": "Joseph Bradley is a Spark Committer working on MLlib at Databricks. Previously, he was a postdoc at UC Berkeley after receiving his Ph.D. in Machine Learning from Carnegie Mellon U. in 2013. His research included probabilistic graphical models, parallel sparse regression, and aggregation mechanisms for peer grading in MOOCs.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/joseph_bradley.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1018,
+		"title": "Tricks of the Trade to be an Apache Spark Rock Star",
+		"subtitle": null,
+		"short-abstract": "It is one thing to write an Apache Spark application that gets you to an answer. It’s another thing to know you used all the tricks in the book to make you run, run as fast as possible. This session will focus on those tricks.",
+		"long-abstract": "It is one thing to write an Apache Spark application that gets you to an answer. It’s another thing to know you used all the tricks in the book to make you run, run as fast as possible. This session will focus on those tricks.\n\nDiscover patterns and approaches that may not be apparent at first glance, but that can be game-changing when applied to your use cases. You’ll learn about nested Types, multi threading, skew, reducing, cartesian joins and fun stuff like that.hreading, skew, reducing, cartesian joins, and fun stuff like that.",
+		"starts-at": "2017-06-06T15:20:00-07:00",
+		"ends-at": "2017-06-06T15:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 18,
+			"long-biography": "",
+			"name": "Ted Malaska",
+			"organisation": "Blizzard Inc.",
+			"photo-url": "",
+			"short-biography": "Ted is working on the Battle.net team at Blizzard, helping support great titles like World of Warcraft, Overwatch, HearthStone, and much more. Previously, he was a Principal Solutions Architect at Cloudera, helping clients be successful with Hadoop and the Hadoop ecosystem. Previously, he was a Lead Architect at the Financial Industry Regulatory Authority (FINRA). He has also contributed code to Apache Flume, Apache Avro, Apache Yarn, Apache HDFS, Apache Spark, Apache Sqoop, and many more. Ted is also a co-author or O’Reilly “Hadoop Application Architectures” and a frequent speaker at many conferences, and a frequent blogger on data architectures.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1019,
+		"title": "Productive use of the Apache Spark Prompt",
+		"subtitle": null,
+		"short-abstract": "Effective programmers work in tight loops: making a small code edit, observing its effect on their system, and repeating. When your data is too big to read and your system isn’t local, println() won’t work. Fortunately, the Spark DataFrame and Dataset APIs have your back.",
+		"long-abstract": "Effective programmers work in tight loops: making a small code edit, observing its effect on their system, and repeating. When your data is too big to read and your system isn’t local, println() won’t work. Fortunately, the Spark DataFrame and Dataset APIs have your back. Attendees will leave with better tools for exploring large datasets and debugging distributed code with Spark, and a better mental model of distributed programming at scale.",
+		"starts-at": "2017-06-07T11:40:00-07:00",
+		"ends-at": "2017-06-07T12:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 19,
+			"long-biography": "",
+			"name": "Sam Penrose",
+			"organisation": "Mozilla",
+			"photo-url": "/images/speakers/sam_penrose.jpg",
+			"short-biography": "Sam Penrose loves how working with data at scale for Mozilla brings out the power and beauty of mathematics. Previously he helped Industrial Light and Magic bring the power and beauty of giant robots out to movie screens everywhere.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/sam_penrose.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1020,
+		"title": "Improving Apache Spark with S3",
+		"subtitle": null,
+		"short-abstract": "Netflix’s Big Data Platform team manages data warehouse in Amazon S3 with over 60 petabytes of data and writes hundreds of terabytes of data every day. At this scale, output committers that create extra copies or can’t handle task failures are no longer practical. This talk will explain the problems that are caused by the available committers when writing to S3, and show how Netflix solved the committer problem.",
+		"long-abstract": "Netflix’s Big Data Platform team manages data warehouse in Amazon S3 with over 60 petabytes of data and writes hundreds of terabytes of data every day. At this scale, output committers that create extra copies or can’t handle task failures are no longer practical. This talk will explain the problems that are caused by the available committers when writing to S3, and show how Netflix solved the committer problem.\n\nIn this session, you’ll learn:\n– Some background about Spark at Netflix\n– About output committers, and how both Spark and Hadoop handle failures\n– How HDFS and S3 differ, and why HDFS committers don’t work well\n– A new output committer that uses the S3 multi-part upload API\n– How you can use this new committer in your Spark applications to avoid duplicating data",
+		"starts-at": "2017-06-07T14:00:00-07:00",
+		"ends-at": "2017-06-07T14:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#37474F",
+			"id": 457,
+			"name": "Developer"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 20,
+			"long-biography": "",
+			"name": "Ryan Blue",
+			"organisation": "Netflix",
+			"photo-url": "/images/speakers/ryan_blue.jpg",
+			"short-biography": "Ryan Blue works on open source projects, including Spark, Avro, and Parquet, at Netflix.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/ryan_blue.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1021,
+		"title": "Spark Compute as a Service at Paypal",
+		"subtitle": null,
+		"short-abstract": "Apache Spark is a gift to the big data community, which adds tons of new features on every release. However, it’s difficult to manage petabyte-scale Hadoop clusters with hundreds of edge nodes, multiple Spark releases and demonstrate operational efficiencies and standardization.",
+		"long-abstract": "Apache Spark is a gift to the big data community, which adds tons of new features on every release. However, it’s difficult to manage petabyte-scale Hadoop clusters with hundreds of edge nodes, multiple Spark releases and demonstrate operational efficiencies and standardization. In order to address these challenges, Paypal has developed and deployed a REST0based Spark platform: Spark Compute as a Service (SCaaS),which provides improved application development, execution, logging, security, workload management and tuning.\n\nThis session will walk through the top challenges faced by PayPal administrators, developers and operations and describe how Paypal’s SCaaS platform overcomes them by leveraging open source tools and technologies, like Livy, Jupyter, SparkMagic, Zeppelin, SQL Tools, Kafka and Elastic. You’ll also hear about the improvements PayPal has added, which enable it to run greater than 10,000 Spark applications in production effectively.",
+		"starts-at": "2017-06-06T11:00:00-07:00",
+		"ends-at": "2017-06-06T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#6A1B9A",
+			"id": 458,
+			"name": "Enterprise"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 16,
+			"name": "Room 2016"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 21,
+			"long-biography": "",
+			"name": "Prabhu Kasinathan",
+			"organisation": "Paypal",
+			"photo-url": "/images/speakers/prabhu_kasinathan.jpg",
+			"short-biography": "Prabhu Kasinathan is the chief data engineer in Big Data Platform at Paypal with 5+ years of big data experience. He is creating APIs, tools and services for Spark platform to support multi-tenancy and large scale computation-intensive applications. He is an expert in building data warehousing solutions on Hadoop and Teradata platform with 11+ years of data experience.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/prabhu_kasinathan.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1022,
+		"title": "Scaling Data Science Capabilities with Apache Spark at Stitch Fix",
+		"subtitle": null,
+		"short-abstract": "At Stitch Fix, data scientists work on a variety of applications, including style recommendation systems, natural language processing, demand modeling and forecasting, and inventory analysis and recommendations. They’ve used Apache Spark as a crucial part of the infrastructure to support these diverse capabilities, running a large number of varying-sized jobs, typically 500-1,000 separate jobs each day – and often more.",
+		"long-abstract": "At Stitch Fix, data scientists work on a variety of applications, including style recommendation systems, natural language processing, demand modeling and forecasting, and inventory analysis and recommendations. They’ve used Apache Spark as a crucial part of the infrastructure to support these diverse capabilities, running a large number of varying-sized jobs, typically 500-1,000 separate jobs each day – and often more.\n\nTheir scaling problems are around capabilities and handling many simultaneous jobs, rather than raw data size. They have a large team of around 80 data scientists who own their pipelines from start to finish; there is no “ETL engineering team” that takes over. As a result, Stitch Fix has developed a self-service approach with their infrastructure to make it easy for the team to submit and track jobs, and they’ve grown an internal community of Spark users to help each other get started with the use of Spark.\n\nIn this session, you’ll learn about Stitch Fix’s approach to using and managing Spark, including their infrastructure, execution service and other supporting tools. You’ll also hear about the types of capabilities they support with Spark, how the team transitioned to using Spark, and lessons learned along the way. Stitch Fix’s infrastructure utilizes many services from Amazon AWS, tools from Netflix OSS, as well as several home-grown applications.",
+		"starts-at": "2017-06-06T14:40:00-07:00",
+		"ends-at": "2017-06-06T15:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#6A1B9A",
+			"id": 458,
+			"name": "Enterprise"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 16,
+			"name": "Room 2016"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 22,
+			"long-biography": "",
+			"name": "Derek Bennet",
+			"organisation": "Stitch Fix",
+			"photo-url": "/images/speakers/derek_bennet.jpg",
+			"short-biography": "Derek Bennett is the lead for the Platform Infrastructure team in the Algorithms group at Stitch Fix. He and his team develop and support our Spark capabilities, event logging infrastructure using Amazon Kinesis and Apache Kafka, along with associated tools and applications to help make data available and useable. Derek holds a Ph.D. in Operations Research from UC Berkeley.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/derek_bennet.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1023,
+		"title": "Transforming B2B Sales with Spark-Powered Sales Intelligence",
+		"subtitle": null,
+		"short-abstract": "B2B sales intelligence has become an integral part of LinkedIn’s business to help companies optimize resource allocation and design effective sales and marketing strategies. This new trend of data-driven approaches has “sparked” a new wave of AI and ML needs in companies large and small. Given the tremendous complexity that arises from the multitude of business needs across different verticals and product lines, Apache Spark, with its rich machine learning libraries, scalable data processing engine and developer-friendly APIs, has been proven to be a great fit for delivering such intelligence at scale.",
+		"long-abstract": "B2B sales intelligence has become an integral part of LinkedIn’s business to help companies optimize resource allocation and design effective sales and marketing strategies. This new trend of data-driven approaches has “sparked” a new wave of AI and ML needs in companies large and small. Given the tremendous complexity that arises from the multitude of business needs across different verticals and product lines, Apache Spark, with its rich machine learning libraries, scalable data processing engine and developer-friendly APIs, has been proven to be a great fit for delivering such intelligence at scale.\n\nSee how Linkedin is utilizing Spark for building sales intelligence products. This session will introduce a comprehensive B2B intelligence system built on top of various open source stacks. The system puts advanced data science to work in a dynamic and complex scenario, in an easily controllable and interpretable way. Balancing flexibility and complexity, the system can deal with various problems in a unified manner and yield actionable insights to empower successful business. You will also learn about some impactful Spark-ML powered applications such as prospect prediction and prioritization, churn prediction, model interpretation, as well as challenges and lessons learned at LinkedIn while building such platform.",
+		"starts-at": "2017-06-06T15:20:00-07:00",
+		"ends-at": "2017-06-06T15:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#6A1B9A",
+			"id": 458,
+			"name": "Enterprise"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 16,
+			"name": "Room 2016"
+		},
+		"signup-url": "",
+		"speakers": [{
+				"city": "",
+				"heard-from": "",
+				"icon-image-url": "",
+				"id": 23,
+				"long-biography": "",
+				"name": "Songtao Guo",
+				"organisation": "LinkedIn",
+				"photo-url": "/images/speakers/soongtao_guo.jpg",
+				"short-biography": "Songtao Guo is a Principal Data Scientist and tech lead of Data Mining team at Linkedin where he leads many of data driven products and analytics systems. His work involves building large-scale knowledge base, inventing data mining platforms to scale business analytics and partnering with product, sales, and marketing to deliver impactful solutions. Before joining LinkedIn, Songtao was a senior researcher at AT&T interactive, focusing on improving data quality and search relevancy for local business search. He holds a PhD in computer science from University of North Carolina at Charlotte.",
+				"small-image-url": "",
+				"speaking-experience": "",
+				"sponsorship-required": "",
+				"thumbnail-image-url": "/images/speakers/soongtao_guo.jpg"
+			},
+			{
+				"city": "",
+				"heard-from": "",
+				"icon-image-url": "",
+				"id": 24,
+				"long-biography": "",
+				"name": "Wei Di",
+				"organisation": "LinkedIn",
+				"photo-url": "/images/speakers/wei_di.jpg",
+				"short-biography": "Wei Di is currently the staff member in Business Analytic Data mining team. She is passionate about creating smart and scalable solutions that can impact millions of individuals and empower successful business. She has wide interests covering artificial intelligence, machine learning and computer vision. She was previously associated with eBay Human Language Technology and eBay Research Labs, with focus on large scale image understanding and joint learning from visual and text information. Prior to that, she was with Ancestry.com working in the areas of record linkage and search relevance. She received her PhD from Purdue University in 2011.",
+				"small-image-url": "",
+				"speaking-experience": "",
+				"sponsorship-required": "",
+				"thumbnail-image-url": "/images/speakers/wei_di.jpg"
+			}
+		],
+		"state": "accepted"
+	},
+	{
+		"id": 1024,
+		"title": "Archiving, E-Discovery, and Supervison with Spark and Hadoop",
+		"subtitle": null,
+		"short-abstract": "Today, there are several compliance use cases ‒ archiving, e-discovery, supervision and surveillance, to name a few\n‒ that appear naturally suited as Hadoop workloads, but haven’t seen wide adoption.",
+		"long-abstract": "Today, there are several compliance use cases ‒ archiving, e-discovery, supervision and surveillance, to name a few\n‒ that appear naturally suited as Hadoop workloads, but haven’t seen wide adoption. In this session, you’ll learn about common limitations, how Apache Spark helps and some new blueprints for modernizing this architecture and disrupt existing solutions. Additionally, we’ll review the rising role of Apache Spark in this ecosystem, leveraging machine learning and advanced analytics in a space that has traditionally been restricted to fairly rote reporting.",
+		"starts-at": "2017-06-07T11:30:00-07:00",
+		"ends-at": "2017-06-07T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#6A1B9A",
+			"id": 458,
+			"name": "Enterprise"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 16,
+			"name": "Room 2016"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 25,
+			"long-biography": "",
+			"name": "Jordan Volz",
+			"organisation": "Cloudera",
+			"photo-url": "/images/speakers/jordon_volz.jpg",
+			"short-biography": "Jordan Volz is a Systems Engineer at Cloudera. He helps clients design and implement big data solutions using Cloudera’s Distribution of Hadoop, across a variety of industry verticals.\n\nPreviously, he has worked as a consultant for HP Autonomy delivering compliance archiving, e-Discovery, and electronic surveillance solutions to regulated financial services companies, and as a developer at Epic Systems building HIPPA-compliant EMR software.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/jordon_volz.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1025,
+		"title": "Stream all things-patterns of Modern Data Integration",
+		"subtitle": null,
+		"short-abstract": "Data integration is a really difficult problem. We know this because 80% of the time in every project is spent getting the data you want the way you want it. We know this because this problem remains challenging despite 40 years of attempts to solve it. All we want is a service that will be reliable, handle all kinds of data and integrate with all kinds of systems, be easy to manage and scale as our systems grow. Oh, and it should be super low latency too. Is it too much to ask?",
+		"long-abstract": "Data integration is a really difficult problem. We know this because 80% of the time in every project is spent getting the data you want the way you want it. We know this because this problem remains challenging despite 40 years of attempts to solve it. All we want is a service that will be reliable, handle all kinds of data and integrate with all kinds of systems, be easy to manage and scale as our systems grow. Oh, and it should be super low latency too. Is it too much to ask?\n\nIn this presentation, we’ll discuss the basic challenges of data integration and introduce few design and architecture patterns that are used to tackle these challenges. We will then explore how these patterns can be implemented using Apache Kafka. Difficult problems are difficult and we offer no silver bullets, but we will share pragmatic solutions that helped many organizations build fast, scalable and manageable data pipelines.",
+		"starts-at": "2017-06-07T17:00:00-07:00",
+		"ends-at": "2017-06-07T17:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#6A1B9A",
+			"id": 458,
+			"name": "Enterprise"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 16,
+			"name": "Room 2016"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 26,
+			"long-biography": "",
+			"name": "Gwen Shapira",
+			"organisation": "Confluent",
+			"photo-url": "/images/speakers/gwen_shapira.jpg",
+			"short-biography": "Gwen is a product manager at Confluent. She has 15 years of experience working with code and customers to build scalable data architectures, integrating relational and big data technologies. Gwen is the author of “Kafka – The Definitive Guide” and “Hadoop Application Architectures”, and a frequent presenter at industry conferences. Gwen is a PMC member on the Apache Kafka project and committer on Apache Sqoop. When Gwen isn’t building data pipelines or thinking up new features, you can find her pedaling on her bike exploring the roads and trails of California, and beyond.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/gwen_shapira.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1026,
+		"title": "SSR: Structured Streaming on R for Machine Learning",
+		"subtitle": null,
+		"short-abstract": "Stepping beyond ETL in batches, large enterprises are looking at ways to generate more up-to-date insights. As we step into the age of Continuous Application, this session will explore the ever more popular Structure Streaming API in Apache Spark, its application to R, and building examples of machine learning use cases.",
+		"long-abstract": "Stepping beyond ETL in batches, large enterprises are looking at ways to generate more up-to-date insights. As we step into the age of Continuous Application, this session will explore the ever more popular Structure Streaming API in Apache Spark, its application to R, and building examples of machine learning use cases.\n\nStarting with an introduction to the high-level concepts, the session will dive into the core of the execution plan internals and examine how SparkR extends the existing system to add the streaming capability. Learn how to build various data science applications on data streams integrating with R packages to leverage the rich R ecosystem of 10k+ packages.",
+		"starts-at": "2017-06-06T11:00:00-07:00",
+		"ends-at": "2017-06-06T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#00695C",
+			"id": 459,
+			"name": "Streaming"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 20,
+			"name": "Room 2020"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 27,
+			"long-biography": "",
+			"name": "Felix Cheung",
+			"organisation": "Microsoft",
+			"photo-url": "/images/speakers/felix_cheung.jpg",
+			"short-biography": "Felix Cheung is a Committer of Apache Spark and a PMC/Committer of Apache Zeppelin. He has been active in the Big Data space for 3+ years, he is a co-organizer of the Seattle Spark Meetup, presented several times and he was a teaching assistant to the very popular edx Introduction to Big Data with Apache Spark, and Scalable Machine Learning MOOCs in the summer of 2015.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/felix_cheung.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1027,
+		"title": "Structured-Streaming-as-a-Service with Kafka, Yarn and Tooling",
+		"subtitle": null,
+		"short-abstract": "Since mid-2016, Spark-as-a-Service has been available to researchers in Sweden from the Rise SICS ICE Data Center at www.hops.site. In this session, Dowling will discuss the challenges in building multi-tenant Spark structured streaming applications on YARN that are metered and easy-to-debug. The platform, called Hopsworks, is in an entirely UI-driven environment built with only open-source software. Learn how they use the ELK stack (Elasticsearch, Logstash and Kibana) for logging and debugging running Spark streaming applications; how they use Grafana and InfluxDB for monitoring Spark streaming applications; and, finally, how Apache Zeppelin can provide interactive visualizations and charts to end-users.",
+		"long-abstract": "Since mid-2016, Spark-as-a-Service has been available to researchers in Sweden from the Rise SICS ICE Data Center at www.hops.site. In this session, Dowling will discuss the challenges in building multi-tenant Spark structured streaming applications on YARN that are metered and easy-to-debug. The platform, called Hopsworks, is in an entirely UI-driven environment built with only open-source software. Learn how they use the ELK stack (Elasticsearch, Logstash and Kibana) for logging and debugging running Spark streaming applications; how they use Grafana and InfluxDB for monitoring Spark streaming applications; and, finally, how Apache Zeppelin can provide interactive visualizations and charts to end-users.\n\nThis session will also show how Spark applications are run within a ‘project’ on a YARN cluster with the novel property that Spark applications are metered and charged to projects. Projects are securely isolated from each other and include support for project-specific Kafka topics. That is, Kafka topics are protected from access by users that are not members of the project. In addition, hear about the experiences of their users (over 150 users as of early 2017): how they manage their Kafka topics and quotas, patterns for how users share topics between projects, and the novel solutions for helping researchers debug and optimize Spark applications.hear about the experiences of their users (over 150 users as of early 2017): how they manage their Kafka topics and quotas, patterns for how users share topics between projects, and the novel solutions for helping researchers debug and optimize Spark applications.afka topics are protected from access by users that are not members of the project. We will also discuss the experiences of our users (over 150 users as of early 2017): how they manage their Kafka topics and quotas, patterns for how users share topics between projects, and our novel solutions for helping researchers debug and optimize Spark applications.",
+		"starts-at": "2017-06-06T11:40:00-07:00",
+		"ends-at": "2017-06-06T12:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#00695C",
+			"id": 459,
+			"name": "Streaming"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 20,
+			"name": "Room 2020"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 28,
+			"long-biography": "",
+			"name": "Jim Dowling",
+			"organisation": "KTH Royal Institute of Technology",
+			"photo-url": "/images/speakers/jim_dowling.jpg",
+			"short-biography": "Jim Dowling is an Associate Professor at the School of Information and Communications Technology in the Department of Software and Computer Systems at KTH Royal Institute of Technology as well as a Senior Researcher at SICS – Swedish ICT. He received his Ph.D. in Distributed Systems from Trinity College Dublin (2005) and worked at MySQL AB (2005-2007). He is a distributed systems researcher and his research interests are in the area of large-scale distributed computer systems. He is lead architect of Hadoop Open Platform-as-a-Service (www.hops.io), a next generation distribution of Hadoop for Humans.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/jim_dowling.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1028,
+		"title": "An Online Spark Pipeline: Semi Supervised Learning and Automatic Retraining with Spark Streaming",
+		"subtitle": null,
+		"short-abstract": "Real-time/online machine learning is an integral piece in the machine learning landscape, particularly in regard to unsupervised learning. Areas such as focused advertising, stock price prediction, recommendation engines, network evolution and IoT streams in smart cities and smart homes are increasing in demand and scale. Continuously-updating models with efficient update methodologies, accurate labeling, feature extraction, and modularity for mixed models are integral to maintaining scalability, precision, and accuracy in high demand scenarios.",
+		"long-abstract": "Real-time/online machine learning is an integral piece in the machine learning landscape, particularly in regard to unsupervised learning. Areas such as focused advertising, stock price prediction, recommendation engines, network evolution and IoT streams in smart cities and smart homes are increasing in demand and scale. Continuously-updating models with efficient update methodologies, accurate labeling, feature extraction, and modularity for mixed models are integral to maintaining scalability, precision, and accuracy in high demand scenarios.\n\nThis session explores a real-time/online learning algorithm and implementation using Spark Streaming in a hybrid batch/ semi-supervised setting. It presents an easy-to-use, highly scalable architecture with advanced customization and performance optimization. Within this framework, we will examine some of the key methodologies for implementing the algorithm, including partitioning and aggregation schemes, feature extraction, model evaluation and correction over time, and our approaches to minimizing loss and improving convergence. The result is a simple, accurate pipeline that can be easily adapted and scaled to a variety of use cases.\n\nThe performance of the algorithm will be evaluated comparatively against existing implementations in both linear and logistic prediction. The session will also cover real-time uses cases of the streaming pipeline using real time-series data and present strategies for optimization and implementation to improve both accuracy and efficiency in a semi-supervised setting.",
+		"starts-at": "2017-06-06T15:20:00-07:00",
+		"ends-at": "2017-06-06T15:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#00695C",
+			"id": 459,
+			"name": "Streaming"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 20,
+			"name": "Room 2020"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 29,
+			"long-biography": "",
+			"name": "J White Bear",
+			"organisation": "IBM",
+			"photo-url": "",
+			"short-biography": "University of Michigan—Computer Science\nDatabases, Machine Learning/Computational Biology, Cryptography\n\nUniversity of California San Francisco—Computational Biology/Bioinformatics\nMachine Learning/Multi Objective Optimization/Statistical Mechanics for Protein-Protein Interactions\n\nMcGill University\nMachine Learning/Multi-objective Optimization for Path Planning/ Cryptography",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1029,
+		"title": "Challenging Web-Scale Graph Analytics with Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Graph analytics has a wide range of applications, from information propagation and network flow optimization to fraud and anomaly detection. The rise of social networks and the Internet of Things has given us complex web-scale graphs with billions of vertices and edges. However, in order to extract the hidden gems within those graphs, you need tools to analyze the graphs easily and efficiently.",
+		"long-abstract": "Graph analytics has a wide range of applications, from information propagation and network flow optimization to fraud and anomaly detection. The rise of social networks and the Internet of Things has given us complex web-scale graphs with billions of vertices and edges. However, in order to extract the hidden gems within those graphs, you need tools to analyze the graphs easily and efficiently.\n\nAt Spark Summit 2016, Databricks introduced GraphFrames, which implemented graph queries and pattern matching on top of Spark SQL to simplify graph analytics. In this talk, you’ll learn about work that has made graph algorithms in GraphFrames faster and more scalable. For example, new implementations like connected components have received algorithm improvements based on recent research, as well as performance improvements from Spark DataFrames. Discover lessons learned from scaling the implementation from millions to billions of nodes; compare its performance with other popular graph libraries; and hear about real-world applications.",
+		"starts-at": "2017-06-06T11:00:00-07:00",
+		"ends-at": "2017-06-06T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#4527A0",
+			"id": 460,
+			"name": "Machine Leearning"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 22,
+			"name": "Room 2022"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 30,
+			"long-biography": "",
+			"name": "Xiangrui Meng",
+			"organisation": "Databricks",
+			"photo-url": "/images/speakers/xiangrui_meng.jpg",
+			"short-biography": "Xiangrui Meng is an Apache Spark PMC member and a software engineer at Databricks. His main interests center around developing and implementing scalable algorithms for scientific applications. He has been actively involved in the development and maintenance of Spark MLlib since he joined Databricks. Before Databricks, he worked as an applied research engineer at LinkedIn, where he was the main developer of an offline machine learning framework in Hadoop MapReduce. His Ph.D. work at Stanford is on randomized algorithms for large-scale linear regression problems.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/xiangrui_meng.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1030,
+		"title": "Random Walks on Large Scale Graphs with Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Random Walks on graphs is a useful technique in machine learning, with applications in personalized PageRank, representational learning and others. This session will describe a novel algorithm for enumerating walks on large-scale graphs that benefits from the several unique abilities of Apache Spark.",
+		"long-abstract": "Random Walks on graphs is a useful technique in machine learning, with applications in personalized PageRank, representational learning and others. This session will describe a novel algorithm for enumerating walks on large-scale graphs that benefits from the several unique abilities of Apache Spark.\n\nThe algorithm generates a recursive branching DAG of stages that separates out the “closed” and “open” walks. Spark’s shuffle file management system is ingeniously used to accumulate the walks while the computation is progressing. In-memory caching over multi-core executors enables moving the walks several “steps” forward before shuffling to the next stage.\n\nSee performance benchmarks, and hear about LinkedIn’s experience with Spark in production clusters. The session will conclude with an observation of how Spark’s unique and powerful construct opens new models of computation, not possible with state-of-the-art, for developing high-performant and scalable algorithms in data science and machine learning.",
+		"starts-at": "2017-06-06T12:20:00-07:00",
+		"ends-at": "2017-06-06T12:50:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#4527A0",
+			"id": 460,
+			"name": "Machine Leearning"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 22,
+			"name": "Room 2022"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 31,
+			"long-biography": "",
+			"name": "Min Shen",
+			"organisation": "LinkedIn",
+			"photo-url": "",
+			"short-biography": "Min Shen is an engineer on LinkedIn’s Hadoop infrastructure development team, where he builds services and tools to tackle scaling challenges in operating large-scale multi-tenancy Hadoop deployment. Recently, he has been helping with creating tools to support operating Spark at scale as well as developing and running Spark jobs easily at LinkedIn.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": ""
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1031,
+		"title": "Fuzzy Matching on Apache Spark",
+		"subtitle": null,
+		"short-abstract": "Data collection methods in the real world are rarely a static process. Over time, the information collected by companies, researchers and data scientists can change in order to gain more insights or improve the quality of the information. Changing the data collection process presents a challenge for longitudinal data that requires aligning the new data with existing methods.",
+		"long-abstract": "Data collection methods in the real world are rarely a static process. Over time, the information collected by companies, researchers and data scientists can change in order to gain more insights or improve the quality of the information. Changing the data collection process presents a challenge for longitudinal data that requires aligning the new data with existing methods.\n\nIn the case of surveys, with the introduction of new or modified questions and response choices, the newly collected data must be matched so that the correct fields align with previous periods. This is simple enough with a short questionnaire, but a challenge when there are thousands of variables.\n\nMachine learning techniques are a valuable tool for tackling this challenging problem. In this session, learn how well fuzzy matching algorithms in Spark handle tasks for real world data.",
+		"starts-at": "2017-06-06T14:40:00-07:00",
+		"ends-at": "2017-06-06T15:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#4527A0",
+			"id": 460,
+			"name": "Machine Leearning"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 22,
+			"name": "Room 2022"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 32,
+			"long-biography": "",
+			"name": "Jennifer Shin",
+			"organisation": "8 Path Solutions",
+			"photo-url": "/images/speakers/jennifer_shin.jpg",
+			"short-biography": "Jennifer Shin is the Founder of 8 Path Solutions, a data science, analytics, and technology company and Senior Principal Data Scientist at The Nielsen Company. As an experienced data scientist and management consultant, Jennifer has led complex, large scale, and high profile projects for corporate, public, and private clients, including GE Capital, the Carlyle Group, Fortress Investment Group, and Columbia University.\n\nA recognized thought leader, her expertise has been acknowledged by USA Today,VentureBeat, and Reuters, and in 2015 she was identified by IBM as a Big Data & Analytics Hero. Jennifer is also on the faculty at UC Berkeley.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/jennifer_shin.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1032,
+		"title": "Embracing a Taxonomy of types to simplify Machine Learning",
+		"subtitle": null,
+		"short-abstract": "Salesforce has created a machine learning framework on top of Spark ML that builds personalized models for businesses across a range of applications. Hear how expanding type information about features has allowed them to deal with custom datasets with good results.",
+		"long-abstract": "Salesforce has created a machine learning framework on top of Spark ML that builds personalized models for businesses across a range of applications. Hear how expanding type information about features has allowed them to deal with custom datasets with good results.\n\nBy building a platform that automatically does feature engineering on rich types (e.g. Currency and Percentages rather than Doubles; Phone Numbers and Email Addresses rather than Strings), they have automated much of the work that consumes most data scientists’ time. Learn how you can do the same by building a single model outline based on the application, and then having the framework customize it for each customer.",
+		"starts-at": "2017-06-07T11:00:00-07:00",
+		"ends-at": "2017-06-07T11:30:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#4527A0",
+			"id": 460,
+			"name": "Machine Leearning"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 22,
+			"name": "Room 2022"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 33,
+			"long-biography": "",
+			"name": "Leah McGuire",
+			"organisation": "Salesforce.com",
+			"photo-url": "/images/speakers/leah_mcguire.jpg",
+			"short-biography": "Leah McGuire is a Lead Member of Technical Staff at Salesforce, building platforms to enable the integration of machine learning into Salesforce products. Before joining Salesforce, Leah was a Senior Data Scientist on the data products team at LinkedIn working on personalization, entity resolution, and relevance for a variety of LinkedIn data products. She completed a PhD and a Postdoctoral Fellowship in Computational Neuroscience at the University of California, San Francisco, and at University of California, Berkeley, where she studied the neural encoding and integration of sensory signals.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/leah_mcguire.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1033,
+		"title": "Real-Time Image Recognition with Apache Spark",
+		"subtitle": null,
+		"short-abstract": "The future of computing is visual. With everything from smartphones to Spectacles, we are about to see more digital imagery and associated processing than ever before.",
+		"long-abstract": "The future of computing is visual. With everything from smartphones to Spectacles, we are about to see more digital imagery and associated processing than ever before.\n\nIn conjunction, new computing models are rapidly appearing to help data engineers harness the power of this imagery. Vast resources with cloud platforms, and the sharing of processing algorithms, are moving the industry forward quickly. The models are readily available as well.\n\nThis session will examine the image recognition techniques available with Apache Spark, and how to put those techniques into production. It will further explore algebraic operations on tensors, and how that can assist in large-scale, high-throughput, highly-parallel image recognition. In particular, this session will showcase the use of Spark in conjunction with a high-performance database to operationalize these workflows.",
+		"starts-at": "2017-06-07T14:40:00-07:00",
+		"ends-at": "2017-06-07T15:10:00-07:00",
+		"session-type": {
+			"id": 1,
+			"length": "00.30",
+			"name": "Session of 30 minutes"
+		},
+		"track": {
+			"color": "#4527A0",
+			"id": 460,
+			"name": "Machine Leearning"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Advanced",
+		"microlocation": {
+			"id": 22,
+			"name": "Room 2022"
+		},
+		"signup-url": "",
+		"speakers": [{
+			"city": "",
+			"heard-from": "",
+			"icon-image-url": "",
+			"id": 34,
+			"long-biography": "",
+			"name": "Nikita Shamgunov",
+			"organisation": "MemSQL",
+			"photo-url": "/images/speakers/nikita_shamgunov.jpg",
+			"short-biography": "Nikita Shamgunov co-founded MemSQL and has served as CTO since inception. Prior to co-founding the company, Nikita worked on core infrastructure systems at Facebook. He served as a senior database engineer at Microsoft SQL Server for more than half a decade. Nikita holds a bachelor’s, master’s and doctorate in computer science, has been awarded several patents and was a world medalist in ACM programming contests.",
+			"small-image-url": "",
+			"speaking-experience": "",
+			"sponsorship-required": "",
+			"thumbnail-image-url": "/images/speakers/nikita_shamgunov.jpg"
+		}],
+		"state": "accepted"
+	},
+	{
+		"id": 1034,
+		"title": "Data Science with Apache Spark 2.X",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T09:00:00-07:00",
+		"ends-at": "2017-06-05T12:00:00-07:00",
+		"session-type": {
+			"id": 2,
+			"length": "03.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Intermediate",
+		"microlocation": {
+			"id": 2,
+			"name": "Room 2002"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	},
+	{
+		"id": 1035,
+		"title": "Exploring Wikipedia 2 with Apache Spark 2.X",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T09:00:00-07:00",
+		"ends-at": "2017-06-05T12:00:00-07:00",
+		"session-type": {
+			"id": 2,
+			"length": "03.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 4,
+			"name": "Room 2004"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	},
+	{
+		"id": 1036,
+		"title": "Just Enough Scala for Spark",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T09:00:00-07:00",
+		"ends-at": "2017-06-05T12:00:00-07:00",
+		"session-type": {
+			"id": 2,
+			"length": "03.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 6,
+			"name": "Room 2006"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	},
+	{
+		"id": 1037,
+		"title": "Architecting a Data Platform",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T13:00:00-07:00",
+		"ends-at": "2017-06-05T17:00:00-07:00",
+		"session-type": {
+			"id": 3,
+			"length": "04.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 8,
+			"name": "Room 2008"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	},
+	{
+		"id": 1038,
+		"title": "Apache Spark Intro for Data Engineering",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T13:00:00-07:00",
+		"ends-at": "2017-06-05T17:00:00-07:00",
+		"session-type": {
+			"id": 3,
+			"length": "04.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 10,
+			"name": "Room 2010"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	},
+	{
+		"id": 1039,
+		"title": "Apache Spark Intro for Machine Learning and Data Science",
+		"subtitle": null,
+		"short-abstract": "",
+		"long-abstract": "",
+		"starts-at": "2017-06-05T13:00:00-07:00",
+		"ends-at": "2017-06-05T17:00:00-07:00",
+		"session-type": {
+			"id": 3,
+			"length": "04.00",
+			"name": "Training Session"
+		},
+		"track": {
+			"color": "#558B2F",
+			"id": 461,
+			"name": "Training"
+		},
+		"comments": "",
+		"language": "English",
+		"slides-url": null,
+		"audio-url": null,
+		"video-url": null,
+		"level": "Beginner",
+		"microlocation": {
+			"id": 12,
+			"name": "Room 2012"
+		},
+		"signup-url": "",
+		"speakers": [],
+		"state": "accepted"
+	}
+]

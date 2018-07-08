@@ -1,0 +1,206 @@
+[{
+		"id": 455,
+		"name": "Research",
+		"color": "#2E7D32",
+		"sessions": [{
+				"id": 1001,
+				"title": "Scaling Genetic Data Analysis with Apache Spark"
+			},
+			{
+				"id": 1002,
+				"title": "Lazy Join Optimizations without upfront statistics"
+			},
+			{
+				"id": 1003,
+				"title": "Running Apache Spark on a High-Performance Cluster Using RDMA and NVME Flash"
+			},
+			{
+				"id": 1004,
+				"title": "Speeding up Spark with Data Compression on XEON+FPGA"
+			},
+			{
+				"id": 1005,
+				"title": "Neuro-Symbolic AI for Sentiment Analysis"
+			},
+			{
+				"id": 1006,
+				"title": "Natural Language Processing with CNTK and Apache Spark"
+			},
+			{
+				"id": 1007,
+				"title": "Apache SparkR under the hood: Your SparkR Applications"
+			},
+			{
+				"id": 1008,
+				"title": "Creating Personalized Container Solutions with Container Services"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 456,
+		"name": "Spark Ecosystem",
+		"color": "#283593",
+		"sessions": [{
+				"id": 1009,
+				"title": "Building a unified Data Pipeline with Apache Spark and XGBOOST"
+			},
+			{
+				"id": 1010,
+				"title": "Extending the R API for Spark with SparkR and Microsoft R Server"
+			},
+			{
+				"id": 1011,
+				"title": "More Algorithms and Tools for Genomic Analysis on Apache Spark"
+			},
+			{
+				"id": 1012,
+				"title": "Building a Large Scale Recommendation Engine with Spark and REDIS-ML"
+			},
+			{
+				"id": 1013,
+				"title": "HDFS on Kubernetes-Lessons Learned"
+			},
+			{
+				"id": 1014,
+				"title": "Homologous Apache Spark Clusters using Nomad"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 457,
+		"name": "Developer",
+		"color": "#37474F",
+		"sessions": [{
+				"id": 1015,
+				"title": "A Deep Dive into Spark SQL Catalyst Optimizer"
+			},
+			{
+				"id": 1016,
+				"title": "Hive Bucketing in Apache Spark"
+			},
+			{
+				"id": 1017,
+				"title": "Apache Spark MLLIB'S Past Trajectory and New Directions"
+			},
+			{
+				"id": 1018,
+				"title": "Tricks of the Trade to be an Apache Spark Rock Star"
+			},
+			{
+				"id": 1019,
+				"title": "Productive use of the Apache Spark Prompt"
+			},
+			{
+				"id": 1020,
+				"title": "Improving Apache Spark with S3"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 458,
+		"name": "Enterprise",
+		"color": "#6A1B9A",
+		"sessions": [{
+				"id": 1021,
+				"title": "Spark Compute as a Service at Paypal"
+			},
+			{
+				"id": 1022,
+				"title": "Scaling Data Science Capabilities with Apache Spark at Stitch Fix"
+			},
+			{
+				"id": 1023,
+				"title": "Transforming B2B Sales with Spark-Powered Sales Intelligence"
+			},
+			{
+				"id": 1024,
+				"title": "Archiving, E-Discovery, and Supervison with Spark and Hadoop"
+			},
+			{
+				"id": 1025,
+				"title": "Stream all things-patterns of Modern Data Integration"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 459,
+		"name": "Streaming",
+		"color": "#00695C",
+		"sessions": [{
+				"id": 1026,
+				"title": "SSR: Structured Streaming on R for Machine Learning"
+			},
+			{
+				"id": 1027,
+				"title": "Structured-Streaming-as-a-Service with Kafka, Yarn and Tooling"
+			},
+			{
+				"id": 1028,
+				"title": "An Online Spark Pipeline: Semi Supervised Learning and Automatic Retraining with Spark Streaming"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 460,
+		"name": "Machine Learning",
+		"color": "#4527A0",
+		"sessions": [{
+				"id": 1029,
+				"title": "Challenging Web-Scale Graph Analytics with Apache Spark"
+			},
+			{
+				"id": 1030,
+				"title": "Random Walks on Large Scale Graphs with Apache Spark"
+			},
+			{
+				"id": 1031,
+				"title": "Fuzzy Matching on Apache Spark"
+			},
+			{
+				"id": 1032,
+				"title": "Embracing a Taxonomy of types to simplify Machine Learning"
+			},
+			{
+				"id": 1033,
+				"title": "Real-Time Image Recognition with Apache Spark"
+			}
+		],
+		"font-color": "#FFFFFF"
+	},
+	{
+		"id": 461,
+		"name": "Training",
+		"color": "#558B2F",
+		"sessions": [{
+				"id": 1034,
+				"title": "Data Science with Apache Spark 2.X"
+			},
+			{
+				"id": 1035,
+				"title": "Exploring Wikipedia 2 with Apache Spark 2.X"
+			},
+			{
+				"id": 1036,
+				"title": "Just Enough Scala for Spark"
+			},
+			{
+				"id": 1037,
+				"title": "Architecting a Data Platform"
+			},
+			{
+				"id": 1038,
+				"title": "Apache Spark Intro for Data Engineering"
+			},
+			{
+				"id": 1039,
+				"title": "Apache Spark Intro for Machine Learning and Data Science"
+			}
+		],
+		"font-color": "#FFFFFF"
+	}
+]

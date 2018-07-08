@@ -1,0 +1,67 @@
+{
+	"id": 173,
+	"name": "Spark Summit 2017",
+	"latitude": 37.783103,
+	"longitude": -122.404059,
+	"location-name": "Moscone West Convention Center, 800 Howard Street, Corner of 4th and Howard, San Francisco, CA 94103",
+	"starts-at": "2017-06-05T09:00:00-07:00",
+	"ends-at": "2017-06-07T20:00:00-07:00",
+	"timezone": "US/Pacific",
+	"description": "<p>Apache Spark is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. It was started at UC Berkeley in 2009 and is now developed at the vendor-independent Apache Software Foundation. Since its release, Spark has seen rapid adoption by enterprises across a wide range of industries. Internet powerhouses such as Yahoo, eBay and Netflix have deployed Spark at massive scale, processing multiple petabytes of data on clusters of over 8,000 nodes. Apache Spark has also become the largest open source community in big data, with over 1000 contributors from 250+ organizations.</p>",
+	"original-image-url": "/images/background.jpg",
+	"logo-url": "/images/logo.jpg",
+	"organizer-name": "Apache Spark",
+	"organizer-description": "Apache Spark is a powerful open source processing engine built around speed, ease of use, and sophisticated analytics. It was started at UC Berkeley in 2009 and is now developed at the vendor-independent Apache Software Foundation. Since its release, Spark has seen rapid adoption by enterprises across a wide range of industries. Internet powerhouses such as Yahoo, eBay and Netflix have deployed Spark at massive scale, processing multiple petabytes of data on clusters of over 8,000 nodes. Apache Spark has also become the largest open source community in big data, with over 1000 contributors from 250+ organizations.",
+	"external-event-url": "https://spark-summit.org/2017/",
+	"social-links": [{
+			"id": 1,
+			"link": "https://www.facebook.com/SparkSummit/",
+			"name": "Facebook"
+		},
+		{
+			"id": 122,
+			"link": "https://twitter.com/spark_summit",
+			"name": "Twitter"
+		}
+	],
+	"ticket-url": "https://prevalentdesignevents.com/sparksummit/ss17/",
+	"privacy": "public",
+	"event-type": "Conference",
+	"event-topic": "Data Science",
+	"sub-topic": "Other",
+	"code-of-conduct": "",
+	"event-copyright": {
+		"holder": "",
+		"holder-url": null,
+		"licence": "Public Domain Dedication (CC0)",
+		"licence-url": "https://creativecommons.org/publicdomain/zero/1.0/",
+		"logo-url": "http://i.creativecommons.org/p/zero/1.0/88x31.png",
+		"year": 2017
+	},
+	"speakers-call": null,
+	"email": null,
+	"is-sessions-speakers-enabled": true,
+	"identifier": "559ebc12",
+	"large-image-url": "/images/background-large.png",
+	"licence-details": {
+		"compact-logo-url": "http://i.creativecommons.org/p/zero/1.0/80x15.png",
+		"description": "The event-copyright holder waives his interest in his work and places the work as completely as possible in the public domain so others may freely exploit and use the work without restriction under event-copyright or database law.",
+		"logo-url": "http://i.creativecommons.org/p/zero/1.0/88x31.png",
+		"long-name": "Creative Commons Public Domain Dedication (CC0)",
+		"name": "Public Domain Dedication (CC0)",
+		"url": "https://creativecommons.org/publicdomain/zero/1.0/"
+	},
+	"placeholder-url": "",
+	"schedule-published-on": null,
+	"searchable-location-name": null,
+	"state": "Published",
+	"thumbnail-image-url": "/images/logo.jpg",
+	"version": {
+		"event_ver": 1,
+		"microlocations_ver": 2,
+		"sessions_ver": 3,
+		"speakers_ver": 2,
+		"sponsors_ver": 3,
+		"tracks_ver": 4
+	}
+}

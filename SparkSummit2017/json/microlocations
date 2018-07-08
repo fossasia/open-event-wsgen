@@ -1,0 +1,81 @@
+[{
+		"id": 2,
+		"name": "Room 2002",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 3,
+		"name": "Room 2003",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 4,
+		"name": "Room 2004",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 6,
+		"name": "Room 2006",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 8,
+		"name": "Room 2008",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 10,
+		"name": "Room 2010",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 12,
+		"name": "Room 2012",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 16,
+		"name": "Room 2016",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 20,
+		"name": "Room 2020",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	},
+	{
+		"id": 22,
+		"name": "Room 2022",
+		"floor": 0,
+		"latitude": 37.783103,
+		"longitude": -122.404059,
+		"room": null
+	}
+]
