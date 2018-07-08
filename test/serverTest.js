@@ -466,9 +466,30 @@ describe('generate', function () {
 
     });
 
+    it('should generate the Spark Summit 2017 event', function (done) {
+      let data = {};
+
+      data.body = {
+        "email": 'a@a.com',
+        "theme": 'light',
+        "sessionMode": 'expand',
+        "apiVersion": 'api_v2',
+        "datasource": 'eventapi',
+        "apiendpoint": 'https://raw.githubusercontent.com/fossasia/open-event/master/sample/SparkSummit17',
+        "assetmode": 'download'
+      };
+
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/SparkSummit2017");
+        done();
+      });
+
+    });
+
     it('should copy all the static files', function (done) {
       let staticPath = __dirname + '/../src/backend/overviewSite/';
-      let totalFiles = 16;
+      let totalFiles = 17;
       let counter = 0;
 
       function copyStatic(fileName) {
@@ -506,6 +527,7 @@ describe('generate', function () {
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
       copyStatic('mozilla2016.jpg');
+      copyStatic('SparkSummit17.jpg')
 
     });
 
