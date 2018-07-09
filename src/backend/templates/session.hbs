@@ -257,7 +257,7 @@
       let id = "{{session.session_id}}";
 
       $('#add-to-calendar').click(function() {
-        handleAuthClick('{{session.title}}','{{session.location}}','{{session.calendarStart}}','{{session.calendarEnd}}','{{eventurls.timezone}}','{{session.description}}');
+        main.handleAuthClick('{{session.title}}','{{session.location}}','{{session.calendarStart}}','{{session.calendarEnd}}','{{eventurls.timezone}}','{{session.description}}');
       });
 
       if($('#video-' + id).length === 0) {
@@ -277,7 +277,7 @@
     </script>
     {{#if gcalendar.enabled}}
         <script async defer src="https://apis.google.com/js/api.js"
-                onload="this.onload=function(){};handleClientLoad()"
+                onload="this.onload=function(){};main.handleClientLoad()"
                 onreadystatechange="if (this.readyState === 'complete') this.onload()">
         </script>
     {{/if}}
