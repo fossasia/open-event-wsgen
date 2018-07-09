@@ -306,6 +306,18 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking dynamic link for Rooms and Tracks filter', function (done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+      trackPage.driver.manage().window().maximize();
+      trackPage.checkFilterDynamicLink().then(function (visibleRoomTrackArr) {
+        assert.deepEqual(visibleRoomTrackArr[0], [true, false, true]);
+        assert.deepEqual(visibleRoomTrackArr[1], [true, false, true]);
+        done();
+      }).catch(function (err) {
+        done(err);
+      });
+    });
+
     it('Checking direct link for tracks filter', function(done) {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
       trackPage.checkTrackFilterDirectLink().then(function(tracksArr) {

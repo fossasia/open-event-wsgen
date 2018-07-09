@@ -222,4 +222,13 @@ TrackPage.checkTrackFilterDirectLink = function() {
   });
 };
 
+TrackPage.checkFilterDynamicLink = function() {
+  const self = this;
+  const promiseArr = [];
+
+  promiseArr.push(self.activeRooms());
+  promiseArr.push(self.activeTracks());
+  return Promise.all(promiseArr);
+};
+
 module.exports = TrackPage;
