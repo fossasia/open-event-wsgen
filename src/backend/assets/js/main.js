@@ -133,6 +133,25 @@ $(document).ready(function () {
     }
   };
 
+  const showNoResult = function(filterType , calendarMode) {
+    const filter = allFilter[filterType];
+    var search = false;
+    $('.fossasia-filter').each(function() {
+      if($(this).is(':visible') && $(this).val().length !== 0) {
+        search = true;
+      }
+    });
+    var listFilterLength = $(filter.dateFilter+':visible').length;
+    var calendarFilterLength = $('.room:visible').length;
+    if ((calendarMode && calendarFilterLength == 0) || (!calendarMode && listFilterLength == 0)) {
+      $('#no-results').remove();
+      const message = search ? 'No matching results found.' : 'No result found.';
+      $('.date-list').after("<p style = 'padding-left: 15px; margin-top: 15px; font-weight: bold; color: red' id='no-results'>"+message+"</p>");
+    } else {
+      $('#no-results').remove();
+    }
+  };
+
   const trackRoomFilter = function (filterType, trackFilterMode, roomFilterMode, trackName, roomName, local_storage_events, mode) {
     let filterVal = '';
     const filter = allFilter[filterType];
@@ -186,6 +205,7 @@ $(document).ready(function () {
 
   window.main = {
     trackRoomFilter: trackRoomFilter,
+    showNoResult: showNoResult,
     handleClientLoad: handleClientLoad,
     initClient: initClient,
     handleAuthClick: handleAuthClick,
