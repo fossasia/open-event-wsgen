@@ -33,7 +33,7 @@
           let link = window.location.href;
           let url = link.toString();
           let infoFilter = $('#filterInfo');
-          let currentFilter =   $('#curFilter');
+          let currentFilter =   $('#RoomCurFilter');
           let trackFilterInfo = $('.track-filter-info');
           let roomFilterInfo = $('.room-filter-info');
           let currentTrackFilter = $('#TrackCurFilter');
@@ -57,54 +57,14 @@
             }
           });
 
-          infoFilter.show();
+          roomFilterInfo.show();
           currentFilter.text(roomName);
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
 
-          $('.date-filter').each(function () {
-            var flag = false;
-            $(this).find('.venue-filter').each(function () {
-              var name = $(this).find('.text').text();
-              if (name != roomName) {
-                $(this).hide();
-                return;
-              }
-              $(this).find('.room-filter').each(function () {
-                var id = $(this).attr('id');
-                var elemFlag = false;
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                    $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                    elemFlag = true;
-                    if (mode && temp[id] != true) {
-                      elemFlag = false;
-                    }
-                }
+          if($('.date-filter:visible').length){
+             isTrack = false;
+          }
 
-                if (elemFlag == true) {
-                  flag = true;
-                  $(this).show();
-                }
-                else {
-                  $(this).hide();
-                }
-              });
-
-              if (flag) {
-                $(this).show();
-                $(this).children('.row').hide();
-              } else {
-                $(this).hide();
-              }
-            });
-
-            if (flag) {
-              $(this).show();
-              isTrack = false;
-            } else {
-              $(this).hide();
-            }
-          });
           $('html, body').animate({scrollTop: 0}, 500);
 
           if(isTrack === true){
@@ -122,47 +82,8 @@
             roomFilterInfo.hide();
             currentTrackFilter.text(trackName);
 
-            $('.date-filter').each(function() {
-              var flag = false;
-              $(this).find('.venue-filter').each(function() {
-                var venueFlag = false;
-                $(this).find('.room-filter').each(function() {
-                  var name=$(this).find('.title-inline .blacktext').text();
-                  if(name!=trackName) {
-                    $(this).hide();
-                    return;
-                  }
-                  var id = $(this).attr('id');
-                  var elemFlag = false;
-                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                        elemFlag = true;
-                        if(mode && temp[id] != true) {
-                          elemFlag = false;
-                        }
-                  }
-                  if(elemFlag == true) {
-                    flag = true;
-                    venueFlag = true;
-                    $(this).show();
-                  } else {
-                    $(this).hide();
-                  }
-                });
-                if(venueFlag) {
-                  $(this).show();
-                } else {
-                  $(this).hide();
-                }
-              });
-              if(flag) {
-                $(this).show();
-              } else {
-                $(this).hide();
-              }
-            });
+            main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+
             $('html, body').animate({scrollTop: 0}, 500);
           }
         }
@@ -197,60 +118,7 @@
         $('.fossasia-filter').change(function() {
           var filterVal = $(this).val();
           var temp = JSON.parse(localStorage[eventName]);
-          $('.date-filter').each(function() {
-            var flag = true;
-            $(this).find('.venue-filter').each(function() {
-              var roomVal = $(this).find('.text').text();
-              var flagVenue = true;
-              if(roomFilterMode && (roomVal !== roomName)) {
-                $(this).hide();
-                return;
-              }
-              $(this).find('.room-filter').each(function() {
-              var trackVal=$(this).find('.title-inline .blacktext').text();
-              if(trackFilterMode && (trackVal!=trackName)){
-                $(this).hide();
-                return;
-              }
-                var id = $(this).attr('id');
-                var elemFlag = true;
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                  elemFlag = false;
-                  if(mode && temp[id] !== true) {
-                    elemFlag = true;
-                  }
-                }
-                if(elemFlag === false) {
-                  flagVenue = flag = false;
-                  $(this).show();
-                }
-                else {
-                  $(this).hide();
-                }
-              });
-              if (flagVenue === true) {
-                $(this).hide();
-              } else {
-                $(this).show();
-                var roomHeading = $(this).children('.text');
-
-                if(roomFilterMode) {
-                  roomHeading.hide();
-                } else {
-                  roomHeading.show();
-                }
-              }
-            });
-            if (flag === true) {
-              $(this).hide();
-            } else {
-              $(this).show();
-            }
-          });
-
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
           // show "no results" if search input value matches zero items
           if ($('.date-filter:visible').length == 0) {
             $('#no-results').remove();
@@ -321,7 +189,7 @@
           if (!sidebarDiv.hasClass('in')) {
             sidebarDiv.addClass('in');
           }
-          
+
           roomName = $(this).text().trim();
           roomFilterMode = true;
           trackFilterMode = false;
@@ -338,47 +206,7 @@
           $('.track-filter-info').hide();
           $('#RoomCurFilter').text(roomName);
 
-          $('.date-filter').each(function() {
-            var flag = false;
-            $(this).find('.venue-filter').each(function() {
-              var name = $(this).find('.text').text();
-              if(name != roomName) {
-                $(this).hide();
-                return;
-              }
-              $(this).find('.room-filter').each(function() {
-                var id = $(this).attr('id');
-                var elemFlag = false;
-                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                  elemFlag = true;
-                  if(mode && temp[id] != true) {
-                    elemFlag = false;
-                  }
-                }
-                if(elemFlag == true) {
-                  flag = true;
-                  $(this).show();
-                }
-                else {
-                  $(this).hide();
-                }
-              });
-              if(flag) {
-                $(this).show();
-                $(this).children('.row').hide();
-              } else {
-                $(this).hide();
-              }
-            });
-            if(flag) {
-              $(this).show();
-            } else {
-              $(this).hide();
-            }
-          });
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
           $('html, body').animate({scrollTop: 0}, 500);
         });
 
@@ -397,11 +225,11 @@
           if (!sidebarDiv.hasClass('in')) {
              sidebarDiv.addClass('in');
           }
-          
+
           trackName = $(this).text().trim();
           roomFilterMode = false;
           trackFilterMode = true;
-          
+
           window.location.href = url + '#' + trackName;
 
           $('.fossasia-filter').each(function() {
@@ -413,48 +241,7 @@
           $('.track-filter-info').show();
             $('.room-filter-info').hide();
             $('#TrackCurFilter').text(trackName);
-
-            $('.date-filter').each(function() {
-              var flag = false;
-              $(this).find('.venue-filter').each(function() {
-                var venueFlag = false;
-                $(this).find('.room-filter').each(function() {
-                  var name=$(this).find('.title-inline .blacktext').text();
-                  if(name!=trackName) {
-                    $(this).hide();
-                    return;
-                  }
-                  var id = $(this).attr('id');
-                  var elemFlag = false;
-                  if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
-                      $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
-                        elemFlag = true;
-                        if(mode && temp[id] != true) {
-                          elemFlag = false;
-                        }
-                  }
-                  if(elemFlag == true) {
-                    flag = true;
-                    venueFlag = true;
-                    $(this).show();
-                  } else {
-                    $(this).hide();
-                  }
-                });
-                if(venueFlag) {
-                  $(this).show();
-                } else {
-                  $(this).hide();
-                }
-              });
-              if(flag) {
-                $(this).show();
-              } else {
-                $(this).hide();
-              }
-            });
+            main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
             $('html, body').animate({scrollTop: 0}, 500);
         });
 
