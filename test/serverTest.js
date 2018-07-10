@@ -224,7 +224,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "theme": 'light',
+        "theme": 'dark',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCON17",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -308,7 +308,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "theme": 'light',
+        "theme": 'dark',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/GoogleIO17",
         "datasource": "eventapi",
         "assetmode": "download"
