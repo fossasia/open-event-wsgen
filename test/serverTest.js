@@ -224,7 +224,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "theme": 'light',
+        "theme": 'dark',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCON17",
         "datasource": "eventapi",
         "assetmode": "download"
@@ -246,7 +246,11 @@ describe('generate', function () {
         "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FOSSASIASummit2016",
         "datasource": "eventapi",
-        "assetmode": "download"
+        "assetmode": "download",
+        "gcalendar": {
+                        'id': process.env.gcalendar_id,
+                        'key': process.env.gcalendar_key
+                     }
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
@@ -284,7 +288,11 @@ describe('generate', function () {
         "theme": 'light',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/NextcloudConference2017/",
         "datasource": "eventapi",
-        "assetmode": "download"
+        "assetmode": "download",
+        "gcalendar": {
+                        'id': process.env.gcalendar_id,
+                        'key': process.env.gcalendar_key
+                     }
       };
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
@@ -300,7 +308,7 @@ describe('generate', function () {
       data.body = {
         "email": "a@a.com",
         "name": "Open Event",
-        "theme": 'light',
+        "theme": 'dark',
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/GoogleIO17",
         "datasource": "eventapi",
         "assetmode": "download"

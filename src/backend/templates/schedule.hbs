@@ -348,8 +348,10 @@
                               <div class="pop-speakers">
                                <div class="pop-over row">
                                  <hr>
-                                 <h4 class="text"><strong>Speakers</strong></h4>
-                                 <div id= "calendar-seesion-speakers-list" class="session-speakers-list">
+                                 {{#if speakers_list}}
+                                    <h4 class="text"><strong>Speakers</strong></h4>
+                                 {{/if}}
+                                 <div class="calendar-session-speakers-list">
                                  {{#speakers_list}}
                                    <a href="speakers.html#{{nameIdSlug}}">
                                      <div class="session-speakers-less">
@@ -505,6 +507,7 @@
         });
       });
       let featuresWidth;
+
       $('.schedule-margin').each(function() {
         featuresWidth = $(this).children('.features').width() + 2;
         $(this).css('padding-right', featuresWidth + 'px');
