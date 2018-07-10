@@ -2245,8 +2245,9 @@ a.skip:hover {
   overflow-y: auto;
 }
 
-#calendar-seesion-speakers-list {
+.calendar-session-speakers-list {
   max-height: 350px;
+  overflow-y: auto;
 }
 
 .slides {
