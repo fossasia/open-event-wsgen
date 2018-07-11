@@ -381,7 +381,7 @@ exports.createDistDir = function(req, socket, callback) {
       }
       console.log('================================WRITING\n');
       if (emit) {
-        socket.emit('live.process', {donePercent: 70, status: 'Compiling the HTML pages from templates'});
+        socket.emit('live.process', {donePercent: 65, status: 'Extracting data from the uploaded jsons'});
       }
 
       getJsonData(req.body, function(error, data) {
@@ -397,6 +397,9 @@ exports.createDistDir = function(req, socket, callback) {
 
         logger.addLog('Success', 'Json data extracted', socket);
         logger.addLog('Info', 'Name of the event found from the event json file', socket);
+        if (emit) {
+          socket.emit('live.process', {donePercent: 70, status: 'Compiling the HTML pages from templates'});
+        }
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
         const jsonData = data;
