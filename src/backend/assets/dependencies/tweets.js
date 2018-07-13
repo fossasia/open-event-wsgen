@@ -1,6 +1,7 @@
 var interval_id = null;
 var tweetP = document.getElementById('tweet');
 var dateOfTweet = document.getElementById("dateTweeted");
+var tweetsEl = document.getElementById('tweets');
 var stuff = null;
 
 function interval() {
@@ -16,8 +17,15 @@ var datafetcher = function () {
   if(tweetP === null) {
     return;
   }
+  let config = {
+    "profile": {"screenName": tweetsEl.dataset.query},
+    "showRetweet": true,
+    "customCallback": datahandler,
+    "lang": 'en',
+    "dataOnly": true,
+  };
 
-  loklakFetcher.getTweets({}, datahandler);
+  twitterFetcher.fetch(config);
 };
 
 function datahandler(raw) {
@@ -34,9 +42,8 @@ function parseFunc(){
 
 function nextTweet() {
   tweetNum += 1;
-  var tweetsEl = document.getElementById('tweets');
   //go back to the first tweet if it's greater than the amount of tweets available
-  if(tweetNum == tweetsEl.dataset.count) {
+  if(tweetNum == stuff.length) {
     tweetNum = 0;
   }
   interval();
@@ -56,9 +63,7 @@ function lastTweet() {
 }
 
 function timeSince(date) {
-
   var seconds = Math.floor((new Date() - date) / 1000);
-
   var interval = Math.floor(seconds / 31536000);
 
   if (interval > 1) {
@@ -85,33 +90,19 @@ function timeSince(date) {
 
 function parser(data) {
   try{
-    var parsed = "";
-    var tweet = data.statuses[tweetNum].text;
-    var words = tweet.split(" ");
-    var loklakLinkCount = 0;
-    for (var word in words) {
-      if (words[word].startsWith("@")) {
-        parsed += "<a href='https://twitter.com/" + words[word].slice(1) + "' target='_blank'>" + words[word] + "</a> ";
-      } else if (words[word].startsWith("#")) {
-        parsed += "<a href='https://twitter.com/hashtag/" + words[word].slice(1) + "' target='_blank'>" + words[word] + "</a> ";
-      } else if (words[word].startsWith("http")) {
-        if (words[word].startsWith("http://loklak")) {
-          parsed += "<a href='" + data.statuses[tweetNum].links[loklakLinkCount] + "' target='_blank'>" + data.statuses[tweetNum].links[loklakLinkCount] + "</a> ";
-          loklakLinkCount += 1;
-        } else {
-          parsed += "<a href='" + words[word] + "' target='_blank' style='word-break:break-all'>" + words[word] + "</a> ";
-        }
-      } else {
-        parsed += words[word] + " ";
-      }
+    let tweet = data[tweetNum].tweet;
+    let tweetDate = new Date(data[tweetNum].time);
+
+    tweetP.innerHTML = tweet;
+    if(tweetDate == 'Invalid Date'){
+      let time = data[tweetNum].time;
+
+      dateOfTweet.innerHTML = "Tweeted " + time + " ago";
+    } else{
+      dateOfTweet.innerHTML = "Tweeted " + timeSince(tweetDate) + " ago";
     }
-    tweetP.innerHTML = parsed;
-    var user = data.statuses[tweetNum].user;
-    var tweetDate = new Date(data.statuses[tweetNum].created_at);
-    dateOfTweet.innerHTML = "Tweeted " + timeSince(tweetDate) + " ago";
     tweetP.style.opacity = 1;
     dateOfTweet.style.opacity = 1;
-    //document.getElementById("tweet-info").innerHTML = "Follow  <a href='https://twitter.com/" + user.screen_name + "'>" + "</a>";
   }catch(err){
     tweetP.innerHTML = "No Tweets Available";
     tweetP.style.opacity = 1;

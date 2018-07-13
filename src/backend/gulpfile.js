@@ -38,7 +38,7 @@ exports.minifyJs = function(path, cb) {
   });
 
   gulp.task('eventJs', function() {
-    return gulp.src([dir + 'map.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'popover.js', dir + 'loklak-fetcher.js', dir + 'tweets.js', dir + 'jquery.lazyload.js'])
+    return gulp.src([dir + 'map.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'popover.js', dir + 'tweet-fetcher.js', dir + 'tweets.js', dir + 'jquery.lazyload.js'])
       .pipe(iife({useStrict: false}))
       .pipe(concat('event.min.js'))
       .pipe(babel({presets: ['es2015']}))
