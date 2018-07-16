@@ -1,3 +1,6 @@
+{
+ "name": "OpenTechSummit",
+ "short_name": "OpenTechSummit",
  "icons": [
     {
       "src": "./images/logo.png",

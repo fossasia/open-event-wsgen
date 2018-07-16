@@ -1,3 +1,6 @@
+{
+ "name": "MozillaAllHands2017",
+ "short_name": "MozillaAllHands2017",
  "icons": [
     {
       "src": "./images/logo.png",

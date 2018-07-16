@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en"><head><!-- Global site tag (gtag.js) - Google Analytics --><link rel="preload" as="script" href="./js/jquery.min.js"><link rel="preload" as="script" href="./js/bootstrap.min.js"><link rel="preload" as="script" href="./js/tracks.min.js"><link rel="preload" as="style" href="./css/schedule.css"><link rel="preload" as="style" href="./css/font-awesome.min.css"><link rel="preload" as="style" href="./css/bootstrap.min.css"><link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags --><meta name="description" content="Nextcloud Conference 2018 Schedule"><meta name="author" content=""><title>Nextcloud Conference 2018</title><!-- Bootstrap core CSS --><!-- Latest compiled and minified CSS --><link rel="shortcut icon" href="" type="image/x-icon"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet"><link rel="stylesheet" href="./css/font-awesome.min.css"><link rel="stylesheet" href="./css/bootstrap.min.css"><link rel="stylesheet" href="./css/schedule.css"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--></head><body><a href="#track-list" class="skip">Skip to content</a> <a class="scroll" href="#" id="down-button" data-scroll-direction="0"><i class="fa fa-chevron-up" aria-hidden="true"></i> </a><a id="top"></a><!-- Fixed navbar --><header role="banner" class="navbar-fixed-top navbar-default"><div class="container"><div class="navbar-header navbar-left pull-left"><a class="navbar-brand" style="padding:5px" href="."><img alt="Nextcloud Conference 2018" class="logo logo-dark" src="images/aad2ec77-e10c-4216-b6c2-c10dbae7d8e3.png"></a></div><div class="navbar-header navbar-right pull-right"><span class="pull-right dropdown"><button class="navbar-toggle" type="button" data-toggle="dropdown"><i class="fa fa-lg fa-paper-plane" aria-hidden="true"></i> <span class="caret"></span></button><ul class="dropdown-menu list-menu"><li><a href="https://de-de.facebook.com/Nextclouders/" id="social-icons"><i class="fa fa-lg fa-facebook" aria-hidden="true" title="facebook"></i></a></li><li><a href="https://twitter.com/nextclouders" id="social-icons"><i class="fa fa-lg fa-twitter" aria-hidden="true" title="twitter"></i></a></li></ul></span><span class="pull-right dropdown"><button class="navbar-toggle" type="button" data-toggle="dropdown">Schedule <span class="caret"></span></button><ul class="dropdown-menu list-menu"></ul></span><a id="homelink" href="index.html"><button class="navbar-toggle pull-right homelink"><i class="fa fa-lg fa-home" aria-hidden="true"></i></button></a></div><div class="hidden-lg hidden-md hidden-sm clearfix"></div><div class="side-collapse in"><nav role="navigation" class="navbar-collapse"><div class="search-container"><input id="search-box" type="text" class="search-box fossasia-filter"><label for="search-box"><span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span></label></div><ul class="nav navbar-nav navbar-right"><li class="navlink"><a id="homelink" href="index.html">Home</a></li><li class="pull-left social-icons"><a href="https://de-de.facebook.com/Nextclouders/" id="social-icons"><i class="fa fa-lg fa-facebook" aria-hidden="true" title="facebook"></i></a></li><li class="pull-left social-icons"><a href="https://twitter.com/nextclouders" id="social-icons"><i class="fa fa-lg fa-twitter" aria-hidden="true" title="twitter"></i></a></li></ul></nav><div class="mobile-track-room-list"><div class="mobile-track-room-info"><span style="background-color:#5aabff" class="titlecolor"></span> <span class="track-name">Main Track</span></div></div></div></div></header><div id="session-list" class="main container"><div class="row"><div class="middle col-sm-12"><h2 class="filter-heading track-heading text-center"><span>Tracks</span></h2></div></div><!-- --------------------------------------------------------------
+      search-filter, search-filter-speaker and fossasia-filter
+      These classes are designed for search tab.
+      day-filter and session-filter classes are intended for searching
+      text across the page.
+      --------------------------------------------------------------- --><div class="date-list container"><div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs no-js"><span class="tabs-nav"></span></div><div class="col-md-4 col-sm-12 col-xs-12 navbar-flex"><span class="filter tracks-rooms-filter dropdown dropdown-list"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span></button><ul class="dropdown-menu list-menu"><li class="dropdown-submenu"><a href="#">Tracks List <span class="caret"></span></a><ul class="dropdown-menu dropdown-inner"><li><a href="#" class="track-name"><span style="background-color:#5aabff" class="titlecolor"></span> <span>Main Track</span></a></li></ul></li><li class="dropdown-submenu"><a href="#">Rooms List <span class="caret"></span></a><ul class="dropdown-menu dropdown-inner"></ul></li></ul></span><div class="filter search-filter search-filter-room"><label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label><input class="fossasia-filter" type="text" placeholder="Search"></div><div class="filter show-button-filter"><button class="btn btn-default" id="starred"><i class="fa fa-star" aria-hidden="true"></i></button></div></div></div><div class="container track-filter-info">TYPE: <span id="TrackCurFilter" style="font-weight:700"></span> <a href="#" id="TrackClearFilter">[Clear Filter]</a></div><div class="container room-filter-info">Room: <span id="RoomCurFilter" style="font-weight:700"></span> <a href="#" id="RoomClearFilter">[Clear Filter]</a></div><div id="session-list" class="container"><div class="row"><div id="content-block" class="col-md-9 col-sm-9"><div id="track-list"></div></div><div class="track-room-names col-md-3 col-sm-3 sidebar"><div class="row"><div class="col-md-12 col-sm-12"><h4 class="list-title">Tracks List</h4><div class="track-info"><span style="background-color:#5aabff" class="titlecolor"></span> <span class="track-name">Main Track</span></div></div><div class="col-md-12 col-sm-12 room-name-list"><h4 class="list-title">Rooms List</h4></div></div></div></div></div></div><input id="gcalendar-id" type="hidden" value=""> <input id="gcalendar-key" type="hidden" value=""><div class="footer-container"><footer class="classic"><div class="container"><div class="row ui-sortable"><div id="menuItem" class="col-sm-2 col-md-2 col-xs-12"><ul class="menu"><li><a target="_self" href="index.html#description">About</a></li><li><a target="_self" href="index.html#ticket-button">Tickets</a></li><li><a target="_self" href="CoC.html">Code of Conduct</a></li><li><a class="inner-link back-to-top" href="#top">Back To Top</a></li></ul></div><div id="copyright" class="col-sm-7 col-md-7 col-xs-12"><p><a href="https://creativecommons.org/licenses/by-sa/4.0"><img src="https://licensebuttons.net/l/by-sa/3.0/80x15.png"></a>&nbsp; &copy; 2018 . The website and its contents are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0">Creative Commons Attribution-ShareAlike 4.0 International License. </a>The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.</p></div><div class="contact-details col-sm-3 col-md-3 col-xs-12"><ul class="contact-methods"><li class="address"><i class="fa fa-map-marker"></i><div>&#44;&nbsp;Straße des 17. Juni 136, Berlin, Germany</div></li></ul></div></div><div class="row ui-sortable"><div class="col-sm-10 text-center"><ul class="social-profiles"><li class="pull-left social-icons"><a href="https://de-de.facebook.com/Nextclouders/" id="social-icons"><i class="fa fa-lg fa-facebook" aria-hidden="true" title="facebook"></i></a></li><li class="pull-left social-icons"><a href="https://twitter.com/nextclouders" id="social-icons"><i class="fa fa-lg fa-twitter" aria-hidden="true" title="twitter"></i></a></li></ul></div></div></div></footer></div><script src="./js/jquery.min.js"></script><script src="./js/bootstrap.min.js"></script><script src="./js/sweetalert.min.js"></script><script src="./js/tracks.min.js"></script><script src="./js/main.min.js"></script><script>var eventName = "Nextcloud Conference 2018";
+      var flag = false;
+      var isAdded = false;
+      var mode = false;
+      var trackFilterMode = false;
+      var roomFilterMode = false;
+      var trackName;
+      var roomName;
+      var url = window.location.href;
+      // Mode is true if the page is in starred view.
+
+      $(function () {
+        $("img.lazy").lazyload({
+          threshold: 2000
+        });
+      });
+
+      window.onload = function () {
+
+        window.addEventListener("hashchange", function(){
+          let curUrl = window.location.href;
+          let trackNumber = curUrl.split('#')[1];
+          if(trackNumber !== '' && /^\d+$/.test(trackNumber.substring(0,4))) {
+            let offset = 20;
+            $('html, body').animate({
+              scrollTop: $("#" + trackNumber).offset().top - $(".navbar-fixed-top").height() - offset
+            }, 0);
+            $('#title-' + trackNumber).click();
+          }
+        }, false);
+
+        if(window.location.href.split('#')[1] !== '' && /^\d+$/.test(window.location.href.split('#')[1].substring(0,4))) {
+          $('#title-' + window.location.href.split('#')[1]).click();
+        }
+
+        if(url.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(url.split('#')[1].substring(0,4)))) {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          var isRoom = true;
+          if (!sidebarDiv.hasClass('in'))
+            sidebarDiv.addClass('in');
+
+          trackName = decodeURIComponent(url.toString().split('#')[1]);
+          trackFilterMode = true;
+          roomFilterMode = false;
+
+          $('.fossasia-filter').each(function () {
+            if ($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
+          let trackFilterInfo = $('.track-filter-info');
+
+          trackFilterInfo.show();
+          $('#TrackCurFilter').text(trackName);
+          main.trackRoomFilter('track', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+
+          if ($('.date-filter:visible').length){
+            isRoom = false;
+          }
+
+          $('html, body').animate({scrollTop: 0}, 500);
+
+          if(isRoom == true) {
+            roomName = decodeURIComponent(url.toString().split('#')[1]);
+            trackFilterMode = false;
+            roomFilterMode = true;
+
+            $('.fossasia-filter').each(function () {
+              if ($(this).is(':visible')) {
+                filterVal = $(this).val();
+              }
+            });
+
+            $('.room-filter-info').show();
+            $('#RoomCurFilter').text(roomName);
+            trackFilterInfo.hide();
+            main.trackRoomFilter('track', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+            $('html, body').animate({scrollTop: 0}, 500);
+          }
+        }
+      };
+
+      $(document).ready(function () {
+
+        $('.tracks-rooms-filter > ul > li > a').on("click", function(e){
+          e.preventDefault();
+          $(this).next('.dropdown-inner').toggle();
+          // var spanDisplay = $(this).next('.dropdown-inner').is(':visible') ? 'inline-flex' : 'none';
+          // $(this).find('.caret').css('display', spanDisplay);
+          // $(this).parent().siblings().eq(0).children('a').find('.caret').hide();
+          $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+          e.stopPropagation();
+        });
+
+        $('.session-lin').click(function (e) {
+          e.stopPropagation();
+        });
+
+        $('.session-lin').click(function () {
+          $(this).parent().parent().find("div.social-buttons").toggle();
+          var val = $(this).parent().parent().find('.speakers-inputbox').val();
+          $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#' + val.split('#').pop());
+        });
+
+        $('#RoomClearFilter').click(function() {
+          roomFilterMode = false;
+          display();
+          $('.room-filter-info').hide();
+        });
+
+        $('.room-name').click(function() {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
+          if (!sidebarDiv.hasClass('in'))
+               sidebarDiv.addClass('in');
+
+          roomName = $(this).text().trim();
+          trackFilterMode = false;
+          roomFilterMode = true;
+
+          $('.fossasia-filter').each(function() {
+          if($(this).is(':visible')) {
+             filterVal = $(this).val();
+            }
+          });
+
+          $('.room-filter-info').show();
+          $('#RoomCurFilter').text(roomName);
+          $('.track-filter-info').hide();
+
+          main.trackRoomFilter('track', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+          main.showNoResult('track', 0);
+          $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('#TrackClearFilter').click(function() {
+          trackFilterMode = false;
+          display();
+          $('.track-filter-info').hide();
+        });
+
+        $('.track-name').click(function() {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
+          if (!sidebarDiv.hasClass('in'))
+            sidebarDiv.addClass('in');
+
+          trackName = $(this).text().trim();
+          window.location.href = url + '#' + trackName;
+          trackFilterMode = true;
+          roomFilterMode = false;
+
+          $('.fossasia-filter').each(function() {
+            if($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
+          $('.track-filter-info').show();
+          $('#TrackCurFilter').text(trackName);
+          $('.room-filter-info').hide();
+
+          main.trackRoomFilter('track', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+          main.showNoResult('track', 0);
+          $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('.speakers-inputbox').click(function (e) {
+          e.stopPropagation();
+        });
+
+        $('.fossasia-filter').change(function () {
+          var filterVal = $(this).val();
+          var temp = JSON.parse(localStorage[eventName]);
+          main.trackRoomFilter('track', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+          // show "no results" if search input value matches zero items
+          main.showNoResult('track', 0);
+          return false;
+        }).keyup(function () {
+          $(this).change();
+        });
+
+        $('.bookmark').click(function (event) {
+          var temp = JSON.parse(localStorage[eventName] || '{}');
+          var id = $(this).attr('id').substring(1);
+          flag = true;
+
+          if ($(this).hasClass('starred')) {
+            temp[id] = false;
+            $(this).removeClass('starred');
+            if(mode) $('#' + id).hide();
+          } else {
+            $(this).addClass('starred');
+            temp[id] = true;
+          }
+
+          localStorage[eventName] = JSON.stringify(temp);
+          event.stopPropagation();
+          display();
+        });
+
+        $('#starred').click(function () {
+          mode = !mode;
+          if(!mode) {
+            $(this).css("color", "black");
+            $('#starred').css("background-color","#fff");
+          }
+          else {
+            $(this).css("color", "white");
+            $('#starred').css("background-color","#838282");
+          }
+          display();
+        });
+
+        $('.room-filter').click(function () {
+          var sessionMode = "";
+          var id =  $(this).attr('id');
+          if(sessionMode == 'single') {
+            var curUrl = window.location.href;
+            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
+            window.location.href = newUrl;
+          }
+        });
+
+        function display() {
+          var temp = JSON.parse(localStorage[eventName]);
+
+          $('.date-filter').each(function () {
+            var dateFlag = false;
+            $(this).find('.track-filter').each(function () {
+              var trackFlag = false;
+              var name = $(this).find('.text').text();
+              if(trackFilterMode && name != trackName) {
+                $(this).hide();
+                return;
+              }
+              $(this).find('.room-filter').each(function () {
+                var roomVal = $(this).find('#location').text();
+                if(roomFilterMode && roomVal != roomName) {
+                  $(this).hide();
+                  return;
+                }
+                var elemId = $(this).attr('id');
+                var bookFlag = false, searchFlag = false, elemFlag = false;
+                var filterVal='';
+
+                $('.fossasia-filter').each(function() {
+                  if($(this).is(':visible')) {
+                    filterVal = $(this).val();
+                  }
+                    });
+
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  searchFlag = true;
+                  if (temp[elemId] == true) {
+                    bookFlag = true;
+                    $(this).find('.bookmark').each(function () {
+                      $(this).addClass('starred');
+                    });
+                  }
+                }
+
+                if((mode && searchFlag && bookFlag) || (!mode && searchFlag)) {
+                  elemFlag = trackFlag = dateFlag = true;
+                }
+
+                if (elemFlag) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if (trackFlag) {
+                $(this).show();
+                var trackHeading = $(this).children('.text');
+                if(trackFilterMode) {
+                  trackHeading.hide();
+                } else {
+                  trackHeading.show();
+                }
+              }
+              else {
+                $(this).hide();
+              }
+            });
+            if (dateFlag) {
+              $(this).show();
+            }
+            else {
+              $(this).hide();
+            }
+          });
+
+            var searchTracks= false;
+
+            $('.fossasia-filter').each(function() {
+                if($(this).is(':visible') && $(this).val().length!==0) {
+                    searchTracks= true;
+                }
+            });
+
+            main.showNoResult('track', 0);
+        }
+
+        function initPage() {
+          if(localStorage.hasOwnProperty(eventName) === false) {
+            localStorage[eventName] = '{}';
+          }
+          var temp = JSON.parse(localStorage[eventName]);
+          var elemId;
+          Object.keys(temp).forEach(function(key) {
+            if (temp[key] == true) {
+              elemId = $('#' + key).find('.bookmark').addClass('starred');
+            }
+          });
+        }
+        initPage();
+      });</script></body></html>

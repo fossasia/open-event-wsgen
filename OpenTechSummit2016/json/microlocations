@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1, 
+        "name": "Saal ", 
+        "floor": 0, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 2, 
+        "name": "Hoflounge", 
+        "floor": 0, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 3, 
+        "name": "Raum 4", 
+        "floor": 1, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 4, 
+        "name": "Room 1", 
+        "floor": 1, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 5, 
+        "name": "Galerie ", 
+        "floor": 1, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 6, 
+        "name": "Loft ", 
+        "floor": 2, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 7, 
+        "name": "Room 2 and Room 3", 
+        "floor": 1, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }, 
+    {
+        "id": 8, 
+        "name": "Raum 4", 
+        "floor": 2, 
+        "latitude": null, 
+        "longitude": null, 
+        "room": null
+    }
+]

@@ -1,0 +1,86 @@
+{
+    "id": 1, 
+    "name": "Open Tech Summit 2016", 
+    "latitude": 52.52, 
+    "longitude": 13.405, 
+    "location_name": "Berlin", 
+    "start_time": "2016-05-05T09:00:00+02:00", 
+    "end_time": "2016-05-05T21:00:00+02:00", 
+    "timezone": "Europe/Berlin", 
+    "description": "The OpenTechSummit brings the exciting ideas and creators of the open-Technology community in Berlin.", 
+    "background_image": "http://2016.opentechsummit.net/img/15435769939_82ab5f1580_k.jpg", 
+    "logo": "/images/logo.png", 
+    "organizer_name": "FOSSASIA", 
+    "organizer_description": "Promoting open source ideas and technology throughout the world", 
+    "social_links": [
+        {
+            "id": 1, 
+            "link": "https://twitter.com/opntec", 
+            "name": "Twitter"
+        }, 
+        {
+            "id": 2, 
+            "link": "https://github.com/opentechsummit", 
+            "name": "Github"
+        }, 
+        {
+            "id": 3, 
+            "link": "https://www.facebook.com/OpenTechSummit", 
+            "name": "Facebook"
+        }, 
+        {
+            "id": 4, 
+            "link": "https://www.flickr.com/search/?q=openxlab", 
+            "name": "Flickr"
+        }, 
+        {
+            "id": 5, 
+            "link": "https://plus.google.com/u/0/111141930325574830495", 
+            "name": "Google Plus"
+        }, 
+        {
+            "id": 6, 
+            "link": "https://www.youtube.com/channel/UCJoKp-gG2t7lH5_hiKp95yA", 
+            "name": "YouTube"
+        }, 
+        {
+            "id": 7, 
+            "link": "http://2016.opentechsummit.net", 
+            "name": "External Event URL"
+        }
+    ], 
+    "ticket_url": "http://www.eventnook.com/event/ots16/register", 
+    "privacy": "public", 
+    "type": "Conference", 
+    "topic": "Science & Technology", 
+    "sub_topic": "Other", 
+    "code_of_conduct": "", 
+    "copyright": {
+        "holder": null, 
+        "holder_url": null, 
+        "licence": null, 
+        "licence_url": null, 
+        "logo": null, 
+        "year": null
+    }, 
+    "call_for_papers": {
+        "announcement": "<p>Wanna speak at our prestigious event. Send us a proposal</p>", 
+        "end_date": "2016-05-04T20:30:00+02:00", 
+        "privacy": "public", 
+        "start_date": "2016-05-01T19:30:00+02:00", 
+        "timezone": "Europe/Berlin"
+    }, 
+    "email": "contact@opentechsummit.net", 
+    "has_session_speakers": true, 
+    "schedule_published_on": "2016-05-04T09:00:00+02:00", 
+    "searchable_location_name": null, 
+    "state": "Completed", 
+    "version": {
+        "event_ver": 6, 
+        "microlocations_ver": 8, 
+        "sessions_ver": 111, 
+        "speakers_ver": 77, 
+        "sponsors_ver": 7, 
+        "tracks_ver": 7
+    }
+}

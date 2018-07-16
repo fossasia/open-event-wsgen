@@ -1,0 +1,1884 @@
+[
+    {
+        "id": 11, 
+        "name": "Andreas Andz Müller", 
+        "email": "andreas_andz_mller@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Ayab-Knitting", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 10, 
+                "title": "Maschinenstricken mit Open Source"
+            }
+        ]
+    }, 
+    {
+        "id": 37, 
+        "name": "OpenTechSummit 2016", 
+        "email": "opentechsummit_2016@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Not available", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 37, 
+                "title": "Welcome in Berlin!"
+            }
+        ]
+    }, 
+    {
+        "id": 2, 
+        "name": "Paulaner Paula Pongratz", 
+        "email": "paulaner_paula_pongratz@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/PaulanerPaulaPongratz_2.jpg", 
+        "organisation": "Postapokalyptischer Schmuck", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Paula Pongratz vereine \"wichtige Eigenschaften der Zukunft: Sie ist eigensinnig, kreativ und asozial.\" Schrieb so (mehr oder weniger) eine Münchner Tageszeitung.   Die studierte Grafikerin macht zur Zeit lieber Schmuck und Videokunst. Dabei lässt sie stark ihre Umgebung in ihre Arbeiten einfließen. So entstanden zB die Schmuckserien 'Postapokalyptischer Schmuck', in der sie 'Fundstücke der menschlichen Zivilisation' zu Schmuck verarbeitete oder 'Schmuck aus Straßenkehrmaschinenborsten', welche sie bei ihren Streifzügen durch die Stadt findet.  Als VJ versucht sie, aktuelles Weltgeschehen zu thematisieren – nicht selten kritisch humorvoll kommentierend. Auch mit ihren Videoinstallationen geht sie direkt auf den Raum ein, illustrierend, beschreibend.  Seit 2011 gibt sie Workshops, bei denen Teilnehmende aus selbstgefundenem oderzur Verfügung gestelltem Material Schmuck herstellen können. Paula Pongratz lebt in München und versucht, weniger zu arbeiten.", 
+        "website": "https://p0stap0calyptic.wordpress.com/", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://p0stap0calyptic.wordpress.com/", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 2, 
+                "title": "Postapokalyptischer Schmuck / Postapocalyptic Jewellery"
+            }
+        ]
+    }, 
+    {
+        "id": 3, 
+        "name": "Sandra Müllrick", 
+        "email": "sandra_mllrick@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/SandraMüllrick_3.jpg", 
+        "organisation": "Wikimedia Deutschland e.V.", 
+        "position": null, 
+        "country": "Germany ", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "https://www.mediawiki.org/wiki/WMDE_Engineering", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/samu", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 3, 
+                "title": "Query Service Wikidata "
+            }
+        ]
+    }, 
+    {
+        "id": 4, 
+        "name": "Michael Christen", 
+        "email": "michael_christen@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MichaelChristen_4.jpg", 
+        "organisation": "Yacy", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Michael Christen ist der Architekt und Maintainer der Peer-to-Peer Suchmaschinensoftware YaCy. Er arbeitet freiberuflich als Suchmaschinen- und SEO-Berater für den öffentlichen Dienst, Universitäten, Bibliotheken und E-Commerce Handelsgesellschaften.", 
+        "website": "http://yacy.net", 
+        "twitter": "https://twitter.com/yacy_search", 
+        "facebook": null, 
+        "github": "https://github.com/Orbiter", 
+        "linkedin": "https://de.linkedin.com/in/orbiter/en", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 4, 
+                "title": "Unabhängige eigene Internet-Suche in wenigen Schritten auf dem PC installieren"
+            }, 
+            {
+                "id": 46, 
+                "title": "Suchmaschinen der Zukunft"
+            }
+        ]
+    }, 
+    {
+        "id": 5, 
+        "name": "Jan Suhr", 
+        "email": "jan_suhr@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JanSuhr_5.jpg", 
+        "organisation": "Nitrokey", 
+        "position": null, 
+        "country": "Deutschlan", 
+        "short_biography": "", 
+        "long_biography": "Jan Suhr is the CEO and lead architect of Nitrokey.", 
+        "website": "https://www.nitrokey.com", 
+        "twitter": "https://twitter.com/nitrokey", 
+        "facebook": null, 
+        "github": "https://github.com/nitrokey", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 5, 
+                "title": "Nitrokey Sicherheits-USB-Stick"
+            }
+        ]
+    }, 
+    {
+        "id": 6, 
+        "name": "Cat Spangehl", 
+        "email": "cat_spangehl@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/CatSpangehl_6.jpg", 
+        "organisation": "Heart of Code", 
+        "position": null, 
+        "country": "BER/GER", 
+        "short_biography": "", 
+        "long_biography": "The Heart of Code is a Berlin based HackSpace for women* advocating diversity in tech.", 
+        "website": "http://heartofcode.org", 
+        "twitter": "https://twitter.com/@heartsofcode", 
+        "facebook": null, 
+        "github": "/heartsofcode", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 6, 
+                "title": "Heart Of Code - a hackspace for women* in Berlin"
+            }, 
+            {
+                "id": 31, 
+                "title": "Heart Of Code - a hackspace for women* in Berlin"
+            }
+        ]
+    }, 
+    {
+        "id": 7, 
+        "name": "Erik Albers", 
+        "email": "erik_albers@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ErikAlbers_7.jpg", 
+        "organisation": "Free Software Foundation Europe e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Erik Albers ist der Kontakt für Campaigns and Community im Berliner Büro der FSFE.", 
+        "website": "http://fsfe.org", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 7, 
+                "title": "Free Software Foundation Europe e.V."
+            }
+        ]
+    }, 
+    {
+        "id": 8, 
+        "name": "Alvin Lui", 
+        "email": "alvin_lui@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/AlvinLui_8.jpg", 
+        "organisation": "Makeomnia Ltd / HKCOTA", 
+        "position": null, 
+        "country": "Hong Kong", 
+        "short_biography": "", 
+        "long_biography": "TinyBoy is an open design 3D printer. It fits well on a regular computer desk. TinyBoy is designed as an entry-level machine for students and newbies to learn 3D modelling technology and, ultimately, to encourage creative thinking.  Tinyboy 3D printer is ultra-portable by being small. A one-to-one student to printer ratio can be achieved in computer classrooms to maximize the exposure of student to 3D printing technology. Students can also carry the printer around beyond classrooms to engage in their learning activities. On the other hand, it is very usable for education purpose for printing figures, toys and other creations that students like.  Tinyboy is easy to build. Any student can assemble the TinyBoy by just a screw driver. We wish students can make their own machine and become pioneers to help other people. So that the use of 3D printer can be spread to their families and communities.  The process of making can transform education by inviting students to go beyond being consumers of education. They can be a maker of anything, moving from being directed to self-directed through the process.", 
+        "website": "http://tinyboy.net", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 8, 
+                "title": "TinyBoy Project - a 3D printer for education"
+            }, 
+            {
+                "id": 62, 
+                "title": "TinyBoy Project - a 3D printer for education"
+            }
+        ]
+    }, 
+    {
+        "id": 9, 
+        "name": "Fabian Lüpke", 
+        "email": "fabian_lpke@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/FabianLüpke_9.jpg", 
+        "organisation": "Hasso-Plattner-Institut Potsdam", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Seit meiner Jugend arbeite ich an verschiedenen Hardware Projekten. Bspw. automatisierte ich die Steuerung meiner Modelleisenbahnanlage oder baute meine eigene Tauchlampe. Derzeit befinde ich mich im zweiten Semster am Hasso-Plattner-Institut in Potsdam. Dort gründete ich außerdem den \"Makerklub\", in welchem wir uns ebenfalls mit Arduino &amp; Co beschäftigen.", 
+        "website": "http://rootz.one", 
+        "twitter": "https://twitter.com/fluepke", 
+        "facebook": null, 
+        "github": "github.com/fluepke", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 9, 
+                "title": "LED Matrix Display"
+            }
+        ]
+    }, 
+    {
+        "id": 10, 
+        "name": "Christian Obersteiner", 
+        "email": "christian_obersteiner@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ChristianObersteiner_10.jpg", 
+        "organisation": "Ayab-Knitting", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 10, 
+                "title": "Maschinenstricken mit Open Source"
+            }
+        ]
+    }, 
+    {
+        "id": 12, 
+        "name": "Susan Spencer", 
+        "email": "susan_spencer@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/SusanSpencer_12.jpg", 
+        "organisation": "Valentina", 
+        "position": null, 
+        "country": "USA", 
+        "short_biography": "", 
+        "long_biography": "Product developer for Valentina open source pattern drafting software.  Network analyst now open source evangelist.    Looking for programmers: Blender - 3D development, C++  - 'assymetric' pattern features to make patterns for disabled persons. Corporate funding possible. Looking for fashion designers and patternmakers. Looking for translators.  Send email to <a href=\"mailto:contact@valentina-project.org\">contact@valentina-project.org</a>", 
+        "website": "http://www.valentina-project.org", 
+        "twitter": "https://twitter.com/@ValentinaPSW", 
+        "facebook": null, 
+        "github": "https://github.com/tusuzu", 
+        "linkedin": "https://www.linkedin.com/in/susan-spencer-3b502516", 
+        "sessions": [
+            {
+                "id": 11, 
+                "title": "Schnittmuster am PC erstellen mit Valentina / Valentina Digital Pattern Design"
+            }, 
+            {
+                "id": 39, 
+                "title": "Valentina digital pattern design"
+            }
+        ]
+    }, 
+    {
+        "id": 13, 
+        "name": "Konrad Willi Döring", 
+        "email": "konrad_willi_dring@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/KonradWilliDöring_13.jpg", 
+        "organisation": "Neurofox, Brainduino", 
+        "position": null, 
+        "country": "Berlin", 
+        "short_biography": "", 
+        "long_biography": "- born in Mülheim / Ruhr - studied computer science in Bielefeld and Berlin - interested in machine learning, computer vision and neuroscience - passionately working on neurofeedback software in recent years", 
+        "website": "http://www.neurofox.com", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 12, 
+                "title": "PC mit Gedanken steuern - Brain-Computer Interfaces"
+            }, 
+            {
+                "id": 34, 
+                "title": "Computer mit Gehirn steuern - Brain-Computer Interfaces"
+            }
+        ]
+    }, 
+    {
+        "id": 36, 
+        "name": "Stefan Koehler", 
+        "email": "stefan_koehler@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/StefanKoehler_36.jpg", 
+        "organisation": "Flowedoo", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Stefan is a dedicated and experienced IT professional with a passion for, but no limitation to, Free Software.", 
+        "website": "http://flowedoo.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 33, 
+                "title": "Netze für Vielfalt"
+            }
+        ]
+    }, 
+    {
+        "id": 14, 
+        "name": "Nora Al-Badri", 
+        "email": "nora_albadri@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Nefertiti Hack", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "Nora Al-Badri is a multi-disciplinary artist with a German-Iraqi background working in different mediums such as sculpture and installation, photography and film. Her pieces deal with issues arising through hegemonic and neocolonial power structures and representations between the so called global South and North as well as with the various faces of war. Al-Badri lives and works in Berlin. She studied political sciences at Johann Wolfgang Goethe University in Frankfurt/Main and visual communications at Offenbach University of Art and Design. Her works got granted by several institutions like Goethe-Institut, Institut für Auslandsbeziehungen (IfA), German Federal Foreign Office and European Cultural Foundation (ECF). Since 2009 she also collaborates with Jan Nikolai Nelles as a collective.", 
+        "website": "http://www.nora-al-badri.de", 
+        "twitter": "https://twitter.com/noraalbadri", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 13, 
+                "title": "Scan die Nofretete im Ägyptischen Museum / #NefertitiHack and Cultural Commons \"The Other Nefertiti\""
+            }, 
+            {
+                "id": 36, 
+                "title": "Hack die Nofretete im Ägyptischen Museum / #NefertitiHack and Cultural Commons \"The Other Nefertiti\""
+            }
+        ]
+    }, 
+    {
+        "id": 22, 
+        "name": "Nicco Kunzmann", 
+        "email": "nicco_kunzmann@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Coder Dojo Potsdam/OpenTechSchool", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "OTS was born in April of 2012 in Berlin. The first local RailsGirls event — a free tech workshop with freshly created learning material dedicated to an audience of women of all ages and backgrounds during a both thrilling and cosy weekend — had just taken place, and had created much admiration and enthusiasm in its wake.  Why not expand the concept to all tech topics people might possibly want to learn and open the events to an audience of all genders and experience levels? The challenge couldn’t be greater. Since then, hundreds of people have joined OTS as coaches, learners, organizers, and sponsors, in Berlin, Stockholm, and soon: even in more new cities (yours!).  OpenTechSchool is a movement aiming to offer free tech education. Our events are open to technology enthusiasts of all genders, backgrounds, and experience levels, willing to coach or learn in a friendly environment. Our learning material is shared and collectively improved by the online community and anyone is welcome to use it to organize new OTS chapters anywhere in the world.", 
+        "website": "http://zen.coderdojo.com/dojo/861", 
+        "twitter": "https://twitter.com/@DojoPotsdam", 
+        "facebook": null, 
+        "github": "https://github.com/CoderDojoPotsdam", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 17, 
+                "title": "Arduino Programmierung für Einsteiger mit CoderDojo und OpenTechSchool "
+            }, 
+            {
+                "id": 20, 
+                "title": "Python Programmieren für Anfänger"
+            }, 
+            {
+                "id": 77, 
+                "title": "CoderDojo"
+            }
+        ]
+    }, 
+    {
+        "id": 16, 
+        "name": "Ricardo Wurmus", 
+        "email": "ricardo_wurmus@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/RicardoWurmus_16.jpg", 
+        "organisation": "GNU Project", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Musiker und freier Softwarehacker mit langjähriger Berufserfahrung als GNU / Linux Systemadministrator (zur Zeit am Max-Delbrück-Centrum). Unterstützer des GNU-Projekts, Mitglied der FSFE, Contributor bei GNU Guix.", 
+        "website": "http://elephly.net", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 14, 
+                "title": "Functional package management with GNU Guix"
+            }
+        ]
+    }, 
+    {
+        "id": 18, 
+        "name": "Birgit Marzinka", 
+        "email": "birgit_marzinka@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/BirgitMarzinka_18.jpg", 
+        "organisation": "Metaversa e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Studierte in Heidelberg, Bremen und Mexiko-Stadt Geografie und an der Universität Rostock den Masterstudiengang Medienbildung, arbeitet selbstständig in der Medienpädagogik und in den Bereichen: Bildung in virtuellen Räumen, E-Learning und Bildungsportale. Sie initiierte und hat die Leitung des Webportals „<a href=\"http://zeitzeugengeschichte.de\" rel=\"nofollow\" target=\"_blank\">zeitzeugengeschichte.de</a>“ inne. Sie entwickelt Projekte, gibt Radio- und Computerworkshops und arbeitet mit Jugendlichen und Erwachsenen. Ihre Themen sind Nationalsozialismus – Zeitzeugenarbeit (zeitgenössische Geschichte), Rechtsextremismus, Diversity bzw. Migration, Entwicklungszusammenarbeit und Umweltschutz.", 
+        "website": "http://www.metaversa.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 16, 
+                "title": "Roboter mit Scratch und Blockly programmieren"
+            }
+        ]
+    }, 
+    {
+        "id": 19, 
+        "name": "Daniel Abma", 
+        "email": "daniel_abma@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/DanielAbma_19.jpg", 
+        "organisation": "Metaversa e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Daniel Abma, geboren 1978 in Westerbork, Studium der Grundschulpädagogik in den Niederlanden. Seit 2004 als freiberuflicher Medienpädagoge tätig in Berlin und Brandenburg, Arbeitsschwerpunkte: NS-ZeitzeugInnen, Rechtsextremismus gestern und heute, Geschlechterbilder. Mitarbeit an zeitgeschichtlichen Dokumentationen (Arte/SWR) und Schülerfernsehen in den Niederlanden. Aktuell Student der „Film- und Fernsehregie“ an der Hochschule für Film und Fernsehen „Konrad Wolf“ in Potsdam.", 
+        "website": "http://www.metaversa.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 16, 
+                "title": "Roboter mit Scratch und Blockly programmieren"
+            }
+        ]
+    }, 
+    {
+        "id": 20, 
+        "name": "Jenny Roberts", 
+        "email": "jenny_roberts@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JennyRoberts_20.jpg", 
+        "organisation": "Metaversa e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Kulturwissenschaftlerin und Erzieherin mit den Schwerpunkten Medienpädagogik, Interkulturelle und Gendersensible Arbeit.  Koordinatorin des Medienkompetenzzentrums Tempelhof-Schöneberg, sowie jahrelange Tätigkeit im Medienkompetenzzentrum Neukölln. Durchführung von Workshops und Projekttagen an Berliner Schulen, Fortbildungen für Eltern, Lehrer_innen und Multiplikator_inne", 
+        "website": "http://www.metaversa.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 16, 
+                "title": "Roboter mit Scratch und Blockly programmieren"
+            }
+        ]
+    }, 
+    {
+        "id": 21, 
+        "name": "Kirsten Mohri", 
+        "email": "kirsten_mohri@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/KirstenMohri_21.jpg", 
+        "organisation": "Metaversa e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Jahrgang 1979. Abgeschlossenes Studium der Sozial- und Theaterpädagogik. Sozialpädagogische Tätigkeiten in Witten (Ruhrgebiet), Berlin und Brandenburg. Theater- und Filmprojekte mit Kindern, Jugendlichen und jungen Erwachsenen (z.B. KITA-und Hortkinder, lernbehinderte Azubis, Pflegekinder aus NYC, Strafgefangene). Schwerpunktthemen: Gewalt, Rechtsextremismus, Männer-und Frauenbilder, deutsche Geschichte. Ensemblemitglied bei Theaterspiel. Seit 2008 freiberufliche Schauspielerin, Theater- und Medienpädagogin. Homepage: <a href=\"http://www.theater-machen.de\" rel=\"nofollow\" target=\"_blank\">www.theater-machen.de</a> Homepage: <a href=\"http://www.kamerakultur.de\" rel=\"nofollow\" target=\"_blank\">www.kamerakultur.de</a> Homepage: <a href=\"http://www.theater-spiel.de\" rel=\"nofollow\" target=\"_blank\">www.theater-spiel.de</a>", 
+        "website": "http://www.metaversa.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 16, 
+                "title": "Roboter mit Scratch und Blockly programmieren"
+            }
+        ]
+    }, 
+    {
+        "id": 23, 
+        "name": "Raimo, Radczewski", 
+        "email": "raimo_radczewski@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/Raimo,Radczewski_23.jpg", 
+        "organisation": "Softwerkskammer Berlin – Software Craftsmanship Community", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Die Softwerkskammer Berlin ist die Berliner Lokalgruppe der weltweiten Software Craftsmanship Bewegung, die sich zum Ziel gesetzt hat, IT-Professionals eine Community zu geben, in der das gegenseitige Lernen im Vordergrund steht. Die Softwerkskammer trifft sich mindestens einmal im Monat zu gemeinsamen Workshops, Diskussionen und Vorträgen.  Raimo Radczewski (@rradczewski) ist Software Engineer bei @vaamo und freiberuflicher Coach und Trainer für Pair Programming, TDD und JavaScript", 
+        "website": "http://swkberlin.de", 
+        "twitter": "https://twitter.com/@swkBerlin", 
+        "facebook": null, 
+        "github": "https://github.com/swkBerlin", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 18, 
+                "title": "Coding Dojo"
+            }, 
+            {
+                "id": 25, 
+                "title": "Coding Dojo"
+            }
+        ]
+    }, 
+    {
+        "id": 73, 
+        "name": "André Rebentisch", 
+        "email": "andr_rebentisch@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/AndréRebentisch_73.jpg", 
+        "organisation": "OTS", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Senior UX developer, fmr. digital advocate in Brussels, organiser of the annual OpenTechSummit.", 
+        "website": "http://ffii.org", 
+        "twitter": "https://twitter.com/agonarch", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 75, 
+                "title": "Open Standards in perils? European Commission revises the European Interoperability Framework"
+            }
+        ]
+    }, 
+    {
+        "id": 24, 
+        "name": "Markus Decke", 
+        "email": "markus_decke@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Softwerkskammer Berlin – Software Craftsmanship Community", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Die Softwerkskammer Berlin ist die Berliner Lokalgruppe der weltweiten Software Craftsmanship Bewegung, die sich zum Ziel gesetzt hat, IT-Professionals eine Community zu geben, in der das gegenseitige Lernen im Vordergrund steht. Die Softwerkskammer trifft sich mindestens einmal im Monat zu gemeinsamen Workshops, Diskussionen und Vorträgen.  Markus Decke (@mrksdck) ist Software Engineer bei idealo internet GmbH.", 
+        "website": "http://swkberlin.de", 
+        "twitter": "https://twitter.com/@swkBerlin", 
+        "facebook": null, 
+        "github": "https://github.com/swkBerlin", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 18, 
+                "title": "Coding Dojo"
+            }, 
+            {
+                "id": 25, 
+                "title": "Coding Dojo"
+            }
+        ]
+    }, 
+    {
+        "id": 33, 
+        "name": "Lisa Conrad", 
+        "email": "lisa_conrad@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Anthropologist", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Lisa is an Anthropologist. She is interested in why people do what they do.", 
+        "website": "http://www.fordes.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 29, 
+                "title": "In praise of workarounds"
+            }
+        ]
+    }, 
+    {
+        "id": 26, 
+        "name": "Jenz Steiner", 
+        "email": "jenz_steiner@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JenzSteiner_26.jpg", 
+        "organisation": "Piradio - Sender Berlin", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Jenz Steiner is hosting a couple of radio shows on Berlins free station Piradio, Radio Corax in Halle and Radio fsk in Hamburg. He is into anything related to podcast, radio, grassroots journalism and experimental music formats. As a media coach he shows people how to mache  difficult things real easy and motivates them to become the media.", 
+        "website": "http://www.piradio.de", 
+        "twitter": "https://twitter.com/reifenwechsler", 
+        "facebook": null, 
+        "github": "https://github.com/reifenwechsler", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 21, 
+                "title": "Eigene Radiosendungen machen im 60-minutes Beginner Crash Course mit Audacity / Fast podcast production with audacity"
+            }, 
+            {
+                "id": 26, 
+                "title": "Connecting Syrian refugees"
+            }
+        ]
+    }, 
+    {
+        "id": 27, 
+        "name": "Ulrike Thalheim", 
+        "email": "ulrike_thalheim@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/UlrikeThalheim_27.jpg", 
+        "organisation": "metacollect", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Ulrike is part of the open data community Code for Germany and has been active in the Berlin OK Lab for more than 2 years now. Since November 2015, she has been working on metacollect as a project manager.", 
+        "website": "http://metacollect.org", 
+        "twitter": "https://twitter.com/metacollect", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 22, 
+                "title": "metacollect - an open data service for refugee & integration projects"
+            }, 
+            {
+                "id": 27, 
+                "title": "metacollect - an open data service for refugee & integration projects"
+            }
+        ]
+    }, 
+    {
+        "id": 28, 
+        "name": "Moritz Beber", 
+        "email": "moritz_beber@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MoritzBeber_28.jpg", 
+        "organisation": "metacollect", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "PhDj in bioinformatics, data analysist, interested in using information for positive public impact and shaping project leadership decisions.", 
+        "website": "http://metacollect.org", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/Midnighter", 
+        "linkedin": "https://www.linkedin.com/in/moritz-beber-b597a55a", 
+        "sessions": [
+            {
+                "id": 22, 
+                "title": "metacollect - an open data service for refugee & integration projects"
+            }, 
+            {
+                "id": 27, 
+                "title": "metacollect - an open data service for refugee & integration projects"
+            }
+        ]
+    }, 
+    {
+        "id": 29, 
+        "name": "Stephen Kovats", 
+        "email": "stephen_kovats@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/StephenKovats_29.jpg", 
+        "organisation": "r0g_agency for open culture gGmbH", 
+        "position": null, 
+        "country": "Canada / Germany / South Sudan", 
+        "short_biography": "", 
+        "long_biography": "Stephen Kovats is founding director of r0g_agency for open culture &amp; critical transformation, a non-profit organisation that applies open source and empowerment technologies for sustainable development in post-conflict and rapid transformation regions. Previously artistic director of transmediale, Berlin's festival for art and digital culture, his current work includes the #DefyHateNow initiative on mitigating social media hate speech and directed online incitement to violence, the Step-Up program for helping develop jHUB - the Juba Open Knowledge and Innovation Hub, and the #peacehackcamp. Tweet him @intertwilight", 
+        "website": "http://openculture.agency", 
+        "twitter": "https://twitter.com/@intertwilight", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 23, 
+                "title": "#peacehackcamp @jHUB_Juba"
+            }, 
+            {
+                "id": 35, 
+                "title": "#peacehackcamp @jHUB_Juba"
+            }
+        ]
+    }, 
+    {
+        "id": 31, 
+        "name": "Toon Peters", 
+        "email": "toon_peters@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ToonPeters_31.jpg", 
+        "organisation": "Altran", 
+        "position": null, 
+        "country": "Belgium", 
+        "short_biography": "", 
+        "long_biography": "Toon is not your everyday engineer. With his passion for technology and enthusiasm for interesting projects, he can truly bring a project to the next level. All while having loads of fun.  Skill-wise, Toon has experience in Embedded software and Electronics, but also marketing, offer development and even recruiting. In short: An all-rounder", 
+        "website": "http://www.picotcp.com", 
+        "twitter": "https://twitter.com/@picotcp", 
+        "facebook": null, 
+        "github": "https://github.com/tass-belgium/picotcp", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 24, 
+                "title": "Let's get a network version of the snake game running using picoTCP on a Cortex M3"
+            }, 
+            {
+                "id": 38, 
+                "title": "picoTCP"
+            }
+        ]
+    }, 
+    {
+        "id": 32, 
+        "name": "Hong Phuc Dang", 
+        "email": "hong_phuc_dang@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/HongPhucDang_32.jpg", 
+        "organisation": "FOSSASIA", 
+        "position": null, 
+        "country": "Vietnam", 
+        "short_biography": "", 
+        "long_biography": "Hong Phuc, originally from Vietnam, has lived in the US, Singapore and Dubai. She is the founder of FOSSASIA, an initiative in Asia bringing together an inspiring community across borders and ages to form a better future with Open Technologies and ICT. Hong Phuc organizes the FOSSASIA summit, the largest annual Open Tech developer meetup in Asia since 2009 and puts together Science Hack days across the region in Vietnam, Dubai and China. She is also responsible for online coding programs with partners including Google Code-In where she works every year with more than 1000 young developers from the age of 12-17 years old to join and collaborate with Open Source projects and learn about best practices. URL: <a href=\"http://sciencehack.asia\" rel=\"nofollow\" target=\"_blank\">http://sciencehack.asia</a> | <a href=\"http://fossasia.org\" rel=\"nofollow\" target=\"_blank\">http://fossasia.org</a>", 
+        "website": "http://fossasia.org", 
+        "twitter": "https://twitter.com/hpdang", 
+        "facebook": null, 
+        "github": "github.com/hpdang", 
+        "linkedin": "https://www.linkedin.com/in/hongphucdang", 
+        "sessions": [
+            {
+                "id": 28, 
+                "title": "Open Source Movement In Asia"
+            }, 
+            {
+                "id": 48, 
+                "title": "The Power of Open"
+            }
+        ]
+    }, 
+    {
+        "id": 34, 
+        "name": "Ivers Yves Pierre", 
+        "email": "ivers_yves_pierre@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/IversYvesPierre_34.jpg", 
+        "organisation": "Copertura Label", 
+        "position": null, 
+        "country": "Haiti-Germany", 
+        "short_biography": "", 
+        "long_biography": "Ivers, originally from Haiti but resides in Germany for 7 years, Founder and CEO of Copertura Label, a 2 co-branded lines of fashion Tempo Libero for casuals and Sports and Wearable for fashion tech. Actual Regional Business Development Manager in <a href=\"http://Deliveryhero.com\" rel=\"nofollow\" target=\"_blank\">Deliveryhero.com</a>, the largest online food ordering platform worldwide.", 
+        "website": "http://www.coperturalabel.com", 
+        "twitter": "https://www.twitter.com/Iversps", 
+        "facebook": null, 
+        "github": "https://github.com/CoperturaIvers", 
+        "linkedin": "https://de.linkedin.com/in/iversp", 
+        "sessions": [
+            {
+                "id": 30, 
+                "title": "Raising money without VC"
+            }
+        ]
+    }, 
+    {
+        "id": 35, 
+        "name": "Conny Kawohl", 
+        "email": "conny_kawohl@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ConnyKawohl_35.jpg", 
+        "organisation": "Heart of Code", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "I am a Senior UI/UX Designer slowly morphing into a Web Frontend Developer. I write JavaScript (Angular/React) but also Ruby (RoR) and am fascinated by CSS Preprocessors. I &lt;3 Hard Science Fiction, Slow Food, Graphic Novels and Human Languages.", 
+        "website": "http://heartofcode.org", 
+        "twitter": "https://twitter.com/ckawohl", 
+        "facebook": null, 
+        "github": "https://github.com/supernoir", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 32, 
+                "title": "Get Sassy!"
+            }
+        ]
+    }, 
+    {
+        "id": 42, 
+        "name": "Lightning Talkers", 
+        "email": "lightning_talkers@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "OpenTechSummit", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 44, 
+                "title": "Kurzvorträge"
+            }
+        ]
+    }, 
+    {
+        "id": 74, 
+        "name": "David Weber", 
+        "email": "david_weber@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Not available", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "https://jugendhackt.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/jugendhackt", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 79, 
+                "title": "Jugend Hackt"
+            }
+        ]
+    }, 
+    {
+        "id": 75, 
+        "name": "Roman Kobosil", 
+        "email": "roman_kobosil@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Not available", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "https://jugendhackt.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/jugendhackt", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 79, 
+                "title": "Jugend Hackt"
+            }
+        ]
+    }, 
+    {
+        "id": 40, 
+        "name": "Thomas Tursics", 
+        "email": "thomas_tursics@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ThomasTursics_40.jpg", 
+        "organisation": "Code for Berlin", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Als gelernter Softwareentwickler arbeite ich seit Jahren an kleinen und großen Projekten mit. In meiner Freizeit nutze ich dieses Wissen, um aus offenen Daten vielfältige Anwendungen zu erstellen. Ich treibe mich des öfteren auf Hackathons rum und erzähle jedem der mir zuhört, wie toll dieses Open Data ist.", 
+        "website": "http://www.tursics.de/projects/", 
+        "twitter": "https://twitter.com/@tursics", 
+        "facebook": null, 
+        "github": "https://github.com/tursics", 
+        "linkedin": "http://www.linkedin.com/in/thomastursics", 
+        "sessions": [
+            {
+                "id": 42, 
+                "title": "Open Data für Dummies - oder - Wie nutze ich offene Daten"
+            }
+        ]
+    }, 
+    {
+        "id": 43, 
+        "name": "Justin Lee", 
+        "email": "justin_lee@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JustinLee_43.jpg", 
+        "organisation": "FOSSASIA", 
+        "position": null, 
+        "country": "Singapore", 
+        "short_biography": "", 
+        "long_biography": "Justin Lee has been a developer since young, dabbling in everything from C++ to C#, from web development to mobile development. He graduated from University of Waterloo, Bachelor in Computer Science (BCS) with Honours. He’s also an active contributor to the technical community, organising community-led events like GeekcampSG and FOSSASIA.", 
+        "website": "http://justinlee.sg", 
+        "twitter": "https://twitter.com/triplez82", 
+        "facebook": null, 
+        "github": "http://github.com/juslee", 
+        "linkedin": "http://linkedin.com/in/triplez", 
+        "sessions": [
+            {
+                "id": 45, 
+                "title": "Introduction to Hyperledger"
+            }
+        ]
+    }, 
+    {
+        "id": 44, 
+        "name": "Rufus Pollock", 
+        "email": "rufus_pollock@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/RufusPollock_44.jpg", 
+        "organisation": "Founder Open Knowledge", 
+        "position": null, 
+        "country": "UK", 
+        "short_biography": "", 
+        "long_biography": "Leading academic of the European open data movement. Rufus Pollock (born 1980) is an economist and founder of Open Knowledge. He is a Shuttleworth Foundation alumnus, an Associate of the Centre for Intellectual Property and Information Law at the University of Cambridge and President of Open Knowledge which he co-founded (as the Open Knowledge Foundation) in 2004 and served as a board director until 2013.  On 24 May 2004 Pollock founded in Cambridge, UK the Open Knowledge Foundation as a global non-profit network that promotes and shares information at no charge, including both content and data.  In 2007 and 2009 Pollock published two controversial papers regarding the optimal copyright term, where he proposed based on an economical model with empirically-estimable parameters an optimal duration of only 15 years, significantly shorter than any currently existing copyright term. He has held the Mead Research Fellowship in economics at Emmanuel College, Cambridge.  In 2009, he was credited by web inventor Tim Berners-Lee for starting the Raw Data Now meme.  In 2010 he was appointed as one of the four founding members of the UK Government's Public Sector Transparency Board.", 
+        "website": "http://www.rufuspollock.org", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/rgrp", 
+        "linkedin": "", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 48, 
+                "title": "The Power of Open"
+            }, 
+            {
+                "id": 47, 
+                "title": "Making an Open Information Age"
+            }
+        ]
+    }, 
+    {
+        "id": 45, 
+        "name": "Erik Dörnenburg", 
+        "email": "erik_drnenburg@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ErikDörnenburg_45.jpg", 
+        "organisation": "CTO Thoughtworks", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "I'm a software developer, consultant, and Head of Technology at ThoughtWorks, helping our clients with writing custom software.   Over the years I have worked with many different technologies and technology platforms, always curious to understand the potential they offer to solve real-world problems. Having seen a fair share of overly complex architectures I became interested in exploring simplicity in design and software visualisation as a way to make architecture more understandable.  My career began in the early nineties and throughout I have been an advocate of agile values and open source software. Over the past ten years I have spoken at many international conferences, contributed to a few books, and maintained the OCMock and CCMenu open source projects.", 
+        "website": "http://opentechsummit.net", 
+        "twitter": "https://twitter.com/erikdoe", 
+        "facebook": null, 
+        "github": "https://github.com/erikdoe", 
+        "linkedin": "http://de.linkedin.com/in/edoernenburg/", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 48, 
+                "title": "The Power of Open"
+            }
+        ]
+    }, 
+    {
+        "id": 46, 
+        "name": "Lennart Poettering", 
+        "email": "lennart_poettering@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/LennartPoettering_46.jpg", 
+        "organisation": "Red Hat", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Lennart Poettering is employed by Red Hat to work on systemd. He lives in Berlin.", 
+        "website": "http://0pointer.de/blog/", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 49, 
+                "title": "The systemd Journal"
+            }
+        ]
+    }, 
+    {
+        "id": 47, 
+        "name": "Chris Kühl", 
+        "email": "chris_khl@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ChrisKühl_47.jpg", 
+        "organisation": "Kinvolk GmbH", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "After getting hooked on free and open source software as a hobby through the GNOME project, Chris was able to turn this passion into a career and has since co-founded Kinvolk in Berlin, which focuses exclusively on open source software engineering for foundational Linux technologies: the Linux kernel, systemd, rkt, etc.  Chris is an active member of the Berlin open source community. He helps organize the Berlin meetups for CoreOS and systemd, the Berlin Open Source Eats-n-Drinks Meetup and works with the systemd team to organize systemd.conf.", 
+        "website": "https://kinvolk.io", 
+        "twitter": "https://twitter.com/@blixtra", 
+        "facebook": null, 
+        "github": "https://github.com/blixtra", 
+        "linkedin": "https://www.linkedin.com/in/christopherk1", 
+        "sessions": [
+            {
+                "id": 50, 
+                "title": "The rkt container runtime; explanation and demonstration"
+            }
+        ]
+    }, 
+    {
+        "id": 55, 
+        "name": "Mario Behling", 
+        "email": "mario_behling@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "OTS", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 57, 
+                "title": "Kurzes Wrap up und Ab geht's zur Lounge im Erdgeschoss bis 23 Uhr. / Wrap up and Lounge until 11pm in the ground floor space."
+            }
+        ]
+    }, 
+    {
+        "id": 76, 
+        "name": "Paula Glaser", 
+        "email": "paula_glaser@fossasia.org", 
+        "mobile": null, 
+        "photo": null, 
+        "organisation": "Not available", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "", 
+        "website": "https://jugendhackt.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/jugendhackt", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 79, 
+                "title": "Jugend Hackt"
+            }
+        ]
+    }, 
+    {
+        "id": 49, 
+        "name": "Bruno Kirschner", 
+        "email": "bruno_kirschner@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/BrunoKirschner_49.jpg", 
+        "organisation": "Beuth Hochschule für Technik Berlin", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "Bruno Kirchner is a Master student at the Beuth-Hochschule fuer Technik in Berlin.", 
+        "website": "", 
+        "twitter": "https://twitter.com/ondorio", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/bruno-kirschner-4b8421b4", 
+        "sessions": [
+            {
+                "id": 51, 
+                "title": "Authenticated Anonymity by Math"
+            }
+        ]
+    }, 
+    {
+        "id": 51, 
+        "name": "Veit Schiele", 
+        "email": "veit_schiele@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/VeitSchiele_51.jpg", 
+        "organisation": "cusy GmbH", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Gründer und Geschäftsführer der cusy GmbH. Community manager des Python Software Verband (PySV) und Co-Organisator der Python Users Berlin (PUB).", 
+        "website": "https://www.cusy.io/", 
+        "twitter": "https://twitter.com/VeitSchiele", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "https://www.linkedin.com/in/veit-schiele-84759570", 
+        "sessions": [
+            {
+                "id": 53, 
+                "title": "Quo vadis DevOps?"
+            }
+        ]
+    }, 
+    {
+        "id": 52, 
+        "name": "Jörg Knobloch", 
+        "email": "jrg_knobloch@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JörgKnobloch_52.jpg", 
+        "organisation": "Thunderbird", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Thunderbird-Entwickler und Council-Member", 
+        "website": "http://www.jorgk.com/misc/tb.htm", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 54, 
+                "title": "Thunderbird - Entwicklung und Ausblick"
+            }
+        ]
+    }, 
+    {
+        "id": 53, 
+        "name": "Rüdiger Trojok", 
+        "email": "rdiger_trojok@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/RüdigerTrojok_53.jpg", 
+        "organisation": "Bioflux", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Rüdiger Trojok Diplom Biologist, studied systems and synthetic biology at the Universities of Potsdam, Copenhagen (DTU) and Freiburg. During his thesis he invented a novel contraceptive method based on genetically altered lactic acid bacteria. He worked as a freelance consultant for the office for Technology Assessment by the German Parliament on biohacking and synthetic biology. Since 2014 he works for the Institute for Technology Assessment and Systems Analysis at the Karlsruhe Institute for Technology on the EU program Synenergene. He is currently establishing a citizen science biolab in Berlin, and is supporting open-source biotechnology projects related to public life, politics and the arts.", 
+        "website": "http://www.bioflux.eu/", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 55, 
+                "title": "Bioflux - A Personal Laboratory for everyone"
+            }
+        ]
+    }, 
+    {
+        "id": 54, 
+        "name": "Mirela Alistar", 
+        "email": "mirela_alistar@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MirelaAlistar_54.jpg", 
+        "organisation": "Bioflux", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Mirela Alistar has received her PhD in computer engineering from the Technical University of Denmark in 2014. Since 2010, she has been working on developing Computer-Aided Design tools for digital microfluidic biochips. Her main research interests are in the area of system-level design of embedded systems, with a special focus on digital microfluidics. She is supporting open access research and she has organized citizen-science events, where she dissiminates to the public with the aim of involving them into creating more knowledge.", 
+        "website": "http://www.bioflux.eu/", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 56, 
+                "title": "Bioflux - A Personal Laboratory for everyone"
+            }
+        ]
+    }, 
+    {
+        "id": 56, 
+        "name": "Jakob Schade", 
+        "email": "jakob_schade@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JakobSchade_56.jpg", 
+        "organisation": "Jugend Hackt", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Der Vortrag soll von Teilnehmer_innen, Mentor_innen und Organisator_innen gemeinsam gestaltet werden.", 
+        "website": "https://jugendhackt.de", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/jugendhackt", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 79, 
+                "title": "Jugend Hackt"
+            }, 
+            {
+                "id": 58, 
+                "title": "Jugend Hackt"
+            }
+        ]
+    }, 
+    {
+        "id": 57, 
+        "name": "Franziska Schmid", 
+        "email": "franziska_schmid@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/FranziskaSchmid_57.jpg", 
+        "organisation": "Junge Tüftler", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Franziska is Co-Founder of Junge Tüftler. Before she started the Junge Tüftler initiative in 2015 she worked as a Designer for the Volkswagen Innovation Team and IXDS. Junge Tüftler wants to get kids excited about tech and coding. Within the last year the Junge Tüftler team developed various formats to reach kids and multiplicators within Berlin and Germany.", 
+        "website": "http://junge-tueftler.de/", 
+        "twitter": "https://twitter.com/@Franzi_Schmid", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 59, 
+                "title": "Feel the force! ... or how to make open education for real"
+            }, 
+            {
+                "id": 78, 
+                "title": "„Hallo Welt. Wir machen uns die Welt, wie sie uns gefällt“"
+            }
+        ]
+    }, 
+    {
+        "id": 58, 
+        "name": "Julia Kleeberger", 
+        "email": "julia_kleeberger@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JuliaKleeberger_58.jpg", 
+        "organisation": "Junge Tüftler", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Julia is a passionate tinkerer and believes in the wisdom of the hands and the knowledge you gain when making things on your own. She shares her knowledge and passion about tinkering with technology in Hands-On workshops and also works as a lecturer for DIY seminars, e.g. for the Art &amp; Design University, Braunschweig. Getting daily inspired by her own children it is an inner objective for her to offer kids a playful access to technology and provide them with the right tools to creatively tinker around - and by doing so to develop the required skill set to solve the problems of tomorrow. That’s why she founded “Junge Tüftler”. Besides, Julia worked many years as a design strategist for the automobile industry with a focus on human centred design and business innovation and holds M.A and Ph.D. degrees in Media Interaction &amp; Media Sciences. While she loves digital technology she is always driven by combining its potential with human values to create a worth living world.", 
+        "website": "http://junge-tueftler.de", 
+        "twitter": "https://twitter.com/@Ju_lea", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "    https://de.linkedin.com/in/julea", 
+        "sessions": [
+            {
+                "id": 59, 
+                "title": "Feel the force! ... or how to make open education for real"
+            }, 
+            {
+                "id": 78, 
+                "title": "„Hallo Welt. Wir machen uns die Welt, wie sie uns gefällt“"
+            }
+        ]
+    }, 
+    {
+        "id": 59, 
+        "name": "Barbara Fischer", 
+        "email": "barbara_fischer@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/BarbaraFischer_59.jpg", 
+        "organisation": "Wikimedia Deutschland", 
+        "position": null, 
+        "country": "Sweden", 
+        "short_biography": "", 
+        "long_biography": "The art manager Barbara Fischer is operating as curator for cultural partnerships at Wikimedia Deutschland. Her job is to enhance GLAM institutions to join the Open Culture movement as in Wikimedia projects.", 
+        "website": "http://blog.wikimedia.de/", 
+        "twitter": "https://twitter.com/@fischerdata", 
+        "facebook": null, 
+        "github": "https://github.com/wikimedia", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 60, 
+                "title": "GLAMorous Importer wanted"
+            }
+        ]
+    }, 
+    {
+        "id": 77, 
+        "name": "Harald Maaßen", 
+        "email": "harald_maaen@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/HaraldMaaßen_77.jpg", 
+        "organisation": "LPI e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Harald Maassen ist langjaehriger Aktiver beim Linux Professional Institute.", 
+        "website": "https://www.lpi.org", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 81, 
+                "title": "LPI Zertifizierung"
+            }, 
+            {
+                "id": 82, 
+                "title": "LPI Zertifizierung"
+            }
+        ]
+    }, 
+    {
+        "id": 61, 
+        "name": "Elio Qoshi", 
+        "email": "elio_qoshi@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ElioQoshi_61.jpg", 
+        "organisation": "Mozilla", 
+        "position": null, 
+        "country": "Albania", 
+        "short_biography": "", 
+        "long_biography": "Elio is an open source designer from Albania currently involved as a Creative Lead at Mozilla Community Design, Glucosio and GalliumOS. He works for SitePoint as a Community Manager and Author, covering the latest open source technologies and topics. When he is not pursuing his studies at the University of Arts in Tirana, he contributes with efforts as a board member at Open Labs Hackerspace and organizing OSCAL (Open Source Conference Albania).", 
+        "website": "http://elioqoshi.me", 
+        "twitter": "https://twitter.com/elioqoshi", 
+        "facebook": null, 
+        "github": "https://github.com/elioqoshi", 
+        "linkedin": "https://al.linkedin.com/in/elioqoshi", 
+        "sessions": [
+            {
+                "id": 63, 
+                "title": "Community Design at Mozilla  "
+            }
+        ]
+    }, 
+    {
+        "id": 62, 
+        "name": "Lars Zimmermann", 
+        "email": "lars_zimmermann@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/LarsZimmermann_62.jpg", 
+        "organisation": "Open Source Circular Economy Days", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Lars Zimmermann (<a href=\"http://larszimmermann.de\" rel=\"nofollow\" target=\"_blank\">larszimmermann.de</a>) is an artist and economist. He explores Open Source Hardware business models and Open Source for Circular Economy. He is involved in a variety of projects and organizations like the Open It Agency (<a href=\"http://openitagency.eu\" rel=\"nofollow\" target=\"_blank\">openitagency.eu</a>), Open Source Circular Economy Days (<a href=\"http://oscedays.org\" rel=\"nofollow\" target=\"_blank\">oscedays.org</a>), The City Is Open Source (<a href=\"http://thecityisopensource.de\" rel=\"nofollow\" target=\"_blank\">thecityisopensource.de</a>) and Mifactori (<a href=\"http://mifactori.bloglz.de\" rel=\"nofollow\" target=\"_blank\">mifactori.bloglz.de</a>).", 
+        "website": "http://bloglz.de", 
+        "twitter": "https://twitter.com/@bricktick", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 64, 
+                "title": "Open Source Circular Design is so Ugly! / Open Source Circular Design ist unglaublich hässlich!"
+            }
+        ]
+    }, 
+    {
+        "id": 63, 
+        "name": "Felicitas Blanck", 
+        "email": "felicitas_blanck@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/FelicitasBlanck_63.jpg", 
+        "organisation": "Community Managerin", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Community Managerin und Zensuruschi. Ursprünglich Kunsthistorikerin. Ich beschäftige mich mit der Kommentardebatte im Internet und der Frage, wie man Nutzer am besten zu Wort kommen lassen kann. Sehr interessiert an Verknüpfungen von Kultur/Journalismus und Internet.", 
+        "website": "https://about.me/felicitasblanck", 
+        "twitter": "https://twitter.com/fraufeli/", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "https://de.linkedin.com/in/felicitasblanck", 
+        "sessions": [
+            {
+                "id": 65, 
+                "title": "Nutzerkommentare im Internet: Sind die Kommentare noch zu retten?"
+            }
+        ]
+    }, 
+    {
+        "id": 64, 
+        "name": "Code Week Award", 
+        "email": "code_week_award@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/CodeWeekAward_64.jpg", 
+        "organisation": "Code Week Award", 
+        "position": null, 
+        "country": "Berlin", 
+        "short_biography": "", 
+        "long_biography": "Wir sind das Team des Code Week Awards. Wir unterstützen und vernetzen Projekte, sind unterwegs auf kreativen Tech Festivals, führen Workshops durch, geben euch Tipps bei Fragen zu OER-Konzepten oder helfen bei der Suche einer Coding-Initiative in eurer Nähe.", 
+        "website": "http://award.codeweek.de/", 
+        "twitter": "https://twitter.com/@codeweekaward", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 66, 
+                "title": "Code Week Award Live-Hack"
+            }, 
+            {
+                "id": 80, 
+                "title": "Code Week Award Live-Hack"
+            }
+        ]
+    }, 
+    {
+        "id": 65, 
+        "name": "Chris Ward", 
+        "email": "chris_ward@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ChrisWard_65.jpg", 
+        "organisation": "Gregarious Mammal", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Developer Relations, Technical Writing and Editing, (Board) Game Design, Education, Explanation and always more to come.", 
+        "website": "http://gregariousmammal.com", 
+        "twitter": "https://twitter.com/ChrisChinch", 
+        "facebook": null, 
+        "github": "https://github.com/ChrisChinchilla", 
+        "linkedin": "http://www.linkedin.com/in/chrischinchilla", 
+        "sessions": [
+            {
+                "id": 67, 
+                "title": "Don't complain about bad documentation, learn to write it better!"
+            }
+        ]
+    }, 
+    {
+        "id": 66, 
+        "name": "Thomas Fricke", 
+        "email": "thomas_fricke@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ThomasFricke_66.jpg", 
+        "organisation": "Endocode AG", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "CTO and Partner of Endocode AG  As a Cloud Architect, he has designed clouds and applications shaped to run in clouds for more than a decade.  OpenSource enthusiast for nearly 30 years", 
+        "website": "https://endocode.com", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/endocode", 
+        "linkedin": "https://www.linkedin.com/in/thomas-fricke-9840a21", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 68, 
+                "title": "Creating Service Clouds with Kubernetes, CoreOS, Container and Co "
+            }
+        ]
+    }, 
+    {
+        "id": 67, 
+        "name": "Kai Mertens", 
+        "email": "kai_mertens@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/KaiMertens_67.jpg", 
+        "organisation": "flashcat-project", 
+        "position": null, 
+        "country": "Germany/ Berlin", 
+        "short_biography": "", 
+        "long_biography": "born in 1970 studying art until 2001 working as sculptor until 2014 participating on 31c3 initiating the flashcat project in 2015", 
+        "website": "https://www.fairmondo.de/users/flashcat", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 69, 
+                "title": "flashcat - your true open design chip flasher"
+            }
+        ]
+    }, 
+    {
+        "id": 68, 
+        "name": "Jérémy Bonvoisin", 
+        "email": "jrmy_bonvoisin@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JérémyBonvoisin_68.jpg", 
+        "organisation": "Technische Universität Berlin", 
+        "position": null, 
+        "country": "Bordeaux, France", 
+        "short_biography": "", 
+        "long_biography": "Jérémy Bonvoisin performs research in sustainable product development at the department of Industrial Information Technology of the Technische Universität Berlin. He leads the French-German research project \"OPEN!-Methods and tools for community-based product development\" that is dedicated to open source hardware and started in March 2016 for a duration of three years. Along the precedent years of research, he covered research topics such as: remanufacturing, energy efficiency of electric and electronic products, environmental assessment of ICT-based services, energy efficiency of production systems and product modularization.", 
+        "website": "http://wiki.opensourcedesign.cc", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 70, 
+                "title": "Current state of practices in open source hardware"
+            }
+        ]
+    }, 
+    {
+        "id": 69, 
+        "name": "Jörg Wittenberger", 
+        "email": "jrg_wittenberger@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JörgWittenberger_69.jpg", 
+        "organisation": "Askemos", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "geboren 1965  Studium der Informatik (Diplom) 1988-93", 
+        "website": "http://ball.askemos.org", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "https://github.com/0-8-15", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 71, 
+                "title": "smart contracts [th]at work"
+            }
+        ]
+    }, 
+    {
+        "id": 70, 
+        "name": "Denjell Caleb Thompson", 
+        "email": "denjell_caleb_thompson@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/DenjellCalebThompson_70.jpg", 
+        "organisation": "ionary", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Media Artist at ionary", 
+        "website": "http://ionary.org", 
+        "twitter": "http://twitter.com/denjello", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 72, 
+                "title": "Degrees of Openness [°O]"
+            }
+        ]
+    }, 
+    {
+        "id": 71, 
+        "name": "Maximilian Richt", 
+        "email": "maximilian_richt@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MaximilianRicht_71.jpg", 
+        "organisation": "Open Knowledge Foundation Deutschland", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Maximilian Richt ist ehrenamtlich bei der Open Knowledge Foundation Deutschland und beschäftigt sich mit der Öffnung und Durchsuchbarkeit von Daten.  Sonst verbringt er viel Zeit in Zügen, die hin und wieder zu Projekten wie <a href=\"http://kleineAnfragen.de\" rel=\"nofollow\" target=\"_blank\">kleineAnfragen.de</a> führt.", 
+        "website": "https://robbi5.de", 
+        "twitter": "https://twitter.com/robbi5", 
+        "facebook": null, 
+        "github": "https://github.com/robbi5", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 73, 
+                "title": "sehrgutachten und kleineAnfragen: Einmischen in Regierungsangelegenheiten"
+            }
+        ]
+    }, 
+    {
+        "id": 72, 
+        "name": "carlo von lynX", 
+        "email": "carlo_von_lynx@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/CarloVonLynx_72.jpg", 
+        "organisation": "youbroketheinternet.org", 
+        "position": null, 
+        "country": "Rome", 
+        "short_biography": "", 
+        "long_biography": "Recently Yanis Varoufakis joined the Icelandic Pirate Party's choir, asking for a new Constitution for the European Union. It is quite obvious, that such a document must be developed in a participatory utilizing the Internet. Yet, the Internet bears many threats and e-democracy platforms are prone to many fallacies. carlo von lynX has been publicly discussing potentials and risks after participating in the debut installation of Liquid Feedback which led to 2011's electoral success of the Berlin Piratenpartei. Later he joined the Italian Pirate Party in the endeavor of designing a leaderless political party, continuously governed by a permanent electronic assembly – where decisions are taken together. At first it didn't work, but after several years of design re-iterations it now seems like the design is functional. A large-scale digital assembly or parliament is not only possible, it can also be self-governed.", 
+        "website": "http://my.pages.de/", 
+        "twitter": "https://twitter.com/lynXintl", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 74, 
+                "title": "Making participation: How to put participants in charge of their own e-democracy platform"
+            }
+        ]
+    }, 
+    {
+        "id": 1, 
+        "name": "Mitch Altman", 
+        "email": "mitch_altman@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MitchAltman_1.jpg", 
+        "organisation": "Cornfield Electronics", 
+        "position": null, 
+        "country": "US", 
+        "short_biography": "", 
+        "long_biography": "Mitch Altman is a San Francisco-based hacker and inventor, best known for inventing TV-B-Gone remote controls, a keychain that turns off TVs in public places.  He was also co-founder of 3ware, a successful Silly Valley startup in the late 1990s, and did pioneering work in Virtual Reality in the mid-1980s.  He has contributed to MAKE Magazine and other magazines, and wrote a chapter for “Maker Pro”, a book about making a living from projects one loves.  For the last several years Mitch has been giving talks, and leading workshops around the world, teaching people to make cool things with microcontrollers and teaching everyone to solder.  He promotes hackerspaces and open source hardware, and mentors others wherever he goes. He is a co-founder of Noisebridge hackerspace in San Francisco, and is President and CEO of Cornfield Electronics.  Wikipedia page: <a href=\"http://en.wikipedia.org/wiki/Mitch_Altman\" rel=\"nofollow\" target=\"_blank\">http://en.wikipedia.org/wiki/Mitch_Altman</a>  TEDxBrussels talk: \"The Hackerspace Movement\": <a href=\"http://tedxtalks.ted.com/video/Mitch-Altman-at-TEDxBrussels\" rel=\"nofollow\" target=\"_blank\">http://tedxtalks.ted.com/video/Mitch-Altman-at-TEDxBrussels</a>", 
+        "website": "http://www.CornfieldElectronics.com", 
+        "twitter": "https://twitter.com/@maltman23", 
+        "facebook": null, 
+        "github": "https://github.com/maltman23", 
+        "linkedin": "https://www.linkedin.com/pub/dir/Mitch/Altman", 
+        "featured": true, 
+        "sessions": [
+            {
+                "id": 1, 
+                "title": "Fantastische Hardware Bauen & Löten Lernen mit Mitch (TV-B-Gone) // Learn to Solder with Cool Kits!"
+            }
+        ]
+    }, 
+    {
+        "id": 15, 
+        "name": "Jan Nikolai Nelles", 
+        "email": "jan_nikolai_nelles@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JanNikolaiNelles_15.jpg", 
+        "organisation": "Nefertiti Hack", 
+        "position": null, 
+        "country": "herrnelles", 
+        "short_biography": "", 
+        "long_biography": "Jan Nikolai Nelles is a multi-disciplinary artist based in Berlin. He graduated from Offenbach University of Art and Design in 2011.His work oscillates between visual and media art. In the past he founded an independent art gallery in Offenbach, Germany, and co-founded a photography magazine. Since 2009, he also collaborates with Nora Al-Badri on several artistic interventions.", 
+        "website": "http://oszilat.com", 
+        "twitter": "https://twitter.com/nextnikolai", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 13, 
+                "title": "Scan die Nofretete im Ägyptischen Museum / #NefertitiHack and Cultural Commons \"The Other Nefertiti\""
+            }, 
+            {
+                "id": 36, 
+                "title": "Hack die Nofretete im Ägyptischen Museum / #NefertitiHack and Cultural Commons \"The Other Nefertiti\""
+            }
+        ]
+    }, 
+    {
+        "id": 17, 
+        "name": "Jan Dittrich", 
+        "email": "jan_dittrich@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JanDittrich_17.jpg", 
+        "organisation": "OpenTech Designer", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Jan is an UX Designer and User Researcher. His current focus is making research on user needs and motivations easier for small design teams. He contributes to open source projects like RKWard, Etherpad and quickMockup.   When not dealing with Design and Research, Jan enjoys playing guitar and reading books on neuroscience.", 
+        "website": "http://www.fordes.de", 
+        "twitter": "https://twitter.com/@simulo", 
+        "facebook": null, 
+        "github": "https://github.com/jdittrich", 
+        "linkedin": "https://de.linkedin.com/in/jandittrich", 
+        "sessions": [
+            {
+                "id": 15, 
+                "title": "Workshop Paper Prototyping"
+            }, 
+            {
+                "id": 29, 
+                "title": "In praise of workarounds"
+            }
+        ]
+    }, 
+    {
+        "id": 25, 
+        "name": "Jos Poortvliet", 
+        "email": "jos_poortvliet@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/JosPoortvliet_25.jpg", 
+        "organisation": "ownCloud", 
+        "position": null, 
+        "country": "Europe", 
+        "short_biography": "", 
+        "long_biography": "People person, technology enthusiast and all-things-open evangelist. Previously community manager at SUSE and now at ownCloud while continuing an decade long involvement in the KDE community. Enjoys avoiding traffic and public transport on bike through Berlin, but only when the weather is good. Loves cooking for friends and family and playing with our dog. <a href=\"https://github.com/jospoortvliet\" rel=\"nofollow\" target=\"_blank\">https://github.com/jospoortvliet</a>  | <a href=\"http://twitter.com/jospoortvliet\" rel=\"nofollow\" target=\"_blank\">http://twitter.com/jospoortvliet</a>", 
+        "website": "http://blog.jospoortvliet.com", 
+        "twitter": "https://twitter.com/jospoortvliet", 
+        "facebook": null, 
+        "github": "https://github.com/jospoortvliet", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 19, 
+                "title": "Let's set up our ownCloud with Jos Poortvliet at the OpenTechSummit"
+            }
+        ]
+    }, 
+    {
+        "id": 30, 
+        "name": "Mbisimo Emmanuel", 
+        "email": "mbisimo_emmanuel@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MbisimoEmmanuel_30.jpg", 
+        "organisation": "Peace Hack Camp", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "Mbisimo Emmanuel Victor is a 23-year-old South Sudanese national who graduated in the field of Information Technology in Bugema University. He attended both the #Peacehackcamp project ICT &amp; Video Activism Trainings at Kapital Movie, after which became one of the core team of the Kapital Community as the IT Specialist and Web Administrator. As a young enthusiast who likes doing things by his own and like learning new skills every day, he takes the initiative to improve on his web and app development career. As such he's also interested in blogging, to participate in educational forums and social networking platforms and deliver sound commentaries, unbiased opinions and non-destructive views. He is part of initial 'pioneers' team of the jHUB - the Juba Open Knowledge and Innovation Hub, taking up the challenge of being its first Community Manager.", 
+        "website": "http://jubahub.org/", 
+        "twitter": "https://twitter.com/@GvmbADevo", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 23, 
+                "title": "#peacehackcamp @jHUB_Juba"
+            }, 
+            {
+                "id": 35, 
+                "title": "#peacehackcamp @jHUB_Juba"
+            }
+        ]
+    }, 
+    {
+        "id": 38, 
+        "name": "Marius Hoch", 
+        "email": "marius_hoch@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MariusHoch_38.jpg", 
+        "organisation": "Wikimedia Deutschland e.V.", 
+        "position": null, 
+        "country": "Deutschland", 
+        "short_biography": "", 
+        "long_biography": "Marius Hoch is software developer at Wikimedia Deutschland e.V. and a contributor to the Wikidata project since 2012.", 
+        "website": "https://www.wikidata.org/", 
+        "twitter": "https://twitter.com/wikidata", 
+        "facebook": null, 
+        "github": "https://github.com/mariushoch", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 40, 
+                "title": "Mining the knowledge of the world with Wikidata"
+            }
+        ]
+    }, 
+    {
+        "id": 39, 
+        "name": "Zac Brown", 
+        "email": "zac_brown@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/ZacBrown_39.jpg", 
+        "organisation": "FreeGeo API", 
+        "position": null, 
+        "country": "USA", 
+        "short_biography": "", 
+        "long_biography": "Zac has learned his first two development languages at age 9 when he became curious about computers. Now, at age 21, he builds scalable web based applications for a company in Berlin. Zac uses his knowledge, experience, and desire to learn as a tool to excite engineers about the crucial role open technologies play in shaping the future of the computing industry.", 
+        "website": "http://yupitszac.com", 
+        "twitter": "https://twitter.com/@YupItsZac", 
+        "facebook": null, 
+        "github": "http://github.com/YupItsZac", 
+        "linkedin": "http://linkedin.com/in/yupitszac", 
+        "sessions": [
+            {
+                "id": 41, 
+                "title": "FreeGeo API: What, Why & How"
+            }
+        ]
+    }, 
+    {
+        "id": 41, 
+        "name": "Alexander Loibl", 
+        "email": "alexander_loibl@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/AlexanderLoibl_41.jpg", 
+        "organisation": "IBM", 
+        "position": null, 
+        "country": "Not available", 
+        "short_biography": "", 
+        "long_biography": "Alexander Loibl kam 1997 zur IBM und startete in verschiedenen IBM Vertriebs- &amp; Marketing Positionen für die IBM SWG &amp; GTS Services. 2006 wechselte er zur IBM Server and Technology Group in das IBM i (AS/400) Power Platform Team, verantwortlich für die IBM i Neukundengewinnung als IBM System i Platform Brand Sales. Darauf folgten verantwortliche Postionen innerhalb der Power Platform als IBM i Platform-Leader, IBM Platform Leader SAP on IBM i, IBM Platform Leader SAP on Power Systems und Platform Sales Leader Power Systems, welche die Ausbildung und Abschluß als Certified Expert - IBM Power Systems beinhaltete. Ab 2014 Übernahme der Betreuung der Distributoren in D-A-CH für Power Systems mit dem Schwerpunkt Linux on Power, IBM CAMSS Solutions, SAP HANA on Power und die damit verbundene Power Platform Strategie und Abstimmung mit SAP Channel.  Seine derzeitige Verantwortung als Channel Sales Manager IBM Cleversafe beinhaltet die Intergration, strategische Ausrichtung und Umsetzung der Channel Sales Business Development Ziele von IBM Cleversafe für Nord-Ost Europa.  Kurz Bio:     \"Flexible, scalable, simple and ready for the future...\" Sind das nur Schlagworte oder muß die \"Open World\" immer offen sein? Wir sagen Ja! ...aber nicht zu jedem Preis und Verlust geistigen Eigentums. Mit der Technologie von Open Storage Services werden wir in die \"Open Cloud\" Dienste integriert. Offenheit heißt offen sein, um Lösungen zu finden, einen Bedarf zu ermitteln und Bedürfnisse zu schaffen. Ob sie ein Start-up sind oder ein bestehendes Unternehmen - bleiben sie offen - Open your mind.", 
+        "website": "http://ibm.com", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 48, 
+                "title": "The Power of Open"
+            }, 
+            {
+                "id": 43, 
+                "title": "IBM OPEN YOUR MIND - Welcome to IBM Cloud Object Storage"
+            }
+        ]
+    }, 
+    {
+        "id": 48, 
+        "name": "Ruediger Weis", 
+        "email": "ruediger_weis@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/RuedigerWeis_48.jpg", 
+        "organisation": "Beuth Hochschule für Technik Berlin", 
+        "position": null, 
+        "country": "Berlin", 
+        "short_biography": "", 
+        "long_biography": "Ruediger Weis has studied math at the University of Mannheim. After his PhD in computer science about cryptography for distributed systems he founded cryptolabs Amsterdam. From 2002 till 2005 he worked as Post-Doc researcher with Andy Tanenbaum at the Vrije Universiteit Amsterdam. In 2005 he has accepted a professorship at the Technische Fachhochschule Berlin. Ruediger Weis is a longtime member of the Chaos Computer club and founding member of the Digitale Gesellschaft e.V.. Since 2016 he is also a member of the Minix 3 steering team.", 
+        "website": "http://public.beuth-hochschule.de/~rweis/", 
+        "twitter": "", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "", 
+        "sessions": [
+            {
+                "id": 51, 
+                "title": "Authenticated Anonymity by Math"
+            }
+        ]
+    }, 
+    {
+        "id": 50, 
+        "name": "Matthias Kirschner", 
+        "email": "matthias_kirschner@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/MatthiasKirschner_50.jpg", 
+        "organisation": "Free Software Foundation Europe e.V.", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Matthias Kirschner ist Präsident der FSFE. 1999 begann er GNU/Linux zu nutzen und realisierte, dass Software tief in allen Bereichen unseres Lebens verwurzelt ist. Er ist davon überzeugt, dass diese Technik unsere Gesellschaft nicht einschränken, sondern sie befähigen muss. Seit 2004, während seines Studiums der Politik- und Verwaltungswissenschaft, engagiert er sich bei der FSFE. Er unterstützt Organisationen, Unternehmen und die Öffentliche Verwaltung dabei, von Freier Software zu profitieren und er erklärt, wie die grundlegenden Rechte von Freier Software -- das Recht sie zu verwenden, zu verstehen, zu verbreiten und zu verbessern -- die Meinungsfreiheit, Pressefreiheit oder Privatsphäre fördern.  Matthias Kirschner is President of FSFE. In 1999 he started using GNU/Linux and realised that software is deeply involved in all aspects of our lives. Matthias is convinced that this technology has to empower society not restrict it. While studying Political and Administrative Science he joined FSFE in 2004. He helps other organisations, companies and governments to understand how they can benefit from Free Software -- which gives everybody the rights to use, understand, adapt and share software -- and how those rights help to support freedom of speech, freedom of press or privacy.", 
+        "website": "http://fsfe.org", 
+        "twitter": "https://twitter.com/kirschner", 
+        "facebook": null, 
+        "github": "", 
+        "linkedin": "https://de.linkedin.com/in/matthiaskirschner", 
+        "sessions": [
+            {
+                "id": 52, 
+                "title": "Das Freie Software 1x1: Mißverständnisse gekonnt aufklären"
+            }
+        ]
+    }, 
+    {
+        "id": 60, 
+        "name": "Frederik Kramer", 
+        "email": "frederik_kramer@fossasia.org", 
+        "mobile": null, 
+        "photo": "/images/speakers/FrederikKramer_60.jpg", 
+        "organisation": "initOS GmbH / Otto-von-Guericke University Magdeburg", 
+        "position": null, 
+        "country": "Germany", 
+        "short_biography": "", 
+        "long_biography": "Frederik Kramer studierte Wirtschaftsinformatik am Institut für Technische und Betriebliche Informationssysteme der Otto-von-Guericke-Universität Magdeburg. Aktuell arbeitet er als assoziierter Wissenschaftler am Magdeburg Research and Competence Cluster (MRCC) an seiner Promotion zur strategischen Gestaltung von Systemlandschaften in KMU. Sein Forschungsinteresse liegt dabei insbesondere bei der strategischen Nutzung von Open Source Software zur Gewinnung nachhaltiger Wettbewerbsvorteile. Als Gründer und Geschäftsführer der initOS GmbH beschäftigt er sich zusammen mit seinen Kollegen seit vielen Jahren mit der strategischen Planung, Einführung, Wartung und Nutzung auf Open Source Software basierender komplexer betrieblicher Anwendungssysteme.", 
+        "website": "http://blog.initos.com", 
+        "twitter": "https://twitter.com/OSevangelist", 
+        "facebook": null, 
+        "github": "https://github.com/OSevangelist", 
+        "linkedin": "https://www.linkedin.com/in/frederik-kramer-68188087", 
+        "sessions": [
+            {
+                "id": 61, 
+                "title": "Die Rolle von Wissen, ökonomischer Faktoren und Professionalisierung in erfolgreichen Open Source Projekten am Beispiel von Odoo"
+            }
+        ]
+    }
+]
+

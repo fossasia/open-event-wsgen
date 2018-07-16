@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1, 
+        "name": "FFII", 
+        "logo": "/images/sponsors/Ffii_1.jpg", 
+        "level": "1", 
+        "sponsor_type": "Platinum Sponsor", 
+        "url": "http://ffii.org", 
+        "description": "The FFII is a global network of associations dedicated to consumer rights and education about digital media, genuine open standards."
+    }, 
+    {
+        "id": 2, 
+        "name": "Code Week Award", 
+        "logo": "/images/sponsors/CodeWeekAward_2.png", 
+        "level": "2", 
+        "sponsor_type": "Partner", 
+        "url": "http://codeweek.de/", 
+        "description": ""
+    }, 
+    {
+        "id": 3, 
+        "name": "WikiData", 
+        "logo": "/images/sponsors/Wikidata_3.png", 
+        "level": "2", 
+        "sponsor_type": "Partner", 
+        "url": "https://www.wikidata.org/", 
+        "description": ""
+    }, 
+    {
+        "id": 4, 
+        "name": "LPI", 
+        "logo": "/images/sponsors/Lpi_4.jpg", 
+        "level": "2", 
+        "sponsor_type": "Partner", 
+        "url": "https://lpievent.lpice.eu/", 
+        "description": ""
+    }, 
+    {
+        "id": 5, 
+        "name": "ASTAUp", 
+        "logo": "/images/sponsors/Astaup_5.png", 
+        "level": "2", 
+        "sponsor_type": "Partner", 
+        "url": "http://astaup.de/", 
+        "description": ""
+    }, 
+    {
+        "id": 6, 
+        "name": "ASTA FH Potsdam", 
+        "logo": "/images/sponsors/AstaFhPotsdam_6.png", 
+        "level": "2", 
+        "sponsor_type": "Partner", 
+        "url": "http://asta.fh-potsdam.de/", 
+        "description": ""
+    }, 
+    {
+        "id": 7, 
+        "name": "Voice Republic", 
+        "logo": "/images/sponsors/VoiceRepublic_7.png", 
+        "level": "3", 
+        "sponsor_type": "Media Partner", 
+        "url": "https://voicerepublic.com/series/open-tech-summit-2016", 
+        "description": ""
+    }
+]
