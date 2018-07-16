@@ -267,7 +267,7 @@
                               <div class="social-buttons row">
                                {{> social}}
                                <div class="row social-link">
-                                 <input class="speakers-inputbox" type="text" value="base#{{../session_id}}" readonly>
+                                 <input class="speakers-inputbox" data-toggle="tooltip" title="Link copied to clipboard" data-placement="right" type="text" value="base#{{../session_id}}" readonly>
                                </div>
                               </div>
                             </div>
@@ -403,7 +403,7 @@
                                        <div class="social-buttons row">
                                         {{> social}}
                                         <div class="row social-link">
-                                          <input class="speakers-inputbox" type="text" value="base#venue-{{../session_id}}" readonly>
+                                          <input class="speakers-inputbox" data-toggle="tooltip" title="Link copied to clipboard" data-placement="right" type="text" value="base#venue-{{../session_id}}" readonly>
                                         </div>
                                        </div>
                                      </div>
@@ -626,10 +626,21 @@
         e.stopPropagation();
       });
 
+      $('.speakers-inputbox').tooltip({
+        trigger:'manual'
+      });
+
       $('.session-lin').click(function(e) {
-        $(this).parent().parent().find("div.social-buttons").toggle();
-        var val = $(this).parent().parent().find('.speakers-inputbox').val();
-        $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        let sessionParent =  $(this).parent().parent();
+        sessionParent.find("div.social-buttons").toggle();
+        var val = sessionParent.find('.speakers-inputbox').val();
+        sessionParent.find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        sessionParent.find('.speakers-inputbox').select();
+        sessionParent.find('.speakers-inputbox').tooltip('show');
+        setTimeout(()=>{
+          sessionParent.find('.speakers-inputbox').tooltip('hide');
+        },2000);
+        document.execCommand("copy");
         e.stopPropagation();
       });
 
