@@ -155,7 +155,7 @@
               <div class="tracks col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
                 <div class="schedule-track" id="{{session_id}}" >
-                  <a class="anchor" id="s-{{session_id}}"></a>
+                  <a class="anchor" id="{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
                       {{#if ../../../mode}}
@@ -267,7 +267,7 @@
                               <div class="social-buttons row">
                                {{> social}}
                                <div class="row social-link">
-                                 <input class="speakers-inputbox" type="text" value="base#s-{{../session_id}}" readonly>
+                                 <input class="speakers-inputbox" type="text" value="base#{{../session_id}}" readonly>
                                </div>
                               </div>
                             </div>
