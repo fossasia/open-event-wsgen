@@ -742,7 +742,7 @@
           }
         });
         $('.calendar').each(function() {
-          let visibleRooms = false;
+          let visibleRooms = 0;
           $(this).find('.room').each(function() {
             let flag = true;
             $(this).find('.session').each(function() {
@@ -771,6 +771,12 @@
               visibleRooms++;
             }
           });
+
+          if(visibleRooms === 0){
+            $(this).hide();
+          } else{
+            $(this).show();
+          }
 
           if (visibleRooms <= 6) {
             let width = 100 / visibleRooms;

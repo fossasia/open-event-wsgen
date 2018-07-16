@@ -36,7 +36,8 @@ function nextTweet() {
   tweetNum += 1;
   var tweetsEl = document.getElementById('tweets');
   //go back to the first tweet if it's greater than the amount of tweets available
-  if(tweetNum == tweetsEl.dataset.count) {
+
+  if(tweetNum == stuff.statuses.length) {
     tweetNum = 0;
   }
   interval();
@@ -99,7 +100,7 @@ function parser(data) {
           parsed += "<a href='" + data.statuses[tweetNum].links[loklakLinkCount] + "' target='_blank'>" + data.statuses[tweetNum].links[loklakLinkCount] + "</a> ";
           loklakLinkCount += 1;
         } else {
-          parsed += "<a href='" + words[word] + "' target='_blank' style='word-break:break-all'>" + words[word] + "</a> ";
+          parsed += "<a href='" + words[word] + "' target='_blank'>" + words[word] + "</a> ";
         }
       } else {
         parsed += words[word] + " ";
