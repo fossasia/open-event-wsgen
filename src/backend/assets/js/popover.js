@@ -286,6 +286,17 @@ $(document).ready(function () {
     }
   }
 
+  let executed = true;
+
+  $(window).resize(function() {
+    if($(window).width() < 800 && executed) {
+      $('.arrow').css({
+        "left": '20px'
+      });
+      executed = false;
+    }
+  });
+
   if (widthWindow < 768) {
     $(document).mouseup(function(e) {
       let container = popbox;
