@@ -1014,13 +1014,12 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .pop-box {
-    width: 100%;
+    width: 160%;
 
     .arrow {
-      left: 48%;
-      margin-top: -10px;
+      margin-top: -9px;
     }
   }
 }
