@@ -722,6 +722,10 @@ a {
   }
 }
 
+.speaker-social .fa {
+  padding: 5px;
+}
+
 #headline {
   padding: 8px;
 }
@@ -1406,10 +1410,6 @@ a {
     display: block;
     font-size: 15px;
   }
-}
-
-#tweet {
-  word-break: break-all;
 }
 
 @media screen and (max-width : 600px) {
