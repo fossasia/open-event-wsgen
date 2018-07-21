@@ -440,11 +440,17 @@ file view&lt;/li&gt;&lt;li&gt;Improving the &lt;a href&#x3D;&quot;https://nextcl
 
       $(".export-png").click(function() {
         let fullScheduler = true;
+        let name = '';
+
         if (isCalendarView === true) {
           count = 0;
           $('.calendar').each(function() {
-            if ($(this).attr('class').split(' ').indexOf('hide') <= 0) {
+            let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+
+            fullScheduler = hidePresent && fullScheduler;
+            if(hidePresent) {
               $timeline = $(this);
+              name = $timeline.attr('class');
               initialWidth[count] = $timeline.width();
               numberOfChildElements = $timeline.find('.rooms')[0].childElementCount;
               numberOfChildElements = numberOfChildElements - 1;
@@ -454,17 +460,24 @@ file view&lt;/li&gt;&lt;li&gt;Improving the &lt;a href&#x3D;&quot;https://nextcl
               count++;
             }
           });
+          if(fullScheduler) {
+            $timeline = $('.calendar').parent();
+            name = 'schedule-calendar';
+          }
         } else {
           $('.day-filter').each(function() {
             $('.day-filter').each(function() {
               let hidePresent = $(this).attr('class').split(' ').indexOf('hide') <= 0;
+
               fullScheduler = hidePresent && fullScheduler;
               if (hidePresent) {
                 $timeline = $(this);
+                name = $timeline.attr('class');
               }
             });
             if(fullScheduler) {
               $timeline = $('.day-filter').parent();
+              name = 'schedule-list';
             }
           });
         }
@@ -472,12 +485,7 @@ file view&lt;/li&gt;&lt;li&gt;Improving the &lt;a href&#x3D;&quot;https://nextcl
           onrendered: function(canvas) {
             canvas.id = "generated-canvas";
             canvas.toBlob(function(blob) {
-              if(fullScheduler) {
-                saveAs(blob, '' + $timeline.attr('id') + '.png');
-              }
-              else{
-                saveAs(blob, '' + $timeline.attr('class') + '.png');
-              }
+              saveAs(blob, '' + name + '.png');
             });
           },
         });
