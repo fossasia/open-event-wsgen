@@ -1,4 +1,4 @@
-var CACHE_NAME = '+ZFGuAcBX+0DUt1OaNhI6QGIvuk='
+var CACHE_NAME = 'wOE7z8tgZpXN6Rg4XXCmzwXLJIU='
 var urlsToCache = [
   './css/bootstrap.min.css',
   './offline.html',
