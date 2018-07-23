@@ -453,7 +453,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the FOSSASIA Summit  2018 event', function (done) {
+    it('should generate the FOSSASIA Summit 2018 event', function (done) {
       let data = {};
 
       data.body = {
@@ -487,17 +487,53 @@ describe('generate', function () {
         "assetmode": 'download'
       };
 
-
       generator.createDistDir(data, 'Socket', function (appFolder) {
         assert.equal(appFolder, "a@a.com/SparkSummit2017");
         done();
       });
+    });
 
+    it('should generate the OpenTech Summit 2016 event', function (done) {
+      let data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "theme": 'light',
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OTS16",
+        "apiVersion": 'api_v1',
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/OpenTechSummit2016");
+        done();
+      });
+    });
+
+    it('should generate the Nextcloud Conference 2018 event', function (done) {
+      let data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "theme": 'light',
+        "apiendpoint": "https://eventyay.com/api/v1/events/77d26f89",
+        "apiVersion": 'api_v1',
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/NextcloudConference2018");
+        done();
+      });
     });
 
     it('should copy all the static files', function (done) {
       let staticPath = __dirname + '/../src/backend/overviewSite/';
-      let totalFiles = 17;
+      let totalFiles = 19;
       let counter = 0;
 
       function copyStatic(fileName) {
@@ -535,7 +571,9 @@ describe('generate', function () {
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
       copyStatic('mozilla2016.jpg');
-      copyStatic('SparkSummit17.jpg')
+      copyStatic('SparkSummit17.jpg');
+      copyStatic('ots16.jpg');
+      copyStatic('nextcloud2018.jpg');
 
     });
 

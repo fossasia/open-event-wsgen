@@ -364,7 +364,7 @@ module.exports = {
     try {
       const dataOfFile = fs.readFileSync(filePath).toString().split('\n');
 
-      fileData.unshift('{\n"name":"' + eventName + '",\n"short_name":"' + eventName + '",');
+      dataOfFile.unshift('{\n "name": "' + eventName + '",\n "short_name": "' + eventName + '",');
       fs.writeFileSync(appPath + '/manifest.json', dataOfFile.join('\n'));
       return done(null);
     } catch (err) {
@@ -412,6 +412,9 @@ module.exports = {
             fs.copy(fPath, cssPath + '/' + file, check);
             break;
           case '.png':
+            fs.copy(fPath, imagesPath + '/' + file, check);
+            break;
+          case '.gif':
             fs.copy(fPath, imagesPath + '/' + file, check);
             break;
           case '.js':

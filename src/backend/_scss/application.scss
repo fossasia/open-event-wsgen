@@ -521,6 +521,18 @@ a {
   padding-top: 8px;
 }
 
+.add-to-calendar-button {
+  display: block;
+  margin-top: 2%;
+}
+
+.add-to-calendar-button-single {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+}
+
 .schedule-download {
   padding-top: 10px;
   margin-left: 0;
@@ -720,6 +732,10 @@ a {
     margin-left: -20px;
     padding: 5px 5px 0 20px;
   }
+}
+
+.speaker-social .fa {
+  padding: 5px;
 }
 
 #headline {
@@ -1010,13 +1026,12 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 800px) {
   .pop-box {
-    width: 100%;
+    width: 160%;
 
     .arrow {
-      left: 48%;
-      margin-top: -10px;
+      margin-top: -9px;
     }
   }
 }
@@ -1407,10 +1422,6 @@ a {
     display: block;
     font-size: 15px;
   }
-}
-
-#tweet {
-  word-break: break-all;
 }
 
 @media screen and (max-width : 600px) {
