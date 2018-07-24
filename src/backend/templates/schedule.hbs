@@ -328,7 +328,7 @@
                     <div>
                       {{#sessions}}
                         <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
-                          color: {{{font_color}}};">
+                          color: {{{font_color}}};" id = "cal-{{session_id}}">
                         <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
@@ -736,6 +736,7 @@
       });
 
       const calendarFilter = function () {
+        let local_storage_events = JSON.parse(localStorage[eventName]);
         let filterVal = '';
         $('.fossasia-filter').each(function() {
           if($(this).is(':visible')) {
@@ -747,17 +748,16 @@
           $(this).find('.room').each(function() {
             let flag = true;
             $(this).find('.session').each(function() {
+              let id=$(this).attr('id').substr(4);
               if ($(this).find('.session-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
                 $(this).find('.speaker-name').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
                 var trackVal = $(this).find('.title-inline .blacktext').text();
                 var roomVal = $(this).find('.blacktext i').text();
-                if (trackFilterMode && trackVal != trackName) {
+                if(mode && local_storage_events[id] != true || trackFilterMode && trackVal != trackName || roomFilterMode && roomVal != roomName){
                   $(this).hide();
-                } else if (roomFilterMode && roomVal != roomName) {
-                  $(this).hide();
-                } else {
+                }else {
                   $(this).show();
                   flag = false;
                 }
