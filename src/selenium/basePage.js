@@ -381,6 +381,40 @@ const BasePage = {
     });
 
     return socialPromise;
+  },
+
+  activeRooms: function() {
+    const self = this;
+    const activeRoomsArr = [];
+
+    return self.driver.findElements(By.css('.room-info>.room-name')).then(function(rooms) {
+      rooms[0].click().then(self.driver.sleep(1000)).then(self.getPageUrl.bind(self)).then(function(url) {
+        activeRoomsArr.push(decodeURIComponent(url.split('#')[1]) === 'Annexe Hall (Ground Floor)');
+      });
+      rooms[1].click().then(self.driver.sleep(1000)).then(self.getPageUrl.bind(self)).then(function(url) {
+        activeRoomsArr.push(decodeURIComponent(url.split('#')[1]) === 'Annexe Hall (Ground Floor)');
+        activeRoomsArr.push(decodeURIComponent(url.split('#')[1]) === 'Curie & Hershel (Floor 2)');
+      });
+    }).then(function() {
+      return Promise.all(activeRoomsArr);
+    });
+  },
+
+  activeTracks: function() {
+    const self = this;
+    const activeTracksArr = [];
+
+    return self.driver.findElements(By.css('.track-info>.track-name')).then(function(tracks) {
+      tracks[0].click().then(self.driver.sleep(1000)).then(self.getPageUrl.bind(self)).then(function(url) {
+        activeTracksArr.push(decodeURIComponent(url.split('#')[1]) === 'AI & Machine Learning');
+      });
+      tracks[1].click().then(self.driver.sleep(1000)).then(self.getPageUrl.bind(self)).then(function(url) {
+        activeTracksArr.push(decodeURIComponent(url.split('#')[1]) === 'AI & Machine Learning');
+        activeTracksArr.push(decodeURIComponent(url.split('#')[1]) === 'Android');
+      });
+    }).then(function() {
+      return Promise.all(activeTracksArr);
+    });
   }
 };
 

@@ -112,5 +112,14 @@ SchedulePage.checkFilterDirectLink = function() {
   });
 };
 
+SchedulePage.checkFilterDynamicLink = function() {
+  const self = this;
+  const promiseArr = [];
+
+  promiseArr.push(self.activeRooms());
+  promiseArr.push(self.activeTracks());
+  return Promise.all(promiseArr);
+};
+
 module.exports = SchedulePage;
 
