@@ -439,7 +439,12 @@
       $(".export-png").click(function() {
         let fullScheduler = true;
         let name = '';
+        let maxWidth = 0;
 
+        swal("Generating the Image",{
+          icon: "./images/loader.gif",
+          buttons: false
+        });
         if (isCalendarView === true) {
           count = 0;
           $('.calendar').each(function() {
@@ -455,6 +460,9 @@
               widthOfChild = $timeline.find('.room').width();
               canvasWidth = numberOfChildElements * widthOfChild + 50;
               $timeline.width(canvasWidth);
+              if(canvasWidth > maxWidth){
+                maxWidth = canvasWidth;
+              }
               count++;
             }
           });
@@ -462,6 +470,13 @@
             $timeline = $('.calendar').parent();
             name = 'schedule-calendar';
           }
+          html2canvas($timeline,{width: maxWidth}).then(function(canvas) {
+              canvas.id = "generated-canvas";
+              canvas.toBlob(function(blob) {
+                swal.close();
+                saveAs(blob, '' + name + '.png');
+              });
+            });
         } else {
           $('.day-filter').each(function() {
             $('.day-filter').each(function() {
@@ -478,15 +493,16 @@
               name = 'schedule-list';
             }
           });
+          html2canvas($timeline, {
+            onrendered: function(canvas) {
+              canvas.id = "generated-canvas";
+              canvas.toBlob(function(blob) {
+                swal.close();
+                saveAs(blob, '' + name + '.png');
+              });
+            },
+          });
         }
-        html2canvas($timeline, {
-          onrendered: function(canvas) {
-            canvas.id = "generated-canvas";
-            canvas.toBlob(function(blob) {
-              saveAs(blob, '' + name + '.png');
-            });
-          },
-        });
 
         if (isCalendarView === true) {
           count = 0;
@@ -496,9 +512,7 @@
             count++;
           });
         }
-
       });
-
 
       $('.export-pdf').click(function () {
         let pdf;
