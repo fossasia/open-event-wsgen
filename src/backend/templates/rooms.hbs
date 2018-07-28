@@ -69,8 +69,9 @@
       <div class="date-list container">
           <div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs">
             <span class="tabs-nav">
+              <a id="all" href="#" class="all date-button tabs-nav-link is-active">All</a>
               {{#days}}
-                <a href="./rooms.html#{{firstSlug}}" class="tabs-nav-link">{{caption}}</a>
+                <a href="#" class="{{firstSlug}} date-button tabs-nav-link">{{caption}}</a>
               {{/days}}
             </span>
           </div>
@@ -591,6 +592,31 @@
             main.showNoResult('room', 0);
             $('html, body').animate({scrollTop: 0}, 500);
         });
+
+        $('.date-button').click(function() {
+
+          let className = $(this).attr('class').split(' ')[0];
+          $(this).addClass('is-active');
+          $(this).siblings().removeClass('is-active');
+          viewsFilter(className);
+          main.showNoResult('room', false);
+
+        });
+
+        function viewsFilter(date) {
+          $('.date-filter').each(function () {
+            if(date !== 'all') {
+              if ($(this).attr('class').split(' ')[0] === date) {
+                $(this).removeClass('hide');
+              } else {
+                $(this).addClass('hide');
+              }
+            }
+              else{
+                $(this).removeClass('hide');
+              }
+          });
+        }
 
         function display() {
           var temp = JSON.parse(localStorage[eventName]);
