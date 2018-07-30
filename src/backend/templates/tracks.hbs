@@ -584,30 +584,14 @@
           }
         });
 
-          $('.date-button').click(function() {
+        $('.date-button').click(function() {
+          let className = $(this).attr('class').split(' ')[0];
 
-            let className = $(this).attr('class').split(' ')[0];
-            $(this).addClass('is-active');
-            $(this).siblings().removeClass('is-active');
-            viewsFilter(className);
-            main.showNoResult('track', false);
-
-          });
-
-          function viewsFilter(date) {
-            $('.date-filter').each(function () {
-              if(date !== 'all') {
-                if ($(this).attr('class').split(' ')[0] === date) {
-                  $(this).removeClass('hide');
-                } else {
-                  $(this).addClass('hide');
-                }
-              }
-              else{
-                $(this).removeClass('hide');
-              }
-            });
-          }
+          $(this).addClass('is-active');
+          $(this).siblings().removeClass('is-active');
+          main.viewsFilter('track', 'list', className);
+          main.showNoResult('track', false);
+        });
 
         function display() {
           var temp = JSON.parse(localStorage[eventName]);
