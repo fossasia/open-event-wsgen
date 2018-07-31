@@ -533,6 +533,32 @@ a {
   margin-top: 2%;
 }
 
+.profile-image {
+  border: 1px solid;
+  border-radius: 50%;
+  color: $grey;
+  font-size: 25px;
+  height: 75px;
+  line-height: 75px;
+  margin: 5px 0;
+  text-align: center;
+  width: 75px;
+}
+
+.attendee-section {
+  max-height: 300px;
+  overflow-y: hidden;
+  padding-left: -15px;
+
+  &:hover {
+    overflow-y: scroll;
+  }
+}
+
+.attendees {
+  padding-left: 0;
+}
+
 .schedule-download {
   padding-top: 10px;
   margin-left: 0;
