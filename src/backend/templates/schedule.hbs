@@ -469,6 +469,21 @@
                   {{/tracknames}}
                 </div>
             </div>
+              <div class="col-md-12 col-sm-12">
+                  <div class="attendee-section">
+                    {{#if attendees}}
+                      <h4 class='list-title'> Attendees </h4>
+                    {{/if}}
+
+                    {{#if attendees}}
+                      {{#attendees}}
+                        <div class="col-md-4 attendees">
+                          <div class="profile-image" data-toggle="tooltip" title="{{firstname}} {{lastname}}">{{{trimString firstname}}}{{{trimString lastname}}}</div>
+                        </div>
+                      {{/attendees}}
+                    {{/if}}
+                  </div>
+              </div>
           </div>
         </div>
       </div>
@@ -509,6 +524,7 @@
       });
       let featuresWidth;
 
+      $('[data-toggle="tooltip"]').tooltip();
       $('.schedule-margin').each(function() {
         featuresWidth = $(this).children('.features').width() + 2;
         $(this).css('padding-right', featuresWidth + 'px');

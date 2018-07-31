@@ -413,6 +413,17 @@ function returnRoomnames(roomsInfo) {
   return uniqueRoomList;
 }
 
+function returnAttendees(attendeesData) {
+  const attendeesList = [];
+
+  if (attendeesData !== null && attendeesData !== '') {
+    attendeesData.forEach(function(attendee) {
+      attendeesList.push(attendee.attributes);
+    });
+  }
+  return attendeesList;
+}
+
 function createSocialLinks(event) {
   const sociallinks = Array.from(event['social-links']);
 
@@ -1033,3 +1044,4 @@ module.exports.checkNullHtml = checkNullHtml;
 module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
 module.exports.removeSpace = removeSpace;
 module.exports.returnRoomnames = returnRoomnames;
+module.exports.returnAttendees = returnAttendees;

@@ -503,6 +503,9 @@ module.exports = {
                 case 'sponsors':
                   fs.copy(fPath, appPath + '/json/' + file, check);
                   break;
+                case 'attendees':
+                  fs.copy(fPath, appPath + '/json/' + file, check);
+                  break;
                 default: cb(null);
               }
             }, function(error) {

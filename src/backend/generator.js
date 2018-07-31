@@ -64,6 +64,12 @@ handlebars.registerHelper('ifcontains', function(string, substring, options) {
   return options.inverse(this);
 });
 
+handlebars.registerHelper('trimString', function(originalString) {
+  const initials = originalString.substring(0, 1);
+
+  return new handlebars.SafeString(initials);
+});
+
 handlebars.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
@@ -81,7 +87,7 @@ function minifyHtml(file) {
   return result;
 }
 
-function transformData(sessions, speakers, event, sponsors, tracksData, roomsData, reqOpts, next) {
+function transformData(sessions, speakers, event, sponsors, tracksData, roomsData, attendeesData, reqOpts, next) {
   fold.foldByTrack(sessions, speakers, tracksData, reqOpts, function(tracks) {
     const days = fold.foldByDate(tracks);
     const sociallinks = fold.createSocialLinks(event);
@@ -98,11 +104,12 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
           const metaauthor = fold.getOrganizerName(event);
           const tracknames = fold.returnTracknames(sessions, tracksData);
           const roomsnames = fold.returnRoomnames(roomsinfo);
+          const attendees = fold.returnAttendees(attendeesData);
 
           next({
             tracks, days, sociallinks,
             eventurls, copyright, sponsorpics,
-            roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames, roomsnames
+            roomsinfo, apptitle, speakerslist, timeList, metaauthor, tracknames, roomsnames, attendees
           });
         });
       });
@@ -120,8 +127,13 @@ function getJsonData(reqOpts, next) {
     const sponsorsData = jsonfile.readFileSync(distJsonsPath + '/sponsors');
     const tracksData = jsonfile.readFileSync(distJsonsPath + '/tracks');
     const roomsData = jsonfile.readFileSync(distJsonsPath + '/microlocations');
+    let attendeesData = '';
 
-    return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, reqOpts, function(data) {
+    if (reqOpts.datasource === 'jsonupload' && fs.existsSync(distJsonsPath + '/attendees')) {
+      attendeesData = jsonfile.readFileSync(distJsonsPath + '/attendees');
+    }
+
+    return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, attendeesData, reqOpts, function(data) {
       next(null, data);
     });
   } catch (err) {
