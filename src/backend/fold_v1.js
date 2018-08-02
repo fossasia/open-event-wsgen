@@ -405,6 +405,10 @@ function returnRoomnames(roomsInfo) {
   return uniqueRoomList;
 }
 
+function returnAttendees(attendeesData) {
+  return attendeesData;
+}
+
 function createSocialLinks(event) {
   const sociallinks = Array.from(event.social_links);
 
@@ -1006,3 +1010,4 @@ module.exports.checkNullHtml = checkNullHtml;
 module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
 module.exports.removeSpace = removeSpace;
 module.exports.returnRoomnames = returnRoomnames;
+module.exports.returnAttendees = returnAttendees;
