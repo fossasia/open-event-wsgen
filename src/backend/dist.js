@@ -566,7 +566,7 @@ module.exports = {
       });
     });
   },
-  fetchApiJsons: function(appFolder, apiEndpoint, socket, done) {
+  fetchApiJsons: function(appFolder, apiEndpoint, apiVersion, socket, done) {
     const endpoint = apiEndpoint.replace(/\/$/, '');
     const appPath = distPath + '/' + appFolder;
     let endpointType = 'github';
@@ -600,6 +600,12 @@ module.exports = {
           jsonsUrl[key] = endpoint + '?include=social-links,event-copyright';
         } else if (key === 'speakers') {
           jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+        }
+      });
+    } else if (endpoint.search('https://open-event-api-dev.herokuapp.com') !== -1 && apiVersion === 'api_v2') {
+      Object.keys(jsonsUrl).forEach(function(key) {
+        if (key === 'event') {
+          jsonsUrl[key] = endpoint;
         }
       });
     }
