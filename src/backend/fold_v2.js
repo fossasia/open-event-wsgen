@@ -30,7 +30,11 @@ function slugify(str) {
 }
 
 function replaceSpaceWithUnderscore(str) {
-  return str.replace(/ /g, '_');
+  if (str) {
+    return str.replace(/ /g, '_');
+  }
+
+  return null;
 }
 
 function removeSpace(str) {
@@ -149,14 +153,18 @@ function foldByTrack(sessions, speakers, trackInfo, reqOpts, next) {
   });
 
   async.eachSeries(sessions, (session, callback) => {
-    if (!session['starts-at'] || session.microlocation === null || session.state === 'pending' || session.state === 'rejected' || session.state === 'draft') {
+    if (!session['starts-at'] || session.state === 'pending' || session.state === 'rejected' || session.state === 'draft') {
       return callback(null);
     }
 
     // generate slug/key for session
     const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
     const trackName = session.track === null ? 'deftrack' : session.track.name;
-    const roomName = session.microlocation.name;
+    let roomName = '';
+
+    if (session.microlocation) {
+      roomName = session.microlocation.name;
+    }
     const session_type = session['session-type'] === null ? '' : session['session-type'].name;
     const trackNameUnderscore = replaceSpaceWithUnderscore(trackName);
     const slug = date + '-' + trackNameUnderscore;
@@ -263,10 +271,14 @@ function foldByTime(sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    if (session.microlocation === null || session.state === 'rejected' || session.state === 'pending' || session.state === 'draft') {
+    let roomName = '';
+
+    if (session.state === 'rejected' || session.state === 'pending' || session.state === 'draft') {
       return;
     }
-    const roomName = session.microlocation.name;
+    if (session.microlocation) {
+      roomName = session.microlocation.name;
+    }
     const session_type = session['session-type'] === null ? ' ' : session['session-type'].name;
     const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
     const startTime = moment.parseZone(session['starts-at']).format('HH:mm');
@@ -411,6 +423,17 @@ function returnRoomnames(roomsInfo) {
 
   uniqueRoomList.sort();
   return uniqueRoomList;
+}
+
+function returnAttendees(attendeesData) {
+  const attendeesList = [];
+
+  if (attendeesData !== null && attendeesData !== '') {
+    attendeesData.forEach(function(attendee) {
+      attendeesList.push(attendee.attributes);
+    });
+  }
+  return attendeesList;
 }
 
 function createSocialLinks(event) {
@@ -577,9 +600,11 @@ function getCopyrightData(event) {
   if (event['licence-details']) {
     return convertLicenseToCopyright(event['licence-details'], event['event-copyright']);
   }
-  event['event-copyright'].logo = event['event-copyright']['logo-url'];
-  event['event-copyright'].license_url = event['event-copyright']['licence-url'];
-  event['event-copyright'].holder_url = event['event-copyright']['holder-url'];
+  if (event['event-copyright']) {
+    event['event-copyright'].logo = event['event-copyright']['logo-url'];
+    event['event-copyright'].license_url = event['event-copyright']['licence-url'];
+    event['event-copyright'].holder_url = event['event-copyright']['holder-url'];
+  }
   return event['event-copyright'];
 }
 
@@ -737,13 +762,17 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
   });
 
   sessions.forEach((session) => {
-    if (!session['starts-at'] || session.microlocation === null || session.state === 'pending' || session.state === 'rejected' || session.state === 'draft') {
+    if (!session['starts-at'] || session.state === 'pending' || session.state === 'rejected' || session.state === 'draft') {
       return;
     }
 
     // generate slug/key for session
     const date = moment.parseZone(session['starts-at']).format('YYYY-MM-DD');
-    const roomName = session.microlocation.name;
+    let roomName = '';
+
+    if (session.microlocation) {
+      roomName = session.microlocation.name;
+    }
     const slug = date;
     const tracktitle = session.track === null ? ' ' : session.track.name;
     const start = moment.parseZone(session['starts-at']).format('HH:mm');
@@ -755,7 +784,7 @@ function foldByRooms(room, sessions, speakers, trackInfo) {
     let room = null;
 
     // set up room if it does not exist
-    if (!roomData.has(slug) && session.microlocation !== null) {
+    if (!roomData.has(slug)) {
       room = {
         date: moment.parseZone(session['starts-at']).format('dddd, Do MMM'),
         sortKey: moment.parseZone(session['starts-at']).format('YY-MM-DD'),
@@ -986,7 +1015,7 @@ function getAllSessions(speakerid, session, trackInfo) {
       if (speakerSessionDetail === undefined) {
         return;
       }
-      if (speakerSessionDetail.microlocation !== null && (speakerSessionDetail.state === 'accepted' || speakerSessionDetail.state === 'confirmed')) {
+      if (speakerSessionDetail.state === 'accepted' || speakerSessionDetail.state === 'confirmed') {
         sessiondetail.push({
           detail: speakerSessionDetail
         });
@@ -1033,3 +1062,4 @@ module.exports.checkNullHtml = checkNullHtml;
 module.exports.replaceSpaceWithUnderscore = replaceSpaceWithUnderscore;
 module.exports.removeSpace = removeSpace;
 module.exports.returnRoomnames = returnRoomnames;
+module.exports.returnAttendees = returnAttendees;
