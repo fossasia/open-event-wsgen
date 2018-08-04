@@ -302,6 +302,11 @@ function checkLinks(jsonData, data) {
   changeEventUrlLinks(jsonData.eventurls.logo_url, jsonData.eventurls.name);
 }
 
+function metaData(jsonData, data) {
+  data.apptitle = jsonData.apptitle;
+  data.metaauthor = jsonData.metaauthor;
+}
+
 function setPageFlag(jsonData, page) {
   jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
   // eslint-disable-next-line default-case
@@ -622,6 +627,7 @@ exports.createDistDir = function(req, socket, callback) {
 
                   completeData.single_session = true;
                   checkLinks(jsonData, completeData);
+                  metaData(jsonData, completeData);
                   fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(completeData)));
                 }
               }
