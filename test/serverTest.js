@@ -160,25 +160,6 @@ describe('generate', function () {
   describe('.create different event sites and copy assets of overview site', function () {
     this.timeout(800000);
 
-    it('should generate the Facebook Developer Conference Hands', function (done) {
-      let data = {};
-
-      data.body = {
-        "email": "a@a.com",
-        "name": "Open Event",
-        "theme": 'light',
-        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/FBF817/",
-        "datasource": "eventapi",
-        "assetmode": "download"
-      };
-
-      generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/F8-FacebookDeveloperConference2017");
-        done();
-      });
-
-    });
-
     it('should generate the FOSSASIA Summit 2017', function (done) {
       let data = {};
 
@@ -531,9 +512,28 @@ describe('generate', function () {
       });
     });
 
+    it('should generate the OSCAL 2017 event', function (done) {
+      let data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "theme": 'light',
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OSCAL2017",
+        "apiVersion": 'api_v1',
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/OSCAL2017");
+        done();
+      });
+    });
+
     it('should copy all the static files', function (done) {
       let staticPath = __dirname + '/../src/backend/overviewSite/';
-      let totalFiles = 19;
+      let totalFiles = 20;
       let counter = 0;
 
       function copyStatic(fileName) {
@@ -558,7 +558,6 @@ describe('generate', function () {
       copyStatic('index.html');
       copyStatic('fasmall.jpg');
       copyStatic('otssmall.jpg');
-      copyStatic('fbsmall.jpg');
       copyStatic('mozilla_banner.jpg');
       copyStatic('oscon.png');
       copyStatic('fa16small.jpg');
@@ -567,6 +566,7 @@ describe('generate', function () {
       copyStatic('PyCon17.jpg');
       copyStatic('redhat.jpg');
       copyStatic('droidcon.jpg');
+      copyStatic('fbsmall.jpg');
       copyStatic('fossasia16.jpg');
       copyStatic('fossasia2011.jpg');
       copyStatic('fossasia2010.JPG');
@@ -574,6 +574,7 @@ describe('generate', function () {
       copyStatic('SparkSummit17.jpg');
       copyStatic('ots16.jpg');
       copyStatic('nextcloud2018.jpg');
+      copyStatic('oscal17.jpg');
 
     });
 
