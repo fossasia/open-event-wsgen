@@ -17,6 +17,8 @@ const distHelper = require(__dirname + '/dist.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
 const app = require('../app');
+const config = require('../../config.json');
+const request = require('request').defaults({'proxy': config.proxy});
 let fold;
 
 function registerPartial(name) {
@@ -117,6 +119,45 @@ function transformData(sessions, speakers, event, sponsors, tracksData, roomsDat
   });
 }
 
+async function getData(entity, prop, cb) {
+  await request.get({url: 'https://open-event-api-dev.herokuapp.com' + entity.relationships[prop].links.related}, function(err, response) {
+    if (err) {
+      console.log(err);
+    }
+    entity.attributes[prop] = JSON.parse(response.body).data;
+    return new Promise((resolve) => {
+      resolve(cb());
+    });
+  });
+}
+
+function getAllData(data, prop, cb) {
+  async.each(data, function(entity, callback) {
+    request.get({url: 'https://open-event-api-dev.herokuapp.com' + entity.relationships[prop].links.related}, function(err, response) {
+      if (err) {
+        console.log(err);
+      }
+      const body = JSON.parse(response.body).data;
+
+      if (prop !== 'session-type' && prop !== 'track' && body) {
+        entity.attributes[prop] = [];
+        body.forEach(function(val) {
+          val.attributes.id = val.id;
+          entity.attributes[prop].push(val.attributes);
+        });
+      } else if (body) {
+        body.attributes.id = body.id;
+        entity.attributes[prop] = body.attributes;
+      } else {
+        entity.attributes[prop] = null;
+      }
+      callback();
+    });
+  }, function() {
+    cb();
+  });
+}
+
 function getJsonData(reqOpts, next) {
   try {
     const appFolder = reqOpts.email + '/' + fold.slugify(reqOpts.name);
@@ -133,9 +174,100 @@ function getJsonData(reqOpts, next) {
       attendeesData = jsonfile.readFileSync(distJsonsPath + '/attendees');
     }
 
-    return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, attendeesData, reqOpts, function(data) {
-      next(null, data);
-    });
+    if (reqOpts.datasource === 'eventapi' && reqOpts.apiVersion === 'api_v2' && reqOpts.apiendpoint.replace(/\/$/, '').search('https://open-event-api-dev.herokuapp.com') !== -1) {
+      const data = ['track', 'microlocation', 'session-type', 'speakers', 'sessions', 'social-links', 'event-copyright', 'speaker-sessions'];
+
+      async.each(data, function(child, cb) {
+        switch (child) {
+          case 'track' :
+            getAllData(sessionsData.data, 'track', cb);
+            break;
+          case 'microlocation':
+            getAllData(sessionsData.data, 'microlocation', cb);
+            break;
+          case 'session-type':
+            getAllData(sessionsData.data, 'session-type', cb);
+            break;
+          case 'speakers':
+            getAllData(sessionsData.data, 'speakers', cb);
+            break;
+          case 'sessions':
+            getAllData(tracksData.data, 'sessions', cb);
+            break;
+          case 'social-links':
+            getData(eventData.data, 'social-links', cb);
+            break;
+          case 'event-copyright':
+            getData(eventData.data, 'event-copyright', cb);
+            break;
+          case 'speaker-sessions':
+            getAllData(speakersData.data, 'sessions', cb);
+            break;
+          default:
+            break;
+        }
+      }, function() {
+        const completeData = ['sessions', 'speakers', 'sponsors', 'tracks', 'rooms'];
+        const sessions = [];
+        const speakers = [];
+        const sponsors = [];
+        const tracks = [];
+        const rooms = [];
+        const event = eventData.data.attributes;
+
+        async.each(completeData, function(child, cb) {
+          switch (child) {
+            case 'sessions':
+              sessionsData.data.forEach(function(session) {
+                session.attributes.id = session.id;
+                sessions.push(session.attributes);
+              });
+              cb();
+              break;
+            case 'speakers':
+              speakersData.data.forEach(function(speaker) {
+                speaker.attributes.id = speaker.id;
+                speakers.push(speaker.attributes);
+              });
+              cb();
+              break;
+            case 'sponsors':
+              sponsorsData.data.forEach(function(sponsor) {
+                sponsor.attributes.id = sponsor.id;
+                sponsors.push(sponsor.attributes);
+              });
+              cb();
+              break;
+            case 'tracks':
+              tracksData.data.forEach(function(track) {
+                track.attributes.id = track.id;
+                tracks.push(track.attributes);
+              });
+              cb();
+              break;
+
+            case 'rooms':
+              roomsData.data.forEach(function(room) {
+                room.attributes.id = room.id;
+                rooms.push(room.attributes);
+              });
+              cb();
+              break;
+
+            default:
+              break;
+          }
+        }, function() {
+          return transformData(sessions, speakers, event, sponsors, tracks, rooms, attendeesData, reqOpts, function(addedData) {
+            next(null, addedData);
+          });
+        });
+      });
+    } else {
+      return transformData(sessionsData, speakersData, eventData, sponsorsData, tracksData, roomsData, attendeesData, reqOpts, function(data) {
+        next(null, data);
+      });
+    }
   } catch (err) {
     return next(err);
   }
@@ -323,7 +455,7 @@ exports.createDistDir = function(req, socket, callback) {
         case 'eventapi':
           console.log('================================FETCHING JSONS\n');
           logger.addLog('Info', 'Fetching Jsons from the internet', socket);
-          distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, socket, (err) => {
+          distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, req.body.apiVersion, socket, (err) => {
             if (err !== null) {
               console.log(err);
               callback(null);
