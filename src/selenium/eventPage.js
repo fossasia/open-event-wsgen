@@ -57,4 +57,14 @@ EventPage.getSponsorsBrokenLinks = function() {
   return brokenLinks;
 };
 
+EventPage.checkTicketButton = function() {
+  return this.find(By.id('ticket-button'));
+};
+
+EventPage.checkTicketFunctionality = function() {
+  const link = this.getAllLinks(By.className('ticket-button-container'));
+  const brokenLinks = link.then(this.countBrokenLinks);
+
+  return brokenLinks;
+};
 module.exports = EventPage;

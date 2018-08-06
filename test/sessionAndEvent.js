@@ -225,5 +225,22 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the presence of ticket button', function(done) {
+      eventPage.checkTicketButton().then(function() {
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking the functionality of ticket button', function(done) {
+      eventPage.checkTicketFunctionality().then(function(brokenLinksCount) {
+        assert.equal(brokenLinksCount, 0);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 });
