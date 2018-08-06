@@ -415,6 +415,40 @@ const BasePage = {
     }).then(function() {
       return Promise.all(activeTracksArr);
     });
+  },
+
+  checkAddToCalendarButton: function() {
+    const self = this;
+    const promise = new Promise(function(resolve) {
+      resolve(self.find(By.css('#desc-3014 button')).isDisplayed());
+    });
+
+    return promise;
+  },
+
+  addSessionToCalendar: function() {
+    const self = this;
+
+    const promise = new Promise(function(resolve) {
+      let baseWindow;
+
+      self.find(By.css('#desc-3014 button')).then(self.click).then(self.driver.sleep(1000)).then(function() {
+        self.driver.getWindowHandle().then(function(windowElem) {
+          baseWindow = windowElem;
+        });
+
+        self.getAllWindows().then(function(windowArr) {
+          const len = windowArr.length;
+
+          windowArr.splice(windowArr.indexOf(baseWindow), 1);
+          self.closeOtherWindows(windowArr, baseWindow).then(function() {
+            resolve(len);
+          });
+        });
+      });
+    });
+
+    return promise;
   }
 };
 
