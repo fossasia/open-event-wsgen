@@ -337,6 +337,15 @@ describe("Running Selenium tests on Chrome Driver", function () {
       });
     });
 
+    it('Checking the working of video iframe', function (done) {
+      schedulePage.checkVideo().then(function(bool) {
+        assert.equal(bool, false);
+        done();
+      }).catch(function(err) {
+        done(err);
+      })
+    });
+
     it('Checking the bookmark toggle', function (done) {
       schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function (visArr) {
