@@ -512,6 +512,25 @@ describe('generate', function () {
       });
     });
 
+    it('should generate the OpenTechSummit 2018 event', function (done) {
+      let data = {};
+
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "theme": 'light',
+        "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/OpenTechSummit2018",
+        "apiVersion": 'api_v1',
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
+
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/OpenTechSummit2018");
+        done();
+      });
+    });
+
     it('should generate the OSCAL 2017 event', function (done) {
       let data = {};
 
@@ -533,7 +552,7 @@ describe('generate', function () {
 
     it('should copy all the static files', function (done) {
       let staticPath = __dirname + '/../src/backend/overviewSite/';
-      let totalFiles = 20;
+      let totalFiles = 21;
       let counter = 0;
 
       function copyStatic(fileName) {
@@ -575,6 +594,7 @@ describe('generate', function () {
       copyStatic('ots16.jpg');
       copyStatic('nextcloud2018.jpg');
       copyStatic('oscal17.jpg');
+      copyStatic('OTS18.jpg');
 
     });
 
