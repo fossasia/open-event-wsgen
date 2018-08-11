@@ -371,6 +371,8 @@ $(document).ready(function() {
     $('#btnGenerate').prop('disabled', true);
     $('#btnGenerate').attr('title', 'Generated webapp');
     $('#btnGenerate').prop('disabled', false);
+    $('input[ type = "radio" ]').attr('disabled', false);
+    $('#email').prop('disabled', false);
     addDeployLink();
   });
 
