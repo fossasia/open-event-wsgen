@@ -3,7 +3,8 @@
 
 const until = require('selenium-webdriver').until;
 const By = require('selenium-webdriver').By;
-const request = require('request');
+const config = require('../../config.json');
+const request = require('request').defaults({'proxy': config.proxy});
 
 const BasePage = {
 
@@ -174,6 +175,17 @@ const BasePage = {
             resolve(brokenLinks);
           }
         });
+      });
+    });
+  },
+
+  isLinkBroken: function(url) {
+    return new Promise(function(resolve) {
+      request(url, function(error, response) {
+        if (error || response.statusCode === 404) {
+          resolve(true);
+        }
+        resolve(false);
       });
     });
   },

@@ -223,6 +223,15 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the working of video iframe', function (done) {
+      trackPage.checkVideo().then(function(bool) {
+        assert.equal(bool, false);
+        done();
+      }).catch(function(err) {
+        done(err);
+      })
+    });
+
     it('Checking the Track Filter', function(done) {
       trackPage.checkIsolatedTrackFilter().then(function(numTrack) {
         assert.equal(numTrack, 1);
