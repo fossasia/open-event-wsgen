@@ -45,7 +45,7 @@ describe('generate', function() {
       let data = {};
       data.body = {
         "email": "a@a.com",
-        "theme": "light",
+        "theme": "dark",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
         "sessionMode": "single",
@@ -352,6 +352,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
       trackPage.checkTrackFilterDirectLink().then(function(tracksArr) {
         assert.deepEqual(tracksArr, ["1002", "1101", "1102"]);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking the background colors for dark theme', function (done) {
+      trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html');
+      trackPage.getBackgroundColor('tracks').then(function(bgcolorArr) {
+        assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
       }).catch(function(err) {
         done(err);

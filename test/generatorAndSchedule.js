@@ -49,7 +49,7 @@ describe('generate', function () {
 
         data.body = {
           "email": "a@a.com",
-          "theme": "light",
+          "theme": "dark",
           "name": "Open Event",
           "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
           "sessionMode": "single",
@@ -385,6 +385,16 @@ describe("Running Selenium tests on Chrome Driver", function () {
         assert.deepEqual(TracksArr, ["1002", "1101", "1102"]);
         done();
       }).catch(function (err) {
+        done(err);
+      });
+    });
+
+    it('Checking the background colors for dark theme', function (done) {
+      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html');
+      schedulePage.getBackgroundColor('schedule').then(function(bgcolorArr) {
+        assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
+        done();
+      }).catch(function(err) {
         done(err);
       });
     });

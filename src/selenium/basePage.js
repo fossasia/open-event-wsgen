@@ -86,6 +86,22 @@ const BasePage = {
     return Promise.all(colorPromArr);
   },
 
+  getBackgroundColor: function(page) {
+    const self = this;
+    let elemsArr;
+
+    if (page === 'event') {
+      elemsArr = ['body', '.eventpage.container'];
+    } else {
+      elemsArr = ['body', '.main.container'];
+    }
+    const colorPromArr = elemsArr.map(function(elem) {
+      return self.find(By.css(elem)).getCssValue('background-color');
+    });
+
+    return Promise.all(colorPromArr);
+  },
+
   checkDownButton: function() {
     const self = this;
 

@@ -49,7 +49,7 @@ describe('generate', function() {
 
       data.body = {
         "email": "a@a.com",
-        "theme": "light",
+        "theme": "dark",
         "name": "Open Event",
         "apiendpoint": "https://raw.githubusercontent.com/fossasia/open-event/master/sample/MozillaAllHands17",
         "sessionMode": "single",
@@ -281,6 +281,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking the background colors for dark theme', function (done) {
+      roomPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/rooms.html');
+      roomPage.getBackgroundColor('rooms').then(function(bgcolorArr) {
+        assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
   });
 
   describe('Testing Speakers page', function() {
@@ -310,6 +320,16 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Jump to track page on clicking session of a speaker', function(done) {
       speakerPage.jumpToTrack().then(function(val) {
         assert.equal(val, 1);
+        done();
+      }).catch(function(err) {
+        done(err);
+      });
+    });
+
+    it('Checking the background colors for dark theme', function (done) {
+      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
+      speakerPage.getBackgroundColor('speakers').then(function(bgcolorArr) {
+        assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
       }).catch(function(err) {
         done(err);
