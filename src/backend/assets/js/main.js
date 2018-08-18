@@ -203,26 +203,9 @@ $(document).ready(function () {
     });
   };
 
-  function viewsFilter(filterType, curView, date) {
-    const filter = allFilter[filterType];
-    if(curView === 'list') {
-      $(filter.dateFilter).each(function () {
-        const showThing = date === 'all' || $(this).hasClass(date);
-        $(this).toggleClass('hide', !showThing);
-      });
-    }
-    else if(curView === 'calendar') {
-      $(filter.dateFilter).each(function () {
-        const showThing = date === 'all' || $(this).hasClass(date);
-        $(this).toggleClass('hide', !showThing);
-      });
-    }
-  }
-
   window.main = {
     trackRoomFilter: trackRoomFilter,
     showNoResult: showNoResult,
-    viewsFilter: viewsFilter,
     handleClientLoad: handleClientLoad,
     initClient: initClient,
     handleAuthClick: handleAuthClick,

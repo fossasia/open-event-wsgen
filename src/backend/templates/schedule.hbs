@@ -853,6 +853,37 @@
         return className;
       }
 
+      function viewsFilter(curView, date) {
+        if(curView === 'list') {
+          $('.day-filter').each(function () {
+            if(date !== 'all') {
+              if ($(this).attr('class').split(' ')[0] === date) {
+                $(this).removeClass('hide');
+              } else {
+                $(this).addClass('hide');
+              }
+            }
+            else{
+              $(this).removeClass('hide');
+            }
+          });
+        }
+        else if(curView === 'calendar') {
+          $('.calendar').each(function () {
+            if(date !== 'all') {
+              if ($(this).attr('class').split(' ')[0] === date) {
+                $(this).removeClass('hide');
+              } else {
+                $(this).addClass('hide');
+              }
+            }
+            else{
+              $(this).removeClass('hide');
+            }
+          });
+        }
+      }
+
       $('.date-button').click(function() {
         let className = $(this).attr('class').split(' ')[0];
 
@@ -860,9 +891,9 @@
         $(this).siblings().removeClass('is-active');
 
         if(isCalendarView) {
-          main.viewsFilter('schedule', 'calendar', className);
+          viewsFilter('calendar', className);
         } else {
-          main.viewsFilter('schedule', 'list', className);
+          viewsFilter('list', className);
         }
         main.showNoResult('schedule', isCalendarView);
       });
@@ -883,14 +914,14 @@
           trackRoomNames.css('margin-top','0%');
           trackListId.css('margin-top', '0%');
           if (curDate !== '') {
-            main.viewsFilter('schedule', 'calendar', curDate);
+            viewsFilter('calendar', curDate);
           }
         } else {
           isCalendarView = false;
           trackRoomNames.css('margin-top','16%');
           trackListId.css('margin-top', '4%');
           if (curDate !== '') {
-            main.viewsFilter('schedule', 'list', curDate);
+            viewsFilter('list', curDate);
           }
         }
       });
