@@ -32,8 +32,8 @@ describe('generate', function () {
           "datasource": "eventapi",
           "assetmode": "download",
           "gcalendar": {
-            'id': process.env.gcalendar_id,
-            'key': process.env.gcalendar_key
+            'id': 'XXXXXXXXXX',
+            'key': 'XXXXXXXXX'
           }
         };
 
@@ -330,7 +330,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     it('Checking the working of Add to calendar button', function (done) {
       schedulePage.addSessionToCalendar().then(function(promptWindows) {
-        assert.equal(promptWindows, 1);
+        assert.equal(promptWindows, 2);
         done();
       }).catch(function(err) {
         done(err);
