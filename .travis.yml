@@ -12,7 +12,7 @@ env:
   - TESTFOLDER=test/roomsAndSpeakers.js
   - TESTFOLDER=test/tracks.js
   - TESTFOLDER=test/generatorAndSchedule.js
-  - TESTFOLDER=test/sessionAndEvent.js
+  - TESTFOLDER=test/sessionEventAndCoC.js
 
 addons:
   sauce_connect:

@@ -7,6 +7,7 @@ let app = require('../src/app');
 let webdriver = require('selenium-webdriver');
 let sessionPage = require('../src/selenium/sessionPage.js');
 let eventPage = require('../src/selenium/eventPage.js');
+let cocPage = require('../src/selenium/cocPage.js');
 
 describe('app', () => {
   describe('run', () => {
@@ -250,6 +251,22 @@ describe("Running Selenium tests on Chrome Driver", function() {
       }).catch(function(err) {
         done(err);
       });
+    });
+
+  });
+
+  describe('Testing Code of Conduct page', function(){
+    before(function() {
+      cocPage.init(driver);
+      cocPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/CoC.html')
+    });
+
+    it('Checking the presence of Code of Conduct section', function(done) {
+      cocPage.checkCoCsection().then(function () {
+        done();
+      }).catch(function (err) {
+        done(err);
+      })
     });
 
   });
