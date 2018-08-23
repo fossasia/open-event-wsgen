@@ -26,6 +26,7 @@ const downloadFile = function(url, file_path, next) {
   });
 
   fileStream.on('finish', function() {
+    next();
     fileStream.close();
   });
 
@@ -33,7 +34,6 @@ const downloadFile = function(url, file_path, next) {
     request.get(url)
       .on('response', function(response) {
         response.pipe(fileStream);
-        next();
       });
   } catch (err) {
     console.log(err);
