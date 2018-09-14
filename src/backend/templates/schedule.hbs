@@ -214,7 +214,7 @@
                         <div id="speaker-{{session_id}}" class="session-speakers-list"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
-                           {{#if speakers_list.length}}
+                           {{#each speakers_list}}
                                     <div class="speakers-list">
                                       {{#speakers_list}}
                                         <p class="session-speakers session-speakers-item">
@@ -224,8 +224,7 @@
                                           {{else}}
                                             <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
                                           {{/if}}
-                                        </p>
-                                      {{/speakers_list}}
+                                        </p>                           
                           </div>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
