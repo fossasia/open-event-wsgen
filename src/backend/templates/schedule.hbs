@@ -214,17 +214,18 @@
                         <div id="speaker-{{session_id}}" class="session-speakers-list"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}">
-                          {{#each speakers_list}}
-                            <div class="margin-down-10">
-                              <a href="speakers.html#{{nameIdSlug}}">
-                                {{#if photo}}
-                                  <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="card-img-top speaker-image-large lazy margin-down-10" width="10" height="10"/>
-                                {{else}}
-                                  <img class="card-img-top speaker-image-large margin-down-10" src="images/avatar.png"/>
-                                {{/if}}
-                                <span class="margin-down-10 desc-speaker-name">{{name}}</span>
-                              </a>
-                            </div>
+                           {{#each speakers_list}}
+                                    <div class="speakers-list">
+                                      {{#speakers_list}}
+                                        <p class="session-speakers session-speakers-item">
+                                          {{#if photo}}
+                                            <img onError="this.onerror=null;this.src='./images/avatar.png';"
+                                            data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
+                                          {{else}}
+                                            <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                          {{/if}}
+                                        </p>                           
+                          </div>
                           {{#if organisation}}
                           <div class="session-speakers-more margin-down-10">
                             {{position}} {{organisation}}
