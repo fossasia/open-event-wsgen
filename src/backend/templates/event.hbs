@@ -195,7 +195,14 @@
       </div>
     {{/if}}
 
-    {{#if eventurls.latitude }}
+     {{#if eventurls.organizedsection}}
+    <div class="organized-section">
+  <h2>Organized by FOSSASIA</h2>
+  <p id="organized-text">FOSSASIA develops Open Source software and hardware for conversational AIs, science and event management with a global developer community from its base in Asia. The organization runs Open Technology events, coding programs, and the #Codeheat development contest. The annual FOSSASIA Summit is the premier Open Technology event in Asia for developers, contributors, start-ups, and technology companies. FOSSASIA was founded in 2009 by Mario Behling and Hong Phuc Dang.</p>
+</div>
+ {{/if}}
+    
+     {{#if eventurls.latitude }}
       {{#if eventurls.longitude}}
         <div class="location">
           <div class="location-map row">
