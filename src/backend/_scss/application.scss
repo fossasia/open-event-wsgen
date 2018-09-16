@@ -2386,6 +2386,28 @@ a.skip:hover {
   }
 }
 
+.organized-section {
+  margin-bottom: 30px;
+  margin-top: 35px;
+  background: white;
+}
+
+h2 {
+  margin-left: 15px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: inherit;
+}
+
+p#organized-text {
+  margin-left: 15px;
+  font-family: sans-serif;
+  color: inherit;
+  font-size: 20px;
+}
+
+
 @media only screen and (max-width:989px) {
   .sidebar {
     display: none;
