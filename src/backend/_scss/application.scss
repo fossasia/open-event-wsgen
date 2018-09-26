@@ -1352,7 +1352,7 @@ a {
     float: left;
     max-height: 262.5px;
     overflow: hidden;
-    padding-left: 30px;
+    padding-left: 10px;
     width: 50%;
     &:hover {
       overflow: auto;
@@ -1362,7 +1362,7 @@ a {
       margin-right: 20px;
       display: inline-block;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 13px;
     }
 
     p {
@@ -1374,6 +1374,7 @@ a {
 
     h2 {
       margin-right: 20px;
+      margin: 0;
     }
   }
 }
@@ -1389,9 +1390,8 @@ a {
     }
 
     .speaker-description {
-      padding-left: 0;
       text-align: center;
-      width: 100%;
+      width: 50%;
     }
   }
 }
