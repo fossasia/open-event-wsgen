@@ -3,6 +3,8 @@
 // 1.Base
 @import '_base/config';
 
+$main-background-translucent: rgba($main-background, 0.7);
+
 /* Offsets for fixed navbar */
 body {
   background-color: $background-shade;
@@ -149,7 +151,7 @@ a {
   }
 
   &.navbar--translucent {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: $main-background-translucent;
   }
 }
 
