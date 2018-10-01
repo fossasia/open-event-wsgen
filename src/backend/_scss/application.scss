@@ -147,6 +147,10 @@ a {
       color: $hover-color;
     }
   }
+
+  &.navbar--translucent {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .navbar-header {
