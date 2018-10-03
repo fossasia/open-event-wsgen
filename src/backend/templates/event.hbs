@@ -247,21 +247,6 @@
           threshold: 2000
         });
       });
-
-      // Making navbar translucent on scrolling down
-      var navbar = $('.js-navbar');
-
-      window.addEventListener('scroll', function (event) {
-        if (window.scrollY > 0) {
-          if (!navbar.classList.contains('navbar--translucent')) {
-            navbar.classList.add('navbar--translucent');
-          }
-        } else {
-          if (navbar.classList.contains('navbar--translucent')) {
-            navbar.classList.remove('navbar--translucent');
-          }
-        }
-      });
     </script>
 
   </body>

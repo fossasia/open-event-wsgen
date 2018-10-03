@@ -45,7 +45,7 @@ function findMatch(arr, pattern){
   }
 }
 
-$(document).ready(function() {   
+$(document).ready(function() {
   var sideslider = $('[data-toggle=collapse-side]');
   var sel = sideslider.attr('data-target');
   var top = $('header[role=banner]').outerHeight();
@@ -53,4 +53,20 @@ $(document).ready(function() {
     $(sel).css('top', top);
     $(sel).toggleClass('in');
   });
+});
+
+
+// Making navbar translucent on scrolling down
+var navbar = $('.js-navbar');
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY > 0) {
+    if (!navbar.classList.contains('navbar--translucent')) {
+      navbar.classList.add('navbar--translucent');
+    }
+  } else {
+    if (navbar.classList.contains('navbar--translucent')) {
+      navbar.classList.remove('navbar--translucent');
+    }
+  }
 });
