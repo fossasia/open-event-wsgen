@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/fossasia/open-event-webapp#readme",
   "dependencies": {
+    "@octokit/rest": "^15.12.1",
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
     "aws-sdk": "^2.62.0",
@@ -38,7 +39,6 @@
     "fs": "0.0.2",
     "fs-extra": "^3.0.1",
     "ftp-deploy": "^1.1.0",
-    "github": "^9.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",
