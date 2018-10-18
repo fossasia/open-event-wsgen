@@ -56,6 +56,5 @@ deploy:
     branch:
       - master
       - development
-    node: 8.11.1
     condition: $TESTFOLDER = test/serverTest.js
 

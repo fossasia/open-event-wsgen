@@ -3,7 +3,7 @@
 
 const distHelper = require('./dist.js');
 const fs = require('fs');
-const Github = require('github');
+const Github = require('@octokit/rest');
 const gh = new Github();
 const async = require('async');
 let results, bitmap, i, file, fullPath, eventName, repoName, total, counter, elem, fileName, sha;
