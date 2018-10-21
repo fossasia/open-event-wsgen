@@ -69,8 +69,9 @@
       <div class="date-list container">
           <div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs">
             <span class="tabs-nav">
+              <a id="all" href="#" class="all date-button tabs-nav-link is-active">All</a>
               {{#days}}
-                <a href="./rooms.html#{{firstSlug}}" class="tabs-nav-link">{{caption}}</a>
+                <a href="#" class="{{firstSlug}} date-button tabs-nav-link">{{caption}}</a>
               {{/days}}
             </span>
           </div>
@@ -590,6 +591,14 @@
             main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
             main.showNoResult('room', 0);
             $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('.date-button').click(function() {
+          let className = $(this).attr('class').split(' ')[0];
+          $(this).addClass('is-active');
+          $(this).siblings().removeClass('is-active');
+          main.viewsFilter('room', 'list', className);
+          main.showNoResult('room', false);
         });
 
         function display() {
