@@ -546,6 +546,9 @@ function getData(initValue) {
     if (field.name === 'apiVersion') {
       data.apiVersion = field.value;
     }
+    if (field.name === 'map') {
+      data.map = field.value;
+    }
   });
   if ($('#upload-ftp').prop('checked')) {
     data.ftpdetails = {
