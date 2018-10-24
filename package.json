@@ -2,6 +2,10 @@
   "name": "open-event-webapp",
   "version": "2.0.0",
   "description": "Open Event Webapp",
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
@@ -25,7 +29,6 @@
     "async": "^2.0.0-rc.6",
     "aws-sdk": "^2.62.0",
     "babel-preset-es2015": "^6.24.0",
-    "bcrypt": "^3.0.1",
     "bee-queue": "^1.2.2",
     "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",

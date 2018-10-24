@@ -537,8 +537,7 @@ exports.createDistDir = function(req, socket, callback) {
         }
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
-        const jsonData = data;
-      
+        const jsonData = data;      
         eventName = fold.removeSpace(jsonData.eventurls.name);
         const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         const basePath = distHelper.distPath + '/' + appFolder + '/images';
