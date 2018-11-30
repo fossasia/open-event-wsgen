@@ -164,7 +164,7 @@
                       {{else}}
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
                           class="schedule-margin sizeevent event" id="title-{{session_id}}" data-toggle="collapse"
-                          data-target="#desc-{{session_id}}"
+                          data-target="#desc-{{session_id}}, #desc2-{{session_id}}"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}" onclick = "main.loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')">
                       {{/if}}
@@ -189,8 +189,35 @@
                             </i>
                           </a>
                         </div>
-                        <div>
+                        <div class="margin-down-15">
                           {{title}}
+                        </div>
+                        <div id="desc2-{{session_id}}" class="collapse in"
+                          style="background-color: {{../color}}; color: {{../font_color}};">
+                          <div class="row">
+                            {{#if speakers_list.length}}
+                              <div class="speakers-list">
+                                {{#speakers_list}}
+                                  <p class="session-speakers session-speakers-item">
+                                    {{#if photo}}
+                                      <img onError="this.onerror=null;this.src='./images/avatar.png';"
+                                      data-original="{{thumb}}" class="lazy card-img-top speaker-image-small"/>
+                                    {{else}}
+                                      <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                    {{/if}}
+                                  </p>
+                                {{/speakers_list}}
+                              </div>
+                            {{/if}}
+                            <div class="speaker-short-info">
+                              <ul class="speaker-name-list">
+                                {{#speakers_list}}
+                                  {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                {{/speakers_list}}
+                              </ul>
+                              <ul class="speaker-name-list">{{type}}</ul>
+                            </div>
+                          </div>
                         </div>
                       </h4>
                       <div id="desc-{{session_id}}" class="collapse">
