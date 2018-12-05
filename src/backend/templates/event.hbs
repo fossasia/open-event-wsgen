@@ -164,6 +164,19 @@
       </div>
     {{/if}}
 
+    {{#if eventurls.orgdescription}}
+      <div class="col-sm-12 col-md-12 col-xs-12 text-center">
+        <h1 class="section-header">Organized by {{eventurls.orgname}}</h1><br>
+      </div>
+      <section class="container">
+        <div class="col-sm-12 col-md-12 col-xs-12">
+          <p>
+            {{eventurls.orgdescription}}
+          </p>
+        </div>
+      </section>
+    {{/if}}
+
     {{#if eventurls.sponsorsection}}
       <div class="sponsor-container">
         <section class="sponsorscont">

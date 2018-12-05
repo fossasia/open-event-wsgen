@@ -502,6 +502,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     tweetUrl: sociallink,
     email: event.email,
     orgname: event.organizer_name,
+    orgdescription: event.organizer_description,
     location_name: event.location_name,
     featuresection: featuresection,
     sponsorsection: sponsorsection,
