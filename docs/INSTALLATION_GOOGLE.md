@@ -75,7 +75,7 @@ The application will now open in a new tab in your browser for you to view.
 
 **See the entire process step by step :**
 
-![GIF](screenshots/open-event-webapp.gif)
+![GIF](images/open-event-webapp.gif)
 
 
 

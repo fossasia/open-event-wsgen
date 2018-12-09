@@ -53,7 +53,7 @@ https://your-heroku-app-name.herokuapp.com/ | https://git.heroku.com/your-heroku
 
 **Note:** replace 'your-heroku-app-name' with your heroku app name
 
-![Create the app](screenshots/heroku_2.png)
+![Create the app](images/heroku_2.png)
 
 5) check if heroku's git url is added into the remote by git remote -v
 ```sh
@@ -64,7 +64,7 @@ origin	https://github.com/yourusername/open-event-webapp.git (push)
 origin	https://github.com/yourusername/open-event-webapp.git (push)
 ```
 
-![View remotes](screenshots/heroku_3.png)
+![View remotes](images/heroku_3.png)
 
 6) if it is not added automatically add the link to heroku's repository by typing following command in terminal
 ```sh
@@ -81,9 +81,9 @@ $ heroku addons:create heroku-redis:hobby-dev
 $ git push heroku development:master
 ```
 
-![Build](screenshots/heroku_4.png)
-![Build](screenshots/heroku_5.png)
-![Build](screenshots/heroku_6.png)
+![Build](images/heroku_4.png)
+![Build](images/heroku_5.png)
+![Build](images/heroku_6.png)
 
 9) confirm the webapp is running
 ```sh
@@ -98,7 +98,7 @@ $ heroku open
 ```
 
 It will fire up your deployed app like this:
-![App running](screenshots/heroku_7.png)
+![App running](images/heroku_7.png)
 
 However, if the web app does not fire up, try one of the following solution to resolve the issue:
  1. Open a new terminal and write: `$ heroku open`

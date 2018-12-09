@@ -29,7 +29,7 @@ Our chat channel is on **gitter** here:
 
 ## 1. Event Website Output
 
-The component that is generated from the web app is the event website. Several sample event sites using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) were generated, showcased on the main index page and added to this repo as a Github Pages site. You can have a look at showcase page on http://fossasia.github.io/open-event-webapp/ We also have a custom domain at http://sched.eventyay.com to which the former link is redirected.
+The component that is generated from the web app is the event website. Several sample event sites using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) were generated, showcased on the main index page and added to this repo as a Github Pages site. You can have a look at showcase pages on http://sched.eventyay.com.
 
 ## 2. Web App Generator
 
@@ -37,7 +37,7 @@ The component that is generated from the web app is the event website. Several s
 
 #### Technologies used
 
-**The webapp generator uses the following technologies :-**
+**The website generator uses the following technologies :-**
 
  **1. HTML/CSS/Javascript based frontend**
 
@@ -337,7 +337,7 @@ or you can run one individual test script like this:
 
 ## LICENSE
 
-OpenEvent Webapp - A webapp and it's generator, written under the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure. Copyright (C) 2016, FOSSASIA. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+OpenEvent Website Generator - A webapp and it's generator, written as part of the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure. Copyright (C) 2016, FOSSASIA. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ## Maintainers
 
