@@ -1,13 +1,13 @@
 # Open Event Web App
-![Open Event webapp](https://storage.googleapis.com/eventyay.com/assets/branding/webapp_branding.png)
+![Open Event webapp](./docs/images/wsgen_branding.png)
 
-[![Build Status](https://travis-ci.org/fossasia/open-event-webapp.svg?branch=development)](https://travis-ci.org/fossasia/open-event-webapp?branch=development)
+[![Build Status](https://travis-ci.org/fossasia/open-event-wsgen.svg?branch=development)](https://travis-ci.org/fossasia/open-event-wsgen?branch=development)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=opev-webgen-dev)](http://opev-webgen-dev.herokuapp.com)
-[![Dependencies](https://david-dm.org/fossasia/open-event-webapp.svg)](https://david-dm.org/fossasia/open-event-webapp)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-webapp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-webapp&amp;utm_campaign=Badge_Grade)
-[![Code Climate](https://codeclimate.com/github/fossasia/open-event-webapp/badges/gpa.svg?branch=development)](https://codeclimate.com/github/fossasia/open-event-webapp)
-[![codecov](https://codecov.io/gh/fossasia/open-event-webapp/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-webapp)
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-webapp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Dependencies](https://david-dm.org/fossasia/open-event-wsgen.svg)](https://david-dm.org/fossasia/open-event-wsgen)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-wsgen?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-wsgen&amp;utm_campaign=Badge_Grade)
+[![Code Climate](https://codeclimate.com/github/fossasia/open-event-wsgen/badges/gpa.svg?branch=development)](https://codeclimate.com/github/fossasia/open-event-wsgen)
+[![codecov](https://codecov.io/gh/fossasia/open-event-wsgen/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-wsgen)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-wsgen?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 The **Open Event Web App** project has **TWO** components :
@@ -179,7 +179,7 @@ Or use the 1-click deployment button
 
  - Once deployed, you'll find the generator running on http://localhost:5000, it should look like this
 
-![Generator Screencast](docs/screenshots/project.gif)
+![Generator Screencast](docs/images/project.gif)
 
  - Add your **email id**, select **theme**, select **API version**, select **session style** (single page for each session or expandable sessions), select **data source**
 
@@ -287,7 +287,7 @@ The web-app is able to automatically deploy the generated event sites to Github 
 
 > This is an Open Source project and we would be happy to see contributors who report bugs and file feature requests submitting pull requests as well.
 
-**Please report issues [here](https://github.com/fossasia/open-event-webapp/issues)**
+**Please report issues [here](https://github.com/fossasia/open-event-wsgen/issues)**
 
 
 ## Issue and Branch Policy
@@ -342,8 +342,9 @@ OpenEvent Webapp - A webapp and it's generator, written under the FOSSASIA Open 
 ## Maintainers
 
 **The Project is maintained by :-**
-
-- **Arnav Gupta ([@championswimmer](https://github.com/championswimmer))**
 - **Aayush Arora ([@aayusharora](https://github.com/aayusharora))**
 - **Mario Behling ([@mariobehling](http://github.com/mariobehling))**
+
+**Alumni**
+- **Arnav Gupta ([@championswimmer](https://github.com/championswimmer))**
 - **Justin Lee ([@juslee](http://github.com/juslee))**
