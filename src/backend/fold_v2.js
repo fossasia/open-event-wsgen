@@ -437,6 +437,10 @@ function returnAttendees(attendeesData) {
 }
 
 function createSocialLinks(event) {
+  if (event['social-links'] === 'null' || !('social-links' in event)) {
+    return null;
+  }
+
   const sociallinks = Array.from(event['social-links']);
 
   sociallinks.forEach((link) => {
@@ -485,6 +489,10 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
+  if (event['social-links'] === 'null' || !('social-links' in event)) {
+    return null;
+  }
+
   const sociallinks = Array.from(event['social-links']);
   let sociallink = '';
   let featuresection = 0;

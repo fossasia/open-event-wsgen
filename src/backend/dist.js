@@ -451,7 +451,8 @@ module.exports = {
     });
 
     unzipper.extract({
-      path: appPath + '/zip'
+      path: appPath + '/zip',
+      restrict: false
     });
 
     unzipper.on('extract', function(log) {
