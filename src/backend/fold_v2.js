@@ -489,20 +489,9 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
-  if (event['social-links'] === 'null' || !('social-links' in event)) {
-    return null;
-  }
 
-  const sociallinks = Array.from(event['social-links']);
-  let sociallink = '';
   let featuresection = 0;
   let sponsorsection = 0;
-
-  sociallinks.forEach((link) => {
-    if (link.name.toLowerCase() === 'twitter') {
-      sociallink = link.link;
-    }
-  });
 
   sponsors.forEach((sponsor) => {
     if (sponsor.id !== undefined && typeof sponsor.id === 'number') {
@@ -514,9 +503,6 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
       featuresection++;
     }
   });
-
-  const arrayTwitterLink = sociallink.split('/');
-  const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
 
   const urls = {
     main_page_url: event['event-url'],
@@ -536,8 +522,6 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     longitude: event.longitude,
     register: event['ticket-url'],
     timezone: event.timezone,
-    twitterLink: twitterLink,
-    tweetUrl: sociallink,
     email: event.email,
     orgname: event['organizer-name'],
     orgdescription: event['organizer-description'],
@@ -547,10 +531,24 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     codeOfConduct: event['code-of-conduct']
   };
 
+  if (event['social-links'] !== 'null' && 'social-links' in event) {
+    const sociallinks = Array.from(event['social-links']);
+    let sociallink = '';
+    sociallinks.forEach((link) => {
+      if (link.name.toLowerCase() === 'twitter') {
+        sociallink = link.link;
+      }
+    });
+    const arrayTwitterLink = sociallink.split('/');
+    const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
+    urls.twitterLink = twitterLink;
+    urls.tweetUrl = sociallink;
+  }
+
   if (reqOpts.assetmode === 'download') {
     const appFolder = reqOpts.email + '/' + slugify(reqOpts.name);
 
-    if (event['logo-url'] !== null && event['logo-url'] !== '') {
+    if (event['logo-url'] !== null && event['logo-url'] !== '' && 'logo-url' in event) {
       if (event['logo-url'].substring(0, 4) === 'http') {
         distHelper.downloadLogo(appFolder, event['logo-url'], function(result) {
           urls.logo_url = encodeURI(result);
@@ -571,7 +569,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
       }
     }
 
-    if (event['original-image-url'] !== null && event['original-image-url'] !== '') {
+    if (event['original-image-url'] !== null && event['original-image-url'] !== '' && 'original-image-url' in event) {
       if (event['original-image-url'].substring(0, 4) === 'http') {
         distHelper.downloadLogo(appFolder, event['original-image-url'], function(result) {
           urls.background_url = result;
