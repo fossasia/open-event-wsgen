@@ -537,7 +537,8 @@ exports.createDistDir = function(req, socket, callback) {
         }
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
-        const jsonData = data;      
+        const jsonData = data;
+
         eventName = fold.removeSpace(jsonData.eventurls.name);
         const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         const basePath = distHelper.distPath + '/' + appFolder + '/images';
@@ -727,7 +728,7 @@ exports.createDistDir = function(req, socket, callback) {
         socket.emit('live.process', {donePercent: 85, status: 'Copying Service Worker File'});
       }
 
-      hasher.hashElement(eventName, distHelper.distPath + '/' + req.body.email, function(err, hashObj) {
+      hasher.hashElement(eventName + '', distHelper.distPath + '/' + req.body.email, function(err, hashObj) {
         if (err) {
           console.log(err);
           logger.addLog('Error', 'Error occured when calculating hash of event folder', socket, err);
