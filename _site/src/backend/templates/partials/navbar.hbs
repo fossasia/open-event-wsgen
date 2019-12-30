@@ -1,0 +1,132 @@
+
+<!-- Fixed navbar -->
+<header role="banner" class="navbar-fixed-top navbar-default js-navbar">
+  <div class="container">
+    <div class="navbar-header navbar-left pull-left">
+      {{#if single_session}}
+        <a class="navbar-brand" style="padding: {{navpad}}px;" href="../">
+      {{else}}
+        <a class="navbar-brand" style="padding: {{navpad}}px;" href=".">
+      {{/if}}
+        {{#if eventurls.logo_url}}
+          <img alt="{{eventurls.name}}" class="logo logo-dark" src="{{ eventurls.logo_url }}">
+        {{else}}
+          {{ eventurls.name }}
+        {{/if}}
+      </a>
+    </div>
+
+    <div class="navbar-header navbar-right pull-right">
+      <span class="pull-right dropdown">
+        <button class="navbar-toggle" type="button" data-toggle="dropdown"><i class="fa fa-lg fa-paper-plane" aria-hidden="true"></i> <span class="caret"></span> </button>
+        <ul class="dropdown-menu list-menu">
+          {{#sociallinks}}
+            {{#if show}}
+              <li><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+            {{/if}}
+          {{/sociallinks}}
+        </ul>
+      </span>
+      {{#if speakerslist}}
+        {{#if single_session}}
+        <button class="navbar-toggle pull-right">
+          <a id="speakerslink" href="../speakers.html">Speakers</a>
+        </button>
+        {{else}}
+        <button class="navbar-toggle pull-right">
+          <a id="speakerslink" href="speakers.html">Speakers</a>
+        </button>
+        {{/if}}
+      {{/if}}
+      <span class="pull-right dropdown">
+        <button class="navbar-toggle" type="button" data-toggle="dropdown">Schedule <span class="caret"></span> </button>
+        <ul class="dropdown-menu list-menu">
+          {{#if timeList}}
+            {{#if single_session}}
+              <li><a id="schedulelink" href="../schedule.html"><i class="fa fa-lg fa-calendar" aria-hidden="true"></i> Schedule</a></li>
+            {{else}}
+              <li><a id="schedulelink" href="schedule.html"><i class="fa fa-lg fa-calendar" aria-hidden="true"></i> Schedule</a></li>
+            {{/if}}
+          {{/if}}
+          {{#if tracks}}
+            {{#if single_session}}
+              <li><a id="trackslink" href="../tracks.html"><i class="fa fa-lg fa-map-signs" aria-hidden="true"></i> Tracks</a></li>
+            {{else}}
+              <li><a id="trackslink" href="tracks.html"><i class="fa fa-lg fa-map-signs" aria-hidden="true"></i> Tracks</a></li>
+            {{/if}}
+          {{/if}}
+          {{#if roomsinfo}}
+            {{#if single_session}}
+              <li><a id="roomslink" href="../rooms.html"><i class="fa fa-lg fa-building" aria-hidden="true"></i> Rooms</a></li>
+            {{else}}
+              <li><a id="roomslink" href="rooms.html"><i class="fa fa-lg fa-building" aria-hidden="true"></i> Rooms</a></li>
+            {{/if}}
+          {{/if}}
+        </ul>
+      </span>
+      {{#if single_session}}
+        <a id="homelink" href="../index.html"><button class="navbar-toggle pull-right homelink"><i class="fa fa-lg fa-home" aria-hidden="true"></i></button></a>
+      {{else}}
+        <a id="homelink" href="index.html"><button class="navbar-toggle pull-right homelink"><i class="fa fa-lg fa-home" aria-hidden="true"></i></button></a>
+      {{/if}}
+    </div>
+
+    <div class="hidden-lg hidden-md hidden-sm clearfix"></div>
+    <div class="side-collapse in">
+      <nav role="navigation" class="navbar-collapse">
+        <div class="search-container">
+          <input id="search-box" type="text" class="search-box fossasia-filter">
+          <label for="search-box"><span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span></label>
+        </div>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if single_session}}
+          <li class="navlink"><a id="homelink" href="../index.html">Home</a></li>
+        {{else}}
+          <li class="navlink"><a id="homelink" href="index.html">Home</a></li>
+        {{/if}}
+        {{#if timeList}}
+          {{#if single_session}}
+          <li class="navlink"><a id="schedulelink" href="../schedule.html">Schedule</a></li>
+          {{else}}
+          <li class="navlink"><a id="schedulelink" href="schedule.html">Schedule</a></li>
+          {{/if}}
+        {{/if}}
+        {{#if tracks}}
+          {{#if single_session}}
+          <li class="navlink"><a id="trackslink" href="../tracks.html">Tracks</a></li>
+          {{else}}
+          <li class="navlink"><a id="trackslink" href="tracks.html">Tracks</a></li>
+          {{/if}}
+        {{/if}}
+        {{#if roomsinfo}}
+          {{#if single_session}}
+          <li class="navlink"><a id="roomslink" href="../rooms.html">Rooms</a></li>
+          {{else}}
+          <li class="navlink"><a id="roomslink" href="rooms.html">Rooms</a></li>
+          {{/if}}
+        {{/if}}
+        {{#if speakerslist}}
+          {{#if single_session}}
+          <li class="navlink"><a id="speakerslink" href="../speakers.html">Speakers</a></li>
+          {{else}}
+          <li class="navlink"><a id="speakerslink" href="speakers.html">Speakers</a></li>
+          {{/if}}
+        {{/if}}
+
+        {{#sociallinks}}
+          {{#if show}}
+            <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+          {{/if}}
+        {{/sociallinks}}
+
+      </ul>
+    </nav>
+    {{#if trackFlag}}
+      {{> tracklist}}
+    {{/if}}
+    {{#if roomFlag}}
+      {{> roomlist}}
+    {{/if}}
+  </div>
+</div>
+</header>

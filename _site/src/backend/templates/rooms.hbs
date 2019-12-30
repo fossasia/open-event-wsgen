@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<!--
+  Note to contributors: Do not submit any changes to this page, as it is generated automatically
+  from https://github.com/fossasia/open-event-scraper.
+-->
+<html lang="en">
+  <head>
+    {{> googleanalytics}}
+
+    <link rel="preload" as="script" href="./js/jquery.min.js">
+    <link rel="preload" as="script" href="./js/bootstrap.min.js">
+    <link rel="preload" as="script" href="./js/rooms.min.js">
+    <link rel="preload" as="style" href="./css/schedule.css">
+    <link rel="preload" as="style" href="./css/font-awesome.min.css">
+    <link rel="preload" as="style" href="./css/bootstrap.min.css">
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" crossorigin>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="{{ apptitle }} Schedule">
+    <meta name="author" content="{{ metaauthor }}">
+
+    <title>{{ apptitle }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="shortcut icon" href="{{ eventurls.ico_url }}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/schedule.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <a href="#rooms-list" class="skip">Skip to content</a>
+    {{> scroll}}
+    <a id="top"></a>
+    {{> navbar}}
+
+
+    <div class="main container">
+      <div class="row">
+        <div class="middle col-sm-12">
+            <h2 class="filter-heading track-heading text-center">
+              <span>
+                Venue
+              </span>
+            </h2>
+        </div>
+      </div>
+      <!-- --------------------------------------------------------------
+      search-filter, search-filter-speaker and fossasia-filter
+      These classes are designed for search tab.
+
+      room-filter and date-filter classes are intended for searching
+      text across the page.
+      --------------------------------------------------------------- -->
+      <div class="date-list container">
+          <div id="tabs" class="col-md-8 col-xs-12 col-sm-12 tabs">
+            <span class="tabs-nav">
+              <a id="all" href="#" class="all date-button tabs-nav-link is-active">All</a>
+              {{#days}}
+                <a href="#" class="{{firstSlug}} date-button tabs-nav-link">{{caption}}</a>
+              {{/days}}
+            </span>
+          </div>
+          <div class = "col-md-4 col-xs-12 col-sm-12 navbar-flex">
+            <span class="filter tracks-rooms-filter dropdown dropdown-list">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-filter" aria-hidden="true"></i><span class="caret"></span> </button>
+              <ul class="dropdown-menu list-menu">
+                  <li class="dropdown-submenu">
+                    <a href="#">Rooms List <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-inner">
+                       {{#each roomsnames}}
+                        <li>
+                          <a href="#" class="room-name">
+                            <span style="background-color: #777;" class="titlecolor"></span>
+                            <span>{{this}}</span>
+                          </a>
+                        </li>
+                       {{/each}}
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                     <a href="#">Tracks List <span class="caret"></span></a>
+                     <ul class="dropdown-menu dropdown-inner">
+                       {{#tracknames}}
+                       {{#if title}}
+                         <li>
+                           <a href="#" class="track-name">
+                             <span style="background-color: {{color}};" class="titlecolor"></span>
+                             <span>{{title}}</span>
+                           </a>
+                         </li>
+                       {{/if}}
+                      {{/tracknames}}
+                    </ul>
+                   </li>
+              </ul>
+            </span>
+            <div class="filter search-filter search-filter-room">
+             <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
+             <input class="fossasia-filter" type="text" placeholder="Search">
+            </div>
+            <div class="filter show-button-filter">
+                <button class = "btn btn-default" id = "starred" ><i class="fa fa-star" aria-hidden="true"></i></button>
+            </div>
+          </div>
+      </div>
+      <div class="container track-filter-info">
+        Track: <span id="TrackCurFilter" style="font-weight:bold;"> </span> <a href="#" id="TrackClearFilter">  [Clear Filter]</a>
+      </div>
+
+      <div class="container room-filter-info">
+        Room: <span id="RoomCurFilter" style="font-weight:bold;"> </span> <a href="#" id="RoomClearFilter">  [Clear Filter]</a>
+      </div>
+      <div id="session-list" class="container">
+        <div class="row">
+          <div id="content-block" class="col-md-9 col-sm-9">
+            <div id="track-list">
+              {{#roomsinfo}}
+                <a class='anchor' id='{{slug}}'> </a>
+                <div class="{{slug}} date-filter" id="rooms-list">
+                  <div class="row paddingzero">
+                    <div class="col-md-12 paddingzero">
+                      <h5 class="text">{{date}}</h5>
+                    </div>
+                  </div>
+                  {{#venue}}
+                    <div class="venue-filter row" id="{{../slug}}-{{slug}}">
+                      <div class="row">
+                        <div class="clear-both col-md-12">
+                          {{#if venue }}
+                            <h5 class="text">{{venue}}</h5>
+                          {{/if}}
+                        </div>
+                      </div>
+                      {{#sessions}}
+                        <div class="room-filter" id="{{session_id}}">
+                          <a class="anchor" id="venue-{{session_id}}"></a>
+                          <div class="eventtime col-xs-2 col-sm-2 col-md-2">
+                            <span class="time-track">{{start}} - {{end}}</span>
+                          </div>
+                          <div class="room-container">
+                            <div class="left-border col-xs-10 col-sm-10 col-md-10">
+                              {{#if ../../../mode}}
+                                <div class="sizeevent event event-title" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};">
+                              {{else}}
+                                <div class="sizeevent event event-title" onclick = "main.loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')" id="title-{{session_id}}" style="background-color: {{color}}; color:{{font_color}};" data-toggle="collapse" data-target="#desc-{{session_id}}, #desc2-{{session_id}}">
+                              {{/if}}
+                                <div class = "features">
+                                  {{#ifcontains audio "mp3"}}
+                                    <i class="fa fa-music" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#ifcontains audio "aac"}}
+                                    <i class="fa fa-music" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+
+                                  {{#ifcontains slides "ppt"}}
+                                    <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#ifcontains slides "pdf"}}
+                                    <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
+                                  {{/ifcontains}}
+                                  {{#if video}}
+                                    <i class="fa fa-video-camera video"></i>
+                                  {{/if}}
+                                  <a class = "bookmark" id = "c{{session_id}}" >
+                                    <i class="fa fa-star" aria-hidden="true">
+                                    </i>
+                                  </a>
+                                </div>
+                                <div class="margin-down-15">{{title}}
+                                </div>
+                                <div id="desc2-{{session_id}}" class="collapse in"
+                                  style="background-color:{{{color}}}; color: {{{font_color}}};">
+                                  <div class="row">
+                                    {{#if speakers_list.length}}
+                                      <div class="speakers-list">
+                                        {{#speakers_list}}
+                                          <p class="session-speakers session-speakers-item">
+                                            {{#if photo}}
+                                              <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-small" />
+                                            {{else}}
+                                              <img class="card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                            {{/if}}
+                                          </p>
+                                        {{/speakers_list}}
+                                      </div>
+                                    {{/if}}
+                                    <div class="speaker-short-info">
+                                      <ul class="speaker-name-list">
+                                        {{#speakers_list}}
+                                          {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                          {{/speakers_list}}
+                                      </ul>
+                                      <ul class="speaker-name-list">
+                                        {{#if type}}
+                                          {{type}}
+                                        {{else}}
+                                          <br>
+                                        {{/if}}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="desc-{{session_id}}" class="collapse">
+                                {{{description}}}
+                                  {{#if ../../../gcalendar.enabled}}
+                                    <button class="btn btn-default add-to-calendar-button" onclick="main.handleAuthClick('{{title}}','{{roomname}}','{{calendarStart}}','{{calendarEnd}}','{{../../../eventurls.timezone}}','{{description}}')">Add to Calendar</button>
+                                  {{/if}}
+                                {{#ifcontains audio "mp3"}}
+                                  <audio controls="" preload="none" id="audio-block">
+                                    <source src="{{ audio }}">
+                                  </audio>
+                                {{/ifcontains}}
+                                {{#ifcontains audio "aac"}}
+                                  <audio controls="" preload="none" id="audio-block">
+                                    <source src="{{ audio }}">
+                                  </audio>
+                                {{/ifcontains}}
+                                <hr class="clear-both">
+                                <div id="speaker-{{session_id}}" class="session-speakers-list"
+                                  aria-expanded="false"
+                                  aria-controls="desc-{{session_id}}">
+                                  {{#speakers_list}}
+                                    <div class="session-speakers-less">
+                                      <p class="session-speakers">
+                                        <a href="speakers.html#{{nameIdSlug}}">
+                                          {{#if photo}}
+                                            <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="lazy card-img-top speaker-image-large margin-down-10"/>
+                                          {{else}}
+                                            <img class="card-img-top speaker-image-large margin-down-10" src="images/avatar.png"/>
+                                          {{/if}}
+                                          <span class="graytext desc-speaker-name">{{name}}</span>
+                                        </a>
+                                      </p>
+                                    </div>
+
+                                    {{#if organisation}}
+                                      <p class="session-speakers-more">
+                                        {{position}} {{organisation}}
+                                      </p>
+                                    {{/if}}
+                                    <div class="blacktext session-speaker-social margin-down-10">
+                                      <div class="session-speakers-more">
+                                        {{#if website}}
+                                          <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                            <i class="fa fa-home"></i> Web
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if github}}
+                                          <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                                            <i class="fa fa-github"></i> Github
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if twitter}}
+                                          <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                                            <i class="fa fa-twitter"></i> Twitter
+                                          </a>&nbsp;
+                                        {{/if}}
+                                        {{#if linkedin}}
+                                          <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                                            <i class="fa fa-linkedin"></i> LinkedIn
+                                          </a>&nbsp;
+                                        {{/if}}
+                                      </div>
+                                    </div>
+                                    {{#if biography}}
+                                      <div class="session-speakers-more">
+                                        {{{biography}}}
+                                      </div>
+                                    {{/if}}
+                                    <div class="blacktext session-speaker-social">
+                                      <div class="session-speakers-more">
+                                        <a class="session-lin blacktext social speaker-social clickable-link">
+                                          <i class="fa fa-share"></i> Share
+                                        </a>
+                                        <div class="social-buttons row">
+                                          {{> social}}
+                                          <div class="row social-link">
+                                            <input class="speakers-inputbox" type="text" onclick="this.select()" value="base#venue-{{../session_id}}" readonly>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <hr class="clear-both">
+                                  {{/speakers_list}}
+                                  <div class="blacktext">
+                                    {{#if roomname}}
+                                      <p><i>{{roomname}}</i></p>
+                                    {{/if}}
+                                    {{#if sessiondate}}
+                                      <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
+                                    {{/if}}
+                                    <p>
+                                      <ul class="title-inline">
+                                        <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
+                                        <li class="blacktext track-name">{{tracktitle}}</li>
+                                      </ul>
+                                    </p><br>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {{/sessions}}
+                    </div>
+                  {{/venue}}
+                </div>
+              {{/roomsinfo}}
+            </div>
+          </div>
+          <div class="track-room-names col-md-3 col-sm-3 sidebar">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 room-name-list">
+                <h4 class='list-title'> Rooms List </h4>
+                {{#each roomsnames}}
+                  <div class="room-info">
+                    <span class="titlecolor room-titlecolor"></span>
+                    <span class="room-name">{{this}}</span>
+                  </div>
+                {{/each}}
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <h4 class='list-title'> Tracks List </h4>
+                {{#tracknames}}
+                {{#if title}}
+                <div class="track-info">
+                  <span style="background-color: {{color}};" class="titlecolor"></span>
+                  <span class="track-name">{{title}}</span>
+                </div>
+                {{/if}}
+                {{/tracknames}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input id="gcalendar-id" type="hidden" value='{{gcalendar.body.id}}' />
+  <input id="gcalendar-key" type="hidden" value='{{gcalendar.body.key}}' />
+    {{> footer}}
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/sweetalert.min.js" type="text/javascript"></script>
+    <script src="./js/rooms.min.js" type="text/javascript"></script>
+    <script src="./js/main.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var eventName = "{{eventurls.name}}";
+      var flag = false;
+      var isAdded = false;
+      var mode = false;
+      var roomName = false;
+      var trackName = false;
+      var roomFilterMode = false;
+      var trackFilterMode = false;
+
+      $(function() {
+        $("img.lazy").lazyload({
+          threshold: 2000
+        });
+      });
+
+      window.onload = function () {
+        if(window.location.href.indexOf('#')!== -1 && window.location.href.split('#')[1] !== '' && !(/^\d+$/.test(window.location.href.split('#')[1].substring(0,4)))) {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          let link = window.location.href;
+          let url = link.toString();
+          let infoFilter = $('#filterInfo');
+          let currentFilter =   $('#RoomCurFilter');
+          let trackFilterInfo = $('.track-filter-info');
+          let roomFilterInfo = $('.room-filter-info');
+          let currentTrackFilter = $('#TrackCurFilter');
+
+          if (!sidebarDiv.hasClass('in')) {
+            sidebarDiv.addClass('in');
+          }
+
+          roomName = decodeURIComponent(window.location.href.toString().split('#')[1]);
+          if($('#'+roomName).length) {
+            $('html, body').animate({scrollTop: $("#"+roomName).offset().top}, 500);
+            return;
+          }
+          roomFilterMode = true;
+          trackFilterMode = false;
+          isTrack = true;
+
+          $('.fossasia-filter').each(function () {
+            if ($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
+          roomFilterInfo.show();
+          currentFilter.text(roomName);
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+
+          if($('.date-filter:visible').length){
+             isTrack = false;
+          }
+
+          $('html, body').animate({scrollTop: 0}, 500);
+
+          if(isTrack === true){
+            trackName = decodeURIComponent(url.split('#')[1]);
+            roomFilterMode = false;
+            trackFilterMode = true;
+
+            $('.fossasia-filter').each(function() {
+              if($(this).is(':visible')) {
+                filterVal = $(this).val();
+              }
+            });
+
+            trackFilterInfo.show();
+            roomFilterInfo.hide();
+            currentTrackFilter.text(trackName);
+
+            main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+
+            $('html, body').animate({scrollTop: 0}, 500);
+          }
+        }
+      };
+
+      $(document).ready(function() {
+
+        $('.tracks-rooms-filter > ul > li > a').on("click", function(e){
+          e.preventDefault();
+          $(this).next('.dropdown-inner').toggle();
+          // var spanDisplay = $(this).next('.dropdown-inner').is(':visible') ? 'inline-flex' : 'none';
+          // $(this).find('.caret').css('display', spanDisplay);
+          // $(this).parent().siblings().eq(0).children('a').find('.caret').hide();
+          $(this).parent().siblings().eq(0).children('.dropdown-inner').hide();
+          e.stopPropagation();
+        });
+
+        $('.session-lin').click(function() {
+          $(this).parent().parent().find("div.social-buttons").toggle();
+          var val = $(this).parent().parent().find('.speakers-inputbox').val();
+          $(this).parent().parent().find('.speakers-inputbox').val(window.location.href.split('#')[0] + '#'  + val.split('#').pop());
+        });
+
+        $('.session-lin').click(function(e) {
+          e.stopPropagation();
+        });
+
+        $('.speakers-inputbox').click(function(e) {
+          e.stopPropagation();
+        });
+
+        $('.fossasia-filter').change(function() {
+          var filterVal = $(this).val();
+          var temp = JSON.parse(localStorage[eventName]);
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+          // show "no results" if search input value matches zero items
+          main.showNoResult('room', 0);
+          return false;
+        }).keyup(function() {
+          $(this).change();
+        });
+
+        $('.bookmark').click(function (event) {
+          var temp = JSON.parse(localStorage[eventName] || '{}');
+          var id = $(this).attr('id').substring(1);
+          flag = true;
+
+          if ($(this).hasClass('starred')) {
+            temp[id] = false;
+            $(this).removeClass('starred');
+            if(mode) $('#' + id).hide();
+          } else {
+            $(this).addClass('starred');
+            temp[id] = true;
+          }
+
+          localStorage[eventName] = JSON.stringify(temp);
+          event.stopPropagation();
+          display();
+        });
+
+        $('.room-filter').click(function () {
+          // Checking whether the session style in single mode or expandable mode
+          var sessionMode = "{{mode}}";
+          var id =  $(this).attr('id');
+          if(sessionMode === 'single') {
+            var curUrl = $(location).attr('href');
+            var newUrl = curUrl.substring(0, curUrl.lastIndexOf('/') + 1) + 'sessions/session_' + id + ".html";
+            $(location).attr('href', newUrl);
+          }
+        });
+
+        $('#starred').click(function() {
+          mode = !mode;
+          if(!mode) {
+            $(this).css("color", "black");
+            $('#starred').css("background-color","#fff");
+          }
+          else {
+            $(this).css("color", "white");
+            $('#starred').css("background-color","#838282");
+          }
+          display();
+        });
+
+        $('#RoomClearFilter').click(function() {
+          roomFilterMode = false;
+          display();
+          $('.room-filter-info').hide();
+        });
+
+        $('.room-name').click(function() {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
+
+          if (!sidebarDiv.hasClass('in')) {
+            sidebarDiv.addClass('in');
+          }
+
+          roomName = $(this).text().trim();
+          roomFilterMode = true;
+          trackFilterMode = false;
+
+          window.location.href = url + '#' + roomName;
+
+          $('.fossasia-filter').each(function() {
+            if($(this).is(':visible')) {
+              filterVal = $(this).val();
+            }
+          });
+
+          $('.room-filter-info').show();
+          $('.track-filter-info').hide();
+          $('#RoomCurFilter').text(roomName);
+
+          main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+          main.showNoResult('room', 0);
+          $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('#TrackClearFilter').click(function() {
+          trackFilterMode = false;
+          display();
+          $('.track-filter-info').hide();
+        });
+
+        $('.track-name').click(function() {
+          var filterVal = '';
+          var temp = JSON.parse(localStorage[eventName]);
+          var sidebarDiv = $('.side-collapse');
+          var url = window.location.href.split('#')[0];
+
+          if (!sidebarDiv.hasClass('in')) {
+             sidebarDiv.addClass('in');
+          }
+
+          trackName = $(this).text().trim();
+          roomFilterMode = false;
+          trackFilterMode = true;
+
+          window.location.href = url + '#' + trackName;
+
+          $('.fossasia-filter').each(function() {
+            if($(this).is(':visible')) {
+               filterVal = $(this).val();
+            }
+          });
+
+          $('.track-filter-info').show();
+            $('.room-filter-info').hide();
+            $('#TrackCurFilter').text(trackName);
+            main.trackRoomFilter('room', trackFilterMode, roomFilterMode, trackName, roomName, temp, mode);
+            main.showNoResult('room', 0);
+            $('html, body').animate({scrollTop: 0}, 500);
+        });
+
+        $('.date-button').click(function() {
+          let className = $(this).attr('class').split(' ')[0];
+          $(this).addClass('is-active');
+          $(this).siblings().removeClass('is-active');
+          main.viewsFilter('room', 'list', className);
+          main.showNoResult('room', false);
+        });
+
+        function display() {
+          var temp = JSON.parse(localStorage[eventName]);
+          $('.date-filter').each(function() {
+            var dateFlag = false;
+            $(this).find('.venue-filter').each(function() {
+              var venueFlag = false;
+              var roomVal = $(this).find('.text').text();
+              if(roomFilterMode && roomVal != roomName) {
+                $(this).hide();
+                return;
+              }
+              $(this).find('.room-filter').each(function() {
+                var trackVal=$(this).find('.title-inline .blacktext').text();
+                if(trackFilterMode && trackVal!=trackName){
+                  $(this).hide();
+                  return;
+                }
+                var elemId = $(this).attr('id');
+
+                var bookFlag = false, searchFlag = false, elemFlag = false;
+                var filterVal='';
+
+                $('.fossasia-filter').each(function() {
+                  if($(this).is(':visible')) {
+                    filterVal = $(this).val();
+                  }
+                });
+
+                if ($(this).find('.tip-description').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-list a span').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.session-speakers-more').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0 ||
+                  $(this).find('.event').text().toUpperCase().indexOf(filterVal.toUpperCase()) >= 0) {
+                  searchFlag = true;
+                  if (temp[elemId] == true) {
+                    bookFlag = true;
+                    $(this).find('.bookmark').each(function () {
+                      $(this).addClass('starred');
+                    });
+                  }
+                }
+
+                if((mode && searchFlag && bookFlag) || (!mode && searchFlag)) {
+                  elemFlag = true;
+                  venueFlag = true;
+                  dateFlag = true;
+                }
+
+                if (elemFlag) {
+                  $(this).show();
+                }
+                else {
+                  $(this).hide();
+                }
+              });
+              if(venueFlag) {
+                $(this).show();
+                var roomHeading = $(this).children('.row');
+
+                if(roomFilterMode) {
+                  roomHeading.hide();
+                } else {
+                  roomHeading.show();
+                }
+              }
+              else {
+                $(this).hide();
+              }
+            });
+            if(dateFlag) {
+              $(this).show();
+            }
+            else {
+              $(this).hide();
+            }
+          });
+
+            var searchRooms= false;
+
+            $('.fossasia-filter').each(function() {
+                if($(this).is(':visible') && $(this).val().length!==0) {
+                    searchRooms= true;
+                }
+            });
+
+            main.showNoResult('room', 0);
+        }
+
+        function initPage() {
+          if(localStorage.hasOwnProperty(eventName) === false) {
+            localStorage[eventName] = '{}';
+          }
+          var temp = JSON.parse(localStorage[eventName]);
+          var elemId;
+          Object.keys(temp).forEach(function(key) {
+            if (temp[key] == true) {
+              elemId = $('#' + key).find('.bookmark').addClass('starred');
+            }
+          });
+        }
+        initPage();
+      });
+    </script>
+    {{#if gcalendar.enabled}}
+        <script async defer src="https://apis.google.com/js/api.js"
+                onload="this.onload=function(){};main.handleClientLoad()"
+                onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
+    {{/if}}
+    </body>
+</html>
