@@ -70,3 +70,11 @@ window.addEventListener('scroll', function () {
     }
   }
 });
+
+var Nav = document.getElementsByTagName("nav");
+window.onscroll = function() {Scroll()};
+function Scroll() {
+    for (var i = 0; i < Nav.length; ++i) {
+        Nav[i].classList.add("post");
+    }
+}
