@@ -70,3 +70,9 @@ li > label[for] {
 	color: black;
 	font-weight: normal;
 }
+
+.post {
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+}
