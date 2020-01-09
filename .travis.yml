@@ -3,49 +3,7 @@ language: node_js
 node_js:
   - 8.11.1
 
-# Using sudo enabled Linux VM
-sudo: required
-services:
-  - docker
-env:
-  - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
-  - TESTFOLDER=test/roomsAndSpeakers.js
-  - TESTFOLDER=test/tracks.js
-  - TESTFOLDER=test/generatorAndSchedule.js
-  - TESTFOLDER=test/sessionEventAndCoC.js
-
-addons:
-  sauce_connect:
-    username: parzivox
-  jwt:
-    secure: iJyRIudHEtKR3O8+NA4sIbEbENYgGG/cQOFofiT6gQp/UsR9efjZu+X8ZIYLupC5gCnZEG/RkApxHsOzyAF2ooGgZCR5a+FKQGZqO6hT2pa0ZC74x/hDhINGSYEBrcS9wl3YvdzlNFQrjTK5y7Q0s98MwXgn7mhRLdlxc5vzZqkYe4eoOoWuSQsMKsspRdYaZ3E/gGvrSVDJLLoi2VSos0nc4DiIxoQlKtGKXGoB8SUWtCB6Au9dyvdEkP1mivdoW2Hv7uZ41to+yGiXybjhrueIg8sZLzcdwhUM9bTfpQ2tGtK07xtDSSIEShYQt1o3cXmhtEtQ6wFuXI4OvkS9QojGgg3U/d4q8Pj38mDnIVQIxgyrLY4arRl1/wGNnurbkis69RQSDCWqBltMrBwNbwZk6g78bmOigNPIthRACXLWzpkWlhgF141NrUL6FOQvCl28NXgbFD1bvWgAw4tHaRPuLLuQAGCIN3IX8Jb2rJL6DRVoc4qc7GSCVfxGzA9EY4hljxydWO46Qdz/gdeBMAf+NjAdlc5d7eYQb//2jbm0hkmDRPP7SOv5svn4lZpuLQftJlKgHwMsTWQos/MkMfxtDH9avP9CV1O2fZBvKV/PWr9MYhhnFLbQ+80KcK7BJfHIac8To1pUw8RUKRFVOtk0DnIl65lLpP3/R+n9U64=
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-  code_climate:
-    repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
-# installing required items for build
-install:
-  - npm install -g istanbul mocha@3
-  - npm install
-  - npm install --save-dev
- # Adds redis as a service
-services:
-    - redis-server
- # testing script
-script:
-  - istanbul cover _mocha -- $TESTFOLDER
-
- # notify codecov and deploy to cloud
-after_success:
-  if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then
-    bash <(curl -s https://codecov.io/bash);
-    bash gh_deploy.sh && kubernetes/travis/deploy.sh;
-  fi
-
- # deploy to heroku
+# deploy to heroku
 deploy:
   provider: heroku
   api_key:
