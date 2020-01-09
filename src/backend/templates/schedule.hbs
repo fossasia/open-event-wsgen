@@ -152,9 +152,9 @@
                 <span>{{caption}}</span>
               </div>
 
-              <div class="tracks col-xs-10 col-sm-10 col-md-10">
+              <div class="left-border col-xs-10 col-sm-10 col-md-10">
                 {{#sessions}}
-                <div class="schedule-track" id="{{session_id}}" >
+                <div class="schedule-track" style="width: -webkit-fill-available" id="{{session_id}}" >
                   <a class="anchor" id="{{session_id}}"></a>
                   <div class="schedule-container">
                     <div class="padding-right-zero">
@@ -162,8 +162,8 @@
                         <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
                           class="schedule-margin sizeevent event"  id="title-{{session_id}} "data-toggle="collapse">
                       {{else}}
-                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
-                          class="schedule-margin sizeevent event" id="title-{{session_id}}" data-toggle="collapse"
+                        <div style="background-color:{{{color}}}; color: {{{font_color}}};"
+                          class="event-title sizeevent event" id="title-{{session_id}}" data-toggle="collapse"
                           data-target="#desc-{{session_id}}, #desc2-{{session_id}}"
                           aria-expanded="false"
                           aria-controls="desc-{{session_id}}" onclick = "main.loadVideoAndSlides('{{session_id}}', '{{video}}', '{{slides}}')">
@@ -219,7 +219,7 @@
                             </div>
                           </div>
                         </div>
-                      </h4>
+                      </div>
                       <div id="desc-{{session_id}}" class="collapse">
                         {{{description}}}
                         {{#if ../../../gcalendar.enabled}}
