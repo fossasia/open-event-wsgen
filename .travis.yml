@@ -1,8 +1,26 @@
 # Specify language to use
 language: node_js
-node_js:
-  - 8.11.1
+node_js: 
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
 
+before_install: |
+  [[ ! -x ~/npm/node_modules/.bin/npm ]] && {
+    # caching feature creates `~/npm` for us
+    cd ~/npm && npm install npm
+    cd -
+  } || true
+  # avoids bugs around https://github.com/travis-ci/travis-ci/issues/5092
+  export PATH=~/npm/node_modules/.bin:$PATH
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
 # deploy to heroku
 deploy:
   provider: heroku
