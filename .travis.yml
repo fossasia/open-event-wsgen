@@ -41,6 +41,10 @@ after_success:
     bash gh_deploy.sh && kubernetes/travis/deploy.sh;
   fi
 
+before_install:
+  - sudo apt-get update
+  - sudo -E apt-get -yq install g++-4.8
+
  # deploy to heroku
 deploy:
   provider: heroku
