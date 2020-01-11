@@ -25,11 +25,14 @@ addons:
   code_climate:
     repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
 install:
-- npm install -g istanbul mocha@3
+- npm install -g mocha@3
+- npm i nyc
 - npm install
 - npm install --save-dev
 script: 
 - echo "npm test temporarily disabled"
+- npm run test
+- npm run report-coverage
 # - istanbul cover _mocha -- $TESTFOLDER
 after_success: if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then bash <(curl -s
   https://codecov.io/bash); bash gh_deploy.sh && kubernetes/travis/deploy.sh; fi
