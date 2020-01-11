@@ -4,6 +4,7 @@ node_js:
 sudo: required
 services:
 - redis-server
+- docker
 env:
 - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin
   CLOUDSDK_CORE_DISABLE_PROMPTS=1
@@ -12,6 +13,10 @@ env:
 - TESTFOLDER=test/generatorAndSchedule.js
 - TESTFOLDER=test/sessionEventAndCoC.js
 addons:
+  sauce_connect:
+    username: princu7
+  jwt:
+    secure: FslueGK2gtPHkRANMpUlGyCGsr1jTVuaKpP+SvYUxBYh5zbz73GMq+VsqlE29IZ1ER1+xMfWuCCvg3VA7HePyN6hzoZ/t0LADureYVPur6R5ZJgqgQpBinjpytIjo2BhN3NqaNWaIJZTLDSAT76R7HuNm016jbuOEjO5foYWuz2F82B03viHmk42CRNl3eqXEMcwkkLfEkvu9iupeVAArPXepA2YCpaaFbV2D5ahTelzMROnc2YQ/HyAdaaLtto8L0CDmZSrFsPZtTGQKarFdOgKWeor2iD1AiYLHYdcbvXV5YbBVvi7tFJG8r5h0YBUu1JIkhvzWIi698GJRGwDCONStCaKVhrMvpL7C8fEpbzullxFSpWOVupTEjn+u0OGaxrugwSZ1dtSkbIu+2SlVR/QuXS8o6OMiDz7lrFhIc+hF6EvFRWI7UIjt9NPte1o3COA8WESaseCWKhLY0g/hgpRSM7pyfKx2NAj4UCXyPATTKRJNlEHcs/jMpgxu+RSjPYphK4rrWxm6O6bJxd+jNwQNBOmJ1lQgOPAxpA7SvRDpN5Et+L61tWttR1EEO1+sj0g/iGO+zrZfD8m+jxNnIGWih/ykSzggiaJ42VFbQcJFk5BCfxlty6c0p8DvJkdulcRkboU21nQx9irqWmSeedcA3VJX2r0womx3tZYnbY=
   apt:
     sources:
     - ubuntu-toolchain-r-test
