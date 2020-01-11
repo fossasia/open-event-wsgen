@@ -31,8 +31,8 @@ install:
 services:
     - redis-server
  # testing script
-script:
-  - istanbul cover _mocha -- $TESTFOLDER
+# script:
+#   - istanbul cover _mocha -- $TESTFOLDER
 
  # notify codecov and deploy to cloud
 after_success:
