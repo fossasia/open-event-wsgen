@@ -1,7 +1,11 @@
+# Specify language to use
 language: node_js
 node_js:
 - 8.11.1
+
+# Using sudo enabled Linux VM
 sudo: required
+# Adds redis as a service
 services:
 - redis-server
 - docker
@@ -12,6 +16,7 @@ env:
 - TESTFOLDER=test/tracks.js
 - TESTFOLDER=test/generatorAndSchedule.js
 - TESTFOLDER=test/sessionEventAndCoC.js
+
 addons:
   sauce_connect:
     username: princu7
@@ -24,18 +29,26 @@ addons:
     - g++-4.8
   code_climate:
     repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
-install:
+# installing required items for build
+  install:
 - npm install -g mocha@3
 - npm i nyc
 - npm install
 - npm install --save-dev
+# testing script
 script: 
 - echo "npm test temporarily disabled"
+
+# notify codecov and deploy to cloud
 after_success: if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then bash <(curl -s
   https://codecov.io/bash); bash gh_deploy.sh && kubernetes/travis/deploy.sh; fi
-before_install:
+
+# install g++
+  before_install:
 - sudo apt-get update
 - sudo -E apt-get -yq install g++-4.8
+
+# deploy to heroku
 deploy:
   provider: heroku
   api_key:
