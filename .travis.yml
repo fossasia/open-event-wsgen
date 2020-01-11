@@ -44,6 +44,11 @@ after_success:
     bash <(curl -s https://codecov.io/bash);
     bash gh_deploy.sh && kubernetes/travis/deploy.sh;
   fi
+  
+ # enable node_modules dir to avoid re-download everytime
+cache:
+    directories:
+    - node_modules
 
  # deploy to heroku
 deploy:
