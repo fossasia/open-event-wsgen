@@ -30,7 +30,7 @@ install:
 - npm install --save-dev
 script: 
 - echo "npm test temporarily disabled"
-- istanbul cover _mocha -- $TESTFOLDER
+# - istanbul cover _mocha -- $TESTFOLDER
 after_success: if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then bash <(curl -s
   https://codecov.io/bash); bash gh_deploy.sh && kubernetes/travis/deploy.sh; fi
 before_install:
