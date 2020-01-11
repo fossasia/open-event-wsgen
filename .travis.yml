@@ -15,10 +15,6 @@ env:
   - TESTFOLDER=test/sessionEventAndCoC.js
 
 addons:
-  sauce_connect:
-    username: parzivox
-  jwt:
-    secure: iJyRIudHEtKR3O8+NA4sIbEbENYgGG/cQOFofiT6gQp/UsR9efjZu+X8ZIYLupC5gCnZEG/RkApxHsOzyAF2ooGgZCR5a+FKQGZqO6hT2pa0ZC74x/hDhINGSYEBrcS9wl3YvdzlNFQrjTK5y7Q0s98MwXgn7mhRLdlxc5vzZqkYe4eoOoWuSQsMKsspRdYaZ3E/gGvrSVDJLLoi2VSos0nc4DiIxoQlKtGKXGoB8SUWtCB6Au9dyvdEkP1mivdoW2Hv7uZ41to+yGiXybjhrueIg8sZLzcdwhUM9bTfpQ2tGtK07xtDSSIEShYQt1o3cXmhtEtQ6wFuXI4OvkS9QojGgg3U/d4q8Pj38mDnIVQIxgyrLY4arRl1/wGNnurbkis69RQSDCWqBltMrBwNbwZk6g78bmOigNPIthRACXLWzpkWlhgF141NrUL6FOQvCl28NXgbFD1bvWgAw4tHaRPuLLuQAGCIN3IX8Jb2rJL6DRVoc4qc7GSCVfxGzA9EY4hljxydWO46Qdz/gdeBMAf+NjAdlc5d7eYQb//2jbm0hkmDRPP7SOv5svn4lZpuLQftJlKgHwMsTWQos/MkMfxtDH9avP9CV1O2fZBvKV/PWr9MYhhnFLbQ+80KcK7BJfHIac8To1pUw8RUKRFVOtk0DnIl65lLpP3/R+n9U64=
   apt:
     sources:
       - ubuntu-toolchain-r-test
