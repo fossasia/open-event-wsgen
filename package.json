@@ -9,8 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "test": "mocha",
     "coverage": "istanbul cover _mocha",
     "lint": "eslint ./src",
     "precommit": "eslint ./src"
