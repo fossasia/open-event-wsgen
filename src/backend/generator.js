@@ -548,8 +548,9 @@ exports.createDistDir = function(req, socket, callback) {
             distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
               if (err) {
                 console.log(err);
-                callback(null);
-                return done(err);
+                // TODO(Areeb): Temporarily disabling image check due to faulty images in event JSON
+                // callback(null);
+                // return done(err);
               }
               jsonData.navpad = pad;
             });
