@@ -441,9 +441,9 @@ describe('generate', function () {
         "email": 'a@a.com',
         "theme": 'light',
         "sessionMode": 'expand',
-        "apiVersion": 'api_v1',
+        "apiVersion": 'api_v2',
         "datasource": 'eventapi',
-        "apiendpoint": 'https://eventyay.com/api/v1/events/275',
+        "apiendpoint": 'https://api.eventyay.com/v1/events/275',
         "assetmode": 'download'
       };
 
@@ -500,8 +500,8 @@ describe('generate', function () {
         "email": "a@a.com",
         "name": "Open Event",
         "theme": 'light',
-        "apiendpoint": "https://eventyay.com/api/v1/events/77d26f89",
-        "apiVersion": 'api_v1',
+        "apiendpoint": "https://api.eventyay.com/v1/events/77d26f89",
+        "apiVersion": 'api_v2',
         "datasource": "eventapi",
         "assetmode": "download"
       };

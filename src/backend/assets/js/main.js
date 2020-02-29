@@ -128,6 +128,7 @@ $(document).ready(function () {
 
     schedule: {
       dateFilter:'.day-filter',
+      calendarFilter: '.calendar',
       place:'.time-filter',
       room:'.schedule-track'
     }
@@ -212,7 +213,7 @@ $(document).ready(function () {
       });
     }
     else if(curView === 'calendar') {
-      $(filter.dateFilter).each(function () {
+      $(filter.calendarFilter).each(function () {
         const showThing = date === 'all' || $(this).hasClass(date);
         $(this).toggleClass('hide', !showThing);
       });

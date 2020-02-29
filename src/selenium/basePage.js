@@ -44,6 +44,10 @@ const BasePage = {
     return el.click();
   },
 
+  jsClick(el) {
+    return this.driver.executeScript("arguments[0].click();", el);
+  },
+
   toggleStarredButton: function() {
     return this.find(By.id('starred')).then(this.click);
   },
@@ -55,7 +59,8 @@ const BasePage = {
     sessionIds.forEach(function(sessionId) {
       const promElem = new Promise(function(resolve, reject) {
         self.find(By.id(sessionId)).then(function(el) {
-          el.findElement(By.className('bookmark')).then(self.click).then(function() {
+          // TODO: Revert when fixed. Workaround for https://github.com/angular/protractor/issues/3093
+          self.jsClick(el.findElement(By.className('bookmark'))).then(function() {
             resolve('done');
           });
         });
@@ -217,8 +222,9 @@ const BasePage = {
     const pageVertScrollOffset = 'return window.scrollY';
 
     return new Promise(function(resolve) {
-      self.find(By.id(sessionTitleId)).then(self.click).then(function() {
-        self.find(By.id(sessionDetailId)).findElement(By.css('a')).click().then(self.getPageUrl.bind(self)).then(function(url) {
+      // TODO: Revert when fixed. Workaround for https://github.com/angular/protractor/issues/3093
+      self.jsClick(self.find(By.id(sessionTitleId))).then(function() {
+        self.jsClick(self.find(By.id(sessionDetailId)).findElement(By.css('a'))).then(self.getPageUrl.bind(self)).then(function(url) {
           self.driver.executeScript(pageVertScrollOffset).then(function(height) {
             resolve(height > 0 && url.search('speakers') !== -1);
           });
