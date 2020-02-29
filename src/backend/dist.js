@@ -12,6 +12,7 @@ const streamBuffer = require('stream-buffers');
 const path = require('path');
 const recursive = require('recursive-readdir');
 const sharp = require('sharp');
+const JSONAPIDeserializer = require('jsonapi-serializer').Deserializer;
 
 const distPath = __dirname + '/../../dist';
 const uploadsPath = __dirname + '/../../uploads';
@@ -105,12 +106,19 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       return cb(err);
     }
 
-    fs.writeFile(fileName, JSON.parse(JSON.stringify(response.body)), 'utf-8', function(error) {
-      if (error) {
-        console.log(error);
-        return cb(error);
-      }
-      cb();
+    const json = JSON.parse(body);
+
+    new JSONAPIDeserializer().deserialize(json).then(data => {
+      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(error) {
+        if (error) {
+          console.log(error);
+          return cb(error);
+        }
+        cb();
+      });
+    }).catch(error => {
+      console.error('Error while parsing JSONAPI response', error);
+      cb(error);
     });
   });
 };
@@ -589,17 +597,13 @@ module.exports = {
 
       Object.keys(jsonsUrl).forEach(function(key) {
         if (key === 'sessions') {
-          jsonsUrl[key] = jsonsUrl[key] + '?include=track,microlocation,session-type,speakers' +
-            '&fields[track]=id,name' +
-            '&fields[speaker]=id,name' +
-            '&fields[microlocation]=id,name' +
-            '&page[size]=0';
+          jsonsUrl[key] = jsonsUrl[key] + '?include=track,microlocation,session-type,speakers&page[size]=0';
         } else if (key === 'tracks') {
-          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&page[size]=0';
         } else if (key === 'event') {
-          jsonsUrl[key] = endpoint + '?include=social-links,event-copyright';
+          jsonsUrl[key] = endpoint + '?include=social-links,event-copyright&page[size]=0';
         } else if (key === 'speakers') {
-          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&fields[session]=id,title';
+          jsonsUrl[key] = jsonsUrl[key] + '?include=sessions&page[size]=0';
         }
       });
     } else if (endpoint.search('https://open-event-api-dev.herokuapp.com') !== -1 && apiVersion === 'api_v2') {

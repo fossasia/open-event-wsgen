@@ -160,7 +160,6 @@
     "keyword-spacing": [2, {"before": true, "after": true}],
     "wrap-regex": 1,
 
-    "arrow-parens": [2, "always"],
     "arrow-spacing": [2, {"before": true, "after": true}],
     "constructor-super": 2,
     "generator-star-spacing": [2, {"before": false, "after": true}],
