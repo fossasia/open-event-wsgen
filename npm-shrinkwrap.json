@@ -9115,9 +9115,9 @@
       }
     },
     "socketio-file-upload": {
-      "version": "0.6.0",
-      "resolved": "https://registry.npmjs.org/socketio-file-upload/-/socketio-file-upload-0.6.0.tgz",
-      "integrity": "sha1-gTz3m89rbdTPm1ekLJ77S2eGpZY="
+      "version": "0.7.0",
+      "resolved": "https://registry.npmjs.org/socketio-file-upload/-/socketio-file-upload-0.7.0.tgz",
+      "integrity": "sha512-eKL6LAPiDH9xIsn2eP0ZDzw/EUsnDiZxuDN6TpyPcsaS42Q5wt5VmeN6CGcPsMx57UMQ6jxjIljoBTnCVsG8Qw=="
     },
     "source-map": {
       "version": "0.5.6",
