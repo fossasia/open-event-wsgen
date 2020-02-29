@@ -55,7 +55,9 @@ const BasePage = {
     sessionIds.forEach(function(sessionId) {
       const promElem = new Promise(function(resolve, reject) {
         self.find(By.id(sessionId)).then(function(el) {
-          el.findElement(By.className('bookmark')).then(self.click).then(function() {
+          // TODO: Revert when fixed. Workaround for https://github.com/angular/protractor/issues/3093
+          const element = el.findElement(By.className('bookmark'));
+          self.driver.executeScript("arguments[0].click();", element).then(function() {
             resolve('done');
           });
         });
@@ -218,7 +220,9 @@ const BasePage = {
 
     return new Promise(function(resolve) {
       self.find(By.id(sessionTitleId)).then(self.click).then(function() {
-        self.find(By.id(sessionDetailId)).findElement(By.css('a')).click().then(self.getPageUrl.bind(self)).then(function(url) {
+        const element = self.find(By.id(sessionDetailId)).findElement(By.css('a'));
+        // TODO: Revert when fixed. Workaround for https://github.com/angular/protractor/issues/3093
+        self.driver.executeScript("arguments[0].click();", element).then(self.getPageUrl.bind(self)).then(function(url) {
           self.driver.executeScript(pageVertScrollOffset).then(function(height) {
             resolve(height > 0 && url.search('speakers') !== -1);
           });
