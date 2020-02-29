@@ -1,12 +1,12 @@
-# Specify language to use
+dist: xenial
 language: node_js
 node_js:
   - 8.11.1
 
-# Using sudo enabled Linux VM
-sudo: required
 services:
   - docker
+  - redis
+
 env:
   - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
   - TESTFOLDER=test/roomsAndSpeakers.js
@@ -17,23 +17,17 @@ env:
 addons:
   sauce_connect:
     username: princu7
-  jwt:
-    secure: FslueGK2gtPHkRANMpUlGyCGsr1jTVuaKpP+SvYUxBYh5zbz73GMq+VsqlE29IZ1ER1+xMfWuCCvg3VA7HePyN6hzoZ/t0LADureYVPur6R5ZJgqgQpBinjpytIjo2BhN3NqaNWaIJZTLDSAT76R7HuNm016jbuOEjO5foYWuz2F82B03viHmk42CRNl3eqXEMcwkkLfEkvu9iupeVAArPXepA2YCpaaFbV2D5ahTelzMROnc2YQ/HyAdaaLtto8L0CDmZSrFsPZtTGQKarFdOgKWeor2iD1AiYLHYdcbvXV5YbBVvi7tFJG8r5h0YBUu1JIkhvzWIi698GJRGwDCONStCaKVhrMvpL7C8fEpbzullxFSpWOVupTEjn+u0OGaxrugwSZ1dtSkbIu+2SlVR/QuXS8o6OMiDz7lrFhIc+hF6EvFRWI7UIjt9NPte1o3COA8WESaseCWKhLY0g/hgpRSM7pyfKx2NAj4UCXyPATTKRJNlEHcs/jMpgxu+RSjPYphK4rrWxm6O6bJxd+jNwQNBOmJ1lQgOPAxpA7SvRDpN5Et+L61tWttR1EEO1+sj0g/iGO+zrZfD8m+jxNnIGWih/ykSzggiaJ42VFbQcJFk5BCfxlty6c0p8DvJkdulcRkboU21nQx9irqWmSeedcA3VJX2r0womx3tZYnbY=
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-  code_climate:
-    repo_token: 46f6d31d6b0777711b6c7e733234b023bda56e2e02c792c68c889005cf032ea6
 # installing required items for build
 install:
   - npm install -g istanbul mocha@3
   - npm install
   - npm install --save-dev
- # Adds redis as a service
-services:
-    - redis-server
+
  # testing script
 script:
   - istanbul cover _mocha -- $TESTFOLDER
@@ -43,3 +37,8 @@ after_success:
   if ([ "$TESTFOLDER" == "test/serverTest.js" ]); then
     bash <(curl -s https://codecov.io/bash);
   fi
+
+branches:
+  only:
+    - master
+    - development
