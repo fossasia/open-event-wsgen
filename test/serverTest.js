@@ -434,29 +434,26 @@ describe('generate', function () {
 
     });
 
-    const apiv2TestEnabled = false; // TODO(Areeb): Disabled because generator is not ready for API v2
-    if (apiv2TestEnabled) {
-      it('should generate the FOSSASIA Summit 2018 event', function (done) {
-        let data = {};
+    it('should generate the FOSSASIA Summit 2018 event', function (done) {
+      let data = {};
 
-        data.body = {
-          "email": 'a@a.com',
-          "theme": 'light',
-          "sessionMode": 'expand',
-          "apiVersion": 'api_v2',
-          "datasource": 'eventapi',
-          "apiendpoint": 'https://api.eventyay.com/v1/events/275',
-          "assetmode": 'download'
-        };
+      data.body = {
+        "email": 'a@a.com',
+        "theme": 'light',
+        "sessionMode": 'expand',
+        "apiVersion": 'api_v2',
+        "datasource": 'eventapi',
+        "apiendpoint": 'https://api.eventyay.com/v1/events/275',
+        "assetmode": 'download'
+      };
 
 
-        generator.createDistDir(data, 'Socket', function (appFolder) {
-          assert.equal(appFolder, "a@a.com/FOSSASIASummit");
-          done();
-        });
-
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        done();
       });
-    }
+
+    });
 
     it('should generate the Spark Summit 2017 event', function (done) {
       let data = {};
@@ -496,26 +493,24 @@ describe('generate', function () {
       });
     });
 
-    if (apiv2TestEnabled) {
-      it('should generate the Nextcloud Conference 2018 event', function (done) {
-        let data = {};
+    it('should generate the Nextcloud Conference 2018 event', function (done) {
+      let data = {};
 
-        data.body = {
-          "email": "a@a.com",
-          "name": "Open Event",
-          "theme": 'light',
-          "apiendpoint": "https://api.eventyay.com/v1/events/77d26f89",
-          "apiVersion": 'api_v2',
-          "datasource": "eventapi",
-          "assetmode": "download"
-        };
+      data.body = {
+        "email": "a@a.com",
+        "name": "Open Event",
+        "theme": 'light',
+        "apiendpoint": "https://api.eventyay.com/v1/events/77d26f89",
+        "apiVersion": 'api_v2',
+        "datasource": "eventapi",
+        "assetmode": "download"
+      };
 
-        generator.createDistDir(data, 'Socket', function (appFolder) {
-          assert.equal(appFolder, "a@a.com/NextcloudConference2018");
-          done();
-        });
+      generator.createDistDir(data, 'Socket', function (appFolder) {
+        assert.equal(appFolder, "a@a.com/NextcloudConference2018");
+        done();
       });
-    }
+    });
 
     it('should generate the OpenTechSummit 2018 event', function (done) {
       let data = {};
