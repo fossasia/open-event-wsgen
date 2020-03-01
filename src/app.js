@@ -3,7 +3,6 @@
 
 const express = require('express');
 const cookie = require('cookie');
-const connectDomain = require('connect-domain');
 const compression = require('compression');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -167,8 +166,6 @@ io.of('/deploy').on('connection', function(socket) {
     socket.abortDeploy = true;
   });
 });
-
-app.use(connectDomain());
 
 const errorHandler = function(err, req, res, next) {
   res.sendFile(__dirname + '/www/404.html');

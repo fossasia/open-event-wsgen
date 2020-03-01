@@ -1,7 +1,7 @@
 dist: xenial
 language: node_js
 node_js:
-  - 8.15.1
+  - 10.16.1
 
 services:
   - docker
@@ -24,15 +24,16 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+      - chromium-chromedriver
 # installing required items for build
 install:
   - npm install -g yarn
-  - yarn global add istanbul mocha@3
+  - yarn global add nyc mocha
   - yarn
 
  # testing script
 script:
-  - istanbul cover _mocha -- $TESTFOLDER
+  - nyc mocha --exit -- $TESTFOLDER
 
  # notify codecov and deploy to cloud
 after_success:
