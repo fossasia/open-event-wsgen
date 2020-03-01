@@ -173,7 +173,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the working of Add to calendar button', function (done) {
-      roomPage.addSessionToCalendar().then(function(promptWindows) {
+      roomPage.getSocialButtonElems().then(() => roomPage.addSessionToCalendar()).then(function(promptWindows) {
         assert.equal(promptWindows, 2);
         done();
       }).catch(function(err) {
