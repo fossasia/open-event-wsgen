@@ -27,7 +27,7 @@
   "dependencies": {
     "archiver": "^1.0.0",
     "async": "^2.0.0-rc.6",
-    "aws-sdk": "^2.62.0",
+    "aws-sdk": "^2.630.0",
     "babel-preset-es2015": "^6.24.0",
     "bee-queue": "^1.2.2",
     "bluebird": "^3.4.7",
