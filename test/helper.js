@@ -12,7 +12,7 @@ function getDriver() {
       },
       args: [
         '--headless',
-        '--window-size=1440,900'
+        '--window-size=1920,1080'
       ]
     }
   };
