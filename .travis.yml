@@ -1,7 +1,7 @@
 dist: xenial
 language: node_js
 node_js:
-  - 8.11.1
+  - 8.15.1
 
 services:
   - docker
@@ -26,9 +26,9 @@ addons:
       - g++-4.8
 # installing required items for build
 install:
-  - npm install -g istanbul mocha@3
-  - npm install
-  - npm install --save-dev
+  - npm install -g yarn
+  - yarn add global istanbul mocha@3
+  - yarn
 
  # testing script
 script:
