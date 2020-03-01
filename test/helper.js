@@ -9,10 +9,7 @@ function getDriver() {
         'downloads': {
           'prompt_for_download': false
         }
-      },
-      args: [
-        '--headless'
-      ]
+      }
     }
   };
 
