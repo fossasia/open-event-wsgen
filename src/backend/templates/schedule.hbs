@@ -619,7 +619,7 @@
       var cal = ics();
 
       function exportICS() {
-        var scheduleArr = {{json timeList}};
+        var scheduleArr = {{{json timeList}}};
 
         function removeDashFromDate(date) {
           return date.replace(/-/g, '');
