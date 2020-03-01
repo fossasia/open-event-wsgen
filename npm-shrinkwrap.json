@@ -334,25 +334,34 @@
       "integrity": "sha1-x57Zf380y48robyXkLzDZkdLS3k="
     },
     "aws-sdk": {
-      "version": "2.62.0",
-      "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.62.0.tgz",
-      "integrity": "sha1-mFCNP5Oq8/dPGMo7jP46Eb2tGl8=",
+      "version": "2.630.0",
+      "resolved": "https://registry.npmjs.org/aws-sdk/-/aws-sdk-2.630.0.tgz",
+      "integrity": "sha512-7BDPUIqmMZfZf+KN2Z3RpGDYGkEucQORLM2EqXuE91ETW5ySvoNd771+EaE3OS+FUx3JejfcVk8Rr2ZFU38RjA==",
       "requires": {
-        "buffer": "5.0.6",
-        "crypto-browserify": "1.0.9",
+        "buffer": "4.9.1",
+        "events": "1.1.1",
+        "ieee754": "1.1.13",
         "jmespath": "0.15.0",
         "querystring": "0.2.0",
         "sax": "1.2.1",
         "url": "0.10.3",
-        "uuid": "3.0.1",
-        "xml2js": "0.4.17",
-        "xmlbuilder": "4.2.1"
+        "uuid": "3.3.2",
+        "xml2js": "0.4.19"
       },
       "dependencies": {
-        "uuid": {
-          "version": "3.0.1",
-          "resolved": "https://registry.npmjs.org/uuid/-/uuid-3.0.1.tgz",
-          "integrity": "sha1-ZUS7ot/ajBzxfmKaOjBeK7H+5sE="
+        "xml2js": {
+          "version": "0.4.19",
+          "resolved": "https://registry.npmjs.org/xml2js/-/xml2js-0.4.19.tgz",
+          "integrity": "sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==",
+          "requires": {
+            "sax": ">=0.6.0",
+            "xmlbuilder": "~9.0.1"
+          }
+        },
+        "xmlbuilder": {
+          "version": "9.0.7",
+          "resolved": "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-9.0.7.tgz",
+          "integrity": "sha1-Ey7mPS7FVlxVfiD0wi35rKaGsQ0="
         }
       }
     },
@@ -876,9 +885,9 @@
       "integrity": "sha1-c5JncZI7Whl0etZmqlzUv5xunOg="
     },
     "base64-js": {
-      "version": "1.2.0",
-      "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.2.0.tgz",
-      "integrity": "sha1-o5mS1yNYSBGYK+XikLtqU9hnAPE="
+      "version": "1.3.1",
+      "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.3.1.tgz",
+      "integrity": "sha512-mLQ4i2QO1ytvGWFWmcngKO//JXAQueZvwEKtjgQFM4jIK0kU+ytMfplL8j+n5mspOfjHwoAg+9yhb7BwAHm36g=="
     },
     "base64id": {
       "version": "1.0.0",
@@ -1011,12 +1020,13 @@
       }
     },
     "buffer": {
-      "version": "5.0.6",
-      "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.0.6.tgz",
-      "integrity": "sha1-LqZp9+7Atu2gWwj4tf9mGyhXNYg=",
+      "version": "4.9.1",
+      "resolved": "https://registry.npmjs.org/buffer/-/buffer-4.9.1.tgz",
+      "integrity": "sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=",
       "requires": {
-        "base64-js": "1.2.0",
-        "ieee754": "1.1.8"
+        "base64-js": "^1.0.2",
+        "ieee754": "^1.1.4",
+        "isarray": "^1.0.0"
       }
     },
     "buffer-crc32": {
@@ -1515,11 +1525,6 @@
       "requires": {
         "boom": "2.10.1"
       }
-    },
-    "crypto-browserify": {
-      "version": "1.0.9",
-      "resolved": "https://registry.npmjs.org/crypto-browserify/-/crypto-browserify-1.0.9.tgz",
-      "integrity": "sha1-zFRJaF37hesRyYKKzHy4erW7/MA="
     },
     "currently-unhandled": {
       "version": "0.4.1",
@@ -2099,6 +2104,11 @@
       "version": "1.8.0",
       "resolved": "https://registry.npmjs.org/etag/-/etag-1.8.0.tgz",
       "integrity": "sha1-b2Ma7zNtbEY2K1F2QETOIWvjwFE="
+    },
+    "events": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/events/-/events-1.1.1.tgz",
+      "integrity": "sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ="
     },
     "expand-brackets": {
       "version": "0.1.5",
@@ -3523,9 +3533,9 @@
       "integrity": "sha1-/iZaIYrGpXz+hUkn6dBMGYJe3es="
     },
     "ieee754": {
-      "version": "1.1.8",
-      "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.1.8.tgz",
-      "integrity": "sha1-vjPUCsEO8ZJnAfbwii2G+/0a0+Q="
+      "version": "1.1.13",
+      "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.1.13.tgz",
+      "integrity": "sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg=="
     },
     "ignore": {
       "version": "3.3.8",
