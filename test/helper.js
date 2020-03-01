@@ -11,8 +11,8 @@ function getDriver() {
         }
       },
       args: [
-        '--headless',
-        '--window-size=1920,1080'
+        '--window-size=1920,1080',
+        '--start-maximized'
       ]
     }
   };
