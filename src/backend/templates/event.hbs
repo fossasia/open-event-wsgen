@@ -71,7 +71,7 @@
               <div class="col-md-4">
               </div>
               <div class="ticket-button-container col-md-8">
-                <a href="{{{eventurls.register}}}" id="ticket-button" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
+                <a href="{{eventurls.register}}" id="ticket-button" class="pull-right btn btn-lg btn-primary" role="button">Tickets</a>
               </div>
             </div>
           </div>
@@ -105,9 +105,9 @@
                         <div class="speaker">
                           <div class="image-holder">
                             {{#if photo}}
-                              <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image display-block" alt="{{{name}}}">
+                              <img onError="this.onerror=null;this.src='./images/avatar.png';" data-original="{{photo}}" class="lazy background-image display-block" alt="{{name}}">
                             {{else}}
-                              <img class="background-image display-block" alt="{{{name}}}" src="images/avatar.png"/>
+                              <img class="background-image display-block" alt="{{name}}" src="images/avatar.png"/>
                             {{/if}}
                             <div class="responsive-overlay">
                               <div class="hover-state text-center preserve3d">
@@ -154,7 +154,7 @@
           <div class="tweet-row">
             <div class="col-sm-12 col-md-12 col-xs-12">
               <i class ="social_twitter fa fa-twitter"></i>
-              <div class="tweets-feed" id="tweets" data-count=50 data-query="{{{eventurls.twitterLink}}}" data-from="{{{eventurls.twitterLink}}}">
+              <div class="tweets-feed" id="tweets" data-count=50 data-query="{{eventurls.twitterLink}}" data-from="{{eventurls.twitterLink}}">
                 <div class="arrow-up"></div>
                 <p id="tweet" class="tweet">
                   Loading...
@@ -195,12 +195,12 @@
               <div class="row">
                 {{#each sponsorpics}}
                   {{#each this}}
-                    <div class="sponsor-row-text {{{divclass}}}">
-                      <div class=" {{{sponsorimg}}} text-center">
-                        <a href="{{{url}}}" data-toggle="tooltip" title="{{{type}}}">
-                          <img class="lazy centre {{{imgsize}}}" alt="{{{name}}}" data-original="{{{logo}}}">
+                    <div class="sponsor-row-text {{divclass}}">
+                      <div class="{{sponsorimg}} text-center">
+                        <a href="{{url}}" data-toggle="tooltip" title="{{type}}">
+                          <img class="lazy centre {{imgsize}}" alt="{{name}}" data-original="{{logo}}">
                         </a>
-                        {{{name}}}
+                        {{name}}
                       </div>
                     </div>
                   {{/each}}
@@ -235,7 +235,7 @@
       {{/if}}
     {{/if}}
 
-    <input type="hidden" id="mappos" value="{{{eventurls.latitude}}},{{{eventurls.longitude}}}"/>
+    <input type="hidden" id="mappos" value="{{eventurls.latitude}},{{eventurls.longitude}}"/>
     <input type="hidden" id="theme" value={{theme}} />
     <input type="hidden" id="mapType" value={{map}} />
   

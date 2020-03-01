@@ -107,19 +107,19 @@
                   <div class="blacktext session-speaker-social margin-down-10">
                     <div class="session-speakers-more">
                       {{#if web}}
-                        <a class="blacktext social speaker-social" href="{{{web}}}"><i
+                        <a class="blacktext social speaker-social" href="{{web}}"><i
                             class="fa fa-home"></i> Web</a>&nbsp;
                       {{/if}}
                       {{#if github}}
-                        <a class="blacktext social speaker-social" href="{{{github}}}"><i
+                        <a class="blacktext social speaker-social" href="{{github}}"><i
                             class="fa fa-github"></i> Github</a>&nbsp;
                       {{/if}}
                       {{#if twitter}}
-                        <a class="blacktext social speaker-social" href="{{{twitter}}}"><i
+                        <a class="blacktext social speaker-social" href="{{twitter}}"><i
                             class="fa fa-twitter"></i> Twitter</a>&nbsp;
                       {{/if}}
                       {{#if linkedin}}
-                        <a class="blacktext social speaker-social" href="{{{linkedin}}}"><i
+                        <a class="blacktext social speaker-social" href="{{linkedin}}"><i
                             class="fa fa-linkedin"></i> LinkedIn</a>&nbsp;
                       {{/if}}
                     </div>
@@ -150,7 +150,7 @@
                   {{#if startDay}}<p>{{startDay}}, <span>{{start}} - {{end}}</span></p>{{/if}}
                   <p>
                     <ul class="session-ul">
-                      <li style="background-color:{{{color}}};color:{{{font_color}}};"
+                      <li style="background-color:{{color}};color:{{font_color}};"
                         class="titlecolor"></li>
                       &nbsp;
                       <li><a href="{{track_jump_link}}"> {{track_title}} </a> </li>
@@ -194,15 +194,15 @@
                         {{#if copyright}}
                             {{#if copyright.licence}}
                                 <p>
-                                    <a href="{{{copyright.licence_url}}}"><img src="{{{copyright.logo}}}"></a>
+                                    <a href="{{copyright.licence_url}}"><img src="{{copyright.logo}}"></a>
                                     &nbsp; &copy; {{copyright.year}}
                                     {{#if copyright.holder_url}}
-                                        <a href="{{{copyright.holder_url}}}">{{copyright.holder}}.</a>
+                                        <a href="{{copyright.holder_url}}">{{copyright.holder}}.</a>
                                     {{else}}
                                         {{copyright.holder}}.
                                     {{/if}}
                                     The website and its contents are licensed under
-                                    <a href="{{{copyright.licence_url}}}"> {{copyright.licence}}. </a>
+                                    <a href="{{copyright.licence_url}}"> {{copyright.licence}}. </a>
                                     The site was generated using the Open Event format on the <a href="https://eventyay.com/">eventyay</a> <a href="https://webgen.eventyay.com/">site generator</a>. Please submit issues <a href="https://github.com/fossasia/open-event-webapp/issues">here</a>.
                                 </p>
                             {{/if}}
@@ -223,7 +223,7 @@
                             {{#if eventurls.location}}
                                 <li class="address">
                                     <i class="fa fa-map-marker"></i>
-                                    <div>{{{eventurls.orgname}}}&#44;&nbsp;{{eventurls.location}}</div>
+                                    <div>{{eventurls.orgname}}&#44;&nbsp;{{eventurls.location}}</div>
                                 </li>
                             {{/if}}
                         </ul>
@@ -234,7 +234,7 @@
                         <ul class="social-profiles">
                             {{#sociallinks}}
                                 {{#if show}}
-                                    <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{{icon}}}"></i></a></li>
+                                    <li class="pull-left social-icons"><a href="{{link}}" id="social-icons"><i class="fa fa-lg fa-{{icon}}" aria-hidden="true" title="{{icon}}"></i></a></li>
                                 {{/if}}
                             {{/sociallinks}}
                         </ul>

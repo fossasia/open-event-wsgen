@@ -159,10 +159,10 @@
                   <div class="schedule-container">
                     <div class="padding-right-zero">
                       {{#if ../../../mode}}
-                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
+                        <h4 style="background-color:{{color}}; color: {{font_color}};"
                           class="schedule-margin sizeevent event"  id="title-{{session_id}} "data-toggle="collapse">
                       {{else}}
-                        <h4 style="background-color:{{{color}}}; color: {{{font_color}}};"
+                        <h4 style="background-color:{{color}}; color: {{font_color}};"
                           class="schedule-margin sizeevent event" id="title-{{session_id}}" data-toggle="collapse"
                           data-target="#desc-{{session_id}}, #desc2-{{session_id}}"
                           aria-expanded="false"
@@ -245,7 +245,7 @@
                             <div class="margin-down-10">
                               <a href="speakers.html#{{nameIdSlug}}">
                                 {{#if photo}}
-                                  <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{thumb}}}" class="card-img-top speaker-image-large lazy margin-down-10" width="10" height="10"/>
+                                  <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{thumb}}" class="card-img-top speaker-image-large lazy margin-down-10" width="10" height="10"/>
                                 {{else}}
                                   <img class="card-img-top speaker-image-large margin-down-10" src="images/avatar.png"/>
                                 {{/if}}
@@ -260,22 +260,22 @@
                           <div class="blacktext session-speaker-social margin-down-10">
                             <div class="session-speakers-more">
                               {{#if website}}
-                              <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                              <a class="blacktext social speaker-social" href="{{website}}"}>
                                 <i class="fa fa-home"></i> Web
                               </a>&nbsp;
                               {{/if}}
                               {{#if github}}
-                              <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                              <a class="blacktext social speaker-social" href="{{github}}"}>
                                 <i class="fa fa-github"></i> Github
                               </a>&nbsp;
                               {{/if}}
                               {{#if twitter}}
-                              <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                              <a class="blacktext social speaker-social" href="{{twitter}}"}>
                                 <i class="fa fa-twitter"></i> Twitter
                               </a>&nbsp;
                               {{/if}}
                               {{#if linkedin}}
-                              <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                              <a class="blacktext social speaker-social" href="{{linkedin}}"}>
                                 <i class="fa fa-linkedin"></i> LinkedIn
                               </a>&nbsp;
                               {{/if}}
@@ -306,7 +306,7 @@
                             <p>{{sessiondate}}, <span>{{start}} - {{end}}</span></p>
                             <p>
                               <ul class="title-inline">
-                                <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
+                                <li style="background-color:{{color}}; color: {{font_color}};" class="titlecolor"></li>&nbsp;
                                 <li class="blacktext track-name">{{tracktitle}}</li>
                               </ul>
                             </p><br>
@@ -335,27 +335,27 @@
               </div>
               <div class="calendar-content">
                 <div class="times">
-                  <div class="time" style="height: {{{timeToPixel}}}px">
+                  <div class="time" style="height: {{timeToPixel}}px">
                     &nbsp;
                   </div>
                   {{#timeline}}
-                  <div class="time" style="height: {{{../timeToPixel}}}px; line-height: {{{../timeToPixel}}}px">
+                  <div class="time" style="height: {{../timeToPixel}}px; line-height: {{../timeToPixel}}px">
                     {{time}}
                   </div>
                   {{/timeline}}
                 </div>
-                <div class="rooms" style="height: {{{height}}}px;background-image: url('images/timeline.png');background-repeat: repeat;">
+                <div class="rooms" style="height: {{height}}px;background-image: url('images/timeline.png');background-repeat: repeat;">
                   {{#venue}}
-                  <div class="room" style="width: {{{../width}}};">
-                    <div class="room-header" style="height: {{{../timeToPixel}}}px;">
+                  <div class="room" style="width: {{../width}};">
+                    <div class="room-header" style="height: {{../timeToPixel}}px;">
                       {{#if venue }}
                         <span>{{venue}}</span>
                       {{/if}}
                     </div>
                     <div>
                       {{#sessions}}
-                        <div class="session" style="top:{{{top}}}px; height:{{{height}}}px;background-color:{{{color}}};
-                          color: {{{font_color}}};" id = "cal-{{session_id}}">
+                        <div class="session" style="top:{{top}}px; height:{{height}}px;background-color:{{color}};
+                          color: {{font_color}};" id = "cal-{{session_id}}">
                         <div class="session-name">{{title}}</div>
                         <div class="pop-box hide">
                           <div class="arrow">
@@ -364,7 +364,7 @@
                           <div class="pop-container" id="pop-speaker-name">
                             <div class="pop">
                               <div class="pop-header">
-                                <span class="s-popup-header-name"><strong>{{{title}}} ({{start}} - {{end}})</strong>
+                                <span class="s-popup-header-name"><strong>{{title}} ({{start}} - {{end}})</strong>
                                 </span>
                               </div>
                               <div class="pop-over row">
@@ -405,22 +405,22 @@
                                    <div class="blacktext session-speaker-social">
                                      <div class="session-speakers-more">
                                        {{#if website}}
-                                       <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                       <a class="blacktext social speaker-social" href="{{website}}"}>
                                          <i class="fa fa-home"></i> Web
                                        </a>&nbsp;
                                        {{/if}}
                                        {{#if github}}
-                                       <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                                       <a class="blacktext social speaker-social" href="{{github}}"}>
                                          <i class="fa fa-github"></i> Github
                                        </a>&nbsp;
                                        {{/if}}
                                        {{#if twitter}}
-                                       <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                                       <a class="blacktext social speaker-social" href="{{twitter}}"}>
                                          <i class="fa fa-twitter"></i> Twitter
                                        </a>&nbsp;
                                        {{/if}}
                                        {{#if linkedin}}
-                                       <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                                       <a class="blacktext social speaker-social" href="{{linkedin}}"}>
                                          <i class="fa fa-linkedin"></i> LinkedIn
                                        </a>&nbsp;
                                        {{/if}}
@@ -446,7 +446,7 @@
                                      {{/if}}
                                      <p>
                                        <ul class="title-inline">
-                                         <li style="background-color:{{{color}}}; color: {{{font_color}}};"
+                                         <li style="background-color:{{color}}; color: {{font_color}};"
                                            class="titlecolor"></li>&nbsp;
                                          <li class="blacktext">{{tracktitle}}</li>
                                        </ul>
@@ -505,7 +505,7 @@
                     {{#if attendees}}
                       {{#attendees}}
                         <div class="col-md-4 attendees">
-                          <div class="profile-image" data-toggle="tooltip" title="{{firstname}} {{lastname}}">{{{trimString firstname}}}{{{trimString lastname}}}</div>
+                          <div class="profile-image" data-toggle="tooltip" title="{{firstname}} {{lastname}}">{{trimString firstname}}{{trimString lastname}}</div>
                         </div>
                       {{/attendees}}
                     {{/if}}
