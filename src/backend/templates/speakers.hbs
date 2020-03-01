@@ -90,9 +90,9 @@
         <div class="image-holder">
          <a class="anchor" id="{{nameIdSlug}}"></a>
           {{#if photo}}
-          <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{{photo}}}" class="lazy background-image" alt="{{{name}}}" />
+          <img onError="this.onerror=null;this.src='images/avatar.png';" data-original="{{photo}}" class="lazy background-image" alt="{{name}}" />
           {{else}}
-          <img class="background-image" alt="{{{name}}}" src="images/avatar.png"/>
+          <img class="background-image" alt="{{name}}" src="images/avatar.png"/>
           {{/if}}
             <div class="responsive-overlay">
               <div class="text-center preserve3d">
@@ -123,10 +123,10 @@
             <div class="pop-container" id="pop-speaker-name">
               <div class="pop">
                 <div class="pop-header">
-                  <span class="s-popup-header-name"><strong>{{{name}}}</strong>
+                  <span class="s-popup-header-name"><strong>{{name}}</strong>
                     {{#if organisation}}
                         {{#ifvalue organisation notequals=""}}
-                          ({{{position}}} {{{organisation}}})
+                          ({{position}} {{organisation}})
                         {{/ifvalue}}
                     {{/if}}</span>
                 </div>
@@ -134,16 +134,16 @@
                  {{{long_biography}}}
                    <div id="speaker-social-icons" class="icons row">
                    {{#if website}}
-                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{website}}}"><i class="fa fa-home"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{website}}"><i class="fa fa-home"></i></a></div>
                   {{/if}}
                    {{#if github}}
-                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{github}}}"><i class="fa fa-github"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{github}}"><i class="fa fa-github"></i></a></div>
                   {{/if}}
                   {{#if twitter}}
-                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{twitter}}}"><i class="fa fa-twitter"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{twitter}}"><i class="fa fa-twitter"></i></a></div>
                   {{/if}}
                   {{#if linkedin}}
-                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{{linkedin}}}"><i class="fa fa-linkedin"></i></a></div>
+                  <div class="col-xs-1 col-sm-1 col-md-1"><a href="{{linkedin}}"><i class="fa fa-linkedin"></i></a></div>
                   {{/if}}
                   <a class="session-link clickable-link">
                       <div class="col-xs-1 col-sm-1 col-md-1"><i class="fa fa-share"></i></div>
@@ -173,9 +173,9 @@
                     {{else}}
                         <a href = "tracks.html#{{session_id}}">
                     {{/if}}
-                    <h4 style="background-color:{{{color}}}; color:{{{font_color}}}"  class="sizeevent event">
+                    <h4 style="background-color:{{color}}; color:{{font_color}}"  class="sizeevent event">
                     <span class="time-track">{{start}} - {{end}}&nbsp;&bull;&nbsp;</span>
-                      <span>{{{title}}}</span>
+                      <span>{{title}}</span>
                     </h4>
                   </a>
                    {{/each}}
@@ -186,8 +186,8 @@
               </div>
             </div>
           </div>
-          <span class="speaker-name">{{{name}}}</span>
-          <span class="speaker-name org-name">{{{position}}} {{{organisation}}}</span>
+          <span class="speaker-name">{{name}}</span>
+          <span class="speaker-name org-name">{{position}} {{organisation}}</span>
       </div>
     </div>
     {{/speakerslist}}

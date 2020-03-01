@@ -19,7 +19,15 @@ const uploadsPath = __dirname + '/../../uploads';
 const mockPath = __dirname + '/../../mockjson';
 let width, height, ratio, padding, diffHeight, qualityMultiplier, filePath, fileData, hashString, counter;
 
+const skipDownload = process.env.SKIP_DOWNLOAD === 'true';
+
 const downloadFile = function(url, file_path, next) {
+  if (skipDownload) {
+    console.log('skipped')
+    next();
+    return;
+  }
+
   const fileStream = fs.createWriteStream(file_path);
 
   fileStream.on('error', function(err) {

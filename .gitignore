@@ -47,3 +47,5 @@ jspm_packages
 /mockjson
 
 configmap.yml.secret
+
+.tool-versions

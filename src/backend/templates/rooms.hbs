@@ -184,7 +184,7 @@
                                 <div class="margin-down-15">{{title}}
                                 </div>
                                 <div id="desc2-{{session_id}}" class="collapse in"
-                                  style="background-color:{{{color}}}; color: {{{font_color}}};">
+                                  style="background-color:{{color}}; color: {{font_color}};">
                                   <div class="row">
                                     {{#if speakers_list.length}}
                                       <div class="speakers-list">
@@ -257,22 +257,22 @@
                                     <div class="blacktext session-speaker-social margin-down-10">
                                       <div class="session-speakers-more">
                                         {{#if website}}
-                                          <a class="blacktext social speaker-social" href="{{{website}}}"}>
+                                          <a class="blacktext social speaker-social" href="{{website}}"}>
                                             <i class="fa fa-home"></i> Web
                                           </a>&nbsp;
                                         {{/if}}
                                         {{#if github}}
-                                          <a class="blacktext social speaker-social" href="{{{github}}}"}>
+                                          <a class="blacktext social speaker-social" href="{{github}}"}>
                                             <i class="fa fa-github"></i> Github
                                           </a>&nbsp;
                                         {{/if}}
                                         {{#if twitter}}
-                                          <a class="blacktext social speaker-social" href="{{{twitter}}}"}>
+                                          <a class="blacktext social speaker-social" href="{{twitter}}"}>
                                             <i class="fa fa-twitter"></i> Twitter
                                           </a>&nbsp;
                                         {{/if}}
                                         {{#if linkedin}}
-                                          <a class="blacktext social speaker-social" href="{{{linkedin}}}"}>
+                                          <a class="blacktext social speaker-social" href="{{linkedin}}"}>
                                             <i class="fa fa-linkedin"></i> LinkedIn
                                           </a>&nbsp;
                                         {{/if}}
@@ -307,7 +307,7 @@
                                     {{/if}}
                                     <p>
                                       <ul class="title-inline">
-                                        <li style="background-color:{{{color}}}; color: {{{font_color}}};" class="titlecolor"></li>&nbsp;
+                                        <li style="background-color:{{color}}; color: {{font_color}};" class="titlecolor"></li>&nbsp;
                                         <li class="blacktext track-name">{{tracktitle}}</li>
                                       </ul>
                                     </p><br>
