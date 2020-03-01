@@ -4,7 +4,7 @@
 const assert = require('chai').assert;
 let generator = require('../src/backend/generator.js');
 let app = require('../src/app');
-let webdriver = require('selenium-webdriver');
+const { getDriver } = require('./helper');
 let speakerPage = require('../src/selenium/speakerPage.js');
 let roomPage = require('../src/selenium/roomPage.js');
 
@@ -72,36 +72,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   let driver;
 
   before(function() {
-    if (process.env.SAUCE_USERNAME !== undefined) {
-      driver = new webdriver.Builder()
-        .usingServer('http://' + process.env.SAUCE_USERNAME + ':' + process.env.SAUCE_ACCESS_KEY + '@ondemand.saucelabs.com:80/wd/hub')
-        .withCapabilities({
-          'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-          build: process.env.TRAVIS_BUILD_NUMBER,
-          username: process.env.SAUCE_USERNAME,
-          accessKey: process.env.SAUCE_ACCESS_KEY,
-          browserName: "chrome",
-          'chromeOptions': {
-            prefs: {
-              'downloads': {
-                'prompt_for_download': false
-              }
-            }
-          }
-        }).build();
-    } else {
-      driver = new webdriver.Builder()
-        .withCapabilities({
-          browserName: "chrome",
-          'chromeOptions': {
-            prefs: {
-              'downloads': {
-                'prompt_for_download': false
-              }
-            }
-          }
-        }).build();
-    }
+    driver = getDriver();
   });
 
   after(function() {
