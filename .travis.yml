@@ -8,7 +8,7 @@ services:
   - redis
 
 env:
-  - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - TESTFOLDER=test/serverTest.js
   - TESTFOLDER=test/roomsAndSpeakers.js
   - TESTFOLDER=test/tracks.js
   - TESTFOLDER=test/generatorAndSchedule.js
@@ -27,7 +27,7 @@ addons:
 # installing required items for build
 install:
   - npm install -g yarn
-  - yarn add global istanbul mocha@3
+  - yarn global add istanbul mocha@3
   - yarn
 
  # testing script
