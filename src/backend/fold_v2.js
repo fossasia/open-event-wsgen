@@ -1,6 +1,7 @@
 /* eslint-disable no-empty-label */
 'use strict';
 
+require('dotenv').config();
 const moment = require('moment');
 const distHelper = require('./dist');
 const urljoin = require('url-join');
@@ -8,6 +9,8 @@ const async = require('async');
 const timeToPixel = 50; // 15 mins = 50 pixels
 const columnWidth = 160;
 const calendarWidth = 1060;
+
+const PHOTO_DOWNLOAD_CONCURRENCY = parseInt(process.env.PHOTO_DOWNLOAD_CONCURRENCY || 30)
 
 function byProperty(key) {
   return (a, b) => {
@@ -641,7 +644,7 @@ function foldByLevel(sponsors, reqOpts, next) {
     }
   });
 
-  async.eachSeries(sponsors, (sponsor, callback) => {
+  async.eachLimit(sponsors, PHOTO_DOWNLOAD_CONCURRENCY, (sponsor, callback) => {
     if (levelData[sponsor.level] === undefined) {
       levelData[sponsor.level] = [];
     }
@@ -931,7 +934,7 @@ function foldBySpeakers(speakers, sessions, tracksData, reqOpts, next) {
     let reg = '';
     let thumb = '';
 
-    async.eachOfSeries(speakers, (speaker, key, callback) => {
+    async.eachOfLimit(speakers, PHOTO_DOWNLOAD_CONCURRENCY, (speaker, key, callback) => {
       if (speaker['photo-url'] !== null && speaker['photo-url'] !== '') {
         if (speaker['photo-url'].substring(0, 4) === 'http') {
           distHelper.downloadSpeakerPhoto(appFolder, speaker['photo-url'], function(result) {

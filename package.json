@@ -36,6 +36,7 @@
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.4",
     "decompress-zip": "^0.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.13.4",
     "express-session": "^1.15.0",
     "folder-hash": "^1.1.1",
