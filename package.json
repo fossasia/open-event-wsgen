@@ -63,7 +63,7 @@
     "nodemailer": "^4.0.1",
     "nodemailer-smtp-transport": "^2.7.2",
     "npm": "^6.13.4",
-    "passport": "^0.3.2",
+    "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "path": "^0.12.7",
     "progress-stream": "^2.0.0",
