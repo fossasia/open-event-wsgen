@@ -1,14 +1,14 @@
 dist: xenial
 language: node_js
 node_js:
-  - 8.11.1
+  - 8.15.1
 
 services:
   - docker
   - redis
 
 env:
-  - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - TESTFOLDER=test/serverTest.js
   - TESTFOLDER=test/roomsAndSpeakers.js
   - TESTFOLDER=test/tracks.js
   - TESTFOLDER=test/generatorAndSchedule.js
@@ -26,9 +26,9 @@ addons:
       - g++-4.8
 # installing required items for build
 install:
-  - npm install -g istanbul mocha@3
-  - npm install
-  - npm install --save-dev
+  - npm install -g yarn
+  - yarn global add istanbul mocha@3
+  - yarn
 
  # testing script
 script:
