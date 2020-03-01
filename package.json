@@ -60,7 +60,7 @@
     "moment": "^2.13.0",
     "node-sass": "^4.5.3",
     "node-uuid": "^1.4.7",
-    "nodemailer": "^4.0.1",
+    "nodemailer": "^6.4.3",
     "nodemailer-smtp-transport": "^2.7.2",
     "npm": "^6.13.4",
     "passport": "^0.4.1",
