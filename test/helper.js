@@ -9,7 +9,10 @@ function getDriver() {
         'downloads': {
           'prompt_for_download': false
         }
-      }
+      },
+      args: [
+        '--window-size=1920,1080'
+      ]
     }
   };
 
