@@ -16,7 +16,7 @@ exports.minifyJs = function(path, cb) {
   const dir = path + '/js/';
 
   gulp.task('scheduleJs', function() {
-    return gulp.src([dir + 'FileSaver.js', dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js', dir + 'html2canvas.js', dir + 'jquery.lazyload.js', dir + 'icsGen.js'])
+    return gulp.src([dir + 'FileSaver.js', dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js', dir + 'html2canvas.js', dir + 'jquery.lazyload.js', dir + 'icsGen.js'], {allowEmpty: true})
       .pipe(iife({useStrict: false}))
       .pipe(concat('schedule.min.js'))
       .pipe(babel({presets: ['es2015']}))
@@ -91,12 +91,12 @@ exports.minifyJs = function(path, cb) {
       .pipe(gulp.dest(path + '/js/'));
   });
 
-  gulp.task('minifyJs', ['speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs', 'mainJs'], function() {
+  gulp.task('minifyJs', gulp.series('speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs', 'mainJs', function() {
     gulp.src(['!' + dir + '*.min.js', dir + '*.js']).pipe(clean());
     cb();
-  });
+  }));
 
-  gulp.start('minifyJs');
+  gulp.series('minifyJs')();
 };
 
 exports.minifyCss = function(path, cb) {
@@ -109,7 +109,7 @@ exports.minifyCss = function(path, cb) {
       });
   });
 
-  gulp.start('minifyCss');
+  gulp.series('minifyCss')();
 };
 
 exports.minifyHtml = function(path, cb) {
@@ -122,5 +122,5 @@ exports.minifyHtml = function(path, cb) {
       });
   });
 
-  gulp.start('minifyHtml');
+  gulp.series('minifyHtml')();
 };
