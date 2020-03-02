@@ -221,9 +221,12 @@ const resizeSponsors = function(dir, socket, done) {
 
     async.each(list, function(image, trial) {
       sharp(dir + '/sponsors/' + image)
-        .resize(150, 80)
-        .background({r: 255, g: 255, b: 255, alpha: 0})
-        .embed()
+        .resize({
+          width: 150,
+          height: 80,
+          fit: 'contain',
+          background: {r: 255, g: 255, b: 255, alpha: 0}
+        })
         .toFile(dir + '/sponsors/' + image + '.new', (error) => {
           if (error) {
             console.log(image + ' Can not be converted');
