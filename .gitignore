@@ -50,3 +50,4 @@ configmap.yml.secret
 
 .tool-versions
 .env
+.vscode

@@ -114,20 +114,24 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       return cb(err);
     }
 
-    const json = JSON.parse(body);
+    try {
+      const json = JSON.parse(body);
 
-    new JSONAPIDeserializer().deserialize(json).then(data => {
-      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(error) {
-        if (error) {
-          console.log(error);
-          return cb(error);
-        }
-        cb();
+      new JSONAPIDeserializer().deserialize(json).then(data => {
+        fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(error) {
+          if (error) {
+            console.log(error);
+            return cb(error);
+          }
+          cb();
+        });
+      }).catch(error => {
+        console.error('Error while parsing JSONAPI response', error);
+        cb(error);
       });
-    }).catch(error => {
-      console.error('Error while parsing JSONAPI response', error);
-      cb(error);
-    });
+    } catch (e) {
+      return cb(e);
+    }
   });
 };
 
