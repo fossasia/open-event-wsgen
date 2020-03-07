@@ -15,84 +15,55 @@ var exports = module.exports = {};
 exports.minifyJs = function(path, cb) {
   const dir = path + '/js/';
 
-  gulp.task('scheduleJs', function() {
-    return gulp.src([dir + 'FileSaver.js', dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'calendar.js', dir + 'popover.js', dir + 'html2canvas.js', dir + 'jquery.lazyload.js', dir + 'icsGen.js'], {allowEmpty: true})
+  function minifyPipeline(dist, src) {
+    return gulp.src(src.map(file => dir + file))
       .pipe(iife({useStrict: false}))
-      .pipe(concat('schedule.min.js'))
+      .pipe(concat(dist + '.min.js'))
       .pipe(babel({presets: ['es2015']}))
       .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling schedule.js' + e);
+        console.log(`Error while compiling ${dist}.js` + e);
       }))
       .pipe(gulp.dest(path + '/js/'));
-  });
+  }
 
-  gulp.task('tracksJs', function() {
-    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'jquery.lazyload.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('tracks.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling tracks.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
+  function scheduleJs() {
+    return minifyPipeline('schedule', [
+      'FileSaver.js',
+      'social.js',
+      'scroll.js',
+      'navbar.js',
+      'popover.js',
+      'html2canvas.js',
+      'jquery.lazyload.js',
+      'icsGen.js'
+    ])
+  }
 
-  gulp.task('eventJs', function() {
-    return gulp.src([dir + 'map.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'popover.js', dir + 'loklak-fetcher.js', dir + 'tweets.js', dir + 'jquery.lazyload.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('event.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling event.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
+  function tracksJs() {
+    return minifyPipeline('tracks', ['social.js', 'scroll.js', 'navbar.js', 'jquery.lazyload.js']);
+  }
+  
+  function eventJs() {
+    return minifyPipeline('event', ['map.js', 'scroll.js', 'navbar.js', 'popover.js', 'loklak-fetcher.js', 'tweets.js', 'jquery.lazyload.js']);
+  }
 
-  gulp.task('roomsJs', function() {
-    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'jquery.lazyload.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('rooms.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling rooms.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
+  function roomsJs() {
+    return minifyPipeline('rooms', ['social.js', 'scroll.js', 'navbar.js', 'jquery.lazyload.js']);
+  }
 
-  gulp.task('speakersJs', function() {
-    console.log('>>> Generating speakers.js')
-    return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'popover.js', dir + 'jquery.lazyload.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('speakers.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling speakers.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
+  function speakersJs() {
+    return minifyPipeline('speakers', ['social.js', 'scroll.js', 'navbar.js', 'popover.js', 'jquery.lazyload.js']);
+  }
 
-  gulp.task('sessionJs', function() {
-    return gulp.src([dir + 'session.js', dir + 'social.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('session.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling session.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
-  gulp.task('mainJs', function() {
-    return gulp.src([dir + 'main.js'])
-      .pipe(iife({useStrict: false}))
-      .pipe(concat('main.min.js'))
-      .pipe(babel({presets: ['es2015']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log('Error while compiling main.js' + e);
-      }))
-      .pipe(gulp.dest(path + '/js/'));
-  });
+  function sessionJs() {
+    return minifyPipeline('session', ['session.js', 'social.js']);
+  }
 
-  gulp.task('minifyJs', gulp.series('speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs', 'mainJs', async function() {
+  function mainJs() {
+    return minifyPipeline('main', ['main.js']);
+  }
+
+  gulp.task('minifyJs', gulp.series(gulp.parallel(speakersJs, roomsJs, scheduleJs, eventJs, tracksJs, sessionJs, mainJs), async function() {
     await del([dir + '*.js', '!' + dir + '*.min.js']);
     cb();
   }));
@@ -101,27 +72,19 @@ exports.minifyJs = function(path, cb) {
 };
 
 exports.minifyCss = function(path, cb) {
-  gulp.task('minifyCss', function() {
-    // Minify all the css files of the web-app
-    return gulp.src(path + '/css/*.css')
-      .pipe(minify())
-      .pipe(gulp.dest(path + '/css')).on('end', function() {
-        cb();
-      });
-  });
-
-  gulp.series('minifyCss')();
+  // Minify all the css files of the web-app
+  return gulp.src(path + '/css/*.css')
+    .pipe(minify())
+    .pipe(gulp.dest(path + '/css')).on('end', function() {
+      cb();
+    });
 };
 
 exports.minifyHtml = function(path, cb) {
-  gulp.task('minifyHtml', function() {
-    // Minify all the html files of the web-app
-    return gulp.src(path + '/*.html')
-      .pipe(htmlmin({collapseWhitespace: true}))
-      .pipe(gulp.dest(path)).on('end', function() {
-        cb();
-      });
-  });
-
-  gulp.series('minifyHtml')();
+  // Minify all the html files of the web-app
+  return gulp.src(path + '/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest(path)).on('end', function() {
+      cb();
+    });
 };
