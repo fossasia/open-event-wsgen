@@ -63,12 +63,6 @@ describe('fold', function () {
       });
     });
   });
-  describe('.foldByDate()', () => {
-    it('should sort tracks by date', () => {
-      const dateData = fold.foldByDate(data.tracks.json);
-      assert.equal(dateData[0].tracks[0].name, 'Big Data/Open Data');
-    });
-  });
   describe('.createSocialLinks()', () => {
     it('should return array of social links of event', () => {
       let socialLinks = fold.createSocialLinks(data.event.json);
