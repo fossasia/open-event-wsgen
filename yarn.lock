@@ -3508,12 +3508,12 @@ gulp-htmlmin@^5.0.1:
     plugin-error "^1.0.1"
     through2 "^2.0.3"
 
-gulp-iife@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/gulp-iife/-/gulp-iife-0.3.0.tgz#8a748c8e973dd0c674e8c5739d917d477371485b"
-  integrity sha1-inSMjpc90MZ06MVznZF9R3NxSFs=
+gulp-iife@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/gulp-iife/-/gulp-iife-0.4.0.tgz#5bba4cb951755e0e7b53ad61f406414fc3a3b595"
+  integrity sha512-2XPPYEsCi7sfJyu6LhFWynxgc5cHylHKeGqQo3vp2LWViKm/2eJlsMWX9WvKVzoLkyTf52PwEW0d0X3By+sdFQ==
   dependencies:
-    lodash "^3.6.0"
+    lodash "^4.17.11"
     source-map "^0.5.3"
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
@@ -4922,12 +4922,7 @@ lodash.without@~4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
-lodash@^3.6.0:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
-  integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
-
-lodash@^4.0.0, lodash@^4.16.3, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@~4.17.12:
+lodash@^4.0.0, lodash@^4.16.3, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@~4.17.12:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
