@@ -50,7 +50,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-iife": "^0.3.0",
+    "gulp-iife": "^0.4.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.0",
     "handlebars": "^4.0.5",
