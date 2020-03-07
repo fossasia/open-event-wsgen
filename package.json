@@ -48,7 +48,6 @@
     "github": "^9.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^6.1.2",
-    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-iife": "^0.3.0",
