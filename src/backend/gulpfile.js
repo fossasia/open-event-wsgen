@@ -8,7 +8,7 @@ const concat = require('gulp-concat');
 const minify = require('gulp-minify-css');
 const htmlmin = require('gulp-htmlmin');
 const iife = require('gulp-iife');
-const clean = require('gulp-clean');
+const del = require('del');
 // eslint-disable-next-line no-var
 var exports = module.exports = {};
 
@@ -60,6 +60,7 @@ exports.minifyJs = function(path, cb) {
   });
 
   gulp.task('speakersJs', function() {
+    console.log('>>> Generating speakers.js')
     return gulp.src([dir + 'social.js', dir + 'scroll.js', dir + 'navbar.js', dir + 'popover.js', dir + 'jquery.lazyload.js'])
       .pipe(iife({useStrict: false}))
       .pipe(concat('speakers.min.js'))
@@ -91,8 +92,8 @@ exports.minifyJs = function(path, cb) {
       .pipe(gulp.dest(path + '/js/'));
   });
 
-  gulp.task('minifyJs', gulp.series('speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs', 'mainJs', function() {
-    gulp.src(['!' + dir + '*.min.js', dir + '*.js']).pipe(clean());
+  gulp.task('minifyJs', gulp.series('speakersJs', 'roomsJs', 'scheduleJs', 'eventJs', 'tracksJs', 'sessionJs', 'mainJs', async function() {
+    await del([dir + '*.js', '!' + dir + '*.min.js']);
     cb();
   }));
 
