@@ -124,6 +124,30 @@ io.on('connection', function(socket) {
   });
 });
 
+function getSocket(jobId) {
+  let tries = 0;
+  return new Promise((resolve, reject) => {
+    const tryGettingSocket = () => {
+      if (tries > 1)
+        console.log('Trying to get socket for job', jobId, 'Attempt: ', tries);
+      const socket = socketObj[jobId];
+      if (socket) {
+        resolve(socket);
+      } else {
+        if (tries > 5) {
+          reject(new Error('Socket not found in object after ' + tries + ' tries'));
+          return;
+        }
+
+        tries++;
+        setTimeout(tryGettingSocket, 2**tries);
+      }
+    }
+
+    tryGettingSocket();
+  });
+}
+
 queue.on('ready', function() {
   queue.process(function(job, done) {
     console.log('processing job ' + job.id);
@@ -132,12 +156,19 @@ queue.on('ready', function() {
       resolve(queue.getJobs('waiting', {start: 0, end: 25}));
     });
 
-    generator.createDistDir(job.data, socketObj[processId], done);
-    jobs.then(function(waitingJobs) {
-      waitingJobs.forEach(function(waitingJob) {
-        logger.addLog('Info', 'Request waiting number: ' + (waitingJob.id - job.id), socketObj[waitingJob.id]);
+    getSocket(processId)
+      .then(socket => {
+        generator.createDistDir(job.data, socket, done);
+        jobs.then(function(waitingJobs) {
+          waitingJobs.forEach(function(waitingJob) {
+            logger.addLog('Info', 'Request waiting number: ' + (waitingJob.id - job.id), socketObj[waitingJob.id]);
+          });
+        });
+      })
+      .catch(error => {
+        console.error(error);
+        done(null);
       });
-    });
   });
   console.log('processing jobs...');
 });
