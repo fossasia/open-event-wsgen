@@ -60,7 +60,11 @@
         {{#if eventurls.location}}
         <li class="address">
         <i class="fa fa-map-marker"></i>
-          <div>{{eventurls.orgname}}&#44;&nbsp;{{eventurls.location}}</div>
+          {{#if eventsurls.orgname}}
+            <div>{{eventurls.orgname}}&#44;&nbsp;{{eventurls.location}}</div>
+          {{else}}
+            <div>{{eventurls.location}}</div>
+          {{/if}}
         </li>
         {{/if}}
       </ul>

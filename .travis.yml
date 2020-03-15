@@ -1,14 +1,14 @@
 dist: xenial
 language: node_js
 node_js:
-  - 8.11.1
+  - 12
 
 services:
   - docker
   - redis
 
 env:
-  - TESTFOLDER=test/serverTest.js CXX=g++-4.8 PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - TESTFOLDER=test/serverTest.js
   - TESTFOLDER=test/roomsAndSpeakers.js
   - TESTFOLDER=test/tracks.js
   - TESTFOLDER=test/generatorAndSchedule.js
@@ -24,15 +24,16 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+      - chromium-chromedriver
 # installing required items for build
 install:
-  - npm install -g istanbul mocha@3
-  - npm install
-  - npm install --save-dev
+  - npm install -g yarn
+  - yarn global add nyc mocha
+  - yarn
 
  # testing script
 script:
-  - istanbul cover _mocha -- $TESTFOLDER
+  - nyc mocha --exit -- $TESTFOLDER
 
  # notify codecov and deploy to cloud
 after_success:

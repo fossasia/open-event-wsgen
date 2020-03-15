@@ -114,20 +114,24 @@ const downloadJsonFromEventyay = function(appPath, endpoint, jsonFile, cb) {
       return cb(err);
     }
 
-    const json = JSON.parse(body);
+    try {
+      const json = JSON.parse(body);
 
-    new JSONAPIDeserializer().deserialize(json).then(data => {
-      fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(error) {
-        if (error) {
-          console.log(error);
-          return cb(error);
-        }
-        cb();
+      new JSONAPIDeserializer().deserialize(json).then(data => {
+        fs.writeFile(fileName, JSON.stringify(data), 'utf-8', function(error) {
+          if (error) {
+            console.log(error);
+            return cb(error);
+          }
+          cb();
+        });
+      }).catch(error => {
+        console.error('Error while parsing JSONAPI response', error);
+        cb(error);
       });
-    }).catch(error => {
-      console.error('Error while parsing JSONAPI response', error);
-      cb(error);
-    });
+    } catch (e) {
+      return cb(e);
+    }
   });
 };
 
@@ -144,7 +148,10 @@ const extensionChange = function(image) {
 const optimizeBackground = function(image, socket, done) {
   if (image !== null) {
     sharp(image)
-      .resize(1150, 500)
+       .resize({
+          width: 1150,
+          height: 500
+       })
       .toFile(extensionChange(image), (err) => {
         if (err) {
           console.log(err);
@@ -194,7 +201,7 @@ const optimizeLogo = function(image, socket, done) {
     width = width * qualityMultiplier;
     height = height * qualityMultiplier;
 
-    sharp(image).resize(width, height).toFile(image + '.new', function(error, info) {
+    sharp(image).resize({ width, height }).toFile(image + '.new', function(error, info) {
       if (error) {
         return done(error);
       }
@@ -221,9 +228,12 @@ const resizeSponsors = function(dir, socket, done) {
 
     async.each(list, function(image, trial) {
       sharp(dir + '/sponsors/' + image)
-        .resize(150, 80)
-        .background({r: 255, g: 255, b: 255, alpha: 0})
-        .embed()
+        .resize({
+          width: 150,
+          height: 80,
+          fit: 'contain',
+          background: {r: 255, g: 255, b: 255, alpha: 0}
+        })
         .toFile(dir + '/sponsors/' + image + '.new', (error) => {
           if (error) {
             console.log(image + ' Can not be converted');
@@ -255,9 +265,12 @@ const resizeSpeakers = function(dir, socket, done) {
     }
     async.each(list, function(image, trial) {
       sharp(dir + '/speakers/' + image)
-        .resize(264, 264)
-        .background({r: 255, g: 255, b: 255, alpha: 0})
-        .embed()
+        .resize({
+          width: 264,
+          height: 264,
+          fit: 'contain',
+          background: {r: 255, g: 255, b: 255, alpha: 0}
+        })
         .toFile(dir + '/speakers/' + extensionChange(image), (error) => {
           if (error) {
             console.log(err);
