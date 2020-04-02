@@ -52,7 +52,7 @@
     "gulp-iife": "^0.4.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.0",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.7.5",
     "html-minifier": "^4.0.0",
     "jsonapi-serializer": "^3.5.3",
     "jsonfile": "^6.0.1",
