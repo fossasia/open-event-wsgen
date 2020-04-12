@@ -34,7 +34,7 @@
     "chai": "^4.0.1",
     "compression": "^1.6.2",
     "connect-domain": "^0.5.0",
-    "cookie-parser": "^1.4.4",
+    "cookie-parser": "^1.4.5",
     "decompress-zip": "^0.3.0",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
