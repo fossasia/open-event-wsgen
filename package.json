@@ -43,7 +43,7 @@
     "folder-hash": "^3.3.0",
     "fs": "0.0.2",
     "fs-extra": "^3.0.1",
-    "ftp-deploy": "^2.3.6",
+    "ftp-deploy": "^2.3.7",
     "github": "^9.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^6.1.2",
