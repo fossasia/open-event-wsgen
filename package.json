@@ -39,7 +39,7 @@
     "del": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.13.4",
-    "express-session": "^1.15.0",
+    "express-session": "^1.17.1",
     "folder-hash": "^3.3.0",
     "fs": "0.0.2",
     "fs-extra": "^3.0.1",
