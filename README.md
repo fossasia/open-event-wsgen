@@ -140,9 +140,9 @@ The HTML pages of the generated website are created using Handelbars templates.
 
 ### Web App Generator Test Installation
 
-* You can try out the web generator at https://opev-webgen.herokuapp.com
+* You can try out the web generator at https://open-event-wsgen.herokuapp.com
 
-* The `development-version` is available here: https://opev-webgen-dev.herokuapp.com
+* The `development-version` is available here: https://open-event-wsgen-dev.herokuapp.com
 
 * You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
 
