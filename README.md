@@ -2,7 +2,7 @@
 ![Open Event webapp](./docs/images/wsgen_branding.png)
 
 [![Build Status](https://travis-ci.org/fossasia/open-event-wsgen.svg?branch=development)](https://travis-ci.org/fossasia/open-event-wsgen?branch=development)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=opev-webgen-dev)](http://opev-webgen-dev.herokuapp.com)
+[![Heroku](https://heroku-badge.herokuapp.com/?app=open-event-wsgen-dev)](http://open-event-wsgen-dev.herokuapp.com)
 [![Dependencies](https://david-dm.org/fossasia/open-event-wsgen.svg)](https://david-dm.org/fossasia/open-event-wsgen)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-wsgen?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-wsgen&amp;utm_campaign=Badge_Grade)
 [![Code Climate](https://api.codeclimate.com/v1/badges/44552f8cc1b5ba1c760d/maintainability.svg)](https://codeclimate.com/github/fossasia/open-event-webapp)
