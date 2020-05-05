@@ -2976,10 +2976,10 @@ flush-write-stream@^1.0.0, flush-write-stream@^1.0.2:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-folder-hash@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/folder-hash/-/folder-hash-3.3.0.tgz#542e3fdfdf1d2ad6c81c2f20b014594ebdcb01c6"
-  integrity sha512-e33RCSh76COdx86J7qzcAzHo+pg4CNNjvMfMFCp0O5mn/iCKws0Gqi4qsI2U5rWA1hb8E5zKDBM9gp0qIGQBSg==
+folder-hash@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/folder-hash/-/folder-hash-3.3.1.tgz#72ca3593a43c3873e27a8edce2423f30f8ee6096"
+  integrity sha512-M5Rxur/jgIWfr0gbJBRY9aMLXCieM6Gy1xB/KqC2Nd4ZvxZJAccWvg+7SmbfALntmYj51wHWzcE4cqgXQPWaBA==
   dependencies:
     debug "^4.1.1"
     graceful-fs "~4.2.0"
