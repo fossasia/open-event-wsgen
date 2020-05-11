@@ -293,16 +293,33 @@
         <!-- changes-2 removed till here -->
         <!-- changes-2 added from here -->
         <ul style="list-style-type:none;postion: relative;">
-          <li>
-            <input name="session" required="" type="radio" value="single" id="single">
-            <label for="single">Single</label>
+            <li>
+            <label for="single" >
+              <input name="session" type="radio" value="single" id="single" class="form-control-static"> 
+              Single
+            </label>
           </li>
 
           <li>
-            <input name="session" type="radio" value="expand" id="expandable">
-            <label for="expandable">Expandable</label>
+            <label for="expandable">
+              <input name="session" type="radio" value="expand" id="expandable" required>
+              Expandable
+            </label>
           </li>
+          <p id="geeks" style="color: red"></p>
         </ul>
+          <script> 
+            function myFunction() { 
+                var inpObj = document.getElementById("expandable"); 
+                if (!inpObj.checkValidity()) { 
+                    document.getElementById("geeks") 
+                              .innerHTML = inpObj.validationMessage; 
+                } else { 
+                    document.getElementById("geeks") 
+                              .innerHTML = "Input is ALL RIGHT"; 
+                } 
+            } 
+          </script>
         
         
         <!-- Map Integration-->
