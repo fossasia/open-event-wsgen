@@ -56,7 +56,7 @@
     "html-minifier": "^4.0.0",
     "jsonapi-serializer": "^3.5.3",
     "jsonfile": "^6.0.1",
-    "moment": "^2.25.3",
+    "moment": "^2.26.0",
     "node-sass": "^4.14.0",
     "node-uuid": "^1.4.7",
     "nodemailer": "^6.4.6",
