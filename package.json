@@ -80,7 +80,7 @@
     "url-join": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.8.1",
+    "eslint": "^7.10.0",
     "husky": "^0.14.3"
   }
 }
