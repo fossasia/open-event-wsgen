@@ -3108,10 +3108,10 @@ fstream@^1.0.0, fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-ftp-deploy@^2.3.7:
-  version "2.3.7"
-  resolved "https://registry.yarnpkg.com/ftp-deploy/-/ftp-deploy-2.3.7.tgz#06c6fe7550fc2dfed336f602937ea8caf1b275fc"
-  integrity sha512-U1sCplhEGAaABFPy1vZ37xXJTHzu37lsPZsl4pGMvMnjc+WiBuRu72gSxufK3QLo+H9bkt4KA0PMs7tQ2hQm9g==
+ftp-deploy@^2.3.8:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/ftp-deploy/-/ftp-deploy-2.3.8.tgz#f18a02fb2014830eba005f6c19431b397d69ee6a"
+  integrity sha512-1mSPYxDpbl9k+9ojFcA4WLa6xyrZqkiJT59G+2Uy+2+DVdC3Bas05RQSomIz/00RIWJH+l/3W0NByYfUPupELQ==
   dependencies:
     bluebird "^3.7.0"
     minimatch "3.0.4"
