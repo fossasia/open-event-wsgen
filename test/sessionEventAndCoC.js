@@ -188,7 +188,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    it('Checking broken links in of Sponsors section', function(done) {
+    xit('Checking broken links in of Sponsors section', function(done) {
       eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
         assert.equal(brokenLinksCount, 0);
         done();
