@@ -443,7 +443,7 @@ describe('generate', function () {
 
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2018");
         done();
       });
 
