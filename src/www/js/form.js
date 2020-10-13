@@ -490,11 +490,14 @@ function updateStatus(statusMsg) {
 }
 
 function initialState() {
+  $('#expandable').prop('checked', true);
+  $('#open_street').prop('checked', true);
   $('input:radio[name="datasource"]').prop('checked', false);
+  $("#eventapi").prop('checked', true);
+  $('#eventapi-input').show(100);
   $('#upload-ftp').prop('checked', false);
   $('#enable-google-analytics').prop('checked', false);
   $('#enable-google-calendar').prop('checked', false);
-  $('#btnGenerate').prop('disabled', true);
   uploadFinished = false;
 }
 
@@ -523,6 +526,8 @@ function getFile() {
 function getData(initValue) {
   const data = initValue;
   const formData = $('#form').serializeArray();
+  
+  data.apiVersion= 'api_v2';
 
   formData.forEach(function(field) {
     if (field.name === 'email') {
@@ -542,9 +547,6 @@ function getData(initValue) {
     }
     if (field.name === 'session') {
       data.sessionMode = field.value;
-    }
-    if (field.name === 'apiVersion') {
-      data.apiVersion = field.value;
     }
     if (field.name === 'map') {
       data.map = field.value;
