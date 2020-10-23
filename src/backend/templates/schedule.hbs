@@ -212,7 +212,7 @@
                             <div class="speaker-short-info">
                               <ul class="speaker-name-list">
                                 {{#speakers_list}}
-                                  {{name}}{{#if organisation}}&nbsp;({{position}} {{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                    {{name}}{{#if organisation}}&nbsp;({{#if position}}{{position}}&nbsp;{{/if}}{{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
                                 {{/speakers_list}}
                               </ul>
                               <ul class="speaker-name-list">{{type}}</ul>
