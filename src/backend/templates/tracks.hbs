@@ -215,23 +215,23 @@
                               </div>
                             </div>
                             <div id="desc-{{session_id}}" class="collapse">
-                              {{{description}}}
-                              {{#if ../../../gcalendar.enabled}}
-                                <button class="btn btn-default add-to-calendar-button" onclick="main.handleAuthClick('{{title}}','{{location}}','{{calendarStart}}','{{calendarEnd}}','{{../../../eventurls.timezone}}','{{description}}')">Add to Calendar</button>
-                              {{/if}}
-                              {{#ifcontains audio "mp3"}}
-                                <audio controls="" preload="none" id="audio-block">
-                                  <source src="{{ audio }}">
-                                </audio>
-                              {{/ifcontains}}
-                              {{#ifcontains audio "aac"}}
-                                <audio controls="" preload="none" id="audio-block">
-                                  <source src="{{ audio }}">
-                                </audio>
-                              {{/ifcontains}}
-                              <hr class="clear-both">
                               <div id="speaker-{{session_id}}" class="session-speakers-list" aria-expanded="false"
                                 aria-controls="desc-{{session_id}}">
+                                {{{description}}}
+                                {{#if ../../../gcalendar.enabled}}
+                                    <button class="btn btn-default add-to-calendar-button" onclick="main.handleAuthClick('{{title}}','{{location}}','{{calendarStart}}','{{calendarEnd}}','{{../../../eventurls.timezone}}','{{description}}')">Add to Calendar</button>
+                                {{/if}}
+                                {{#ifcontains audio "mp3"}}
+                                    <audio controls="" preload="none" id="audio-block">
+                                    <source src="{{ audio }}">
+                                    </audio>
+                                {{/ifcontains}}
+                                {{#ifcontains audio "aac"}}
+                                    <audio controls="" preload="none" id="audio-block">
+                                    <source src="{{ audio }}">
+                                    </audio>
+                                {{/ifcontains}}
+                                <hr class="clear-both">
                                 {{#speakers_list}}
                                   <div class="session-speakers-less">
                                     <p class="session-speakers">
