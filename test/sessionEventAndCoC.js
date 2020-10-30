@@ -188,15 +188,6 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    xit('Checking broken links in of Sponsors section', function(done) {
-      eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
-        assert.equal(brokenLinksCount, 0);
-        done();
-      }).catch(function(err) {
-        done(err);
-      });
-    });
-
     it('Checking the presence of ticket button', function(done) {
       eventPage.checkTicketButton().then(function() {
         done();
@@ -224,6 +215,14 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking broken links in of Sponsors section', function(done) {
+        eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
+          assert.equal(brokenLinksCount, 0);
+          done();
+        }).catch(function(err) {
+          done(err);
+        });
+      });
   });
 
   describe('Testing Code of Conduct page', function(){
