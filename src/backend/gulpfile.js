@@ -19,7 +19,7 @@ exports.minifyJs = function(path, cb) {
     return gulp.src(src.map(file => dir + file))
       .pipe(iife({useStrict: false}))
       .pipe(concat(dist + '.min.js'))
-      .pipe(babel({presets: ['es2015']}))
+      .pipe(babel({presets: ['@babel/preset-env']}))
       .pipe(uglify().on('error', function(e) {
         console.log(`Error while compiling ${dist}.js` + e);
       }))
@@ -42,7 +42,7 @@ exports.minifyJs = function(path, cb) {
   function tracksJs() {
     return minifyPipeline('tracks', ['social.js', 'scroll.js', 'navbar.js', 'jquery.lazyload.js']);
   }
-  
+
   function eventJs() {
     return minifyPipeline('event', ['map.js', 'scroll.js', 'navbar.js', 'popover.js', 'loklak-fetcher.js', 'tweets.js', 'jquery.lazyload.js']);
   }
