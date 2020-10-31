@@ -279,7 +279,7 @@ exports.createDistDir = function(req, socket, callback) {
       distHelper.copyAssets(appFolder, (copyerr) => {
         console.log('================================COPYING\n');
 
-        if (copyerr !== null) {
+        if (copyerr) {
           console.log(copyerr);
           logger.addLog('Error', 'Error occured while copying assets into the appFolder', socket, copyerr);
           callback(null);
@@ -296,7 +296,7 @@ exports.createDistDir = function(req, socket, callback) {
       logger.addLog('Info', 'Cleaning dependencies folder created as a part of copying assets inside the appFolder', socket);
       distHelper.removeDependency(appFolder, socket, (copyerr) => {
         console.log('============================Moving contents from dependency folder and deleting the dependency folder');
-        if (copyerr !== null) {
+        if (copyerr) {
           logger.addLog('Error', 'Error while reading directory', socket, copyerr);
           callback(null);
           console.log(copyerr);
@@ -407,7 +407,7 @@ exports.createDistDir = function(req, socket, callback) {
         }
         logger.addLog('Info', 'Compiling the html pages from the templates', socket);
 
-        const jsonData = data;      
+        const jsonData = data;
         eventName = fold.removeSpace(jsonData.eventurls.name);
         const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         const basePath = distHelper.distPath + '/' + appFolder + '/images';
