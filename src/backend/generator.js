@@ -252,7 +252,7 @@ exports.createDistDir = function(req, socket, callback) {
         socket.emit('live.process', {donePercent: 5, status: 'Cleaning temporary folder'});
       }
       fs.remove(distHelper.distPath + '/' + appFolder, (err) => {
-        if (err !== null) {
+        if (err) {
           logger.addLog('Error', 'Failed to clean up the previously existing temporary folders', socket, err);
           callback(null);
           console.log(err);
@@ -331,7 +331,7 @@ exports.createDistDir = function(req, socket, callback) {
           console.log('================================FETCHING JSONS\n');
           logger.addLog('Info', 'Fetching Jsons from the internet', socket);
           distHelper.fetchApiJsons(appFolder, req.body.apiendpoint, req.body.apiVersion, socket, (err) => {
-            if (err !== null) {
+            if (err) {
               console.log(err);
               callback(null);
               return done(err);
@@ -359,7 +359,7 @@ exports.createDistDir = function(req, socket, callback) {
         if (!err) {
           logger.addLog('Success', 'SASS file compiled successfully', socket);
           fs.writeFile(distHelper.distPath + '/' + appFolder + '/css/schedule.css', result.css, (writeErr) => {
-            if (writeErr !== null) {
+            if (writeErr) {
               logger.addLog('Error', 'Error in writing css file', socket, writeErr);
               console.log(writeErr);
               return socket.emit('live.error', {status: 'Error in Writing css file'});
@@ -554,7 +554,7 @@ exports.createDistDir = function(req, socket, callback) {
       }
 
       distHelper.removeDuplicateEventFolders(eventName, req.body.email, socket, (remerr) => {
-        if (remerr !== null) {
+        if (remerr) {
           logger.addLog('Error', 'Error occured while removing the duplicate event folders', socket, remerr);
           callback(null);
           console.log(remerr);
@@ -578,7 +578,7 @@ exports.createDistDir = function(req, socket, callback) {
       const eventFolderSource = __dirname + '/../../dist/';
 
       fs.move(eventFolderSource + appFolder, eventFolderSource + req.body.email + '/' + eventName, (moveerr) => {
-        if (moveerr !== null) {
+        if (moveerr) {
           logger.addLog('Error', 'Error in moving files to the event folders', socket, moveerr);
           callback(null);
           console.log(moveerr);
