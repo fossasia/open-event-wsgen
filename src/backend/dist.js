@@ -155,6 +155,7 @@ const optimizeBackground = function(image, socket, done) {
       .toFile(extensionChange(image), (err) => {
         if (err) {
           console.log(err);
+          console.log(image);
           return 0;
         }
         const extension = image.substring(image.lastIndexOf('.') + 1);
@@ -273,7 +274,8 @@ const resizeSpeakers = function(dir, socket, done) {
         })
         .toFile(dir + '/speakers/' + extensionChange(image), (error) => {
           if (error) {
-            console.log(err);
+            console.log(error);
+            console.log(image);
             trial(null);
             return 0;
           }
