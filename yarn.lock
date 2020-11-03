@@ -800,7 +800,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime@^7.8.4":
+"@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.1.tgz#b4116a6b6711d010b2dad3b7b6e43bf1b9954740"
   integrity sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA==
@@ -1499,12 +1499,13 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bee-queue@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/bee-queue/-/bee-queue-1.2.3.tgz#d4839ecdb10d9116e80417bfca38e4bfd20fcc50"
-  integrity sha512-oAvZZi/hrVSCCOIR2A0DP6aWDQz8+oEVRTVO/DDYJHhQ4HmSvKYQeTYUsXwxok+nm6kVUETVnLPDHjcDDp4AVQ==
+bee-queue@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bee-queue/-/bee-queue-1.3.0.tgz#a6c09f9ac6304c16e6afa3b0a3f08d7da2c90525"
+  integrity sha512-WU3mtqMzDD6CJgpqRrcrFHSTRshq5hocPLmDTe7azyFKKYOhbQF3tXA/xOcrqy/3uMFq9L7aqmPz8uT8N5kwbg==
   dependencies:
-    promise-callbacks "^3.0.0"
+    p-finally "^1.0.0"
+    promise-callbacks "^3.8.1"
     redis "^2.7.1"
 
 beeper@^1.0.0:
@@ -2840,7 +2841,7 @@ error-ex@^1.2.0:
   dependencies:
     is-arrayish "^0.2.1"
 
-es-abstract@^1.17.0-next.1, es-abstract@^1.5.1:
+es-abstract@^1.17.0-next.1:
   version "1.17.4"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.17.4.tgz#e3aedf19706b20e7c2594c35fc0d57605a79e184"
   integrity sha512-Ae3um/gb8F0mui/jPL+QiqmglkUsaQf7FwBEHYIFkztkneosu9imhqHpBzQ3h1vit8t5iQ74t6PEVvphBZiuiQ==
@@ -6100,15 +6101,7 @@ object.defaults@^1.0.0, object.defaults@^1.1.0:
     for-own "^1.0.0"
     isobject "^3.0.0"
 
-object.getownpropertydescriptors@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.0.3.tgz#8758c846f5b407adab0f236e0986f14b051caa16"
-  integrity sha1-h1jIRvW0B62rDyNuCYbxSwUcqhY=
-  dependencies:
-    define-properties "^1.1.2"
-    es-abstract "^1.5.1"
-
-object.getownpropertydescriptors@^2.0.3:
+object.getownpropertydescriptors@2.1.0, object.getownpropertydescriptors@^2.0.3:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/object.getownpropertydescriptors/-/object.getownpropertydescriptors-2.1.0.tgz#369bf1f9592d8ab89d712dced5cb81c7c5352649"
   integrity sha512-Z53Oah9A3TdLoblT7VKJaTDdXdT+lQO+cNpKVnya5JDe9uLvzu1YyY1yFDFrcxrlRgWrEFH0jJtD/IbuwjcEVg==
@@ -6625,12 +6618,13 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-promise-callbacks@^3.0.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/promise-callbacks/-/promise-callbacks-3.6.0.tgz#db503cacf8c2f90455d38239791efac70cd13816"
-  integrity sha512-RDfmDusFkwTACMdKl6Jd5h6ZV5ihBShdJQEEuKPoKAp7xQroy+Q+YKzYwQ4MZHcSkKHy3fOUgF3lMV/UOTQUag==
+promise-callbacks@^3.8.1:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/promise-callbacks/-/promise-callbacks-3.8.2.tgz#00babc159508f2afd86db742f1be8a6031d37001"
+  integrity sha512-g+SziwZr9eLwF+Tejuz0nirmzrYm1Ou4dExaRap1+wG/Bip1FAjMwE+oOqwv6C+CxDCQJ9l0jMSE8ui1oRC/tQ==
   dependencies:
-    object.getownpropertydescriptors "2.0.3"
+    "@babel/runtime" "^7.9.2"
+    object.getownpropertydescriptors "2.1.0"
 
 promise-ftp-common@^1.1.5:
   version "1.1.5"
