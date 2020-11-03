@@ -26,7 +26,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.12.1",
-    "@octokit/rest": "^14.0.0",
+    "@octokit/rest": "^18.0.9",
     "archiver": "^5.0.2",
     "async": "^3.2.0",
     "aws-sdk": "^2.639.0",
