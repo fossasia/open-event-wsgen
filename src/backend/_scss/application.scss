@@ -2469,3 +2469,14 @@ a.skip:hover {
     display: none;
   }
 }
+
+.date-list-search-filter {
+
+  label {
+    display: inline;
+
+    .fa {
+      margin-top: 13px;
+    }
+  }
+}
