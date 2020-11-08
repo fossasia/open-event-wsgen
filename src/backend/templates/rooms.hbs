@@ -109,7 +109,7 @@
                    </li>
               </ul>
             </span>
-            <div class="filter search-filter search-filter-room">
+            <div class="filter search-filter search-filter-room date-list-search-filter">
              <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i></label>
              <input class="fossasia-filter" type="text" placeholder="Search">
             </div>
@@ -331,7 +331,7 @@
                 {{#each roomsnames}}
                   <div class="room-info">
                     <span class="titlecolor room-titlecolor"></span>
-                    <span class="room-name">{{this}}</span>
+                    <span class="room-name"><a href="#{{this}}">{{this}}</a></span>
                   </div>
                 {{/each}}
               </div>
@@ -341,7 +341,7 @@
                 {{#if title}}
                 <div class="track-info">
                   <span style="background-color: {{color}};" class="titlecolor"></span>
-                  <span class="track-name">{{title}}</span>
+                  <span class="track-name"><a href="#{{title}}">{{title}}</a></span>
                 </div>
                 {{/if}}
                 {{/tracknames}}
