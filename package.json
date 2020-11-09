@@ -75,7 +75,7 @@
     "selenium-webdriver": "^3.4.0",
     "sendgrid": "^5.1.1",
     "sharp": "^0.26.2",
-    "socket.io": "^2.0.2",
+    "socket.io": "^3.0.1",
     "socket.io-stream": "^0.9.1",
     "socketio-file-upload": "^0.7.0",
     "stream-buffers": "^3.0.1",
