@@ -145,7 +145,7 @@ describe('app', () => {
   describe('run', () => {
     it('should run app', () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 });

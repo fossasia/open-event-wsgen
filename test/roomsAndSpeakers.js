@@ -12,7 +12,7 @@ describe('app', () => {
   describe('run', () => {
     it('should run app', () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 });
@@ -82,7 +82,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing rooms page', function() {
     before(function() {
       roomPage.init(driver);
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
     });
 
     it('Test for font color of sessions', function(done) {
@@ -191,7 +191,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking Jump to Speaker functionality', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.jumpToSpeaker().then(function(val) {
         assert.equal(val, true);
         done();
@@ -201,7 +201,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.checkIsolatedBookmark().then(function(visArr) {
         assert.deepEqual(visArr, [true, false, false]);
         done();
@@ -211,7 +211,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the starred mode after search', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.toggleSessionBookmark(['3014', '3015']).then(roomPage.searchThenStarredMode.bind(roomPage)).then(function(boolArr) {
         assert.deepEqual(boolArr, [false, false, false]);
         done();
@@ -221,7 +221,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking search in starred mode', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.starredModeThenSearch().then(function(boolArr) {
         assert.deepEqual(boolArr, [false, false, false]);
         done();
@@ -231,7 +231,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking dynamic link for Rooms and Tracks filter', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/rooms.html');
       roomPage.driver.manage().window().maximize();
       roomPage.checkFilterDynamicLink().then(function (visibleRoomTrackArr) {
         assert.deepEqual(visibleRoomTrackArr[0], [true, false, true]);
@@ -243,7 +243,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking direct link for Rooms filter', function(done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/rooms.html#Balboa');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/rooms.html#Balboa');
       roomPage.checkRoomFilterDirectLink().then(function(roomsArr) {
         assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
         done();
@@ -253,7 +253,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the background colors for dark theme', function (done) {
-      roomPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/rooms.html');
+      roomPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/rooms.html');
       roomPage.getBackgroundColor('rooms').then(function(bgcolorArr) {
         assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
@@ -267,7 +267,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing Speakers page', function() {
     before(function() {
       speakerPage.init(driver);
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/speakers.html');
+      speakerPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/speakers.html');
     });
 
     it('Checking search functionality', function(done) {
@@ -298,7 +298,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the background colors for dark theme', function (done) {
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
+      speakerPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
       speakerPage.getBackgroundColor('speakers').then(function(bgcolorArr) {
         assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
@@ -312,7 +312,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing Speakers page for single page type', function() {
     before(function() {
       speakerPage.init(driver);
-      speakerPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
+      speakerPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/speakers.html');
     });
 
     it('Jump to session page on clicking session of a speaker', function(done) {

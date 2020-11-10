@@ -1,5 +1,5 @@
 {
-  "PORT": 5000,
+  "PORT": 3000,
   "DEFAULT_MAIL_STRATEGY": "Sendgrid",
   "DEFAULT_FROM_EMAIL": "info@eventyay.com",
   "SMTP_HOST": "mail.smtp2go.com",
