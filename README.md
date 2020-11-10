@@ -5,10 +5,13 @@
 [![Heroku](https://heroku-badge.herokuapp.com/?app=open-event-wsgen-dev)](http://open-event-wsgen-dev.herokuapp.com)
 [![Dependencies](https://david-dm.org/fossasia/open-event-wsgen.svg)](https://david-dm.org/fossasia/open-event-wsgen)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-wsgen?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-wsgen&amp;utm_campaign=Badge_Grade)
-[![Code Climate](https://api.codeclimate.com/v1/badges/44552f8cc1b5ba1c760d/maintainability.svg)](https://codeclimate.com/github/fossasia/open-event-webapp)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6498f490127101665851/maintainability)](https://codeclimate.com/github/fossasia/open-event-wsgen/maintainability)
 [![codecov](https://codecov.io/gh/fossasia/open-event-wsgen/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-wsgen)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-wsgen?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+
+
+
 
 The **Open Event Website Generator App** project has **TWO** components :
 - **An event website generator**
