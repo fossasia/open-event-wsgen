@@ -36,7 +36,7 @@ or
 npm run server.generator
 ```
 
-The app will be running on http://localhost:5000
+The app will be running on http://localhost:3000
 
 Note : If you are running the app behind a proxy, set the proxy option in config.json to `http://username:password@proxy_url:proxy_port`, and make sure it is url encoded.
 

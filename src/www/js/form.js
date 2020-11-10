@@ -472,7 +472,6 @@ function displayButtons(appPath, url) {
       window.open(url);
     }
   });
-  btnLive.click();
 }
 
 function updateStatusAnimate(statusMsg, speed, color) {
