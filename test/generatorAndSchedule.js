@@ -12,7 +12,7 @@ describe('app', () => {
   describe('run', () => {
     it('should run app', () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 });
@@ -83,7 +83,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       generatorPage.init(driver);
-      generatorPage.visit('http://localhost:5000');
+      generatorPage.visit('http://localhost:3000');
     });
 
     it('Checking for jsonUpload input section', function (done) {
@@ -137,7 +137,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
 
     before(function () {
       schedulePage.init(driver);
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
     });
 
     it('Test for working of download buttons', function (done) {
@@ -272,7 +272,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking Jump to Speaker functionality', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.jumpToSpeaker().then(function (val) {
         assert.equal(val, true);
         done();
@@ -282,7 +282,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the working of social buttons', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkSocialLinks().then(function (num) {
         assert.equal(num, 5);
         done();
@@ -318,7 +318,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the bookmark toggle', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkIsolatedBookmark().then(function (visArr) {
         assert.deepEqual(visArr, [false, true, false]);
         done();
@@ -328,7 +328,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking dynamic link for Rooms and Tracks filter', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.driver.manage().window().maximize();
       schedulePage.checkFilterDynamicLink().then(function (visibleRoomTrackArr) {
         assert.deepEqual(visibleRoomTrackArr[0], [true, false, true]);
@@ -340,7 +340,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking direct link for Rooms filter', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Balboa');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Balboa');
       schedulePage.checkFilterDirectLink().then(function (roomsArr) {
         assert.deepEqual(roomsArr, ["1078", "1079", "1080", "1081"]);
         done();
@@ -350,7 +350,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking direct link for Tracks filter', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Meals%20w/%20Registered%20Guests');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/schedule.html#Meals%20w/%20Registered%20Guests');
       schedulePage.refresh();
       schedulePage.checkFilterDirectLink().then(function (TracksArr) {
         assert.deepEqual(TracksArr, ["1002", "1101", "1102"]);
@@ -361,7 +361,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     });
 
     it('Checking the background colors for dark theme', function (done) {
-      schedulePage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/schedule.html');
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/schedule.html');
       schedulePage.getBackgroundColor('schedule').then(function(bgcolorArr) {
         assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
