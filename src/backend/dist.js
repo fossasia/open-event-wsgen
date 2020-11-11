@@ -480,7 +480,7 @@ module.exports = {
     });
 
     unzipper.extract({
-      path: appPath + '/zip'
+      path: 'dist/' + appFolder + '/zip'
     });
 
     unzipper.on('extract', function(log) {
