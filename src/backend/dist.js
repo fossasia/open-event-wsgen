@@ -146,7 +146,7 @@ const extensionChange = function(image) {
 };
 
 const optimizeBackground = function(image, socket, done) {
-  if (image !== null) {
+  if (image) {
     sharp(image)
        .resize({
           width: 1150,
@@ -480,7 +480,7 @@ module.exports = {
     });
 
     unzipper.extract({
-      path: appPath + '/zip'
+      path: 'dist/' + appFolder + '/zip'
     });
 
     unzipper.on('extract', function(log) {
@@ -499,7 +499,7 @@ module.exports = {
               const fPath = appPath + '/zip/' + file;
 
               function check(error) {
-                if (error !== null) {
+                if (error) {
                   logger.addLog('Error', 'Error while copying folder', socket, error);
                   cb(err);
                 } else {
@@ -538,7 +538,7 @@ module.exports = {
                 default: cb(null);
               }
             }, function(error) {
-              if (error !== null) {
+              if (error) {
                 return done(error);
               }
 
@@ -581,7 +581,7 @@ module.exports = {
           // duplicate folder found
           logger.addLog('Info', 'Removing the duplicate folder', socket);
           fs.remove(removeFolder, function(error) {
-            if (error !== null) {
+            if (error) {
               logger.addLog('Error', 'Error occured during deletion of the duplicate folder', socket, error);
               return done(error);
             }

@@ -13,7 +13,7 @@ describe('app', () => {
   describe('run', () => {
     it("should run app", () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 
@@ -74,7 +74,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing Session page', function() {
     before(function() {
       sessionPage.init(driver);
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
     });
 
     it('Get the title of the session', function(done) {
@@ -114,7 +114,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Jump to speakers page', function(done) {
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
       sessionPage.jumpToSpeaker().then(function(val) {
         assert.equal(val, true);
         done();
@@ -124,7 +124,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Jump to rooms page', function(done) {
-      sessionPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
+      sessionPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/sessions/session_1090.html');
       sessionPage.jumpToRoom().then(function(val) {
         assert.equal(val, true);
         done();
@@ -137,7 +137,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing event page', function() {
     before(function() {
       eventPage.init(driver);
-      eventPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017');
+      eventPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017');
     });
 
     it('Check for Scrollbars', function(done) {
@@ -188,15 +188,6 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
-    it('Checking broken links in of Sponsors section', function(done) {
-      eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
-        assert.equal(brokenLinksCount, 0);
-        done();
-      }).catch(function(err) {
-        done(err);
-      });
-    });
-
     it('Checking the presence of ticket button', function(done) {
       eventPage.checkTicketButton().then(function() {
         done();
@@ -215,7 +206,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the background colors for dark theme', function (done) {
-      eventPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/index.html');
+      eventPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/index.html');
       eventPage.getBackgroundColor('event').then(function(bgcolorArr) {
         assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
@@ -224,12 +215,20 @@ describe("Running Selenium tests on Chrome Driver", function() {
       });
     });
 
+    it('Checking broken links in of Sponsors section', function(done) {
+        eventPage.getSponsorsBrokenLinks().then(function(brokenLinksCount) {
+          assert.equal(brokenLinksCount, 0);
+          done();
+        }).catch(function(err) {
+          done(err);
+        });
+      });
   });
 
   describe('Testing Code of Conduct page', function(){
     before(function() {
       cocPage.init(driver);
-      cocPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/CoC.html')
+      cocPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/CoC.html')
     });
 
     it('Checking the presence of Code of Conduct section', function(done) {

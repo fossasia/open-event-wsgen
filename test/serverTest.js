@@ -145,7 +145,7 @@ describe('app', () => {
   describe('run', () => {
     it('should run app', () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 });
@@ -154,7 +154,7 @@ describe('generate', function () {
   describe('.create different event sites and copy assets of overview site', function () {
     this.timeout(800000);
 
-    it('should generate the FOSSASIA Summit 2017', function (done) {
+    xit('should generate the FOSSASIA Summit 2017', function (done) {
       let data = {};
 
       data.body = {
@@ -173,7 +173,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the Mozilla All Hands 2017', function (done) {
+    xit('should generate the Mozilla All Hands 2017', function (done) {
       let data = {};
 
       data.body = {
@@ -193,7 +193,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the OSCON 2017', function (done) {
+    xit('should generate the OSCON 2017', function (done) {
       let data = {};
 
       data.body = {
@@ -212,7 +212,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the FOSSASIA Summit 2016 event', function (done) {
+    xit('should generate the FOSSASIA Summit 2016 event', function (done) {
       let data = {};
 
       data.body = {
@@ -235,7 +235,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the Open Tech Summit site', function (done) {
+    xit('should generate the Open Tech Summit site', function (done) {
       let data = {};
 
       data.body = {
@@ -335,7 +335,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the RedHat Summit 2017 event', function (done) {
+    xit('should generate the RedHat Summit 2017 event', function (done) {
       let data = {};
 
       data.body = {
@@ -353,7 +353,7 @@ describe('generate', function () {
       });
     });
 
-    it('should generate the FOSSASIA Summit 2014 event', function (done) {
+    xit('should generate the FOSSASIA Summit 2014 event', function (done) {
       let data = {};
 
       data.body = {
@@ -371,7 +371,7 @@ describe('generate', function () {
       });
     });
 
-    it('should generate the FOSSASIA Summit 2011 event', function (done) {
+    xit('should generate the FOSSASIA Summit 2011 event', function (done) {
       let data = {};
 
       data.body = {
@@ -390,7 +390,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the FOSSASIA Summit 2010 event', function (done) {
+    xit('should generate the FOSSASIA Summit 2010 event', function (done) {
       let data = {};
 
       data.body = {
@@ -409,7 +409,7 @@ describe('generate', function () {
 
     });
 
-    it('should generate the Mozilla All Hands 2016 event', function (done) {
+    xit('should generate the Mozilla All Hands 2016 event', function (done) {
       let data = {};
 
       data.body = {
@@ -443,13 +443,13 @@ describe('generate', function () {
 
 
       generator.createDistDir(data, 'Socket', function (appFolder) {
-        assert.equal(appFolder, "a@a.com/FOSSASIASummit");
+        assert.equal(appFolder, "a@a.com/FOSSASIASummit2018");
         done();
       });
 
     });
 
-    it('should generate the Spark Summit 2017 event', function (done) {
+    xit('should generate the Spark Summit 2017 event', function (done) {
       let data = {};
 
       data.body = {
@@ -468,7 +468,7 @@ describe('generate', function () {
       });
     });
 
-    it('should generate the OpenTech Summit 2016 event', function (done) {
+    xit('should generate the OpenTech Summit 2016 event', function (done) {
       let data = {};
 
       data.body = {

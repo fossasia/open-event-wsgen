@@ -11,7 +11,7 @@ describe('app', () => {
   describe('run', () => {
     it('should run app', () => {
       const expressApp = app.getApp();
-      assert.equal(expressApp.get('port'), (process.env.PORT || 5000));
+      assert.equal(expressApp.get('port'), (process.env.PORT || 3000));
     });
   });
 
@@ -75,7 +75,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
   describe('Testing tracks page', function() {
     before(function() {
       trackPage.init(driver);
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
     });
 
     it('Test for font color of sessions', function(done) {
@@ -151,7 +151,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     it('Checking Jump to Speaker functionality', function(done) {
       trackPage.jumpToSpeaker().then(function(val) {
         assert.equal(val, true);
-        trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+        trackPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
         done();
       }).catch(function(err) {
         done(err);
@@ -185,7 +185,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the bookmark toggle', function(done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
       trackPage.checkIsolatedBookmark().then(function(visArr) {
         assert.deepEqual(visArr, [true, true, false, true]);
         done();
@@ -214,7 +214,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Track filter followed by search and starred filter and reversing them', function(done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
       trackPage.filterCombination(['trackselect', 'search', 'starred', 'unstarred', 'unsearch', 'trackunselect']).then(function(val) {
         assert.deepEqual(val[0], [true, true, true, true, false, false]);
         assert.deepEqual(val[1], [true, false, true, false, false, false]);
@@ -300,7 +300,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
 
     it('Checking the share link', function(done) {
       trackPage.checkSharableUrl().then(function(link) {
-        assert.equal(link, 'http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
+        assert.equal(link, 'http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html#3014');
         done();
       }).catch(function(err) {
         done(err);
@@ -308,7 +308,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking dynamic link for Rooms and Tracks filter', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/tracks.html');
       trackPage.driver.manage().window().maximize();
       trackPage.checkFilterDynamicLink().then(function (visibleRoomTrackArr) {
         assert.deepEqual(visibleRoomTrackArr[0], [true, false, true]);
@@ -320,7 +320,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking direct link for tracks filter', function(done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/tracks.html#Meals%20w/%20Registered%20Guests');
       trackPage.checkTrackFilterDirectLink().then(function(tracksArr) {
         assert.deepEqual(tracksArr, ["1002", "1101", "1102"]);
         done();
@@ -330,7 +330,7 @@ describe("Running Selenium tests on Chrome Driver", function() {
     });
 
     it('Checking the background colors for dark theme', function (done) {
-      trackPage.visit('http://localhost:5000/live/preview/a@a.com/MozillaAllHands2017/tracks.html');
+      trackPage.visit('http://localhost:3000/live/preview/a@a.com/MozillaAllHands2017/tracks.html');
       trackPage.getBackgroundColor('tracks').then(function(bgcolorArr) {
         assert.deepEqual(bgcolorArr, ['rgba(51, 61, 90, 1)', 'rgba(35, 41, 58, 1)']);
         done();
