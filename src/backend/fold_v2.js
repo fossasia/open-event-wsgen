@@ -440,7 +440,7 @@ function returnAttendees(attendeesData) {
 }
 
 function createSocialLinks(event) {
-  const sociallinks = Array.from(event['social-links']);
+  const sociallinks = Array.from(event['social-links']).filter(Boolean);
 
   sociallinks.forEach((link) => {
     link.show = true;
@@ -488,7 +488,7 @@ function createSocialLinks(event) {
 }
 
 function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
-  const sociallinks = Array.from(event['social-links']);
+  const sociallinks = Array.from(event['social-links']).filter(Boolean);
   let sociallink = '';
   let featuresection = 0;
   let sponsorsection = 0;
