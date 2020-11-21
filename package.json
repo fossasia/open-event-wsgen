@@ -25,7 +25,7 @@
   "homepage": "https://github.com/fossasia/open-event-webapp#readme",
   "dependencies": {
     "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
     "@octokit/rest": "^14.0.0",
     "archiver": "^5.0.2",
     "async": "^3.2.0",
