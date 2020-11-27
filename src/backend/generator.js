@@ -389,16 +389,16 @@ exports.createDistDir = function(req, socket, callback) {
         logger.addLog('Success', 'Json data extracted', socket);
         logger.addLog('Info', 'Name of the event found from the event json file', socket);
         if (emit) {
-          socket.emit('live.process', {donePercent: 70, status: 'Compiling the HTML pages from templates'});
+          socket.emit('live.process', {donePercent: 67, status: 'Processing images to a standard size'});
         }
-        logger.addLog('Info', 'Compiling the html pages from the templates', socket);
+        logger.addLog('Info', 'Processing images to a standard size', socket);
 
         const jsonData = data;
         eventName = fold.removeSpace(jsonData.eventurls.name);
         const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         const basePath = distHelper.distPath + '/' + appFolder + '/images';
         const logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
-
+        logger.addLog('Info', 'Resizing logo and background images', socket);
         distHelper.optimizeBackground(backPath, socket, function() {
           if (jsonData.eventurls.logo_url) {
             distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
@@ -435,9 +435,15 @@ exports.createDistDir = function(req, socket, callback) {
             jsonData.gcalendar = {};
             jsonData.gcalendar.enabled = false;
           }
-
+          logger.addLog('Info', 'Resizing sponsors images', socket);
           distHelper.resizeSponsors(basePath, socket, function() {
+            logger.addLog('Info', 'Resizing speakers images', socket);
             distHelper.resizeSpeakers(basePath, socket, function() {
+              logger.addLog('Success', 'All the images are successfully processed', socket);
+              if (emit) {
+                socket.emit('live.process', {donePercent: 71, status: 'Compiling the html pages from the templates'});
+              }
+              logger.addLog('Info', 'Compiling the html pages from the templates', socket);
               templateGenerate();
             });
           });
