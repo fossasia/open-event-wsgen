@@ -2,13 +2,9 @@
 'use strict';
 
 const gulp = require('gulp');
-const uglify = require('gulp-uglify');
-const babel = require('gulp-babel');
 const concat = require('gulp-concat');
-const minify = require('gulp-minify-css');
-const htmlmin = require('gulp-htmlmin');
-const iife = require('gulp-iife');
 const del = require('del');
+const esbuild = require('gulp-esbuild');
 // eslint-disable-next-line no-var
 var exports = module.exports = {};
 
@@ -17,12 +13,12 @@ exports.minifyJs = function(path, cb) {
 
   function minifyPipeline(dist, src) {
     return gulp.src(src.map(file => dir + file))
-      .pipe(iife({useStrict: false}))
-      .pipe(concat(dist + '.min.js'))
-      .pipe(babel({presets: ['@babel/preset-env']}))
-      .pipe(uglify().on('error', function(e) {
-        console.log(`Error while compiling ${dist}.js` + e);
+      .pipe(esbuild({
+        bundle: true,
+        minify: true,
+        format: 'iife',
       }))
+      .pipe(concat(dist + '.min.js'))
       .pipe(gulp.dest(path + '/js/'));
   }
 
@@ -74,17 +70,11 @@ exports.minifyJs = function(path, cb) {
 exports.minifyCss = function(path, cb) {
   // Minify all the css files of the web-app
   return gulp.src(path + '/css/*.css')
-    .pipe(minify())
+    .pipe(esbuild({
+      loader: {'.css': 'css'},
+      minify: true
+    }))
     .pipe(gulp.dest(path + '/css')).on('end', function() {
-      cb();
-    });
-};
-
-exports.minifyHtml = function(path, cb) {
-  // Minify all the html files of the web-app
-  return gulp.src(path + '/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest(path)).on('end', function() {
       cb();
     });
 };
