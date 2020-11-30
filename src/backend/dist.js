@@ -263,7 +263,7 @@ const resizeSpeakers = function(dir, socket, done) {
     if (err) {
       logger.addLog('Info', 'No sponsors images found', socket, err);
     }
-    async.each(list, function(image, trial) {
+    async.eachLimit(list, 15, function(image, trial) {
       sharp(dir + '/speakers/' + image)
         .resize({
           width: 264,
