@@ -32,7 +32,7 @@ Our chat channel is on **gitter** here:
 
 ## 1. Event Website Output
 
-The component that is generated from the web app is the event website. Several sample event sites using the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) were generated, showcased on the main index page and added to this repo as a Github Pages site. You can have a look at showcase pages on http://sched.eventyay.com.
+The Web App generates a component for website in the upcoming events. Several sample event sites use the [sample from the open-event repo](https://github.com/fossasia/open-event/tree/master/sample) is produced, showcased on the main index page and added to this repo as a Github Pages site. You can have a look at showcase pages on http://sched.eventyay.com.
 
 ## 2. Web App Generator
 
