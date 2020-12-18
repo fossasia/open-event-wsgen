@@ -15,7 +15,10 @@ jobs:
       - run:
           name: Install all the dependencies
           command: yarn
-      - run: yarn add nyc mocha
+      - run: |
+          echo 'export PATH=$(yarn global bin):$PATH' >> $BASH_ENV
+          source $BASH_ENV
+          yarn global add chromedriver nyc mocha
       - save_cache:
           key: node-v3-{{ checksum "yarn.lock" }}
           paths: 
@@ -27,7 +30,7 @@ jobs:
           command: |
               TEST=$(circleci tests glob "test/*.js" | circleci tests split)
               echo "Running $TEST..."
-              npx nyc mocha --exit $TEST
+              nyc mocha --exit $TEST
 
 workflows:
   version: 2
