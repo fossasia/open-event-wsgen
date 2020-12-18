@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: cimg/node:12.20.0-browsers
       - image: circleci/redis:alpine
+    parallelism: 4
     steps:
       - checkout
       - restore_cache:
