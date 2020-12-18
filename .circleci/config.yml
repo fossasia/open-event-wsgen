@@ -12,22 +12,21 @@ jobs:
           command: dockerize -wait tcp://localhost:6379 -timeout 1m
       - restore_cache:
           keys:
-            - node-v1-{{ checksum "yarn.lock" }}
-            - node-v1-
+            - node-v2-{{ checksum "yarn.lock" }}
+            - node-v2-
       - run:
           name: Install all the dependencies
           command: yarn
       - run: yarn global add nyc mocha
       - save_cache:
-          key: node-v1-{{ checksum "yarn.lock" }}
+          key: node-v2-{{ checksum "yarn.lock" }}
           paths: 
-           - ./node_modules/
-      - run:
-          name: Split Tests by time
-          command: circleci tests glob "test/*.js" | circleci tests split > /tmp/tests-to-run
+           - ./node_modules
+            - ~/.cache/yarn
+            - ~/.yarn/bin
       - run:
           name: Run Tests
-          command: nyc mocha --exit $(cat /tmp/tests-to-run)
+          command: ~/.yarn/bin/nyc mocha --exit test/roomsAndSpeakers.js
 
 workflows:
   version: 2
