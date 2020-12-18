@@ -164,7 +164,7 @@ function metaData(jsonData, data) {
 }
 
 function setPageFlag(jsonData, page) {
-  jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+  jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.CoCflag = jsonData.speakerFlag = 0;
   // eslint-disable-next-line default-case
   switch (page) {
     case 'track':
