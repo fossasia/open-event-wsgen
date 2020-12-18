@@ -293,6 +293,7 @@ describe("Running Selenium tests on Chrome Driver", function () {
     // });
 
     it('Checking the presence of Add to calendar button', function (done) {
+      schedulePage.visit('http://localhost:3000/live/preview/a@a.com/FOSSASIASummit2017/schedule.html');
       schedulePage.checkAddToCalendarButton().then(function (){
         done();
       }).catch(function(err) {
