@@ -26,7 +26,9 @@ jobs:
             - ~/.yarn/bin
       - run:
           name: Run Tests
-          command: npx nyc mocha --exit test/roomsAndSpeakers.js
+          command: |
+              TEST=$(circleci tests glob "test/*.js" | circleci tests split)
+              npx nyc mocha --exit $TEST
 
 workflows:
   version: 2
