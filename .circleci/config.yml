@@ -1,0 +1,38 @@
+version: 2.0
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12.9.1-stretch-browsers
+      - image: circleci/redis:stretch
+    parallelism: 4
+    steps:
+      - checkout
+      - run:
+          name: Check if redis is active
+          command: dockerize -wait tcp://localhost:6379 -timeout 1m
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package-lock.json" }}
+            - node-v1-
+      - run:
+          name: Install all the dependencies
+          command: npm install 
+      - save_cache:
+          key: node-v1-{{ checksum "package-lock.json" }}
+          paths: 
+           - ./node_modules/
+      - run:
+          name: Split Tests by time
+          command: circleci tests glob "test/*.js" | circleci tests split > /tmp/tests-to-run
+      - run:
+          name: Run Tests
+          command: npx nyc mocha --exit $(cat /tmp/tests-to-run)
+
+workflows:
+  version: 2
+  Test:
+    jobs:
+      - test
+
+
