@@ -10,22 +10,23 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - node-v2-{{ checksum "yarn.lock" }}
-            - node-v2-
+            - node-v3-{{ checksum "yarn.lock" }}
+            - node-v3-
       - run:
           name: Install all the dependencies
           command: yarn
       - run: yarn add nyc mocha
       - save_cache:
-          key: node-v2-{{ checksum "yarn.lock" }}
+          key: node-v3-{{ checksum "yarn.lock" }}
           paths: 
-           - ./node_modules
+            - ./node_modules
             - ~/.cache/yarn
             - ~/.yarn/bin
       - run:
           name: Run Tests
           command: |
               TEST=$(circleci tests glob "test/*.js" | circleci tests split)
+              echo "Running $TEST..."
               npx nyc mocha --exit $TEST
 
 workflows:
