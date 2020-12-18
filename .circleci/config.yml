@@ -5,7 +5,6 @@ jobs:
     docker:
       - image: circleci/node:12.9.1-stretch-browsers
       - image: circleci/redis:stretch
-    parallelism: 4
     steps:
       - checkout
       - run:
@@ -18,6 +17,7 @@ jobs:
       - run:
           name: Install all the dependencies
           command: yarn
+      - run: yarn global add nyc mocha
       - save_cache:
           key: node-v1-{{ checksum "yarn.lock" }}
           paths: 
@@ -27,7 +27,7 @@ jobs:
           command: circleci tests glob "test/*.js" | circleci tests split > /tmp/tests-to-run
       - run:
           name: Run Tests
-          command: npx nyc mocha --exit $(cat /tmp/tests-to-run)
+          command: nyc mocha --exit $(cat /tmp/tests-to-run)
 
 workflows:
   version: 2
