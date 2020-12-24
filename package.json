@@ -46,7 +46,7 @@
     "ftp-deploy": "^2.3.7",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-esbuild": "^0.3.5",
+    "gulp-esbuild": "^0.3.9",
     "handlebars": "^4.7.6",
     "jsonapi-serializer": "^3.5.3",
     "jsonfile": "^6.1.0",
@@ -55,7 +55,7 @@
     "node-uuid": "^1.4.7",
     "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.2",
-    "npm": "^6.14.9",
+    "npm": "^6.14.10",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "path": "^0.12.7",
@@ -67,7 +67,7 @@
     "request": "^2.74.0",
     "selenium-webdriver": "^3.4.0",
     "sendgrid": "^5.1.1",
-    "sharp": "^0.26.3",
+    "sharp": "^0.27.0",
     "socket.io": "^2.0.2",
     "socket.io-stream": "^0.9.1",
     "socketio-file-upload": "^0.7.0",
@@ -75,7 +75,7 @@
     "url-join": "^4.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.14.0",
+    "eslint": "^7.16.0",
     "husky": "^0.14.3"
   }
 }
