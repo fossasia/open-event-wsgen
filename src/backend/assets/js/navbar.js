@@ -70,3 +70,31 @@ window.addEventListener('scroll', function () {
     }
   }
 });
+
+//  hide on scroll 
+$(document).ready(function () {
+  var $nav = $('.navbar-fixed-top');
+  var lastScrollTop = 0;
+  var direction;
+  $(function () {
+      $(window).scroll(function () {
+          var scrollTop = $(this).scrollTop();
+
+          if (lastScrollTop < scrollTop && scrollTop > $nav.outerHeight() && direction != 'down') {
+              //Scroll down
+              $nav.stop().fadeOut();
+              direction = 'down';
+          } else if (lastScrollTop > scrollTop  && direction != 'up') {
+              // Scroll up
+              $nav.stop().fadeIn();
+              direction = 'up';
+          }
+          lastScrollTop = scrollTop;
+      });
+  });
+});
+
+
+
+
+
