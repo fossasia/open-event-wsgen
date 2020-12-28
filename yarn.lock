@@ -6458,10 +6458,10 @@ socket.io@^2.0.2:
     socket.io-client "2.3.0"
     socket.io-parser "~3.4.0"
 
-socketio-file-upload@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/socketio-file-upload/-/socketio-file-upload-0.7.0.tgz#aec62bb20051cbc6019792ff4dcc3907101eb466"
-  integrity sha512-eKL6LAPiDH9xIsn2eP0ZDzw/EUsnDiZxuDN6TpyPcsaS42Q5wt5VmeN6CGcPsMx57UMQ6jxjIljoBTnCVsG8Qw==
+socketio-file-upload@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/socketio-file-upload/-/socketio-file-upload-0.7.3.tgz#fb71599a4cab3f27d1bf7dbbbfd6149170ad44e2"
+  integrity sha512-JUvzi8Vvp2+GBfQtOehPSfecetZOo4g1JTl6+zmKhPiljn+z09lLL8zYeX4AJVSNpmRkGJnypbHkiPjPSkk5UA==
 
 socks-proxy-agent@^4.0.0:
   version "4.0.2"
