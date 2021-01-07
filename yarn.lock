@@ -2008,10 +2008,10 @@ es6-weak-map@^2.0.1:
     es6-iterator "^2.0.3"
     es6-symbol "^3.1.1"
 
-esbuild@^0.8.26:
-  version "0.8.26"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.26.tgz#a85491617ebd2bd35ca4bf479239487eb6819d71"
-  integrity sha512-u3MMHOOumdWoAKF+073GHPpzvVB2cM+y9VD4ZwYs1FAQ6atRPISya35dbrbOu/mM68mQ42P+nwPzQVBTfQhkvQ==
+esbuild@^0.8.30:
+  version "0.8.30"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.30.tgz#3d057ff9ffe6d5d30bccb0afe8cc92a2e69622d3"
+  integrity sha512-gCJQYUMO9QNrfpNOIiCnFoX41nWiPFCvURBQF+qWckyJ7gmw2xCShdKCXvS+RZcQ5krcxEOLIkzujqclePKhfw==
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -2048,10 +2048,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.16.0:
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.16.0.tgz#a761605bf9a7b32d24bb7cde59aeb0fd76f06092"
-  integrity sha512-iVWPS785RuDA4dWuhhgXTNrGxHHK3a8HLSMBgbbU59ruJDubUraXN8N5rn7kb8tG6sjg74eE0RA3YWT51eusEw==
+eslint@^7.17.0:
+  version "7.17.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.17.0.tgz#4ccda5bf12572ad3bf760e6f195886f50569adb0"
+  integrity sha512-zJk08MiBgwuGoxes5sSQhOtibZ75pz0J35XTRlZOk9xMffhpA9BTbQZxoXZzOl5zMbleShbGwtw+1kGferfFwQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@eslint/eslintrc" "^0.2.2"
@@ -2893,12 +2893,12 @@ gulp-concat@^2.6.1:
     through2 "^2.0.0"
     vinyl "^2.0.0"
 
-gulp-esbuild@^0.3.9:
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/gulp-esbuild/-/gulp-esbuild-0.3.9.tgz#b0afc5c2f9616359a9634119f4dfd56456529ebe"
-  integrity sha512-3fK25q3IDWwF6/pcyH1dMgF0XOJFNRDNh7HvTH8c2HZE21j6ntZy4KcRdnYzskyzxf7LkZ/1qUopt5gRMkyb3Q==
+gulp-esbuild@^0.3.13:
+  version "0.3.13"
+  resolved "https://registry.yarnpkg.com/gulp-esbuild/-/gulp-esbuild-0.3.13.tgz#a8fbcf614804316518298275c0b9b74c6910435f"
+  integrity sha512-5AmhT5VreULUuhRD9PkvFzPDZTUnY7gwPa95pAr6ued2JrMZo229ifpkZz+txqxi0t60y7ae6Q4gvqsgoxDrJA==
   dependencies:
-    esbuild "^0.8.26"
+    esbuild "^0.8.30"
     plugin-error "^1.0.1"
     vinyl "^2.2.1"
 
@@ -6458,10 +6458,10 @@ socket.io@^2.0.2:
     socket.io-client "2.3.0"
     socket.io-parser "~3.4.0"
 
-socketio-file-upload@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/socketio-file-upload/-/socketio-file-upload-0.7.0.tgz#aec62bb20051cbc6019792ff4dcc3907101eb466"
-  integrity sha512-eKL6LAPiDH9xIsn2eP0ZDzw/EUsnDiZxuDN6TpyPcsaS42Q5wt5VmeN6CGcPsMx57UMQ6jxjIljoBTnCVsG8Qw==
+socketio-file-upload@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/socketio-file-upload/-/socketio-file-upload-0.7.3.tgz#fb71599a4cab3f27d1bf7dbbbfd6149170ad44e2"
+  integrity sha512-JUvzi8Vvp2+GBfQtOehPSfecetZOo4g1JTl6+zmKhPiljn+z09lLL8zYeX4AJVSNpmRkGJnypbHkiPjPSkk5UA==
 
 socks-proxy-agent@^4.0.0:
   version "4.0.2"
