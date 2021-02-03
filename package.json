@@ -42,7 +42,7 @@
     "express-session": "^1.17.1",
     "folder-hash": "^4.0.0",
     "fs": "0.0.2",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "ftp-deploy": "^2.3.7",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
