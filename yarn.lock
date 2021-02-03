@@ -3658,10 +3658,10 @@ json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-jsonapi-serializer@^3.5.3:
-  version "3.6.6"
-  resolved "https://registry.yarnpkg.com/jsonapi-serializer/-/jsonapi-serializer-3.6.6.tgz#662744144a5a13cd59763b55ef61d13f74524bde"
-  integrity sha512-HFNeG5CNj83kt0llneV68dQ3khlU+n8amMaTJs/6dI78iRIntHY+vmcTvnnnQM/2HfqOKq11Q+ghAyCbP7N+xA==
+jsonapi-serializer@^3.6.7:
+  version "3.6.7"
+  resolved "https://registry.yarnpkg.com/jsonapi-serializer/-/jsonapi-serializer-3.6.7.tgz#18299122e7624d962fadaba16c320da6a7c405c0"
+  integrity sha512-usScb34T6mB0QK/AxOpXTpE9iB7JW4/CMhREitzeKv9rV5CdZhdVA8F9zIc7Xz9rjbSv98vOXkuO1HRtM0paSg==
   dependencies:
     inflected "^1.1.6"
     lodash "^4.16.3"
