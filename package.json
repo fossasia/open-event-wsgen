@@ -46,7 +46,7 @@
     "ftp-deploy": "^2.3.7",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
-    "gulp-esbuild": "^0.3.21",
+    "gulp-esbuild": "^0.4.0",
     "handlebars": "^4.7.6",
     "jsonapi-serializer": "^3.6.7",
     "jsonfile": "^6.1.0",
