@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/fossasia/open-event-webapp#readme",
   "dependencies": {
-    "@octokit/rest": "^14.0.0",
+    "@octokit/rest": "^18.3.5",
     "archiver": "^5.2.0",
     "async": "^3.2.0",
     "aws-sdk": "^2.639.0",
