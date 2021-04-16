@@ -2465,10 +2465,10 @@ flush-write-stream@^1.0.0, flush-write-stream@^1.0.2:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-folder-hash@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/folder-hash/-/folder-hash-4.0.0.tgz#ea35e1483309199d88b65e70821b7ad59458dbc3"
-  integrity sha512-ivwXEUrFwIW1lbd6aW9I4hbgfNpVkqAE4FoQm6uBkGTGLMk9sZTWsH+NSzjmUOilSr5oHhbD2JgAtyI//feO5g==
+folder-hash@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/folder-hash/-/folder-hash-4.0.1.tgz#1603c46bdb899843e292ecdfca9e540dd22e1236"
+  integrity sha512-oF1MGtGAPezYJJRMRPzTwtDYwZdQ16UTnthsVAxjVZnlrQ36WuF6YxSgyZxnoUEK6JNPX+04FCFAkw5CzE5OMw==
   dependencies:
     debug "^4.1.1"
     graceful-fs "~4.2.0"

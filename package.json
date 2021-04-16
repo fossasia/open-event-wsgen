@@ -40,7 +40,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.13.4",
     "express-session": "^1.17.1",
-    "folder-hash": "^4.0.0",
+    "folder-hash": "^4.0.1",
     "fs": "0.0.2",
     "fs-extra": "^9.1.0",
     "ftp-deploy": "^2.3.7",
