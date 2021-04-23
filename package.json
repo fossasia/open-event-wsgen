@@ -55,7 +55,7 @@
     "node-uuid": "^1.4.7",
     "nodemailer": "^6.5.0",
     "nodemailer-smtp-transport": "^2.7.2",
-    "npm": "^6.14.11",
+    "npm": "^7.11.0",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "path": "^0.12.7",
