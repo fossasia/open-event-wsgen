@@ -63,7 +63,7 @@
     "promise-ftp-common": "^1.1.5",
     "raven": "^2.6.4",
     "recursive-readdir": "^2.1.0",
-    "redis": "^3.0.2",
+    "redis": "^3.1.1",
     "request": "^2.74.0",
     "selenium-webdriver": "^3.4.0",
     "sendgrid": "^5.1.1",
