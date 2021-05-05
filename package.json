@@ -37,7 +37,7 @@
     "cookie-parser": "^1.4.5",
     "decompress-zip": "^0.3.3",
     "del": "^6.0.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "express": "^4.13.4",
     "express-session": "^1.17.1",
     "folder-hash": "^4.0.0",

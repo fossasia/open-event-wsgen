@@ -1780,10 +1780,10 @@ dotenv@^5.0.1:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
   integrity sha512-4As8uPrjfwb7VXC+WnLCbXK7y+Ueb2B3zgNCePYfhxS1PYeaO1YTeplffTEcbfLhvFNGLAz90VvJs9yomG7bow==
 
-dotenv@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+dotenv@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-9.0.0.tgz#2408af4e39378375b7eebe30b7b54989e36d6e46"
+  integrity sha512-yy3x9XjojW8ROTBePD25AcMoHqGHsvHmtfw8QWlpEXyMMXXPj6brUA464AptUvHuTPRmNz6Sd3ZLNLeJl6dHJA==
 
 double-ended-queue@^2.1.0-0:
   version "2.1.0-0"
