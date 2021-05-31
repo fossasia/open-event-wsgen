@@ -12,7 +12,6 @@ const async = require('async');
 const archiver = require('archiver');
 const sass = require('node-sass');
 const jsonfile = require('jsonfile');
-const minify = require('html-minifier').minify;
 const distHelper = require(__dirname + '/dist.js');
 const mailer = require('./mailer');
 const ftpDeployer = require('./ftpdeploy');
@@ -75,19 +74,6 @@ handlebars.registerHelper('trimString', function(originalString) {
 handlebars.registerHelper('json', function(context) {
   return JSON.stringify(context);
 });
-
-function minifyHtml(file) {
-  const result = minify(file, {
-    removeAttributeQuotes: true,
-    minifyCSS: true,
-    minifyJS: true,
-    minifyURLs: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true
-  });
-
-  return result;
-}
 
 function transformData(sessions, speakers, event, sponsors, tracksData, roomsData, attendeesData, reqOpts, next) {
   fold.foldByTrack(sessions, speakers, tracksData, reqOpts, function(tracks) {
@@ -178,7 +164,7 @@ function metaData(jsonData, data) {
 }
 
 function setPageFlag(jsonData, page) {
-  jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.speakerFlag = 0;
+  jsonData.trackFlag = jsonData.scheduleFlag = jsonData.roomFlag = jsonData.indexFlag = jsonData.CoCflag = jsonData.speakerFlag = 0;
   // eslint-disable-next-line default-case
   switch (page) {
     case 'track':
@@ -403,16 +389,16 @@ exports.createDistDir = function(req, socket, callback) {
         logger.addLog('Success', 'Json data extracted', socket);
         logger.addLog('Info', 'Name of the event found from the event json file', socket);
         if (emit) {
-          socket.emit('live.process', {donePercent: 70, status: 'Compiling the HTML pages from templates'});
+          socket.emit('live.process', {donePercent: 67, status: 'Processing images to a standard size'});
         }
-        logger.addLog('Info', 'Compiling the html pages from the templates', socket);
+        logger.addLog('Info', 'Processing images to a standard size', socket);
 
         const jsonData = data;
         eventName = fold.removeSpace(jsonData.eventurls.name);
         const backPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.background_path;
         const basePath = distHelper.distPath + '/' + appFolder + '/images';
         const logoPath = distHelper.distPath + '/' + appFolder + '/' + jsonData.eventurls.logo_url;
-
+        logger.addLog('Info', 'Resizing logo and background images', socket);
         distHelper.optimizeBackground(backPath, socket, function() {
           if (jsonData.eventurls.logo_url) {
             distHelper.optimizeLogo(logoPath, socket, function(err, pad) {
@@ -449,9 +435,15 @@ exports.createDistDir = function(req, socket, callback) {
             jsonData.gcalendar = {};
             jsonData.gcalendar.enabled = false;
           }
-
+          logger.addLog('Info', 'Resizing sponsors images', socket);
           distHelper.resizeSponsors(basePath, socket, function() {
+            logger.addLog('Info', 'Resizing speakers images', socket);
             distHelper.resizeSpeakers(basePath, socket, function() {
+              logger.addLog('Success', 'All the images are successfully processed', socket);
+              if (emit) {
+                socket.emit('live.process', {donePercent: 71, status: 'Compiling the html pages from the templates'});
+              }
+              logger.addLog('Info', 'Compiling the html pages from the templates', socket);
               templateGenerate();
             });
           });
@@ -504,30 +496,29 @@ exports.createDistDir = function(req, socket, callback) {
                   completeData.single_session = true;
                   checkLinks(jsonData, completeData);
                   metaData(jsonData, completeData);
-                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', minifyHtml(sessiontpl(completeData)));
+                  fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/sessions/session_' + sessionId + '.html', sessiontpl(completeData));
                 }
               }
               logger.addLog('Success', 'Generated single page for each session', socket);
             }
-
             setPageFlag(jsonData, 'track');
-            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', minifyHtml(tracksTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/tracks.html', tracksTpl(jsonData));
 
             setPageFlag(jsonData, 'schedule');
-            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', minifyHtml(scheduleTpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/schedule.html', scheduleTpl(jsonData));
 
             setPageFlag(jsonData, 'room');
-            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', minifyHtml(roomstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/rooms.html', roomstpl(jsonData));
 
             setPageFlag(jsonData, 'speaker');
-            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', minifyHtml(speakerstpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/speakers.html', speakerstpl(jsonData));
 
             setPageFlag(jsonData, 'index');
-            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', minifyHtml(eventtpl(jsonData)));
+            fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/index.html', eventtpl(jsonData));
 
             if (jsonData.eventurls.codeOfConduct) {
               setPageFlag(jsonData, 'CoC');
-              fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/CoC.html', minifyHtml(codeOfConductTpl(jsonData)));
+              fs.writeFileSync(distHelper.distPath + '/' + appFolder + '/CoC.html', codeOfConductTpl(jsonData));
             }
           } catch (err) {
             console.log(err);
@@ -562,10 +553,7 @@ exports.createDistDir = function(req, socket, callback) {
             socket.emit('live.error', {status: 'Error in removing the duplicate event folders of the same name'});
           }
         }
-        return gulp.minifyHtml(distHelper.distPath + '/' + appFolder, function() {
-          logger.addLog('Success', 'Duplicated events removed successfully', socket);
-          return done(null, 'remove');
-        });
+        return done(null, 'remove');
       });
     },
     (done) => {
