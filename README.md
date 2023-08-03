@@ -1,11 +1,6 @@
 # Open Event Website Generator
 ![Open Event webapp](./docs/images/wsgen_branding.png)
-
-[![Build Status](https://travis-ci.com/fossasia/open-event-wsgen.svg?branch=development)](https://travis-ci.com/fossasia/open-event-wsgen)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=open-event-wsgen-dev)](http://open-event-wsgen-dev.herokuapp.com)
-[![Dependencies](https://david-dm.org/fossasia/open-event-wsgen.svg)](https://david-dm.org/fossasia/open-event-wsgen)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c5b7e2ca3e4640c9b38e2f3274072583)](https://www.codacy.com/app/dev_19/open-event-wsgen?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fossasia/open-event-wsgen&amp;utm_campaign=Badge_Grade)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6498f490127101665851/maintainability)](https://codeclimate.com/github/fossasia/open-event-wsgen/maintainability)
 [![codecov](https://codecov.io/gh/fossasia/open-event-wsgen/branch/development/graph/badge.svg)](https://codecov.io/gh/fossasia/open-event-wsgen)
 [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fossasia/open-event-wsgen?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -143,9 +138,7 @@ The HTML pages of the generated website are created using Handelbars templates.
 
 ### Web App Generator Test Installation
 
-* You can try out the web generator at https://open-event-wsgen.herokuapp.com
-
-* The `development-version` is available here: https://open-event-wsgen-dev.herokuapp.com
+* You can try out the web generator [new version to be deployed]
 
 * You can use one of the event sample zip files here: https://github.com/fossasia/open-event/tree/master/sample
 
@@ -170,13 +163,6 @@ The HTML pages of the generated website are created using Handelbars templates.
 #### How do I install Web App Generator on Digital Ocean
 
 **To install the system on Digital Ocean please refer to the [Digital Ocean installation readme](/docs/INSTALLATION_DIGITALOCEAN.md).**
-
-#### How do I deploy Web App Generator with Heroku
-
-**Please read how to deploy to [Heroku here](/docs/INSTALLATION_HEROKU.md)
-Or use the 1-click deployment button
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fossasia/open-event-webapp/tree/development)**
-
 
 ## Accessing the Generator Web Form
 
@@ -340,14 +326,4 @@ or you can run one individual test script like this:
 
 ## LICENSE
 
-OpenEvent Website Generator - A webapp and it's generator, written as part of the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure. Copyright (C) 2016, FOSSASIA. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## Maintainers
-
-**The Project is maintained by :-**
-- **Aayush Arora ([@aayusharora](https://github.com/aayusharora))**
-- **Mario Behling ([@mariobehling](http://github.com/mariobehling))**
-
-**Alumni**
-- **Arnav Gupta ([@championswimmer](https://github.com/championswimmer))**
-- **Justin Lee ([@juslee](http://github.com/juslee))**
+OpenEvent Website Generator - A webapp and it's generator, written as part of the FOSSASIA Open Event project. The Open Event project aims to make server and client software required for hosting events/conferences easy to build and configure. Copyright (C) 2016, FOSSASIA. This program is free software: you can redistribute it and/or modify it. Please refer to the license document for more information.
