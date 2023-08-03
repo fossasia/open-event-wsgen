@@ -51,7 +51,7 @@
     "jsonapi-serializer": "^3.6.7",
     "jsonfile": "^6.1.0",
     "moment": "^2.27.0",
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "node-uuid": "^1.4.7",
     "nodemailer": "^6.6.3",
     "nodemailer-smtp-transport": "^2.7.2",
