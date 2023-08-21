@@ -441,7 +441,7 @@ function returnAttendees(attendeesData) {
 
 function createSocialLinks(event) {
   const sociallinks = Array.from(event['social-links']).filter(Boolean);
-
+  
   sociallinks.forEach((link) => {
     link.show = true;
     switch (link.name.toLowerCase()) {
@@ -479,7 +479,7 @@ function createSocialLinks(event) {
         link.show = false;
         break;
     }
-
+    
     if (link.link === '') {
       link.show = false;
     }
@@ -935,7 +935,10 @@ function foldBySpeakers(speakers, sessions, tracksData, reqOpts, next) {
     let thumb = '';
 
     async.eachOfLimit(speakers, PHOTO_DOWNLOAD_CONCURRENCY, (speaker, key, callback) => {
-      if (speaker['photo-url'] !== null && speaker['photo-url'] !== '') {
+      const isDownloadImage = speaker.sessions.filter((session) => {
+        return session.state !== 'rejected';
+      }).length !== 0;
+      if (isDownloadImage && speaker['photo-url'] !== null && speaker['photo-url'] !== '') {
         if (speaker['photo-url'].substring(0, 4) === 'http') {
           distHelper.downloadSpeakerPhoto(appFolder, speaker['photo-url'], function(result) {
             speakers[key]['photo-url'] = encodeURI(result);
