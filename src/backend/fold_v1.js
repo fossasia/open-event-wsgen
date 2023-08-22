@@ -411,7 +411,7 @@ function returnAttendees(attendeesData) {
 
 function createSocialLinks(event) {
   const sociallinks = Array.from(event.social_links);
-
+  
   sociallinks.forEach((link) => {
     link.show = true;
     switch (link.name.toLowerCase()) {
@@ -450,7 +450,7 @@ function createSocialLinks(event) {
         break;
     }
 
-    if (link.link === '') {
+    if (link.link === '' || link.deleted_at) {
       link.show = false;
     }
   });
@@ -482,7 +482,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
-
+  
   const urls = {
     main_page_url: event.event_url,
     logo_url: event.logo,
