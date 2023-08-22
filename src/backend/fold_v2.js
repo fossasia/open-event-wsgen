@@ -441,7 +441,7 @@ function returnAttendees(attendeesData) {
 
 function createSocialLinks(event) {
   const sociallinks = Array.from(event['social-links']).filter(Boolean);
-
+  
   sociallinks.forEach((link) => {
     link.show = true;
     switch (link.name.toLowerCase()) {
@@ -479,7 +479,7 @@ function createSocialLinks(event) {
         link.show = false;
         break;
     }
-
+    
     if (link.link === '') {
       link.show = false;
     }
@@ -513,8 +513,8 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
 
-  const urls = {
-    main_page_url: event['event-url'],
+    const urls = {
+    main_page_url: event['external-event-url'],
     logo_url: event['logo-url'],
     background_url: event['original-image-url'],
     background_path: event['original-image-url'],
@@ -534,8 +534,8 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     twitterLink: twitterLink,
     tweetUrl: sociallink,
     email: event.email,
-    orgname: event['organizer-name'],
-    orgdescription: event['organizer-description'],
+    orgname: event['owner-name'],
+    orgdescription: event['owner-description'],
     location_name: event['location-name'],
     featuresection: featuresection,
     sponsorsection: sponsorsection,
