@@ -263,17 +263,17 @@ function foldByTime(sessions, speakers, trackInfo) {
     }
     const roomName = session.microlocation.name;
     const session_type = session.session_type === null ? ' ' : session.session_type.name;
-    const date = moment.parseZone(session.start_time).format('YYYY-MM-DD');
-    const startTime = moment.parseZone(session.start_time).format('HH:mm');
-    const endTime = moment.parseZone(session.end_time).format('HH:mm');
-    const time = startTime + ' - ' + endTime;
+    const date = session.start_time === null ? 'Not yet scheduled' : moment.parseZone(session.start_time).format('YYYY-MM-DD');
+    const startTime = session.start_time === null ? null : moment.parseZone(session.start_time).format('HH:mm');
+    const endTime = session.end_time === null ? null : moment.parseZone(session.end_time).format('HH:mm');
+    const time = startTime && endTime ? startTime + ' - ' + endTime : 'Not yet scheduled';
     const speakersNum = session.speakers.length;
     const tracktitle = session.track === null ? ' ' : session.track.name;
 
     if (!dateMap.has(date)) {
       dateMap.set(date, {
         slug: date,
-        date: moment.parseZone(session.start_time).format('dddd, Do MMMM'),
+        date: session.start_time === null ? 'Not yet scheduled' :moment.parseZone(session.start_time).format('dddd, Do MMMM'),
         times: new Map()
       });
     }
@@ -411,7 +411,7 @@ function returnAttendees(attendeesData) {
 
 function createSocialLinks(event) {
   const sociallinks = Array.from(event.social_links);
-
+  
   sociallinks.forEach((link) => {
     link.show = true;
     switch (link.name.toLowerCase()) {
@@ -482,7 +482,7 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
 
   const arrayTwitterLink = sociallink.split('/');
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
-
+  
   const urls = {
     main_page_url: event.event_url,
     logo_url: event.logo,
