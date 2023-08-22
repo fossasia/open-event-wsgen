@@ -2480,3 +2480,21 @@ a.skip:hover {
     }
   }
 }
+
+.track-room-names {
+  color: $room-color;
+  margin-top: 16%;
+  padding-left: 30px;
+
+  &.sticky{
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 10% - 60px);
+    margin-top: 60px !important;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
