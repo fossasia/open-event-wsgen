@@ -989,6 +989,14 @@ a {
   margin-top: 16%;
   padding-left: 30px;
 
+  &.sticky {
+    margin-top: 60px;
+    max-height: calc(100vh - 10% - 60px);
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+  }
+
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -2478,23 +2486,5 @@ a.skip:hover {
     .fa {
       margin-top: 13px;
     }
-  }
-}
-
-.track-room-names {
-  color: $room-color;
-  margin-top: 16%;
-  padding-left: 30px;
-
-  &.sticky{
-    position: fixed;
-    top: 0;
-    overflow-y: auto;
-    max-height: calc(100vh - 10% - 60px);
-    margin-top: 60px !important;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: none;
   }
 }
