@@ -25,7 +25,7 @@ jobs:
       - run: |
           echo 'export PATH=$(yarn global bin):$PATH' >> $BASH_ENV
           source $BASH_ENV
-          yarn global add nyc mocha
+          yarn global add nyc@15.1.0 mocha@8.4.0
       - save_cache:
           key: node-v3-{{ checksum "yarn.lock" }}
           paths: 
