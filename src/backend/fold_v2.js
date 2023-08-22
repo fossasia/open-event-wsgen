@@ -441,7 +441,7 @@ function returnAttendees(attendeesData) {
 
 function createSocialLinks(event) {
   const sociallinks = Array.from(event['social-links']).filter(Boolean);
-  
+
   sociallinks.forEach((link) => {
     link.show = true;
     switch (link.name.toLowerCase()) {
@@ -479,7 +479,7 @@ function createSocialLinks(event) {
         link.show = false;
         break;
     }
-    
+
     if (link.link === '') {
       link.show = false;
     }
