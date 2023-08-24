@@ -57,16 +57,21 @@ $(document).ready(function() {
 
 
 // Making navbar translucent on scrolling down
-var navbar = $('.js-navbar');
+$(document).ready(function(){
+  try{
+    var navbar = document.getElementsByClassName('js-navbar')[0];
+  } catch(e){}
 
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 0) {
-    if (!navbar.classList.contains('navbar--translucent')) {
-      navbar.classList.add('navbar--translucent');
+  window.addEventListener('scroll', function () {
+    if(!navbar) return;
+    if (window.scrollY > 0) {
+      if (!navbar.classList.contains('navbar--translucent')) {
+        navbar.classList.add('navbar--translucent');
+      }
+    } else {
+      if (navbar.classList.contains('navbar--translucent')) {
+        navbar.classList.remove('navbar--translucent');
+      }
     }
-  } else {
-    if (navbar.classList.contains('navbar--translucent')) {
-      navbar.classList.remove('navbar--translucent');
-    }
-  }
+  });
 });
