@@ -215,7 +215,13 @@
                                     {{name}}{{#if organisation}}&nbsp;({{#if position}}{{position}}&nbsp;{{/if}}{{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
                                 {{/speakers_list}}
                               </ul>
-                              <ul class="speaker-name-list">{{type}}</ul>
+                              <ul class="speaker-name-list">
+                                {{#if type}}
+                                  {{type}}
+                                {{else}}
+                                  <br>
+                                {{/if}}
+                              </ul>
                             </div>
                           </div>
                         </div>
@@ -355,7 +361,41 @@
                       {{#sessions}}
                         <div class="session" style="top:{{top}}px; height:{{height}}px;background-color:{{color}};
                           color: {{font_color}};" id = "cal-{{session_id}}">
-                        <div class="session-name">{{title}}</div>
+                          <div class="session-name margin-down-15">
+                            {{title}}
+                          </div>
+                          <div class="collapse in">
+                            <div class="row">
+                              {{#if speakers_list.length}}
+                                <div class="speakers-list">
+                                  {{#speakers_list}}
+                                    <p class="session-speakers session-speakers-item">
+                                      {{#if photo}}
+                                        <img onError="this.onerror=null;this.src='./images/avatar.png';"
+                                        data-original="{{thumb}}" class="session-name lazy card-img-top speaker-image-small"/>
+                                      {{else}}
+                                        <img class="session-name card-img-top speaker-image-small" src="./images/avatar.png"/>
+                                      {{/if}}
+                                    </p>
+                                  {{/speakers_list}}
+                                </div>
+                              {{/if}}
+                              <div class="speaker-short-info">
+                                <ul class="session-name speaker-name-list">
+                                  {{#speakers_list}}
+                                      {{name}}{{#if organisation}}&nbsp;({{#if position}}{{position}}&nbsp;{{/if}}{{organisation}}){{/if}}{{#if @last}}{{else}},{{/if}}
+                                  {{/speakers_list}}
+                                </ul>
+                                <ul class="speaker-name-list">
+                                  {{#if type}}
+                                    {{type}}
+                                  {{else}}
+                                    <br>
+                                  {{/if}}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
                         <div class="pop-box hide">
                           <div class="arrow">
                             <span></span>
