@@ -484,10 +484,10 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
   const twitterLink = arrayTwitterLink[arrayTwitterLink.length - 1];
   
   const urls = {
-    main_page_url: event.event_url,
-    logo_url: event.logo,
-    background_url: event.background_image,
-    background_path: event.background_image,
+    main_page_url: event.external_event_url,
+    logo_url: event.logo_url,
+    background_url: event.original_image_url,
+    background_path: event.original_image_url,
     date: moment.parseZone(event.start_time).format('dddd, Do MMMM'),
     time: moment.parseZone(event.start_time).format('HH:mm'),
     end_date: moment.parseZone(event.end_time).format('dddd, Do MMMM'),
@@ -501,8 +501,8 @@ function extractEventUrls(event, speakers, sponsors, reqOpts, next) {
     twitterLink: twitterLink,
     tweetUrl: sociallink,
     email: event.email,
-    orgname: event.organizer_name,
-    orgdescription: event.organizer_description,
+    orgname: event.owner_name,
+    orgdescription: event.owner_description,
     location_name: event.location_name,
     featuresection: featuresection,
     sponsorsection: sponsorsection,
