@@ -989,6 +989,14 @@ a {
   margin-top: 16%;
   padding-left: 30px;
 
+  &.sticky {
+    margin-top: 60px;
+    max-height: calc(100vh - 10% - 60px);
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+  }
+
   @media screen and (max-width: 768px) {
     display: none;
   }
