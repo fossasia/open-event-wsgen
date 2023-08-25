@@ -450,7 +450,7 @@ function createSocialLinks(event) {
         break;
     }
 
-    if (link.link === '') {
+    if (link.link === '' || link.deleted_at) {
       link.show = false;
     }
   });

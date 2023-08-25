@@ -480,7 +480,7 @@ function createSocialLinks(event) {
         break;
     }
     
-    if (link.link === '') {
+    if (link.link === '' || link['deleted-at']) {
       link.show = false;
     }
   });
