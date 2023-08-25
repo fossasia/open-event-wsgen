@@ -136,7 +136,7 @@ a {
 }
 
 .navbar-default {
-  background-color: $main-background;
+  background-color: transparent;
   border-color: $gray-extra-light;
 
   box-shadow: 0 0 8px 0 $navbar-shadow;
@@ -1554,7 +1554,7 @@ a {
         display: inline-block;
         font-size: 14px;
         left: 8px;
-        position: relative;
+                position: relative;
         width: 188px;
         a {
           border-bottom: 3px solid $white;
