@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.2
 
 jobs:
   test:
@@ -42,7 +42,7 @@ jobs:
 orbs:
   browser-tools: circleci/browser-tools@1.4.3
 workflows:
-  version: 2.1
+  version: 2.2
   Test:
     jobs:
       - test
