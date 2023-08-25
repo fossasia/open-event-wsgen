@@ -187,7 +187,10 @@ const BasePage = {
       let counter = 0;
 
       links.forEach(function(link) {
+        console.log('=====LINK: ',link);
         request(link, function(error, response) {
+          console.log('=====error: ',error);
+          console.log('=====response: ',response);
           counter += 1;
           if (error || response.statusCode === 404) {
             brokenLinks++;
