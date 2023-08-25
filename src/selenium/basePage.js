@@ -5,6 +5,8 @@ const until = require('selenium-webdriver').until;
 const By = require('selenium-webdriver').By;
 const config = require('../../config.json');
 const request = require('request').defaults({'proxy': config.proxy});
+request.emitter.setMaxListeners(20);
+require('events').EventEmitter.defaultMaxListeners = Infinity; 
 
 const BasePage = {
 
@@ -196,6 +198,7 @@ const BasePage = {
             console.log('=====response: ',response);
             brokenLinks++;
           }
+
           if (counter === links.length) {
             resolve(brokenLinks);
           }
