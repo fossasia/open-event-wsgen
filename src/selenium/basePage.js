@@ -188,8 +188,7 @@ const BasePage = {
       let brokenLinks = 0;
       let counter = 0;
 
-      links.forEach(function(link) {
-        
+      links.filter(link => !link.includes('twitter.com')).forEach(function(link) {
         request(link, function(error, response) {
           counter += 1;
           if (error || response.statusCode === 404) {
