@@ -40,7 +40,7 @@ jobs:
               nyc mocha --exit $TEST
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.3
+  browser-tools: circleci/browser-tools@1.4.4
 workflows:
   version: 2.1
   Test:
