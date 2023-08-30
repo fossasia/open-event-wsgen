@@ -4,7 +4,7 @@ jobs:
   test:
     docker:
       - image: cimg/node:12.20.0-browsers
-      - image: circleci/redis:alpine
+      - image: cimg/redis
     parallelism: 4
     steps:
       - browser-tools/install-chrome
@@ -40,7 +40,7 @@ jobs:
               nyc mocha --exit $TEST
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.3
+  browser-tools: circleci/browser-tools@1.4.4
 workflows:
   version: 2.1
   Test:
