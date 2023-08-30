@@ -190,9 +190,6 @@ const BasePage = {
         request(link, function(error, response) {
           counter += 1;
           if (error || response.statusCode === 404) {
-            console.log('=====LINK: ',link);
-            console.log('=====error: ',error);
-            console.log('=====response: ',response);
             brokenLinks++;
           }
 
