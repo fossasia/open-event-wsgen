@@ -915,33 +915,34 @@ function foldBySpeakers(speakers, sessions, tracksData, reqOpts, next) {
       let thumb = '';
 
       speakers.forEach((speaker) => {
+        // reset thumb for each speaker to avoid carrying over previous value
+        thumb = '';
         if (speaker.photo) {
           thumb = 'images/speakers/thumbnails/' + speaker.photo.split('/').pop();
         }
         const allSessions = getAllSessions(speaker.sessions, sessions, tracksData);
 
-        if (allSessions.length) {
-          speakerslist.push({
-            country: speaker.country,
-            featured: speaker.featured,
-            email: speaker.email,
-            facebook: speaker.facebook,
-            github: speaker.github,
-            linkedin: speaker.linkedin,
-            twitter: speaker.twitter,
-            website: speaker.website,
-            long_biography: checkNullHtml(speaker.long_biography) ? speaker.short_biography : speaker.long_biography,
-            mobile: speaker.mobile,
-            name: speaker.name,
-            thumb: thumb,
-            photo: speaker.photo,
-            organisation: speaker.organisation,
-            position: speaker.position,
-            sessions: allSessions,
-            speaker_id: speaker.id,
-            nameIdSlug: slugify(speaker.name + speaker.id)
-          });
-        }
+        // include every speaker in the generated output, even if they have no sessions
+        speakerslist.push({
+          country: speaker.country,
+          featured: speaker.featured,
+          email: speaker.email,
+          facebook: speaker.facebook,
+          github: speaker.github,
+          linkedin: speaker.linkedin,
+          twitter: speaker.twitter,
+          website: speaker.website,
+          long_biography: checkNullHtml(speaker.long_biography) ? speaker.short_biography : speaker.long_biography,
+          mobile: speaker.mobile,
+          name: speaker.name,
+          thumb: thumb,
+          photo: speaker.photo,
+          organisation: speaker.organisation,
+          position: speaker.position,
+          sessions: allSessions,
+          speaker_id: speaker.id,
+          nameIdSlug: slugify(speaker.name + speaker.id)
+        });
         speakerslist.sort(byProperty('name'));
       });
       next(speakerslist);
